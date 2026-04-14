@@ -205,7 +205,11 @@ function renderCountdown() {
 }
 
 function renderStats() {
-    document.getElementById('total-items').textContent = _data.length;
+    const totalItemsEl = document.getElementById('total-items');
+    const totalSpecialsEl = document.getElementById('total-specials');
+    const cartTotalEl = document.getElementById('cart-total');
+    
+    if (totalItemsEl) totalItemsEl.textContent = _data.length;
     
     let specialsCount = 0;
     let savingsToday = 0;
@@ -218,8 +222,8 @@ function renderStats() {
         }
     });
 
-    document.getElementById('total-specials').textContent = specialsCount;
-    document.getElementById('cart-total').textContent = `$${savingsToday.toFixed(2)}`;
+    if (totalSpecialsEl) totalSpecialsEl.textContent = specialsCount;
+    if (cartTotalEl) cartTotalEl.textContent = `$${savingsToday.toFixed(2)}`;
 
     // Monthly Budget Tracker
     let monthlySpent = 0;
