@@ -98,9 +98,31 @@ function setupFilters() {
     overlay?.addEventListener('click', toggleDrawer);
 
     // Sync to Keep
-    document.getElementById('sync-keep-btn')?.addEventListener('click', () => {
-        alert("To sync: Run 'python3 keep_sync.py' in your terminal.\n\nThis will open your list, clear it, and add your current dashboard selections.");
-        console.log("Ready to sync list:", _shoppingList);
+    document.getElementById('sync-keep-btn')?.addEventListener('click', async () => {
+        const btn = document.getElementById('sync-keep-btn');
+        const originalHtml = btn.innerHTML;
+        
+        try {
+            btn.innerHTML = '<i data-feather="loader" class="spin"></i> Starting Sync...';
+            feather.replace();
+            
+            const response = await fetch('http://localhost:5000/sync');
+            if (response.ok) {
+                btn.innerHTML = '<i data-feather="check"></i> Syncing in Background';
+                btn.style.background = 'var(--woolies-green)';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    feather.replace();
+                }, 4000);
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (e) {
+            btn.innerHTML = originalHtml;
+            feather.replace();
+            alert("Local API not running.\n\nTo enable one-click sync, run 'python3 api.py' in your terminal.");
+        }
     });
 }
 
