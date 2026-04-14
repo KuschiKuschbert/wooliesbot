@@ -15,7 +15,16 @@ async function initDashboard() {
         ]);
 
         if (dataRes && dataRes.ok) {
-            _data = await dataRes.json();
+            const parsed = await dataRes.json();
+            if (Array.isArray(parsed)) {
+                _data = parsed;
+            } else {
+                _data = parsed.items || [];
+                const luEl = document.getElementById('last-updated');
+                if (luEl && parsed.last_updated) {
+                    luEl.textContent = parsed.last_updated;
+                }
+            }
         }
         if (histRes && histRes.ok) {
             _history = await histRes.json();
@@ -94,6 +103,7 @@ function renderSpecials() {
         const card = document.createElement('div');
         const storeClass = item.store || 'woolworths';
         card.className = `item-card store-${storeClass}`;
+        card.style.animationDelay = `${index * 0.05}s`;
         
         let imgHtml = '';
         if (item.image_url) {
