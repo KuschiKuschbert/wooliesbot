@@ -456,8 +456,9 @@ body {
 
 .item-price-row {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
     margin-top: auto;
     margin-bottom: 12px;
 }
@@ -470,9 +471,29 @@ body {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
+.was-price {
+    font-size: 12px;
+    color: #f87171;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.save-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #10b981, #059669);
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 .item-target {
     font-size: 12px;
     color: var(--text-muted);
+    width: 100%;
 }
 
 /* Layout Grid Overhaul */

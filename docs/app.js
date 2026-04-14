@@ -277,9 +277,12 @@ function renderStats() {
     
     _data.forEach(item => {
         const effPrice = item.eff_price || item.price;
-        if (effPrice && item.target && effPrice <= item.target && !item.price_unavailable) {
+        const isSpecial = item.on_special || (item.target > 0 && effPrice <= item.target && !item.price_unavailable);
+        if (isSpecial) {
             specialsCount++;
-            savingsToday += Math.max(0, item.target - effPrice);
+            // Use was_price for savings when available (more accurate than target)
+            const ref = item.was_price || item.target || 0;
+            savingsToday += Math.max(0, ref - effPrice);
         }
     });
 
@@ -411,8 +414,9 @@ function createItemCard(item, index, type = 'special') {
     
     card.className = `item-card store-${storeClass} ${isNearMiss ? 'near-miss-card' : ''} ${isPredicted ? 'predicted-card' : ''}`;
     
-    let imgHtml = item.image_url 
-        ? `<img src="${item.image_url}" class="item-image" loading="lazy">`
+    let imgSrc = item.local_image || item.image_url;
+    let imgHtml = imgSrc 
+        ? `<img src="${imgSrc}" class="item-image" loading="lazy" onerror="this.style.display='none'">`
         : `<div class="product-img-placeholder"><i data-feather="image"></i></div>`;
 
     const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
@@ -420,6 +424,21 @@ function createItemCard(item, index, type = 'special') {
     const targetTooltip = item.target_method 
         ? `title="${item.target_method}${item.target_data_points ? ` (${item.target_data_points} data points)` : ''}"` 
         : '';
+
+    // Was/Now pricing for store-confirmed specials
+    let priceHtml;
+    if (item.on_special && item.was_price && item.was_price > effPrice) {
+        const savePct = Math.round((1 - effPrice / item.was_price) * 100);
+        priceHtml = `
+            <span class="item-price">$${effPrice.toFixed(2)}</span>
+            <span class="was-price">Was $${item.was_price.toFixed(2)}</span>
+            <span class="save-badge">Save ${savePct}%</span>
+        `;
+    } else if (item.price_unavailable) {
+        priceHtml = `<span class="item-price">❓</span>`;
+    } else {
+        priceHtml = `<span class="item-price">$${effPrice.toFixed(2)}</span>`;
+    }
     
     card.innerHTML = `
         ${imgHtml}
@@ -433,8 +452,8 @@ function createItemCard(item, index, type = 'special') {
             </div>
             <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
             <div class="item-price-row">
-                <span class="item-price">${item.price_unavailable ? '❓' : '$' + item.price.toFixed(2)}</span>
-                <span class="item-target" ${targetTooltip}>Target: $${item.target.toFixed(2)}</span>
+                ${priceHtml}
+                <span class="item-target" ${targetTooltip}>Target: $${(item.target || 0).toFixed(2)}</span>
             </div>
             <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}')">
                 <i data-feather="plus"></i> Add to List
@@ -821,7 +840,9 @@ function renderSpecials() {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesCat = _currentCatFilter === 'all' || item.type === _currentCatFilter;
         const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
-        const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
+        const effPrice = item.eff_price || item.price;
+        // Store says "on special" OR price is at/below our target
+        const isSpecial = item.on_special || (item.target > 0 && effPrice <= item.target && !item.price_unavailable);
         return matchesStore && matchesCat && matchesSearch && isSpecial;
     });
 
@@ -835,8 +856,11 @@ function renderSpecials() {
         if (_currentSort === 'price') return priceA - priceB;
         
         if (_currentSort === 'discount') {
-            const savingsA = (a.target - priceA) / a.target;
-            const savingsB = (b.target - priceB) / b.target;
+            // Use was_price (store signal) if available, otherwise target
+            const refA = a.was_price || a.target || priceA;
+            const refB = b.was_price || b.target || priceB;
+            const savingsA = (refA - priceA) / refA;
+            const savingsB = (refB - priceB) / refB;
             return savingsB - savingsA; // Biggest discount first
         }
         return 0;
