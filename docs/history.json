@@ -9,5 +9,643 @@
         "store": "coles"
       }
     ]
+  },
+  "Chicken Breast (Bulk)": {
+    "target": 11.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 11.0,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Beef Mince (Lean 500g)": {
+    "target": 16.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 21.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Bacon (Middle)": {
+    "target": 16.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 12.5,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Pork Loin Roast": {
+    "target": 12.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 13.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Deli Meats (Chorizo)": {
+    "target": 25.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 6.7,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Deli Ham/Silverside": {
+    "target": 20.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 19.9,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Beef Stir Fry (500g)": {
+    "target": 24.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 24.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Rump Steak (Whole)": {
+    "target": 24.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 29.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Capsicum (Red)": {
+    "target": 7.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 12.9,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Avocados (Hass)": {
+    "target": 1.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 4.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Baby Spinach / Kaleslaw": {
+    "target": 4.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.5,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Onions (Brown Bag)": {
+    "target": 4.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.8,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Potatoes (Washed Bag)": {
+    "target": 4.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 8.0,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Carrots (1kg)": {
+    "target": 2.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.4,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Broccoli": {
+    "target": 5.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.8,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Zucchini": {
+    "target": 5.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.9,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Mushrooms (Cup)": {
+    "target": 11.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 20.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Pumpkin (Kent)": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 99999.0,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Snow Peas": {
+    "target": 14.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 99999.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Corn Cobs": {
+    "target": 2.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 99999.0,
+        "is_special": true,
+        "store": "none"
+      }
+    ]
+  },
+  "Lemons (Bag)": {
+    "target": 3.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 6.5,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Garlic": {
+    "target": 30.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 33.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Fresh Herbs (Basil)": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.2,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Medjool Dates": {
+    "target": 10.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 12.5,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Eggs (18 Pack)": {
+    "target": 9.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 8.4,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Butter (Western Star)": {
+    "target": 6.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.5,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Thickened Cream (600ml)": {
+    "target": 5.2,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.2,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Cheese (Tasty Block)": {
+    "target": 14.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 22.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Philly Cream Cheese": {
+    "target": 5.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 4.5,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Sour Cream": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.3,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Yoghurt (Greek)": {
+    "target": 5.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.8,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Protein Puds (Wicked Sister)": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.3,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Frozen Peas": {
+    "target": 4.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.5,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Chicken Tenders (Ingham)": {
+    "target": 11.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.5,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Ice Cream (Connoisseur)": {
+    "target": 8.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 13.0,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "English Muffins": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Wraps (Mission Carb Balance)": {
+    "target": 5.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 5.2,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Rice Paper": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.3,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Canned Tomatoes": {
+    "target": 1.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 0.95,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Liquid Stock (Campbells)": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.25,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Peanut Butter (Pics)": {
+    "target": 6.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 7.5,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Coffee (Nescafe Espresso)": {
+    "target": 6.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 14.5,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Almond Meal": {
+    "target": 6.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 7.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Gravy Granules": {
+    "target": 2.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.8,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Crackers (Jatz)": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.8,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Lindt 95% Cocoa": {
+    "target": 4.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 9.75,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Quest/BSC Protein Bars": {
+    "target": 3.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 3.75,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Pepsi Max 24pk": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.6333333333333333,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Coke No Sugar 24pk": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.888888888888889,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Pepsi Max 30pk": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.6222222222222222,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Coke No Sugar 30pk": {
+    "target": 2.5,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.577777777777778,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Remedy/Juice Lab Shots": {
+    "target": 3.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 2.5,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Whiskas Kitten 12pk": {
+    "target": 10.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 6.5,
+        "is_special": true,
+        "store": "woolworths"
+      }
+    ]
+  },
+  "Pedigree Dog Food 3kg": {
+    "target": 9.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 12.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Toilet Paper (Quilton)": {
+    "target": 9.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 11.0,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Laundry Powder (Omo)": {
+    "target": 15.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 15.0,
+        "is_special": true,
+        "store": "coles"
+      }
+    ]
+  },
+  "Dishmatic Refills": {
+    "target": 5.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 6.3,
+        "is_special": false,
+        "store": "coles"
+      }
+    ]
+  },
+  "Energizer Batteries AA": {
+    "target": 10.0,
+    "history": [
+      {
+        "date": "2026-04-14",
+        "price": 28.5,
+        "is_special": false,
+        "store": "woolworths"
+      }
+    ]
   }
 }
