@@ -1591,9 +1591,17 @@ footer {
 }
 
 .fighter.winner {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.fighter.winner-woolworths {
     background: rgba(16, 185, 129, 0.08);
     border-color: rgba(16, 185, 129, 0.3);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.fighter.winner-coles {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
 }
 
 .fighter.winner::before {
@@ -1602,11 +1610,18 @@ footer {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--woolies-green);
     color: white;
     font-size: 0.6rem;
     font-weight: 800;
     padding: 2px 0;
+}
+
+.fighter.winner-woolworths::before {
+    background: var(--woolies-green);
+}
+
+.fighter.winner-coles::before {
+    background: var(--coles-red);
 }
 
 .fighter-brand {
