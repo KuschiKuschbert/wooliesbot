@@ -7296,5 +7296,19 @@
     "compare_group": "cola",
     "price": 20.0,
     "eff_price": 0.0
+  },
+  {
+    "name": "Pepsi Cola Soft Drink 1.25L",
+    "type": "pantry",
+    "price_mode": "litre",
+    "target": 2.0,
+    "compare_group": "cola",
+    "pack_litres": 1.25,
+    "woolworths": "https://www.woolworths.com.au/shop/productdetails/21350/pepsi-soft-drink-cola-bottle",
+    "coles": "https://www.coles.com.au/product/pepsi-soft-drink-cola-bottle-1.25l-7153920",
+    "price": 1.87,
+    "eff_price": 1.5,
+    "store": "woolworths",
+    "last_updated": "2026-04-14T23:50:00Z"
   }
 ]

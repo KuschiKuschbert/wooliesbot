@@ -663,13 +663,13 @@ function renderColaBattle() {
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
                     <div class="fighter ${pWinner ? `winner winner-${pepsi.store}` : ''}">
-                        <div class="fighter-brand">Pepsi</div>
+                        <div class="fighter-brand">${pWinner ? '🏆 ' : ''}Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
                         <div class="fighter-product">${pepsi ? pepsi.name : 'No Data'} ${pStore}</div>
                     </div>
                     <div class="battle-vs">VS</div>
                     <div class="fighter ${cWinner ? `winner winner-${coke.store}` : ''}">
-                        <div class="fighter-brand">Coke</div>
+                        <div class="fighter-brand">${cWinner ? '🏆 ' : ''}Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
                         <div class="fighter-product">${coke ? coke.name : 'No Data'} ${cStore}</div>
                     </div>
