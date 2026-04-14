@@ -24,10 +24,7 @@ const MONTHLY_BUDGET = 800;
 
 async function initDashboard() {
     try {
-        const [dataRes, histRes] = await Promise.all([
-            fetch('data.json').catch(() => null),
-            fetch('history.json').catch(() => null)
-        ]);
+        const dataRes = await fetch('data.json').catch(() => null);
 
         if (dataRes && dataRes.ok) {
             const parsed = await dataRes.json();
@@ -48,9 +45,12 @@ async function initDashboard() {
         monitorApi(); // Initial check
         monitorCloudHealth(); // Initial check
 
-        if (histRes && histRes.ok) {
-            _history = await histRes.json();
-        }
+        // Build _history from inline scrape_history (single source of truth)
+        _data.forEach(item => {
+            if (item.scrape_history && item.scrape_history.length > 0) {
+                _history[item.name] = { target: item.target, history: item.scrape_history };
+            }
+        });
 
         setupFilters();
         renderDashboard();
@@ -1001,24 +1001,7 @@ function renderAnalytics() {
     let itemsBoughtAtTarget = 0;
     let totalItemsTracked = _data.length;
 
-    // 1. Calculate Price Index and historical trends
-    // First, merge any history embedded in _data items that might be missing from _history
-    _data.forEach(item => {
-        if (!item.price_history || !Array.isArray(item.price_history)) return;
-        if (!_history[item.name]) _history[item.name] = { target: item.target, history: [] };
-        
-        item.price_history.forEach(ph => {
-            const exists = _history[item.name].history.some(h => h.date === ph.date);
-            if (!exists) {
-                _history[item.name].history.push({
-                    date: ph.date,
-                    price: ph.price,
-                    is_special: ph.price <= (item.target || 0),
-                    store: item.store || 'woolworths'
-                });
-            }
-        });
-    });
+    // 1. Calculate Price Index and historical trends from scrape_history (inline)
 
     Object.entries(_history).forEach(([name, data]) => {
         const itemInfo = _data.find(i => i.name === name) || {};

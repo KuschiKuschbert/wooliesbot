@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Smart Target Price Engine — Data-driven target recalculation for WooliesBot.
 
-Uses scraper history (history.json) and receipt history (price_history in data.json)
+Uses scrape_history and price_history from data.json (single source of truth)
 to compute statistically meaningful target prices.
 
 Algorithm:
@@ -26,7 +26,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 DATA_FILE = os.path.join(PROJECT_DIR, "docs", "data.json")
-HISTORY_FILE = os.path.join(PROJECT_DIR, "docs", "history.json")
 
 # Safeguards
 MIN_TARGET = 0.50        # Never set target below this
@@ -40,41 +39,25 @@ def load_data():
         return json.load(f)
 
 
-def load_history():
-    """Load history.json scraper history."""
-    if not os.path.exists(HISTORY_FILE):
-        return {}
-    with open(HISTORY_FILE, "r") as f:
-        return json.load(f)
-
-
 def save_data(data):
     """Write data.json inventory back."""
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
 
-def save_history(history_data):
-    """Write history.json back with updated is_special flags."""
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history_data, f, indent=4)
-
-
-def get_all_prices(item, history_data):
-    """Merge receipt price_history + scraper history into a single price list.
-    Filters out sentinel/error prices."""
+def get_all_prices(item):
+    """Collect all observed prices from scrape_history + price_history.
+    Returns a flat list of prices, filtered of sentinel/error values."""
     prices = []
 
-    # Receipt data (stored in data.json per item)
-    for entry in item.get("price_history", []):
+    # Scraper snapshots (weekly, from chef_os)
+    for entry in item.get("scrape_history", []):
         p = entry.get("price", 0)
         if 0 < p < MAX_SENTINEL:
             prices.append(p)
 
-    # Scraper data (stored in history.json by name)
-    name = item.get("name", "")
-    hist_entry = history_data.get(name, {})
-    for entry in hist_entry.get("history", []):
+    # Receipt data (from receipt_sync)
+    for entry in item.get("price_history", []):
         p = entry.get("price", 0)
         if 0 < p < MAX_SENTINEL:
             prices.append(p)
@@ -95,7 +78,7 @@ def percentile(data, pct):
     return sorted_data[f] + (k - f) * (sorted_data[c] - sorted_data[f])
 
 
-def compute_category_medians(data, history_data):
+def compute_category_medians(data):
     """Compute median current price per category (type/subcategory).
     Used as fallback for Bronze-tier items."""
     by_type = {}
@@ -105,7 +88,7 @@ def compute_category_medians(data, history_data):
         price = item.get("eff_price") or item.get("price", 0)
         if price <= 0 or price >= MAX_SENTINEL:
             # Try using historical prices instead
-            all_p = get_all_prices(item, history_data)
+            all_p = get_all_prices(item)
             price = statistics.median(all_p) if all_p else 0
 
         if price <= 0:
@@ -125,12 +108,11 @@ def compute_category_medians(data, history_data):
 
 
 def recalculate_targets(dry_run=False):
-    """Main entry point: recalculate all targets using the 3-tier algorithm.
+    """Main entry point: recalculate all targets using the tiered algorithm.
 
     Returns a summary dict with counts and details."""
     data = load_data()
-    history_data = load_history()
-    type_medians, subcat_medians = compute_category_medians(data, history_data)
+    type_medians, subcat_medians = compute_category_medians(data)
 
     summary = {
         "gold": 0,
@@ -144,7 +126,7 @@ def recalculate_targets(dry_run=False):
     for item in data:
         name = item.get("name", "Unknown")
         old_target = item.get("target", 0)
-        all_prices = get_all_prices(item, history_data)
+        all_prices = get_all_prices(item)
         n = len(all_prices)
 
         new_target = old_target
@@ -240,24 +222,21 @@ def recalculate_targets(dry_run=False):
             item["target_method"] = method
             item["target_data_points"] = n
 
-    if not dry_run:
-        save_data(data)
-        logging.info(f"Saved {len(data)} items to {DATA_FILE}")
-
-        # Recompute is_special flags in history.json against new targets
-        target_map = {item["name"]: item["target"] for item in data}
+        # Recompute is_special flags in scrape_history against new targets
         specials_updated = 0
-        for name, hdata in history_data.items():
-            new_target = target_map.get(name, 0)
+        for item in data:
+            new_target = item.get("target", 0)
             if not new_target:
                 continue
-            for entry in hdata.get("history", []):
+            for entry in item.get("scrape_history", []):
                 was = entry.get("is_special", False)
                 entry["is_special"] = entry.get("price", 0) <= new_target
                 if was != entry["is_special"]:
                     specials_updated += 1
-        save_history(history_data)
-        logging.info(f"Recomputed is_special on {specials_updated} history entries")
+
+        save_data(data)
+        logging.info(f"Saved {len(data)} items to {DATA_FILE}")
+        logging.info(f"Recomputed is_special on {specials_updated} scrape_history entries")
 
     # Summary report
     changed = len(summary["changes"])
