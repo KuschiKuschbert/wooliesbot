@@ -216,9 +216,9 @@ function renderStats() {
     
     _data.forEach(item => {
         const effPrice = item.eff_price || item.price;
-        if (effPrice <= item.target && !item.price_unavailable) {
+        if (effPrice && item.target && effPrice <= item.target && !item.price_unavailable) {
             specialsCount++;
-            savingsToday += (item.target - effPrice);
+            savingsToday += Math.max(0, item.target - effPrice);
         }
     });
 
@@ -537,16 +537,25 @@ function renderColaBattle() {
         return;
     }
 
-    const pepsiPrice = cheapestPepsi ? (cheapestPepsi.eff_price || cheapestPepsi.price) : Infinity;
-    const cokePrice = cheapestCoke ? (cheapestCoke.eff_price || cheapestCoke.price) : Infinity;
+    const pepsiPrice = cheapestPepsi ? (cheapestPepsi.eff_price || cheapestPepsi.price) : null;
+    const cokePrice = cheapestCoke ? (cheapestCoke.eff_price || cheapestCoke.price) : null;
+    
+    if (pepsiPrice === null && cokePrice === null) {
+        if (winnerEl) winnerEl.textContent = '—';
+        if (detailsEl) detailsEl.textContent = 'Prices unavailable';
+        return;
+    }
+
+    const pP = pepsiPrice || Infinity;
+    const cP = cokePrice || Infinity;
     
     const pepsiStore = cheapestPepsi ? (cheapestPepsi.store === 'woolworths' ? '🟢W' : '🔴C') : '';
     const cokeStore = cheapestCoke ? (cheapestCoke.store === 'woolworths' ? '🟢W' : '🔴C') : '';
 
     if (winnerEl) {
-        if (pepsiPrice < cokePrice) {
+        if (pP < cP) {
             winnerEl.innerHTML = `<span style="color: #3b82f6;">Pepsi Max</span> wins!`;
-        } else if (cokePrice < pepsiPrice) {
+        } else if (cP < pP) {
             winnerEl.innerHTML = `<span style="color: #ef4444;">Coke Zero</span> wins!`;
         } else {
             winnerEl.textContent = 'Tied!';
@@ -555,9 +564,9 @@ function renderColaBattle() {
     
     if (detailsEl) {
         let details = '';
-        if (cheapestPepsi) details += `Pepsi $${pepsiPrice.toFixed(2)}/L ${pepsiStore}`;
-        if (cheapestPepsi && cheapestCoke) details += ' vs ';
-        if (cheapestCoke) details += `Coke $${cokePrice.toFixed(2)}/L ${cokeStore}`;
+        if (pepsiPrice !== null) details += `Pepsi $${pepsiPrice.toFixed(2)}/L ${pepsiStore}`;
+        if (pepsiPrice !== null && cokePrice !== null) details += ' vs ';
+        if (cokePrice !== null) details += `Coke $${cokePrice.toFixed(2)}/L ${cokeStore}`;
         detailsEl.textContent = details;
     }
 }
