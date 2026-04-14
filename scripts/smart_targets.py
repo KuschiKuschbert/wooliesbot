@@ -162,48 +162,40 @@ def recalculate_targets(dry_run=False):
             summary["silver"] += 1
 
         else:
-            # BRONZE: Use own data first, category median as last resort
-            if n >= 1:
-                new_target = round(all_prices[0], 2)
-                method = "single observation"
-            else:
-                # Zero observations: try category median × 0.90
-                subcat = item.get("subcategory", "")
-                item_type = item.get("type", "pantry")
-                cat_median = subcat_medians.get(subcat) or type_medians.get(item_type)
+            # BRONZE: Not enough data for a reliable target.
+            # Only set a target if we have receipt data showing a DIFFERENT price
+            # (proof the item can be cheaper). Otherwise mark as "watching".
+            receipt_prices = [e.get("price", 0) for e in item.get("price_history", [])
+                              if 0 < e.get("price", 0) < MAX_SENTINEL]
+            current_price = item.get("eff_price") or item.get("price", 0)
 
-                # Only use category median if item's current price is in the same
-                # rough ballpark (within 3×). Prevents $4 target for $79 items.
-                current_price = item.get("eff_price") or item.get("price", 0)
-                if (cat_median and cat_median > 0 and current_price > 0
-                        and current_price < MAX_SENTINEL
-                        and 0.3 < (cat_median / current_price) < 3.0):
-                    new_target = round(cat_median * 0.90, 2)
-                    method = f"category '{subcat or item_type}' median×0.90"
-                elif current_price > 0 and current_price < MAX_SENTINEL:
-                    # No good category match — use current price as target
-                    # (essentially: "this is what it costs")
-                    new_target = round(current_price, 2)
-                    method = "current price (no history)"
-                # else: keep old_target as-is
+            if receipt_prices and min(receipt_prices) < current_price * 0.95:
+                # Receipt shows we've paid at least 5% less before — use that as target
+                new_target = round(min(receipt_prices), 2)
+                method = f"receipt min of {len(receipt_prices)} purchases"
+            else:
+                # Not enough evidence of a lower price — no target yet
+                new_target = 0
+                method = "watching (need more data)"
 
             confidence = "low"
             summary["bronze"] += 1
 
-        # Safeguards
-        if new_target < MIN_TARGET:
-            new_target = MIN_TARGET
+        # Safeguards (only apply when we have a real target, not "watching")
+        if new_target > 0:
+            if new_target < MIN_TARGET:
+                new_target = MIN_TARGET
 
-        # Cap at 1.5× minimum observed (prevents overly generous targets)
-        if all_prices:
-            cap = round(min(all_prices) * MAX_TARGET_RATIO, 2)
-            if new_target > cap:
-                new_target = cap
+            # Cap at 1.5× minimum observed (prevents overly generous targets)
+            if all_prices:
+                cap = round(min(all_prices) * MAX_TARGET_RATIO, 2)
+                if new_target > cap:
+                    new_target = cap
 
-        # Never set target above current price (would mark everything as above target)
-        current_price = item.get("eff_price") or item.get("price", 0)
-        if current_price > 0 and current_price < MAX_SENTINEL and new_target > current_price:
-            new_target = current_price
+            # Never set target above current price
+            current_price = item.get("eff_price") or item.get("price", 0)
+            if current_price > 0 and current_price < MAX_SENTINEL and new_target > current_price:
+                new_target = current_price
 
         # Apply
         if abs(new_target - old_target) > 0.01:
