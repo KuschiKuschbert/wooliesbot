@@ -731,13 +731,15 @@ function renderColaBattle() {
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
                     <div class="fighter ${pWinner ? `winner winner-${pepsi.store}` : ''}">
-                        <div class="fighter-brand">${pWinner ? '🏆 ' : ''}Pepsi</div>
+                        ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
+                        <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
                         <div class="fighter-product">${pepsi ? pepsi.name : 'No Data'} ${pStore}</div>
                     </div>
                     <div class="battle-vs">VS</div>
                     <div class="fighter ${cWinner ? `winner winner-${coke.store}` : ''}">
-                        <div class="fighter-brand">${cWinner ? '🏆 ' : ''}Coke</div>
+                        ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
+                        <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
                         <div class="fighter-product">${coke ? coke.name : 'No Data'} ${cStore}</div>
                     </div>
@@ -972,7 +974,7 @@ function renderAnalytics() {
 
     // 2. Calculate Category Split and efficiency from current _data
     _data.forEach(item => {
-        const cat = item.type || 'pantry';
+        const cat = item.subcategory || item.type || 'pantry';
         const price = item.eff_price || item.price || 0;
         if (price > 0 && price < 1000) {
             categories[cat] = (categories[cat] || 0) + price;
@@ -1090,14 +1092,23 @@ function renderDeeperInsights() {
     let wooliesCheaper = 0;
     let colesCheaper = 0;
     _data.forEach(item => {
-        if (!item.all_stores) return;
-        const w = item.all_stores.woolworths?.eff_price;
-        const c = item.all_stores.coles?.eff_price;
+        // Fallback: if all_stores is missing, use the current best store
+        const w = item.all_stores?.woolworths?.eff_price || (item.store === 'woolworths' ? item.eff_price : null);
+        const c = item.all_stores?.coles?.eff_price || (item.store === 'coles' ? item.eff_price : null);
+        
         if (w && c) {
             if (w < c) wooliesCheaper++;
             else if (c < w) colesCheaper++;
+        } else if (w) {
+            wooliesCheaper++;
+        } else if (c) {
+            colesCheaper++;
         }
     });
+
+    const total = (wooliesCheaper + colesCheaper) || 1;
+    const wPercent = (wooliesCheaper / total) * 100;
+    const cPercent = (colesCheaper / total) * 100;
 
     let html = `
         <div class="deep-insight-card">
@@ -1120,8 +1131,8 @@ function renderDeeperInsights() {
             <h4>🏛 Store Price Bias</h4>
             <div class="bias-viz">
                 <div class="bias-bar">
-                    <div class="bias-fill woolies" style="width: ${(wooliesCheaper / (wooliesCheaper + colesCheaper)) * 100}%"></div>
-                    <div class="bias-fill coles" style="width: ${(colesCheaper / (wooliesCheaper + colesCheaper)) * 100}%"></div>
+                    <div class="bias-fill woolies" style="width: ${wPercent}%"></div>
+                    <div class="bias-fill coles" style="width: ${cPercent}%"></div>
                 </div>
                 <div class="bias-labels">
                     <span>Woolies: ${wooliesCheaper} items</span>
