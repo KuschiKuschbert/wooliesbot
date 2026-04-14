@@ -33,16 +33,29 @@ MAX_SENTINEL = 1000      # Filter out error prices (99999, etc.)
 MAX_TARGET_RATIO = 1.5   # Target ≤ 1.5× minimum observed price
 
 
+_data_wrapper = None  # Stores the top-level dict if data.json uses {items: [...]} format
+
 def load_data():
-    """Load data.json inventory."""
+    """Load data.json inventory. Handles both list and {items: [...]} formats."""
+    global _data_wrapper
     with open(DATA_FILE, "r") as f:
-        return json.load(f)
+        raw = json.load(f)
+    if isinstance(raw, list):
+        _data_wrapper = None
+        return raw
+    _data_wrapper = raw
+    return raw.get("items", [])
 
 
 def save_data(data):
-    """Write data.json inventory back."""
+    """Write data.json inventory back, preserving wrapper format."""
+    global _data_wrapper
     with open(DATA_FILE, "w") as f:
-        json.dump(data, f, indent=4)
+        if _data_wrapper is not None:
+            _data_wrapper["items"] = data
+            json.dump(_data_wrapper, f, indent=2)
+        else:
+            json.dump(data, f, indent=2)
 
 
 def get_all_prices(item):
