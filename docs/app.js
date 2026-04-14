@@ -587,62 +587,106 @@ async function monitorCloudHealth() {
     }
 }
 
+function getItemUnitPrice(item) {
+    if (item.eff_price && item.eff_price > 0 && item.price_mode === 'litre') return item.eff_price;
+    if (item.price === 0) return Infinity;
+
+    // Smart parsing for items that don't have an effective per-litre price yet
+    const name = item.name.toLowerCase();
+    let volume = 0;
+
+    // Match patterns like "1.25L", "2L", "600ml"
+    const lMatch = name.match(/(\d+\.?\d*)l/);
+    const mlMatch = name.match(/(\d+)ml/);
+    
+    // Match multipacks like "375ml x 30" or "30pk"
+    const pkMatch = name.match(/(\d+)pk/);
+    const multiMatch = name.match(/(\d+)x(\d+)/);
+
+    if (lMatch) volume = parseFloat(lMatch[1]);
+    else if (mlMatch) volume = parseFloat(mlMatch[1]) / 1000;
+    
+    if (multiMatch) {
+        // "30x375" scenario
+        const count = parseInt(multiMatch[1]);
+        const size = parseInt(multiMatch[2]);
+        volume = (count * size) / 1000;
+    } else if (pkMatch && volume > 0) {
+        // "375ml 30pk" scenario
+        volume *= parseInt(pkMatch[1]);
+    }
+
+    if (volume > 0) return item.price / volume;
+    return item.price; // Fallback to unit price if volume can't be parsed
+}
+
 function renderColaBattle() {
-    const colaItems = _data.filter(i => i.compare_group === 'cola' && !i.price_unavailable);
-    const winnerEl = document.getElementById('cola-winner');
-    const detailsEl = document.getElementById('cola-details');
-    
-    if (colaItems.length === 0) {
-        if (winnerEl) winnerEl.textContent = '—';
-        if (detailsEl) detailsEl.textContent = 'No cola data yet';
-        return;
-    }
+    const colaItems = _data.filter(i => (i.compare_group === 'cola' || i.name.toLowerCase().includes('pepsi') || i.name.toLowerCase().includes('coke')) && !i.price_unavailable);
+    const container = document.getElementById('cola-battle-container') || document.querySelector('.cola-card');
+    if (!container) return;
 
-    // Find cheapest Pepsi and cheapest Coke by eff_price (per litre), ignoring zero prices
-    const pepsis = colaItems.filter(i => i.name.toLowerCase().includes('pepsi') && (i.eff_price || i.price) > 0);
-    const cokes = colaItems.filter(i => (i.name.toLowerCase().includes('coke') || i.name.toLowerCase().includes('coca')) && (i.eff_price || i.price) > 0);
-    
-    const cheapestPepsi = pepsis.length ? pepsis.reduce((a, b) => (a.eff_price || a.price) < (b.eff_price || b.price) ? a : b) : null;
-    const cheapestCoke = cokes.length ? cokes.reduce((a, b) => (a.eff_price || a.price) < (b.eff_price || b.price) ? a : b) : null;
+    // Categorization
+    const groups = {
+        noSugar: { pepsi: null, coke: null },
+        classic: { pepsi: null, coke: null }
+    };
 
-    if (!cheapestPepsi && !cheapestCoke) {
-        if (winnerEl) winnerEl.textContent = '—';
-        if (detailsEl) detailsEl.textContent = 'No cola data';
-        return;
-    }
+    colaItems.forEach(item => {
+        const name = item.name.toLowerCase();
+        const price = getItemUnitPrice(item);
+        if (price === Infinity || price === 0) return;
 
-    const pepsiPrice = cheapestPepsi ? (cheapestPepsi.eff_price || cheapestPepsi.price) : null;
-    const cokePrice = cheapestCoke ? (cheapestCoke.eff_price || cheapestCoke.price) : null;
-    
-    if (pepsiPrice === null && cokePrice === null) {
-        if (winnerEl) winnerEl.textContent = '—';
-        if (detailsEl) detailsEl.textContent = 'Prices unavailable';
-        return;
-    }
+        const isNoSugar = name.includes('max') || name.includes('zero') || name.includes('no sugar');
+        const isPepsi = name.includes('pepsi');
+        const isCoke = name.includes('coke') || name.includes('coca');
 
-    const pP = pepsiPrice || Infinity;
-    const cP = cokePrice || Infinity;
-    
-    const pepsiStore = cheapestPepsi ? (cheapestPepsi.store === 'woolworths' ? '🟢W' : '🔴C') : '';
-    const cokeStore = cheapestCoke ? (cheapestCoke.store === 'woolworths' ? '🟢W' : '🔴C') : '';
+        const category = isNoSugar ? 'noSugar' : 'classic';
+        const brand = isPepsi ? 'pepsi' : (isCoke ? 'coke' : null);
 
-    if (winnerEl) {
-        if (pP < cP) {
-            winnerEl.innerHTML = `<span style="color: #3b82f6;">Pepsi Max</span> wins!`;
-        } else if (cP < pP) {
-            winnerEl.innerHTML = `<span style="color: #ef4444;">Coke Zero</span> wins!`;
-        } else {
-            winnerEl.textContent = 'Tied!';
+        if (brand && (!groups[category][brand] || price < groups[category][brand].unitPrice)) {
+            groups[category][brand] = { ...item, unitPrice: price };
         }
-    }
-    
-    if (detailsEl) {
-        let details = '';
-        if (pepsiPrice !== null) details += `Pepsi $${pepsiPrice.toFixed(2)}/L ${pepsiStore}`;
-        if (pepsiPrice !== null && cokePrice !== null) details += ' vs ';
-        if (cokePrice !== null) details += `Coke $${cokePrice.toFixed(2)}/L ${cokeStore}`;
-        detailsEl.textContent = details;
-    }
+    });
+
+    // Sub-renderer for a battle row
+    const renderBattleRow = (title, pepsi, coke) => {
+        const pP = pepsi ? pepsi.unitPrice : Infinity;
+        const cP = coke ? coke.unitPrice : Infinity;
+        const pStore = pepsi ? (pepsi.store === 'woolworths' ? '🟢W' : '🔴C') : '';
+        const cStore = coke ? (coke.store === 'woolworths' ? '🟢W' : '🔴C') : '';
+        
+        const pWinner = pP < cP;
+        const cWinner = cP < pP;
+
+        return `
+            <div class="battle-arena">
+                <div class="arena-title">${title}</div>
+                <div class="arena-fighters">
+                    <div class="fighter ${pWinner ? 'winner' : ''}">
+                        <div class="fighter-brand">Pepsi</div>
+                        <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
+                        <div class="fighter-product">${pepsi ? pepsi.name : 'No Data'} ${pStore}</div>
+                    </div>
+                    <div class="battle-vs">VS</div>
+                    <div class="fighter ${cWinner ? 'winner' : ''}">
+                        <div class="fighter-brand">Coke</div>
+                        <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
+                        <div class="fighter-product">${coke ? coke.name : 'No Data'} ${cStore}</div>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    container.innerHTML = `
+        <div class="cola-battle-header">
+            <i data-feather="zap"></i> Ultimate Cola Battle
+        </div>
+        ${renderBattleRow('No-Sugar Arena', groups.noSugar.pepsi, groups.noSugar.coke)}
+        <div class="arena-divider"></div>
+        ${renderBattleRow('Classic Arena', groups.classic.pepsi, groups.classic.coke)}
+    `;
+    feather.replace();
 }
 
 function renderSpecials() {

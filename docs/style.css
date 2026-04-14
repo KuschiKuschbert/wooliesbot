@@ -1529,3 +1529,117 @@ footer {
     background: rgba(239, 68, 68, 0.1);
     border-color: var(--coles-red);
 }
+
+/* Cola Battle v2.0 */
+.cola-card {
+    background: linear-gradient(135deg, rgba(20, 20, 30, 0.9), rgba(10, 10, 15, 0.95));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.cola-battle-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cola-battle-header i {
+    color: #fbbf24;
+    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.5));
+}
+
+.battle-arena {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.arena-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+.arena-fighters {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.fighter {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fighter.winner {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.fighter.winner::before {
+    content: '👑 CHEAPEST';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--woolies-green);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 2px 0;
+}
+
+.fighter-brand {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.fighter-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.fighter-product {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.battle-vs {
+    font-style: italic;
+    font-weight: 800;
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.arena-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    margin: 20px 0;
+}
