@@ -1,0 +1,2138 @@
+import time
+import requests
+import schedule
+import datetime
+import sys
+import traceback
+import argparse
+import threading
+import logging
+import random
+import re
+import os
+import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from logging.handlers import RotatingFileHandler
+
+# undetected_chromedriver is ESSENTIAL for Woolworths/Coles to bypass "Access Denied" screens
+import undetected_chromedriver as uc
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException as SeleniumTimeout
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# curl_cffi for zero-browser search — impersonates Chrome TLS fingerprint to bypass Akamai
+from curl_cffi import requests as cffi_requests
+
+# --- CONFIGURATION (env vars or .env file; see .env.example) ---
+def _load_dotenv():
+    """Load .env if present (no extra deps)."""
+    try:
+        env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+        if os.path.exists(env_path):
+            with open(env_path) as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, v = line.split("=", 1)
+                        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    except Exception:
+        pass
+_load_dotenv()
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN") or "8368391759:AAHsHDDhofVl4WQQIWpHsNNPQnzvS80jOmU"
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID") or "-1003888115204"
+
+# --- LOGGING (rotating to prevent disk fill) ---
+_log_format = '%(asctime)s - %(levelname)s - %(message)s'
+_log_handlers = [
+    RotatingFileHandler("chef_os.log", maxBytes=5*1024*1024, backupCount=3, encoding="utf-8"),
+    logging.StreamHandler(sys.stdout)
+]
+for h in _log_handlers:
+    h.setFormatter(logging.Formatter(_log_format))
+logging.basicConfig(level=logging.DEBUG, handlers=_log_handlers)
+if not os.environ.get("TELEGRAM_TOKEN"):
+    logging.warning("TELEGRAM_TOKEN not set in env. Set TELEGRAM_TOKEN and TELEGRAM_CHAT_ID for security.")
+
+# --- STORES ---
+STORES = {
+    "woolworths": {
+        "label": "Woolies",
+        "emoji": "🟢",
+        "price_css": "div[class*='product-price_component_price-lead']",
+        "unit_css": "div[class*='product-unit-price_component_price-cup-string'], div[class*='product-unit-price']",
+        "price_fallback_css": (".price-dollars", ".price-cents"),
+    },
+    "coles": {
+        "label": "Coles",
+        "emoji": "🔴",
+        "price_css": "span.price__value",
+        "unit_css": "div.price__calculation_method, span.price__calculation_method",
+        "price_fallback_css": None,
+    },
+}
+
+# --- PRODUCT WATCHLIST ---
+# price_mode: "kg" = compare per-kg unit price | "each" = compare shelf/pack price
+# compare_group: items with same group compete — cheapest wins
+TRACKING_LIST = [
+    # --- 🥩 FRESH PROTEIN (Freezer Friendly) ---
+    {"name": "Chicken Breast (Bulk)", "type": "fresh_protein", "price_mode": "kg", "target": 11.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/969723/woolworths-rspca-approved-chicken-breast-fillet",
+     "coles": "https://www.coles.com.au/product/lilydale-free-range-chicken-breast-fillets-bulk-approx.-1kg-2303750"},
+    {"name": "Beef Mince (Lean 500g)", "type": "fresh_protein", "price_mode": "kg", "target": 16.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/577861/woolworths-lean-beef-mince",
+     "coles": "https://www.coles.com.au/product/coles-no-added-hormone-beef-4-star-lean-mince-500g-8112449"},
+    {"name": "Bacon (Middle)", "type": "fresh_protein", "price_mode": "kg", "target": 16.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48358/woolworths-middle-bacon-middle-rashers",
+     "coles": "https://www.coles.com.au/product/coles-middle-bacon-7030666"},
+    {"name": "Pork Loin Roast", "type": "fresh_protein", "price_mode": "kg", "target": 12.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/764406/woolworths-pork-loin-roast-boneless-small",
+     "coles": "https://www.coles.com.au/product/coles-boneless-pork-loin-roast-approx.-1.25kg-7363501"},
+    {"name": "Deli Meats (Chorizo)", "type": "fresh_protein", "price_mode": "each", "target": 25.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/328005/primo-chorizo-2-pack",
+     "coles": "https://www.coles.com.au/product/primo-classic-chorizo-2-pack-250g-6998745"},
+    {"name": "Deli Ham/Silverside", "type": "fresh_protein", "price_mode": "kg", "target": 20.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/130276/leg-ham-shaved-from-the-deli",
+     "coles": "https://www.coles.com.au/product/bertocchi-triple-smoked-shaved-leg-ham-from-the-deli-1-each-1141245"},
+
+    # --- 🔪 BUTCHER HACK (compare_group picks cheapest per-kg) ---
+    {"name": "Beef Stir Fry (500g)", "type": "fresh_protein", "price_mode": "kg", "target": 24.00, "compare_group": "beef_strips",
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/531015/woolworths-beef-stir-fry",
+     "coles": "https://www.coles.com.au/product/coles-beef-stir-fry-500g-9990965"},
+    {"name": "Rump Steak (Whole)", "type": "fresh_protein", "price_mode": "kg", "target": 24.00, "compare_group": "beef_strips",
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/675318/woolworths-beef-rump-steak-medium",
+     "coles": "https://www.coles.com.au/product/coles-beef-rump-steak-approx.-832g-5132370"},
+
+    # --- 🥦 VEGETABLES ---
+    {"name": "Capsicum (Red)", "type": "fresh_veg", "price_mode": "kg", "target": 7.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/135306/red-capsicum",
+     "coles": "https://www.coles.com.au/product/coles-red-capsicum-approx.-220g-4580208"},
+    {"name": "Avocados (Hass)", "type": "fresh_veg", "price_mode": "each", "target": 1.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120080/hass-avocado",
+     "coles": "https://www.coles.com.au/product/coles-hass-avocados-1-each-5900530"},
+    {"name": "Baby Spinach / Kaleslaw", "type": "fresh_veg", "price_mode": "each", "target": 4.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/705436/woolworths-kale-slaw-kit",
+     "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390"},
+    {"name": "Onions (Brown Bag)", "type": "fresh_veg", "price_mode": "each", "target": 4.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/144427/woolworths-brown-onions-bag",
+     "coles": "https://www.coles.com.au/product/coles-brown-onions-1kg-4803991"},
+    {"name": "Potatoes (Washed Bag)", "type": "fresh_veg", "price_mode": "each", "target": 4.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/262783/woolworths-washed-potatoes-bag",
+     "coles": "https://www.coles.com.au/product/coles-washed-potatoes-2kg-1206748"},
+    {"name": "Carrots (1kg)", "type": "fresh_veg", "price_mode": "each", "target": 2.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/135369/woolworths-australian-grown-carrots",
+     "coles": "https://www.coles.com.au/product/coles-carrots-prepacked-1kg-9006560"},
+    {"name": "Broccoli", "type": "fresh_veg", "price_mode": "kg", "target": 5.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/134681/fresh-broccoli",
+     "coles": "https://www.coles.com.au/product/coles-broccoli-approx.-340g-each-407755"},
+    {"name": "Zucchini", "type": "fresh_veg", "price_mode": "kg", "target": 5.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/170225/fresh-zucchini-green",
+     "coles": "https://www.coles.com.au/product/coles-green-zucchini-approx.-200g-4910506"},
+    {"name": "Mushrooms (Cup)", "type": "fresh_veg", "price_mode": "kg", "target": 11.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/143304/woolworths-mushrooms-cups-punnet",
+     "coles": "https://www.coles.com.au/product/coles-cup-mushrooms-prepacked-200g-4829860"},
+    {"name": "Pumpkin (Kent)", "type": "fresh_veg", "price_mode": "kg", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/143709/pumpkin-kent-cut",
+     "coles": ""},
+    {"name": "Snow Peas", "type": "fresh_veg", "price_mode": "kg", "target": 14.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/145843/snow-peas",
+     "coles": "https://www.coles.com.au/product/coles-snow-peas-medium-150g-4628326"},
+    {"name": "Corn Cobs", "type": "fresh_veg", "price_mode": "each", "target": 2.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/137351/woolworths-fresh-corn-cobs",
+     "coles": ""},
+
+    # --- 🍋 FRUIT & AROMATICS ---
+    {"name": "Watermelon (Quarter)", "type": "fresh_veg", "price_mode": "each", "target": 3.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120384/woolworths-red-watermelon-cut-quarter",
+     "coles": "https://www.coles.com.au/product/coles-seedless-watermelon-cut-approx.-1.8kg-7508229"},
+    {"name": "Lemons (Bag)", "type": "fresh_veg", "price_mode": "each", "target": 3.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/693501/lemon-lemon-bag",
+     "coles": "https://www.coles.com.au/product/coles-i'm-perfect-lemons-prepacked-1kg-3586912"},
+    {"name": "Garlic", "type": "fresh_veg", "price_mode": "kg", "target": 30.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120847/woolworths-garlic",
+     "coles": "https://www.coles.com.au/product/coles-garlic-loose-approx.-60g-each-6105715"},
+    {"name": "Fresh Herbs (Basil)", "type": "fresh_veg", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/133621/woolworths-green-basil-bunch",
+     "coles": "https://www.coles.com.au/product/coles-sleeved-herbs-basil-1-bunch-4574920"},
+    {"name": "Medjool Dates", "type": "pantry", "price_mode": "each", "target": 10.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/774695/golden-palm-medjool-dates-punnet",
+     "coles": "https://www.coles.com.au/product/coles-pitted-medjool-date-340g-5139518"},
+
+    # --- 🥛 DAIRY & FRIDGE ---
+    {"name": "Eggs (18 Pack)", "type": "fresh_fridge", "price_mode": "each", "target": 9.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/74593/woolworths-18-large-cage-free-eggs",
+     "coles": "https://www.coles.com.au/product/coles-cage-free-eggs-18-pack-900g-5178961"},
+    {"name": "Butter (Western Star)", "type": "fresh_fridge", "price_mode": "each", "target": 6.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/41287/western-star-salted-butter-block-butter-block",
+     "coles": "https://www.coles.com.au/product/western-star-original-salted-butter-250g-210590"},
+    {"name": "Thickened Cream (600ml)", "type": "fresh_fridge", "price_mode": "each", "target": 5.20,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48720/woolworths-thickened-cream",
+     "coles": "https://www.coles.com.au/product/coles-thickened-cream-600ml-246962"},
+    {"name": "Cheese (Tasty Block)", "type": "fresh_fridge", "price_mode": "kg", "target": 14.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/310237/woolworths-tasty-cheese-block",
+     "coles": "https://www.coles.com.au/product/mainland-tasty-cheese-block-500g-472994"},
+    {"name": "Philly Cream Cheese", "type": "fresh_fridge", "price_mode": "each", "target": 5.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48062/philadelphia-original-cream-cheese-block",
+     "coles": "https://www.coles.com.au/product/philadelphia-regular-cream-cheese-block-250g-192502"},
+    {"name": "Sour Cream", "type": "fresh_fridge", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/105609/woolworths-sour-cream",
+     "coles": "https://www.coles.com.au/product/coles-sour-cream-300g-3676946"},
+    {"name": "Yoghurt (Greek)", "type": "fresh_fridge", "price_mode": "each", "target": 5.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/571487/woolworths-natural-greek-style-yoghurt",
+     "coles": "https://www.coles.com.au/product/coles-greek-style-natural-yoghurt-1kg-2273478"},
+    {"name": "Protein Puds (Wicked Sister)", "type": "fresh_fridge", "price_mode": "each", "target": 2.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/162818/wicked-sister-high-protein-pudding-chocolate",
+     "coles": "https://www.coles.com.au/product/wicked-sister-high-protein-chocolate-pudding-170g-4494048"},
+
+    # --- ❄️ FREEZER ---
+    {"name": "Frozen Peas", "type": "freezer", "price_mode": "each", "target": 4.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/754169/woolworths-frozen-australian-peas",
+     "coles": "https://www.coles.com.au/product/coles-simply-snap-frozen-peas-1kg-399067"},
+    {"name": "Chicken Tenders (Ingham)", "type": "freezer", "price_mode": "each", "target": 11.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/38728/ingham-s-frozen-chicken-breast-tenders-original",
+     "coles": "https://www.coles.com.au/product/inghams-frozen-southern-style-chicken-tenders-400g-2726798"},
+    {"name": "Ice Cream (Connoisseur)", "type": "freezer", "price_mode": "each", "target": 8.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/96190/connoisseur-ice-cream-classic-vanilla-tub",
+     "coles": ""},
+
+    # --- 🍞 BAKERY & PANTRY ---
+    {"name": "English Muffins", "type": "pantry", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/224737/woolworths-english-muffins",
+     "coles": "https://www.coles.com.au/product/coles-english-muffins-6-pack-360g-4723134"},
+    {"name": "Wraps (Mission Carb Balance)", "type": "pantry", "price_mode": "each", "target": 5.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/919345/mission-carb-balance-original-wraps",
+     "coles": "https://www.coles.com.au/product/mission-carb-balance-wrap-6-pack-288g-8566038"},
+    {"name": "Rice Paper", "type": "pantry", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/121531/pandaroo-ingredients-rice-paper-spring-roll",
+     "coles": ""},
+    {"name": "Canned Tomatoes", "type": "pantry", "price_mode": "each", "target": 1.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/311488/essentials-diced-tomatoes",
+     "coles": "https://www.coles.com.au/product/coles-italian-diced-tomatoes-400g-5548754"},
+    {"name": "Liquid Stock (Campbells)", "type": "pantry", "price_mode": "each", "target": 2.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/77750/campbell-s-real-stock-chicken-liquid-stock",
+     "coles": "https://www.coles.com.au/product/campbell's-real-stock-chicken-stock-1l-8157935"},
+    {"name": "Peanut Butter (Pics)", "type": "pantry", "price_mode": "each", "target": 6.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/754776/pic-s-peanut-butter-smooth",
+     "coles": "https://www.coles.com.au/product/pic's-really-good-smooth-peanut-butter-380g-2120218"},
+    {"name": "Coffee (Nescafe Espresso)", "type": "pantry", "price_mode": "each", "target": 6.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/212138/nescafe-blend-43-espresso-instant-coffee-jar",
+     "coles": "https://www.coles.com.au/product/nescafe-blend-43-espresso-instant-coffee-150g-8229231"},
+    {"name": "Almond Meal", "type": "pantry", "price_mode": "each", "target": 6.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/136018/woolworths-almond-meal",
+     "coles": "https://www.coles.com.au/product/coles-almond-meal-150g-2749454"},
+    {"name": "Gravy Granules", "type": "pantry", "price_mode": "each", "target": 2.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/280855/green-s-gravy-granules-traditional",
+     "coles": "https://www.coles.com.au/product/green's-roast-meat-gravy-granules-120g-7302777"},
+    {"name": "Crackers (Jatz)", "type": "pantry", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/115454/arnott-s-jatz-crackers-original",
+     "coles": "https://www.coles.com.au/product/arnott's-jatz-crackers-original-225g-8646782"},
+
+    # --- 🍫 TREATS & DRINKS ---
+    {"name": "Lindt 95% Cocoa", "type": "pantry", "price_mode": "each", "target": 4.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/4758/lindt-excellence-95-cocoa-dark-chocolate-block",
+     "coles": "https://www.coles.com.au/product/lindt-excellence-95percent-cocoa-ultimate-dark-chocolate-block-80g-3501374"},
+    {"name": "Quest/BSC Protein Bars", "type": "pantry", "price_mode": "each", "target": 3.50,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/755146/quest-protein-bar-cookies-cream",
+     "coles": "https://www.coles.com.au/product/quest-protein-bar-cookies-and-cream-60g-2477671"},
+    # --- COLA COMPARISON (compare_group "cola" — per-litre across 24pk + 30pk, all stores) ---
+    {"name": "Pepsi Max 24pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
+     "pack_litres": 9.0,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/54291/pepsi-max-no-sugar-cola-soft-drink-cans-multipack",
+     "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-24-pack-24-pack-7366022"},
+    {"name": "Coke No Sugar 24pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
+     "pack_litres": 9.0,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/669683/coca-cola-no-sugar-soft-drink-multipack-cans",
+     "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-24x375ml-24-pack-2993740"},
+    {"name": "Pepsi Max 30pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
+     "pack_litres": 11.25,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/773129/pepsi-max-no-sugar-cola-soft-drink-cans-multipack",
+     "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-30-pack-30-pack-7837413"},
+    {"name": "Coke No Sugar 30pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
+     "pack_litres": 11.25,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/679121/coca-cola-no-sugar-soft-drink-multipack-cans",
+     "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-30x375ml-30-pack-8464810"},
+    {"name": "Remedy/Juice Lab Shots", "type": "pantry", "price_mode": "each", "target": 3.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/227257/the-juice-lab-wellness-shot-calm",
+     "coles": ""},
+
+    # --- 🧼 HOUSEHOLD & PETS ---
+    {"name": "Whiskas Kitten 12pk", "type": "pet", "price_mode": "each", "target": 10.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/87727/whiskas-kitten-2-12-months-wet-cat-food-mixed-favourites-in-jelly",
+     "coles": "https://www.coles.com.au/product/whiskas-kitten-2-12-months-wet-cat-food-with-mixed-favourites-in-jelly-12x85g-pouch-12-pack-5172659"},
+    {"name": "Pedigree Dog Food 3kg", "type": "pet", "price_mode": "each", "target": 9.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/98751/pedigree-adult-dry-dog-food-with-real-beef",
+     "coles": "https://www.coles.com.au/product/pedigree-adult-dry-dog-food-with-real-beef-3kg-7976078"},
+    {"name": "Toilet Paper (Quilton)", "type": "household", "price_mode": "each", "target": 9.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/851925/quilton-white-3-ply-toilet-paper-white-180-sheets",
+     "coles": "https://www.coles.com.au/product/quilton-3-ply-white-toilet-paper-20-pack-7758634"},
+    {"name": "Laundry Powder (Omo)", "type": "household", "price_mode": "each", "target": 15.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/430650/omo-active-clean-laundry-powder-detergent",
+     "coles": "https://www.coles.com.au/product/omo-laundry-powder-active-clean-front-and-top-2kg-2731561"},
+    {"name": "Dishmatic Refills", "type": "household", "price_mode": "each", "target": 5.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/697317/dishmatic-general-purpose-refills",
+     "coles": "https://www.coles.com.au/product/dishmatic-general-purpose-refill-3-pack-8923124"},
+    {"name": "Energizer Batteries AA", "type": "household", "price_mode": "each", "target": 10.00,
+     "woolworths": "https://www.woolworths.com.au/shop/productdetails/23597/energizer-max-aa-alkaline-batteries",
+     "coles": ""},
+]
+
+# --- B-LIST: Shelf-stable items to add when Big Shop cart is under $500 ---
+# Use these to bridge the gap and maximise the 10% Everyday Extra discount (saves ~$50)
+B_LIST_BRIDGE_ITEMS = [
+    "Toilet Paper (Quilton)",
+    "Laundry Powder (Omo)",
+    "Olive Oil",
+    "Energizer Batteries AA",
+    "Peanut Butter (Pics)",
+    "Coffee (Nescafe Espresso)",
+    "Dishmatic Refills",
+]
+
+# Big Shop triggers after the 14th (weeks 3–4) to use the 10% discount
+BIG_SHOP_START_DAY = 14
+DISCOUNT_CAP = 500.00
+
+TELEGRAM_MAX_LEN = 4000  # Leave margin for Markdown
+
+def _escape_md(text):
+    """Escape Telegram Markdown V1 special characters in dynamic text."""
+    for ch in ('_', '*', '`', '['):
+        text = text.replace(ch, '\\' + ch)
+    return text
+
+def send_telegram(message):
+    """Send message(s) to Telegram. Splits at newlines if over limit.
+    Falls back to plain text if Markdown parse fails."""
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    if len(message) <= TELEGRAM_MAX_LEN:
+        parts = [message]
+    else:
+        parts, curr = [], []
+        for line in message.split("\n"):
+            if sum(len(l)+1 for l in curr) + len(line) + 1 > TELEGRAM_MAX_LEN and curr:
+                parts.append("\n".join(curr))
+                curr = []
+            curr.append(line)
+        if curr:
+            parts.append("\n".join(curr))
+    for part in parts:
+        payload = {"chat_id": TELEGRAM_CHAT_ID, "text": part, "parse_mode": "Markdown"}
+        try:
+            response = requests.post(url, json=payload, timeout=15)
+            if response.status_code == 400 and "can't parse" in response.text.lower():
+                # Markdown parse failed; retry without formatting
+                logging.warning("Markdown parse failed, retrying as plain text.")
+                payload["parse_mode"] = ""
+                response = requests.post(url, json=payload, timeout=15)
+            response.raise_for_status()
+            logging.info("Telegram message sent successfully.")
+        except Exception as e:
+            logging.error(f"Error sending Telegram: {e}")
+
+def get_browser():
+    # Use undetected_chromedriver to bypass Woolworths bot detection
+    options = uc.ChromeOptions()
+    # options.add_argument("--headless") # Disabling headless to bypass Akamai
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    # Move window far off-screen — invisible but not headless (Akamai bypass)
+    options.add_argument("--window-position=-10000,-10000")
+    
+    driver = uc.Chrome(options=options)
+    # Prevent indefinite hangs on slow/stuck pages (e.g. captcha, network)
+    driver.set_page_load_timeout(45)
+    return driver
+
+def _parse_price_text(text):
+    """Extract a float price from text like '$18.70' or '18.70'."""
+    text = text.replace("$", "").replace(",", "").strip()
+    match = re.search(r"(\d+\.?\d*)", text)
+    return float(match.group(1)) if match else None
+
+def _parse_unit_price_text(text):
+    """Extract unit price and unit from text like '$11.00 / 1KG'."""
+    if '$' not in text:
+        return None, None
+    val_part = text.split('/')[0].replace('$', '').strip()
+    try:
+        price = float(re.search(r"(\d+\.?\d*)", val_part).group(1))
+    except:
+        return None, None
+    # Determine unit: per kg, per 100g, per litre, per each
+    text_lower = text.lower()
+    if 'kg' in text_lower:
+        unit = 'kg'
+    elif '100g' in text_lower:
+        unit = '100g'
+    elif 'litre' in text_lower or '1l' in text_lower:
+        unit = 'litre'
+    else:
+        unit = 'each'
+    return price, unit
+
+# ─── JSON EXTRACTION (structured data – much more reliable than CSS) ─────────
+
+def _extract_woolworths_json(driver):
+    """Extract product data from Woolworths JSON-LD (schema.org) embedded in page.
+    Returns dict with price, unit_price, unit, name_check or None."""
+    try:
+        scripts = driver.find_elements(By.CSS_SELECTOR, 'script[type="application/ld+json"]')
+        for s in scripts:
+            data = json.loads(s.get_attribute('innerHTML'))
+            if data.get('@type') != 'Product':
+                continue
+            offers = data.get('offers', {})
+            price = offers.get('price')
+            if not price or float(price) == 0:
+                continue
+            spec = offers.get('priceSpecification', {})
+            unit_price_val = spec.get('price')
+            unit_text = (spec.get('unitText') or '').lower()
+            # Determine unit from unitText
+            unit = 'each'
+            if 'kg' in unit_text and '100g' not in unit_text:
+                unit = 'kg'
+            elif '100g' in unit_text:
+                unit = '100g'
+            elif 'ml' in unit_text or 'litre' in unit_text:
+                unit = 'litre'
+            up = float(unit_price_val) if unit_price_val and float(unit_price_val) > 0 else None
+            return {
+                "price": float(price),
+                "unit_price": up,
+                "unit": unit,
+                "name_check": data.get('name', ''),
+                "image_url": data.get('image', ''),
+            }
+    except Exception as e:
+        logging.debug(f"  Woolworths JSON-LD parse error: {e}")
+    return None
+
+def _extract_coles_json(driver):
+    """Extract product data from Coles __NEXT_DATA__ (Next.js) embedded in page.
+    Returns dict with price, unit_price, unit, name_check, is_special or None."""
+    try:
+        nd_el = driver.find_element(By.CSS_SELECTOR, 'script#__NEXT_DATA__')
+        nd = json.loads(nd_el.get_attribute('innerHTML'))
+        product = nd.get('props', {}).get('pageProps', {}).get('product', {})
+        pricing = product.get('pricing', {})
+        if not pricing or not pricing.get('now'):
+            return None
+        price = float(pricing['now'])
+        unit_data = pricing.get('unit', {}) or {}
+        unit_price_val = unit_data.get('price')
+        unit_type = (unit_data.get('ofMeasureUnits') or '').lower()
+        # Map Coles unit types
+        unit = 'each'
+        if unit_type == 'kg':
+            unit = 'kg'
+        elif unit_type in ('l', 'litre', 'ltr'):
+            unit = 'litre'
+        elif '100g' in unit_type:
+            unit = '100g'
+        up = float(unit_price_val) if unit_price_val else None
+        image_uris = product.get('imageUris', [])
+        image_url = image_uris[0].get('uri', '') if image_uris else ''
+        if image_url and image_url.startswith('/'):
+            image_url = "https://www.coles.com.au" + image_url
+
+        return {
+            "price": price,
+            "unit_price": up,
+            "unit": unit,
+            "name_check": product.get('name', ''),
+            "is_special": pricing.get('promotionType') == 'SPECIAL',
+            "was_price": pricing.get('was'),
+            "image_url": image_url,
+        }
+    except Exception as e:
+        logging.debug(f"  Coles __NEXT_DATA__ parse error: {e}")
+    return None
+
+
+def _extract_woolworths_json_from_html(html):
+    """Extract product data from Woolworths JSON-LD in raw HTML.
+    Returns dict with price, unit_price, unit, name_check or None."""
+    try:
+        # Find all script tags with type="application/ld+json"
+        for m in re.finditer(
+            r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>([^<]+)</script>',
+            html,
+            re.IGNORECASE | re.DOTALL,
+        ):
+            try:
+                data = json.loads(m.group(1).strip())
+                if data.get('@type') != 'Product':
+                    continue
+                offers = data.get('offers', {})
+                price = offers.get('price')
+                if not price or float(price) == 0:
+                    continue
+                spec = offers.get('priceSpecification', {}) or {}
+                unit_price_val = spec.get('price')
+                unit_text = (spec.get('unitText') or '').lower()
+                unit = 'each'
+                if 'kg' in unit_text and '100g' not in unit_text:
+                    unit = 'kg'
+                elif '100g' in unit_text:
+                    unit = '100g'
+                elif 'ml' in unit_text or 'litre' in unit_text:
+                    unit = 'litre'
+                up = float(unit_price_val) if unit_price_val and float(unit_price_val) > 0 else None
+                return {
+                    "price": float(price),
+                    "unit_price": up,
+                    "unit": unit,
+                    "name_check": data.get('name', ''),
+                    "image_url": data.get('image', ''),
+                }
+            except json.JSONDecodeError:
+                continue
+    except Exception as e:
+        logging.debug(f"  Woolworths JSON-LD from HTML parse error: {e}")
+    return None
+
+
+def _extract_coles_json_from_html(html):
+    """Extract product data from Coles __NEXT_DATA__ in raw HTML.
+    Returns dict with price, unit_price, unit, name_check, is_special or None."""
+    try:
+        m = re.search(
+            r'<script[^>]*id=["\']__NEXT_DATA__["\'][^>]*>([^<]+)</script>',
+            html,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if not m:
+            return None
+        nd = json.loads(m.group(1).strip())
+        product = nd.get('props', {}).get('pageProps', {}).get('product', {})
+        pricing = product.get('pricing', {})
+        if not pricing or not pricing.get('now'):
+            return None
+        price = float(pricing['now'])
+        unit_data = pricing.get('unit', {}) or {}
+        unit_price_val = unit_data.get('price')
+        unit_type = (unit_data.get('ofMeasureUnits') or '').lower()
+        unit = 'each'
+        if unit_type == 'kg':
+            unit = 'kg'
+        elif unit_type in ('l', 'litre', 'ltr'):
+            unit = 'litre'
+        elif '100g' in unit_type:
+            unit = '100g'
+        up = float(unit_price_val) if unit_price_val else None
+        image_uris = product.get('imageUris', [])
+        image_url = image_uris[0].get('uri', '') if image_uris else ''
+        if image_url and image_url.startswith('/'):
+            image_url = "https://www.coles.com.au" + image_url
+
+        return {
+            "price": price,
+            "unit_price": up,
+            "unit": unit,
+            "name_check": product.get('name', ''),
+            "is_special": pricing.get('promotionType') == 'SPECIAL',
+            "was_price": pricing.get('was'),
+            "image_url": image_url,
+        }
+    except Exception as e:
+        logging.debug(f"  Coles __NEXT_DATA__ from HTML parse error: {e}")
+    return None
+
+
+# ─── SCRAPER (JSON-first, CSS-fallback, with page validation) ────────────────
+
+def scrape_item_from_store(driver, url, store_key):
+    """Scrape price + unit price from a single store product page.
+    Strategy: 1) try structured JSON  2) fall back to CSS selectors."""
+    store = STORES[store_key]
+    try:
+        driver.get(url)
+        time.sleep(random.uniform(1.5, 3.5))
+
+        # ── Page validation: detect bot blocks / empty pages ──
+        page_len = len(driver.page_source)
+        if page_len < 5000:
+            logging.warning(f"  [{store_key}] Page too short ({page_len} chars) — possible bot block")
+            return None
+
+        # ── Strategy 1: Structured JSON extraction ──
+        json_result = None
+        if store_key == 'woolworths':
+            json_result = _extract_woolworths_json(driver)
+        elif store_key == 'coles':
+            json_result = _extract_coles_json(driver)
+
+        if json_result and json_result["price"] > 0:
+            logging.info(f"    ✓ JSON: ${json_result['price']:.2f} (unit: {json_result.get('unit_price')}/{json_result.get('unit')})")
+            return {
+                "price": json_result["price"],
+                "unit_price": json_result.get("unit_price"),
+                "unit": json_result.get("unit"),
+                "image_url": json_result.get("image_url", ""),
+            }
+
+        # ── Strategy 2: CSS selector fallback ──
+        logging.info(f"    JSON extraction failed, trying CSS selectors...")
+        wait = WebDriverWait(driver, 12)
+        price = None
+        try:
+            price_el = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, store["price_css"])))
+            price = _parse_price_text(price_el.text)
+        except:
+            if store.get("price_fallback_css"):
+                try:
+                    d_css, c_css = store["price_fallback_css"]
+                    d_el = driver.find_element(By.CSS_SELECTOR, d_css)
+                    c_el = driver.find_element(By.CSS_SELECTOR, c_css)
+                    price = float(f"{d_el.text}.{c_el.text}")
+                except:
+                    pass
+        if price is None:
+            return None
+
+        unit_price, unit = None, None
+        try:
+            unit_el = driver.find_element(By.CSS_SELECTOR, store["unit_css"])
+            unit_price, unit = _parse_unit_price_text(unit_el.text)
+        except:
+            pass
+
+        logging.info(f"    ✓ CSS: ${price:.2f} (unit: {unit_price}/{unit})")
+        return {"price": price, "unit_price": unit_price, "unit": unit}
+    except SeleniumTimeout:
+        logging.warning(f"  [{store_key}] Page load timed out (45s) — skipping")
+        return None
+    except Exception as e:
+        logging.debug(f"  {store_key} scrape error: {e}")
+        return None
+
+MAX_RETRIES = 2  # up to 2 attempts per item
+
+def _scrape_store_batch(store_key, items_with_urls):
+    """Scrape all items for ONE store in its own browser.
+    Includes retry logic: each item gets up to MAX_RETRIES attempts.
+    Returns list of (item_index, store_data)."""
+    label = STORES[store_key]["label"]
+    logging.info(f"[{label}] Starting browser for {len(items_with_urls)} items...")
+    driver = get_browser()
+    results = []
+    try:
+        for idx, item, url in items_with_urls:
+            logging.info(f"[{label}] {item['name']}")
+            data = None
+            for attempt in range(MAX_RETRIES):
+                data = scrape_item_from_store(driver, url, store_key)
+                if data:
+                    break
+                if attempt < MAX_RETRIES - 1:
+                    logging.info(f"[{label}]   Retry #{attempt+2} for {item['name']}...")
+                    time.sleep(2 + attempt * 2)  # 2s first retry, 4s second
+            if data:
+                data["store"] = store_key
+                results.append((idx, data))
+            else:
+                safe_name = item['name'].replace(' ', '_').replace('/', '_')
+                try:
+                    driver.save_screenshot(f"error_{safe_name}_{store_key}.png")
+                except:
+                    pass
+                logging.warning(f"[{label}] ✗ Failed after {MAX_RETRIES} attempts: {item['name']}")
+            time.sleep(0.5)
+    except Exception as e:
+        logging.error(f"[{label}] Browser crashed: {e}")
+    finally:
+        try:
+            driver.quit()
+        except:
+            pass
+    logging.info(f"[{label}] Done. {len(results)}/{len(items_with_urls)} scraped.")
+    return store_key, results
+
+
+def _scrape_store_batch_cffi(store_key, items_with_urls):
+    """Scrape all items for ONE store using curl_cffi (no browser).
+    Uses parallel fetches. Returns (store_key, list of (idx, data))."""
+    label = STORES[store_key]["label"]
+    homepage = "https://www.woolworths.com.au/" if store_key == "woolworths" else "https://www.coles.com.au/"
+    logging.info(f"[{label}] Starting curl_cffi scan for {len(items_with_urls)} items...")
+    session = _create_cffi_session()
+    try:
+        resp = session.get(homepage, timeout=15)
+        if resp.status_code != 200 or len(resp.text) < 5000:
+            logging.warning(f"[{label}] Warm-up failed (HTTP {resp.status_code}, {len(resp.text)} chars)")
+            return store_key, []
+    except Exception as e:
+        logging.error(f"[{label}] Warm-up error: {e}")
+        return store_key, []
+
+    _CFFI_BATCH_WORKERS = 6
+
+    def fetch_one(args):
+        idx, item, url = args
+        data = _cffi_fetch_product(session, url, store_key)
+        if data:
+            data["store"] = store_key
+            return (idx, data)
+        return (idx, None)
+
+    results = []
+    with ThreadPoolExecutor(max_workers=_CFFI_BATCH_WORKERS) as pool:
+        futures = [pool.submit(fetch_one, job) for job in items_with_urls]
+        for future in as_completed(futures):
+            try:
+                idx, data = future.result()
+                if data:
+                    results.append((idx, data))
+            except Exception as e:
+                logging.debug(f"[{label}] fetch error: {e}")
+
+    logging.info(f"[{label}] Done. {len(results)}/{len(items_with_urls)} scraped.")
+    return store_key, results
+
+
+_PRICE_UNRELIABLE = 99999.0  # sentinel for bad / missing prices
+
+def _effective_price(item, store_result):
+    """Return the price to compare against the target.
+    'kg'    → use scraped unit_price (per kg); normalise 100g→kg.
+               If unit price scrape failed, return sentinel (shelf price ≠ per-kg).
+    'litre' → ALWAYS calculate shelf_price / pack_litres (scraped unit prices on
+               multi-pack pages are unreliable – they can pick up 'was' prices).
+    'each'  → shelf price."""
+    mode = item.get("price_mode", "each")
+    if mode == "kg":
+        up = store_result.get("unit_price")
+        scraped_unit = store_result.get("unit", "")
+        # Only trust unit_price when the scraped unit is actually per-kg or per-100g
+        if up is not None and scraped_unit in ("kg", "100g"):
+            val = up * 10 if scraped_unit == "100g" else up
+            # Sanity: reject absurd per-kg prices (scraper errors, e.g. deli unit mix-ups)
+            if val > 100:
+                logging.warning(f"Rejecting absurd $/kg {val:.2f} for {item.get('name')}")
+                return _PRICE_UNRELIABLE
+            return val
+        # Unit price is per-each/per-litre or scrape failed — can't determine $/kg
+        return _PRICE_UNRELIABLE
+    if mode == "litre":
+        # Always calculate from known pack volume (most reliable)
+        pack_l = item.get("pack_litres")
+        if pack_l and pack_l > 0:
+            return store_result["price"] / pack_l
+        # No pack_litres defined – try scraped
+        up = store_result.get("unit_price")
+        unit = store_result.get("unit", "")
+        if up is not None and unit == "litre":
+            return up
+        return store_result["price"]
+    return store_result["price"]
+
+def check_prices():
+    """Scrape all items from all stores IN PARALLEL.
+    Uses curl_cffi (fast). Falls back to Chrome for a store if >25% items fail."""
+    # Build per-store work lists: [(item_index, item, url), ...]
+    store_jobs = {}
+    for idx, item in enumerate(TRACKING_LIST):
+        for store_key in STORES:
+            url = item.get(store_key, "")
+            if url:
+                store_jobs.setdefault(store_key, []).append((idx, item, url))
+
+    total_urls = sum(len(v) for v in store_jobs.values())
+    logging.info(f"Starting Price Scan... ({len(TRACKING_LIST)} items, {total_urls} URLs, curl_cffi)")
+
+    # Try curl_cffi first (no browser)
+    all_store_results = {}  # store_key -> [(idx, data), ...]
+    with ThreadPoolExecutor(max_workers=len(store_jobs)) as pool:
+        futures = {
+            pool.submit(_scrape_store_batch_cffi, sk, jobs): sk
+            for sk, jobs in store_jobs.items()
+        }
+        for future in as_completed(futures):
+            try:
+                store_key, batch_results = future.result()
+                all_store_results[store_key] = batch_results
+            except Exception as e:
+                sk = futures[future]
+                logging.error(f"Store {sk} cffi scrape failed entirely: {e}")
+                all_store_results[sk] = []
+
+    # Fallback: if a store got <75% success, retry with Chrome
+    for store_key, jobs in store_jobs.items():
+        batch = all_store_results.get(store_key, [])
+        if len(jobs) == 0:
+            continue
+        success_rate = len(batch) / len(jobs)
+        if success_rate < 0.75:
+            label = STORES[store_key]["label"]
+            logging.warning(f"[{label}] cffi success {len(batch)}/{len(jobs)} ({success_rate:.0%}) — falling back to Chrome")
+            try:
+                _, chrome_results = _scrape_store_batch(store_key, jobs)
+                all_store_results[store_key] = chrome_results
+            except Exception as e:
+                logging.error(f"[{label}] Chrome fallback failed: {e}")
+
+    # Merge results: group by item index, pick cheapest store
+    item_store_data = {}  # idx -> [store_data, ...]
+    for store_key, batch in all_store_results.items():
+        for idx, data in batch:
+            item_store_data.setdefault(idx, []).append(data)
+
+    results = []
+    for idx, item in enumerate(TRACKING_LIST):
+        store_results = item_store_data.get(idx, [])
+        if not store_results:
+            # No data from any store at all — include as price_unavailable
+            results.append({
+                **item,
+                "price": 0,
+                "unit_price": None,
+                "unit": None,
+                "eff_price": _PRICE_UNRELIABLE,
+                "store": "none",
+                "all_stores": {},
+                "price_unavailable": True,
+                "image_url": "",
+            })
+            continue
+        best = min(store_results, key=lambda sr: _effective_price(item, sr))
+        eff = _effective_price(item, best)
+        # Build all_stores, excluding stores where price is unreliable
+        all_stores = {}
+        for sr in store_results:
+            ep = _effective_price(item, sr)
+            if ep >= _PRICE_UNRELIABLE:
+                logging.info(f"  Unreliable price for {sr['store']}/{item['name']} — shelf ${sr['price']:.2f}, unit scrape failed")
+                continue
+            all_stores[sr["store"]] = {
+                "price": sr["price"],
+                "unit_price": sr.get("unit_price"),
+                "eff_price": ep,
+            }
+        # If all stores were unreliable, keep item but flag it
+        if not all_stores and eff >= _PRICE_UNRELIABLE:
+            logging.info(f"  {item['name']}: all stores unreliable — marking as price_unavailable")
+            results.append({
+                **item,
+                "price": best["price"],
+                "unit_price": best.get("unit_price"),
+                "unit": best.get("unit"),
+                "eff_price": _PRICE_UNRELIABLE,
+                "store": best["store"],
+                "all_stores": {},
+                "price_unavailable": True,
+                "image_url": best.get("image_url", ""),
+            })
+            continue
+        # If best was unreliable but some stores are OK, re-pick best from reliable stores
+        if eff >= _PRICE_UNRELIABLE and all_stores:
+            best_store_key = min(all_stores, key=lambda sk: all_stores[sk]["eff_price"])
+            sd = all_stores[best_store_key]
+            eff = sd["eff_price"]
+            # Find the original store_result to get full data
+            for sr in store_results:
+                if sr["store"] == best_store_key:
+                    best = sr
+                    break
+        item_result = {
+            **item,
+            "price": best["price"],
+            "unit_price": best.get("unit_price"),
+            "unit": best.get("unit"),
+            "eff_price": eff,
+            "store": best["store"],
+            "all_stores": all_stores,
+            "price_unavailable": False,
+            "image_url": best.get("image_url", ""),
+        }
+        results.append(item_result)
+
+    # Scraper Health Check
+    unavail_count = sum(1 for r in results if r.get("price_unavailable"))
+    if unavail_count > (len(TRACKING_LIST) * 0.25):
+        health_msg = f"⚠️ *SCRAPER HEALTH ALERT*\n{unavail_count}/{len(TRACKING_LIST)} items have no reliable price. "
+        health_msg += "Site layouts may have changed."
+        send_telegram(health_msg)
+
+    logging.info(f"Price Scan complete. {len(results)}/{len(TRACKING_LIST)} items with prices.")
+    return results
+
+def _nl(): return "\n"
+def _sp(): return "\n\n"  # Section spacing for smartphone
+
+
+def _make_table(headers, rows, col_align=None):
+    """Build monospace table for Telegram. Uses code block for alignment.
+    headers, rows: lists of cell values. col_align: '<' left, '>' right per column."""
+    if not rows:
+        return ""
+    n = len(headers)
+    col_align = col_align or ["<"] * n
+
+    def safe(c):
+        return str(c).replace("`", "'")[:30]
+
+    def width(col_idx):
+        items = [safe(h) for h in headers] + [safe(r[col_idx]) for r in rows if col_idx < len(r)]
+        return max(len(x) for x in items) if items else 0
+
+    widths = [width(i) for i in range(n)]
+
+    def row(cells):
+        parts = []
+        for i, c in enumerate(cells):
+            w = widths[i] if i < len(widths) else 10
+            a = col_align[i] if i < len(col_align) else "<"
+            parts.append(f"{safe(c):{a}{w}}")
+        return " │ ".join(parts)
+
+    lines = [row(headers), "─" * (sum(widths) + 3 * (n - 1))]
+    for r in rows:
+        padded = list(r) + [""] * (n - len(r))
+        lines.append(row(padded))
+    return "```\n" + "\n".join(lines) + "\n```"
+
+# Weekly Essentials checklist (always buy, regardless of specials)
+WEEKLY_ESSENTIALS = [
+    "Capsicum, Onions, Spinach",
+    "Eggs, Cream, Cheese",
+    "Avocado, Zucchini",
+]
+
+def _resolve_compare_groups(results):
+    """For items sharing a compare_group, keep only the cheapest (by eff_price)
+    across all stores and products. Winner appears in normal list (no separate block)."""
+    groups = {}
+    ungrouped = []
+    for item in results:
+        grp = item.get("compare_group")
+        if grp:
+            groups.setdefault(grp, []).append(item)
+        else:
+            ungrouped.append(item)
+
+    winners = []
+    for grp, members in groups.items():
+        options = []
+        for m in members:
+            for sk, sd in m.get("all_stores", {}).items():
+                if sd["eff_price"] >= _PRICE_UNRELIABLE:
+                    continue
+                options.append((m, sk, sd["eff_price"]))
+        if not options:
+            winners.extend(members)
+            continue
+        # Sort by eff_price, then -pack_litres, then Woolies, then Coke over Pepsi, then name
+        options.sort(key=lambda x: (
+            x[2],
+            -(x[0].get("pack_litres") or 0),
+            0 if x[1] == "woolworths" else 1,
+            0 if "coke" in x[0]["name"].lower() else 1,
+            x[0]["name"],
+        ))
+        best_item, best_store, best_price = options[0]
+        winner = {**best_item, "store": best_store, "eff_price": best_price}
+        sd = best_item["all_stores"][best_store]
+        winner["price"] = sd["price"]
+        winner["unit_price"] = sd.get("unit_price")
+        winners.append(winner)
+
+    return ungrouped + winners, []
+
+def _store_badge(store_key):
+    s = STORES.get(store_key, {})
+    return f"{s.get('emoji', '')} {s.get('label', store_key)}"
+
+def _price_display(item):
+    """Format price string based on price_mode."""
+    if item.get("price_unavailable"):
+        return "❓ price unavailable"
+    mode = item.get("price_mode", "each")
+    eff = item.get("eff_price", item["price"])
+    if mode == "kg":
+        return f"${eff:.2f}/kg"
+    if mode == "litre":
+        return f"${item['price']:.2f} (${eff:.2f}/L)"
+    return f"${item['price']:.2f}"
+
+def _multi_store_line(item, compact=False):
+    """Show prices from all stores for an item (excludes unreliable prices).
+    compact: drop unit suffix when same for all (e.g. $11 vs $16 instead of $11/kg vs $16/kg)."""
+    stores = item.get("all_stores", {})
+    reliable = {sk: sd for sk, sd in stores.items() if sd["eff_price"] < _PRICE_UNRELIABLE}
+    if len(reliable) <= 1:
+        return ""
+    parts = []
+    mode = item.get("price_mode", "each")
+    for sk, sd in sorted(reliable.items(), key=lambda x: x[1]["eff_price"]):
+        se = STORES[sk]["emoji"]
+        if mode == "kg":
+            if compact:
+                parts.append(f"{se}${sd['eff_price']:.2f}")
+            else:
+                parts.append(f"{se}${sd['eff_price']:.2f}/kg")
+        elif mode == "litre":
+            if compact:
+                parts.append(f"{se}${sd['eff_price']:.2f}/L")
+            else:
+                parts.append(f"{se}${sd['price']:.2f} (${sd['eff_price']:.2f}/L)")
+        else:
+            parts.append(f"{se}${sd['price']:.2f}")
+    return "  " + " vs ".join(parts)
+
+
+def _format_special_compact(item, qty, type_emoji, cost):
+    """One-line format: 4x Name emoji $X/kg store $cost"""
+    name = _escape_md(item['name'])
+    badge = _store_badge(item.get('store', 'woolworths'))
+    price_str = _price_display(item)
+    line = f"• {qty}x {name} {type_emoji} {price_str} ✓{badge}"
+    if qty > 1:
+        line += f" ${cost:.2f}"
+    return line
+
+
+def _format_compact_compare(item, extra=""):
+    """Format compact W/C comparison: 'W $X  C $Y  → W 🟢'. extra appended (e.g. '  $74.80' for cost)."""
+    woolies_p, coles_p = _item_store_prices(item)
+    store = item.get("store", "woolworths")
+    best = "W" if store == "woolworths" else "C"
+    emoji = STORES.get(store, {}).get("emoji", "")
+    line = f"W {woolies_p}  C {coles_p}  → {best} {emoji}"
+    if extra:
+        line += extra
+    return line
+
+
+def _item_store_prices(item):
+    """Get (woolies_price_str, coles_price_str) from item's all_stores. Uses — when missing."""
+    stores = item.get("all_stores", {})
+    mode = item.get("price_mode", "each")
+    woolies_sd = stores.get("woolworths")
+    coles_sd = stores.get("coles")
+
+    def fmt(sd):
+        if not sd or sd.get("eff_price", 0) >= _PRICE_UNRELIABLE:
+            return "—"
+        if mode == "kg":
+            return f"${sd['eff_price']:.2f}/kg"
+        if mode == "litre":
+            p = sd.get("price")
+            ep = sd.get("eff_price")
+            return f"${p:.2f}" if p else f"${ep:.2f}/L"
+        return f"${sd['price']:.2f}"
+
+    return (fmt(woolies_sd), fmt(coles_sd))
+
+def export_data_to_json(results):
+    """Exports the latest scraped data to a JSON file for the dashboard."""
+    try:
+        os.makedirs("docs", exist_ok=True)
+        with open("docs/data.json", "w") as f:
+            json.dump(results, f, indent=2)
+        logging.info("Exported data.json successfully.")
+    except Exception as e:
+        logging.error(f"Error exporting data.json: {e}")
+
+def update_price_history(results):
+    """Appends current prices to history.json to track trends over time."""
+    try:
+        os.makedirs("docs", exist_ok=True)
+        history_path = "docs/history.json"
+        
+        # Load existing history
+        if os.path.exists(history_path):
+            with open(history_path, "r") as f:
+                history = json.load(f)
+        else:
+            history = {}
+
+        now = datetime.datetime.now().strftime("%Y-%m-%d")
+        
+        for item in results:
+            name = item['name']
+            if name not in history:
+                history[name] = {"target": item["target"], "history": []}
+            
+            # Avoid duplicate entries for the same day
+            if not history[name]["history"] or history[name]["history"][-1]["date"] != now:
+                history[name]["history"].append({
+                    "date": now,
+                    "price": item.get("eff_price", item["price"]),
+                    "is_special": item.get("price") <= item["target"],
+                    "store": item.get("store")
+                })
+        
+        with open(history_path, "w") as f:
+            json.dump(history, f, indent=2)
+        logging.info("Updated price history.json successfully.")
+    except Exception as e:
+        logging.error(f"Error updating history.json: {e}")
+
+def sync_to_github():
+    """Commits and pushes the docs/ folder to GitHub."""
+    import subprocess
+    try:
+        logging.info("Syncing docs to GitHub...")
+        subprocess.run(["git", "add", "docs/"], check=True, capture_output=True)
+        # Check if there are changes to commit
+        status = subprocess.run(["git", "status", "--porcelain", "docs/"], capture_output=True, text=True)
+        if status.stdout.strip():
+            subprocess.run(["git", "commit", "-m", "Auto-update prices"], check=True, capture_output=True)
+            subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True)
+            logging.info("Successfully pushed to GitHub.")
+        else:
+            logging.info("No changes to commit for GitHub.")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"GitHub sync failed: {e.stderr.decode()}")
+    except Exception as e:
+        logging.error(f"Error during GitHub sync: {e}")
+
+def run_report(full_list=False):
+    """Generate and send shopping report.
+    full_list: /show_staples - full staples list with all prices. False = deals only.
+    Big Shop (bulk qty) auto-detected from date (after 14th).
+    """
+    try:
+        today = datetime.datetime.now()
+        weekday = today.weekday()  # Mon=0, Sun=6
+        is_big_shop = today.day > BIG_SHOP_START_DAY
+
+        raw_results = check_prices()
+
+        # Update JSON files for web dashboard
+        export_data_to_json(raw_results)
+        update_price_history(raw_results)
+        
+        # Deploy to GitHub pages
+        threading.Thread(target=sync_to_github, daemon=True).start()
+
+        # Resolve comparison groups (beef_strips, cola_24pk, etc.)
+        resolved, _ = _resolve_compare_groups(raw_results)
+
+        # Specials: effective price at or below target (exclude unreliable prices)
+        specials = [s for s in resolved if not s.get('price_unavailable') and s.get('eff_price', s['price']) <= s['target']]
+        spec_names = {s['name'] for s in specials}
+        near_misses = [s for s in resolved if not s.get('price_unavailable') and s['target'] < s.get('eff_price', s['price']) <= s['target'] * 1.10]
+        unavailable = [s for s in resolved if s.get('price_unavailable')]
+
+        # Chunk 1: Header + comparison groups
+        chunk1 = ""
+        chunk1 += "🛒 *WoolesBot*" + _nl()
+        chunk1 += today.strftime("%d %b %Y") + _sp()
+        chunk1 += f"*{'📦 BIG MONTHLY STOCK UP' if is_big_shop else '🥦 WEEKLY FRESH RUN'}*" + _nl()
+        if is_big_shop:
+            chunk1 += "Target $500 → 10% off (~$50)" + _nl()
+        if full_list:
+            chunk1 += "_Kitchen staples_" + _nl()
+        chunk1 += _sp()
+
+        days_left = (1 - weekday) % 7
+        if days_left <= 3:
+            if days_left == 0:
+                chunk1 += "🚨 _Specials end TODAY (Tuesday)!_" + _sp()
+            else:
+                chunk1 += "⏰ _Specials end Tuesday!_" + _nl()
+                chunk1 += f"({days_left} day{'s' if days_left > 1 else ''} left)" + _sp()
+
+        if today.day > 25:
+            chunk1 += "⚠️ _10% discount resets soon – use it!_" + _sp()
+
+        send_telegram(chunk1.strip())
+        time.sleep(0.5)
+
+        cart_total = 0
+        chunk2 = ""
+
+        if full_list:
+            chunk2 += "📋 *KITCHEN STAPLES*" + _sp()
+            by_type = {}
+            for item in resolved:
+                t = item.get('type', 'pantry')
+                by_type.setdefault(t, []).append(item)
+            type_order = ['fresh_protein', 'fresh_veg', 'fresh_fridge', 'freezer', 'pantry', 'pet', 'household']
+            type_labels = {'fresh_protein': '🥩 Protein', 'fresh_veg': '🥦 Produce', 'fresh_fridge': '🥛 Dairy', 'freezer': '❄️ Freezer', 'pantry': '🍞 Pantry', 'pet': '🐱 Pets', 'household': '🧼 Household'}
+            for t in type_order:
+                if t not in by_type:
+                    continue
+                chunk2 += f"*{type_labels.get(t, t)}*" + _nl()
+                for item in by_type[t]:
+                    on_special = item['name'] in spec_names
+                    mark = " ✓" if on_special else ""
+                    chunk2 += f"{_escape_md(item['name'])}{mark}" + _nl()
+                    if item.get("price_unavailable"):
+                        mode = item.get("price_mode", "each")
+                        tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
+                        chunk2 += f"  —  tgt {tgt_str}" + _nl()
+                    else:
+                        chunk2 += f"  {_format_compact_compare(item)}" + _nl()
+                        if on_special:
+                            qty = 4 if (is_big_shop and item['type'] == 'fresh_protein') else (2 if (is_big_shop and item['type'] in ['pet', 'pantry', 'household', 'freezer']) else 1)
+                            cart_total += item['price'] * qty
+            chunk2 += "📝 *WEEKLY ESSENTIALS*" + _nl()
+            for line in WEEKLY_ESSENTIALS:
+                chunk2 += f"• {line}" + _nl()
+        else:
+            # DEALS-ONLY MODE
+            if specials:
+                chunk2 += "🔥 *ON SPECIAL*" + _sp()
+                for item in specials:
+                    qty = 1
+                    if is_big_shop:
+                        if item['type'] == 'fresh_protein': qty = 4
+                        elif item['type'] in ['pet', 'pantry', 'household', 'freezer']: qty = 2
+                    cost = item['price'] * qty
+                    cart_total += cost
+                    name_line = f"{qty}× {item['name']}" if qty > 1 else item['name']
+                    chunk2 += _escape_md(name_line) + _nl()
+                    extra = f"  ${cost:.2f}" if qty > 1 else ""
+                    chunk2 += f"  {_format_compact_compare(item, extra=extra)}" + _nl()
+            else:
+                chunk2 += "No specials today. 🧘‍♂️" + _sp()
+            chunk2 += _sp()
+            chunk2 += "📝 *WEEKLY ESSENTIALS*" + _nl()
+            for line in WEEKLY_ESSENTIALS:
+                chunk2 += f"• {line}" + _nl()
+            chunk2 += _sp()
+            if near_misses:
+                chunk2 += "👀 *ALMOST THERE*" + _nl()
+                for item in near_misses[:5]:
+                    mode = item.get("price_mode", "each")
+                    tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
+                    chunk2 += _escape_md(item['name']) + _nl()
+                    chunk2 += f"  {_format_compact_compare(item, extra=f'  tgt {tgt_str}')}" + _nl()
+            if unavailable:
+                chunk2 += "❓ *PRICE UNAVAILABLE*" + _nl()
+                chunk2 += "_Unit price scrape failed — check manually_" + _nl()
+                for item in unavailable:
+                    mode = item.get("price_mode", "each")
+                    shelf = item.get("price", 0)
+                    shelf_str = f"${shelf:.2f}" if shelf > 0 else "—"
+                    tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
+                    chunk2 += _escape_md(item['name']) + _nl()
+                    chunk2 += f"  tgt {tgt_str}  shelf {shelf_str}" + _nl()
+
+        send_telegram(chunk2.strip())
+        time.sleep(0.5)
+
+        chunk3 = "───" + _nl() + f"💰 *TOTAL: ${cart_total:.2f}*" + _sp()
+        if is_big_shop:
+            diff = DISCOUNT_CAP - cart_total
+            if cart_total >= DISCOUNT_CAP:
+                chunk3 += "✅ Use 10% discount!" + _nl()
+            else:
+                chunk3 += f"⚠️ Add ${diff:.2f} to hit $500" + _nl()
+                chunk3 += "Bridge: " + ", ".join(B_LIST_BRIDGE_ITEMS[:4]) + _nl()
+        elif not full_list and cart_total > 120:
+            chunk3 += "⚠️ Over $120 – double check" + _nl()
+            
+        chunk3 += _sp() + "🌐 [View Web Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
+
+        send_telegram(chunk3.strip())
+    except Exception as e:
+        error_trace = traceback.format_exc()
+        logging.error(f"Error in run_report: {e}\n{error_trace}")
+        send_telegram(f"🚨 *REPORT ERROR*:\n{_escape_md(str(e))}")
+
+# ─── AD-HOC PRODUCT SEARCH (/find) ───────────────────────────────────────────
+
+COLES_WARMUP_URL = "https://www.coles.com.au/product/coles-beef-rump-steak-approx.-832g-5132370"
+
+# ── Unit price normalization ──────────────────────────────────────────────────
+
+def _normalize_unit_price(cup_price, cup_measure):
+    """Normalize unit price to a common base for cross-store comparison.
+    Returns (normalized_price, base_unit_label) e.g. (42.50, "/kg").
+    Weight → per-kg, Liquid → per-litre, Each → per-each."""
+    if cup_price is None or cup_price <= 0:
+        return (None, "")
+    measure = (cup_measure or "").strip().upper().replace(" ", "")
+    # Weight → per kg
+    if measure in ("1KG", "KG"):
+        return (cup_price, "/kg")
+    if measure in ("100G", "G"):
+        return (cup_price * 10, "/kg")
+    # Liquid → per litre
+    if measure in ("1L", "L"):
+        return (cup_price, "/L")
+    if measure in ("100ML", "ML"):
+        return (cup_price * 10, "/L")
+    # Each / unknown
+    if measure in ("1EA", "EA", "EACH", ""):
+        return (cup_price, "/ea")
+    return (cup_price, f"/{measure.lower()}")
+
+
+def _parse_woolworths_cup(cup_string):
+    """Parse Woolworths CupString like '$42.50 / 1KG' into (price, measure).
+    Returns (cup_price, cup_measure) or (None, '')."""
+    if not cup_string:
+        return (None, "")
+    m = re.match(r"\$?([\d.]+)\s*/\s*(.+)", cup_string.strip())
+    if m:
+        try:
+            return (float(m.group(1)), m.group(2).strip())
+        except ValueError:
+            pass
+    return (None, "")
+
+
+def _parse_coles_unit(pricing):
+    """Parse Coles pricing dict into (cup_price, cup_measure).
+    Returns (cup_price, cup_measure) or (None, '')."""
+    unit_data = pricing.get("unit", {}) or {}
+    up = unit_data.get("price")
+    unit_type = (unit_data.get("ofMeasureUnits") or "").strip().lower()
+    if up is not None and up > 0:
+        return (float(up), unit_type)
+    # Fallback: parse from comparable string like "$45.00/ 1kg"
+    comp = pricing.get("comparable", "")
+    if comp:
+        m = re.match(r"\$?([\d.]+)\s*/\s*(.+)", comp.strip())
+        if m:
+            try:
+                return (float(m.group(1)), m.group(2).strip())
+            except ValueError:
+                pass
+    return (None, "")
+
+
+def _enrich_with_unit_price(result):
+    """Add norm_unit_price and norm_unit_label to a search result dict."""
+    cup_price = result.get("cup_price")
+    cup_measure = result.get("cup_measure", "")
+    norm_price, norm_label = _normalize_unit_price(cup_price, cup_measure)
+    result["norm_unit_price"] = norm_price
+    result["norm_unit_label"] = norm_label
+    return result
+
+
+# ── curl_cffi search functions (zero-browser) ────────────────────────────────
+
+_coles_cached_build_id = None  # cache across sessions
+
+
+def _cffi_get_coles_build_id(session):
+    """Extract Coles Next.js buildId. Tries homepage first, then product page, then cache."""
+    global _coles_cached_build_id
+    # Strategy 1: Homepage (most reliable with chrome124)
+    for url in ["https://www.coles.com.au/", COLES_WARMUP_URL]:
+        try:
+            resp = session.get(url, timeout=15)
+            if resp.status_code == 200 and len(resp.text) > 5000:
+                m = re.search(r'"buildId"\s*:\s*"([^"]+)"', resp.text)
+                if m:
+                    _coles_cached_build_id = m.group(1)
+                    logging.info(f"Coles buildId extracted: {_coles_cached_build_id}")
+                    return _coles_cached_build_id
+        except Exception as e:
+            logging.debug(f"Coles buildId attempt ({url[:40]}): {e}")
+    # Strategy 2: Use cached buildId from previous successful extraction
+    if _coles_cached_build_id:
+        logging.info(f"Using cached Coles buildId: {_coles_cached_build_id}")
+        return _coles_cached_build_id
+    # Strategy 3: Try to discover buildId via _next/static path
+    try:
+        resp = session.get("https://www.coles.com.au/_next/data/", timeout=10)
+        # 404 response sometimes contains buildId in error message or redirect
+        if resp.status_code == 404:
+            m = re.search(r'"buildId"\s*:\s*"([^"]+)"', resp.text)
+            if m:
+                _coles_cached_build_id = m.group(1)
+                logging.info(f"Coles buildId from 404: {_coles_cached_build_id}")
+                return _coles_cached_build_id
+    except Exception:
+        pass
+    logging.warning("Coles buildId extraction failed and no cache available")
+    return None
+
+
+def _cffi_search_woolworths(session, query, max_results=5):
+    """Search Woolworths via their internal API using curl_cffi (no browser).
+    Session must have visited the homepage first for cookies."""
+    try:
+        resp = session.post(
+            "https://www.woolworths.com.au/apis/ui/Search/products",
+            json={
+                "SearchTerm": query,
+                "PageSize": max_results,
+                "PageNumber": 1,
+                "SortType": "TraderRelevance",
+                "Location": f"/shop/search/products?searchTerm={query}",
+            },
+            headers={"Content-Type": "application/json", "Accept": "application/json"},
+            timeout=15,
+        )
+        if resp.status_code != 200:
+            logging.warning(f"Woolworths search API HTTP {resp.status_code}")
+            return [], None
+        data = resp.json()
+        suggested = data.get("SuggestedTerm")
+        results = []
+        for group in data.get("Products", [])[:max_results]:
+            prod = (group.get("Products") or [{}])[0]
+            if not prod.get("Name") or prod.get("Price") is None:
+                continue
+            cup_price, cup_measure = _parse_woolworths_cup(prod.get("CupString", ""))
+            result = {
+                "name": prod.get("Name", ""),
+                "brand": prod.get("Brand", ""),
+                "price": float(prod.get("Price", 0)),
+                "was_price": prod.get("WasPrice"),
+                "cup_price": cup_price if cup_price else prod.get("CupPrice"),
+                "cup_measure": cup_measure if cup_measure else prod.get("CupMeasure", ""),
+                "cup_string": prod.get("CupString", ""),
+                "size": prod.get("PackageSize", ""),
+                "on_special": prod.get("IsOnSpecial", False),
+                "store": "woolworths",
+            }
+            _enrich_with_unit_price(result)
+            results.append(result)
+        logging.info(f"Woolworths search '{query}': {len(results)} results (suggested={suggested})")
+        return results, suggested
+    except Exception as e:
+        logging.error(f"Woolworths search error: {e}")
+        return [], None
+
+
+def _cffi_search_coles(session, query, build_id, max_results=5):
+    """Search Coles via _next/data API using curl_cffi (no browser).
+    Returns (results, did_you_mean_list)."""
+    global _coles_cached_build_id
+    try:
+        encoded = query.replace(" ", "+")
+        resp = session.get(
+            f"https://www.coles.com.au/_next/data/{build_id}/search/products.json?q={encoded}",
+            timeout=15,
+        )
+        if resp.status_code == 404:
+            # buildId likely expired — try to re-extract
+            logging.warning(f"Coles search 404 — buildId may have expired, clearing cache")
+            _coles_cached_build_id = None
+            return [], None
+        if resp.status_code != 200:
+            logging.warning(f"Coles search API HTTP {resp.status_code}")
+            return [], None
+        data = resp.json()
+        sr = data.get("pageProps", {}).get("searchResults", {})
+        did_you_mean = sr.get("didYouMean")  # list of suggestions or None
+        results = []
+        for r in sr.get("results", [])[:max_results]:
+            if r.get("_type") != "PRODUCT":
+                continue
+            pricing = r.get("pricing", {})
+            now_price = pricing.get("now")
+            if now_price is None or now_price <= 0:
+                continue
+            cup_price, cup_measure = _parse_coles_unit(pricing)
+            result = {
+                "name": r.get("name", ""),
+                "brand": r.get("brand", ""),
+                "price": float(now_price),
+                "was_price": pricing.get("was"),
+                "cup_price": cup_price,
+                "cup_measure": cup_measure,
+                "cup_string": pricing.get("comparable", ""),
+                "size": r.get("size", ""),
+                "on_special": pricing.get("promotionType") is not None,
+                "store": "coles",
+            }
+            _enrich_with_unit_price(result)
+            results.append(result)
+        logging.info(f"Coles search '{query}': {len(results)} results (didYouMean={did_you_mean})")
+        return results, did_you_mean
+    except Exception as e:
+        logging.error(f"Coles search error: {e}")
+        return [], None
+
+
+def _coles_needs_spelling_retry(query, results, did_you_mean):
+    """Check if Coles returned garbage and should retry with didYouMean.
+    Returns the corrected query or None."""
+    if not did_you_mean or not isinstance(did_you_mean, list):
+        return None
+    if not results:
+        # No results at all — try suggestion
+        return did_you_mean[0] if did_you_mean else None
+    # Check if query terms appear in any top result name
+    query_lower = query.lower()
+    query_words = set(query_lower.split())
+    for r in results[:3]:
+        name_lower = (r.get("name", "") + " " + r.get("brand", "")).lower()
+        # If any query word is a substring of the name, results are probably relevant
+        if any(w in name_lower for w in query_words if len(w) >= 3):
+            return None
+    # No match — results look irrelevant, retry with correction
+    return did_you_mean[0]
+
+
+# Preferred TLS fingerprints (ordered by reliability against Akamai)
+_CFFI_IMPERSONATIONS = ["chrome124", "chrome120", "chrome116"]
+
+
+def _create_cffi_session():
+    """Create a curl_cffi session with the best available impersonation."""
+    for imp in _CFFI_IMPERSONATIONS:
+        try:
+            return cffi_requests.Session(impersonate=imp)
+        except Exception:
+            continue
+    return cffi_requests.Session(impersonate="chrome124")
+
+
+def _cffi_fetch_product(session, url, store_key):
+    """Fetch product page HTML and extract price JSON. Returns dict or None."""
+    try:
+        resp = session.get(url, timeout=15)
+        if resp.status_code != 200 or len(resp.text) < 5000:
+            return None
+        if store_key == "woolworths":
+            data = _extract_woolworths_json_from_html(resp.text)
+        else:
+            data = _extract_coles_json_from_html(resp.text)
+        if data and data.get("price", 0) > 0:
+            return {
+                "price": data["price"],
+                "unit_price": data.get("unit_price"),
+                "unit": data.get("unit", "each"),
+                "image_url": data.get("image_url", ""),
+            }
+    except Exception as e:
+        logging.debug(f"cffi fetch error {url[:50]}: {e}")
+    return None
+
+
+def _init_search_sessions():
+    """Create curl_cffi sessions for both stores and warm them up.
+    Returns (woolies_session, coles_session, coles_build_id)."""
+    woolies_session = _create_cffi_session()
+    coles_session = _create_cffi_session()
+
+    # Warm up Woolworths (get cookies)
+    try:
+        resp = woolies_session.get("https://www.woolworths.com.au/", timeout=15)
+        if resp.status_code != 200 or len(resp.text) < 5000:
+            logging.warning(f"Woolworths warm-up: HTTP {resp.status_code}, {len(resp.text)} chars — retrying")
+            # Retry with different impersonation
+            for imp in _CFFI_IMPERSONATIONS[1:]:
+                try:
+                    woolies_session = cffi_requests.Session(impersonate=imp)
+                    resp = woolies_session.get("https://www.woolworths.com.au/", timeout=15)
+                    if len(resp.text) > 5000:
+                        logging.info(f"Woolworths warm-up OK with {imp}")
+                        break
+                except Exception:
+                    continue
+            else:
+                logging.warning("Woolworths warm-up failed with all impersonations")
+                woolies_session = None
+    except Exception as e:
+        logging.error(f"Woolworths session error: {e}")
+        woolies_session = None
+
+    # Warm up Coles (get buildId + cookies)
+    coles_build_id = _cffi_get_coles_build_id(coles_session)
+    if not coles_build_id:
+        # Retry with different impersonation
+        for imp in _CFFI_IMPERSONATIONS[1:]:
+            try:
+                coles_session = cffi_requests.Session(impersonate=imp)
+                coles_build_id = _cffi_get_coles_build_id(coles_session)
+                if coles_build_id:
+                    logging.info(f"Coles warm-up OK with {imp}")
+                    break
+            except Exception:
+                continue
+        if not coles_build_id:
+            logging.warning("Coles warm-up failed with all impersonations")
+            coles_session = None
+
+    return woolies_session, coles_session, coles_build_id
+
+
+def _sort_key_unit_price(r):
+    """Sort key: by normalized unit price (None → infinity so they sink)."""
+    p = r.get("norm_unit_price")
+    return p if p is not None else float("inf")
+
+
+def _result_display_name(r):
+    """Format result name for display. Deduplicates brand if already in name."""
+    brand = (r.get("brand") or "").strip()
+    name = (r.get("name") or "").strip()
+    if brand and name.lower().startswith(brand.lower()):
+        return name  # Brand already in name, don't double it
+    return f"{brand} {name}".strip() if brand else name
+
+
+def _result_price_str(r):
+    """Format price string with unit price."""
+    price = r.get("price", 0)
+    norm_price = r.get("norm_unit_price")
+    norm_label = r.get("norm_unit_label", "")
+    size = r.get("size", "")
+
+    base = f"${price:.2f}"
+    if size:
+        base += f" {_escape_md(size)}"
+    if norm_price is not None and norm_label:
+        base += f" (${norm_price:.2f}{norm_label})"
+    return base
+
+
+def search_and_compare(query):
+    """Search both stores for a product and send comparison to Telegram.
+    Uses curl_cffi (no browser) with unit price sorting and spelling correction."""
+    try:
+        send_telegram(f"🔍 Searching for _{_escape_md(query)}_ ...")
+        woolies_session, coles_session, coles_build_id = _init_search_sessions()
+
+        woolies_results = []
+        coles_results = []
+        correction_note = ""
+
+        # ── Woolworths search ──
+        if woolies_session:
+            woolies_results, suggested = _cffi_search_woolworths(woolies_session, query)
+            if suggested and suggested.lower() != query.lower():
+                correction_note = f"_Showing results for: {_escape_md(suggested)}_" + _nl()
+
+        # ── Coles search (with spelling correction) ──
+        if coles_session and coles_build_id:
+            coles_results, did_you_mean = _cffi_search_coles(coles_session, query, coles_build_id)
+            retry_query = _coles_needs_spelling_retry(query, coles_results, did_you_mean)
+            if retry_query:
+                logging.info(f"Coles spelling retry: '{query}' → '{retry_query}'")
+                coles_results, _ = _cffi_search_coles(coles_session, retry_query, coles_build_id)
+                if not correction_note:
+                    correction_note = f"_Showing results for: {_escape_md(retry_query)}_" + _nl()
+
+        if not woolies_results and not coles_results:
+            send_telegram(f"😕 No results found for '{_escape_md(query)}' at either store.")
+            return
+
+        # ── Merge & sort by unit price ──
+        all_results = woolies_results[:5] + coles_results[:5]
+        all_results.sort(key=_sort_key_unit_price)
+
+        # Determine common unit for display
+        unit_labels = [r["norm_unit_label"] for r in all_results if r.get("norm_unit_price") is not None]
+        common_unit = unit_labels[0] if unit_labels else ""
+
+        msg = f"🔍 *SEARCH: {_escape_md(query)}*" + _sp()
+        if correction_note:
+            msg += correction_note + _nl()
+
+        # ── Cheapest overall (by unit price) ──
+        valid_results = [r for r in all_results if r.get("norm_unit_price") is not None]
+        if valid_results:
+            cheapest = valid_results[0]
+            store_key = cheapest["store"]
+            store_emoji = STORES.get(store_key, {}).get("emoji", "")
+            store_label = STORES.get(store_key, {}).get("label", store_key)
+            ch_name = _escape_md(_result_display_name(cheapest))
+            msg += f"💰 *CHEAPEST ({_escape_md(common_unit)}):*" + _nl()
+            msg += f"{store_emoji} {ch_name}" + _nl()
+            msg += f"{_result_price_str(cheapest)}" + _nl()
+            if cheapest.get("on_special"):
+                msg += "⚡ ON SPECIAL" + _nl()
+            msg += _nl()
+
+        # ── All results sorted by unit price ──
+        sort_label = f"by ${common_unit.lstrip('/')}" if common_unit else "by price"
+        msg += f"📊 *ALL RESULTS* ({_escape_md(sort_label)}):" + _nl()
+        for r in all_results[:8]:
+            store_char = "W" if r["store"] == "woolworths" else "C"
+            emoji = STORES.get(r["store"], {}).get("emoji", "")
+            name = _result_display_name(r)
+            price_str = _result_price_str(r)
+            if r.get("on_special"):
+                price_str += " ⚡"
+            msg += _escape_md(name) + _nl()
+            msg += f"  {store_char} {price_str} {emoji}" + _nl()
+        send_telegram(msg.strip())
+
+    except Exception as e:
+        logging.error(f"Search error: {e}\n{traceback.format_exc()}")
+        send_telegram(f"🚨 Search failed: {_escape_md(str(e))}")
+
+# ─── SHOPPING LIST (/list) ───────────────────────────────────────────────────
+
+LIST_EXPIRY_HOURS = 4  # auto-delete list after this many hours of inactivity
+
+_shopping_list = {
+    "items": [],           # [{"query": str, "woolies": {...}, "coles": {...}, "cheapest_store": str}]
+    "last_updated": None,  # datetime or None
+    "last_message": "",    # cached report text for /list show
+}
+_list_pending_items = []   # items waiting for add/new confirmation
+
+def _list_is_expired():
+    """Check if the shopping list has expired (no activity for LIST_EXPIRY_HOURS)."""
+    if not _shopping_list["last_updated"]:
+        return True
+    age = (datetime.datetime.now() - _shopping_list["last_updated"]).total_seconds()
+    return age > LIST_EXPIRY_HOURS * 3600
+
+def _list_clear():
+    """Clear the shopping list."""
+    _shopping_list["items"] = []
+    _shopping_list["last_updated"] = None
+    _shopping_list["last_message"] = ""
+
+def _search_batch(queries):
+    """Search multiple items across both stores using curl_cffi (no browser).
+    Returns list of {query, woolies: {...}, coles: {...}, cheapest_store}.
+    Includes unit price data and Coles spelling correction."""
+    woolies_session, coles_session, coles_build_id = _init_search_sessions()
+    results = []
+    woolies_cache = {}
+    coles_cache = {}
+
+    # ── Woolworths: API calls for all items ──
+    if woolies_session:
+        logging.info(f"[List] Searching {len(queries)} items on Woolworths...")
+        for q in queries:
+            try:
+                w_results, _ = _cffi_search_woolworths(woolies_session, q, max_results=1)
+                if w_results:
+                    woolies_cache[q] = w_results[0]
+                time.sleep(0.2)
+            except Exception as e:
+                logging.debug(f"[List] Woolies search '{q}' failed: {e}")
+    else:
+        logging.warning("[List] Woolworths session failed")
+
+    # ── Coles: API calls for all items (with spelling correction) ──
+    if coles_session and coles_build_id:
+        logging.info(f"[List] Searching {len(queries)} items on Coles...")
+        for q in queries:
+            try:
+                c_results, did_you_mean = _cffi_search_coles(coles_session, q, coles_build_id, max_results=1)
+                # Spelling correction: retry if results look wrong
+                retry_query = _coles_needs_spelling_retry(q, c_results, did_you_mean)
+                if retry_query:
+                    logging.info(f"[List] Coles spelling retry: '{q}' → '{retry_query}'")
+                    c_results, _ = _cffi_search_coles(coles_session, retry_query, coles_build_id, max_results=1)
+                if c_results:
+                    coles_cache[q] = c_results[0]
+                time.sleep(0.2)
+            except Exception as e:
+                logging.debug(f"[List] Coles search '{q}' failed: {e}")
+    else:
+        logging.warning("[List] Coles session failed")
+
+    # ── Merge results per query (compare by unit price when available) ──
+    for q in queries:
+        w = woolies_cache.get(q)
+        c = coles_cache.get(q)
+        cheapest_store = None
+        if w and c:
+            # Prefer unit price comparison; fall back to shelf price
+            w_up = w.get("norm_unit_price")
+            c_up = c.get("norm_unit_price")
+            if w_up is not None and c_up is not None:
+                cheapest_store = "woolworths" if w_up <= c_up else "coles"
+            else:
+                cheapest_store = "woolworths" if w["price"] <= c["price"] else "coles"
+        elif w:
+            cheapest_store = "woolworths"
+        elif c:
+            cheapest_store = "coles"
+        results.append({
+            "query": q,
+            "woolies": w,
+            "coles": c,
+            "cheapest_store": cheapest_store,
+        })
+    return results
+
+
+def _format_list_item_price(r):
+    """Format a single item price with unit price for the /list report."""
+    if not r:
+        return ""
+    price_str = f"${r['price']:.2f}"
+    norm = r.get("norm_unit_price")
+    label = r.get("norm_unit_label", "")
+    if norm is not None and label:
+        price_str += f" (${norm:.2f}{label})"
+    return price_str
+
+
+def _format_list_report():
+    """Format the shopping list comparison report as a table: Item | Woolies | Coles | Best."""
+    items = _shopping_list["items"]
+    if not items:
+        return "🛒 Shopping list is empty."
+
+    woolies_total = 0.0
+    coles_total = 0.0
+    woolies_wins = 0
+    coles_wins = 0
+    list_lines = []
+
+    for item in items:
+        q = item["query"]
+        w = item.get("woolies")
+        c = item.get("coles")
+        best = item.get("cheapest_store")
+
+        woolies_p = _format_list_item_price(w) if w else "—"
+        coles_p = _format_list_item_price(c) if c else "—"
+
+        if not w and not c:
+            list_lines.append((q, "  —  ❓ not found"))
+            continue
+
+        best_char = "W" if best == "woolworths" else "C"
+        emoji = STORES.get(best, {}).get("emoji", "") if best else ""
+        list_lines.append((q, f"  W {woolies_p}  C {coles_p}  → {best_char} {emoji}"))
+
+        if best == "woolworths" and w:
+            woolies_total += w["price"]
+            woolies_wins += 1
+            coles_total += c["price"] if c else w["price"]
+        elif best == "coles" and c:
+            coles_total += c["price"]
+            coles_wins += 1
+            woolies_total += w["price"] if w else c["price"]
+        elif w:
+            woolies_total += w["price"]
+            woolies_wins += 1
+            coles_total += w["price"]
+        elif c:
+            coles_total += c["price"]
+            coles_wins += 1
+            woolies_total += c["price"]
+
+    msg = f"🛒 *SHOPPING LIST* ({len(items)} items)" + _sp()
+    for name, cmp_line in list_lines:
+        msg += _escape_md(name) + _nl() + cmp_line + _nl()
+    msg += _sp() + "💰 *TOTALS*" + _nl()
+    msg += f"🟢 All at Woolies: ${woolies_total:.2f}" + _nl()
+    msg += f"🔴 All at Coles: ${coles_total:.2f}" + _nl()
+
+    # Split shop total (cheapest per item)
+    split_total = 0.0
+    for item in items:
+        w = item.get("woolies")
+        c = item.get("coles")
+        best = item.get("cheapest_store")
+        if best == "woolworths" and w:
+            split_total += w["price"]
+        elif best == "coles" and c:
+            split_total += c["price"]
+        elif w:
+            split_total += w["price"]
+        elif c:
+            split_total += c["price"]
+
+    msg += f"✅ Split shop: ${split_total:.2f} ({woolies_wins}x 🟢 + {coles_wins}x 🔴)" + _nl()
+
+    all_store_total = min(woolies_total, coles_total) if woolies_total > 0 and coles_total > 0 else max(woolies_total, coles_total)
+    if split_total < all_store_total:
+        saving = all_store_total - split_total
+        msg += f"💡 _Split saves ${saving:.2f} vs single store_" + _nl()
+
+    return msg.strip()
+
+def run_list_search(new_queries, mode="new"):
+    """Run the shopping list search. mode='new' replaces, mode='add' appends."""
+    try:
+        if mode == "new":
+            _list_clear()
+
+        total_queries = [q.strip() for q in new_queries if q.strip()]
+        existing_queries = [item["query"] for item in _shopping_list["items"]]
+        # Only search items not already in the list
+        to_search = [q for q in total_queries if q not in existing_queries]
+        all_queries = existing_queries + to_search
+
+        if not all_queries:
+            send_telegram("🛒 No items to search.")
+            return
+
+        send_telegram(f"🔍 Searching {len(to_search)} item{'s' if len(to_search) != 1 else ''} across 🟢 Woolies + 🔴 Coles...")
+
+        # Search only new items
+        if to_search:
+            search_results = _search_batch(to_search)
+            _shopping_list["items"].extend(search_results)
+
+        _shopping_list["last_updated"] = datetime.datetime.now()
+        report = _format_list_report()
+        _shopping_list["last_message"] = report
+        send_telegram(report)
+
+    except Exception as e:
+        logging.error(f"List search error: {e}\n{traceback.format_exc()}")
+        send_telegram(f"🚨 List search failed: {_escape_md(str(e))}")
+
+INTRO_LINE = "Hey! It's your WoolesBot, ready to go shopping with you."
+
+HELP_TEXT = INTRO_LINE + """
+
+📋 *Reports*
+/shop — Spot bargains: only items on special below your target price
+/show\\_staples — Your kitchen staples: full list with all prices, specials highlighted
+
+🔍 *Search & Compare*
+/find chicken thighs — Search any item across Woolies + Coles
+/list milk, eggs, bread — Compare a shopping list
+/list show — Show current list again
+/list clear — Delete the list
+
+⚙️ *System*
+/web — Link to the online dashboard
+/ping — Am I alive?
+/restart — Restart the bot
+/help — This message"""
+
+def _strip_bot_suffix(cmd):
+    """Remove @botname suffix from commands: /shop@MyBot → /shop"""
+    return cmd.split("@")[0]
+
+def telegram_bot_listener():
+    """Polls Telegram for commands like /shop."""
+    last_update_id = 0
+    logging.info("Telegram Bot Listener started.")
+    
+    while True:
+        try:
+            url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates"
+            params = {"offset": last_update_id + 1, "timeout": 30}
+            # Network timeout = long-poll timeout + buffer for network latency
+            response = requests.get(url, params=params, timeout=45)
+            response.raise_for_status()
+            updates = response.json().get("result", [])
+            
+            for update in updates:
+                last_update_id = update["update_id"]
+                message = update.get("message", {})
+                chat_id = str(message.get("chat", {}).get("id", ""))
+                text = message.get("text", "")
+
+                if chat_id:
+                    logging.debug(f"Telegram from {chat_id}: '{text}'")
+                
+                cmd = _strip_bot_suffix((text or "").strip().lower())
+                
+                # /ping — health check (any chat)
+                if cmd == "/ping":
+                    send_telegram("🏓 Pong! I'm online!")
+                    continue
+                
+                # /help — show commands (any chat)
+                if cmd == "/help":
+                    send_telegram(HELP_TEXT)
+                    continue
+                
+                # /restart — restart the bot (launchd will auto-restart)
+                if cmd == "/restart":
+                    if chat_id != TELEGRAM_CHAT_ID:
+                        logging.warning(f"Unauthorized restart attempt from chat {chat_id}")
+                        continue
+                    logging.info("Restart requested via Telegram.")
+                    send_telegram("🔄 Restarting WoolesBot...")
+                    # Acknowledge the update so we don't re-process it after launchd restarts us
+                    try:
+                        requests.get(
+                            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates",
+                            params={"offset": last_update_id + 1},
+                            timeout=5,
+                        )
+                    except Exception:
+                        pass
+                    time.sleep(1)
+                    os._exit(0)  # Hard exit — launchd KeepAlive restarts us
+                
+                # /web — send link to dashboard
+                if cmd == "/web":
+                    send_telegram("🌐 *Web Dashboard*\nCheck out the deals and price trends here:\nhttps://KuschiKuschbert.github.io/wooliesbot/")
+                    continue
+                
+                # /find <query> — ad-hoc product search
+                raw_text = (text or "").strip()
+                if cmd.startswith("/find"):
+                    if chat_id != TELEGRAM_CHAT_ID:
+                        logging.warning(f"Unauthorized chat {chat_id} (expected {TELEGRAM_CHAT_ID})")
+                        continue
+                    # Extract search query: "/find gorgonzola cheese" → "gorgonzola cheese"
+                    query = raw_text[len("/find"):].strip()
+                    # Also strip @botname if present: "/find@MyBot gorgonzola" → "gorgonzola"
+                    if query.startswith("@"):
+                        query = query.split(" ", 1)[-1].strip() if " " in query else ""
+                    if not query:
+                        send_telegram("Usage: /find _item name_\nExample: /find gorgonzola cheese")
+                        continue
+                    logging.info(f"Search command: '{query}'")
+                    threading.Thread(
+                        target=lambda q=query: search_and_compare(q),
+                        daemon=True
+                    ).start()
+                    continue
+
+                # /list — shopping list commands
+                if cmd.startswith("/list"):
+                    if chat_id != TELEGRAM_CHAT_ID:
+                        logging.warning(f"Unauthorized chat {chat_id} (expected {TELEGRAM_CHAT_ID})")
+                        continue
+
+                    # Sub-commands: /list show, /list clear
+                    list_arg = raw_text.split(None, 1)[1].strip() if " " in raw_text else ""
+                    list_arg_lower = list_arg.lower()
+
+                    if cmd == "/list_add":
+                        # Confirm: add pending items to existing list
+                        if _list_pending_items:
+                            logging.info(f"List add: {_list_pending_items}")
+                            items_copy = list(_list_pending_items)
+                            _list_pending_items.clear()
+                            threading.Thread(
+                                target=lambda q=items_copy: run_list_search(q, mode="add"),
+                                daemon=True
+                            ).start()
+                        else:
+                            send_telegram("Nothing to add. Use /list item1, item2, ...")
+                        continue
+
+                    if cmd == "/list_new":
+                        # Confirm: replace list with pending items
+                        if _list_pending_items:
+                            logging.info(f"List new: {_list_pending_items}")
+                            items_copy = list(_list_pending_items)
+                            _list_pending_items.clear()
+                            threading.Thread(
+                                target=lambda q=items_copy: run_list_search(q, mode="new"),
+                                daemon=True
+                            ).start()
+                        else:
+                            send_telegram("Nothing to search. Use /list item1, item2, ...")
+                        continue
+
+                    if list_arg_lower == "show":
+                        if _list_is_expired():
+                            _list_clear()
+                            send_telegram("🛒 No active shopping list. Send /list item1, item2, ...")
+                        elif _shopping_list["last_message"]:
+                            send_telegram(_shopping_list["last_message"])
+                        else:
+                            send_telegram("🛒 Shopping list is empty.")
+                        continue
+
+                    if list_arg_lower == "clear":
+                        _list_clear()
+                        send_telegram("🗑 Shopping list cleared.")
+                        continue
+
+                    # /list item1, item2, item3 — create or extend list
+                    if not list_arg:
+                        if _shopping_list["items"] and not _list_is_expired():
+                            send_telegram(_shopping_list["last_message"] or _format_list_report())
+                        else:
+                            send_telegram("Usage: /list milk, eggs, bread\nSearches both stores and compares prices.")
+                        continue
+
+                    new_items = [i.strip() for i in list_arg.split(",") if i.strip()]
+                    if not new_items:
+                        send_telegram("Usage: /list milk, eggs, bread")
+                        continue
+
+                    # Auto-expire old list
+                    if _list_is_expired():
+                        _list_clear()
+
+                    # If list already has items, ask add or replace
+                    if _shopping_list["items"]:
+                        existing_names = ", ".join(item["query"] for item in _shopping_list["items"])
+                        _list_pending_items.clear()
+                        _list_pending_items.extend(new_items)
+                        msg = f"🛒 You have a list: _{_escape_md(existing_names)}_" + _nl()
+                        msg += _nl()
+                        msg += "/list\\_add — Add these items to it" + _nl()
+                        msg += "/list\\_new — Start fresh with just these"
+                        send_telegram(msg)
+                        continue
+
+                    # No existing list — create new
+                    logging.info(f"List new: {new_items}")
+                    threading.Thread(
+                        target=lambda q=list(new_items): run_list_search(q, mode="new"),
+                        daemon=True
+                    ).start()
+                    continue
+
+                # /shop — deals only (auto Big Shop from date)
+                if cmd == "/shop":
+                    if chat_id != TELEGRAM_CHAT_ID:
+                        logging.warning(f"Unauthorized chat {chat_id} (expected {TELEGRAM_CHAT_ID})")
+                        continue
+                    logging.info("Command: /shop (deals only)")
+                    send_telegram("👨‍🍳 Scanning Woolies + Coles (parallel)... ~3 min.")
+                    threading.Thread(target=lambda: run_report(full_list=False), daemon=True).start()
+                    continue
+                # /show_staples — full staples list with all prices (auto Big Shop from date)
+                if cmd == "/show_staples":
+                    if chat_id != TELEGRAM_CHAT_ID:
+                        logging.warning(f"Unauthorized chat {chat_id} (expected {TELEGRAM_CHAT_ID})")
+                        continue
+                    logging.info("Command: /show_staples (full list)")
+                    send_telegram("👨‍🍳 Scanning Woolies + Coles (parallel)... ~3 min.")
+                    threading.Thread(target=lambda: run_report(full_list=True), daemon=True).start()
+                    continue
+                    
+        except requests.exceptions.Timeout:
+            logging.debug("Telegram long-poll timed out (normal).")
+        except Exception as e:
+            logging.error(f"Telegram listener error: {e}")
+            time.sleep(10)
+        
+        time.sleep(1)
+
+def _scheduled_report():
+    """Wrapper for schedule to catch errors without killing the scheduler."""
+    try:
+        run_report()
+    except Exception as e:
+        logging.error(f"Scheduled report failed: {e}\n{traceback.format_exc()}")
+        send_telegram(f"🚨 Scheduled report failed:\n{_escape_md(str(e))}")
+
+if __name__ == "__main__":
+    try:
+        parser = argparse.ArgumentParser(description="WoolesBot - Woolworths and Coles price tracker")
+        parser.add_argument("--now", action="store_true", help="Run the report immediately")
+        args = parser.parse_args()
+
+        if args.now:
+            logging.info("Manual trigger received. Running report now...")
+            run_report()
+            sys.exit(0)
+
+        # Start Telegram Listener in a background thread
+        threading.Thread(target=telegram_bot_listener, daemon=True).start()
+
+        # Schedule for Sunday at 9:00 AM
+        schedule.every().sunday.at("09:00").do(_scheduled_report)
+        
+        # Startup notification — welcoming intro + full command reference
+        send_telegram(HELP_TEXT)
+        logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
+        
+        while True:
+            schedule.run_pending()
+            time.sleep(60)
+            
+    except KeyboardInterrupt:
+        logging.info("WoolesBot stopped by user.")
+        sys.exit(0)
+    except Exception as e:
+        error_trace = traceback.format_exc()
+        logging.critical(f"WoolesBot main loop crashed: {e}\n{error_trace}")
+        send_telegram(f"🚨 *FATAL CRASH*: WoolesBot stopped.\n{_escape_md(str(e))}")
+        sys.exit(1)

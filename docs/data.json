@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Watermelon (Quarter)",
+    "type": "fresh_veg",
+    "price_mode": "each",
+    "target": 3.5,
+    "woolworths": "https://www.woolworths.com.au/shop/productdetails/120384/woolworths-red-watermelon-cut-quarter",
+    "coles": "https://www.coles.com.au/product/coles-seedless-watermelon-cut-approx.-1.8kg-7508229",
+    "price": 5.22,
+    "unit_price": 2.9,
+    "unit": "kg",
+    "eff_price": 5.22,
+    "store": "coles",
+    "all_stores": {
+      "coles": {
+        "price": 5.22,
+        "unit_price": 2.9,
+        "eff_price": 5.22
+      },
+      "woolworths": {
+        "price": 6.38,
+        "unit_price": 6.38,
+        "eff_price": 6.38
+      }
+    },
+    "price_unavailable": false,
+    "image_url": "https://www.coles.com.au/7/7508229.jpg"
+  }
+]

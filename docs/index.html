@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WooliesBot Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i data-feather="shopping-bag"></i>
+                <h1>WooliesBot</h1>
+            </div>
+            <p class="subtitle">Your automated grocery tracker</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Stats -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Tracked Items</h3>
+                <p id="total-items">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Items on Special</h3>
+                <p id="total-specials">0</p>
+            </div>
+            <div class="stat-card highlight">
+                <h3>Est. Cart Cost</h3>
+                <p id="cart-total">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Current Specials -->
+        <section class="section" id="specials-section">
+            <div class="section-header">
+                <h2>🔥 Currently on Special</h2>
+                <div class="store-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn woolies-btn" data-filter="woolworths">Woolies</button>
+                    <button class="filter-btn coles-btn" data-filter="coles">Coles</button>
+                </div>
+            </div>
+            <div class="grid" id="specials-grid">
+                <!-- Special cards injected here -->
+            </div>
+        </section>
+
+        <!-- All Items -->
+        <section class="section" id="all-items-section">
+            <h2>📋 Master Tracklist</h2>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Best Store</th>
+                            <th>Price</th>
+                            <th>Target</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all-items-tbody">
+                        <!-- Table rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Updated via Chef OS Automation</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
