@@ -19,8 +19,15 @@
                 </div>
                 <p class="subtitle">Your automated grocery tracker</p>
                 <div class="live-status">
-                    <i data-feather="clock" class="icon-sm"></i> 
-                    Last checked: <span id="last-updated">Checking...</span>
+                    <div class="status-item">
+                        <i data-feather="clock" class="icon-sm"></i> 
+                        <span>Last: <span id="last-updated">Checking...</span></span>
+                    </div>
+                    <span class="status-sep">|</span>
+                    <div class="status-item">
+                        <i data-feather="refresh-cw" class="icon-sm"></i> 
+                        <span>Next: <span id="next-update">...</span></span>
+                    </div>
                 </div>
                 <!-- Pulsing Server Status -->
                 <div class="api-indicator">
@@ -200,14 +207,14 @@
         <!-- Tab 2: Analytics & Insights -->
         <section id="tab-analytics" class="tab-content">
             <div class="analytics-header">
-                <h2>📈 Spending Insights</h2>
-                <p class="subtitle">Based on your recipe sync history</p>
+                <h2>📈 Market Insights</h2>
+                <p class="subtitle">Tracking grocery inflation and your savings performance</p>
             </div>
 
             <div class="analytics-grid">
                 <div class="analytics-card span-2">
                     <div class="card-header">
-                        <h3>Spending Trends</h3>
+                        <h3>Grocery Price Trends</h3>
                         <i data-feather="trending-up"></i>
                     </div>
                     <div class="chart-container">
@@ -227,16 +234,16 @@
 
                 <div class="analytics-card">
                     <div class="card-header">
-                        <h3>Savings Gaps</h3>
+                        <h3>Savings Achievement</h3>
                         <i data-feather="target"></i>
                     </div>
                     <div id="savings-breakdown">
                         <div class="savings-metric">
-                            <span class="label">Total Potential Savings Today:</span>
+                            <span class="label">Historical Realized Savings:</span>
                             <span class="value" id="analytic-savings-val">$0</span>
                         </div>
                         <div class="savings-metric">
-                            <span class="label">Efficiency (Bought on Target):</span>
+                            <span class="label">Shopping Efficiency:</span>
                             <span class="value" id="analytic-efficiency-val">0%</span>
                         </div>
                     </div>

@@ -509,6 +509,7 @@ function renderShoppingList() {
 
 function updateLastCheckedDisplay() {
     const el = document.getElementById('last-updated');
+    const nextEl = document.getElementById('next-update');
     if (!el || !_lastChecked) return;
     
     const lastDate = new Date(_lastChecked);
@@ -517,6 +518,7 @@ function updateLastCheckedDisplay() {
         return;
     }
     
+    // 1. Update Relative "Last Checked"
     const now = new Date();
     const diffMins = Math.floor((now - lastDate) / 60000);
     
@@ -526,6 +528,17 @@ function updateLastCheckedDisplay() {
         const hours = Math.floor(diffMins / 60);
         el.textContent = `${hours}h ${diffMins % 60}m ago`;
     }
+
+    // 2. Update Local Time "Next Check"
+    if (nextEl) {
+        // Assume 60 min interval from last success
+        const nextDate = new Date(lastDate.getTime() + (60 * 60 * 1000));
+        const options = { hour: 'numeric', minute: '2-digit', hour12: true };
+        nextEl.textContent = nextDate.toLocaleTimeString(undefined, options);
+    }
+
+    // 3. Refresh feather icons for the new structure
+    if (typeof feather !== 'undefined') feather.replace();
 }
 
 async function monitorApi() {
@@ -872,31 +885,49 @@ async function saveItemChanges() {
 function renderAnalytics() {
     // Collect data
     const categories = {};
-    const spendingHistory = {};
-    let totalSavings = 0;
+    const priceIndexByMonth = {}; // YYYY-MM -> { sum: X, count: Y }
+    let totalRealizedSavings = 0;
     let itemsBoughtAtTarget = 0;
-    let totalItemsPurchased = 0;
+    let totalItemsTracked = _data.length;
 
+    // 1. Calculate Price Index and historical trends from history.json
     Object.entries(_history).forEach(([name, data]) => {
         const itemInfo = _data.find(i => i.name === name) || {};
-        const cat = itemInfo.type || 'pantry';
         
         data.history.forEach(h => {
+            if (h.price > 1000) return; // Skip dummy prices like 99999
+            
             const date = h.date.substring(0, 7); // YYYY-MM
-            spendingHistory[date] = (spendingHistory[date] || 0) + h.price;
-            categories[cat] = (categories[cat] || 0) + h.price;
-            
-            totalItemsPurchased++;
-            if (h.is_special) itemsBoughtAtTarget++;
-            
-            const shelfPrice = itemInfo.price || h.price;
-            totalSavings += Math.max(0, shelfPrice - h.price);
+            if (!priceIndexByMonth[date]) {
+                priceIndexByMonth[date] = { sum: 0, count: 0 };
+            }
+            priceIndexByMonth[date].sum += h.price;
+            priceIndexByMonth[date].count += 1;
         });
     });
 
-    const efficiency = totalItemsPurchased > 0 ? (itemsBoughtAtTarget / totalItemsPurchased) * 100 : 0;
+    // 2. Calculate Category Split and efficiency from current _data
+    _data.forEach(item => {
+        const cat = item.type || 'pantry';
+        const price = item.eff_price || item.price || 0;
+        if (price > 0 && price < 1000) {
+            categories[cat] = (categories[cat] || 0) + price;
+        }
+
+        if (item.last_purchased) {
+            const isSpecial = price <= (item.target || 0);
+            if (isSpecial) {
+                itemsBoughtAtTarget++;
+                totalRealizedSavings += Math.max(0, (item.target || 0) - price);
+            }
+        }
+    });
+
+    const efficiency = _data.filter(i => i.last_purchased).length > 0 
+        ? (itemsBoughtAtTarget / _data.filter(i => i.last_purchased).length) * 100 
+        : 0;
     
-    document.getElementById('analytic-savings-val').textContent = `$${totalSavings.toFixed(0)}`;
+    document.getElementById('analytic-savings-val').textContent = `$${totalRealizedSavings.toFixed(0)}`;
     document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}%`;
 
     // Charts
@@ -904,32 +935,73 @@ function renderAnalytics() {
     const categoryCtx = document.getElementById('category-chart')?.getContext('2d');
 
     if (spendingCtx) {
-        const sortedDates = Object.keys(spendingHistory).sort();
-        new Chart(spendingCtx, {
-            type: 'bar',
+        const sortedDates = Object.keys(priceIndexByMonth).sort();
+        const chartData = sortedDates.map(d => priceIndexByMonth[d].sum / priceIndexByMonth[d].count);
+        
+        // Destroy existing chart if any to avoid overlapping
+        if (window.mySpendingChart) window.mySpendingChart.destroy();
+        
+        window.mySpendingChart = new Chart(spendingCtx, {
+            type: 'line',
             data: {
                 labels: sortedDates,
                 datasets: [{
-                    label: 'Monthly Spending ($)',
-                    data: sortedDates.map(d => spendingHistory[d]),
-                    backgroundColor: '#6366f1'
+                    label: 'Avg Item Price ($)',
+                    data: chartData,
+                    borderColor: '#6366f1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#6366f1'
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => `Avg Price: $${ctx.parsed.y.toFixed(2)}`
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: { callback: (val) => '$' + val }
+                    }
+                }
+            }
         });
     }
 
     if (categoryCtx) {
-        new Chart(categoryCtx, {
+        const labels = Object.keys(categories);
+        const dataValues = Object.values(categories);
+        
+        if (window.myCategoryChart) window.myCategoryChart.destroy();
+
+        window.myCategoryChart = new Chart(categoryCtx, {
             type: 'doughnut',
             data: {
-                labels: Object.keys(categories),
+                labels: labels.map(l => l.replace('_', ' ').toUpperCase()),
                 datasets: [{
-                    data: Object.values(categories),
-                    backgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#6366f1', '#a855f7', '#ec4899', '#06b6d4', '#8b5cf6']
+                    data: dataValues,
+                    backgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#6366f1', '#a855f7', '#ec4899', '#06b6d4', '#8b5cf6'],
+                    borderWidth: 0,
+                    hoverOffset: 15
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { color: '#9ca3af', font: { size: 10 } } }
+                },
+                cutout: '70%'
+            }
         });
     }
 }
