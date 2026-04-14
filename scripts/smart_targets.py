@@ -78,6 +78,16 @@ def get_all_prices(item):
     return prices
 
 
+def get_special_prices(item):
+    """Extract prices from scrape_history where is_special was True.
+    These are store-confirmed sale prices — the most reliable signal."""
+    specials = []
+    for entry in item.get("scrape_history", []):
+        if entry.get("is_special") and 0 < entry.get("price", 0) < MAX_SENTINEL:
+            specials.append(entry["price"])
+    return specials
+
+
 def percentile(data, pct):
     """Calculate percentile value. pct is 0-100."""
     if not data:

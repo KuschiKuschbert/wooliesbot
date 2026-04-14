@@ -366,8 +366,10 @@ function renderNearMisses() {
     
     const nearMisses = _data.filter(item => {
         const effPrice = item.eff_price || item.price;
-        // Near miss = within 5% above target (tighter now that targets are data-driven)
-        return effPrice > item.target && effPrice <= item.target * 1.05 && !item.price_unavailable;
+        const target = item.target || 0;
+        if (target <= 0 || item.price_unavailable || item.on_special) return false;
+        // Near miss = within 5% above target
+        return effPrice > target && effPrice <= target * 1.05;
     }).sort((a, b) => {
         // Sort by closest to target first
         const ra = (a.eff_price || a.price) / a.target;
@@ -942,9 +944,18 @@ function renderAllItems() {
 
     filteredData.forEach((item, index) => {
         const tr = document.createElement('tr');
-        const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
+        const effPrice = item.eff_price || item.price;
+        const isSpecial = item.on_special || ((item.target || 0) > 0 && effPrice <= item.target && !item.price_unavailable);
         const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
         
+        let priceCell;
+        if (item.on_special && item.was_price && item.was_price > effPrice) {
+            const savePct = Math.round((1 - effPrice / item.was_price) * 100);
+            priceCell = `$${effPrice.toFixed(2)} <span class="was-price">$${item.was_price.toFixed(2)}</span> <span class="save-badge">-${savePct}%</span>`;
+        } else {
+            priceCell = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
+        }
+
         tr.innerHTML = `
             <td>
                 <span style="font-weight:600;">${item.name}</span>
@@ -956,8 +967,8 @@ function renderAllItems() {
                     <div class="stock-dot ${stockColor}"></div> ${item.stock}
                 </div>
             </td>
-            <td>${item.price_unavailable ? '❓' : '$' + item.price.toFixed(2)}</td>
-            <td>$${item.target.toFixed(2)}</td>
+            <td>${priceCell}</td>
+            <td>${(item.target || 0) > 0 ? '$' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</td>
             <td>
                 <div class="chart-container-td" id="chart-td-${index}">
                     <canvas></canvas>

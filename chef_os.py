@@ -982,7 +982,8 @@ def export_data_to_json(results):
             # Carry over accumulated fields that the scraper doesn't produce
             for keep_field in ("scrape_history", "price_history", "brand", "subcategory",
                                "size", "tags", "target_confidence", "target_method",
-                               "target_data_points", "target_updated", "last_purchased"):
+                               "target_data_points", "target_updated", "last_purchased",
+                               "local_image", "on_special", "was_price"):
                 if keep_field in existing and keep_field not in item:
                     item[keep_field] = existing[keep_field]
 
@@ -992,7 +993,8 @@ def export_data_to_json(results):
                 sh.append({
                     "date": today_str,
                     "price": item.get("eff_price", item.get("price", 0)),
-                    "is_special": item.get("price", 0) <= item.get("target", 0),
+                    "is_special": item.get("on_special", False),
+                    "was_price": item.get("was_price"),
                     "store": item.get("store"),
                 })
             item["scrape_history"] = sh
