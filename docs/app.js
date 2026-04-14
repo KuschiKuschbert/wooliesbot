@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let _data = [];
 let _history = {};
+let _volatility = {}; // item -> score
 let _lastChecked = null;
 let _currentFilter = 'all';
 let _currentCatFilter = 'all';
@@ -948,6 +949,15 @@ function renderAnalytics() {
     Object.entries(_history).forEach(([name, data]) => {
         const itemInfo = _data.find(i => i.name === name) || {};
         
+        // Calculate Volatility
+        const prices = data.history.map(h => h.price).filter(p => p > 0 && p < 1000);
+        if (prices.length > 1) {
+            const avg = prices.reduce((a, b) => a + b) / prices.length;
+            const variance = prices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / prices.length;
+            const stdDev = Math.sqrt(variance);
+            _volatility[name] = (stdDev / avg) * 100; // Relative volatility
+        }
+
         data.history.forEach(h => {
             if (h.price > 1000) return; // Skip dummy prices like 99999
             
@@ -1055,9 +1065,73 @@ function renderAnalytics() {
                     legend: { position: 'right', labels: { color: '#9ca3af', font: { size: 10 } } }
                 },
                 cutout: '70%'
-            }
-        });
+            });
     }
+
+    renderDeeperInsights();
+}
+
+function renderDeeperInsights() {
+    const container = document.getElementById('deep-insights-container');
+    if (!container) return;
+
+    // 1. Smart Buys (Low price, high volatility)
+    const smartBuys = _data
+        .filter(item => {
+            const vol = _volatility[item.name] || 0;
+            const isOnSpecial = (item.eff_price || 999) <= (item.target || 0);
+            return isOnSpecial && vol > 10; // High confidence special
+        })
+        .sort((a, b) => (_volatility[b.name] || 0) - (_volatility[a.name] || 0))
+        .slice(0, 3);
+
+    // 2. Store Bias
+    let wooliesCheaper = 0;
+    let colesCheaper = 0;
+    _data.forEach(item => {
+        if (!item.all_stores) return;
+        const w = item.all_stores.woolworths?.eff_price;
+        const c = item.all_stores.coles?.eff_price;
+        if (w && c) {
+            if (w < c) wooliesCheaper++;
+            else if (c < w) colesCheaper++;
+        }
+    });
+
+    let html = `
+        <div class="deep-insight-card">
+            <h4>🔥 Smart Buy Recommendations</h4>
+            <div class="smart-buy-list">
+                ${smartBuys.map(item => `
+                    <div class="smart-buy-item">
+                        <span class="name">${item.name}</span>
+                        <div class="meta">
+                            <span class="price">$${item.eff_price?.toFixed(2)}</span>
+                            <span class="volatility-tag high">Volatility: ${(_volatility[item.name] || 0).toFixed(0)}%</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <p class="insight-tip">These items are at their target price and historically jump back up quickly.</p>
+        </div>
+
+        <div class="deep-insight-card">
+            <h4>🏛 Store Price Bias</h4>
+            <div class="bias-viz">
+                <div class="bias-bar">
+                    <div class="bias-fill woolies" style="width: ${(wooliesCheaper / (wooliesCheaper + colesCheaper)) * 100}%"></div>
+                    <div class="bias-fill coles" style="width: ${(colesCheaper / (wooliesCheaper + colesCheaper)) * 100}%"></div>
+                </div>
+                <div class="bias-labels">
+                    <span>Woolies: ${wooliesCheaper} items</span>
+                    <span>Coles: ${colesCheaper} items</span>
+                </div>
+            </div>
+            <p class="insight-tip">Based on current cheaper-entry count across your watchlist.</p>
+        </div>
+    `;
+
+    container.innerHTML = html;
 }
 
 
