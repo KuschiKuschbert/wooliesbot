@@ -13,6 +13,8 @@ let _currentTab = 'deals';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly';
 let _shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
 let _selectedItemForModal = null;
+let _currentPage = 1;
+const _itemsPerPage = 12;
 const MONTHLY_BUDGET = 800;
 
 
@@ -81,6 +83,7 @@ function setupFilters() {
             storeButtons.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             _currentFilter = e.target.dataset.filter;
+            _currentPage = 1;
             renderDashboard();
         });
     });
@@ -91,6 +94,7 @@ function setupFilters() {
             catButtons.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             _currentCatFilter = e.target.dataset.cat;
+            _currentPage = 1;
             renderDashboard();
         });
     });
@@ -115,6 +119,7 @@ function setupFilters() {
     // Search
     document.getElementById('dashboard-search')?.addEventListener('input', (e) => {
         _searchText = e.target.value.toLowerCase();
+        _currentPage = 1;
         renderDashboard();
     });
 
@@ -227,17 +232,24 @@ function renderStats() {
 
     // Monthly Budget Tracker
     let monthlySpent = 0;
-    Object.values(_history).forEach(item => {
-        // Calculate spending in the last 30 days
-        const recent = item.history.filter(h => {
+    const now = new Date();
+    
+    Object.keys(_history).forEach(itemName => {
+        const itemHistory = _history[itemName].history || [];
+        // Group by day to prevent background scans from double-counting
+        const dailySpend = {};
+        
+        itemHistory.forEach(h => {
             const d = new Date(h.date);
-            const now = new Date();
-            return (now - d) < (30 * 24 * 60 * 60 * 1000);
+            if ((now - d) < (30 * 24 * 60 * 60 * 1000)) {
+                if (h.store && h.store !== 'none') {
+                    // Only count the latest entry for each unique day
+                    dailySpend[h.date] = h.price;
+                }
+            }
         });
-        recent.forEach(h => {
-             // Heuristic: only count if bought at a store
-             if (h.store && h.store !== 'none') monthlySpent += h.price;
-        });
+        
+        monthlySpent += Object.values(dailySpend).reduce((a, b) => a + b, 0);
     });
 
     const budgetProgress = document.getElementById('budget-progress');
@@ -524,9 +536,9 @@ function renderColaBattle() {
         return;
     }
 
-    // Find cheapest Pepsi and cheapest Coke by eff_price (per litre)
-    const pepsis = colaItems.filter(i => i.name.toLowerCase().includes('pepsi'));
-    const cokes = colaItems.filter(i => i.name.toLowerCase().includes('coke') || i.name.toLowerCase().includes('coca'));
+    // Find cheapest Pepsi and cheapest Coke by eff_price (per litre), ignoring zero prices
+    const pepsis = colaItems.filter(i => i.name.toLowerCase().includes('pepsi') && (i.eff_price || i.price) > 0);
+    const cokes = colaItems.filter(i => (i.name.toLowerCase().includes('coke') || i.name.toLowerCase().includes('coca')) && (i.eff_price || i.price) > 0);
     
     const cheapestPepsi = pepsis.length ? pepsis.reduce((a, b) => (a.eff_price || a.price) < (b.eff_price || b.price) ? a : b) : null;
     const cheapestCoke = cokes.length ? cokes.reduce((a, b) => (a.eff_price || a.price) < (b.eff_price || b.price) ? a : b) : null;
@@ -585,13 +597,63 @@ function renderSpecials() {
 
     if (displayItems.length === 0) {
         grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1;">No deep deals today.</p>';
+        if (typeof renderPagination === 'function') renderPagination(0);
         return;
     }
 
-    displayItems.forEach((item, index) => {
-        const card = createItemCard(item, index);
+    // Pagination Slicing
+    const totalItems = displayItems.length;
+    const startIndex = (_currentPage - 1) * _itemsPerPage;
+    const endIndex = startIndex + _itemsPerPage;
+    const pagedItems = displayItems.slice(startIndex, endIndex);
+
+    pagedItems.forEach((item, index) => {
+        const card = createItemCard(item, startIndex + index);
         grid.appendChild(card);
     });
+
+    renderPagination(totalItems);
+
+    if (typeof feather !== 'undefined') feather.replace();
+}
+
+function renderPagination(totalItems) {
+    const container = document.getElementById('pagination-controls');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const totalPages = Math.ceil(totalItems / _itemsPerPage);
+    if (totalPages <= 1) return;
+
+    // Previous Button
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'pagination-btn';
+    prevBtn.disabled = _currentPage === 1;
+    prevBtn.innerHTML = '<i data-feather="chevron-left"></i> Prev';
+    prevBtn.onclick = () => {
+        _currentPage--;
+        renderSpecials();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    container.appendChild(prevBtn);
+
+    // Page Info
+    const info = document.createElement('span');
+    info.className = 'pagination-info';
+    info.textContent = `Page ${_currentPage} of ${totalPages}`;
+    container.appendChild(info);
+
+    // Next Button
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'pagination-btn';
+    nextBtn.disabled = _currentPage === totalPages;
+    nextBtn.innerHTML = 'Next <i data-feather="chevron-right"></i>';
+    nextBtn.onclick = () => {
+        _currentPage++;
+        renderSpecials();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    container.appendChild(nextBtn);
 
     if (typeof feather !== 'undefined') feather.replace();
 }
