@@ -26,6 +26,12 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
             
             response = {"status": "success", "message": "Sync started in background"}
             self.wfile.write(json.dumps(response).encode())
+        elif self.path == '/ping':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps({"status": "ok"}).encode())
         else:
             self.send_response(404)
             self.end_headers()

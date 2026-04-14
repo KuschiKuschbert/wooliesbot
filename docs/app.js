@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let _data = [];
 let _history = {};
+let _lastChecked = null;
 let _currentFilter = 'all';
 let _currentCatFilter = 'all';
+let _searchText = '';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly'; // 'weekly' or 'big'
 let _shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
 
@@ -25,10 +27,17 @@ async function initDashboard() {
                 _data = parsed.items || [];
                 const luEl = document.getElementById('last-updated');
                 if (luEl && parsed.last_updated) {
-                    luEl.textContent = parsed.last_updated;
+                    _lastChecked = parsed.last_updated;
+                    updateLastCheckedDisplay();
                 }
             }
         }
+        
+        // Setup background tasks
+        setInterval(updateLastCheckedDisplay, 60000); // Update relative time every min
+        setInterval(monitorApi, 30000); // Check API status every 30s
+        monitorApi(); // Initial check
+
         if (histRes && histRes.ok) {
             _history = await histRes.json();
         }
@@ -96,6 +105,24 @@ function setupFilters() {
     toggleBtn?.addEventListener('click', toggleDrawer);
     closeBtn?.addEventListener('click', toggleDrawer);
     overlay?.addEventListener('click', toggleDrawer);
+
+    // Search Logic
+    const searchInput = document.getElementById('dashboard-search');
+    searchInput?.addEventListener('input', (e) => {
+        _searchText = e.target.value.toLowerCase();
+        renderSpecials();
+        renderAllItems();
+    });
+
+    // Clear List Logic
+    document.getElementById('clear-list-btn')?.addEventListener('click', () => {
+        if (confirm("Clear your entire shopping list?")) {
+            _shoppingList = [];
+            localStorage.setItem('shoppingList', '[]');
+            renderShoppingList();
+            updateListCount();
+        }
+    });
 
     // Sync to Keep
     document.getElementById('sync-keep-btn')?.addEventListener('click', async () => {
@@ -282,7 +309,7 @@ function createItemCard(item, index, isNearMiss = false) {
     
     if (isSpecial) {
          const diff = item.target - effPrice;
-         targetHtml += `<span class="deal-badge">🔥 -$${diff.toFixed(2)} vs target</span>`;
+         targetHtml += `<span class="savings-badge">Save $${diff.toFixed(2)}</span>`;
     } else if (isNearMiss) {
         targetHtml += `<span class="deal-badge" style="background: rgba(234, 179, 8, 0.1); color: #fde047;">🤏 Almost</span>`;
     }
@@ -423,6 +450,47 @@ function renderShoppingList() {
     if (typeof feather !== 'undefined') feather.replace();
 }
 
+function updateLastCheckedDisplay() {
+    const el = document.getElementById('last-updated');
+    if (!el || !_lastChecked) return;
+    
+    const lastDate = new Date(_lastChecked);
+    if (isNaN(lastDate.getTime())) {
+        el.textContent = _lastChecked;
+        return;
+    }
+    
+    const now = new Date();
+    const diffMins = Math.floor((now - lastDate) / 60000);
+    
+    if (diffMins < 1) el.textContent = "Just now";
+    else if (diffMins < 60) el.textContent = `${diffMins}m ago`;
+    else {
+        const hours = Math.floor(diffMins / 60);
+        el.textContent = `${hours}h ${diffMins % 60}m ago`;
+    }
+}
+
+async function monitorApi() {
+    const dot = document.getElementById('api-status-dot');
+    const text = document.getElementById('api-status-text');
+    if (!dot) return;
+    
+    try {
+        const res = await fetch('http://localhost:5001/ping', { mode: 'cors' }).catch(() => null);
+        if (res && res.ok) {
+            dot.className = 'status-dot online';
+            text.textContent = 'Bridge Online';
+        } else {
+            dot.className = 'status-dot offline';
+            text.textContent = 'Bridge Offline';
+        }
+    } catch {
+        dot.className = 'status-dot offline';
+        text.textContent = 'Bridge Offline';
+    }
+}
+
 function renderColaBattle() {
     const colaItems = _data.filter(i => i.compare_group === 'cola' && !i.price_unavailable);
     const winnerEl = document.getElementById('cola-winner');
@@ -479,8 +547,9 @@ function renderSpecials() {
     const displayItems = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesCat = _currentCatFilter === 'all' || item.type === _currentCatFilter;
+        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
         const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
-        return matchesStore && matchesCat && isSpecial;
+        return matchesStore && matchesCat && matchesSearch && isSpecial;
     });
 
     if (displayItems.length === 0) {
@@ -498,12 +567,15 @@ function renderSpecials() {
 
 function renderAllItems() {
     const tbody = document.getElementById('all-items-tbody');
+    if (!tbody) return;
     tbody.innerHTML = '';
 
-    // Filter by store if needed, though usually master list shows all
+    // Filter by store and Search text, then sort A-Z
     const filteredData = _data.filter(item => {
-        return _currentFilter === 'all' || item.store === _currentFilter;
-    });
+        const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
+        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
+        return matchesStore && matchesSearch;
+    }).sort((a, b) => a.name.localeCompare(b.name));
 
     filteredData.forEach((item, index) => {
         const tr = document.createElement('tr');

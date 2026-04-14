@@ -56,10 +56,10 @@
             </div>
             <div class="stat-card highlight" style="position: relative;">
                 <div class="stat-header">
-                    <h3>Est. Cart Cost</h3>
+                    <h3>Est. Cart Cost <span data-tooltip="The Everyday Extra 10% discount applies once you reach $500 in current specials."><i data-feather="info" class="info-icon"></i></span></h3>
                     <div class="shop-mode-toggle" id="shop-mode-toggle">
-                        <span class="mode-label active" data-mode="weekly">Weekly</span>
-                        <span class="mode-label" data-mode="big">Monthly</span>
+                        <span class="mode-label active" data-mode="weekly" data-tooltip="Qty: 1 per item">Weekly</span>
+                        <span class="mode-label" data-mode="big" data-tooltip="Qty: 4x Protein, 2x Staples">Monthly</span>
                     </div>
                 </div>
                 <p id="cart-total">$0.00</p>
@@ -103,7 +103,13 @@
         <!-- Current Specials & Grid -->
         <section class="section" id="specials-section">
             <div class="section-header">
-                <h2>🛍️ Deal Dashboard</h2>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <h2>🛍️ Deal Dashboard</h2>
+                    <div class="search-wrapper">
+                        <i data-feather="search" class="search-icon"></i>
+                        <input type="text" id="dashboard-search" class="search-input" placeholder="Search items...">
+                    </div>
+                </div>
                 <div class="filter-group">
                     <div class="category-filters" id="category-filters">
                         <button class="filter-btn-cat active" data-cat="all">All</button>
@@ -138,8 +144,8 @@
                         <th>Item Name</th>
                         <th>Preferred</th>
                         <th>Current Price</th>
-                        <th>Target</th>
-                        <th>Paid Avg</th>
+                        <th>Target <span data-tooltip="Your set 'buy' price."><i data-feather="info" class="info-icon"></i></span></th>
+                        <th>Paid Avg <span data-tooltip="Your personal 6-month average cost."><i data-feather="info" class="info-icon"></i></span></th>
                         <th style="width: 150px;">History</th>
                     </tr>
                     </thead>
@@ -152,14 +158,23 @@
     </main>
 
     <footer>
-        <p>Updated via Chef OS Automation</p>
+        <div class="footer-content">
+            <p>Updated via Chef OS Automation</p>
+            <div class="status-indicator">
+                <div id="api-status-dot" class="status-dot"></div>
+                <span id="api-status-text">Bridge Offline</span>
+            </div>
+        </div>
     </footer>
 
     <!-- Shopping List Drawer -->
     <div id="list-drawer" class="list-drawer">
         <div class="drawer-header">
             <h3>🛒 Shopping List</h3>
-            <button id="close-drawer" class="icon-btn"><i data-feather="x"></i></button>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button id="clear-list-btn" class="clear-list-btn">Clear All</button>
+                <button id="close-drawer" class="icon-btn"><i data-feather="x"></i></button>
+            </div>
         </div>
         <div id="shopping-list-items" class="drawer-content">
             <!-- Items via JS -->
