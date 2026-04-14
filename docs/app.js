@@ -1065,7 +1065,8 @@ function renderAnalytics() {
                     legend: { position: 'right', labels: { color: '#9ca3af', font: { size: 10 } } }
                 },
                 cutout: '70%'
-            });
+            }
+        });
     }
 
     renderDeeperInsights();
