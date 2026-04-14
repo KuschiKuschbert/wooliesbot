@@ -983,7 +983,8 @@ def export_data_to_json(results):
             for keep_field in ("scrape_history", "price_history", "brand", "subcategory",
                                "size", "tags", "target_confidence", "target_method",
                                "target_data_points", "target_updated", "last_purchased",
-                               "local_image", "on_special", "was_price"):
+                               "local_image", "on_special", "was_price",
+                               "type", "all_stores", "coles"):
                 if keep_field in existing and keep_field not in item:
                     item[keep_field] = existing[keep_field]
 
@@ -1081,6 +1082,121 @@ def _download_product_image(url, name):
     
     return ""
 
+def _discover_coles_prices(batch_size=20):
+    """Search Coles for items that don't have a Coles URL yet.
+    Processes a small batch per cycle to avoid rate limiting.
+    Over ~17 cycles (~3 days at 4h intervals) covers all items."""
+    import re as _re
+    try:
+        from curl_cffi import requests as _cffi_requests
+    except ImportError:
+        logging.debug("curl_cffi not available for Coles discovery")
+        return
+
+    data_path = "docs/data.json"
+    with open(data_path, "r") as f:
+        raw = json.load(f)
+    data = raw.get("items", raw) if isinstance(raw, dict) else raw
+
+    no_coles = [i for i in data if not i.get("coles")]
+    if not no_coles:
+        logging.info("[Coles] All items already have Coles URLs.")
+        return
+
+    batch = no_coles[:batch_size]
+    logging.info(f"[Coles] Discovering prices for {len(batch)}/{len(no_coles)} items without Coles URLs...")
+
+    session = _cffi_requests.Session(impersonate="safari15_5")
+    try:
+        session.get("https://www.coles.com.au/", timeout=15)
+    except Exception:
+        logging.warning("[Coles] Could not reach coles.com.au")
+        return
+
+    matched = 0
+    cheaper = 0
+
+    for item in batch:
+        name = item.get("name", "")
+        # Simplify name for search
+        search = _re.sub(r'\d+\.?\d*\s*(G|Kg|Ml|L|Pk|Pack)\b', '', name, flags=_re.IGNORECASE)
+        search = search.replace("Ww ", "").replace("P/P", "").strip()
+        words = [w for w in search.split() if len(w) > 1][:3]
+        search = " ".join(words)
+        if len(search) < 3:
+            continue
+
+        try:
+            resp = session.get(
+                f"https://www.coles.com.au/search?q={search}",
+                timeout=15,
+            )
+            if "Pardon Our Interruption" in resp.text:
+                logging.warning("[Coles] Rate limited — stopping discovery for this cycle.")
+                break
+
+            m = _re.search(
+                r'<script[^>]*id=["\']__NEXT_DATA__["\'][^>]*>([^<]+)</script>',
+                resp.text, _re.I | _re.DOTALL,
+            )
+            if not m:
+                continue
+
+            nd = json.loads(m.group(1).strip())
+            results = (nd.get("props", {}).get("pageProps", {})
+                        .get("searchResults", {}).get("results", []))
+            if not results:
+                continue
+
+            r = results[0]
+            pricing = r.get("pricing", {})
+            price = pricing.get("now")
+            if not price or float(price) <= 0:
+                continue
+
+            coles_name = r.get("name", "")
+            prod_id = r.get("id", "")
+            slug = _re.sub(r"[^a-z0-9]+", "-", coles_name.lower()).strip("-")
+            cp = float(price)
+            cw = pricing.get("was")
+            cs = pricing.get("promotionType") == "SPECIAL"
+
+            all_stores = item.get("all_stores", {})
+            all_stores["coles"] = {
+                "price": cp, "eff_price": cp,
+                "was_price": float(cw) if cw else None,
+                "on_special": cs,
+            }
+            item["all_stores"] = all_stores
+            item["coles"] = f"https://www.coles.com.au/product/{slug}-{prod_id}"
+
+            wp = item.get("eff_price") or item.get("price", 999)
+            if cp < wp:
+                item["store"] = "coles"
+                item["price"] = cp
+                item["eff_price"] = cp
+                if cs and cw:
+                    item["was_price"] = float(cw)
+                    item["on_special"] = True
+                cheaper += 1
+
+            matched += 1
+        except Exception:
+            pass
+
+        time.sleep(3)
+
+    # Save back
+    if matched > 0:
+        if isinstance(raw, dict):
+            raw["items"] = data
+        with open(data_path, "w") as f:
+            json.dump(raw if isinstance(raw, dict) else data, f, indent=2)
+
+    total = sum(1 for i in data if i.get("coles"))
+    logging.info(f"[Coles] Discovered {matched} matches ({cheaper} cheaper). Total with Coles: {total}/{len(data)}")
+
+
 def run_report(full_list=False, send_telegram_messages=True):
     """Generate and send shopping report.
     full_list: /show_staples - full staples list with all prices. False = deals only.
@@ -1108,6 +1224,12 @@ def run_report(full_list=False, send_telegram_messages=True):
         except Exception as _e:
             logging.warning(f"Smart target recalculation skipped: {_e}")
         
+        # Gradual Coles price discovery (~20 items per cycle)
+        try:
+            _discover_coles_prices(batch_size=20)
+        except Exception as _e:
+            logging.warning(f"Coles discovery skipped: {_e}")
+
         # Deploy to GitHub pages
         threading.Thread(target=sync_to_github, daemon=True).start()
 
