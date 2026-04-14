@@ -1579,11 +1579,46 @@ footer {
     grid-column: span 3;
 }
 
-.insights-flex {
+.premium-viz {
     display: flex;
-    gap: 2.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 1rem 0;
+}
+
+.premium-value {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--coles-red);
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    line-height: 1;
+}
+
+.premium-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.premium-comparison {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.premium-comparison span:first-child { color: var(--text-muted); }
+.premium-comparison span:last-child { color: var(--primary); }
+
+.insights-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
 }
 
 .deep-insight-card {
@@ -1901,9 +1936,12 @@ footer {
 .fighter-product {
     font-size: 0.75rem;
     color: var(--text-muted);
-    white-space: normal;
-    line-height: 1.3;
+    white-space: normal !important;
+    line-height: 1.35;
     word-break: break-word;
+    text-overflow: clip !important;
+    overflow: visible !important;
+    margin-top: 4px;
 }
 
 .battle-vs {
