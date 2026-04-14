@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-INV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "inventory.json")
+INV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
 
 def load_inventory():
     try:

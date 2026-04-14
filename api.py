@@ -24,7 +24,7 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
             new_stock = params.get('stock') # 'low', 'medium', 'full'
             
             try:
-                with open('inventory.json', 'r+') as f:
+                with open('docs/data.json', 'r+') as f:
                     items = json.load(f)
                     for item in items:
                         if item['name'] == item_name:
