@@ -941,54 +941,64 @@ def _item_store_prices(item):
     return (fmt(woolies_sd), fmt(coles_sd))
 
 def export_data_to_json(results):
-    """Exports the latest scraped data to a JSON file for the dashboard."""
+    """Exports scraped data to data.json and appends today's snapshot to scrape_history.
+
+    This is the SINGLE write path for the dashboard data file.
+    Preserves existing per-item fields (scrape_history, price_history, metadata)
+    while overlaying fresh scraped prices.
+    """
     try:
         os.makedirs("docs", exist_ok=True)
-        with open("docs/data.json", "w") as f:
-            now_str = datetime.datetime.now().strftime("%Y-%m-%d %I:%M %p")
-            payload = {
-                "last_updated": now_str,
-                "items": results
-            }
+        data_path = "docs/data.json"
+        now = datetime.datetime.now()
+        now_str = now.strftime("%Y-%m-%d %I:%M %p")
+        today_str = now.strftime("%Y-%m-%d")
+
+        # Load existing data to preserve scrape_history and other accumulated fields
+        existing_by_name = {}
+        if os.path.exists(data_path):
+            try:
+                with open(data_path, "r") as f:
+                    raw = json.load(f)
+                existing_items = raw if isinstance(raw, list) else raw.get("items", [])
+                existing_by_name = {item["name"]: item for item in existing_items}
+            except Exception:
+                existing_by_name = {}
+
+        # Merge: overlay fresh results onto existing items, preserving history fields
+        merged = []
+        for item in results:
+            name = item["name"]
+            existing = existing_by_name.get(name, {})
+
+            # Carry over accumulated fields that the scraper doesn't produce
+            for keep_field in ("scrape_history", "price_history", "brand", "subcategory",
+                               "size", "tags", "target_confidence", "target_method",
+                               "target_data_points", "target_updated", "last_purchased"):
+                if keep_field in existing and keep_field not in item:
+                    item[keep_field] = existing[keep_field]
+
+            # Append today's scrape snapshot to scrape_history
+            sh = item.get("scrape_history", [])
+            if not sh or sh[-1].get("date") != today_str:
+                sh.append({
+                    "date": today_str,
+                    "price": item.get("eff_price", item.get("price", 0)),
+                    "is_special": item.get("price", 0) <= item.get("target", 0),
+                    "store": item.get("store"),
+                })
+            item["scrape_history"] = sh
+            merged.append(item)
+
+        payload = {
+            "last_updated": now_str,
+            "items": merged,
+        }
+        with open(data_path, "w") as f:
             json.dump(payload, f, indent=2)
-        logging.info("Exported data.json successfully.")
+        logging.info(f"Exported data.json successfully ({len(merged)} items, scrape_history updated).")
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
-
-def update_price_history(results):
-    """Appends current prices to history.json to track trends over time."""
-    try:
-        os.makedirs("docs", exist_ok=True)
-        history_path = "docs/history.json"
-        
-        # Load existing history
-        if os.path.exists(history_path):
-            with open(history_path, "r") as f:
-                history = json.load(f)
-        else:
-            history = {}
-
-        now = datetime.datetime.now().strftime("%Y-%m-%d")
-        
-        for item in results:
-            name = item['name']
-            if name not in history:
-                history[name] = {"target": item["target"], "history": []}
-            
-            # Avoid duplicate entries for the same day
-            if not history[name]["history"] or history[name]["history"][-1]["date"] != now:
-                history[name]["history"].append({
-                    "date": now,
-                    "price": item.get("eff_price", item["price"]),
-                    "is_special": item.get("price") <= item["target"],
-                    "store": item.get("store")
-                })
-        
-        with open(history_path, "w") as f:
-            json.dump(history, f, indent=2)
-        logging.info("Updated price history.json successfully.")
-    except Exception as e:
-        logging.error(f"Error updating history.json: {e}")
 
 def sync_to_github():
     """Commits and pushes the docs/ folder and updated JSON data to GitHub."""
@@ -1074,9 +1084,8 @@ def run_report(full_list=False, send_telegram_messages=True):
 
         raw_results = check_prices()
 
-        # Update JSON files for web dashboard
+        # Update JSON file for web dashboard (single source of truth)
         export_data_to_json(raw_results)
-        update_price_history(raw_results)
 
         # Re-run smart target engine so targets improve with each scrape cycle
         try:
