@@ -15,6 +15,8 @@ let _shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
 let _selectedItemForModal = null;
 let _currentPage = 1;
 const _itemsPerPage = 12;
+let _currentSort = 'discount';
+let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
 const MONTHLY_BUDGET = 800;
 
 
@@ -135,6 +137,13 @@ function setupFilters() {
         });
     });
 
+    // Sorting
+    document.getElementById('sort-select')?.addEventListener('change', (e) => {
+        _currentSort = e.target.value;
+        _currentPage = 1; // Reset to page 1
+        renderSpecials();
+    });
+
     // Clear List
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
@@ -151,15 +160,39 @@ function setupFilters() {
         try {
             btn.innerHTML = '<i data-feather="loader" class="spin"></i> Starting Sync...';
             feather.replace();
-            const response = await fetch('http://localhost:5001/sync');
+            const response = await fetch(`${_apiUrl}/sync`);
             if (response.ok) {
                 btn.innerHTML = '<i data-feather="check"></i> Syncing...';
                 setTimeout(() => { btn.innerHTML = '<i data-feather="refresh-cw"></i> Sync to Google Keep'; feather.replace(); }, 3000);
             }
         } catch (e) {
-            alert("Bridge not running.");
+            alert(`Bridge not running at ${_apiUrl}. Update settings if using a tunnel or IP.`);
         }
     });
+    
+    // Settings Logic
+    document.getElementById('settings-btn')?.addEventListener('click', openSettings);
+    document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
+    document.getElementById('settings-save')?.addEventListener('click', saveSettings);
+}
+
+function openSettings() {
+    document.getElementById('bridge-url-input').value = _apiUrl;
+    document.getElementById('settings-modal').style.display = 'flex';
+}
+
+function closeSettings() {
+    document.getElementById('settings-modal').style.display = 'none';
+}
+
+function saveSettings() {
+    const val = document.getElementById('bridge-url-input').value.trim();
+    if (val) {
+        _apiUrl = val;
+        localStorage.setItem('bridge_url', _apiUrl);
+    }
+    closeSettings();
+    monitorApi();
 }
 
 function toggleDrawer() {
@@ -508,10 +541,17 @@ function updateLastCheckedDisplay() {
 async function monitorApi() {
     const dot = document.getElementById('api-status-dot');
     const text = document.getElementById('api-status-text');
-    if (!dot) return;
-    
+    if (!dot || !text) return;
+
     try {
-        const res = await fetch('http://localhost:5001/ping', { mode: 'cors' }).catch(() => null);
+        // Detect HTTPS Mixed Content block
+        if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
+            dot.className = 'status-dot offline';
+            text.textContent = 'HTTPS Blocked';
+            return;
+        }
+
+        const res = await fetch(`${_apiUrl}/status`).catch(() => null);
         if (res && res.ok) {
             dot.className = 'status-dot online';
             text.textContent = 'Bridge Online';
@@ -593,6 +633,23 @@ function renderSpecials() {
         const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
         const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
         return matchesStore && matchesCat && matchesSearch && isSpecial;
+    });
+
+    // Sorting Logic
+    displayItems.sort((a, b) => {
+        if (_currentSort === 'name') return a.name.localeCompare(b.name);
+        
+        const priceA = a.eff_price || a.price;
+        const priceB = b.eff_price || b.price;
+        
+        if (_currentSort === 'price') return priceA - priceB;
+        
+        if (_currentSort === 'discount') {
+            const savingsA = (a.target - priceA) / a.target;
+            const savingsB = (b.target - priceB) / b.target;
+            return savingsB - savingsA; // Biggest discount first
+        }
+        return 0;
     });
 
     if (displayItems.length === 0) {
