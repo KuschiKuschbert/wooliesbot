@@ -63,21 +63,41 @@ async function initDashboard() {
 function setupFilters() {
     // Tab switching
     const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-tab]');
+    
+    const switchTab = (target) => {
+        _currentTab = target;
+        
+        // Sync desktop buttons
+        navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
+        
+        // Sync mobile buttons
+        mobileNavLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
+        
+        // Switch content
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.toggle('active', tab.id === `tab-${target}`);
+        });
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        if (target === 'analytics') renderAnalytics();
+        else renderDashboard();
+    };
+
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const target = link.dataset.tab;
-            _currentTab = target;
-            
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.getElementById(`tab-${target}`).classList.add('active');
-            
-            if (target === 'analytics') renderAnalytics();
-            else renderDashboard();
+        link.addEventListener('click', () => switchTab(link.dataset.tab));
+    });
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => switchTab(link.dataset.tab));
+    });
+
+    document.getElementById('mobile-refresh-btn')?.addEventListener('click', () => {
+        const btn = document.getElementById('mobile-refresh-btn');
+        btn.classList.add('spin');
+        initDashboard().finally(() => {
+            setTimeout(() => btn.classList.remove('spin'), 1000);
         });
     });
 
@@ -1125,7 +1145,10 @@ function renderAnalytics() {
                 responsive: true, 
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { position: 'right', labels: { color: '#9ca3af', font: { size: 10 } } }
+                    legend: { 
+                        position: window.innerWidth < 768 ? 'bottom' : 'right', 
+                        labels: { color: '#9ca3af', font: { size: 10 } } 
+                    }
                 },
                 cutout: '70%'
             }
