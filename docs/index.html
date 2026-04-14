@@ -114,6 +114,34 @@
                         </div>
                     </div>
 
+                    <!-- Wednesday refresh banner (shown Tue evening / Wed) -->
+                    <div class="stat-card wednesday-banner hidden" id="wednesday-banner">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span style="font-size:24px;">📅</span>
+                            <div>
+                                <div style="font-weight:700; font-size:13px;">Specials refresh tomorrow!</div>
+                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies &amp; Coles update every Wednesday. Check back for new deals.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card wednesday-banner hidden" id="wednesday-live-banner">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span style="font-size:24px;">🔄</span>
+                            <div>
+                                <div style="font-weight:700; font-size:13px;">New specials are live today!</div>
+                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies &amp; Coles updated their specials this morning.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top 5 deals this week -->
+                    <div class="stat-card" id="top5-card">
+                        <div class="stat-header">
+                            <h3>🔥 Top 5 This Week</h3>
+                        </div>
+                        <div id="top5-list" class="top5-list"></div>
+                    </div>
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <h3>📝 Essentials</h3>
@@ -296,8 +324,8 @@
                 <span>Total Est:</span>
                 <span id="list-total-price">$0.00</span>
             </div>
-            <button id="sync-keep-btn" class="sync-btn" disabled>
-                <i data-feather="refresh-cw"></i> Sync to Google Keep
+            <button id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
+                <i data-feather="copy"></i> Copy List
             </button>
         </div>
     </div>

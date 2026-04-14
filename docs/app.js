@@ -227,13 +227,16 @@ function toggleDrawer() {
 
 function renderDashboard() {
     renderCountdown();
+    renderWednesdayBanner();
     renderStats();
+    renderTop5Deals();
     renderEssentials();
-    renderPredictions(); // New Section
+    renderPredictions();
     renderNearMisses();
     renderSpecials();
     renderAllItems();
     updateListCount();
+    checkPriceDropAlerts();
 }
 
 
@@ -582,6 +585,10 @@ function updateListCount() {
     
     const syncBtn = document.getElementById('sync-keep-btn');
     if (syncBtn) syncBtn.disabled = _shoppingList.length === 0;
+
+    // Enable copy button
+    const copyBtn = document.getElementById('copy-list-btn');
+    if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
 }
 
 function addToList(itemName) {
@@ -1464,4 +1471,154 @@ function renderSparkline(containerId, historyData, storeClass) {
             layout: { padding: 0 }
         }
     });
+}
+
+// ─── WEDNESDAY BANNER ────────────────────────────────────────────────────────
+function renderWednesdayBanner() {
+    const tueBanner = document.getElementById('wednesday-banner');
+    const wedBanner = document.getElementById('wednesday-live-banner');
+    if (!tueBanner || !wedBanner) return;
+
+    const day = new Date().getDay(); // 0=Sun, 2=Tue, 3=Wed
+    tueBanner.classList.toggle('hidden', day !== 2);   // Tuesday
+    wedBanner.classList.toggle('hidden', day !== 3);   // Wednesday
+}
+
+// ─── TOP 5 DEALS THIS WEEK ───────────────────────────────────────────────────
+function renderTop5Deals() {
+    const container = document.getElementById('top5-list');
+    if (!container) return;
+
+    // Rank by savings % — store specials first, then target-based
+    const deals = _data
+        .filter(item => {
+            const ep = item.eff_price || item.price || 0;
+            return ep > 0 && !item.price_unavailable && (
+                item.on_special || ((item.target || 0) > 0 && ep <= item.target)
+            );
+        })
+        .map(item => {
+            const ep = item.eff_price || item.price;
+            const ref = item.was_price || item.target || ep;
+            const savePct = ref > ep ? Math.round((1 - ep / ref) * 100) : 0;
+            return { ...item, _ep: ep, _savePct: savePct };
+        })
+        .filter(i => i._savePct > 0)
+        .sort((a, b) => b._savePct - a._savePct)
+        .slice(0, 5);
+
+    if (deals.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:8px 0;">No deals detected yet.</p>';
+        return;
+    }
+
+    container.innerHTML = deals.map((item, i) => {
+        const medal = ['🥇','🥈','🥉','4️⃣','5️⃣'][i];
+        const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
+        return `
+            <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; renderDashboard();" title="${item.name}">
+                <span class="top5-medal">${medal}</span>
+                <div class="top5-info">
+                    <div class="top5-name">${item.name.length > 28 ? item.name.substring(0,28)+'…' : item.name}</div>
+                    <div class="top5-price" style="color:${storeColor};">$${item._ep.toFixed(2)}</div>
+                </div>
+                <span class="top5-save">-${item._savePct}%</span>
+            </div>
+        `;
+    }).join('');
+}
+
+// ─── COPY SHOPPING LIST ───────────────────────────────────────────────────────
+function copyShoppingList() {
+    if (_shoppingList.length === 0) return;
+
+    const today = new Date().toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
+    const lines = [`🛒 Shopping List — ${today}`, ''];
+
+    // Group by store
+    const woolies = _shoppingList.filter(i => i.store === 'woolworths');
+    const coles = _shoppingList.filter(i => i.store === 'coles');
+
+    if (woolies.length) {
+        lines.push('🟢 Woolworths');
+        woolies.forEach(i => {
+            const special = i.on_special ? ' 🏷️' : '';
+            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${i.name}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
+        });
+        lines.push('');
+    }
+    if (coles.length) {
+        lines.push('🔴 Coles');
+        coles.forEach(i => {
+            const special = i.on_special ? ' 🏷️' : '';
+            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${i.name}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
+        });
+        lines.push('');
+    }
+
+    const total = _shoppingList.reduce((s, i) => s + (i.price || 0) * i.qty, 0);
+    lines.push(`Total: ~$${total.toFixed(2)}`);
+    lines.push('');
+    lines.push('https://kuschikuschbert.github.io/wooliesbot/');
+
+    navigator.clipboard.writeText(lines.join('\n')).then(() => {
+        const btn = document.getElementById('copy-list-btn');
+        if (btn) {
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i data-feather="check"></i> Copied!';
+            btn.style.background = 'var(--woolies-green)';
+            feather.replace();
+            setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; feather.replace(); }, 2000);
+        }
+    }).catch(() => alert('Copy failed — use a secure (HTTPS) connection.'));
+}
+
+// ─── PRICE DROP ALERTS (IN-PAGE TOAST) ────────────────────────────────────────
+const _alertedItems = new Set(JSON.parse(localStorage.getItem('alertedDrops') || '[]'));
+
+function checkPriceDropAlerts() {
+    const newDrops = [];
+    _data.forEach(item => {
+        const ep = item.eff_price || item.price || 0;
+        const isSpecial = item.on_special || ((item.target || 0) > 0 && ep <= item.target && !item.price_unavailable);
+        if (isSpecial && !_alertedItems.has(item.name)) {
+            newDrops.push(item);
+            _alertedItems.add(item.name);
+        }
+        // Clear alert if item is no longer special (so it can alert again next time)
+        if (!isSpecial && _alertedItems.has(item.name)) {
+            _alertedItems.delete(item.name);
+        }
+    });
+
+    localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
+
+    if (newDrops.length > 0) {
+        showPriceDropToast(newDrops);
+    }
+}
+
+function showPriceDropToast(items) {
+    // Remove any existing toast
+    document.getElementById('price-drop-toast')?.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'price-drop-toast';
+    toast.className = 'price-drop-toast';
+
+    const names = items.slice(0, 3).map(i => i.name.split(' ').slice(0, 2).join(' ')).join(', ');
+    const more = items.length > 3 ? ` +${items.length - 3} more` : '';
+
+    toast.innerHTML = `
+        <span style="font-size:18px;">🔥</span>
+        <div style="flex:1;">
+            <div style="font-weight:700;font-size:13px;">New deals detected!</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${names}${more}</div>
+        </div>
+        <button onclick="this.parentElement.remove()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:4px;font-size:16px;">×</button>
+    `;
+
+    document.body.appendChild(toast);
+    // Auto-dismiss after 8 seconds
+    setTimeout(() => toast.remove(), 8000);
 }

@@ -893,39 +893,6 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/048025.jpg"
     },
     {
-      "name": "Thickened Cream (600ml)",
-      "type": "dairy",
-      "price_mode": "each",
-      "target": 0,
-      "woolworths": "https://www.woolworths.com.au/shop/productdetails/48720/woolworths-thickened-cream",
-      "coles": "https://www.coles.com.au/product/coles-thickened-cream-600ml-246962",
-      "stock": "medium",
-      "last_purchased": null,
-      "price": 6.3,
-      "eff_price": 6.3,
-      "store": "coles",
-      "brand": "Private Label",
-      "subcategory": "other",
-      "size": "600ml",
-      "tags": [],
-      "target_confidence": "low",
-      "target_method": "watching (need more data)",
-      "target_data_points": 1,
-      "target_updated": "2026-04-15",
-      "scrape_history": [
-        {
-          "date": "2026-04-15",
-          "price": 5.07,
-          "is_special": false,
-          "store": "woolworths"
-        }
-      ],
-      "was_price": null,
-      "on_special": false,
-      "local_image": "images/Thickened_Cream_600ml.jpg",
-      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/047022.jpg"
-    },
-    {
       "name": "Cheese (Tasty Block)",
       "type": "dairy",
       "price_mode": "kg",
