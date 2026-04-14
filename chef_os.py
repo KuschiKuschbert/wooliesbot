@@ -76,12 +76,13 @@ STORES = {
 # --- PRODUCT WATCHLIST ---
 # price_mode: "kg" = compare per-kg unit price | "each" = compare shelf/pack price
 # compare_group: items with same group compete — cheapest wins
-_inv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "inventory.json")
+# Use docs/data.json for both the bot and the dashboard tracking
+_inv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
 try:
     with open(_inv_file, "r") as _f:
         TRACKING_LIST = json.load(_f)
 except Exception as e:
-    logging.warning(f"Failed to load inventory.json: {e}")
+    logging.warning(f"Failed to load docs/data.json: {e}")
     TRACKING_LIST = []
 
 # --- B-LIST: Shelf-stable items to add when Big Shop cart is under $500 ---
@@ -979,19 +980,26 @@ def update_price_history(results):
         logging.error(f"Error updating history.json: {e}")
 
 def sync_to_github():
-    """Commits and pushes the docs/ folder to GitHub."""
+    """Commits and pushes the docs/ folder and updated JSON data to GitHub."""
     import subprocess
     try:
-        logging.info("Syncing docs to GitHub...")
-        subprocess.run(["git", "add", "docs/"], check=True, capture_output=True)
+        # Update heartbeat file before syncing
+        heartbeat_path = os.path.join("docs", "heartbeat.json")
+        with open(heartbeat_path, "w") as f:
+            json.dump({"last_heartbeat": datetime.datetime.now().isoformat(), "status": "active"}, f)
+
+        logging.info("Syncing data to GitHub...")
+        # Capture root and docs changes
+        subprocess.run(["git", "add", "docs/*.json"], check=True, capture_output=True)
+        
         # Check if there are changes to commit
         status = subprocess.run(["git", "status", "--porcelain", "docs/"], capture_output=True, text=True)
         if status.stdout.strip():
-            subprocess.run(["git", "commit", "-m", "Auto-update prices"], check=True, capture_output=True)
+            subprocess.run(["git", "commit", "-m", "Auto-update dashboard data [skip ci]"], check=True, capture_output=True)
             subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True)
-            logging.info("Successfully pushed to GitHub.")
+            logging.info("Successfully pushed updated data & heartbeat to GitHub.")
         else:
-            logging.info("No changes to commit for GitHub.")
+            logging.info("No data changes detected, but heartbeat pushed if modified.")
     except subprocess.CalledProcessError as e:
         logging.error(f"GitHub sync failed: {e.stderr.decode()}")
     except Exception as e:

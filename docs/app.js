@@ -41,10 +41,10 @@ async function initDashboard() {
             }
         }
         
-        // Setup background tasks
-        setInterval(updateLastCheckedDisplay, 60000); // Update relative time every min
-        setInterval(monitorApi, 30000); // Check API status every 30s
+        setInterval(monitorApi, 30000); // Check local bridge status every 30s
+        setInterval(monitorCloudHealth, 300000); // Check cloud health every 5 mins
         monitorApi(); // Initial check
+        monitorCloudHealth(); // Initial check
 
         if (histRes && histRes.ok) {
             _history = await histRes.json();
@@ -552,16 +552,37 @@ async function monitorApi() {
         }
 
         const res = await fetch(`${_apiUrl}/status`).catch(() => null);
-        if (res && res.ok) {
-            dot.className = 'status-dot online';
-            text.textContent = 'Bridge Online';
-        } else {
-            dot.className = 'status-dot offline';
-            text.textContent = 'Bridge Offline';
         }
     } catch {
         dot.className = 'status-dot offline';
         text.textContent = 'Bridge Offline';
+    }
+}
+async function monitorCloudHealth() {
+    const dot = document.getElementById('cloud-status-dot');
+    const text = document.getElementById('cloud-status-text');
+    if (!dot || !text) return;
+
+    try {
+        // Fetch heartbeat from the same origin (GitHub Pages)
+        const res = await fetch('heartbeat.json?t=' + Date.now()).catch(() => null);
+        if (res && res.ok) {
+            const data = await res.json();
+            const lastBeat = new Date(data.last_heartbeat);
+            const now = new Date();
+            const minsAgo = (now - lastBeat) / (1000 * 60);
+
+            if (minsAgo < 35) {
+                dot.className = 'status-dot cloud-dot active';
+                text.textContent = 'Global Bot: Active';
+            } else {
+                dot.className = 'status-dot cloud-dot silent';
+                text.textContent = `Global Bot: Silent (${Math.round(minsAgo)}m ago)`;
+            }
+        }
+    } catch (e) {
+        dot.className = 'status-dot cloud-dot silent';
+        text.textContent = 'Global Bot: Unknown';
     }
 }
 

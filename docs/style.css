@@ -1366,6 +1366,31 @@ footer {
     letter-spacing: 0.5px;
 }
 
+.status-divider {
+    opacity: 0.3;
+    padding: 0 4px;
+}
+
+.status-dot.cloud-dot.active {
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+.status-dot.cloud-dot.active::after {
+    animation: heartbeat-blue 2s infinite;
+}
+
+@keyframes heartbeat-blue {
+    0% { transform: scale(1); opacity: 0.8; }
+    70% { transform: scale(2.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+.status-dot.cloud-dot.silent {
+    background: #94a3b8;
+    box-shadow: none;
+}
+
 .status-dot {
     width: 10px;
     height: 10px;
