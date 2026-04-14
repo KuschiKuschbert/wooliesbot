@@ -86,26 +86,89 @@ def run_sync(all_receipts=True, months_back=6):
             logging.error("Login timed out after 3 minutes. Please try again.")
             return
 
-        logging.info("Attempting to parse receipts...")
-        time.sleep(5)
+        logging.info("Scrolling activity feed to load all receipts up to cutoff date...")
         
-        # Correct selector based on live inspection of the Everyday Rewards portal
-        CARD_SELECTOR = "div.transaction-row.clickable"
-        cards = driver.find_elements(By.CSS_SELECTOR, CARD_SELECTOR)
-        if not cards:
-            logging.warning("Could not find activity cards. Trying alternative selectors...")
-            # Fallback: try broader selectors
-            for alt_sel in [".transaction-row", "[class*='transaction']", "[class*='activity']"]:
-                cards = driver.find_elements(By.CSS_SELECTOR, alt_sel)
-                if cards:
-                    logging.info(f"Found {len(cards)} cards with selector: {alt_sel}")
+        def _scroll_and_load_cards(driver, cutoff_date, card_selector, max_no_new=5):
+            """Scroll the activity feed page to trigger lazy-loading of older receipts.
+            Returns list of all card elements visible after full scroll.
+            Stops when: cutoff date found in visible cards, OR no new cards after max_no_new attempts."""
+            scroll_pause = 2.0
+            no_new_streak = 0
+            last_count = 0
+            page_body = driver.find_element(By.TAG_NAME, "body")
+
+            while True:
+                # Scroll to the bottom of the page
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(scroll_pause)
+
+                # Also try scrolling any scrollable container (activity list may be in a div)
+                try:
+                    for sel in ["[class*='activity']", "[class*='transactions']", "[class*='list']", "main"]:
+                        containers = driver.find_elements(By.CSS_SELECTOR, sel)
+                        for c in containers:
+                            driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", c)
+                except Exception:
+                    pass
+
+                time.sleep(scroll_pause)
+
+                # Fetch current cards
+                cards = driver.find_elements(By.CSS_SELECTOR, card_selector)
+                if not cards:
+                    for alt in [".transaction-row", "[class*='transaction']", "[class*='activity-item']"]:
+                        cards = driver.find_elements(By.CSS_SELECTOR, alt)
+                        if cards:
+                            break
+
+                current_count = len(cards)
+                logging.info(f"  Scroll pass: {current_count} cards loaded (was {last_count})")
+
+                # Check if any card already exceeds the cutoff date — if the oldest visible
+                # card is beyond the cutoff we can stop scrolling
+                cutoff_reached = False
+                for card in reversed(cards):  # Check from the bottom (oldest)
+                    date_match = re.search(r'(\w+ \d{1,2} \w{3})', card.text)
+                    if date_match:
+                        raw = date_match.group(1)
+                        try:
+                            now = datetime.datetime.now()
+                            card_date = datetime.datetime.strptime(raw, "%a %d %b")
+                            # Determine correct year for this card
+                            for year_offset in [0, -1, -2]:
+                                candidate = card_date.replace(year=now.year + year_offset)
+                                if candidate <= now:
+                                    card_date = candidate
+                                    break
+                            if card_date < cutoff_date:
+                                cutoff_reached = True
+                                break
+                        except Exception:
+                            pass
+                    
+                if cutoff_reached:
+                    logging.info(f"  Cutoff date {cutoff_date.strftime('%Y-%m-%d')} found in feed — stopping scroll.")
                     break
+
+                if current_count == last_count:
+                    no_new_streak += 1
+                    if no_new_streak >= max_no_new:
+                        logging.info(f"  No new cards after {max_no_new} scrolls — reached end of feed.")
+                        break
+                else:
+                    no_new_streak = 0
+
+                last_count = current_count
+
+            return cards
+
+        cards = _scroll_and_load_cards(driver, cutoff_date, CARD_SELECTOR)
         if not cards:
             logging.warning("Could not find any activity cards on the screen.")
             return
             
         num_to_process = len(cards) if all_receipts else 1
-        logging.info(f"Found {len(cards)} activity cards. Processing...")
+        logging.info(f"Found {len(cards)} activity cards total after full scroll. Processing...")
 
         processed_count = 0
         new_items_added = 0
@@ -131,25 +194,27 @@ def run_sync(all_receipts=True, months_back=6):
 
             # Extract date from card text (format: "Sun 05 Apr", "Sat 04 Apr", etc.)
             receipt_date_str = "Unknown"
-            import re as _re
-            date_match = _re.search(r'(\w+ \d{1,2} \w{3})', card.text)
+            receipt_date_obj = None
+            date_match = re.search(r'(\w+ \d{1,2} \w{3})', card.text)
             if date_match:
                 raw_date = date_match.group(1)
                 try:
-                    # Parse "Sun 05 Apr" style dates
-                    receipt_date_obj = datetime.datetime.strptime(raw_date, "%a %d %b")
-                    # Assume current year (or previous year if month is in the future)
+                    # Parse "Sun 05 Apr" style dates — try current year, then up to 2 years back
                     now = datetime.datetime.now()
-                    receipt_date_obj = receipt_date_obj.replace(year=now.year)
-                    if receipt_date_obj > now:
-                        receipt_date_obj = receipt_date_obj.replace(year=now.year - 1)
-                    receipt_date_str = receipt_date_obj.strftime("%Y-%m-%d")
+                    parsed_base = datetime.datetime.strptime(raw_date, "%a %d %b")
+                    for year_offset in [0, -1, -2]:
+                        candidate = parsed_base.replace(year=now.year + year_offset)
+                        if candidate <= now:  # Must be in the past
+                            receipt_date_obj = candidate
+                            break
+                    if receipt_date_obj:
+                        receipt_date_str = receipt_date_obj.strftime("%Y-%m-%d")
                     
                     # Check cutoff
-                    if receipt_date_obj < cutoff_date:
+                    if receipt_date_obj and receipt_date_obj < cutoff_date:
                         logging.info(f"Reached cutoff date ({receipt_date_str}). Stopping.")
                         break
-                except:
+                except Exception:
                     pass
 
             logging.info(f"Opening receipt #{index+1} ({receipt_date_str})...")

@@ -2034,8 +2034,35 @@ if __name__ == "__main__":
             # Start Telegram Listener in a background thread
             threading.Thread(target=telegram_bot_listener, daemon=True).start()
 
+            # ---------- Deep Receipt Sync (one-shot on next cycle) ----------
+            _DEEP_SYNC_FLAG = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".deep_sync_needed")
+
+            def _run_deep_receipt_sync():
+                """Launch receipt_sync.py in a subprocess so Chrome opens for login."""
+                import subprocess
+                logging.info("🧾 Deep receipt sync starting (24 months) — Chrome will open for login...")
+                try:
+                    venv_python = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".venv", "bin", "python3")
+                    py = venv_python if os.path.exists(venv_python) else sys.executable
+                    sync_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "receipt_sync.py")
+                    subprocess.run([py, sync_script], check=False)
+                    logging.info("🧾 Deep receipt sync complete.")
+                    send_telegram("🧾 *Deep Receipt Sync complete!* Price history enriched — targets will improve on next scrape cycle.")
+                except Exception as e:
+                    logging.error(f"Deep receipt sync failed: {e}")
+
+            def _maybe_run_deep_sync():
+                """Check flag and trigger sync exactly once."""
+                if os.path.exists(_DEEP_SYNC_FLAG):
+                    try:
+                        os.remove(_DEEP_SYNC_FLAG)
+                    except Exception:
+                        pass
+                    threading.Thread(target=_run_deep_receipt_sync, daemon=False).start()
+
             def _silent_update():
                 logging.info("Running scheduled silent update...")
+                _maybe_run_deep_sync()
                 try:
                     with cffi_requests.Session(impersonate="chrome124") as session:
                         _refresh_coles_metadata(session)
@@ -2045,6 +2072,7 @@ if __name__ == "__main__":
 
             def _sunday_ping():
                 logging.info("Running Sunday scheduled report...")
+                _maybe_run_deep_sync()
                 try:
                     with cffi_requests.Session(impersonate="chrome124") as session:
                         _refresh_coles_metadata(session)
@@ -2053,6 +2081,13 @@ if __name__ == "__main__":
                 except Exception as e:
                     logging.error(f"Sunday ping failed: {e}")
                     send_telegram(f"🚨 Sunday ping failed:\n{str(e)}")
+
+            # Write the deep sync flag so the next cycle picks it up
+            _DEEP_SYNC_FLAG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".deep_sync_needed")
+            if not os.path.exists(_DEEP_SYNC_FLAG_PATH):
+                with open(_DEEP_SYNC_FLAG_PATH, "w") as _f:
+                    _f.write(datetime.datetime.now().isoformat())
+                logging.info("Deep sync flag written — receipt scrape will trigger on next scheduled cycle.")
 
             # Update website frequently (every 4 hours) without telegram messages
             schedule.every(4).hours.do(_silent_update)

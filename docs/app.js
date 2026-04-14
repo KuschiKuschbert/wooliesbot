@@ -117,6 +117,7 @@ function setupFilters() {
 
     // Drawer toggles
     document.getElementById('toggle-list-btn')?.addEventListener('click', toggleDrawer);
+    document.getElementById('mobile-toggle-list')?.addEventListener('click', toggleDrawer);
     document.getElementById('close-drawer')?.addEventListener('click', toggleDrawer);
     document.getElementById('drawer-overlay')?.addEventListener('click', toggleDrawer);
 
@@ -494,6 +495,10 @@ function renderPredictions() {
 function updateListCount() {
     const el = document.getElementById('list-count');
     if (el) el.textContent = _shoppingList.length;
+    
+    // Update mobile badge
+    const mobileEl = document.getElementById('mobile-list-count');
+    if (mobileEl) mobileEl.textContent = _shoppingList.length;
     
     const syncBtn = document.getElementById('sync-keep-btn');
     if (syncBtn) syncBtn.disabled = _shoppingList.length === 0;
@@ -971,13 +976,32 @@ function renderAnalytics() {
     let itemsBoughtAtTarget = 0;
     let totalItemsTracked = _data.length;
 
-    // 1. Calculate Price Index and historical trends from history.json
+    // 1. Calculate Price Index and historical trends
+    // First, merge any history embedded in _data items that might be missing from _history
+    _data.forEach(item => {
+        if (!item.price_history || !Array.isArray(item.price_history)) return;
+        if (!_history[item.name]) _history[item.name] = { target: item.target, history: [] };
+        
+        item.price_history.forEach(ph => {
+            const exists = _history[item.name].history.some(h => h.date === ph.date);
+            if (!exists) {
+                _history[item.name].history.push({
+                    date: ph.date,
+                    price: ph.price,
+                    is_special: ph.price <= (item.target || 0),
+                    store: item.store || 'woolworths'
+                });
+            }
+        });
+    });
+
     Object.entries(_history).forEach(([name, data]) => {
         const itemInfo = _data.find(i => i.name === name) || {};
+        const target = itemInfo.target || data.target || 0;
         
         // Calculate Volatility
         const prices = data.history.map(h => h.price).filter(p => p > 0 && p < 1000);
-        if (prices.length > 1) {
+        if (prices.length > 2) {
             const avg = prices.reduce((a, b) => a + b) / prices.length;
             const variance = prices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / prices.length;
             const stdDev = Math.sqrt(variance);
@@ -985,8 +1009,16 @@ function renderAnalytics() {
         }
 
         data.history.forEach(h => {
-            if (h.price > 1000) return; // Skip dummy prices like 99999
+            if (h.price > 1000) return;
             
+            // Track total realized savings over full history
+            if (target > 0 && h.price <= target) {
+                // Heuristic: If we bought it at or below target, we saved vs 'shelf' (approx 30% higher)
+                const estimatedShelf = target * 1.4;
+                totalRealizedSavings += Math.max(0, estimatedShelf - h.price);
+                itemsBoughtAtTarget++;
+            }
+
             const date = h.date.substring(0, 7); // YYYY-MM
             if (!priceIndexByMonth[date]) {
                 priceIndexByMonth[date] = { sum: 0, count: 0 };
