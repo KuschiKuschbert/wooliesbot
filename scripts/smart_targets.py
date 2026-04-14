@@ -128,27 +128,51 @@ def recalculate_targets(dry_run=False):
         old_target = item.get("target", 0)
         all_prices = get_all_prices(item)
         n = len(all_prices)
+        current_price = item.get("eff_price") or item.get("price", 0)
 
         new_target = old_target
         confidence = "low"
         method = "unchanged"
 
-        if n >= 10:
-            # GOLD: Sale-cluster detection
-            # Find prices significantly below median — these are genuine sale prices.
-            # Target = median of those sale prices = "typical on-special price"
+        # ── PRIORITY 1: Retailer says "on special" right now ──
+        # Use was_price as target — that's the regular price the store normally charges.
+        # If the store marks "Was $11, Now $8.50", the was_price ($11) becomes the
+        # ceiling and the current price is the genuine special price.
+        was = item.get("was_price")
+        on_special = item.get("on_special", False)
+
+        # Also check all_stores for any store running a special
+        best_was = None
+        for sk, sd in item.get("all_stores", {}).items():
+            sw = sd.get("was_price")
+            if sw and sw > 0:
+                if best_was is None or sw > best_was:
+                    best_was = sw
+
+        if was and float(was) > 0 and on_special:
+            was = float(was)
+            best_was = was
+
+        if best_was and best_was > current_price and current_price > 0:
+            # Store confirms a special — use was_price as the target
+            new_target = round(best_was, 2)
+            confidence = "high"
+            method = f"was ${best_was:.2f}, now ${current_price:.2f} (store special)"
+            summary["gold"] += 1
+
+        # ── PRIORITY 2: Enough historical data for statistical target ──
+        elif n >= 10:
+            # Sale-cluster detection: find prices >10% below median
             median_price = statistics.median(all_prices)
-            sale_threshold = median_price * 0.90  # >10% below median = sale
+            sale_threshold = median_price * 0.90
             sale_prices = [p for p in all_prices if p <= sale_threshold]
 
             if len(sale_prices) >= 3:
-                # Enough sale observations to compute a meaningful median
                 new_target = round(statistics.median(sale_prices), 2)
                 confidence = "high"
                 sale_pct = len(sale_prices) / n * 100
                 method = f"sale median ({len(sale_prices)}/{n} obs, {sale_pct:.0f}% on sale)"
             else:
-                # Not enough clear sales — use p15 as aggressive fallback
                 new_target = round(percentile(all_prices, 15), 2)
                 confidence = "high"
                 method = f"p15 of {n} prices (few sales detected)"
@@ -163,18 +187,14 @@ def recalculate_targets(dry_run=False):
 
         else:
             # BRONZE: Not enough data for a reliable target.
-            # Only set a target if we have receipt data showing a DIFFERENT price
-            # (proof the item can be cheaper). Otherwise mark as "watching".
+            # Only set a target if we have receipt data showing a DIFFERENT price.
             receipt_prices = [e.get("price", 0) for e in item.get("price_history", [])
                               if 0 < e.get("price", 0) < MAX_SENTINEL]
-            current_price = item.get("eff_price") or item.get("price", 0)
 
             if receipt_prices and min(receipt_prices) < current_price * 0.95:
-                # Receipt shows we've paid at least 5% less before — use that as target
                 new_target = round(min(receipt_prices), 2)
                 method = f"receipt min of {len(receipt_prices)} purchases"
             else:
-                # Not enough evidence of a lower price — no target yet
                 new_target = 0
                 method = "watching (need more data)"
 

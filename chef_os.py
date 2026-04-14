@@ -331,7 +331,9 @@ def _cffi_fetch_coles_api(session, url, build_id):
                     "price": price,
                     "unit_price": up,
                     "unit": unit,
-                    "image_url": img
+                    "image_url": img,
+                    "was_price": pricing.get("was"),
+                    "is_special": pricing.get("promotionType") == "SPECIAL",
                 }
     except Exception as e:
         logging.debug(f"Coles API fetch error: {e}")
@@ -458,6 +460,8 @@ def scrape_item_from_store(driver, url, store_key):
                 "unit_price": json_result.get("unit_price"),
                 "unit": json_result.get("unit"),
                 "image_url": json_result.get("image_url", ""),
+                "was_price": json_result.get("was_price"),
+                "on_special": bool(json_result.get("is_special") or json_result.get("was_price")),
             }
 
         # ── Strategy 2: CSS selector fallback ──
@@ -712,6 +716,8 @@ def check_prices():
                 "price": sr["price"],
                 "unit_price": sr.get("unit_price"),
                 "eff_price": ep,
+                "was_price": sr.get("was_price"),
+                "on_special": sr.get("on_special", False),
             }
         # If all stores were unreliable, keep item but flag it
         if not all_stores and eff >= _PRICE_UNRELIABLE:
@@ -750,6 +756,8 @@ def check_prices():
             "all_stores": all_stores,
             "price_unavailable": False,
             "image_url": best.get("image_url", ""),
+            "was_price": best.get("was_price"),
+            "on_special": best.get("on_special", False),
             "price_history": history,
             "avg_price": avg_price
         }
@@ -1423,6 +1431,8 @@ def _cffi_fetch_product(session, url, store_key):
                 "unit_price": data.get("unit_price"),
                 "unit": data.get("unit", "each"),
                 "image_url": data.get("image_url", ""),
+                "was_price": data.get("was_price"),
+                "on_special": bool(data.get("is_special") or data.get("was_price")),
             }
     except Exception as e:
         logging.debug(f"cffi fetch error {url[:50]}: {e}")
