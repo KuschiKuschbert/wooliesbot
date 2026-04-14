@@ -106,7 +106,7 @@ function setupFilters() {
             btn.innerHTML = '<i data-feather="loader" class="spin"></i> Starting Sync...';
             feather.replace();
             
-            const response = await fetch('http://localhost:5000/sync');
+            const response = await fetch('http://localhost:5001/sync');
             if (response.ok) {
                 btn.innerHTML = '<i data-feather="check"></i> Syncing in Background';
                 btn.style.background = 'var(--woolies-green)';

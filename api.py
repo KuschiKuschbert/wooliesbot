@@ -4,7 +4,7 @@ import json
 import threading
 from keep_sync import run_keep_sync
 
-PORT = 5000
+PORT = 5001
 
 class LocalBotHandler(http.server.BaseHTTPRequestHandler):
     def do_OPTIONS(self):
