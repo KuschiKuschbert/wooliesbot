@@ -160,7 +160,7 @@ function setupFilters() {
     document.getElementById('sync-keep-btn')?.addEventListener('click', async () => {
         const btn = document.getElementById('sync-keep-btn');
         try {
-            btn.innerHTML = '<i data-feather="loader" class="spin"></i> Starting Sync...';
+            btn.innerHTML = '<i data-feather="loader" class=""></i> Starting Sync...';
             feather.replace();
             const response = await fetch(`${_apiUrl}/sync`);
             if (response.ok) {
@@ -972,12 +972,17 @@ function renderAnalytics() {
         });
     });
 
-    // 2. Calculate Category Split and efficiency from current _data
+    // 2. Calculate Category Split, Brand Split, and efficiency from current _data
+    const brandPrices = { 'Private Label': { sum: 0, count: 0 }, 'Name Brand': { sum: 0, count: 0 } };
     _data.forEach(item => {
         const cat = item.subcategory || item.type || 'pantry';
         const price = item.eff_price || item.price || 0;
         if (price > 0 && price < 1000) {
             categories[cat] = (categories[cat] || 0) + price;
+            
+            const brandType = item.brand === 'Private Label' ? 'Private Label' : 'Name Brand';
+            brandPrices[brandType].sum += price;
+            brandPrices[brandType].count++;
         }
 
         if (item.last_purchased) {
@@ -1110,6 +1115,11 @@ function renderDeeperInsights() {
     const wPercent = (wooliesCheaper / total) * 100;
     const cPercent = (colesCheaper / total) * 100;
 
+    // 3. Brand Premium Analysis
+    const privateAvg = brandPrices['Private Label'].sum / (brandPrices['Private Label'].count || 1);
+    const nameAvg = brandPrices['Name Brand'].sum / (brandPrices['Name Brand'].count || 1);
+    const premium = ((nameAvg - privateAvg) / privateAvg) * 100;
+
     let html = `
         <div class="deep-insight-card">
             <h4>🔥 Smart Buy Recommendations</h4>
@@ -1125,6 +1135,19 @@ function renderDeeperInsights() {
                 `).join('')}
             </div>
             <p class="insight-tip">These items are at their target price and historically jump back up quickly.</p>
+        </div>
+
+        <div class="deep-insight-card">
+            <h4>🏷 Brand Premium Index</h4>
+            <div class="premium-viz">
+                <div class="premium-value">${premium > 0 ? '+' : ''}${premium.toFixed(0)}%</div>
+                <div class="premium-label">Avg. markup for name brands</div>
+                <div class="premium-comparison">
+                    <span>Private: $${privateAvg.toFixed(2)}</span>
+                    <span>Name: $${nameAvg.toFixed(2)}</span>
+                </div>
+            </div>
+            <p class="insight-tip">Average price difference between generic and name-brand items in your list.</p>
         </div>
 
         <div class="deep-insight-card">
