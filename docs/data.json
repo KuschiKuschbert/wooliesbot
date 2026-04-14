@@ -10,7 +10,13 @@
     "last_purchased": "2026-04-05T22:19:50.632258",
     "price": 11.0,
     "eff_price": 11.0,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "chicken",
+    "size": "Standard",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Beef Mince (Lean 500g)",
@@ -23,7 +29,11 @@
     "last_purchased": "2026-04-05T22:19:50.632258",
     "price": 21.0,
     "eff_price": 21.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "beef",
+    "size": "500g",
+    "tags": []
   },
   {
     "name": "Bacon (Middle)",
@@ -36,7 +46,11 @@
     "last_purchased": null,
     "price": 12.5,
     "eff_price": 12.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "pork_deli",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Pork Loin Roast",
@@ -49,7 +63,11 @@
     "last_purchased": null,
     "price": 13.0,
     "eff_price": 13.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "pork_deli",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Deli Meats (Chorizo)",
@@ -62,7 +80,11 @@
     "last_purchased": null,
     "price": 6.7,
     "eff_price": 6.7,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "pork_deli",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Deli Ham/Silverside",
@@ -75,7 +97,11 @@
     "last_purchased": null,
     "price": 19.9,
     "eff_price": 19.9,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "pork_deli",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Beef Stir Fry (500g)",
@@ -89,7 +115,11 @@
     "last_purchased": null,
     "price": 24.0,
     "eff_price": 24.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "beef",
+    "size": "500g",
+    "tags": []
   },
   {
     "name": "Rump Steak (Whole)",
@@ -103,7 +133,11 @@
     "last_purchased": null,
     "price": 29.0,
     "eff_price": 29.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "beef",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Capsicum (Red)",
@@ -116,7 +150,11 @@
     "last_purchased": null,
     "price": 12.9,
     "eff_price": 12.9,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Avocados (Hass)",
@@ -129,7 +167,11 @@
     "last_purchased": null,
     "price": 4.0,
     "eff_price": 4.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Baby Spinach / Kaleslaw",
@@ -142,7 +184,11 @@
     "last_purchased": null,
     "price": 5.5,
     "eff_price": 5.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Onions (Brown Bag)",
@@ -155,7 +201,11 @@
     "last_purchased": null,
     "price": 3.8,
     "eff_price": 3.8,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Potatoes (Washed Bag)",
@@ -168,7 +218,11 @@
     "last_purchased": null,
     "price": 8.0,
     "eff_price": 8.0,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Carrots (1kg)",
@@ -181,7 +235,13 @@
     "last_purchased": null,
     "price": 2.4,
     "eff_price": 2.4,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "1kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Broccoli",
@@ -194,7 +254,11 @@
     "last_purchased": null,
     "price": 5.8,
     "eff_price": 5.8,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Zucchini",
@@ -207,7 +271,11 @@
     "last_purchased": null,
     "price": 5.9,
     "eff_price": 5.9,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Mushrooms (Cup)",
@@ -220,7 +288,11 @@
     "last_purchased": null,
     "price": 20.0,
     "eff_price": 20.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Pumpkin (Kent)",
@@ -233,7 +305,11 @@
     "last_purchased": null,
     "price": 99999.0,
     "eff_price": 99999.0,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Snow Peas",
@@ -246,7 +322,11 @@
     "last_purchased": null,
     "price": 99999.0,
     "eff_price": 99999.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Corn Cobs",
@@ -259,7 +339,11 @@
     "last_purchased": null,
     "price": 99999.0,
     "eff_price": 99999.0,
-    "store": "none"
+    "store": "none",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Watermelon (Quarter)",
@@ -272,7 +356,11 @@
     "last_purchased": null,
     "price": 5.22,
     "eff_price": 5.22,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Lemons (Bag)",
@@ -285,7 +373,11 @@
     "last_purchased": null,
     "price": 6.5,
     "eff_price": 6.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Garlic",
@@ -298,7 +390,11 @@
     "last_purchased": null,
     "price": 33.0,
     "eff_price": 33.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Fresh Herbs (Basil)",
@@ -311,7 +407,11 @@
     "last_purchased": null,
     "price": 3.2,
     "eff_price": 3.2,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "produce",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Medjool Dates",
@@ -324,7 +424,11 @@
     "last_purchased": null,
     "price": 12.5,
     "eff_price": 12.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Eggs (18 Pack)",
@@ -337,7 +441,11 @@
     "last_purchased": null,
     "price": 8.4,
     "eff_price": 8.4,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Butter (Western Star)",
@@ -350,7 +458,11 @@
     "last_purchased": null,
     "price": 5.5,
     "eff_price": 5.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Western Star",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Thickened Cream (600ml)",
@@ -363,7 +475,11 @@
     "last_purchased": null,
     "price": 5.2,
     "eff_price": 5.2,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600ml",
+    "tags": []
   },
   {
     "name": "Cheese (Tasty Block)",
@@ -376,7 +492,11 @@
     "last_purchased": null,
     "price": 22.0,
     "eff_price": 22.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Philly Cream Cheese",
@@ -389,7 +509,11 @@
     "last_purchased": null,
     "price": 4.5,
     "eff_price": 4.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Philly",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Sour Cream",
@@ -402,7 +526,11 @@
     "last_purchased": null,
     "price": 3.3,
     "eff_price": 3.3,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Yoghurt (Greek)",
@@ -415,7 +543,11 @@
     "last_purchased": null,
     "price": 3.8,
     "eff_price": 3.8,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Protein Puds (Wicked Sister)",
@@ -428,7 +560,11 @@
     "last_purchased": null,
     "price": 3.3,
     "eff_price": 3.3,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Wicked Sister",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Frozen Peas",
@@ -441,7 +577,11 @@
     "last_purchased": null,
     "price": 2.5,
     "eff_price": 2.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Chicken Tenders (Ingham)",
@@ -454,7 +594,11 @@
     "last_purchased": null,
     "price": 5.5,
     "eff_price": 5.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Ingham",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ice Cream (Connoisseur)",
@@ -467,7 +611,11 @@
     "last_purchased": null,
     "price": 13.0,
     "eff_price": 13.0,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Connoisseur",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "English Muffins",
@@ -480,7 +628,11 @@
     "last_purchased": null,
     "price": 3.0,
     "eff_price": 3.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "bakery",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Wraps (Mission Carb Balance)",
@@ -493,7 +645,11 @@
     "last_purchased": null,
     "price": 5.2,
     "eff_price": 5.2,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Mission",
+    "subcategory": "bakery",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Rice Paper",
@@ -506,7 +662,11 @@
     "last_purchased": null,
     "price": 2.3,
     "eff_price": 2.3,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Canned Tomatoes",
@@ -519,7 +679,11 @@
     "last_purchased": null,
     "price": 0.95,
     "eff_price": 0.95,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Liquid Stock (Campbells)",
@@ -532,7 +696,11 @@
     "last_purchased": null,
     "price": 2.25,
     "eff_price": 2.25,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Campbells",
+    "subcategory": "cooking_essentials",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Peanut Butter (Pics)",
@@ -545,7 +713,11 @@
     "last_purchased": null,
     "price": 7.5,
     "eff_price": 7.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Pics",
+    "subcategory": "cooking_essentials",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Coffee (Nescafe Espresso)",
@@ -558,7 +730,11 @@
     "last_purchased": null,
     "price": 14.5,
     "eff_price": 14.5,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Nescafe",
+    "subcategory": "beverages",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Almond Meal",
@@ -571,7 +747,11 @@
     "last_purchased": null,
     "price": 7.0,
     "eff_price": 7.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Gravy Granules",
@@ -584,7 +764,11 @@
     "last_purchased": null,
     "price": 3.8,
     "eff_price": 3.8,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Crackers (Jatz)",
@@ -597,7 +781,11 @@
     "last_purchased": null,
     "price": 2.8,
     "eff_price": 2.8,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Jatz",
+    "subcategory": "snacks",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Lindt 95% Cocoa",
@@ -610,7 +798,11 @@
     "last_purchased": null,
     "price": 9.75,
     "eff_price": 9.75,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Lindt",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Quest/BSC Protein Bars",
@@ -623,7 +815,11 @@
     "last_purchased": null,
     "price": 3.75,
     "eff_price": 3.75,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Quest",
+    "subcategory": "snacks",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Pepsi Max 24pk",
@@ -638,7 +834,13 @@
     "last_purchased": null,
     "price": 2.6333333333333333,
     "eff_price": 2.6333333333333333,
-    "store": "coles"
+    "store": "woolworths",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "24pk",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Coke No Sugar 24pk",
@@ -653,7 +855,13 @@
     "last_purchased": null,
     "price": 2.888888888888889,
     "eff_price": 2.888888888888889,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Coke",
+    "subcategory": "beverages",
+    "size": "24pk",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Pepsi Max 30pk",
@@ -668,7 +876,11 @@
     "last_purchased": null,
     "price": 2.6222222222222222,
     "eff_price": 2.6222222222222222,
-    "store": "coles"
+    "store": "woolworths",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "30pk",
+    "tags": []
   },
   {
     "name": "Coke No Sugar 30pk",
@@ -683,7 +895,11 @@
     "last_purchased": null,
     "price": 2.577777777777778,
     "eff_price": 2.577777777777778,
-    "store": "coles"
+    "store": "woolworths",
+    "brand": "Coke",
+    "subcategory": "beverages",
+    "size": "30pk",
+    "tags": []
   },
   {
     "name": "Remedy/Juice Lab Shots",
@@ -696,7 +912,11 @@
     "last_purchased": null,
     "price": 2.5,
     "eff_price": 2.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Whiskas Kitten 12pk",
@@ -709,7 +929,11 @@
     "last_purchased": null,
     "price": 6.5,
     "eff_price": 6.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12pk",
+    "tags": []
   },
   {
     "name": "Pedigree Dog Food 3kg",
@@ -722,7 +946,11 @@
     "last_purchased": null,
     "price": 12.0,
     "eff_price": 12.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "3kg",
+    "tags": []
   },
   {
     "name": "Toilet Paper (Quilton)",
@@ -735,7 +963,11 @@
     "last_purchased": null,
     "price": 11.0,
     "eff_price": 11.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Quilton",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Laundry Powder (Omo)",
@@ -748,7 +980,11 @@
     "last_purchased": null,
     "price": 15.0,
     "eff_price": 15.0,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Omo",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Dishmatic Refills",
@@ -761,7 +997,11 @@
     "last_purchased": null,
     "price": 6.3,
     "eff_price": 6.3,
-    "store": "coles"
+    "store": "coles",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Energizer Batteries AA",
@@ -774,7 +1014,11 @@
     "last_purchased": null,
     "price": 28.5,
     "eff_price": 28.5,
-    "store": "woolworths"
+    "store": "woolworths",
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -792,7 +1036,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 13.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Quilton",
+    "subcategory": "other",
+    "size": "24Pk",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Ww Frozen Blueberries 1Kg",
@@ -810,7 +1060,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 12.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "A2 Milk Lite 1L",
@@ -832,7 +1088,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Ww Lean Beef Mince 1Kg",
@@ -854,7 +1114,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 19.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Ww Pear Mozzarella 350G",
@@ -876,7 +1142,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "350G",
+    "tags": []
   },
   {
     "name": "Ww Bocconcini Traditional 220G",
@@ -902,7 +1172,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "220G",
+    "tags": []
   },
   {
     "name": "Ww Fetta Danish Style 200G",
@@ -920,7 +1194,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Ww Rspca Chicken Breast Fillets",
@@ -938,7 +1216,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 14.74,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Yoghurt Starwberry 1Kg",
@@ -956,7 +1238,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Old Gold Dark Chocolate Peppermint 180G",
@@ -974,7 +1262,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "180G",
+    "tags": []
   },
   {
     "name": "Ww Belgian Dark Choc Block 85% 100G",
@@ -992,7 +1284,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "100G",
+    "tags": []
   },
   {
     "name": "Tms Rocky Road Choc Protein Bar 50G",
@@ -1010,7 +1306,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "50G",
+    "tags": []
   },
   {
     "name": "Queen Sgr Free Mapleflavoured Syrup 355M",
@@ -1044,7 +1344,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -1062,7 +1366,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "10Pk",
+    "tags": []
   },
   {
     "name": "Meggles Farm Cage Eggs Xl 12Pk 700G",
@@ -1088,7 +1396,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12Pk",
+    "tags": []
   },
   {
     "name": "Weet-Bix Cereal 375G",
@@ -1106,7 +1418,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "La Molisana Extra Lusso 28 Fusilli 500G",
@@ -1124,7 +1440,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Original Water Crackers 125G",
@@ -1142,7 +1462,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.95,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "125G",
+    "tags": []
   },
   {
     "name": "V.I.P Rst Mt & Swt Pot Dog Roll 2.15Kg",
@@ -1160,7 +1484,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "15Kg",
+    "tags": []
   },
   {
     "name": "Onion Brown 1Kg P/P",
@@ -1198,7 +1526,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Mushroom Sliced 200Gp/P",
@@ -1224,7 +1558,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Avocado Shepard",
@@ -1250,7 +1588,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Crafted Sourdough Loaf Signature White",
@@ -1268,7 +1610,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Potato Brushed 4Kg",
@@ -1286,7 +1632,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "4Kg",
+    "tags": []
   },
   {
     "name": "Pepsi Max Cola Cans 10X375Ml",
@@ -1317,7 +1667,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 9.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "375Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -1336,7 +1691,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 12.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -1354,7 +1714,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 12.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "600G",
+    "tags": []
   },
   {
     "name": "Ww Beef Rump Steak 250G",
@@ -1376,7 +1740,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Mild Deli Salami Kg",
@@ -1398,7 +1766,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.18,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ec Sustainable Cottage Cheese 500G",
@@ -1416,7 +1788,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Light Thickened Cream 300Ml",
@@ -1446,7 +1822,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "300Ml",
+    "tags": []
   },
   {
     "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -1468,7 +1848,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "160G",
+    "tags": []
   },
   {
     "name": "Ww Cage Free Eggs Xl 12Pk 700G",
@@ -1490,7 +1874,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12Pk",
+    "tags": []
   },
   {
     "name": "Vegeta Chicken Stock Cubes 60G",
@@ -1508,7 +1896,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "60G",
+    "tags": []
   },
   {
     "name": "Vegeta Beef Stock Cubes 60G",
@@ -1526,7 +1918,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "60G",
+    "tags": []
   },
   {
     "name": "Hillview Cheese Block Tasty 1Kg",
@@ -1552,7 +1948,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Heinz Tomato Ketchup 500Ml",
@@ -1574,7 +1976,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Real Foods Corn Thins Multigrain 150G",
@@ -1592,7 +1998,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.1,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "150G",
+    "tags": []
   },
   {
     "name": "Ww Sundried Tomato Strips 270G",
@@ -1614,7 +2024,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.65,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "270G",
+    "tags": []
   },
   {
     "name": "Ww Hmlyn Pink Salt Refill 500G",
@@ -1632,7 +2046,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Cobs Popcorn Best Ever Butter 5Pk 65G",
@@ -1654,7 +2072,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "5Pk",
+    "tags": []
   },
   {
     "name": "Lettuce Cos Hearts 2 Pack",
@@ -1676,7 +2098,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Apple The Odd Bunch 1Kg Pp",
@@ -1694,7 +2120,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Cucumber Continentalodd Bunch",
@@ -1712,7 +2144,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
@@ -1734,7 +2170,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Commandeverydayvalue3Small 3Med Hooks",
@@ -1752,7 +2192,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Woolworths Art Bag",
@@ -1774,7 +2218,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Shine Dishwashing Liquid Lemon 1L",
@@ -1792,7 +2240,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "La Gina Passata With Basil 680G",
@@ -1810,7 +2262,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.95,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "680G",
+    "tags": []
   },
   {
     "name": "Omo Wonder Wash Odour Refresh 1.18L",
@@ -1828,7 +2284,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Omo",
+    "subcategory": "other",
+    "size": "18L",
+    "tags": []
   },
   {
     "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -1850,7 +2310,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Continental P&S M Carbonara 80G",
@@ -1872,7 +2336,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "80G",
+    "tags": []
   },
   {
     "name": "Cottee'S Strawberry Jam 375G",
@@ -1890,7 +2358,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Potato Lower Carb 1.5Kg",
@@ -1908,7 +2380,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "5Kg",
+    "tags": []
   },
   {
     "name": "Tomato Cherry Red 250G P/P",
@@ -1934,7 +2410,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Woolworths Paper Bag",
@@ -1960,7 +2440,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Lean Beef Mince 500G",
@@ -1982,7 +2466,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Df Thick & Creamy Strawberry 600G",
@@ -2000,7 +2488,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.75,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600G",
+    "tags": []
   },
   {
     "name": "La Casa Fresh Mozzarella 125G",
@@ -2026,7 +2518,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "125G",
+    "tags": []
   },
   {
     "name": "Old El Paso Fajita Seasoning Mild 40G",
@@ -2052,7 +2548,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "40G",
+    "tags": []
   },
   {
     "name": "Ww Australian Butter Unsalted 250G",
@@ -2074,7 +2574,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -2092,7 +2596,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "125G",
+    "tags": []
   },
   {
     "name": "Ww Country Style Roast Chicken 1Ea",
@@ -2114,7 +2622,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 12.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Pepsi Max Cola Drink 1.25L",
@@ -2134,7 +2646,12 @@
     "compare_group": "cola",
     "price": 1.87,
     "eff_price": 1.496,
-    "last_updated": "2026-04-14T23:28:58.112896"
+    "last_updated": "2026-04-14T23:28:58.112896",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "25L",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Coca Cola Drink Classic 1.25L",
@@ -2154,7 +2671,12 @@
     "compare_group": "cola",
     "price": 1.87,
     "eff_price": 1.496,
-    "last_updated": "2026-04-14T23:28:58.112901"
+    "last_updated": "2026-04-14T23:28:58.112901",
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "25L",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Pepsi Max Cola Mango 1.25L",
@@ -2174,7 +2696,12 @@
     "compare_group": "cola",
     "price": 1.87,
     "eff_price": 1.496,
-    "last_updated": "2026-04-14T23:28:58.112903"
+    "last_updated": "2026-04-14T23:28:58.112903",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "25L",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Golden Circle P/Appl Sliced 440G",
@@ -2192,7 +2719,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "440G",
+    "tags": []
   },
   {
     "name": "F/F Body Wash Cucumber & Kakadu Plum 1L",
@@ -2210,7 +2741,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Cadbury Strawberry Eggs 118G",
@@ -2228,7 +2763,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "118G",
+    "tags": []
   },
   {
     "name": "Cadbury Turkish Delight Eggs 117G",
@@ -2246,7 +2785,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "117G",
+    "tags": []
   },
   {
     "name": "Kettle Chips Sea Salt & Vinegar 165G",
@@ -2264,7 +2807,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "165G",
+    "tags": []
   },
   {
     "name": "Ww Natural Greek Style Yoghurt 2Kg",
@@ -2294,7 +2841,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "2Kg",
+    "tags": []
   },
   {
     "name": "D'Orsogna Champagne Leg Ham Shaved",
@@ -2312,7 +2863,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.81,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -2330,7 +2885,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.18,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Winter Veg Mix 1Kg",
@@ -2348,7 +2907,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Ww Beef Family Sharing Roast",
@@ -2366,7 +2931,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 17.18,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Essentials Butter Unsalted 500G",
@@ -2384,7 +2953,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Western Star Spreadable Supersoft 500G",
@@ -2406,7 +2979,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Western Star",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Light Thickened Cream 600Ml",
@@ -2436,7 +3013,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
@@ -2454,7 +3035,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 11.76,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Potato Brushed 2Kg",
@@ -2476,7 +3061,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "2Kg",
+    "tags": []
   },
   {
     "name": "Bega Peanut Butter Crunchy 755G",
@@ -2494,7 +3083,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "755G",
+    "tags": []
   },
   {
     "name": "Carrot 1Kg P/P",
@@ -2516,7 +3109,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Beanette 400G P/P",
@@ -2546,7 +3145,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Multigrain Loaf 680G",
@@ -2568,7 +3171,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.1,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "680G",
+    "tags": []
   },
   {
     "name": "Ww Pikelets 200G 8Pk",
@@ -2586,7 +3193,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "F/C Babyspinach 120G",
@@ -2620,7 +3231,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "120G",
+    "tags": []
   },
   {
     "name": "6023464 Lenovo Tbone 8.7",
@@ -2638,7 +3253,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 149.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Coca Cola Pet 600Ml",
@@ -2657,7 +3276,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -2675,7 +3299,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 21.29,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Fab Pi Sublime Velvet 1.8Kg",
@@ -2697,7 +3325,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "8Kg",
+    "tags": []
   },
   {
     "name": "Whiskas Kitten 2-12M Mixed Favs 12X85G",
@@ -2719,7 +3351,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 13.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Omo Wonder Wash Lqudspeed Clean 1.18L",
@@ -2737,7 +3373,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Omo",
+    "subcategory": "other",
+    "size": "18L",
+    "tags": []
   },
   {
     "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -2755,7 +3395,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -2781,7 +3425,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "800G",
+    "tags": []
   },
   {
     "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -2801,7 +3449,12 @@
     "compare_group": "cola",
     "price": 1.87,
     "eff_price": 1.496,
-    "last_updated": "2026-04-14T23:28:58.112905"
+    "last_updated": "2026-04-14T23:28:58.112905",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "25L",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -2819,7 +3472,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Quilton Toilet Tissue King Size 6Pk",
@@ -2841,7 +3498,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Quilton",
+    "subcategory": "other",
+    "size": "6Pk",
+    "tags": []
   },
   {
     "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -2859,7 +3520,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "165G",
+    "tags": []
   },
   {
     "name": "Mn Protein Cups Chocpeanut Butter 50G",
@@ -2877,7 +3542,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "50G",
+    "tags": []
   },
   {
     "name": "Cheer Cheese Block Tasty 200G",
@@ -2895,7 +3564,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Libra Tampons Super 16Pk",
@@ -2913,7 +3586,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "16Pk",
+    "tags": []
   },
   {
     "name": "Old El Paso Taco Spice Mix Mild 30G",
@@ -2935,7 +3612,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "30G",
+    "tags": []
   },
   {
     "name": "Bega Peanut Butter Crunchy 470G",
@@ -2953,7 +3634,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "470G",
+    "tags": []
   },
   {
     "name": "Shapes L&C Cheddar Cheese 120G",
@@ -2971,7 +3656,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "120G",
+    "tags": []
   },
   {
     "name": "G-Active Coconut Breeze 600Ml",
@@ -2989,7 +3678,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "G Active Flav Water Berry 600Ml",
@@ -3007,7 +3700,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Gem Deodorant Vanilla 127G",
@@ -3025,7 +3722,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 10.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "127G",
+    "tags": []
   },
   {
     "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -3043,7 +3744,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Potato Spudlite Baby750G Pp",
@@ -3077,7 +3782,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "750G",
+    "tags": []
   },
   {
     "name": "Old Gold Dark Chocolate 70% 180G",
@@ -3099,7 +3808,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "180G",
+    "tags": []
   },
   {
     "name": "Ww Chicken Breast Fillets Small Rspca",
@@ -3129,7 +3842,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.87,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Thickened Cream 600Ml",
@@ -3159,7 +3876,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Omg Choc Protein Oat Milk 350Ml",
@@ -3177,7 +3898,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "350Ml",
+    "tags": []
   },
   {
     "name": "Ww Liquid Stock Chicken Style 1L",
@@ -3195,7 +3920,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Woolworths Corned Beef Shaved Kg",
@@ -3213,7 +3942,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.49,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Don Melosi Ham Shaved Kg",
@@ -3235,7 +3968,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.84,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Rokeby Protein Smoothie Dbl Esprs 425Ml",
@@ -3253,7 +3990,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "425Ml",
+    "tags": []
   },
   {
     "name": "Colgate Total Tpaste Pr Frag Mint 95G",
@@ -3271,7 +4012,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "95G",
+    "tags": []
   },
   {
     "name": "Ww All Butter Croissant 189G 3Pk",
@@ -3289,7 +4034,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "189G",
+    "tags": []
   },
   {
     "name": "Twisted Protein Pint Btr Crml Ckie 475Ml",
@@ -3307,7 +4056,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "475Ml",
+    "tags": []
   },
   {
     "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -3325,7 +4078,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 23.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "42Pk",
+    "tags": []
   },
   {
     "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -3343,7 +4100,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Mission",
+    "subcategory": "bakery",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "San Remo Pasta Risoni 500G",
@@ -3361,7 +4122,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Australian Diced Tomatoes 400G",
@@ -3379,7 +4144,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Nescafe Coffee Conc Mocha 500Ml",
@@ -3401,7 +4170,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Nescafe",
+    "subcategory": "beverages",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
@@ -3431,7 +4204,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Nescafe",
+    "subcategory": "other",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "G Active Flav Water Grape 600Ml",
@@ -3453,7 +4230,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.1,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -3471,7 +4252,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "350G",
+    "tags": []
   },
   {
     "name": "Colgate Toothpaste Harry Potter 100G",
@@ -3489,7 +4274,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "100G",
+    "tags": []
   },
   {
     "name": "Colgate Tpaste Optic Wht Proser Frsh 80G",
@@ -3507,7 +4296,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 11.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "80G",
+    "tags": []
   },
   {
     "name": "Lindt Excellence 95% Cocoa Block 80G",
@@ -3537,7 +4330,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Lindt",
+    "subcategory": "other",
+    "size": "80G",
+    "tags": []
   },
   {
     "name": "Lindt Excellence 85% Cocoa 100G",
@@ -3555,7 +4352,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Lindt",
+    "subcategory": "other",
+    "size": "100G",
+    "tags": []
   },
   {
     "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -3573,7 +4374,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "750Ml",
+    "tags": []
   },
   {
     "name": "Hoyts Thyme 15G",
@@ -3591,7 +4396,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "15G",
+    "tags": []
   },
   {
     "name": "Waterfords Sparkling Water Og Passion 1L",
@@ -3609,7 +4418,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Waterfords Sparkling Water Apple Berry1L",
@@ -3627,7 +4440,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Rexona Men Advanced Sport Ap 220Ml",
@@ -3645,7 +4462,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "220Ml",
+    "tags": []
   },
   {
     "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
@@ -3663,7 +4484,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "220Ml",
+    "tags": []
   },
   {
     "name": "Ww Juice Lemon 500Ml",
@@ -3685,7 +4510,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.65,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Sweet Corn 500G P/P",
@@ -3703,7 +4532,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Carrot Baby 500G",
@@ -3725,7 +4558,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Pak Choy Baby",
@@ -3751,7 +4588,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Cheese Block Tasty 500G",
@@ -3781,7 +4622,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -3799,7 +4644,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600G",
+    "tags": []
   },
   {
     "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -3837,7 +4686,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 14.97,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Impressed Tropical Juice 425Ml",
@@ -3859,7 +4714,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.15,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "425Ml",
+    "tags": []
   },
   {
     "name": "Hydralyte Efferv Tab Strawb Kiwi 10Pk",
@@ -3877,7 +4736,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "10Pk",
+    "tags": []
   },
   {
     "name": "M&Ms Minis 145G",
@@ -3895,7 +4758,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "145G",
+    "tags": []
   },
   {
     "name": "Golden Pikelets 8Pk 200G",
@@ -3913,7 +4780,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "8Pk",
+    "tags": []
   },
   {
     "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -3931,7 +4802,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "56L",
+    "tags": []
   },
   {
     "name": "Cornish Sea Salt Flakes 150G",
@@ -3949,7 +4824,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "150G",
+    "tags": []
   },
   {
     "name": "Ww Diced Italian Tomatoes 400G",
@@ -3975,7 +4854,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.1,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Woolworths Almond Milk Unsweetened 1L",
@@ -3993,7 +4876,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.85,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Hygiene Plus Gloves Powder Free 24Pk",
@@ -4011,7 +4898,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "24Pk",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Lynx Ff Body Spray Cherry Spritz 150Ml",
@@ -4029,7 +4922,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "150Ml",
+    "tags": []
   },
   {
     "name": "Greens Gravy Granles Roast Meat 120G",
@@ -4051,7 +4948,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "120G",
+    "tags": []
   },
   {
     "name": "Mission Carb Balancespinach 288G Pk 6",
@@ -4073,7 +4974,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Mission",
+    "subcategory": "other",
+    "size": "288G",
+    "tags": []
   },
   {
     "name": "Mutti Tomato Paste Dbl Conc 130G",
@@ -4091,7 +4996,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.65,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "130G",
+    "tags": []
   },
   {
     "name": "Quest Chocolate Chip Cookie Dough Bar60G",
@@ -4109,7 +5018,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Quest",
+    "subcategory": "snacks",
+    "size": "60G",
+    "tags": []
   },
   {
     "name": "Mayvers Dark Roastedextracrunchy Pb 375G",
@@ -4127,7 +5040,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Native Bouquet",
@@ -4145,7 +5062,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 35.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Pepsi Max Drink Pet 600Ml",
@@ -4164,7 +5085,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "600Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -4182,7 +5108,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "20Pk",
+    "tags": []
   },
   {
     "name": "Woolworths Chiller Bag",
@@ -4200,7 +5130,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Beef Bolar Blade Roast",
@@ -4222,7 +5156,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 25.72,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Beef Corned Silverside Small Kg",
@@ -4240,7 +5178,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 18.66,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Mount Franklin Wtr Spring Natrl 600Ml",
@@ -4258,7 +5200,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.45,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Coca Cola Zero Sugarpet 600Ml",
@@ -4277,7 +5223,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Corn Cobbettes 425G P/P",
@@ -4295,7 +5246,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "425G",
+    "tags": []
   },
   {
     "name": "Dine Farm Coll Cat Salmon Swt Pot 85G",
@@ -4321,7 +5276,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.75,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Click And Stay Bag",
@@ -4339,7 +5298,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Mission Carb Balanceorig Wraps 288G 6 Pk",
@@ -4361,7 +5324,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Mission",
+    "subcategory": "bakery",
+    "size": "288G",
+    "tags": []
   },
   {
     "name": "Ww Rice Basmati 1Kg",
@@ -4379,7 +5346,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Thk Roasted Seaweed Lightly Salted 8X4G",
@@ -4397,7 +5370,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "4G",
+    "tags": []
   },
   {
     "name": "Woolworths Onion Powder 38G",
@@ -4415,7 +5392,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "38G",
+    "tags": []
   },
   {
     "name": "Ww Pineapple Slices In Juice 425G",
@@ -4433,7 +5414,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "425G",
+    "tags": []
   },
   {
     "name": "Dine Cat Food Lamb Cuts In Gravy 85G",
@@ -4451,7 +5436,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Dine Cat Saucy Morsels Salmon 85G",
@@ -4469,7 +5458,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Dine Cat Kitten 2-12M Tender Chicken 85G",
@@ -4487,7 +5480,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Hoyts Turmeric 25G",
@@ -4505,7 +5502,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "25G",
+    "tags": []
   },
   {
     "name": "Ww 35Hr Srdgh Loaf White 1Ea",
@@ -4535,7 +5536,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -4553,7 +5558,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12G",
+    "tags": []
   },
   {
     "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -4571,7 +5580,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Quilton",
+    "subcategory": "other",
+    "size": "8Pk",
+    "tags": []
   },
   {
     "name": "Infuzions Air Fries Aioli 75G",
@@ -4589,7 +5602,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "75G",
+    "tags": []
   },
   {
     "name": "Beef Scotch Fillet Steak 170G",
@@ -4611,7 +5628,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "170G",
+    "tags": []
   },
   {
     "name": "Western Star Unsalted Butter 250G",
@@ -4629,7 +5650,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Western Star",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -4647,7 +5672,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "400Ml",
+    "tags": []
   },
   {
     "name": "Asparagus Green Bnch",
@@ -4665,7 +5694,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "La Tosca Fresh Fettuccini 375G",
@@ -4683,7 +5716,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Dorsogna Tasty Sticks Mild Kg",
@@ -4701,7 +5738,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Mushroom Cups Sliced 500G",
@@ -4719,7 +5760,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -4741,7 +5786,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.75,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "La Gina Passata Italian Tomato 680G",
@@ -4771,7 +5820,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.95,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "680G",
+    "tags": []
   },
   {
     "name": "Ycc Mustard Dijon 200G",
@@ -4789,7 +5842,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Ycc Mustard Wholegrain 200G",
@@ -4807,7 +5864,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Slendier Konjac Spaghetti Style 400G",
@@ -4825,7 +5886,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Tomato Roma Mini 250G P/P",
@@ -4843,7 +5908,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Sunbites Grain Waves Sweet Chilli 170G",
@@ -4861,7 +5930,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "170G",
+    "tags": []
   },
   {
     "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -4879,7 +5952,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375Ml",
+    "tags": []
   },
   {
     "name": "Musashi High Protin Sltd Crml Bar 90G",
@@ -4897,7 +5974,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "90G",
+    "tags": []
   },
   {
     "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -4915,7 +5996,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Mainland Organic Salted Sprd Butter 250G",
@@ -4933,7 +6018,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -4951,7 +6040,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -4969,7 +6062,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12G",
+    "tags": []
   },
   {
     "name": "Ww Lean Pork Mince 500G",
@@ -4987,7 +6084,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Avocado Hass",
@@ -5025,7 +6126,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Cream Cheese Light Spread 250G",
@@ -5043,7 +6148,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "F/C Slaw Classic Coleslaw 500G",
@@ -5061,7 +6170,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Free Range Lge Eggs 18Pk 900G",
@@ -5079,7 +6192,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "18Pk",
+    "tags": []
   },
   {
     "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -5101,7 +6218,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Cabbage Green Half",
@@ -5119,7 +6240,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Hans Middle Bacon Rashers Kg",
@@ -5137,7 +6262,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 12.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Woolworths Turkish Rolls 400G Pk 4",
@@ -5155,7 +6284,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Old Gold Dark Choc Original 180G",
@@ -5173,7 +6306,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "180G",
+    "tags": []
   },
   {
     "name": "Double 'D' Sugar Free Fruit Jellies 90G",
@@ -5191,7 +6328,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "90G",
+    "tags": []
   },
   {
     "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -5209,7 +6350,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "120G",
+    "tags": []
   },
   {
     "name": "Macro Org Natural Corn Chips 200G",
@@ -5227,7 +6372,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Duck Action Burst Tropical Vibes 500Ml",
@@ -5245,7 +6394,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Bref Brilliant Gel Spring Rain 42G",
@@ -5263,7 +6416,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "42G",
+    "tags": []
   },
   {
     "name": "Gumption Cleaner Cream 500G",
@@ -5281,7 +6438,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Ww Cage Free Eggs Large 18Pk 900G",
@@ -5299,7 +6460,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "18Pk",
+    "tags": []
   },
   {
     "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -5317,7 +6482,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600G",
+    "tags": []
   },
   {
     "name": "Df Thick & Creamy Classic Vanilla 4X110G",
@@ -5347,7 +6516,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "110G",
+    "tags": []
   },
   {
     "name": "White Label Extra Tasty Cheese Block 1Kg",
@@ -5365,7 +6538,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Strikepro Multi Apple Cedarwood750Ml",
@@ -5383,7 +6562,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.95,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "750Ml",
+    "tags": []
   },
   {
     "name": "Powerade Flo Cap Zero M/Blast 600Ml",
@@ -5401,7 +6584,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -5419,7 +6606,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "600Ml",
+    "tags": []
   },
   {
     "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -5437,7 +6628,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "350G",
+    "tags": []
   },
   {
     "name": "Aeroplane Jelly Lite Strawbery 2X9G",
@@ -5455,7 +6650,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "9G",
+    "tags": []
   },
   {
     "name": "Mushroom Cups 500G P/P",
@@ -5477,7 +6676,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Pepsi Max Cans 375Ml 30Pk",
@@ -5500,7 +6703,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 25.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "375Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Ww Ess Olive Oil 1L",
@@ -5518,7 +6726,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 11.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Vitasoy Almond Milk Unsweetened 1L",
@@ -5540,7 +6752,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Chicken Breast Fillets Rspca Apprvd",
@@ -5558,7 +6774,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.15,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Chicken Necks Kg",
@@ -5576,7 +6796,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 0.98,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Masterfoods Seasnng All Purpose 200G",
@@ -5594,7 +6818,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Voost Efferv Multivitamin Orange 20Pk",
@@ -5612,7 +6840,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "20Pk",
+    "tags": []
   },
   {
     "name": "Pump Water Pure 750Ml",
@@ -5630,7 +6862,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.15,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "750Ml",
+    "tags": []
   },
   {
     "name": "F/C Salad Baby Spinach 280G",
@@ -5648,7 +6884,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "280G",
+    "tags": []
   },
   {
     "name": "Potato Mash 1.5Kg",
@@ -5666,7 +6906,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "5Kg",
+    "tags": []
   },
   {
     "name": "Oatly Oat Drink Barista Edition 1L",
@@ -5684,7 +6928,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Ww Pink Himalayan Salt 110G",
@@ -5702,7 +6950,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "110G",
+    "tags": []
   },
   {
     "name": "Kewpie Mayonnaise Wasabi 300G",
@@ -5720,7 +6972,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "300G",
+    "tags": []
   },
   {
     "name": "Bega Peanut Butter Crunchy 375G",
@@ -5738,7 +6994,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Vegemite 150G",
@@ -5756,7 +7016,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "150G",
+    "tags": []
   },
   {
     "name": "Ww Ess Coconut Cream 400Ml",
@@ -5774,7 +7038,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "400Ml",
+    "tags": []
   },
   {
     "name": "Colgate Total Toothpaste Original 115G",
@@ -5792,7 +7060,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "115G",
+    "tags": []
   },
   {
     "name": "Continental Classics Chicken Rice 120G",
@@ -5810,7 +7082,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "120G",
+    "tags": []
   },
   {
     "name": "Armada Baking Paper 15M X 30Cm",
@@ -5828,7 +7104,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Campbells Real Stock Chicken Slt/Rd 1L",
@@ -5846,7 +7126,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Campbells",
+    "subcategory": "cooking_essentials",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "La Molisana Egg Fettuccine 250G",
@@ -5864,7 +7148,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.15,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Breaka Milk Chocolate 300Ml",
@@ -5882,7 +7170,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.75,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "300Ml",
+    "tags": []
   },
   {
     "name": "Dorsogna Streaky Bacon 500G",
@@ -5900,7 +7192,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 14.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Nurofen Tablets 200Mg 12Pk",
@@ -5918,7 +7214,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12Pk",
+    "tags": []
   },
   {
     "name": "Wholeearth Monkfruitsweetener Sticks 40S",
@@ -5936,7 +7236,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Chocolate Mud Cake 1Ea",
@@ -5954,7 +7258,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Western Star Spread Supersoft 375G",
@@ -5972,7 +7280,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Western Star",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Dorsogna Streaky Bacon 750G",
@@ -5994,7 +7306,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 17.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "750G",
+    "tags": []
   },
   {
     "name": "Woolworths Tasty Cheese Slices 250G",
@@ -6012,7 +7328,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Lettuce Iceberg",
@@ -6030,7 +7350,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Waterfords L/F Blackcurrant 1L",
@@ -6048,7 +7372,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Ww Bbq Sauce 500Ml",
@@ -6066,7 +7394,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500Ml",
+    "tags": []
   },
   {
     "name": "Waterfords L/F Orangepassion 1L",
@@ -6084,7 +7416,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "beverages",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Arnott'S Cruskits Original 125G",
@@ -6102,7 +7438,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "125G",
+    "tags": []
   },
   {
     "name": "Balnea Mens Multi Action Body Wash 1L",
@@ -6120,7 +7460,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1L",
+    "tags": []
   },
   {
     "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -6138,7 +7482,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "20Pk",
+    "tags": []
   },
   {
     "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
@@ -6156,7 +7504,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.45,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "100Pk",
+    "tags": []
   },
   {
     "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
@@ -6174,7 +7526,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "160G",
+    "tags": []
   },
   {
     "name": "Bega Tasty Cheese Block 750G",
@@ -6192,7 +7548,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 13.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "750G",
+    "tags": []
   },
   {
     "name": "Ww Natural Greek Style Yoghurt 1Kg",
@@ -6210,7 +7570,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Birds Eye Veg Rice Crt Cauli Broc 500G",
@@ -6228,7 +7594,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Finish Ultimate Lemon Dish Tabs 62Pk",
@@ -6246,7 +7616,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 30.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "62Pk",
+    "tags": []
   },
   {
     "name": "Kewpie Mayonnaise Sriracha 300G",
@@ -6264,7 +7638,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "300G",
+    "tags": []
   },
   {
     "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -6282,7 +7660,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.25,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Hoyts Oregano 25G",
@@ -6300,7 +7682,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "25G",
+    "tags": []
   },
   {
     "name": "Hoyts Herb Mix 70G",
@@ -6318,7 +7704,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "70G",
+    "tags": []
   },
   {
     "name": "Ww Garam Masala 29G",
@@ -6336,7 +7726,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "29G",
+    "tags": []
   },
   {
     "name": "Fab Laundry Powder Fresh Blossoms 2Kg",
@@ -6354,7 +7748,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "2Kg",
+    "tags": []
   },
   {
     "name": "Bc Wht Choc Slt Crml Protein Bar 40G",
@@ -6372,7 +7770,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "40G",
+    "tags": []
   },
   {
     "name": "Bsc High Pro Low Cb Bar Cookies&Crm 92G",
@@ -6390,7 +7792,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "BSC",
+    "subcategory": "snacks",
+    "size": "92G",
+    "tags": []
   },
   {
     "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -6408,7 +7814,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "BSC",
+    "subcategory": "snacks",
+    "size": "55G",
+    "tags": []
   },
   {
     "name": "Bsc Chupachups Proteinbarchocvan 55",
@@ -6426,7 +7836,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "BSC",
+    "subcategory": "snacks",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Primo Salami Sticks Mild Pepp 90G 5Pk",
@@ -6444,7 +7858,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "90G",
+    "tags": []
   },
   {
     "name": "Libra Tampons Super 32Pk",
@@ -6462,7 +7880,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "32Pk",
+    "tags": []
   },
   {
     "name": "Carefree Liners B/There Gstrng24Pk",
@@ -6480,7 +7902,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "24Pk",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Lurpak Butter Lighter Slightly Sltd 250G",
@@ -6498,7 +7926,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Ww Coleslaw 110G",
@@ -6516,7 +7948,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "110G",
+    "tags": []
   },
   {
     "name": "Bar Counter Dark Chocolate Almnd 160G",
@@ -6534,7 +7970,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 13.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "snacks",
+    "size": "160G",
+    "tags": []
   },
   {
     "name": "Chief Beef Brisket Traditional 40G",
@@ -6552,7 +7992,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "40G",
+    "tags": []
   },
   {
     "name": "Ww Pasta Salad 800G",
@@ -6570,7 +8014,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "800G",
+    "tags": []
   },
   {
     "name": "Libra Tampons Regular 32Pk",
@@ -6588,7 +8036,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "32Pk",
+    "tags": []
   },
   {
     "name": "Ingham'S Chk Tenders Swt Chli 400G",
@@ -6606,7 +8058,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Ingham",
+    "subcategory": "other",
+    "size": "400G",
+    "tags": []
   },
   {
     "name": "Connoisseur Minis Cookies&Cream 6Pk360Ml",
@@ -6624,7 +8080,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Connoisseur",
+    "subcategory": "other",
+    "size": "6Pk",
+    "tags": []
   },
   {
     "name": "Ww Pork Loin Crackling Roast",
@@ -6642,7 +8102,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 17.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Texas Bbq B'Flied Boneless Chicken Rw",
@@ -6660,7 +8124,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 11.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Krc Kabana Kg",
@@ -6678,7 +8146,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.04,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Primo Diced Bacon Kg",
@@ -6696,7 +8168,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.08,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Don Salami Hungarian Plain 200G",
@@ -6714,7 +8190,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 8.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "200G",
+    "tags": []
   },
   {
     "name": "Perfect Italiano Chsperfect Bakes 150G",
@@ -6736,7 +8216,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 4.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "150G",
+    "tags": []
   },
   {
     "name": "Thomas Dux Camembert125G",
@@ -6754,7 +8238,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.7,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "125G",
+    "tags": []
   },
   {
     "name": "Lettuce Oakleaf Combo",
@@ -6772,7 +8260,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Arnott'S Jatz Cracker Original 225G",
@@ -6790,7 +8282,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Jatz",
+    "subcategory": "snacks",
+    "size": "225G",
+    "tags": []
   },
   {
     "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -6808,7 +8304,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "175G",
+    "tags": []
   },
   {
     "name": "Potato Roasting 1.5Kg",
@@ -6826,7 +8326,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "5Kg",
+    "tags": []
   },
   {
     "name": "Onion Brown 2Kg P/P",
@@ -6844,7 +8348,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "2Kg",
+    "tags": []
   },
   {
     "name": "Bread Crusty Baguette",
@@ -6862,7 +8370,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.9,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "bakery",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "6009270 Lego Disney Classic",
@@ -6880,7 +8392,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 79.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "F/C Slaw Kaleslaw 350G",
@@ -6898,7 +8414,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.96,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "350G",
+    "tags": []
   },
   {
     "name": "Birds Eye Australian Garden Mix 1Kg",
@@ -6916,7 +8436,13 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "1Kg",
+    "tags": [
+      "bulk"
+    ]
   },
   {
     "name": "Kr Castlemaine Salami Hungarian Mld",
@@ -6934,7 +8460,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.21,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Wicked Sister Protein Pud Chocolate 170G",
@@ -6952,7 +8482,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Wicked Sister",
+    "subcategory": "snacks",
+    "size": "170G",
+    "tags": []
   },
   {
     "name": "Pics Peanut Butter Crunchy 380G",
@@ -6970,7 +8504,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Pics",
+    "subcategory": "cooking_essentials",
+    "size": "380G",
+    "tags": []
   },
   {
     "name": "Ww Condensed Tomato Soup 420G",
@@ -6988,7 +8526,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.3,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "cooking_essentials",
+    "size": "420G",
+    "tags": []
   },
   {
     "name": "Crusty Tiger Vienna Loaf Bread",
@@ -7006,7 +8548,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "bakery",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Ww Beef Stir Fry Heart Smart 500G",
@@ -7024,7 +8570,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 12.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "500G",
+    "tags": []
   },
   {
     "name": "Dorsogna Chorizo Twin Pack 250G",
@@ -7042,7 +8592,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.8,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Riverland Ham 100G",
@@ -7060,7 +8614,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.2,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "100G",
+    "tags": []
   },
   {
     "name": "Primo Silverside 80G",
@@ -7078,7 +8636,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.95,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "80G",
+    "tags": []
   },
   {
     "name": "Ww Cheese Shredded Tasty 250G",
@@ -7096,7 +8658,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Philadelphia Cream Cheese Lght Blck 250G",
@@ -7114,7 +8680,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.85,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "250G",
+    "tags": []
   },
   {
     "name": "Sunny Queen Fms Cge Free Eggs 12Pk 700G",
@@ -7132,7 +8702,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 7.6,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "12Pk",
+    "tags": []
   },
   {
     "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -7150,7 +8724,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 3.15,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "2Kg",
+    "tags": []
   },
   {
     "name": "Old El Paso Enchilada Sauce Mild 375G",
@@ -7168,7 +8746,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 6.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375G",
+    "tags": []
   },
   {
     "name": "Lucas Ointment Papaw 75G",
@@ -7186,7 +8768,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 20.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "75G",
+    "tags": []
   },
   {
     "name": "Aeroplane Jelly Berry Blue 85G",
@@ -7204,7 +8790,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 1.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "85G",
+    "tags": []
   },
   {
     "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -7222,7 +8812,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.5,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "9G",
+    "tags": []
   },
   {
     "name": "Mango Calypso",
@@ -7240,7 +8834,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 2.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "Standard",
+    "tags": []
   },
   {
     "name": "Quest Bar White Choc Raspberry 60G",
@@ -7258,7 +8856,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 5.4,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Quest",
+    "subcategory": "snacks",
+    "size": "60G",
+    "tags": []
   },
   {
     "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -7276,7 +8878,11 @@
     "stock": "medium",
     "last_purchased": null,
     "price": 9.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "3Kg",
+    "tags": []
   },
   {
     "name": "Coca Cola Classic 10X375Ml",
@@ -7295,7 +8901,12 @@
     "last_purchased": null,
     "compare_group": "cola",
     "price": 20.0,
-    "eff_price": 0.0
+    "eff_price": 0.0,
+    "brand": "Private Label",
+    "subcategory": "other",
+    "size": "375Ml",
+    "tags": [],
+    "store": "woolworths"
   },
   {
     "name": "Pepsi Cola Soft Drink 1.25L",
@@ -7309,6 +8920,10 @@
     "price": 1.87,
     "eff_price": 1.5,
     "store": "woolworths",
-    "last_updated": "2026-04-14T23:50:00Z"
+    "last_updated": "2026-04-14T23:50:00Z",
+    "brand": "Pepsi",
+    "subcategory": "beverages",
+    "size": "25L",
+    "tags": []
   }
 ]
