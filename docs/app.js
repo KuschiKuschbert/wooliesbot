@@ -1120,9 +1120,17 @@ function renderAnalytics() {
                     }
                 },
                 scales: {
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { maxTicksLimit: 12, color: '#9ca3af' }
+                    },
                     y: {
                         beginAtZero: false,
-                        ticks: { callback: (val) => '$' + val }
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { 
+                            callback: (val) => '$' + val,
+                            color: '#9ca3af'
+                        }
                     }
                 }
             }
@@ -1160,7 +1168,7 @@ function renderAnalytics() {
         });
     }
 
-    renderDeeperInsights();
+    renderDeeperInsights(brandPrices);
     renderTargetIntelligence();
 }
 
@@ -1243,7 +1251,7 @@ function renderTargetIntelligence() {
     if (typeof feather !== 'undefined') feather.replace();
 }
 
-function renderDeeperInsights() {
+function renderDeeperInsights(brandPrices) {
     const container = document.getElementById('deep-insights-container');
     if (!container) return;
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Smart Target Price Engine — Data-driven target recalculation for WooliesBot.
 
-Uses receipt history (price_history in data.json) and scraper history (history.json)
+Uses scraper history (history.json) and receipt history (price_history in data.json)
 to compute statistically meaningful target prices.
 
-3-Tier Algorithm:
-  Gold   (≥4 observations) → 25th percentile of observed prices
-  Silver (2-3 observations) → Minimum observed price
-  Bronze (0-1 observations) → Category median × 0.90
+Algorithm:
+  Gold   (≥10 observations) → 20th percentile of observed prices
+  Silver (4-9 observations)  → 25th percentile of observed prices
+  Bronze (0-3 observations)  → current price (no history yet)
 
 Usage:
   python scripts/smart_targets.py              # Recalculate and write
@@ -52,6 +52,12 @@ def save_data(data):
     """Write data.json inventory back."""
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
+
+
+def save_history(history_data):
+    """Write history.json back with updated is_special flags."""
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(history_data, f, indent=4)
 
 
 def get_all_prices(item, history_data):
@@ -145,24 +151,23 @@ def recalculate_targets(dry_run=False):
         confidence = "low"
         method = "unchanged"
 
-        if n >= 4:
-            # GOLD: 25th percentile
-            new_target = round(percentile(all_prices, 25), 2)
+        if n >= 10:
+            # GOLD: 20th percentile — aggressive, captures genuine sale prices
+            new_target = round(percentile(all_prices, 20), 2)
             confidence = "high"
-            method = f"p25 of {n} prices"
+            method = f"p20 of {n} prices"
             summary["gold"] += 1
 
-        elif n >= 2:
-            # SILVER: Minimum observed
-            new_target = round(min(all_prices), 2)
+        elif n >= 4:
+            # SILVER: 25th percentile with fewer data points
+            new_target = round(percentile(all_prices, 25), 2)
             confidence = "medium"
-            method = f"min of {n} prices"
+            method = f"p25 of {n} prices"
             summary["silver"] += 1
 
         else:
             # BRONZE: Use own data first, category median as last resort
-            if n == 1:
-                # Single observation: use it as the target (best we have)
+            if n >= 1:
                 new_target = round(all_prices[0], 2)
                 method = "single observation"
             else:
@@ -239,18 +244,33 @@ def recalculate_targets(dry_run=False):
         save_data(data)
         logging.info(f"Saved {len(data)} items to {DATA_FILE}")
 
+        # Recompute is_special flags in history.json against new targets
+        target_map = {item["name"]: item["target"] for item in data}
+        specials_updated = 0
+        for name, hdata in history_data.items():
+            new_target = target_map.get(name, 0)
+            if not new_target:
+                continue
+            for entry in hdata.get("history", []):
+                was = entry.get("is_special", False)
+                entry["is_special"] = entry.get("price", 0) <= new_target
+                if was != entry["is_special"]:
+                    specials_updated += 1
+        save_history(history_data)
+        logging.info(f"Recomputed is_special on {specials_updated} history entries")
+
     # Summary report
     changed = len(summary["changes"])
     logging.info(
         f"\n{'='*50}\n"
         f"SMART TARGET RECALCULATION {'(DRY RUN) ' if dry_run else ''}COMPLETE\n"
         f"{'='*50}\n"
-        f"  Total items:    {summary['total']}\n"
-        f"  Gold   (≥4 pts): {summary['gold']}\n"
-        f"  Silver (2-3 pts): {summary['silver']}\n"
-        f"  Bronze (0-1 pts): {summary['bronze']}\n"
-        f"  Changed:        {changed}\n"
-        f"  Unchanged:      {summary['unchanged']}\n"
+        f"  Total items:     {summary['total']}\n"
+        f"  Gold   (≥10 pts): {summary['gold']}\n"
+        f"  Silver (4-9 pts): {summary['silver']}\n"
+        f"  Bronze (0-3 pts): {summary['bronze']}\n"
+        f"  Changed:         {changed}\n"
+        f"  Unchanged:       {summary['unchanged']}\n"
         f"{'='*50}"
     )
 
