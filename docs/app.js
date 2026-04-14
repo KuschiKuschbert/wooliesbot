@@ -576,6 +576,10 @@ async function monitorCloudHealth() {
                 dot.className = 'status-dot cloud-dot silent';
                 text.textContent = `Global Bot: Silent (${Math.round(minsAgo)}m ago)`;
             }
+
+            // Sync the 'Last Checked' header display with the cloud heartbeat
+            _lastChecked = data.last_heartbeat;
+            updateLastCheckedDisplay();
         }
     } catch (e) {
         dot.className = 'status-dot cloud-dot silent';
