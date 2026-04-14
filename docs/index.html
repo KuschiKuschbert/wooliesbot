@@ -12,14 +12,26 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <i data-feather="shopping-bag"></i>
-                <h1>WooliesBot</h1>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <div class="logo">
+                        <i data-feather="shopping-bag"></i>
+                        <h1>WooliesBot</h1>
+                    </div>
+                    <p class="subtitle">Your automated grocery tracker</p>
+                    <p class="subtitle" style="font-size: 12px; margin-top: 10px; opacity: 0.8;">
+                        <i data-feather="clock" style="width: 12px; height: 12px; vertical-align: -2px;"></i> Last checked: <span id="last-updated">Checking...</span>
+                    </p>
+                </div>
+                <div id="specials-countdown" class="countdown-pill">
+                    <i data-feather="calendar"></i>
+                    <span id="countdown-text">Calculating...</span>
+                </div>
+                <button id="toggle-list-btn" class="list-toggle-pill">
+                    <i data-feather="shopping-cart"></i>
+                    <span id="list-count">0</span> items
+                </button>
             </div>
-            <p class="subtitle">Your automated grocery tracker</p>
-            <p class="subtitle" style="font-size: 12px; margin-top: 10px; opacity: 0.8;">
-                <i data-feather="clock" style="width: 12px; height: 12px; vertical-align: -2px;"></i> Last checked: <span id="last-updated">Checking...</span>
-            </p>
         </div>
     </header>
 
@@ -42,13 +54,49 @@
                 <p id="total-specials">0</p>
                 <div class="stat-subtext">Below your target price</div>
             </div>
-            <div class="stat-card highlight">
+            <div class="stat-card highlight" style="position: relative;">
                 <div class="stat-header">
                     <h3>Est. Cart Cost</h3>
-                    <i data-feather="shopping-cart"></i>
+                    <div class="shop-mode-toggle" id="shop-mode-toggle">
+                        <span class="mode-label active" data-mode="weekly">Weekly</span>
+                        <span class="mode-label" data-mode="big">Monthly</span>
+                    </div>
                 </div>
                 <p id="cart-total">$0.00</p>
-                <div class="stat-subtext">Total of all current deals</div>
+                <div class="discount-tracker" id="discount-tracker">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="discount-progress"></div>
+                    </div>
+                    <span id="discount-status">Add $500 for 10% off</span>
+                </div>
+            </div>
+            <div class="stat-card" id="weekly-essentials-card">
+                <div class="stat-header">
+                    <h3>📝 Essentials</h3>
+                    <i data-feather="paperclip"></i>
+                </div>
+                <div id="essentials-list" class="essentials-checklist">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+            <div class="stat-card" id="cola-battle-card" style="border: 1px solid rgba(99, 102, 241, 0.3);">
+                <div class="stat-header">
+                    <h3>🥤 Cola Battle</h3>
+                    <i data-feather="zap"></i>
+                </div>
+                <p id="cola-winner" style="font-size: 18px;">—</p>
+                <div id="cola-details" class="stat-subtext">Loading...</div>
+            </div>
+        </section>
+
+        <!-- Almost There -->
+        <section class="section" id="near-misses-section" style="display: none; margin-bottom: 40px;">
+            <div class="section-header">
+                <h2>👀 Almost There</h2>
+                <div class="badge-near">Within 10% of target</div>
+            </div>
+            <div id="near-misses-grid" class="specials-grid">
+                <!-- Loaded via JS -->
             </div>
         </section>
 
@@ -87,12 +135,13 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Item</th>
-                            <th>Best Store</th>
-                            <th>Price</th>
-                            <th>Target</th>
-                            <th>Trend</th>
-                        </tr>
+                        <th>Item Name</th>
+                        <th>Preferred</th>
+                        <th>Current Price</th>
+                        <th>Target</th>
+                        <th>Paid Avg</th>
+                        <th style="width: 150px;">History</th>
+                    </tr>
                     </thead>
                     <tbody id="all-items-tbody">
                         <!-- Table rows injected here -->
@@ -105,6 +154,27 @@
     <footer>
         <p>Updated via Chef OS Automation</p>
     </footer>
+
+    <!-- Shopping List Drawer -->
+    <div id="list-drawer" class="list-drawer">
+        <div class="drawer-header">
+            <h3>🛒 Shopping List</h3>
+            <button id="close-drawer" class="icon-btn"><i data-feather="x"></i></button>
+        </div>
+        <div id="shopping-list-items" class="drawer-content">
+            <!-- Items via JS -->
+        </div>
+        <div class="drawer-footer">
+            <div class="list-total-row">
+                <span>Total Est:</span>
+                <span id="list-total-price">$0.00</span>
+            </div>
+            <button id="sync-keep-btn" class="sync-btn" disabled>
+                <i data-feather="refresh-cw"></i> Sync to Google Keep
+            </button>
+        </div>
+    </div>
+    <div id="drawer-overlay" class="drawer-overlay"></div>
 
     <script src="app.js"></script>
 </body>

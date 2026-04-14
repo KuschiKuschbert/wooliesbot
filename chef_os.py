@@ -76,207 +76,13 @@ STORES = {
 # --- PRODUCT WATCHLIST ---
 # price_mode: "kg" = compare per-kg unit price | "each" = compare shelf/pack price
 # compare_group: items with same group compete — cheapest wins
-TRACKING_LIST = [
-    # --- 🥩 FRESH PROTEIN (Freezer Friendly) ---
-    {"name": "Chicken Breast (Bulk)", "type": "fresh_protein", "price_mode": "kg", "target": 11.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/969723/woolworths-rspca-approved-chicken-breast-fillet",
-     "coles": "https://www.coles.com.au/product/lilydale-free-range-chicken-breast-fillets-bulk-approx.-1kg-2303750"},
-    {"name": "Beef Mince (Lean 500g)", "type": "fresh_protein", "price_mode": "kg", "target": 16.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/577861/woolworths-lean-beef-mince",
-     "coles": "https://www.coles.com.au/product/coles-no-added-hormone-beef-4-star-lean-mince-500g-8112449"},
-    {"name": "Bacon (Middle)", "type": "fresh_protein", "price_mode": "kg", "target": 16.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48358/woolworths-middle-bacon-middle-rashers",
-     "coles": "https://www.coles.com.au/product/coles-middle-bacon-7030666"},
-    {"name": "Pork Loin Roast", "type": "fresh_protein", "price_mode": "kg", "target": 12.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/764406/woolworths-pork-loin-roast-boneless-small",
-     "coles": "https://www.coles.com.au/product/coles-boneless-pork-loin-roast-approx.-1.25kg-7363501"},
-    {"name": "Deli Meats (Chorizo)", "type": "fresh_protein", "price_mode": "each", "target": 25.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/328005/primo-chorizo-2-pack",
-     "coles": "https://www.coles.com.au/product/primo-classic-chorizo-2-pack-250g-6998745"},
-    {"name": "Deli Ham/Silverside", "type": "fresh_protein", "price_mode": "kg", "target": 20.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/130276/leg-ham-shaved-from-the-deli",
-     "coles": "https://www.coles.com.au/product/bertocchi-triple-smoked-shaved-leg-ham-from-the-deli-1-each-1141245"},
-
-    # --- 🔪 BUTCHER HACK (compare_group picks cheapest per-kg) ---
-    {"name": "Beef Stir Fry (500g)", "type": "fresh_protein", "price_mode": "kg", "target": 24.00, "compare_group": "beef_strips",
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/531015/woolworths-beef-stir-fry",
-     "coles": "https://www.coles.com.au/product/coles-beef-stir-fry-500g-9990965"},
-    {"name": "Rump Steak (Whole)", "type": "fresh_protein", "price_mode": "kg", "target": 24.00, "compare_group": "beef_strips",
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/675318/woolworths-beef-rump-steak-medium",
-     "coles": "https://www.coles.com.au/product/coles-beef-rump-steak-approx.-832g-5132370"},
-
-    # --- 🥦 VEGETABLES ---
-    {"name": "Capsicum (Red)", "type": "fresh_veg", "price_mode": "kg", "target": 7.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/135306/red-capsicum",
-     "coles": "https://www.coles.com.au/product/coles-red-capsicum-approx.-220g-4580208"},
-    {"name": "Avocados (Hass)", "type": "fresh_veg", "price_mode": "each", "target": 1.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120080/hass-avocado",
-     "coles": "https://www.coles.com.au/product/coles-hass-avocados-1-each-5900530"},
-    {"name": "Baby Spinach / Kaleslaw", "type": "fresh_veg", "price_mode": "each", "target": 4.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/705436/woolworths-kale-slaw-kit",
-     "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390"},
-    {"name": "Onions (Brown Bag)", "type": "fresh_veg", "price_mode": "each", "target": 4.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/144427/woolworths-brown-onions-bag",
-     "coles": "https://www.coles.com.au/product/coles-brown-onions-1kg-4803991"},
-    {"name": "Potatoes (Washed Bag)", "type": "fresh_veg", "price_mode": "each", "target": 4.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/262783/woolworths-washed-potatoes-bag",
-     "coles": "https://www.coles.com.au/product/coles-washed-potatoes-2kg-1206748"},
-    {"name": "Carrots (1kg)", "type": "fresh_veg", "price_mode": "each", "target": 2.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/135369/woolworths-australian-grown-carrots",
-     "coles": "https://www.coles.com.au/product/coles-carrots-prepacked-1kg-9006560"},
-    {"name": "Broccoli", "type": "fresh_veg", "price_mode": "kg", "target": 5.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/134681/fresh-broccoli",
-     "coles": "https://www.coles.com.au/product/coles-broccoli-approx.-340g-each-407755"},
-    {"name": "Zucchini", "type": "fresh_veg", "price_mode": "kg", "target": 5.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/170225/fresh-zucchini-green",
-     "coles": "https://www.coles.com.au/product/coles-green-zucchini-approx.-200g-4910506"},
-    {"name": "Mushrooms (Cup)", "type": "fresh_veg", "price_mode": "kg", "target": 11.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/143304/woolworths-mushrooms-cups-punnet",
-     "coles": "https://www.coles.com.au/product/coles-cup-mushrooms-prepacked-200g-4829860"},
-    {"name": "Pumpkin (Kent)", "type": "fresh_veg", "price_mode": "kg", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/143709/pumpkin-kent-cut",
-     "coles": ""},
-    {"name": "Snow Peas", "type": "fresh_veg", "price_mode": "kg", "target": 14.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/145843/snow-peas",
-     "coles": "https://www.coles.com.au/product/coles-snow-peas-medium-150g-4628326"},
-    {"name": "Corn Cobs", "type": "fresh_veg", "price_mode": "each", "target": 2.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/137351/woolworths-fresh-corn-cobs",
-     "coles": ""},
-
-    # --- 🍋 FRUIT & AROMATICS ---
-    {"name": "Watermelon (Quarter)", "type": "fresh_veg", "price_mode": "each", "target": 3.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120384/woolworths-red-watermelon-cut-quarter",
-     "coles": "https://www.coles.com.au/product/coles-seedless-watermelon-cut-approx.-1.8kg-7508229"},
-    {"name": "Lemons (Bag)", "type": "fresh_veg", "price_mode": "each", "target": 3.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/693501/lemon-lemon-bag",
-     "coles": "https://www.coles.com.au/product/coles-i'm-perfect-lemons-prepacked-1kg-3586912"},
-    {"name": "Garlic", "type": "fresh_veg", "price_mode": "kg", "target": 30.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/120847/woolworths-garlic",
-     "coles": "https://www.coles.com.au/product/coles-garlic-loose-approx.-60g-each-6105715"},
-    {"name": "Fresh Herbs (Basil)", "type": "fresh_veg", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/133621/woolworths-green-basil-bunch",
-     "coles": "https://www.coles.com.au/product/coles-sleeved-herbs-basil-1-bunch-4574920"},
-    {"name": "Medjool Dates", "type": "pantry", "price_mode": "each", "target": 10.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/774695/golden-palm-medjool-dates-punnet",
-     "coles": "https://www.coles.com.au/product/coles-pitted-medjool-date-340g-5139518"},
-
-    # --- 🥛 DAIRY & FRIDGE ---
-    {"name": "Eggs (18 Pack)", "type": "fresh_fridge", "price_mode": "each", "target": 9.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/74593/woolworths-18-large-cage-free-eggs",
-     "coles": "https://www.coles.com.au/product/coles-cage-free-eggs-18-pack-900g-5178961"},
-    {"name": "Butter (Western Star)", "type": "fresh_fridge", "price_mode": "each", "target": 6.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/41287/western-star-salted-butter-block-butter-block",
-     "coles": "https://www.coles.com.au/product/western-star-original-salted-butter-250g-210590"},
-    {"name": "Thickened Cream (600ml)", "type": "fresh_fridge", "price_mode": "each", "target": 5.20,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48720/woolworths-thickened-cream",
-     "coles": "https://www.coles.com.au/product/coles-thickened-cream-600ml-246962"},
-    {"name": "Cheese (Tasty Block)", "type": "fresh_fridge", "price_mode": "kg", "target": 14.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/310237/woolworths-tasty-cheese-block",
-     "coles": "https://www.coles.com.au/product/mainland-tasty-cheese-block-500g-472994"},
-    {"name": "Philly Cream Cheese", "type": "fresh_fridge", "price_mode": "each", "target": 5.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/48062/philadelphia-original-cream-cheese-block",
-     "coles": "https://www.coles.com.au/product/philadelphia-regular-cream-cheese-block-250g-192502"},
-    {"name": "Sour Cream", "type": "fresh_fridge", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/105609/woolworths-sour-cream",
-     "coles": "https://www.coles.com.au/product/coles-sour-cream-300g-3676946"},
-    {"name": "Yoghurt (Greek)", "type": "fresh_fridge", "price_mode": "each", "target": 5.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/571487/woolworths-natural-greek-style-yoghurt",
-     "coles": "https://www.coles.com.au/product/coles-greek-style-natural-yoghurt-1kg-2273478"},
-    {"name": "Protein Puds (Wicked Sister)", "type": "fresh_fridge", "price_mode": "each", "target": 2.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/162818/wicked-sister-high-protein-pudding-chocolate",
-     "coles": "https://www.coles.com.au/product/wicked-sister-high-protein-chocolate-pudding-170g-4494048"},
-
-    # --- ❄️ FREEZER ---
-    {"name": "Frozen Peas", "type": "freezer", "price_mode": "each", "target": 4.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/754169/woolworths-frozen-australian-peas",
-     "coles": "https://www.coles.com.au/product/coles-simply-snap-frozen-peas-1kg-399067"},
-    {"name": "Chicken Tenders (Ingham)", "type": "freezer", "price_mode": "each", "target": 11.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/38728/ingham-s-frozen-chicken-breast-tenders-original",
-     "coles": "https://www.coles.com.au/product/inghams-frozen-southern-style-chicken-tenders-400g-2726798"},
-    {"name": "Ice Cream (Connoisseur)", "type": "freezer", "price_mode": "each", "target": 8.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/96190/connoisseur-ice-cream-classic-vanilla-tub",
-     "coles": ""},
-
-    # --- 🍞 BAKERY & PANTRY ---
-    {"name": "English Muffins", "type": "pantry", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/224737/woolworths-english-muffins",
-     "coles": "https://www.coles.com.au/product/coles-english-muffins-6-pack-360g-4723134"},
-    {"name": "Wraps (Mission Carb Balance)", "type": "pantry", "price_mode": "each", "target": 5.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/919345/mission-carb-balance-original-wraps",
-     "coles": "https://www.coles.com.au/product/mission-carb-balance-wrap-6-pack-288g-8566038"},
-    {"name": "Rice Paper", "type": "pantry", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/121531/pandaroo-ingredients-rice-paper-spring-roll",
-     "coles": ""},
-    {"name": "Canned Tomatoes", "type": "pantry", "price_mode": "each", "target": 1.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/311488/essentials-diced-tomatoes",
-     "coles": "https://www.coles.com.au/product/coles-italian-diced-tomatoes-400g-5548754"},
-    {"name": "Liquid Stock (Campbells)", "type": "pantry", "price_mode": "each", "target": 2.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/77750/campbell-s-real-stock-chicken-liquid-stock",
-     "coles": "https://www.coles.com.au/product/campbell's-real-stock-chicken-stock-1l-8157935"},
-    {"name": "Peanut Butter (Pics)", "type": "pantry", "price_mode": "each", "target": 6.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/754776/pic-s-peanut-butter-smooth",
-     "coles": "https://www.coles.com.au/product/pic's-really-good-smooth-peanut-butter-380g-2120218"},
-    {"name": "Coffee (Nescafe Espresso)", "type": "pantry", "price_mode": "each", "target": 6.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/212138/nescafe-blend-43-espresso-instant-coffee-jar",
-     "coles": "https://www.coles.com.au/product/nescafe-blend-43-espresso-instant-coffee-150g-8229231"},
-    {"name": "Almond Meal", "type": "pantry", "price_mode": "each", "target": 6.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/136018/woolworths-almond-meal",
-     "coles": "https://www.coles.com.au/product/coles-almond-meal-150g-2749454"},
-    {"name": "Gravy Granules", "type": "pantry", "price_mode": "each", "target": 2.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/280855/green-s-gravy-granules-traditional",
-     "coles": "https://www.coles.com.au/product/green's-roast-meat-gravy-granules-120g-7302777"},
-    {"name": "Crackers (Jatz)", "type": "pantry", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/115454/arnott-s-jatz-crackers-original",
-     "coles": "https://www.coles.com.au/product/arnott's-jatz-crackers-original-225g-8646782"},
-
-    # --- 🍫 TREATS & DRINKS ---
-    {"name": "Lindt 95% Cocoa", "type": "pantry", "price_mode": "each", "target": 4.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/4758/lindt-excellence-95-cocoa-dark-chocolate-block",
-     "coles": "https://www.coles.com.au/product/lindt-excellence-95percent-cocoa-ultimate-dark-chocolate-block-80g-3501374"},
-    {"name": "Quest/BSC Protein Bars", "type": "pantry", "price_mode": "each", "target": 3.50,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/755146/quest-protein-bar-cookies-cream",
-     "coles": "https://www.coles.com.au/product/quest-protein-bar-cookies-and-cream-60g-2477671"},
-    # --- COLA COMPARISON (compare_group "cola" — per-litre across 24pk + 30pk, all stores) ---
-    {"name": "Pepsi Max 24pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
-     "pack_litres": 9.0,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/54291/pepsi-max-no-sugar-cola-soft-drink-cans-multipack",
-     "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-24-pack-24-pack-7366022"},
-    {"name": "Coke No Sugar 24pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
-     "pack_litres": 9.0,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/669683/coca-cola-no-sugar-soft-drink-multipack-cans",
-     "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-24x375ml-24-pack-2993740"},
-    {"name": "Pepsi Max 30pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
-     "pack_litres": 11.25,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/773129/pepsi-max-no-sugar-cola-soft-drink-cans-multipack",
-     "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-30-pack-30-pack-7837413"},
-    {"name": "Coke No Sugar 30pk", "type": "pantry", "price_mode": "litre", "target": 2.50, "compare_group": "cola",
-     "pack_litres": 11.25,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/679121/coca-cola-no-sugar-soft-drink-multipack-cans",
-     "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-30x375ml-30-pack-8464810"},
-    {"name": "Remedy/Juice Lab Shots", "type": "pantry", "price_mode": "each", "target": 3.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/227257/the-juice-lab-wellness-shot-calm",
-     "coles": ""},
-
-    # --- 🧼 HOUSEHOLD & PETS ---
-    {"name": "Whiskas Kitten 12pk", "type": "pet", "price_mode": "each", "target": 10.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/87727/whiskas-kitten-2-12-months-wet-cat-food-mixed-favourites-in-jelly",
-     "coles": "https://www.coles.com.au/product/whiskas-kitten-2-12-months-wet-cat-food-with-mixed-favourites-in-jelly-12x85g-pouch-12-pack-5172659"},
-    {"name": "Pedigree Dog Food 3kg", "type": "pet", "price_mode": "each", "target": 9.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/98751/pedigree-adult-dry-dog-food-with-real-beef",
-     "coles": "https://www.coles.com.au/product/pedigree-adult-dry-dog-food-with-real-beef-3kg-7976078"},
-    {"name": "Toilet Paper (Quilton)", "type": "household", "price_mode": "each", "target": 9.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/851925/quilton-white-3-ply-toilet-paper-white-180-sheets",
-     "coles": "https://www.coles.com.au/product/quilton-3-ply-white-toilet-paper-20-pack-7758634"},
-    {"name": "Laundry Powder (Omo)", "type": "household", "price_mode": "each", "target": 15.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/430650/omo-active-clean-laundry-powder-detergent",
-     "coles": "https://www.coles.com.au/product/omo-laundry-powder-active-clean-front-and-top-2kg-2731561"},
-    {"name": "Dishmatic Refills", "type": "household", "price_mode": "each", "target": 5.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/697317/dishmatic-general-purpose-refills",
-     "coles": "https://www.coles.com.au/product/dishmatic-general-purpose-refill-3-pack-8923124"},
-    {"name": "Energizer Batteries AA", "type": "household", "price_mode": "each", "target": 10.00,
-     "woolworths": "https://www.woolworths.com.au/shop/productdetails/23597/energizer-max-aa-alkaline-batteries",
-     "coles": ""},
-]
+_inv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "inventory.json")
+try:
+    with open(_inv_file, "r") as _f:
+        TRACKING_LIST = json.load(_f)
+except Exception as e:
+    logging.warning(f"Failed to load inventory.json: {e}")
+    TRACKING_LIST = []
 
 # --- B-LIST: Shelf-stable items to add when Big Shop cart is under $500 ---
 # Use these to bridge the gap and maximise the 10% Everyday Extra discount (saves ~$50)
@@ -334,14 +140,12 @@ def send_telegram(message):
 def get_browser():
     # Use undetected_chromedriver to bypass Woolworths bot detection
     options = uc.ChromeOptions()
-    # options.add_argument("--headless") # Disabling headless to bypass Akamai
+    options.add_argument("--headless=new") # Modern headless mode to bypass Akamai without window
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-blink-features=AutomationControlled")
-    # Move window far off-screen — invisible but not headless (Akamai bypass)
-    options.add_argument("--window-position=-10000,-10000")
     
     driver = uc.Chrome(options=options)
     # Prevent indefinite hangs on slow/stuck pages (e.g. captcha, network)
@@ -784,10 +588,22 @@ def check_prices():
             item_store_data.setdefault(idx, []).append(data)
 
     results = []
+    # Load inventory to get price_history
+    inv_data = {}
+    try:
+        with open(_inv_file, "r") as f:
+            for item in json.load(f):
+                inv_data[item["name"]] = item
+    except:
+        pass
+
     for idx, item in enumerate(TRACKING_LIST):
         store_results = item_store_data.get(idx, [])
+        # Merge price history for averaging
+        history = inv_data.get(item["name"], {}).get("price_history", [])
+        avg_price = sum(h["price"] for h in history) / len(history) if history else 0
+
         if not store_results:
-            # No data from any store at all — include as price_unavailable
             results.append({
                 **item,
                 "price": 0,
@@ -798,8 +614,12 @@ def check_prices():
                 "all_stores": {},
                 "price_unavailable": True,
                 "image_url": "",
+                "price_history": history,
+                "avg_price": avg_price
             })
             continue
+
+
         best = min(store_results, key=lambda sr: _effective_price(item, sr))
         eff = _effective_price(item, best)
         # Build all_stores, excluding stores where price is unreliable
@@ -827,6 +647,8 @@ def check_prices():
                 "all_stores": {},
                 "price_unavailable": True,
                 "image_url": best.get("image_url", ""),
+                "price_history": history,
+                "avg_price": avg_price
             })
             continue
         # If best was unreliable but some stores are OK, re-pick best from reliable stores
@@ -849,6 +671,8 @@ def check_prices():
             "all_stores": all_stores,
             "price_unavailable": False,
             "image_url": best.get("image_url", ""),
+            "price_history": history,
+            "avg_price": avg_price
         }
         results.append(item_result)
 
@@ -1034,7 +858,12 @@ def export_data_to_json(results):
     try:
         os.makedirs("docs", exist_ok=True)
         with open("docs/data.json", "w") as f:
-            json.dump(results, f, indent=2)
+            now_str = datetime.datetime.now().strftime("%Y-%m-%d %I:%M %p")
+            payload = {
+                "last_updated": now_str,
+                "items": results
+            }
+            json.dump(payload, f, indent=2)
         logging.info("Exported data.json successfully.")
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
@@ -1093,9 +922,10 @@ def sync_to_github():
     except Exception as e:
         logging.error(f"Error during GitHub sync: {e}")
 
-def run_report(full_list=False):
+def run_report(full_list=False, send_telegram_messages=True):
     """Generate and send shopping report.
     full_list: /show_staples - full staples list with all prices. False = deals only.
+    send_telegram_messages: whether to output the full report to telegram.
     Big Shop (bulk qty) auto-detected from date (after 14th).
     """
     try:
@@ -1111,6 +941,10 @@ def run_report(full_list=False):
         
         # Deploy to GitHub pages
         threading.Thread(target=sync_to_github, daemon=True).start()
+
+        if not send_telegram_messages:
+            logging.info("send_telegram_messages is False. Exiting early, no message sent.")
+            return
 
         # Resolve comparison groups (beef_strips, cola_24pk, etc.)
         resolved, _ = _resolve_compare_groups(raw_results)
@@ -2117,8 +1951,27 @@ if __name__ == "__main__":
         # Start Telegram Listener in a background thread
         threading.Thread(target=telegram_bot_listener, daemon=True).start()
 
-        # Schedule for Sunday at 9:00 AM
-        schedule.every().sunday.at("09:00").do(_scheduled_report)
+        def _silent_update():
+            logging.info("Running scheduled silent update...")
+            try:
+                run_report(full_list=True, send_telegram_messages=False)
+            except Exception as e:
+                logging.error(f"Silent update failed: {e}")
+
+        def _sunday_ping():
+            logging.info("Running Sunday scheduled report...")
+            try:
+                run_report(full_list=True, send_telegram_messages=False)
+                send_telegram("🛒 *Weekly Prices Updated!*\n\nYour items have been freshly scanned and synced to the dashboard.\n\n🌐 [View Web Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)")
+            except Exception as e:
+                logging.error(f"Sunday ping failed: {e}")
+                send_telegram(f"🚨 Sunday ping failed:\n{str(e)}")
+
+        # Update website frequently (every 4 hours) without telegram messages
+        schedule.every(4).hours.do(_silent_update)
+
+        # Trigger telegram ping ONLY on Sunday morning with a link to the website
+        schedule.every().sunday.at("09:00").do(_sunday_ping)
         
         # Startup notification — welcoming intro + full command reference
         send_telegram(HELP_TEXT)
