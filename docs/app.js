@@ -1089,74 +1089,92 @@ async function saveItemChanges() {
 function renderAnalytics() {
     // Collect data
     const categories = {};
+    // FIXED: Use price_history (has 5 months of data) NOT scrape_history (only 1 entry = today)
     const priceIndexByMonth = {}; // YYYY-MM -> { sum: X, count: Y }
     let totalRealizedSavings = 0;
     let itemsBoughtAtTarget = 0;
-    let totalItemsTracked = _data.length;
 
-    // 1. Calculate Price Index and historical trends from scrape_history (inline)
+    // 1. Build Price Index from price_history + compute volatility from price_history
+    //    scrape_history only has 1 entry per item so it's useless for trends/volatility.
+    _data.forEach(item => {
+        const target = item.target || 0;
+        const ph = item.price_history || [];
 
-    Object.entries(_history).forEach(([name, data]) => {
-        const itemInfo = _data.find(i => i.name === name) || {};
-        const target = itemInfo.target || data.target || 0;
-        
-        // Calculate Volatility
-        const prices = data.history.map(h => h.price).filter(p => p > 0 && p < 1000);
-        if (prices.length > 2) {
-            const avg = prices.reduce((a, b) => a + b) / prices.length;
-            const variance = prices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / prices.length;
+        // ── Volatility from price_history (the real historical data) ───────
+        const phPrices = ph.map(h => h.price).filter(p => p > 0 && p < 1000);
+        if (phPrices.length > 2) {
+            const avg = phPrices.reduce((a, b) => a + b) / phPrices.length;
+            const variance = phPrices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / phPrices.length;
             const stdDev = Math.sqrt(variance);
-            _volatility[name] = (stdDev / avg) * 100; // Relative volatility
+            _volatility[item.name] = (stdDev / avg) * 100;
         }
 
-        data.history.forEach(h => {
-            if (h.price > 1000) return;
-            
-            // Track total realized savings over full history
-            if (target > 0 && h.price <= target) {
-                // Heuristic: If we bought it at or below target, we saved vs 'shelf' (approx 30% higher)
+        // ── Price trends from price_history ────────────────────────────────
+        ph.forEach(h => {
+            const p = h.price;
+            if (!p || p > 1000) return;
+
+            // Realized savings: every time price was at or below target
+            if (target > 0 && p <= target) {
                 const estimatedShelf = target * 1.4;
-                totalRealizedSavings += Math.max(0, estimatedShelf - h.price);
+                totalRealizedSavings += Math.max(0, estimatedShelf - p);
                 itemsBoughtAtTarget++;
             }
 
-            const date = h.date.substring(0, 7); // YYYY-MM
-            if (!priceIndexByMonth[date]) {
-                priceIndexByMonth[date] = { sum: 0, count: 0 };
+            const month = h.date.substring(0, 7); // YYYY-MM
+            if (!priceIndexByMonth[month]) priceIndexByMonth[month] = { sum: 0, count: 0 };
+            priceIndexByMonth[month].sum += p;
+            priceIndexByMonth[month].count++;
+        });
+
+        // Also accumulate from scrape_history (current prices) into the current month
+        // so today's snapshot is always included
+        const sh = item.scrape_history || [];
+        sh.forEach(h => {
+            if (!h.price || h.price > 1000) return;
+            const month = h.date.substring(0, 7);
+            if (!priceIndexByMonth[month]) priceIndexByMonth[month] = { sum: 0, count: 0 };
+            // Only add if this day isn't already covered by price_history
+            const alreadyCovered = ph.some(p2 => p2.date === h.date);
+            if (!alreadyCovered) {
+                priceIndexByMonth[month].sum += h.price;
+                priceIndexByMonth[month].count++;
             }
-            priceIndexByMonth[date].sum += h.price;
-            priceIndexByMonth[date].count += 1;
         });
     });
 
-    // 2. Calculate Category Split, Brand Split, and efficiency from current _data
+    // 2. Category Split and Brand Premium from current live prices
     const brandPrices = { 'Private Label': { sum: 0, count: 0 }, 'Name Brand': { sum: 0, count: 0 } };
     _data.forEach(item => {
         const cat = item.subcategory || item.type || 'pantry';
         const price = item.eff_price || item.price || 0;
         if (price > 0 && price < 1000) {
             categories[cat] = (categories[cat] || 0) + price;
-            
             const brandType = item.brand === 'Private Label' ? 'Private Label' : 'Name Brand';
             brandPrices[brandType].sum += price;
             brandPrices[brandType].count++;
         }
+    });
 
-        if (item.last_purchased) {
-            const isSpecial = price <= (item.target || 0);
-            if (isSpecial) {
-                itemsBoughtAtTarget++;
-                totalRealizedSavings += Math.max(0, (item.target || 0) - price);
-            }
+    // 3. Efficiency — % of tracked items currently at or below their target price
+    //    (more meaningful than last_purchased which barely has any data)
+    const itemsWithTargets = _data.filter(i => (i.target || 0) > 0).length;
+    const itemsAtTarget = _data.filter(i => {
+        const ep = i.eff_price || i.price || 0;
+        return (i.target || 0) > 0 && ep <= i.target && !i.price_unavailable;
+    }).length;
+    const efficiency = itemsWithTargets > 0 ? (itemsAtTarget / itemsWithTargets) * 100 : 0;
+
+    // 4. Total historical savings: add was_price-based savings for current specials
+    _data.forEach(item => {
+        const ep = item.eff_price || item.price || 0;
+        if (item.on_special && item.was_price && item.was_price > ep) {
+            totalRealizedSavings += (item.was_price - ep);
         }
     });
 
-    const efficiency = _data.filter(i => i.last_purchased).length > 0 
-        ? (itemsBoughtAtTarget / _data.filter(i => i.last_purchased).length) * 100 
-        : 0;
-    
-    document.getElementById('analytic-savings-val').textContent = `$${totalRealizedSavings.toFixed(0)}`;
-    document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}%`;
+    document.getElementById('analytic-savings-val').textContent = `$${totalRealizedSavings.toFixed(2)}`;
+    document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}% (${itemsAtTarget}/${itemsWithTargets} items at target)`;
 
     // Charts
     const spendingCtx = document.getElementById('spending-chart')?.getContext('2d');
@@ -1165,48 +1183,105 @@ function renderAnalytics() {
     if (spendingCtx) {
         const sortedDates = Object.keys(priceIndexByMonth).sort();
         const chartData = sortedDates.map(d => priceIndexByMonth[d].sum / priceIndexByMonth[d].count);
-        
-        // Destroy existing chart if any to avoid overlapping
+
+        // Second dataset: count how many distinct items hit their target each month
+        const monthSpecialsCount = {};
+        const monthItemCount = {};
+        _data.forEach(item => {
+            const ph = item.price_history || [];
+            const tgt = item.target || 0;
+            const seenMonths = new Set();
+            ph.forEach(h => {
+                const m = h.date.substring(0, 7);
+                if (!monthItemCount[m]) monthItemCount[m] = new Set();
+                monthItemCount[m].add(item.name);
+                if (tgt > 0 && h.price <= tgt) {
+                    if (!monthSpecialsCount[m]) monthSpecialsCount[m] = new Set();
+                    monthSpecialsCount[m].add(item.name);
+                }
+            });
+        });
+        const specialsRateLine = sortedDates.map(m => {
+            const total = monthItemCount[m] ? monthItemCount[m].size : 0;
+            const atTarget = monthSpecialsCount[m] ? monthSpecialsCount[m].size : 0;
+            return total > 0 ? parseFloat(((atTarget / total) * 100).toFixed(1)) : 0;
+        });
+
+        // Human-readable month labels e.g. "Dec '25"
+        const MONTH_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const niceLabels = sortedDates.map(d => {
+            const [yr, mo] = d.split('-');
+            return `${MONTH_SHORT[parseInt(mo) - 1]} '${yr.slice(2)}`;
+        });
+
+        // Destroy existing chart if any
         if (window.mySpendingChart) window.mySpendingChart.destroy();
         
         window.mySpendingChart = new Chart(spendingCtx, {
             type: 'line',
             data: {
-                labels: sortedDates,
-                datasets: [{
-                    label: 'Avg Item Price ($)',
-                    data: chartData,
-                    borderColor: '#6366f1',
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    borderWidth: 3,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#6366f1'
-                }]
+                labels: niceLabels,
+                datasets: [
+                    {
+                        label: 'Avg Item Price ($)',
+                        data: chartData,
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.08)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#6366f1',
+                        yAxisID: 'yPrice',
+                    },
+                    {
+                        label: 'Items at Target (%)',
+                        data: specialsRateLine,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                        fill: false,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        borderDash: [5, 4],
+                        pointRadius: 4,
+                        pointBackgroundColor: '#10b981',
+                        yAxisID: 'yPct',
+                    }
+                ]
             },
             options: { 
                 responsive: true, 
                 maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
                 plugins: {
+                    legend: { labels: { color: '#9ca3af', padding: 20, usePointStyle: true } },
                     tooltip: {
                         callbacks: {
-                            label: (ctx) => `Avg Price: $${ctx.parsed.y.toFixed(2)}`
+                            label: (ctx) => ctx.datasetIndex === 0
+                                ? `Avg Price: $${ctx.parsed.y.toFixed(2)}`
+                                : `At Target: ${ctx.parsed.y.toFixed(1)}%`
                         }
                     }
                 },
                 scales: {
                     x: {
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { maxTicksLimit: 12, color: '#9ca3af' }
+                        ticks: { color: '#9ca3af', font: { size: 11 } }
                     },
-                    y: {
+                    yPrice: {
+                        type: 'linear',
+                        position: 'left',
                         beginAtZero: false,
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { 
-                            callback: (val) => '$' + val,
-                            color: '#9ca3af'
-                        }
+                        ticks: { callback: val => '$' + val.toFixed(2), color: '#818cf8' }
+                    },
+                    yPct: {
+                        type: 'linear',
+                        position: 'right',
+                        min: 0,
+                        max: 100,
+                        grid: { drawOnChartArea: false },
+                        ticks: { callback: val => val + '%', color: '#34d399' }
                     }
                 }
             }
@@ -1246,6 +1321,15 @@ function renderAnalytics() {
 
     renderDeeperInsights(brandPrices);
     renderTargetIntelligence();
+
+    // ── New Analytics Widgets ──────────────────────────────────────────────
+    renderSavingsGauge();
+    renderWeeklySavings();
+    renderCategoryInflation();
+    renderDealHeatmap();
+    renderVolatilityLeaderboard();
+    renderBestTimeToBuy();
+    renderPantryHealthScore();
 }
 
 function renderTargetIntelligence() {
@@ -1621,4 +1705,674 @@ function showPriceDropToast(items) {
     document.body.appendChild(toast);
     // Auto-dismiss after 8 seconds
     setTimeout(() => toast.remove(), 8000);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// NEW ANALYTICS WIDGETS
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── 1. LIVE SAVINGS GAUGE ───────────────────────────────────────────────────
+function renderSavingsGauge() {
+    const container = document.getElementById('savings-gauge-container');
+    if (!container) return;
+
+    // Current savings from active specials (was_price - eff_price)
+    let currentSavings = 0;
+    let potentialSavings = 0;
+    let specialCount = 0;
+
+    _data.forEach(item => {
+        const ep = item.eff_price || item.price || 0;
+        if (ep <= 0 || item.price_unavailable) return;
+
+        // If store has a was_price, that's the true potential saving
+        if (item.on_special && item.was_price && item.was_price > ep) {
+            currentSavings += (item.was_price - ep);
+            potentialSavings += (item.was_price - ep);
+            specialCount++;
+        } else if (item.target > 0 && ep <= item.target) {
+            // Target-based saving
+            const saving = item.target - ep;
+            currentSavings += saving;
+            potentialSavings += saving;
+            specialCount++;
+        }
+
+        // Add non-special items' potential (estimated 15% saving if they go on special)
+        if (!item.on_special && item.target > 0) {
+            potentialSavings += Math.max(0, ep - item.target);
+        }
+    });
+
+    const pct = potentialSavings > 0 ? Math.min((currentSavings / Math.max(potentialSavings, currentSavings)) * 100, 100) : 0;
+    const radius = 54;
+    const circ = 2 * Math.PI * radius;
+    const dash = (pct / 100) * circ;
+    const gap = circ - dash;
+
+    // Colour: red 0-30, amber 30-60, green 60+
+    const color = pct >= 60 ? '#10b981' : pct >= 30 ? '#f59e0b' : '#6366f1';
+
+    container.innerHTML = `
+        <div class="gauge-wrap">
+            <svg class="gauge-svg" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="${radius}" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="12"/>
+                <circle cx="60" cy="60" r="${radius}" fill="none" stroke="${color}"
+                    stroke-width="12" stroke-linecap="round"
+                    stroke-dasharray="${dash} ${gap}"
+                    stroke-dashoffset="${circ * 0.25}"
+                    style="filter: drop-shadow(0 0 8px ${color}); transition: stroke-dasharray 1s ease;">
+                </circle>
+                <text x="60" y="55" text-anchor="middle" fill="white" font-size="16" font-weight="800" font-family="Outfit,sans-serif">$${currentSavings.toFixed(0)}</text>
+                <text x="60" y="72" text-anchor="middle" fill="#9ca3af" font-size="9" font-family="Inter,sans-serif">SAVED NOW</text>
+            </svg>
+            <div class="gauge-stats">
+                <div class="gauge-stat">
+                    <span class="gauge-stat-val" style="color:${color}">${pct.toFixed(0)}%</span>
+                    <span class="gauge-stat-label">Capture Rate</span>
+                </div>
+                <div class="gauge-stat">
+                    <span class="gauge-stat-val">${specialCount}</span>
+                    <span class="gauge-stat-label">Active Deals</span>
+                </div>
+            </div>
+            <p class="insight-tip" style="margin-top:1rem;">
+                ${pct >= 60 ? '🔥 Great week! You\'re capturing most of the available savings.' :
+                  pct >= 30 ? '⚡ Some good deals active. Check the Deals tab for more.' :
+                  '💡 Quiet on deals — set more targets to get alerted when prices drop.'}
+            </p>
+        </div>
+    `;
+}
+
+// ─── 2. WEEKLY SAVINGS SUMMARY ───────────────────────────────────────────────
+function renderWeeklySavings() {
+    const container = document.getElementById('weekly-savings-container');
+    if (!container) return;
+
+    let totalSaved = 0;
+    let totalWouldCost = 0;
+    const dealItems = [];
+
+    _data.forEach(item => {
+        const ep = item.eff_price || item.price || 0;
+        if (item.on_special && item.was_price && item.was_price > ep) {
+            const saved = item.was_price - ep;
+            totalSaved += saved;
+            totalWouldCost += item.was_price;
+            dealItems.push({ name: item.name, saved, savePct: Math.round((saved / item.was_price) * 100), store: item.store });
+        }
+    });
+
+    const topDeals = dealItems.sort((a, b) => b.saved - a.saved).slice(0, 4);
+    const pct = totalWouldCost > 0 ? ((totalSaved / totalWouldCost) * 100).toFixed(1) : 0;
+
+    container.innerHTML = `
+        <div class="weekly-savings-number">$${totalSaved.toFixed(2)}</div>
+        <div class="weekly-savings-sub">saved this cycle vs normal prices · <strong>${pct}% off</strong></div>
+        <div class="weekly-deals-list">
+            ${topDeals.map(d => `
+                <div class="weekly-deal-row">
+                    <span class="wdr-name">${d.name.length > 26 ? d.name.slice(0, 26) + '…' : d.name}</span>
+                    <span class="wdr-save">-${d.savePct}% ($${d.saved.toFixed(2)})</span>
+                </div>
+            `).join('')}
+            ${topDeals.length === 0 ? '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:1rem 0;">No store-confirmed specials with was_price data yet.</p>' : ''}
+        </div>
+    `;
+}
+
+// ─── 3. CATEGORY PRICE INFLATION ─────────────────────────────────────────────
+function renderCategoryInflation() {
+    const container = document.getElementById('category-inflation-container');
+    if (!container) return;
+
+    const now = new Date();
+    const cutoff60 = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000); // 60 days ago
+    const cutoff30 = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000); // 30 days ago
+
+    // Per-category: avg price in [0-30 days ago] vs [30-60 days ago]
+    const catRecent = {}; // recent 30d
+    const catOld    = {}; // 30-60d
+
+    _data.forEach(item => {
+        const cat = item.type || 'other';
+        const ph = item.price_history || [];
+        ph.forEach(h => {
+            const d = new Date(h.date);
+            const p = parseFloat(h.price);
+            if (!p || p <= 0 || p > 500) return;
+            if (d >= cutoff30) {
+                if (!catRecent[cat]) catRecent[cat] = [];
+                catRecent[cat].push(p);
+            } else if (d >= cutoff60) {
+                if (!catOld[cat]) catOld[cat] = [];
+                catOld[cat].push(p);
+            }
+        });
+    });
+
+    const CAT_EMOJI = {
+        produce:'🥬', meat:'🥩', dairy:'🧀', beverages:'🥤', snacks:'🍫',
+        pantry:'🫙', bakery:'🍞', frozen:'🧊', household:'🧹',
+        personal_care:'🪥', pet:'🐾', other:'📦'
+    };
+
+    const rows = [];
+    Object.keys(catRecent).forEach(cat => {
+        if (!catOld[cat] || catOld[cat].length < 2) return;
+        const avgRecent = catRecent[cat].reduce((a, b) => a + b, 0) / catRecent[cat].length;
+        const avgOld    = catOld[cat].reduce((a, b) => a + b, 0) / catOld[cat].length;
+        const change    = ((avgRecent - avgOld) / avgOld) * 100;
+        rows.push({ cat, change, avgRecent, avgOld });
+    });
+
+    if (rows.length === 0) {
+        // Fallback: use current prices vs targets to show relative position
+        const catData = {};
+        _data.forEach(item => {
+            const cat = item.type || 'other';
+            const ep = item.eff_price || item.price || 0;
+            const tgt = item.target || 0;
+            if (ep > 0 && tgt > 0) {
+                if (!catData[cat]) catData[cat] = [];
+                catData[cat].push(((ep - tgt) / tgt) * 100);
+            }
+        });
+        Object.entries(catData).forEach(([cat, changes]) => {
+            if (changes.length < 2) return;
+            const avg = changes.reduce((a, b) => a + b, 0) / changes.length;
+            rows.push({ cat, change: avg, avgRecent: 0, avgOld: 0, isTargetBased: true });
+        });
+    }
+
+    rows.sort((a, b) => Math.abs(b.change) - Math.abs(a.change));
+
+    const maxChange = Math.max(...rows.map(r => Math.abs(r.change)), 1);
+
+    container.innerHTML = rows.slice(0, 10).map(r => {
+        const pct = r.change;
+        const barWidth = Math.min(Math.abs(pct) / maxChange * 100, 100);
+        const up = pct > 0;
+        const label = r.isTargetBased ? `${pct > 0 ? '+' : ''}${pct.toFixed(1)}% above target avg` :
+                      `${pct > 0 ? '↑' : '↓'} ${Math.abs(pct).toFixed(1)}% vs 60d ago`;
+        const emoji = CAT_EMOJI[r.cat] || '📦';
+        return `
+            <div class="inflation-row">
+                <div class="inflation-cat">${emoji} ${r.cat.replace('_', ' ')}</div>
+                <div class="inflation-bar-wrap">
+                    <div class="inflation-bar ${up ? 'up' : 'down'}" style="width:${barWidth}%"></div>
+                </div>
+                <div class="inflation-label ${up ? 'up' : 'down'}">${label}</div>
+            </div>
+        `;
+    }).join('');
+
+    if (rows.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Not enough price history yet to compute inflation trends. Data will populate as the bot runs daily.</p>';
+    }
+}
+
+// ─── 4. DEAL HEAT MAP ────────────────────────────────────────────────────────
+function renderDealHeatmap() {
+    const container = document.getElementById('deal-heatmap-container');
+    if (!container) return;
+
+    const CAT_EMOJI = {
+        produce:'🥬', meat:'🥩', dairy:'🧀', beverages:'🥤', snacks:'🍫',
+        pantry:'🫙', bakery:'🍞', frozen:'🧊', household:'🧹',
+        personal_care:'🪥', pet:'🐾', other:'📦'
+    };
+
+    // Build per-category, per-store stats
+    const cats = [...new Set(_data.map(i => i.type || 'other'))].filter(c => c);
+    const heatData = {};
+
+    cats.forEach(cat => {
+        heatData[cat] = { woolworths: { specials: 0, total: 0, savings: 0 }, coles: { specials: 0, total: 0, savings: 0 } };
+    });
+
+    _data.forEach(item => {
+        const cat = item.type || 'other';
+        const store = item.store;
+        if (!store || store === 'none' || !heatData[cat]?.[store]) return;
+
+        const ep = item.eff_price || item.price || 0;
+        heatData[cat][store].total++;
+
+        const isSpecial = item.on_special || (item.target > 0 && ep <= item.target && !item.price_unavailable);
+        if (isSpecial) {
+            heatData[cat][store].specials++;
+            const ref = item.was_price || item.target || ep;
+            heatData[cat][store].savings += (ref - ep);
+        }
+    });
+
+    // Find max specials for scale
+    let maxSpecials = 1;
+    cats.forEach(cat => {
+        ['woolworths', 'coles'].forEach(s => {
+            maxSpecials = Math.max(maxSpecials, heatData[cat]?.[s]?.specials || 0);
+        });
+    });
+
+    const sortedCats = cats.sort((a, b) => {
+        const aTotal = (heatData[a]?.woolworths?.specials || 0) + (heatData[a]?.coles?.specials || 0);
+        const bTotal = (heatData[b]?.woolworths?.specials || 0) + (heatData[b]?.coles?.specials || 0);
+        return bTotal - aTotal;
+    });
+
+    container.innerHTML = `
+        <div class="heatmap-grid">
+            <div class="heatmap-header-col"></div>
+            <div class="heatmap-store-header woolies-head">🟢 Woolworths</div>
+            <div class="heatmap-store-header coles-head">🔴 Coles</div>
+            ${sortedCats.map(cat => {
+                const w = heatData[cat]?.woolworths || { specials: 0, total: 0, savings: 0 };
+                const c = heatData[cat]?.coles || { specials: 0, total: 0, savings: 0 };
+                const wIntensity = maxSpecials > 0 ? (w.specials / maxSpecials) : 0;
+                const cIntensity = maxSpecials > 0 ? (c.specials / maxSpecials) : 0;
+                const wWinner = w.specials >= c.specials;
+
+                return `
+                    <div class="heatmap-label">${CAT_EMOJI[cat] || '📦'} ${cat.replace('_', ' ')}</div>
+                    <div class="heatmap-cell ${wWinner && w.specials > 0 ? 'woolies-winner' : ''}" style="--intensity: ${wIntensity}">
+                        <div class="heatmap-cell-count">${w.specials}</div>
+                        <div class="heatmap-cell-sub">of ${w.total} on special</div>
+                        ${w.savings > 0.05 ? `<div class="heatmap-savings">$${w.savings.toFixed(2)} off</div>` : ''}
+                    </div>
+                    <div class="heatmap-cell ${!wWinner && c.specials > 0 ? 'coles-winner' : ''}" style="--intensity: ${cIntensity}">
+                        <div class="heatmap-cell-count">${c.specials}</div>
+                        <div class="heatmap-cell-sub">of ${c.total} on special</div>
+                        ${c.savings > 0.05 ? `<div class="heatmap-savings">$${c.savings.toFixed(2)} off</div>` : ''}
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
+// ─── 5. VOLATILITY LEADERBOARD ───────────────────────────────────────────────
+function renderVolatilityLeaderboard() {
+    const container = document.getElementById('volatility-leaderboard-container');
+    if (!container) return;
+
+    // Re-compute volatility from price_history (richer source than scrape_history)
+    const volScores = [];
+
+    _data.forEach(item => {
+        const ph = item.price_history || [];
+        if (ph.length < 3) return;
+
+        const prices = ph.map(h => parseFloat(h.price)).filter(p => p > 0 && p < 500);
+        if (prices.length < 3) return;
+
+        const avg = prices.reduce((a, b) => a + b, 0) / prices.length;
+        const variance = prices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / prices.length;
+        const stdDev = Math.sqrt(variance);
+        const vol = (stdDev / avg) * 100;
+
+        const ep = item.eff_price || item.price || 0;
+        const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+
+        volScores.push({
+            name: item.name,
+            vol,
+            avg: avg.toFixed(2),
+            min: minPrice.toFixed(2),
+            max: maxPrice.toFixed(2),
+            store: item.store,
+            isOnSpecial,
+            ep
+        });
+    });
+
+    // Fill with items that have at least some history if not enough
+    if (volScores.length < 5) {
+        _data.forEach(item => {
+            if (volScores.find(v => v.name === item.name)) return;
+            const ph = item.price_history || [];
+            if (ph.length < 2) return;
+            const prices = ph.map(h => parseFloat(h.price)).filter(p => p > 0);
+            if (prices.length < 2) return;
+            const avg = prices.reduce((a, b) => a + b, 0) / prices.length;
+            const vol = Math.abs(prices[0] - prices[prices.length - 1]) / avg * 100;
+            const ep = item.eff_price || item.price || 0;
+            volScores.push({
+                name: item.name, vol, avg: avg.toFixed(2),
+                min: Math.min(...prices).toFixed(2), max: Math.max(...prices).toFixed(2),
+                store: item.store, isOnSpecial: false, ep
+            });
+        });
+    }
+
+    volScores.sort((a, b) => b.vol - a.vol);
+    const top = volScores.slice(0, 12);
+    const maxVol = top[0]?.vol || 1;
+
+    if (top.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Build up price history (3+ data points per item) to see volatility rankings.</p>';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="vol-table">
+            ${top.map((item, i) => {
+                const barW = (item.vol / maxVol) * 100;
+                const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
+                const volClass = item.vol > 15 ? 'high' : item.vol > 8 ? 'med' : 'low';
+                return `
+                    <div class="vol-row" onclick="openItemDeepdive('${item.name.replace(/'/g, "\\'")}')">
+                        <div class="vol-rank">#${i + 1}</div>
+                        <div class="vol-info">
+                            <div class="vol-name">
+                                ${item.name.length > 32 ? item.name.slice(0, 32) + '…' : item.name}
+                                ${item.isOnSpecial ? '<span class="vol-special-badge">🔥 ON SPECIAL</span>' : ''}
+                            </div>
+                            <div class="vol-bar-wrap">
+                                <div class="vol-bar ${volClass}" style="width:${barW}%"></div>
+                            </div>
+                        </div>
+                        <div class="vol-meta">
+                            <div class="vol-score ${volClass}">${item.vol.toFixed(0)}%</div>
+                            <div class="vol-range">$${item.min}–$${item.max}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+        <p class="insight-tip">Click any item to see its full price history chart.</p>
+    `;
+}
+
+// ─── 6. BEST TIME TO BUY ─────────────────────────────────────────────────────
+function renderBestTimeToBuy() {
+    const container = document.getElementById('best-time-container');
+    if (!container) return;
+
+    // Month-bucket all price_history entries by category
+    const catMonthPrices = {}; // cat -> { month(0-11) -> [prices] }
+
+    _data.forEach(item => {
+        const cat = item.type || 'other';
+        const ph = item.price_history || [];
+        ph.forEach(h => {
+            const d = new Date(h.date);
+            const p = parseFloat(h.price);
+            if (!p || p <= 0 || p > 500) return;
+            const m = d.getMonth(); // 0-11
+            if (!catMonthPrices[cat]) catMonthPrices[cat] = {};
+            if (!catMonthPrices[cat][m]) catMonthPrices[cat][m] = [];
+            catMonthPrices[cat][m].push(p);
+        });
+    });
+
+    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const CAT_EMOJI = {
+        produce:'🥬', meat:'🥩', dairy:'🧀', beverages:'🥤', snacks:'🍫',
+        pantry:'🫙', bakery:'🍞', frozen:'🧊', household:'🧹',
+        personal_care:'🪥', pet:'🐾', other:'📦'
+    };
+
+    const results = [];
+    Object.entries(catMonthPrices).forEach(([cat, byMonth]) => {
+        const monthAvgs = Object.entries(byMonth)
+            .filter(([, prices]) => prices.length >= 2)
+            .map(([m, prices]) => ({
+                month: parseInt(m),
+                avg: prices.reduce((a, b) => a + b, 0) / prices.length
+            }));
+        if (monthAvgs.length < 2) return;
+        monthAvgs.sort((a, b) => a.avg - b.avg);
+        const cheapest = monthAvgs[0];
+        const mostExpensive = monthAvgs[monthAvgs.length - 1];
+        const saving = ((mostExpensive.avg - cheapest.avg) / mostExpensive.avg * 100).toFixed(0);
+        results.push({ cat, cheapestMonth: cheapest.month, saving, avg: cheapest.avg });
+    });
+
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div class="best-time-empty">
+                <div style="font-size:32px;margin-bottom:0.5rem;">📅</div>
+                <p>Price history across multiple months is building up. Check back after a few weeks of data collection.</p>
+            </div>
+        `;
+        return;
+    }
+
+    results.sort((a, b) => parseInt(b.saving) - parseInt(a.saving));
+
+    container.innerHTML = `
+        <div class="best-time-list">
+            ${results.slice(0, 8).map(r => `
+                <div class="best-time-row">
+                    <span class="bt-cat">${CAT_EMOJI[r.cat] || '📦'} ${r.cat.replace('_', ' ')}</span>
+                    <span class="bt-month">${MONTHS[r.cheapestMonth]}</span>
+                    <span class="bt-saving">saves ~${r.saving}%</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// ─── 7. PANTRY HEALTH SCORE ──────────────────────────────────────────────────
+function renderPantryHealthScore() {
+    const container = document.getElementById('pantry-health-container');
+    if (!container) return;
+
+    const total = _data.length;
+    if (total === 0) return;
+
+    // Metrics
+    const lowStockCount = _data.filter(i => i.stock === 'low').length;
+    const medStockCount = _data.filter(i => i.stock === 'medium').length;
+    const withTarget = _data.filter(i => (i.target || 0) > 0).length;
+    const highConf = _data.filter(i => i.target_confidence === 'high').length;
+    const specials = _data.filter(i => {
+        const ep = i.eff_price || i.price || 0;
+        return i.on_special || (i.target > 0 && ep <= i.target && !i.price_unavailable);
+    }).length;
+
+    // Score components (0-100 each, weighted)
+    const stockScore    = Math.max(0, 100 - (lowStockCount / total) * 200 - (medStockCount / total) * 50);
+    const targetCovScore = (withTarget / total) * 100;
+    const confScore     = (highConf / total) * 100;
+    const dealScore     = Math.min((specials / Math.max(total * 0.15, 1)) * 100, 100);
+
+    const overallScore = Math.round(stockScore * 0.35 + targetCovScore * 0.25 + confScore * 0.20 + dealScore * 0.20);
+    const clampedScore = Math.min(Math.max(overallScore, 0), 100);
+
+    const grade = clampedScore >= 80 ? { label: 'Excellent', color: '#10b981', icon: '🏆' }
+                : clampedScore >= 60 ? { label: 'Good', color: '#6366f1', icon: '✅' }
+                : clampedScore >= 40 ? { label: 'Fair', color: '#f59e0b', icon: '⚡' }
+                : { label: 'Needs Attention', color: '#ef4444', icon: '⚠️' };
+
+    const metrics = [
+        { label: 'Stock Status', score: Math.round(stockScore), icon: '📦',
+          hint: `${lowStockCount} items low, ${medStockCount} medium` },
+        { label: 'Target Coverage', score: Math.round(targetCovScore), icon: '🎯',
+          hint: `${withTarget} of ${total} items have targets` },
+        { label: 'Target Confidence', score: Math.round(confScore), icon: '🔬',
+          hint: `${highConf} high-confidence targets` },
+        { label: 'Deal Capture', score: Math.round(dealScore), icon: '🔥',
+          hint: `${specials} active deals right now` },
+    ];
+
+    container.innerHTML = `
+        <div class="health-score-layout">
+            <div class="health-score-main">
+                <div class="health-ring-wrap">
+                    <svg viewBox="0 0 120 120" class="health-ring-svg">
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="${grade.color}"
+                            stroke-width="10" stroke-linecap="round"
+                            stroke-dasharray="${(clampedScore / 100) * 314} 314"
+                            stroke-dashoffset="78.5"
+                            style="filter:drop-shadow(0 0 10px ${grade.color}); transition: stroke-dasharray 1.2s ease;">
+                        </circle>
+                        <text x="60" y="54" text-anchor="middle" fill="white" font-size="26" font-weight="800" font-family="Outfit,sans-serif">${clampedScore}</text>
+                        <text x="60" y="70" text-anchor="middle" fill="#9ca3af" font-size="9" font-family="Inter,sans-serif">/ 100</text>
+                    </svg>
+                </div>
+                <div class="health-grade">
+                    <span class="health-grade-icon">${grade.icon}</span>
+                    <span class="health-grade-label" style="color:${grade.color}">${grade.label}</span>
+                </div>
+            </div>
+            <div class="health-metrics">
+                ${metrics.map(m => {
+                    const mColor = m.score >= 70 ? '#10b981' : m.score >= 45 ? '#f59e0b' : '#ef4444';
+                    return `
+                        <div class="health-metric-row">
+                            <div class="health-metric-icon">${m.icon}</div>
+                            <div class="health-metric-info">
+                                <div class="health-metric-label">${m.label}</div>
+                                <div class="health-metric-hint">${m.hint}</div>
+                                <div class="health-metric-bar">
+                                    <div class="health-metric-fill" style="width:${m.score}%;background:${mColor};box-shadow:0 0 8px ${mColor}40"></div>
+                                </div>
+                            </div>
+                            <div class="health-metric-score" style="color:${mColor}">${m.score}</div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// ─── 8. ITEM DEEP-DIVE MODAL ─────────────────────────────────────────────────
+let _deepdiveChart = null;
+
+function openItemDeepdive(itemName) {
+    const item = _data.find(i => i.name === itemName);
+    if (!item) return;
+
+    // Remove existing modal
+    document.getElementById('deepdive-modal')?.remove();
+
+    const ph = item.price_history || [];
+    const sorted = [...ph].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const vol = _volatility[itemName] || 0;
+    const ep = item.eff_price || item.price || 0;
+    const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
+    const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
+
+    const modal = document.createElement('div');
+    modal.id = 'deepdive-modal';
+    modal.className = 'deepdive-overlay';
+    modal.onclick = (e) => { if (e.target === modal) closeItemDeepdive(); };
+
+    modal.innerHTML = `
+        <div class="deepdive-panel">
+            <div class="deepdive-header">
+                <div>
+                    <h3 class="deepdive-title">${item.name}</h3>
+                    <div class="deepdive-meta">
+                        <span class="store-badge ${item.store}" style="margin-top:0;">${item.store === 'woolworths' ? 'Woolies' : 'Coles'}</span>
+                        ${isOnSpecial ? '<span class="save-badge">ON SPECIAL</span>' : ''}
+                        ${item.target_confidence ? `<span class="confidence-badge ${item.target_confidence}">
+                            ${item.target_confidence === 'high' ? '🟢' : item.target_confidence === 'medium' ? '🟡' : '🔴'} ${item.target_confidence} conf.
+                        </span>` : ''}
+                    </div>
+                </div>
+                <button onclick="closeItemDeepdive()" class="deepdive-close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="deepdive-stats">
+                <div class="dd-stat">
+                    <div class="dd-stat-val" style="color:${storeColor}">$${ep.toFixed(2)}</div>
+                    <div class="dd-stat-label">Current</div>
+                </div>
+                ${item.target > 0 ? `<div class="dd-stat">
+                    <div class="dd-stat-val">$${item.target.toFixed(2)}</div>
+                    <div class="dd-stat-label">Target</div>
+                </div>` : ''}
+                ${item.was_price ? `<div class="dd-stat">
+                    <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${item.was_price.toFixed(2)}</div>
+                    <div class="dd-stat-label">Was Price</div>
+                </div>` : ''}
+                <div class="dd-stat">
+                    <div class="dd-stat-val ${vol > 15 ? 'vol-high' : vol > 8 ? 'vol-med' : ''}">${vol.toFixed(0)}%</div>
+                    <div class="dd-stat-label">Volatility</div>
+                </div>
+                <div class="dd-stat">
+                    <div class="dd-stat-val">${ph.length}</div>
+                    <div class="dd-stat-label">Data Points</div>
+                </div>
+            </div>
+            <div class="deepdive-chart-wrap">
+                ${sorted.length > 1 ? '<canvas id="deepdive-canvas"></canvas>' :
+                  '<p style="color:var(--text-muted);text-align:center;padding:3rem;font-size:13px;">Not enough price history to chart.<br>At least 2 data points needed.</p>'}
+            </div>
+            <div class="deepdive-footer">
+                <div class="dd-footer-info">
+                    <span>${item.type || 'uncategorised'} · ${item.brand || 'unknown brand'}</span>
+                    ${item.size ? `<span>Size: ${item.size}</span>` : ''}
+                </div>
+                <button class="sync-btn" style="padding:10px 20px;width:auto;" onclick="addToList('${item.name.replace(/'/g, "\\'")}'); closeItemDeepdive();">
+                    <i data-feather="plus"></i> Add to List
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    feather.replace();
+
+    if (sorted.length > 1) {
+        const canvas = document.getElementById('deepdive-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            if (_deepdiveChart) _deepdiveChart.destroy();
+            _deepdiveChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sorted.map(h => h.date),
+                    datasets: [{
+                        label: 'Price',
+                        data: sorted.map(h => h.price),
+                        borderColor: storeColor,
+                        backgroundColor: storeColor + '20',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: storeColor,
+                        pointHoverRadius: 8,
+                    },
+                    ...(item.target > 0 ? [{
+                        label: 'Target',
+                        data: sorted.map(() => item.target),
+                        borderColor: '#6366f1',
+                        borderDash: [6, 4],
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: false,
+                    }] : [])
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#9ca3af' } },
+                        tooltip: { callbacks: { label: ctx => `$${ctx.parsed.y.toFixed(2)}` } }
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af', maxTicksLimit: 8 } },
+                        y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af', callback: v => '$' + v.toFixed(2) } }
+                    }
+                }
+            });
+        }
+    }
+}
+
+function closeItemDeepdive() {
+    document.getElementById('deepdive-modal')?.remove();
+    if (_deepdiveChart) { _deepdiveChart.destroy(); _deepdiveChart = null; }
 }
