@@ -363,13 +363,18 @@ function renderNearMisses() {
     
     const nearMisses = _data.filter(item => {
         const effPrice = item.eff_price || item.price;
-        // Near miss = between target and target * 1.10
-        return effPrice > item.target && effPrice <= item.target * 1.10 && !item.price_unavailable;
+        // Near miss = within 5% above target (tighter now that targets are data-driven)
+        return effPrice > item.target && effPrice <= item.target * 1.05 && !item.price_unavailable;
+    }).sort((a, b) => {
+        // Sort by closest to target first
+        const ra = (a.eff_price || a.price) / a.target;
+        const rb = (b.eff_price || b.price) / b.target;
+        return ra - rb;
     });
     
     if (nearMisses.length > 0) {
         section.classList.remove('hidden');
-        nearMisses.slice(0, 4).forEach((item, index) => {
+        nearMisses.slice(0, 6).forEach((item, index) => {
             const card = createItemCard(item, index, 'near');
             grid.appendChild(card);
         });
