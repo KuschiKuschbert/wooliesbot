@@ -442,11 +442,44 @@ function createItemCard(item, index, type = 'special') {
         priceHtml = `<span class="item-price">$${effPrice.toFixed(2)}</span>`;
     }
     
+    // Build store comparison row if both stores available
+    const allStores = item.all_stores || {};
+    const wooliesData = allStores.woolworths;
+    const colesData = allStores.coles;
+    let storeCompareHtml = '';
+    if (wooliesData && colesData) {
+        const wp = wooliesData.eff_price || wooliesData.price;
+        const cp = colesData.eff_price || colesData.price;
+        const wooliesWinner = wp <= cp;
+        const saving = Math.abs(wp - cp).toFixed(2);
+        storeCompareHtml = `
+            <div class="store-compare">
+                <div class="store-compare-row ${wooliesWinner ? 'winner' : ''}">
+                    <span class="store-compare-label">🟢 Woolies</span>
+                    <span class="store-compare-price">$${wp.toFixed(2)}</span>
+                    ${wooliesWinner ? '<span class="winner-badge">✓ Best</span>' : ''}
+                </div>
+                <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
+                    <span class="store-compare-label">🔴 Coles</span>
+                    <span class="store-compare-price">$${cp.toFixed(2)}</span>
+                    ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving}</span>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    // Product URL for store badge link
+    const productUrl = item.store === 'coles' 
+        ? (item.coles || '#') 
+        : (item.woolworths || '#');
+
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+                <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
+                    <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+                </a>
                 <div style="display:flex; gap:4px; align-items:center;">
                     ${confidenceBadge}
                     <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
@@ -455,8 +488,9 @@ function createItemCard(item, index, type = 'special') {
             <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
             <div class="item-price-row">
                 ${priceHtml}
-                <span class="item-target" ${targetTooltip}>Target: $${(item.target || 0).toFixed(2)}</span>
+                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
             </div>
+            ${storeCompareHtml}
             <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}')">
                 <i data-feather="plus"></i> Add to List
             </button>
@@ -553,20 +587,35 @@ function updateListCount() {
 function addToList(itemName) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
+
+    // Prevent duplicates
+    if (_shoppingList.find(l => l.name === itemName)) {
+        const btn = event?.currentTarget;
+        if (btn) {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-feather="check"></i> In list!';
+            btn.style.background = 'rgba(99,102,241,0.5)';
+            feather.replace();
+            setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; feather.replace(); }, 1500);
+        }
+        return;
+    }
     
     // Factor in quantities
     let qty = 1;
     if (_shopMode === 'big') {
-        if (item.type === 'fresh_protein') qty = 4;
-        else if (['pet', 'pantry', 'household', 'freezer'].includes(item.type)) qty = 2;
+        if (item.type === 'fresh_protein' || item.type === 'meat') qty = 4;
+        else if (['pet', 'pantry', 'household', 'frozen'].includes(item.type)) qty = 2;
     }
 
     const listItem = {
         name: item.name,
-        price: item.price,
+        price: item.eff_price || item.price,
         qty: qty,
         store: item.store || 'woolworths',
-        image: item.image_url
+        image: item.local_image || item.image_url || null,
+        on_special: item.on_special || false,
+        was_price: item.was_price || null,
     };
     
     _shoppingList.push(listItem);
@@ -604,16 +653,18 @@ function renderShoppingList() {
     let total = 0;
     
     _shoppingList.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
+        const itemTotal = (item.price || 0) * item.qty;
         total += itemTotal;
         
         const div = document.createElement('div');
         div.className = 'shopping-item';
+        const specialBadge = item.on_special && item.was_price
+            ? `<span class="save-badge" style="font-size:9px;">SPECIAL</span>` : '';
         div.innerHTML = `
-            ${item.image ? `<img src="${item.image}">` : '<div style="width:40px;height:40px;background:rgba(255,255,255,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;"><i data-feather="image" style="width:16px;"></i></div>'}
+            ${item.image ? `<img src="${item.image}" onerror="this.style.display='none'">` : '<div style="width:40px;height:40px;background:rgba(255,255,255,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;"><i data-feather="image" style="width:16px;"></i></div>'}
             <div class="shopping-item-info">
-                <div class="shopping-item-name">${item.qty}× ${item.name}</div>
-                <div class="shopping-item-price">${item.store === 'woolworths' ? '🟢W' : '🔴C'} — $${itemTotal.toFixed(2)}</div>
+                <div class="shopping-item-name">${item.qty}× ${item.name} ${specialBadge}</div>
+                <div class="shopping-item-price">${item.store === 'woolworths' ? '🟢 Woolies' : '🔴 Coles'} — $${itemTotal.toFixed(2)}</div>
             </div>
             <button class="icon-btn" onclick="removeFromList(${index})"><i data-feather="trash-2"></i></button>
         `;

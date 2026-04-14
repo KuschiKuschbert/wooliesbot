@@ -496,6 +496,53 @@ body {
     width: 100%;
 }
 
+/* Store price comparison */
+.store-compare {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 8px 0;
+    padding: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.store-compare-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.store-compare-row.winner {
+    background: rgba(16, 185, 129, 0.12);
+}
+
+.store-compare-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    flex: 1;
+}
+
+.store-compare-price {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.winner-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 1px 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
 /* Layout Grid Overhaul */
 .dashboard-grid {
     display: grid;

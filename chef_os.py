@@ -1237,44 +1237,21 @@ def run_report(full_list=False, send_telegram_messages=True):
             logging.info("send_telegram_messages is False. Exiting early, no message sent.")
             return
 
-        # Resolve comparison groups (beef_strips, cola_24pk, etc.)
-        resolved, _ = _resolve_compare_groups(raw_results)
+        # Count store-confirmed specials for the notification
+        specials_count = sum(
+            1 for s in raw_results
+            if s.get('on_special') or (
+                not s.get('price_unavailable')
+                and (s.get('eff_price') or s.get('price', 0)) <= (s.get('target') or 0) > 0
+            )
+        )
 
-        # Specials: effective price at or below target (exclude unreliable prices)
-        specials = [s for s in resolved if not s.get('price_unavailable') and s.get('eff_price', s['price']) <= s['target']]
-        spec_names = {s['name'] for s in specials}
-        near_misses = [s for s in resolved if not s.get('price_unavailable') and s['target'] < s.get('eff_price', s['price']) <= s['target'] * 1.10]
-        unavailable = [s for s in resolved if s.get('price_unavailable')]
-
-        # Chunk 1: Header + comparison groups
-        chunk1 = ""
-        chunk1 += "🛒 *WoolesBot*" + _nl()
-        chunk1 += today.strftime("%d %b %Y") + _sp()
-        chunk1 += f"*{'📦 BIG MONTHLY STOCK UP' if is_big_shop else '🥦 WEEKLY FRESH RUN'}*" + _nl()
-        if is_big_shop:
-            chunk1 += "Target $500 → 10% off (~$50)" + _nl()
-        # --- Streamlined Summary Messaging ---
-        savings_total = 0
-        for item in specials:
-            qty = 1
-            if is_big_shop:
-                if item['type'] == 'fresh_protein': qty = 4
-                elif item['type'] in ['pet', 'pantry', 'household', 'freezer']: qty = 2
-            savings_total += (item['target'] - (item.get('eff_price') or item['price'])) * qty
-
-        summary = f"🛒 *WooliesBot: Prices Updated!*" + _nl()
-        summary += f"{'🚀 Big Shop Mode' if is_big_shop else '📅 Weekly Mode'} active." + _sp()
-        
-        summary += f"🔥 *{len(specials)}* items on special below target." + _nl()
-        summary += f"💰 Potential savings today: *${savings_total:.2f}*" + _sp()
-        
-        if is_big_shop:
-            if cart_total >= DISCOUNT_CAP:
-                summary += "✅ $500 Target met for 10% discount!" + _nl()
-            else:
-                summary += f"⚠️ Add ${DISCOUNT_CAP - cart_total:.2f} to hit $500 goal." + _nl()
-
-        summary += _sp() + "🌐 [View Detailed Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
+        # Minimal Telegram notification — all details are on the dashboard
+        summary = (
+            f"🛒 *WooliesBot* — prices updated\\.\n"
+            f"🏷️ *{specials_count}* deals on right now\\.\n"
+            f"🌐 [Open Dashboard](https://KuschiKuschbert\\.github\\.io/wooliesbot/)"
+        )
 
         if send_telegram_messages:
             send_telegram(summary.strip())
