@@ -100,6 +100,7 @@ B_LIST_BRIDGE_ITEMS = [
 # Big Shop triggers after the 14th (weeks 3–4) to use the 10% discount
 BIG_SHOP_START_DAY = 14
 DISCOUNT_CAP = 500.00
+NEXT_SCHEDULED_RUN = None  # Global to track next scraper run
 
 TELEGRAM_MAX_LEN = 4000  # Leave margin for Markdown
 
@@ -985,8 +986,13 @@ def sync_to_github():
     try:
         # Update heartbeat file before syncing
         heartbeat_path = os.path.join("docs", "heartbeat.json")
+        next_run_str = NEXT_SCHEDULED_RUN.isoformat() if NEXT_SCHEDULED_RUN else None
         with open(heartbeat_path, "w") as f:
-            json.dump({"last_heartbeat": datetime.datetime.now().isoformat(), "status": "active"}, f)
+            json.dump({
+                "last_heartbeat": datetime.datetime.now().isoformat(), 
+                "next_run": next_run_str,
+                "status": "active"
+            }, f)
 
         logging.info("Syncing data to GitHub...")
         # Capture root and docs changes
@@ -1998,6 +2004,12 @@ if __name__ == "__main__":
             logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
             
             while True:
+                # Keep the global next run time synchronized
+                next_job = schedule.next_run()
+                if next_job:
+                    global NEXT_SCHEDULED_RUN
+                    NEXT_SCHEDULED_RUN = next_job
+                
                 schedule.run_pending()
                 time.sleep(60)
                 

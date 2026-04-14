@@ -17,6 +17,7 @@ let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
 let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
+let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
 
@@ -394,25 +395,57 @@ function createItemCard(item, index, type = 'special') {
 function renderPredictions() {
     const section = document.getElementById('predictions-section');
     const grid = document.getElementById('predictions-grid');
+    if (!grid) return;
     grid.innerHTML = '';
     
+    const now = new Date();
+
     const predicted = _data.filter(item => {
-        // Condition 1: Explicitly low stock
+        // Condition 1: Explicitly low stock (Highest priority)
         if (item.stock === 'low') return true;
         
-        // Condition 2: Buy frequency prediction
+        // Condition 2: Buy frequency prediction based on category
         if (item.last_purchased) {
             const last = new Date(item.last_purchased);
-            const diffDays = (new Date() - last) / (1000 * 60 * 60 * 24);
-            // 7-day heuristic for essentials
-            if (diffDays > 7 && (item.type === 'fresh_fridge' || item.type === 'pantry' || item.type === 'fresh_veg' || item.type === 'fresh_protein')) return true;
+            const diffDays = (now - last) / (1000 * 60 * 60 * 24);
+            
+            // Per-category heuristics
+            let threshold = 10; // Default
+            if (item.type === 'fresh_protein' || item.type === 'fresh_veg') threshold = 4;
+            else if (item.type === 'fresh_fridge') threshold = 6;
+            else if (item.type === 'pet' || item.type === 'household') threshold = 14;
+            
+            if (diffDays >= threshold) return true;
         }
+
+        // Condition 3: "Stock Up Alert" - Medium stock but currently on a deep special
+        const effPrice = item.eff_price || item.price;
+        const isOnSpecial = effPrice <= item.target && !item.price_unavailable;
+        if (item.stock === 'medium' && isOnSpecial) return true;
+
         return false;
+    });
+
+    // Sort: Low stock first, then deep specials, then frequency
+    predicted.sort((a, b) => {
+        if (a.stock === 'low' && b.stock !== 'low') return -1;
+        if (b.stock === 'low' && a.stock !== 'low') return 1;
+        
+        const priceA = a.eff_price || a.price;
+        const priceB = b.eff_price || b.price;
+        const discountA = (a.target - priceA) / a.target;
+        const discountB = (b.target - priceB) / b.target;
+        
+        if (discountA > discountB) return -1;
+        if (discountB > discountA) return 1;
+        
+        return 0;
     });
 
     if (predicted.length > 0) {
         section.classList.remove('hidden');
-        predicted.slice(0, 6).forEach((item, idx) => {
+        // Show up to 10 to fill up to 2 rows of 5
+        predicted.slice(0, 10).forEach((item, idx) => {
             grid.appendChild(createItemCard(item, idx, 'predicted'));
         });
     } else {
@@ -531,10 +564,18 @@ function updateLastCheckedDisplay() {
 
     // 2. Update Local Time "Next Check"
     if (nextEl) {
-        // Assume 60 min interval from last success
-        const nextDate = new Date(lastDate.getTime() + (60 * 60 * 1000));
-        const options = { hour: 'numeric', minute: '2-digit', hour12: true };
-        nextEl.textContent = nextDate.toLocaleTimeString(undefined, options);
+        let nextDate;
+        if (_nextRun) {
+            nextDate = new Date(_nextRun);
+        } else {
+            // Fallback: Assume 60 min interval from last success
+            nextDate = new Date(lastDate.getTime() + (60 * 60 * 1000));
+        }
+        
+        if (!isNaN(nextDate.getTime())) {
+            const options = { hour: 'numeric', minute: '2-digit', hour12: true };
+            nextEl.textContent = nextDate.toLocaleTimeString(undefined, options);
+        }
     }
 
     // 3. Refresh feather icons for the new structure
@@ -592,6 +633,7 @@ async function monitorCloudHealth() {
 
             // Sync the 'Last Checked' header display with the cloud heartbeat
             _lastChecked = data.last_heartbeat;
+            _nextRun = data.next_run;
             updateLastCheckedDisplay();
         }
     } catch (e) {
