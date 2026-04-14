@@ -7922,44 +7922,6 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/460813.jpg"
     },
     {
-      "name": "Golden Pikelets 8Pk 200G",
-      "type": "bakery",
-      "price_mode": "each",
-      "target": 3.0,
-      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Golden%20Pikelets%208pk%20200g",
-      "coles": "",
-      "price_history": [
-        {
-          "date": "2026-03-01",
-          "price": 3.0
-        }
-      ],
-      "stock": "medium",
-      "last_purchased": null,
-      "price": 3.0,
-      "eff_price": 3.0,
-      "brand": "Private Label",
-      "subcategory": "other",
-      "size": "8Pk",
-      "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $4.50, now $3.00 (store special)",
-      "target_data_points": 2,
-      "target_updated": "2026-04-15",
-      "scrape_history": [
-        {
-          "date": "2026-04-15",
-          "price": 2.86,
-          "is_special": true,
-          "store": "woolworths"
-        }
-      ],
-      "was_price": 4.5,
-      "on_special": true,
-      "local_image": "images/Golden_Pikelets_8Pk_200G.jpg",
-      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/046645.jpg"
-    },
-    {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
       "type": "household",
       "price_mode": "each",
@@ -9324,48 +9286,6 @@
       "on_special": false,
       "local_image": "images/Infuzions_Air_Fries_Aioli_75G.jpg",
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/071929.jpg"
-    },
-    {
-      "name": "Beef Scotch Fillet Steak 170G",
-      "type": "meat",
-      "price_mode": "each",
-      "target": 0,
-      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Beef%20Scotch%20Fillet%20Steak%20170g",
-      "coles": "",
-      "price_history": [
-        {
-          "date": "2026-02-18",
-          "price": 9.0
-        },
-        {
-          "date": "2025-12-23",
-          "price": 9.0
-        }
-      ],
-      "stock": "medium",
-      "last_purchased": null,
-      "price": 9.0,
-      "eff_price": 9.0,
-      "brand": "Private Label",
-      "subcategory": "beverages",
-      "size": "170G",
-      "tags": [],
-      "target_confidence": "low",
-      "target_method": "watching (need more data)",
-      "target_data_points": 3,
-      "target_updated": "2026-04-15",
-      "scrape_history": [
-        {
-          "date": "2026-04-15",
-          "price": 8.75,
-          "is_special": false,
-          "store": "woolworths"
-        }
-      ],
-      "was_price": null,
-      "on_special": false,
-      "local_image": "images/Beef_Scotch_Fillet_Steak_170G.jpg",
-      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/317293.jpg"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
