@@ -135,6 +135,13 @@
                                 <button class="filter-btn" data-filter="woolworths">W</button>
                                 <button class="filter-btn" data-filter="coles">C</button>
                             </div>
+                            <div class="filter-group">
+                                <select id="sort-select" class="sort-select">
+                                    <option value="discount">Highest %</option>
+                                    <option value="price">Price</option>
+                                    <option value="name">A-Z</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -165,6 +172,7 @@
                     <section id="specials-section">
                         <h2 class="section-title">🛍️ Deal Dashboard</h2>
                         <div id="specials-grid" class="specials-grid"></div>
+                        <div id="pagination-controls" class="pagination-container"></div>
                     </section>
                 </div>
             </div>
@@ -191,7 +199,7 @@
         </section>
 
         <!-- Tab 2: Analytics & Insights -->
-        <section id="tab-analytics" class="tab-content" style="display: none;">
+        <section id="tab-analytics" class="tab-content">
             <div class="analytics-header">
                 <h2>📈 Spending Insights</h2>
                 <p class="subtitle">Based on your recipe sync history</p>
@@ -231,18 +239,9 @@
                         <div class="savings-metric">
                             <span class="label">Efficiency (Bought on Target):</span>
                             <span class="value" id="analytic-efficiency-val">0%</span>
-                        <div class="filter-group">
-                            <span class="filter-label">Sort:</span>
-                            <select id="sort-select" class="sort-select">
-                                <option value="discount">Biggest Discount %</option>
-                                <option value="price">Lowest Price</option>
-                                <option value="name">Alphabetical A-Z</option>
-                            </select>
                         </div>
                     </div>
                 </div>
-
-                <div id="pagination-controls" class="pagination-container"></div>
             </div>
         </section>
     </main>

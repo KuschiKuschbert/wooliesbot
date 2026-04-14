@@ -405,7 +405,7 @@ function renderPredictions() {
             const last = new Date(item.last_purchased);
             const diffDays = (new Date() - last) / (1000 * 60 * 60 * 24);
             // 7-day heuristic for essentials
-            if (diffDays > 7 && (item.type === 'fresh_fridge' || item.type === 'pantry' || item.type === 'fresh_veg')) return true;
+            if (diffDays > 7 && (item.type === 'fresh_fridge' || item.type === 'pantry' || item.type === 'fresh_veg' || item.type === 'fresh_protein')) return true;
         }
         return false;
     });
