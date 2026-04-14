@@ -267,11 +267,23 @@ function renderStats() {
     // Monthly Budget Tracker
     let monthlySpent = 0;
     const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
     
     _data.forEach(item => {
-        if (item.last_purchased) {
+        // Preference 1: Detailed price history (captures multiple purchases)
+        if (item.price_history && item.price_history.length > 0) {
+            item.price_history.forEach(h => {
+                const d = new Date(h.date);
+                if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) {
+                    monthlySpent += h.price;
+                }
+            });
+        } 
+        // Preference 2: Fallback to last_purchased (legacy or single-entry items)
+        else if (item.last_purchased) {
             const d = new Date(item.last_purchased);
-            if ((now - d) < (30 * 24 * 60 * 60 * 1000)) {
+            if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) {
                 monthlySpent += (item.eff_price || item.price || 0);
             }
         }

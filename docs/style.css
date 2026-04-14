@@ -1719,35 +1719,38 @@ footer {
 }
 
 .fighter.winner {
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
-    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(1.06);
+    z-index: 10;
     border-width: 2px;
 }
 
 .fighter.winner-woolworths {
-    background: rgba(16, 185, 129, 0.15);
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0.1) 100%);
     border-color: var(--woolies-green);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    border-top: 4px solid var(--woolies-green);
 }
 
 .fighter.winner-coles {
-    background: rgba(239, 68, 68, 0.15);
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.1) 100%);
     border-color: var(--coles-red);
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+    border-top: 4px solid var(--coles-red);
 }
 
 .fighter.winner::before {
-    content: '👑 CHEAPEST';
+    content: '🏆 CHEAPEST';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     color: white;
-    font-size: 0.6rem;
-    font-weight: 800;
-    padding: 3px 0;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 4px 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    letter-spacing: 0.5px;
 }
 
 .fighter.winner-woolworths::before {
