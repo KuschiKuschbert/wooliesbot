@@ -552,12 +552,19 @@ async function monitorApi() {
         }
 
         const res = await fetch(`${_apiUrl}/status`).catch(() => null);
+        if (res && res.ok) {
+            dot.className = 'status-dot online';
+            text.textContent = 'Bridge Online';
+        } else {
+            dot.className = 'status-dot offline';
+            text.textContent = 'Bridge Offline';
         }
     } catch {
         dot.className = 'status-dot offline';
         text.textContent = 'Bridge Offline';
     }
 }
+
 async function monitorCloudHealth() {
     const dot = document.getElementById('cloud-status-dot');
     const text = document.getElementById('cloud-status-text');
