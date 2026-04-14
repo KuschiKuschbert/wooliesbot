@@ -27,27 +27,51 @@
         <!-- Dashboard Stats -->
         <section class="stats-grid">
             <div class="stat-card">
-                <h3>Tracked Items</h3>
+                <div class="stat-header">
+                    <h3>Tracked Items</h3>
+                    <i data-feather="list"></i>
+                </div>
                 <p id="total-items">0</p>
+                <div class="stat-subtext">Total database items</div>
             </div>
             <div class="stat-card">
-                <h3>Items on Special</h3>
+                <div class="stat-header">
+                    <h3>Items on Deal</h3>
+                    <i data-feather="tag"></i>
+                </div>
                 <p id="total-specials">0</p>
+                <div class="stat-subtext">Below your target price</div>
             </div>
             <div class="stat-card highlight">
-                <h3>Est. Cart Cost</h3>
+                <div class="stat-header">
+                    <h3>Est. Cart Cost</h3>
+                    <i data-feather="shopping-cart"></i>
+                </div>
                 <p id="cart-total">$0.00</p>
+                <div class="stat-subtext">Total of all current deals</div>
             </div>
         </section>
 
-        <!-- Current Specials -->
+        <!-- Current Specials & Grid -->
         <section class="section" id="specials-section">
             <div class="section-header">
-                <h2>🔥 Currently on Special</h2>
-                <div class="store-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn woolies-btn" data-filter="woolworths">Woolies</button>
-                    <button class="filter-btn coles-btn" data-filter="coles">Coles</button>
+                <h2>🛍️ Deal Dashboard</h2>
+                <div class="filter-group">
+                    <div class="category-filters" id="category-filters">
+                        <button class="filter-btn-cat active" data-cat="all">All</button>
+                        <button class="filter-btn-cat" data-cat="fresh_protein">🥩 Protein</button>
+                        <button class="filter-btn-cat" data-cat="fresh_veg">🥦 Veg</button>
+                        <button class="filter-btn-cat" data-cat="fresh_fridge">🥛 Dairy</button>
+                        <button class="filter-btn-cat" data-cat="freezer">❄️ Freezer</button>
+                        <button class="filter-btn-cat" data-cat="pantry">🍞 Pantry</button>
+                        <button class="filter-btn-cat" data-cat="household">🧼 Household</button>
+                        <button class="filter-btn-cat" data-cat="pet">🐾 Pet</button>
+                    </div>
+                    <div class="store-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn woolies-btn" data-filter="woolworths">Woolies</button>
+                        <button class="filter-btn coles-btn" data-filter="coles">Coles</button>
+                    </div>
                 </div>
             </div>
             <div class="grid" id="specials-grid">

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let _data = [];
 let _history = {};
 let _currentFilter = 'all';
+let _currentCatFilter = 'all';
 
 async function initDashboard() {
     try {
@@ -39,14 +40,24 @@ async function initDashboard() {
 }
 
 function setupFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => {
+    const storeButtons = document.querySelectorAll('.filter-btn');
+    storeButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Update active state
-            buttons.forEach(b => b.classList.remove('active'));
+            storeButtons.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             
             _currentFilter = e.target.dataset.filter;
+            renderDashboard();
+        });
+    });
+
+    const catButtons = document.querySelectorAll('.filter-btn-cat');
+    catButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            catButtons.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            _currentCatFilter = e.target.dataset.cat;
             renderDashboard();
         });
     });
@@ -88,22 +99,23 @@ function renderSpecials() {
     const grid = document.getElementById('specials-grid');
     grid.innerHTML = '';
 
-    const specials = _data.filter(item => {
-        const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
+    const displayItems = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
-        return isSpecial && matchesStore;
+        const matchesCat = _currentCatFilter === 'all' || item.type === _currentCatFilter;
+        return matchesStore && matchesCat;
     });
 
-    if (specials.length === 0) {
-        grid.innerHTML = '<p style="color: var(--text-muted);">No specials matched the filter.</p>';
+    if (displayItems.length === 0) {
+        grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1;">No items matched the filters.</p>';
         return;
     }
 
-    specials.forEach((item, index) => {
+    displayItems.forEach((item, index) => {
+        const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
         const card = document.createElement('div');
         const storeClass = item.store || 'woolworths';
         card.className = `item-card store-${storeClass}`;
-        card.style.animationDelay = `${index * 0.05}s`;
+        card.style.animationDelay = `${(index % 20) * 0.05}s`;
         
         let imgHtml = '';
         if (item.image_url) {
@@ -112,14 +124,20 @@ function renderSpecials() {
             imgHtml = `<div class="product-img-placeholder"><i data-feather="image"></i></div>`;
         }
 
+        let targetHtml = `<span class="item-target">Target: $${item.target.toFixed(2)}</span>`;
+        if (isSpecial) {
+             const diff = item.target - (item.eff_price || item.price);
+             targetHtml += `<span class="deal-badge">🔥 -$${diff.toFixed(2)} vs target</span>`;
+        }
+
         card.innerHTML = `
             ${imgHtml}
             <div class="item-content">
                 <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                <h3 class="item-title" style="margin-top: 10px;">${item.name}</h3>
+                <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
                 <div class="item-price-row">
-                    <span class="item-price" style="color: ${storeClass === 'woolworths' ? 'var(--woolies-green)' : 'var(--coles-red)'}">${formatPrice(item)}</span>
-                    <span class="item-target">Target: $${item.target.toFixed(2)}</span>
+                    <span class="item-price" style="color: ${storeClass === 'woolworths' ? 'var(--woolies-green)' : 'var(--coles-red)'}">${item.price_unavailable ? '❓' : formatPrice(item)}</span>
+                    ${targetHtml}
                 </div>
                 <div class="chart-container-sm" id="chart-card-${index}">
                     <canvas></canvas>
@@ -135,7 +153,7 @@ function renderSpecials() {
     });
 
     // Re-init icons for dynamic content
-    feather.replace();
+    if (typeof feather !== 'undefined') feather.replace();
 }
 
 function renderAllItems() {
