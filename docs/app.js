@@ -267,22 +267,13 @@ function renderStats() {
     let monthlySpent = 0;
     const now = new Date();
     
-    Object.keys(_history).forEach(itemName => {
-        const itemHistory = _history[itemName].history || [];
-        // Group by day to prevent background scans from double-counting
-        const dailySpend = {};
-        
-        itemHistory.forEach(h => {
-            const d = new Date(h.date);
+    _data.forEach(item => {
+        if (item.last_purchased) {
+            const d = new Date(item.last_purchased);
             if ((now - d) < (30 * 24 * 60 * 60 * 1000)) {
-                if (h.store && h.store !== 'none') {
-                    // Only count the latest entry for each unique day
-                    dailySpend[h.date] = h.price;
-                }
+                monthlySpent += (item.eff_price || item.price || 0);
             }
-        });
-        
-        monthlySpent += Object.values(dailySpend).reduce((a, b) => a + b, 0);
+        }
     });
 
     const budgetProgress = document.getElementById('budget-progress');
@@ -413,9 +404,8 @@ function renderPredictions() {
         if (item.last_purchased) {
             const last = new Date(item.last_purchased);
             const diffDays = (new Date() - last) / (1000 * 60 * 60 * 24);
-            // Heuristic: If hasn't been bought in 21 days for pantry items
-            if (item.type === 'pantry' && diffDays > 21) return true;
-            if (item.type === 'pet' && diffDays > 14) return true;
+            // 7-day heuristic for essentials
+            if (diffDays > 7 && (item.type === 'fresh_fridge' || item.type === 'pantry' || item.type === 'fresh_veg')) return true;
         }
         return false;
     });
