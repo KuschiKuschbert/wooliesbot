@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.wooliesbot.api</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/danielkuschmierz/Woolies Script/api.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/danielkuschmierz/Woolies Script</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/danielkuschmierz/Woolies Script/logs/api_error.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/danielkuschmierz/Woolies Script/logs/api_output.log</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>

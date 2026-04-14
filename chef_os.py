@@ -217,11 +217,31 @@ def _extract_woolworths_json(driver):
         logging.debug(f"  Woolworths JSON-LD parse error: {e}")
     return None
 
+_coles_cached_build_id = None
+
+def _refresh_coles_metadata(session):
+    """Fetch Coles homepage to extract the current Next.js buildId."""
+    global _coles_cached_build_id
+    try:
+        logging.debug("Refreshing Coles buildId...")
+        resp = session.get("https://www.coles.com.au/product/a-123456", headers=_get_coles_headers(), timeout=10)
+        # Try to find buildId in __NEXT_DATA__
+        match = re.search(r'"buildId":"([^"]+)"', resp.text)
+        if match:
+            _coles_cached_build_id = match.group(1)
+            logging.info(f"Coles buildId synchronized: {_coles_cached_build_id}")
+            return True
+    except Exception as e:
+        logging.debug(f"Coles metadata refresh failed: {e}")
+    return False
+
 def _extract_coles_json(driver):
     """Extract product data from Coles __NEXT_DATA__ (Next.js) embedded in page.
     Returns dict with price, unit_price, unit, name_check, is_special or None."""
     try:
-        nd_el = driver.find_element(By.CSS_SELECTOR, 'script#__NEXT_DATA__')
+        # Wait for the element to be present
+        wait = WebDriverWait(driver, 10)
+        nd_el = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'script#__NEXT_DATA__')))
         nd = json.loads(nd_el.get_attribute('innerHTML'))
         product = nd.get('props', {}).get('pageProps', {}).get('product', {})
         pricing = product.get('pricing', {})
@@ -256,6 +276,61 @@ def _extract_coles_json(driver):
         }
     except Exception as e:
         logging.debug(f"  Coles __NEXT_DATA__ parse error: {e}")
+    return None
+
+
+def _get_coles_headers():
+    """Returns headers that mimic a real Chrome browser on macOS to bypass Akamai."""
+    return {
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-AU,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Sec-Ch-Ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": '"macOS"',
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "X-Requested-With": "XMLHttpRequest"
+    }
+
+
+def _cffi_fetch_coles_api(session, url, build_id):
+    """Fetch Coles product data directly via the Next.js data API (very fast)."""
+    try:
+        # Extract product path part from URL: /product/coles-beef-rump-steak-...
+        match = re.search(r'/product/([^?#]+)', url)
+        if not match: return None
+        prod_slug = match.group(1)
+        
+        # Coles API URL pattern
+        api_url = f"https://www.coles.com.au/_next/data/{build_id}/product/{prod_slug}.json"
+        
+        resp = session.get(api_url, headers=_get_coles_headers(), timeout=10)
+        if resp.status_code == 200:
+            data = resp.json().get('pageProps', {}).get('product', {})
+            pricing = data.get('pricing', {})
+            if pricing and pricing.get('now'):
+                price = float(pricing['now'])
+                unit_data = pricing.get('unit', {}) or {}
+                up = float(unit_data.get('price')) if unit_data.get('price') else None
+                # Basic normalization
+                unit_type = (unit_data.get('ofMeasureUnits') or '').lower()
+                unit = 'kg' if unit_type == 'kg' else ('litre' if unit_type in ('l', 'litre') else 'each')
+                
+                image_uris = data.get('imageUris', [])
+                img = "https://www.coles.com.au" + image_uris[0].get('uri', '') if image_uris else ""
+                
+                return {
+                    "price": price,
+                    "unit_price": up,
+                    "unit": unit,
+                    "image_url": img
+                }
+    except Exception as e:
+        logging.debug(f"Coles API fetch error: {e}")
     return None
 
 
@@ -962,112 +1037,32 @@ def run_report(full_list=False, send_telegram_messages=True):
         chunk1 += f"*{'📦 BIG MONTHLY STOCK UP' if is_big_shop else '🥦 WEEKLY FRESH RUN'}*" + _nl()
         if is_big_shop:
             chunk1 += "Target $500 → 10% off (~$50)" + _nl()
-        if full_list:
-            chunk1 += "_Kitchen staples_" + _nl()
-        chunk1 += _sp()
+        # --- Streamlined Summary Messaging ---
+        savings_total = 0
+        for item in specials:
+            qty = 1
+            if is_big_shop:
+                if item['type'] == 'fresh_protein': qty = 4
+                elif item['type'] in ['pet', 'pantry', 'household', 'freezer']: qty = 2
+            savings_total += (item['target'] - (item.get('eff_price') or item['price'])) * qty
 
-        days_left = (1 - weekday) % 7
-        if days_left <= 3:
-            if days_left == 0:
-                chunk1 += "🚨 _Specials end TODAY (Tuesday)!_" + _sp()
-            else:
-                chunk1 += "⏰ _Specials end Tuesday!_" + _nl()
-                chunk1 += f"({days_left} day{'s' if days_left > 1 else ''} left)" + _sp()
-
-        if today.day > 25:
-            chunk1 += "⚠️ _10% discount resets soon – use it!_" + _sp()
-
-        send_telegram(chunk1.strip())
-        time.sleep(0.5)
-
-        cart_total = 0
-        chunk2 = ""
-
-        if full_list:
-            chunk2 += "📋 *KITCHEN STAPLES*" + _sp()
-            by_type = {}
-            for item in resolved:
-                t = item.get('type', 'pantry')
-                by_type.setdefault(t, []).append(item)
-            type_order = ['fresh_protein', 'fresh_veg', 'fresh_fridge', 'freezer', 'pantry', 'pet', 'household']
-            type_labels = {'fresh_protein': '🥩 Protein', 'fresh_veg': '🥦 Produce', 'fresh_fridge': '🥛 Dairy', 'freezer': '❄️ Freezer', 'pantry': '🍞 Pantry', 'pet': '🐱 Pets', 'household': '🧼 Household'}
-            for t in type_order:
-                if t not in by_type:
-                    continue
-                chunk2 += f"*{type_labels.get(t, t)}*" + _nl()
-                for item in by_type[t]:
-                    on_special = item['name'] in spec_names
-                    mark = " ✓" if on_special else ""
-                    chunk2 += f"{_escape_md(item['name'])}{mark}" + _nl()
-                    if item.get("price_unavailable"):
-                        mode = item.get("price_mode", "each")
-                        tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
-                        chunk2 += f"  —  tgt {tgt_str}" + _nl()
-                    else:
-                        chunk2 += f"  {_format_compact_compare(item)}" + _nl()
-                        if on_special:
-                            qty = 4 if (is_big_shop and item['type'] == 'fresh_protein') else (2 if (is_big_shop and item['type'] in ['pet', 'pantry', 'household', 'freezer']) else 1)
-                            cart_total += item['price'] * qty
-            chunk2 += "📝 *WEEKLY ESSENTIALS*" + _nl()
-            for line in WEEKLY_ESSENTIALS:
-                chunk2 += f"• {line}" + _nl()
-        else:
-            # DEALS-ONLY MODE
-            if specials:
-                chunk2 += "🔥 *ON SPECIAL*" + _sp()
-                for item in specials:
-                    qty = 1
-                    if is_big_shop:
-                        if item['type'] == 'fresh_protein': qty = 4
-                        elif item['type'] in ['pet', 'pantry', 'household', 'freezer']: qty = 2
-                    cost = item['price'] * qty
-                    cart_total += cost
-                    name_line = f"{qty}× {item['name']}" if qty > 1 else item['name']
-                    chunk2 += _escape_md(name_line) + _nl()
-                    extra = f"  ${cost:.2f}" if qty > 1 else ""
-                    chunk2 += f"  {_format_compact_compare(item, extra=extra)}" + _nl()
-            else:
-                chunk2 += "No specials today. 🧘‍♂️" + _sp()
-            chunk2 += _sp()
-            chunk2 += "📝 *WEEKLY ESSENTIALS*" + _nl()
-            for line in WEEKLY_ESSENTIALS:
-                chunk2 += f"• {line}" + _nl()
-            chunk2 += _sp()
-            if near_misses:
-                chunk2 += "👀 *ALMOST THERE*" + _nl()
-                for item in near_misses[:5]:
-                    mode = item.get("price_mode", "each")
-                    tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
-                    chunk2 += _escape_md(item['name']) + _nl()
-                    chunk2 += f"  {_format_compact_compare(item, extra=f'  tgt {tgt_str}')}" + _nl()
-            if unavailable:
-                chunk2 += "❓ *PRICE UNAVAILABLE*" + _nl()
-                chunk2 += "_Unit price scrape failed — check manually_" + _nl()
-                for item in unavailable:
-                    mode = item.get("price_mode", "each")
-                    shelf = item.get("price", 0)
-                    shelf_str = f"${shelf:.2f}" if shelf > 0 else "—"
-                    tgt_str = f"${item['target']:.2f}/kg" if mode == "kg" else (f"${item['target']:.2f}/L" if mode == "litre" else f"${item['target']:.2f}")
-                    chunk2 += _escape_md(item['name']) + _nl()
-                    chunk2 += f"  tgt {tgt_str}  shelf {shelf_str}" + _nl()
-
-        send_telegram(chunk2.strip())
-        time.sleep(0.5)
-
-        chunk3 = "───" + _nl() + f"💰 *TOTAL: ${cart_total:.2f}*" + _sp()
+        summary = f"🛒 *WooliesBot: Prices Updated!*" + _nl()
+        summary += f"{'🚀 Big Shop Mode' if is_big_shop else '📅 Weekly Mode'} active." + _sp()
+        
+        summary += f"🔥 *{len(specials)}* items on special below target." + _nl()
+        summary += f"💰 Potential savings today: *${savings_total:.2f}*" + _sp()
+        
         if is_big_shop:
-            diff = DISCOUNT_CAP - cart_total
             if cart_total >= DISCOUNT_CAP:
-                chunk3 += "✅ Use 10% discount!" + _nl()
+                summary += "✅ $500 Target met for 10% discount!" + _nl()
             else:
-                chunk3 += f"⚠️ Add ${diff:.2f} to hit $500" + _nl()
-                chunk3 += "Bridge: " + ", ".join(B_LIST_BRIDGE_ITEMS[:4]) + _nl()
-        elif not full_list and cart_total > 120:
-            chunk3 += "⚠️ Over $120 – double check" + _nl()
-            
-        chunk3 += _sp() + "🌐 [View Web Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
+                summary += f"⚠️ Add ${DISCOUNT_CAP - cart_total:.2f} to hit $500 goal." + _nl()
 
-        send_telegram(chunk3.strip())
+        summary += _sp() + "🌐 [View Detailed Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
+
+        if send_telegram_messages:
+            send_telegram(summary.strip())
+
     except Exception as e:
         error_trace = traceback.format_exc()
         logging.error(f"Error in run_report: {e}\n{error_trace}")
@@ -1322,13 +1317,22 @@ def _create_cffi_session():
 def _cffi_fetch_product(session, url, store_key):
     """Fetch product page HTML and extract price JSON. Returns dict or None."""
     try:
-        resp = session.get(url, timeout=15)
+        # For Coles, try the specific NEXT.js API first (much faster/cleaner)
+        if store_key == "coles":
+            # We need a buildId. If we don't have one, we can still try standard HTML fetch.
+            global _coles_cached_build_id
+            if _coles_cached_build_id:
+                data = _cffi_fetch_coles_api(session, url, _coles_cached_build_id)
+                if data: return data
+
+        resp = session.get(url, headers=_get_coles_headers() if store_key == "coles" else {}, timeout=15)
         if resp.status_code != 200 or len(resp.text) < 5000:
             return None
         if store_key == "woolworths":
             data = _extract_woolworths_json_from_html(resp.text)
         else:
             data = _extract_coles_json_from_html(resp.text)
+            
         if data and data.get("price", 0) > 0:
             return {
                 "price": data["price"],
@@ -1370,13 +1374,16 @@ def _init_search_sessions():
         woolies_session = None
 
     # Warm up Coles (get buildId + cookies)
-    coles_build_id = _cffi_get_coles_build_id(coles_session)
+    _refresh_coles_metadata(coles_session)
+    coles_build_id = _coles_cached_build_id
+    
     if not coles_build_id:
         # Retry with different impersonation
         for imp in _CFFI_IMPERSONATIONS[1:]:
             try:
                 coles_session = cffi_requests.Session(impersonate=imp)
-                coles_build_id = _cffi_get_coles_build_id(coles_session)
+                _refresh_coles_metadata(coles_session)
+                coles_build_id = _coles_cached_build_id
                 if coles_build_id:
                     logging.info(f"Coles warm-up OK with {imp}")
                     break
@@ -1938,54 +1945,65 @@ def _scheduled_report():
         send_telegram(f"🚨 Scheduled report failed:\n{_escape_md(str(e))}")
 
 if __name__ == "__main__":
-    try:
-        parser = argparse.ArgumentParser(description="WoolesBot - Woolworths and Coles price tracker")
-        parser.add_argument("--now", action="store_true", help="Run the report immediately")
-        args = parser.parse_args()
+    while True:
+        try:
+            parser = argparse.ArgumentParser(description="WoolesBot - Woolworths and Coles price tracker")
+            parser.add_argument("--now", action="store_true", help="Run the report immediately")
+            args = parser.parse_args()
 
-        if args.now:
-            logging.info("Manual trigger received. Running report now...")
-            run_report()
-            sys.exit(0)
+            if args.now:
+                logging.info("Manual trigger received. Running report now...")
+                run_report()
+                sys.exit(0)
 
-        # Start Telegram Listener in a background thread
-        threading.Thread(target=telegram_bot_listener, daemon=True).start()
+            # Start Telegram Listener in a background thread
+            threading.Thread(target=telegram_bot_listener, daemon=True).start()
 
-        def _silent_update():
-            logging.info("Running scheduled silent update...")
-            try:
-                run_report(full_list=True, send_telegram_messages=False)
-            except Exception as e:
-                logging.error(f"Silent update failed: {e}")
+            def _silent_update():
+                logging.info("Running scheduled silent update...")
+                try:
+                    with cffi_requests.Session(impersonate="chrome124") as session:
+                        _refresh_coles_metadata(session)
+                    run_report(full_list=True, send_telegram_messages=False)
+                except Exception as e:
+                    logging.error(f"Silent update failed: {e}")
 
-        def _sunday_ping():
-            logging.info("Running Sunday scheduled report...")
-            try:
-                run_report(full_list=True, send_telegram_messages=False)
-                send_telegram("🛒 *Weekly Prices Updated!*\n\nYour items have been freshly scanned and synced to the dashboard.\n\n🌐 [View Web Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)")
-            except Exception as e:
-                logging.error(f"Sunday ping failed: {e}")
-                send_telegram(f"🚨 Sunday ping failed:\n{str(e)}")
+            def _sunday_ping():
+                logging.info("Running Sunday scheduled report...")
+                try:
+                    with cffi_requests.Session(impersonate="chrome124") as session:
+                        _refresh_coles_metadata(session)
+                    run_report(full_list=True, send_telegram_messages=False)
+                    send_telegram("🛒 *Weekly Prices Updated!*\n\nYour items have been freshly scanned and synced to the dashboard.\n\n🌐 [View Web Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)")
+                except Exception as e:
+                    logging.error(f"Sunday ping failed: {e}")
+                    send_telegram(f"🚨 Sunday ping failed:\n{str(e)}")
 
-        # Update website frequently (every 4 hours) without telegram messages
-        schedule.every(4).hours.do(_silent_update)
+            # Update website frequently (every 4 hours) without telegram messages
+            schedule.every(4).hours.do(_silent_update)
 
-        # Trigger telegram ping ONLY on Sunday morning with a link to the website
-        schedule.every().sunday.at("09:00").do(_sunday_ping)
-        
-        # Startup notification — welcoming intro + full command reference
-        send_telegram(HELP_TEXT)
-        logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
-        
-        while True:
-            schedule.run_pending()
-            time.sleep(60)
+            # Trigger telegram ping ONLY on Sunday morning with a link to the website
+            schedule.every().sunday.at("09:00").do(_sunday_ping)
             
-    except KeyboardInterrupt:
-        logging.info("WoolesBot stopped by user.")
-        sys.exit(0)
-    except Exception as e:
-        error_trace = traceback.format_exc()
-        logging.critical(f"WoolesBot main loop crashed: {e}\n{error_trace}")
+            # Startup notification — welcoming intro + full command reference
+            send_telegram("⚙️ *WooliesBot Internal Supervisor active.* System is now monitoring prices and listening for commands.")
+            logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
+            
+            while True:
+                schedule.run_pending()
+                time.sleep(60)
+                
+        except KeyboardInterrupt:
+            logging.info("WoolesBot stopped by user.")
+            sys.exit(0)
+        except Exception as e:
+            error_trace = traceback.format_exc()
+            logging.critical(f"CRITICAL: Main loop crashed. Restarting in 30s...\nError: {e}\n{error_trace}")
+            try:
+                send_telegram(f"⚠️ *WooliesBot Supervisor Error:* Main loop crashed. Attempting auto-restart in 30s...\n\n`{str(e)[:100]}`")
+            except:
+                pass
+            time.sleep(30)
+
         send_telegram(f"🚨 *FATAL CRASH*: WoolesBot stopped.\n{_escape_md(str(e))}")
         sys.exit(1)

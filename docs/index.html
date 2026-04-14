@@ -11,22 +11,29 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
-                <div>
-                    <div class="logo">
-                        <i data-feather="shopping-bag"></i>
-                        <h1>WooliesBot</h1>
-                    </div>
-                    <p class="subtitle">Your automated grocery tracker</p>
-                    <p class="subtitle" style="font-size: 12px; margin-top: 10px; opacity: 0.8;">
-                        <i data-feather="clock" style="width: 12px; height: 12px; vertical-align: -2px;"></i> Last checked: <span id="last-updated">Checking...</span>
-                    </p>
+        <div class="container header-content">
+            <div class="header-left">
+                <div class="logo">
+                    <i data-feather="shopping-bag"></i>
+                    <h1>WooliesBot</h1>
                 </div>
-                <div id="specials-countdown" class="countdown-pill">
-                    <i data-feather="calendar"></i>
-                    <span id="countdown-text">Calculating...</span>
+                <p class="subtitle">Your automated grocery tracker</p>
+                <div class="live-status">
+                    <i data-feather="clock" class="icon-sm"></i> 
+                    Last checked: <span id="last-updated">Checking...</span>
                 </div>
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-link active" data-tab="deals">
+                    <i data-feather="tag"></i> Deals
+                </button>
+                <button class="nav-link" data-tab="analytics">
+                    <i data-feather="bar-chart-2"></i> Analytics
+                </button>
+            </nav>
+
+            <div class="header-actions">
                 <button id="toggle-list-btn" class="list-toggle-pill">
                     <i data-feather="shopping-cart"></i>
                     <span id="list-count">0</span> items
@@ -36,123 +43,178 @@
     </header>
 
     <main class="container">
-        <!-- Dashboard Stats -->
-        <section class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Tracked Items</h3>
-                    <i data-feather="list"></i>
-                </div>
-                <p id="total-items">0</p>
-                <div class="stat-subtext">Total database items</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Items on Deal</h3>
-                    <i data-feather="tag"></i>
-                </div>
-                <p id="total-specials">0</p>
-                <div class="stat-subtext">Below your target price</div>
-            </div>
-            <div class="stat-card highlight" style="position: relative;">
-                <div class="stat-header">
-                    <h3>Est. Cart Cost <span data-tooltip="The Everyday Extra 10% discount applies once you reach $500 in current specials."><i data-feather="info" class="info-icon"></i></span></h3>
-                    <div class="shop-mode-toggle" id="shop-mode-toggle">
-                        <span class="mode-label active" data-mode="weekly" data-tooltip="Qty: 1 per item">Weekly</span>
-                        <span class="mode-label" data-mode="big" data-tooltip="Qty: 4x Protein, 2x Staples">Monthly</span>
+        <!-- Tab 1: Deals & Shopping -->
+        <section id="tab-deals" class="tab-content active">
+            <div class="dashboard-grid">
+                <!-- Sidebar: Stats & Essentials -->
+                <aside class="stats-sidebar">
+                    <div class="stat-card" id="specials-countdown">
+                        <div class="stat-icon"><i data-feather="clock"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Reset Timer</span>
+                            <span class="stat-value" id="countdown-text">Calculating...</span>
+                        </div>
                     </div>
-                </div>
-                <p id="cart-total">$0.00</p>
-                <div class="discount-tracker" id="discount-tracker">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" id="discount-progress"></div>
-                    </div>
-                    <span id="discount-status">Add $500 for 10% off</span>
-                </div>
-            </div>
-            <div class="stat-card" id="weekly-essentials-card">
-                <div class="stat-header">
-                    <h3>📝 Essentials</h3>
-                    <i data-feather="paperclip"></i>
-                </div>
-                <div id="essentials-list" class="essentials-checklist">
-                    <!-- Loaded via JS -->
-                </div>
-            </div>
-            <div class="stat-card" id="cola-battle-card" style="border: 1px solid rgba(99, 102, 241, 0.3);">
-                <div class="stat-header">
-                    <h3>🥤 Cola Battle</h3>
-                    <i data-feather="zap"></i>
-                </div>
-                <p id="cola-winner" style="font-size: 18px;">—</p>
-                <div id="cola-details" class="stat-subtext">Loading...</div>
-            </div>
-        </section>
 
-        <!-- Almost There -->
-        <section class="section" id="near-misses-section" style="display: none; margin-bottom: 40px;">
-            <div class="section-header">
-                <h2>👀 Almost There</h2>
-                <div class="badge-near">Within 10% of target</div>
-            </div>
-            <div id="near-misses-grid" class="specials-grid">
-                <!-- Loaded via JS -->
-            </div>
-        </section>
-
-        <!-- Current Specials & Grid -->
-        <section class="section" id="specials-section">
-            <div class="section-header">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <h2>🛍️ Deal Dashboard</h2>
-                    <div class="search-wrapper">
-                        <i data-feather="search" class="search-icon"></i>
-                        <input type="text" id="dashboard-search" class="search-input" placeholder="Search items...">
+                    <div class="stat-card" id="budget-tracker">
+                        <div class="stat-icon"><i data-feather="pie-chart"></i></div>
+                        <div class="stat-info" style="flex: 1;">
+                            <div class="stat-row">
+                                <span class="stat-label">Monthly Budget</span>
+                                <span class="stat-value" id="budget-spent-text">$0 / $800</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div id="budget-progress" class="progress-fill" style="width: 0%; background: var(--woolies-green);"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="filter-group">
-                    <div class="category-filters" id="category-filters">
+
+                    <div class="stat-card highlight">
+                        <div class="stat-icon"><i data-feather="trending-down"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-row">
+                                <span class="stat-label">Potential Savings</span>
+                                <div class="shop-mode-toggle">
+                                    <span class="mode-label active" data-mode="weekly">W</span>
+                                    <span class="mode-label" data-mode="big">M</span>
+                                </div>
+                            </div>
+                            <span class="stat-value" id="cart-total">$0.00</span>
+                            <div class="progress-bar-bg">
+                                <div id="discount-progress" class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="stat-hint" id="discount-status">Add $500 for 10% off</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>📝 Essentials</h3>
+                        </div>
+                        <div id="essentials-list" class="essentials-checklist"></div>
+                    </div>
+
+                    <div class="stat-card cola-card">
+                        <div class="stat-header">
+                            <h3>🥤 Cola Battle</h3>
+                        </div>
+                        <p id="cola-winner">—</p>
+                        <span id="cola-details" class="stat-hint">Loading...</span>
+                    </div>
+                </aside>
+
+                <!-- Main Section: Filtering & Grid -->
+                <div class="main-feed">
+                    <div class="feed-header">
+                        <div class="search-wrap">
+                            <i data-feather="search"></i>
+                            <input type="text" id="dashboard-search" placeholder="Search Master List...">
+                        </div>
+                        <div class="filter-controls">
+                            <div class="store-filter">
+                                <button class="filter-btn active" data-filter="all">All</button>
+                                <button class="filter-btn" data-filter="woolworths">W</button>
+                                <button class="filter-btn" data-filter="coles">C</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-scroll">
                         <button class="filter-btn-cat active" data-cat="all">All</button>
-                        <button class="filter-btn-cat" data-cat="fresh_protein">🥩 Protein</button>
-                        <button class="filter-btn-cat" data-cat="fresh_veg">🥦 Veg</button>
-                        <button class="filter-btn-cat" data-cat="fresh_fridge">🥛 Dairy</button>
-                        <button class="filter-btn-cat" data-cat="freezer">❄️ Freezer</button>
-                        <button class="filter-btn-cat" data-cat="pantry">🍞 Pantry</button>
-                        <button class="filter-btn-cat" data-cat="household">🧼 Household</button>
-                        <button class="filter-btn-cat" data-cat="pet">🐾 Pet</button>
+                        <button class="filter-btn-cat" data-cat="fresh_protein">Meat</button>
+                        <button class="filter-btn-cat" data-cat="fresh_veg">Veg</button>
+                        <button class="filter-btn-cat" data-cat="fresh_fridge">Dairy</button>
+                        <button class="filter-btn-cat" data-cat="freezer">Freeze</button>
+                        <button class="filter-btn-cat" data-cat="pantry">Pantry</button>
+                        <button class="filter-btn-cat" data-cat="household">House</button>
+                        <button class="filter-btn-cat" data-cat="pet">Pet</button>
                     </div>
-                    <div class="store-filters">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn woolies-btn" data-filter="woolworths">Woolies</button>
-                        <button class="filter-btn coles-btn" data-filter="coles">Coles</button>
-                    </div>
+
+                    <!-- Predictions / Due Soon -->
+                    <section id="predictions-section" class="predictions-section" style="display: none;">
+                        <h2 class="section-title"><i data-feather="zap"></i> Predicted Needs</h2>
+                        <div id="predictions-grid" class="horizontal-scroll-grid"></div>
+                    </section>
+
+                    <!-- Almost There -->
+                    <section id="near-misses-section" class="featured-section" style="display: none;">
+                        <h2 class="section-title">👀 Almost There</h2>
+                        <div id="near-misses-grid" class="specials-grid"></div>
+                    </section>
+
+                    <!-- Main Grid -->
+                    <section id="specials-section">
+                        <h2 class="section-title">🛍️ Deal Dashboard</h2>
+                        <div id="specials-grid" class="specials-grid"></div>
+                    </section>
                 </div>
             </div>
-            <div class="grid" id="specials-grid">
-                <!-- Special cards injected here -->
-            </div>
+
+            <!-- All Items Table -->
+            <section class="master-table-section">
+                <h2 class="section-title">📋 Master Tracklist</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Store</th>
+                                <th>Stock</th>
+                                <th>Current</th>
+                                <th>Target</th>
+                                <th>History</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-items-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
         </section>
 
-        <!-- All Items -->
-        <section class="section" id="all-items-section">
-            <h2>📋 Master Tracklist</h2>
-            
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                        <th>Item Name</th>
-                        <th>Preferred</th>
-                        <th>Current Price</th>
-                        <th>Target <span data-tooltip="Your set 'buy' price."><i data-feather="info" class="info-icon"></i></span></th>
-                        <th>Paid Avg <span data-tooltip="Your personal 6-month average cost."><i data-feather="info" class="info-icon"></i></span></th>
-                        <th style="width: 150px;">History</th>
-                    </tr>
-                    </thead>
-                    <tbody id="all-items-tbody">
-                        <!-- Table rows injected here -->
-                    </tbody>
-                </table>
+        <!-- Tab 2: Analytics & Insights -->
+        <section id="tab-analytics" class="tab-content" style="display: none;">
+            <div class="analytics-header">
+                <h2>📈 Spending Insights</h2>
+                <p class="subtitle">Based on your recipe sync history</p>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="analytics-card span-2">
+                    <div class="card-header">
+                        <h3>Spending Trends</h3>
+                        <i data-feather="trending-up"></i>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="spending-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Category Split</h3>
+                        <i data-feather="pie-chart"></i>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="category-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Savings Gaps</h3>
+                        <i data-feather="target"></i>
+                    </div>
+                    <div id="savings-breakdown">
+                        <div class="savings-metric">
+                            <span class="label">Total Potential Savings Today:</span>
+                            <span class="value" id="analytic-savings-val">$0</span>
+                        </div>
+                        <div class="savings-metric">
+                            <span class="label">Efficiency (Bought on Target):</span>
+                            <span class="value" id="analytic-efficiency-val">0%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -171,14 +233,12 @@
     <div id="list-drawer" class="list-drawer">
         <div class="drawer-header">
             <h3>🛒 Shopping List</h3>
-            <div style="display: flex; gap: 10px; align-items: center;">
+            <div class="drawer-header-actions">
                 <button id="clear-list-btn" class="clear-list-btn">Clear All</button>
                 <button id="close-drawer" class="icon-btn"><i data-feather="x"></i></button>
             </div>
         </div>
-        <div id="shopping-list-items" class="drawer-content">
-            <!-- Items via JS -->
-        </div>
+        <div id="shopping-list-items" class="drawer-content"></div>
         <div class="drawer-footer">
             <div class="list-total-row">
                 <span>Total Est:</span>
@@ -190,6 +250,27 @@
         </div>
     </div>
     <div id="drawer-overlay" class="drawer-overlay"></div>
+
+    <!-- Modals (Stock / Target Edit) -->
+    <div id="overlay-modal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <h3 id="modal-title">Item Name</h3>
+            <div class="modal-body">
+                <label>Set Stock Level:</label>
+                <div class="stock-selector">
+                    <button class="stock-btn low" data-level="low">Low</button>
+                    <button class="stock-btn med" data-level="medium">Medium</button>
+                    <button class="stock-btn full" data-level="full">Full</button>
+                </div>
+                <label style="margin-top:20px; display:block;">Target Price ($):</label>
+                <input type="number" id="target-input-modal" step="0.10">
+            </div>
+            <div class="modal-footer">
+                <button id="modal-cancel">Cancel</button>
+                <button id="modal-save" class="primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

@@ -251,6 +251,11 @@ def run_sync(all_receipts=True, months_back=6):
                             if not any(h.get("date") == receipt_date_str for h in item["price_history"]):
                                 item["price_history"].append({"date": receipt_date_str, "price": price_f})
                                 prices_updated += 1
+                            
+                            # Auto-Stocking implementation
+                            item["stock"] = "full"
+                            item["last_purchased"] = receipt_date_str
+                            
                             matched_existing = True
                             break
                     

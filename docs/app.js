@@ -9,8 +9,12 @@ let _lastChecked = null;
 let _currentFilter = 'all';
 let _currentCatFilter = 'all';
 let _searchText = '';
-let _shopMode = localStorage.getItem('shopMode') || 'weekly'; // 'weekly' or 'big'
+let _currentTab = 'deals';
+let _shopMode = localStorage.getItem('shopMode') || 'weekly';
 let _shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+let _selectedItemForModal = null;
+const MONTHLY_BUDGET = 800;
+
 
 async function initDashboard() {
     try {
@@ -51,12 +55,31 @@ async function initDashboard() {
 }
 
 function setupFilters() {
+    // Tab switching
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const target = link.dataset.tab;
+            _currentTab = target;
+            
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(`tab-${target}`).classList.add('active');
+            
+            if (target === 'analytics') renderAnalytics();
+            else renderDashboard();
+        });
+    });
+
     const storeButtons = document.querySelectorAll('.filter-btn');
     storeButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             storeButtons.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
-            
             _currentFilter = e.target.dataset.filter;
             renderDashboard();
         });
@@ -66,21 +89,15 @@ function setupFilters() {
     catButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             catButtons.forEach(b => b.classList.remove('active'));
-            const target = e.target.closest('.filter-btn-cat');
-            if (target) {
-                target.classList.add('active');
-                _currentCatFilter = target.dataset.cat;
-                renderDashboard();
-            }
+            e.target.classList.add('active');
+            _currentCatFilter = e.target.dataset.cat;
+            renderDashboard();
         });
     });
 
     // Shop Mode Toggle
     const modeLabels = document.querySelectorAll('.mode-label');
     modeLabels.forEach(label => {
-        if (label.dataset.mode === _shopMode) label.classList.add('active');
-        else label.classList.remove('active');
-
         label.addEventListener('click', () => {
             _shopMode = label.dataset.mode;
             localStorage.setItem('shopMode', _shopMode);
@@ -90,31 +107,30 @@ function setupFilters() {
         });
     });
 
-    // Shopping List Drawer Toggle
-    const toggleBtn = document.getElementById('toggle-list-btn');
-    const closeBtn = document.getElementById('close-drawer');
-    const overlay = document.getElementById('drawer-overlay');
-    const drawer = document.getElementById('list-drawer');
+    // Drawer toggles
+    document.getElementById('toggle-list-btn')?.addEventListener('click', toggleDrawer);
+    document.getElementById('close-drawer')?.addEventListener('click', toggleDrawer);
+    document.getElementById('drawer-overlay')?.addEventListener('click', toggleDrawer);
 
-    const toggleDrawer = () => {
-        drawer.classList.toggle('open');
-        overlay.classList.toggle('open');
-        if (drawer.classList.contains('open')) renderShoppingList();
-    };
-
-    toggleBtn?.addEventListener('click', toggleDrawer);
-    closeBtn?.addEventListener('click', toggleDrawer);
-    overlay?.addEventListener('click', toggleDrawer);
-
-    // Search Logic
-    const searchInput = document.getElementById('dashboard-search');
-    searchInput?.addEventListener('input', (e) => {
+    // Search
+    document.getElementById('dashboard-search')?.addEventListener('input', (e) => {
         _searchText = e.target.value.toLowerCase();
-        renderSpecials();
-        renderAllItems();
+        renderDashboard();
     });
 
-    // Clear List Logic
+    // Modals
+    document.getElementById('modal-cancel')?.addEventListener('click', closeModal);
+    document.getElementById('modal-save')?.addEventListener('click', saveItemChanges);
+    
+    const stockBtns = document.querySelectorAll('.stock-btn');
+    stockBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            stockBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Clear List
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
             _shoppingList = [];
@@ -124,44 +140,41 @@ function setupFilters() {
         }
     });
 
-    // Sync to Keep
+    // Sync Keep
     document.getElementById('sync-keep-btn')?.addEventListener('click', async () => {
         const btn = document.getElementById('sync-keep-btn');
-        const originalHtml = btn.innerHTML;
-        
         try {
             btn.innerHTML = '<i data-feather="loader" class="spin"></i> Starting Sync...';
             feather.replace();
-            
             const response = await fetch('http://localhost:5001/sync');
             if (response.ok) {
-                btn.innerHTML = '<i data-feather="check"></i> Syncing in Background';
-                btn.style.background = 'var(--woolies-green)';
-                setTimeout(() => {
-                    btn.innerHTML = originalHtml;
-                    btn.style.background = '';
-                    feather.replace();
-                }, 4000);
-            } else {
-                throw new Error('Server error');
+                btn.innerHTML = '<i data-feather="check"></i> Syncing...';
+                setTimeout(() => { btn.innerHTML = '<i data-feather="refresh-cw"></i> Sync to Google Keep'; feather.replace(); }, 3000);
             }
         } catch (e) {
-            btn.innerHTML = originalHtml;
-            feather.replace();
-            alert("Local API not running.\n\nTo enable one-click sync, run 'python3 api.py' in your terminal.");
+            alert("Bridge not running.");
         }
     });
 }
+
+function toggleDrawer() {
+    document.getElementById('list-drawer').classList.toggle('open');
+    document.getElementById('drawer-overlay').classList.toggle('open');
+    if (document.getElementById('list-drawer').classList.contains('open')) renderShoppingList();
+}
+
 
 function renderDashboard() {
     renderCountdown();
     renderStats();
     renderEssentials();
+    renderPredictions(); // New Section
     renderNearMisses();
     renderSpecials();
     renderAllItems();
     updateListCount();
 }
+
 
 function formatPrice(item) {
     const effPrice = item.eff_price || item.price;
@@ -195,44 +208,45 @@ function renderStats() {
     document.getElementById('total-items').textContent = _data.length;
     
     let specialsCount = 0;
-    let estimatedCart = 0;
+    let savingsToday = 0;
     
     _data.forEach(item => {
         const effPrice = item.eff_price || item.price;
         if (effPrice <= item.target && !item.price_unavailable) {
             specialsCount++;
-            
-            // Apply Shop Mode Multipliers
-            let qty = 1;
-            if (_shopMode === 'big') {
-                if (item.type === 'fresh_protein') qty = 4;
-                else if (['pet', 'pantry', 'household', 'freezer'].includes(item.type)) qty = 2;
-            }
-            
-            estimatedCart += (item.price * qty);
+            savingsToday += (item.target - effPrice);
         }
     });
 
     document.getElementById('total-specials').textContent = specialsCount;
-    document.getElementById('cart-total').textContent = `$${estimatedCart.toFixed(2)}`;
+    document.getElementById('cart-total').textContent = `$${savingsToday.toFixed(2)}`;
 
-    // Update Discount Tracker ($500 goal)
-    const progressBar = document.getElementById('discount-progress');
-    const statusText = document.getElementById('discount-status');
-    const goal = 500;
-    const progress = Math.min((estimatedCart / goal) * 100, 100);
+    // Monthly Budget Tracker
+    let monthlySpent = 0;
+    Object.values(_history).forEach(item => {
+        // Calculate spending in the last 30 days
+        const recent = item.history.filter(h => {
+            const d = new Date(h.date);
+            const now = new Date();
+            return (now - d) < (30 * 24 * 60 * 60 * 1000);
+        });
+        recent.forEach(h => {
+             // Heuristic: only count if bought at a store
+             if (h.store && h.store !== 'none') monthlySpent += h.price;
+        });
+    });
+
+    const budgetProgress = document.getElementById('budget-progress');
+    const budgetText = document.getElementById('budget-spent-text');
+    const percent = Math.min((monthlySpent / MONTHLY_BUDGET) * 100, 100);
     
-    progressBar.style.width = `${progress}%`;
-    if (estimatedCart >= goal) {
-        statusText.textContent = `🚀 Target met! Saving ~$${(estimatedCart * 0.1).toFixed(2)}`;
-        statusText.style.color = 'var(--woolies-green)';
-    } else {
-        statusText.textContent = `Add $${(goal - estimatedCart).toFixed(2)} to save 10%`;
-        statusText.style.color = 'var(--text-muted)';
-    }
+    budgetText.textContent = `$${monthlySpent.toFixed(0)} / $${MONTHLY_BUDGET}`;
+    budgetProgress.style.width = `${percent}%`;
+    budgetProgress.style.background = monthlySpent > MONTHLY_BUDGET ? 'var(--coles-red)' : 'var(--woolies-green)';
 
     renderColaBattle();
 }
+
 
 const ESSENTIALS = ["Capsicum", "Onions", "Spinach", "Eggs", "Cream", "Cheese", "Avocado", "Zucchini"];
 
@@ -289,80 +303,84 @@ function renderNearMisses() {
     }
 }
 
-function createItemCard(item, index, isNearMiss = false) {
+function createItemCard(item, index, type = 'special') {
     const effPrice = item.eff_price || item.price;
-    const isSpecial = !isNearMiss && effPrice <= item.target && !item.price_unavailable;
+    const isSpecial = type === 'special' && effPrice <= item.target && !item.price_unavailable;
+    const isNearMiss = type === 'near';
+    const isPredicted = type === 'predicted';
+    
     const card = document.createElement('div');
     const storeClass = item.store || 'woolworths';
     
-    card.className = `item-card store-${storeClass} ${isNearMiss ? 'near-miss-card' : ''}`;
-    card.style.animationDelay = `${(index % 20) * 0.05}s`;
+    card.className = `item-card store-${storeClass} ${isNearMiss ? 'near-miss-card' : ''} ${isPredicted ? 'predicted-card' : ''}`;
     
     let imgHtml = item.image_url 
-        ? `<img src="${item.image_url}" class="item-image" alt="${item.name}" loading="lazy">`
+        ? `<img src="${item.image_url}" class="item-image" loading="lazy">`
         : `<div class="product-img-placeholder"><i data-feather="image"></i></div>`;
 
-    let targetHtml = `<span class="item-target">Target: $${item.target.toFixed(2)}</span>`;
-    if (item.avg_price && item.avg_price > 0) {
-        targetHtml += `<span class="item-avg">Paid Avg: $${item.avg_price.toFixed(2)}</span>`;
-    }
+    const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
     
-    if (isSpecial) {
-         const diff = item.target - effPrice;
-         targetHtml += `<span class="savings-badge">Save $${diff.toFixed(2)}</span>`;
-    } else if (isNearMiss) {
-        targetHtml += `<span class="deal-badge" style="background: rgba(234, 179, 8, 0.1); color: #fde047;">🤏 Almost</span>`;
-    }
-
-    // W vs C Battle Row
-    let battleRow = '';
-    if (item.all_stores && Object.keys(item.all_stores).length > 1) {
-        const wPrice = item.all_stores['woolworths']?.price || '—';
-        const cPrice = item.all_stores['coles']?.price || '—';
-        const wCheaper = typeof wPrice === 'number' && typeof cPrice === 'number' && wPrice < cPrice;
-        const cCheaper = typeof wPrice === 'number' && typeof cPrice === 'number' && cPrice < wPrice;
-        
-        battleRow = `
-            <div class="battle-row">
-                <div class="battle-tag ${wCheaper ? 'winner' : ''}">W: ${typeof wPrice === 'number' ? '$' + wPrice.toFixed(2) : wPrice}</div>
-                <div class="battle-tag ${cCheaper ? 'winner' : ''}">C: ${typeof cPrice === 'number' ? '$' + cPrice.toFixed(2) : cPrice}</div>
-            </div>
-        `;
-    }
-
-    const wPrice = (item.all_stores && item.all_stores['woolworths']?.price) || item.price;
-    const qty = (_shopMode === 'big' && ['fresh_protein', 'pet', 'pantry', 'household', 'freezer'].includes(item.type)) ? (item.type === 'fresh_protein' ? 4 : 2) : 1;
-    const itemTotal = (item.price * qty).toFixed(2);
-
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
-            <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+                <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
+            </div>
             <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
             <div class="item-price-row">
-                <span class="item-price" style="color: ${storeClass === 'woolworths' ? 'var(--woolies-green)' : 'var(--coles-red)'}">${item.price_unavailable ? '❓' : formatPrice(item)}</span>
-                ${targetHtml}
+                <span class="item-price">${item.price_unavailable ? '❓' : '$' + item.price.toFixed(2)}</span>
+                <span class="item-target">Target: $${item.target.toFixed(2)}</span>
             </div>
-            ${battleRow}
             <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}')">
-                <i data-feather="plus"></i> Add to List (${qty}×)
+                <i data-feather="plus"></i> Add to List
             </button>
-            <div class="chart-container-sm" id="chart-card-${index}-${isNearMiss ? 'near' : 'special'}">
+            <div class="chart-container-sm" id="chart-${type}-${index}">
                 <canvas></canvas>
             </div>
         </div>
     `;
     
-    // Sparkline will be rendered after append
     setTimeout(() => {
         if (_history[item.name] && _history[item.name].history.length > 0) {
-            renderSparkline(`chart-card-${index}-${isNearMiss ? 'near' : 'special'}`, _history[item.name].history, storeClass);
+            renderSparkline(`chart-${type}-${index}`, _history[item.name].history, storeClass);
         }
-        if (typeof feather !== 'undefined') feather.replace();
+        feather.replace();
     }, 0);
     
     return card;
 }
+
+function renderPredictions() {
+    const section = document.getElementById('predictions-section');
+    const grid = document.getElementById('predictions-grid');
+    grid.innerHTML = '';
+    
+    const predicted = _data.filter(item => {
+        // Condition 1: Explicitly low stock
+        if (item.stock === 'low') return true;
+        
+        // Condition 2: Buy frequency prediction
+        if (item.last_purchased) {
+            const last = new Date(item.last_purchased);
+            const diffDays = (new Date() - last) / (1000 * 60 * 60 * 24);
+            // Heuristic: If hasn't been bought in 21 days for pantry items
+            if (item.type === 'pantry' && diffDays > 21) return true;
+            if (item.type === 'pet' && diffDays > 14) return true;
+        }
+        return false;
+    });
+
+    if (predicted.length > 0) {
+        section.style.display = 'block';
+        predicted.slice(0, 6).forEach((item, idx) => {
+            grid.appendChild(createItemCard(item, idx, 'predicted'));
+        });
+    } else {
+        section.style.display = 'none';
+    }
+}
+
 
 function updateListCount() {
     const el = document.getElementById('list-count');
@@ -570,7 +588,6 @@ function renderAllItems() {
     if (!tbody) return;
     tbody.innerHTML = '';
 
-    // Filter by store and Search text, then sort A-Z
     const filteredData = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
@@ -579,20 +596,22 @@ function renderAllItems() {
 
     filteredData.forEach((item, index) => {
         const tr = document.createElement('tr');
-        const storeName = item.store === 'woolworths' ? 'Woolies' : 'Coles';
         const isSpecial = (item.eff_price || item.price) <= item.target && !item.price_unavailable;
+        const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
         
         tr.innerHTML = `
-            <td style="font-weight: 500;">
-                ${item.name}
+            <td>
+                <span style="font-weight:600;">${item.name}</span>
                 ${isSpecial ? ' 🔥' : ''}
             </td>
+            <td><span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span></td>
             <td>
-                <span class="store-badge ${item.store}">${storeName}</span>
+                <div class="stock-clickable" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
+                    <div class="stock-dot ${stockColor}"></div> ${item.stock}
+                </div>
             </td>
-            <td style="font-weight: 600;">${item.price_unavailable ? '❓' : formatPrice(item)}</td>
-            <td style="color: var(--text-muted);">$${item.target.toFixed(2)}</td>
-            <td style="color: var(--accent-purple); font-weight: 500;">${item.avg_price ? '$' + item.avg_price.toFixed(2) : '-'}</td>
+            <td>${item.price_unavailable ? '❓' : '$' + item.price.toFixed(2)}</td>
+            <td>$${item.target.toFixed(2)}</td>
             <td>
                 <div class="chart-container-td" id="chart-td-${index}">
                     <canvas></canvas>
@@ -606,6 +625,117 @@ function renderAllItems() {
         }
     });
 }
+
+function openStockModal(itemName) {
+    const item = _data.find(i => i.name === itemName);
+    if (!item) return;
+    
+    _selectedItemForModal = item;
+    document.getElementById('modal-title').textContent = item.name;
+    document.getElementById('target-input-modal').value = item.target;
+    
+    document.querySelectorAll('.stock-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.level === item.stock);
+    });
+    
+    document.getElementById('overlay-modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('overlay-modal').style.display = 'none';
+}
+
+async function saveItemChanges() {
+    const activeStock = document.querySelector('.stock-btn.active')?.dataset.level;
+    const newTarget = parseFloat(document.getElementById('target-input-modal').value);
+    
+    if (!_selectedItemForModal || !activeStock) return;
+    
+    try {
+        const response = await fetch('http://localhost:5001/update_stock', {
+            method: 'POST',
+            body: JSON.stringify({
+                name: _selectedItemForModal.name,
+                stock: activeStock
+            })
+        });
+        
+        if (response.ok) {
+            _selectedItemForModal.stock = activeStock;
+            _selectedItemForModal.target = newTarget;
+            renderDashboard();
+            closeModal();
+        }
+    } catch (e) {
+        alert("Bridge error.");
+    }
+}
+
+function renderAnalytics() {
+    // Collect data
+    const categories = {};
+    const spendingHistory = {};
+    let totalSavings = 0;
+    let itemsBoughtAtTarget = 0;
+    let totalItemsPurchased = 0;
+
+    Object.entries(_history).forEach(([name, data]) => {
+        const itemInfo = _data.find(i => i.name === name) || {};
+        const cat = itemInfo.type || 'pantry';
+        
+        data.history.forEach(h => {
+            const date = h.date.substring(0, 7); // YYYY-MM
+            spendingHistory[date] = (spendingHistory[date] || 0) + h.price;
+            categories[cat] = (categories[cat] || 0) + h.price;
+            
+            totalItemsPurchased++;
+            if (h.is_special) itemsBoughtAtTarget++;
+            
+            const shelfPrice = itemInfo.price || h.price;
+            totalSavings += Math.max(0, shelfPrice - h.price);
+        });
+    });
+
+    const efficiency = totalItemsPurchased > 0 ? (itemsBoughtAtTarget / totalItemsPurchased) * 100 : 0;
+    
+    document.getElementById('analytic-savings-val').textContent = `$${totalSavings.toFixed(0)}`;
+    document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}%`;
+
+    // Charts
+    const spendingCtx = document.getElementById('spending-chart')?.getContext('2d');
+    const categoryCtx = document.getElementById('category-chart')?.getContext('2d');
+
+    if (spendingCtx) {
+        const sortedDates = Object.keys(spendingHistory).sort();
+        new Chart(spendingCtx, {
+            type: 'bar',
+            data: {
+                labels: sortedDates,
+                datasets: [{
+                    label: 'Monthly Spending ($)',
+                    data: sortedDates.map(d => spendingHistory[d]),
+                    backgroundColor: '#6366f1'
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+
+    if (categoryCtx) {
+        new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(categories),
+                datasets: [{
+                    data: Object.values(categories),
+                    backgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#6366f1', '#a855f7', '#ec4899', '#06b6d4', '#8b5cf6']
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+}
+
 
 function renderSparkline(containerId, historyData, storeClass) {
     const container = document.getElementById(containerId);
