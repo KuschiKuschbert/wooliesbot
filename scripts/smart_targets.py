@@ -2,11 +2,11 @@
 """Smart Target Price Engine — Data-driven target recalculation for WooliesBot.
 
 Uses scrape_history and price_history from data.json (single source of truth)
-to compute statistically meaningful target prices.
+to compute target prices representing "what this item costs when on special."
 
 Algorithm:
-  Gold   (≥10 observations) → 20th percentile of observed prices
-  Silver (4-9 observations)  → 25th percentile of observed prices
+  Gold   (≥10 observations) → median of "sale cluster" prices (>10% below median)
+  Silver (4-9 observations)  → 20th percentile of observed prices
   Bronze (0-3 observations)  → current price (no history yet)
 
 Usage:
@@ -134,17 +134,31 @@ def recalculate_targets(dry_run=False):
         method = "unchanged"
 
         if n >= 10:
-            # GOLD: 20th percentile — aggressive, captures genuine sale prices
-            new_target = round(percentile(all_prices, 20), 2)
-            confidence = "high"
-            method = f"p20 of {n} prices"
+            # GOLD: Sale-cluster detection
+            # Find prices significantly below median — these are genuine sale prices.
+            # Target = median of those sale prices = "typical on-special price"
+            median_price = statistics.median(all_prices)
+            sale_threshold = median_price * 0.90  # >10% below median = sale
+            sale_prices = [p for p in all_prices if p <= sale_threshold]
+
+            if len(sale_prices) >= 3:
+                # Enough sale observations to compute a meaningful median
+                new_target = round(statistics.median(sale_prices), 2)
+                confidence = "high"
+                sale_pct = len(sale_prices) / n * 100
+                method = f"sale median ({len(sale_prices)}/{n} obs, {sale_pct:.0f}% on sale)"
+            else:
+                # Not enough clear sales — use p15 as aggressive fallback
+                new_target = round(percentile(all_prices, 15), 2)
+                confidence = "high"
+                method = f"p15 of {n} prices (few sales detected)"
             summary["gold"] += 1
 
         elif n >= 4:
-            # SILVER: 25th percentile with fewer data points
-            new_target = round(percentile(all_prices, 25), 2)
+            # SILVER: p20 with fewer data points
+            new_target = round(percentile(all_prices, 20), 2)
             confidence = "medium"
-            method = f"p25 of {n} prices"
+            method = f"p20 of {n} prices"
             summary["silver"] += 1
 
         else:
@@ -222,6 +236,7 @@ def recalculate_targets(dry_run=False):
             item["target_method"] = method
             item["target_data_points"] = n
 
+    if not dry_run:
         # Recompute is_special flags in scrape_history against new targets
         specials_updated = 0
         for item in data:
