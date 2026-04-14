@@ -330,9 +330,9 @@ body {
 
 /* Grid & Cards */
 .specials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 0.8rem;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 0.8rem !important;
     margin-bottom: 2rem;
 }
 
@@ -775,6 +775,10 @@ footer {
 }
 
 /* Dynamic Animation Triggers */
+.hidden {
+    display: none !important;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

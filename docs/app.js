@@ -333,13 +333,13 @@ function renderNearMisses() {
     });
     
     if (nearMisses.length > 0) {
-        section.style.display = 'block';
+        section.classList.remove('hidden');
         nearMisses.slice(0, 4).forEach((item, index) => {
-            const card = createItemCard(item, index, true);
+            const card = createItemCard(item, index, 'near');
             grid.appendChild(card);
         });
     } else {
-        section.style.display = 'none';
+        section.classList.add('hidden');
     }
 }
 
@@ -411,12 +411,12 @@ function renderPredictions() {
     });
 
     if (predicted.length > 0) {
-        section.style.display = 'block';
+        section.classList.remove('hidden');
         predicted.slice(0, 6).forEach((item, idx) => {
             grid.appendChild(createItemCard(item, idx, 'predicted'));
         });
     } else {
-        section.style.display = 'none';
+        section.classList.add('hidden');
     }
 }
 
