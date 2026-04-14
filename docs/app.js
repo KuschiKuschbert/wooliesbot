@@ -357,6 +357,23 @@ function renderNearMisses() {
     }
 }
 
+function getConfidenceBadge(item) {
+    const conf = item.target_confidence;
+    const pts = item.target_data_points || 0;
+    const method = item.target_method || '';
+    if (!conf || conf === 'high') {
+        // Treat missing metadata as high if it's a manually-configured item (no target_method)
+        const isHigh = conf === 'high';
+        const icon = isHigh ? '🟢' : '';
+        if (!conf) return ''; // no badge for old items with no metadata yet
+        return `<span class="confidence-badge high" title="High confidence: ${method} (${pts} data points)">🟢 High</span>`;
+    }
+    if (conf === 'medium') {
+        return `<span class="confidence-badge medium" title="Medium confidence: ${method} (${pts} data points)">🟡 Med</span>`;
+    }
+    return `<span class="confidence-badge low" title="Low confidence: ${method} — buy more to improve!">🔴 Low</span>`;
+}
+
 function createItemCard(item, index, type = 'special') {
     const effPrice = item.eff_price || item.price;
     const isSpecial = type === 'special' && effPrice <= item.target && !item.price_unavailable;
@@ -373,18 +390,25 @@ function createItemCard(item, index, type = 'special') {
         : `<div class="product-img-placeholder"><i data-feather="image"></i></div>`;
 
     const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
+    const confidenceBadge = getConfidenceBadge(item);
+    const targetTooltip = item.target_method 
+        ? `title="${item.target_method}${item.target_data_points ? ` (${item.target_data_points} data points)` : ''}"` 
+        : '';
     
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
+                <div style="display:flex; gap:4px; align-items:center;">
+                    ${confidenceBadge}
+                    <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
+                </div>
             </div>
             <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
             <div class="item-price-row">
                 <span class="item-price">${item.price_unavailable ? '❓' : '$' + item.price.toFixed(2)}</span>
-                <span class="item-target">Target: $${item.target.toFixed(2)}</span>
+                <span class="item-target" ${targetTooltip}>Target: $${item.target.toFixed(2)}</span>
             </div>
             <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}')">
                 <i data-feather="plus"></i> Add to List
@@ -1077,6 +1101,86 @@ function renderAnalytics() {
     }
 
     renderDeeperInsights();
+    renderTargetIntelligence();
+}
+
+function renderTargetIntelligence() {
+    const container = document.getElementById('target-intelligence-container');
+    if (!container) return;
+
+    // Tally confidence levels
+    let high = 0, med = 0, low = 0, noMeta = 0;
+    const lowConfItems = [];
+    const recentChanges = [];
+
+    _data.forEach(item => {
+        const conf = item.target_confidence;
+        if (!conf) { noMeta++; return; }
+        if (conf === 'high') high++;
+        else if (conf === 'medium') { med++; }
+        else {
+            low++;
+            if (item.target_data_points === 0) {
+                lowConfItems.push(item);
+            }
+        }
+        // Detect recently-changed targets (target_updated = today)
+        const today = new Date().toISOString().slice(0, 10);
+        if (item.target_updated === today && item.target_method && item.target_method !== 'unchanged') {
+            recentChanges.push(item);
+        }
+    });
+
+    const total = high + med + low + noMeta || 1;
+    const highPct = Math.round((high / total) * 100);
+    const medPct  = Math.round((med  / total) * 100);
+    const lowPct  = Math.round((low  / total) * 100);
+
+    // Needs-data: items with zero price points that have a Woolworths URL
+    const needsData = _data.filter(i => (i.target_data_points || 0) === 0 && i.woolworths).length;
+
+    container.innerHTML = `
+        <div class="target-intel-header">
+            <i data-feather="target"></i>
+            <span>Target Intelligence</span>
+        </div>
+
+        <div class="target-confidence-bar-wrap">
+            <div class="target-conf-bar">
+                <div class="tcb-fill high"  style="width:${highPct}%" title="${high} high-confidence"></div>
+                <div class="tcb-fill med"   style="width:${medPct}%"  title="${med} medium-confidence"></div>
+                <div class="tcb-fill low"   style="width:${lowPct}%"  title="${low} low-confidence"></div>
+            </div>
+            <div class="tcb-labels">
+                <span><span class="conf-dot high"></span>${high} High</span>
+                <span><span class="conf-dot med"></span>${med} Medium</span>
+                <span><span class="conf-dot low"></span>${low} Low</span>
+            </div>
+        </div>
+
+        <div class="target-intel-stats">
+            <div class="ti-stat">
+                <div class="ti-val">${high}</div>
+                <div class="ti-label">Data-Driven<br>Targets</div>
+            </div>
+            <div class="ti-stat">
+                <div class="ti-val">${low + noMeta}</div>
+                <div class="ti-label">Need More<br>Receipts</div>
+            </div>
+            <div class="ti-stat">
+                <div class="ti-val">${Math.round((high + med) / total * 100)}%</div>
+                <div class="ti-label">Confidence<br>Score</div>
+            </div>
+        </div>
+
+        ${needsData > 0 ? `
+        <div class="ti-tip">
+            <i data-feather="info"></i>
+            <span>Run <strong>receipt_sync.py</strong> to unlock better targets for <strong>${needsData}</strong> untracked items.</span>
+        </div>` : '<div class="ti-tip success"><i data-feather="check-circle"></i><span>All items have price observations — great coverage!</span></div>'}
+    `;
+
+    if (typeof feather !== 'undefined') feather.replace();
 }
 
 function renderDeeperInsights() {

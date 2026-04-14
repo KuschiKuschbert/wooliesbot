@@ -344,7 +344,7 @@ def enrich_inventory():
 
 if __name__ == "__main__":
     # 1. Sync Receipts (User handles login in the window)
-    run_sync(all_receipts=True, months_back=6)
+    run_sync(all_receipts=True, months_back=24)
     # 2. Enrich the newly discovered items
     enrich_inventory()
 

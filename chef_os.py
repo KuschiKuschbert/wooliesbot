@@ -12,6 +12,8 @@ import re
 import os
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import importlib.util as _ilu
+import pathlib as _pl
 
 from logging.handlers import RotatingFileHandler
 
@@ -751,6 +753,14 @@ def check_prices():
             "price_history": history,
             "avg_price": avg_price
         }
+
+        # Handle local image download
+        remote_img = best.get("image_url")
+        if remote_img:
+            local_img_path = _download_product_image(remote_img, item["name"])
+            if local_img_path:
+                item_result["image_url"] = local_img_path
+
         results.append(item_result)
 
     # Scraper Health Check
@@ -996,7 +1006,7 @@ def sync_to_github():
 
         logging.info("Syncing data to GitHub...")
         # Capture root and docs changes
-        subprocess.run(["git", "add", "docs/*.json"], check=True, capture_output=True)
+        subprocess.run(["git", "add", "docs/*.json", "docs/images/*.jpg"], check=False, capture_output=True)
         
         # Check if there are changes to commit
         status = subprocess.run(["git", "status", "--porcelain", "docs/"], capture_output=True, text=True)
@@ -1010,6 +1020,46 @@ def sync_to_github():
         logging.error(f"GitHub sync failed: {e.stderr.decode()}")
     except Exception as e:
         logging.error(f"Error during GitHub sync: {e}")
+
+def _slugify_name(name):
+    """Turns an item name into a safe filename."""
+    s = str(name).strip().replace(' ', '_')
+    return re.sub(r'(?u)[^-\w.]', '', s).lower()
+
+def _download_product_image(url, name):
+    """Downloads an image for the product name to docs/images if older than 30 days or missing."""
+    if not url: return ""
+    
+    img_dir = os.path.join("docs", "images")
+    os.makedirs(img_dir, exist_ok=True)
+    slug = _slugify_name(name)
+    local_filename = f"{slug}.jpg"
+    local_path = os.path.join(img_dir, local_filename)
+    
+    # Check if we need to download
+    if os.path.exists(local_path):
+        mtime = os.path.getmtime(local_path)
+        age_days = (time.time() - mtime) / (60 * 60 * 24)
+        if age_days < 30:
+            return f"images/{local_filename}"
+            
+    try:
+        # Use a real User-Agent to avoid blocks
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
+        response = requests.get(url, headers=headers, timeout=20)
+        if response.status_code == 200:
+            with open(local_path, "wb") as f:
+                f.write(response.content)
+            logging.info(f"Downloaded image for '{name}' → {local_filename}")
+            return f"images/{local_filename}"
+        else:
+            logging.debug(f"Image download HTTP {response.status_code} for {url}")
+    except Exception as e:
+        logging.warning(f"Failed to download image for '{name}': {e}")
+    
+    return ""
 
 def run_report(full_list=False, send_telegram_messages=True):
     """Generate and send shopping report.
@@ -1027,6 +1077,17 @@ def run_report(full_list=False, send_telegram_messages=True):
         # Update JSON files for web dashboard
         export_data_to_json(raw_results)
         update_price_history(raw_results)
+
+        # Re-run smart target engine so targets improve with each scrape cycle
+        try:
+            _st_path = _pl.Path(__file__).parent / "scripts" / "smart_targets.py"
+            _spec = _ilu.spec_from_file_location("smart_targets", _st_path)
+            _st = _ilu.module_from_spec(_spec)
+            _spec.loader.exec_module(_st)
+            _st.recalculate_targets(dry_run=False)
+            logging.info("Smart target recalculation complete.")
+        except Exception as _e:
+            logging.warning(f"Smart target recalculation skipped: {_e}")
         
         # Deploy to GitHub pages
         threading.Thread(target=sync_to_github, daemon=True).start()
@@ -2007,7 +2068,6 @@ if __name__ == "__main__":
                 # Keep the global next run time synchronized
                 next_job = schedule.next_run()
                 if next_job:
-                    global NEXT_SCHEDULED_RUN
                     NEXT_SCHEDULED_RUN = next_job
                 
                 schedule.run_pending()
