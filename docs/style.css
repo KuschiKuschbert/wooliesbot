@@ -1843,24 +1843,27 @@ footer {
 }
 
 .fighter.winner {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transform: scale(1.06);
+    transform: scale(1.05);
     z-index: 10;
     border-width: 2px;
 }
 
 .fighter.winner-woolworths {
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0.1) 100%);
-    border-color: var(--woolies-green);
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
-    border-top: 4px solid var(--woolies-green);
+    background: #064e3b !important; /* Deep Woolies Emerald */
+    border-color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
 .fighter.winner-coles {
-    background: linear-gradient(180deg, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.1) 100%);
-    border-color: var(--coles-red);
-    box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
-    border-top: 4px solid var(--coles-red);
+    background: #7f1d1d !important; /* Deep Coles Crimson */
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.fighter.winner .fighter-brand,
+.fighter.winner .fighter-price,
+.fighter.winner .fighter-product {
+    color: white !important;
 }
 
 .fighter.winner::before {
@@ -1870,11 +1873,10 @@ footer {
     left: 0;
     right: 0;
     color: white;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 900;
-    padding: 4px 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    letter-spacing: 0.5px;
+    padding: 3px 0;
+    background: rgba(0,0,0,0.3);
 }
 
 .fighter.winner-woolworths::before {
