@@ -3,7 +3,7 @@
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/969723/woolworths-rspca-approved-chicken-breast-fillet",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Beef Mince (Lean 500g)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/577861/woolworths-lean-beef-mince",
@@ -68,7 +68,7 @@
     },
     {
       "name": "Bacon (Middle)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/48358/woolworths-middle-bacon-middle-rashers",
@@ -101,7 +101,7 @@
     },
     {
       "name": "Pork Loin Roast",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/764406/woolworths-pork-loin-roast-boneless-small",
@@ -134,7 +134,7 @@
     },
     {
       "name": "Deli Meats (Chorizo)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/328005/primo-chorizo-2-pack",
@@ -167,7 +167,7 @@
     },
     {
       "name": "Deli Ham/Silverside",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/130276/leg-ham-shaved-from-the-deli",
@@ -200,7 +200,7 @@
     },
     {
       "name": "Beef Stir Fry (500g)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "compare_group": "beef_strips",
@@ -234,7 +234,7 @@
     },
     {
       "name": "Rump Steak (Whole)",
-      "type": "fresh_protein",
+      "type": "meat",
       "price_mode": "kg",
       "target": 0,
       "compare_group": "beef_strips",
@@ -268,7 +268,7 @@
     },
     {
       "name": "Capsicum (Red)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/135306/red-capsicum",
@@ -301,7 +301,7 @@
     },
     {
       "name": "Avocados (Hass)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/120080/hass-avocado",
@@ -331,7 +331,7 @@
     },
     {
       "name": "Baby Spinach / Kaleslaw",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/705436/woolworths-kale-slaw-kit",
@@ -364,7 +364,7 @@
     },
     {
       "name": "Onions (Brown Bag)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/144427/woolworths-brown-onions-bag",
@@ -397,7 +397,7 @@
     },
     {
       "name": "Potatoes (Washed Bag)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/262783/woolworths-washed-potatoes-bag",
@@ -430,7 +430,7 @@
     },
     {
       "name": "Carrots (1kg)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/135369/woolworths-australian-grown-carrots",
@@ -465,7 +465,7 @@
     },
     {
       "name": "Broccoli",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/134681/fresh-broccoli",
@@ -498,7 +498,7 @@
     },
     {
       "name": "Zucchini",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/170225/fresh-zucchini-green",
@@ -531,7 +531,7 @@
     },
     {
       "name": "Mushrooms (Cup)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/143304/woolworths-mushrooms-cups-punnet",
@@ -564,7 +564,7 @@
     },
     {
       "name": "Pumpkin (Kent)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/143709/pumpkin-kent-cut",
@@ -597,7 +597,7 @@
     },
     {
       "name": "Snow Peas",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/145843/snow-peas",
@@ -630,7 +630,7 @@
     },
     {
       "name": "Corn Cobs",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/137351/woolworths-fresh-corn-cobs",
@@ -663,7 +663,7 @@
     },
     {
       "name": "Watermelon (Quarter)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/120384/woolworths-red-watermelon-cut-quarter",
@@ -696,7 +696,7 @@
     },
     {
       "name": "Lemons (Bag)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/693501/lemon-lemon-bag",
@@ -729,7 +729,7 @@
     },
     {
       "name": "Garlic",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "kg",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/120847/woolworths-garlic",
@@ -762,7 +762,7 @@
     },
     {
       "name": "Fresh Herbs (Basil)",
-      "type": "fresh_veg",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/133621/woolworths-green-basil-bunch",
@@ -795,7 +795,7 @@
     },
     {
       "name": "Medjool Dates",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/774695/golden-palm-medjool-dates-punnet",
@@ -828,7 +828,7 @@
     },
     {
       "name": "Eggs (18 Pack)",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/74593/woolworths-18-large-cage-free-eggs",
@@ -861,7 +861,7 @@
     },
     {
       "name": "Butter (Western Star)",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/41287/western-star-salted-butter-block-butter-block",
@@ -894,7 +894,7 @@
     },
     {
       "name": "Thickened Cream (600ml)",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/48720/woolworths-thickened-cream",
@@ -927,7 +927,7 @@
     },
     {
       "name": "Cheese (Tasty Block)",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "kg",
       "target": 6.0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/310237/woolworths-tasty-cheese-block",
@@ -960,7 +960,7 @@
     },
     {
       "name": "Philly Cream Cheese",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/48062/philadelphia-original-cream-cheese-block",
@@ -993,7 +993,7 @@
     },
     {
       "name": "Sour Cream",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/105609/woolworths-sour-cream",
@@ -1026,7 +1026,7 @@
     },
     {
       "name": "Yoghurt (Greek)",
-      "type": "fresh_fridge",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/571487/woolworths-natural-greek-style-yoghurt",
@@ -1059,7 +1059,7 @@
     },
     {
       "name": "Protein Puds (Wicked Sister)",
-      "type": "fresh_fridge",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/162818/wicked-sister-high-protein-pudding-chocolate",
@@ -1092,7 +1092,7 @@
     },
     {
       "name": "Frozen Peas",
-      "type": "freezer",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/754169/woolworths-frozen-australian-peas",
@@ -1125,7 +1125,7 @@
     },
     {
       "name": "Chicken Tenders (Ingham)",
-      "type": "freezer",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/38728/ingham-s-frozen-chicken-breast-tenders-original",
@@ -1158,7 +1158,7 @@
     },
     {
       "name": "Ice Cream (Connoisseur)",
-      "type": "freezer",
+      "type": "dairy",
       "price_mode": "each",
       "target": 9.75,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/96190/connoisseur-ice-cream-classic-vanilla-tub",
@@ -1191,7 +1191,7 @@
     },
     {
       "name": "English Muffins",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/224737/woolworths-english-muffins",
@@ -1224,7 +1224,7 @@
     },
     {
       "name": "Wraps (Mission Carb Balance)",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/919345/mission-carb-balance-original-wraps",
@@ -1257,7 +1257,7 @@
     },
     {
       "name": "Rice Paper",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/121531/pandaroo-ingredients-rice-paper-spring-roll",
@@ -1290,7 +1290,7 @@
     },
     {
       "name": "Canned Tomatoes",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/311488/essentials-diced-tomatoes",
@@ -1356,7 +1356,7 @@
     },
     {
       "name": "Peanut Butter (Pics)",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/754776/pic-s-peanut-butter-smooth",
@@ -1389,7 +1389,7 @@
     },
     {
       "name": "Coffee (Nescafe Espresso)",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/212138/nescafe-blend-43-espresso-instant-coffee-jar",
@@ -1488,7 +1488,7 @@
     },
     {
       "name": "Crackers (Jatz)",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/115454/arnott-s-jatz-crackers-original",
@@ -1521,7 +1521,7 @@
     },
     {
       "name": "Lindt 95% Cocoa",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/4758/lindt-excellence-95-cocoa-dark-chocolate-block",
@@ -1554,7 +1554,7 @@
     },
     {
       "name": "Quest/BSC Protein Bars",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/755146/quest-protein-bar-cookies-cream",
@@ -1587,7 +1587,7 @@
     },
     {
       "name": "Pepsi Max 24pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "litre",
       "target": 0,
       "compare_group": "cola",
@@ -1624,7 +1624,7 @@
     },
     {
       "name": "Coke No Sugar 24pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "litre",
       "target": 0,
       "compare_group": "cola",
@@ -1661,7 +1661,7 @@
     },
     {
       "name": "Pepsi Max 30pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "litre",
       "target": 0,
       "compare_group": "cola",
@@ -1696,7 +1696,7 @@
     },
     {
       "name": "Coke No Sugar 30pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "litre",
       "target": 2.82,
       "compare_group": "cola",
@@ -1731,7 +1731,7 @@
     },
     {
       "name": "Remedy/Juice Lab Shots",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/227257/the-juice-lab-wellness-shot-calm",
@@ -1962,7 +1962,7 @@
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quilton%20T/Tiss%20Prints%203Ply%20180s%2024pk",
@@ -2002,7 +2002,7 @@
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Frozen%20Blueberries%201kg",
@@ -2039,7 +2039,7 @@
     },
     {
       "name": "A2 Milk Lite 1L",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=A2%20Milk%20Lite%201L",
@@ -2081,7 +2081,7 @@
     },
     {
       "name": "Ww Lean Beef Mince 1Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%201kg",
@@ -2122,7 +2122,7 @@
     },
     {
       "name": "Ww Pear Mozzarella 350G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Pear%20Mozzarella%20350g",
@@ -2164,7 +2164,7 @@
     },
     {
       "name": "Ww Bocconcini Traditional 220G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Bocconcini%20Traditional%20220g",
@@ -2210,7 +2210,7 @@
     },
     {
       "name": "Ww Fetta Danish Style 200G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Fetta%20Danish%20Style%20200g",
@@ -2248,7 +2248,7 @@
     },
     {
       "name": "Ww Rspca Chicken Breast Fillets",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 14.74,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20RSPCA%20Chicken%20Breast%20Fillets",
@@ -2286,7 +2286,7 @@
     },
     {
       "name": "Ww Yoghurt Starwberry 1Kg",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Yoghurt%20Starwberry%201kg",
@@ -2326,7 +2326,7 @@
     },
     {
       "name": "Old Gold Dark Chocolate Peppermint 180G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Old%20Gold%20Dark%20Chocolate%20Peppermint%20180g",
@@ -2361,7 +2361,7 @@
     },
     {
       "name": "Ww Belgian Dark Choc Block 85% 100G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Belgian%20Dark%20Choc%20Block%2085%%20100g",
@@ -2399,7 +2399,7 @@
     },
     {
       "name": "Tms Rocky Road Choc Protein Bar 50G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#TMS%20Rocky%20Road%20Choc%20Protein%20Bar%2050g",
@@ -2491,7 +2491,7 @@
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Hydralyte%20EE%20Tabs%20Pfruit%20Punch%2010pk",
@@ -2529,7 +2529,7 @@
     },
     {
       "name": "Meggles Farm Cage Eggs Xl 12Pk 700G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.38,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Meggles%20Farm%20Cage%20Eggs%20XL%2012pk%20700g",
@@ -2647,7 +2647,7 @@
     },
     {
       "name": "Ww Original Water Crackers 125G",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
@@ -2685,7 +2685,7 @@
     },
     {
       "name": "V.I.P Rst Mt & Swt Pot Dog Roll 2.15Kg",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=V.I.P%20Rst%20Mt%20&%20Swt%20Pot%20Dog%20Roll%202.15kg",
@@ -2720,7 +2720,7 @@
     },
     {
       "name": "Onion Brown 1Kg P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Onion%20Brown%201kg%20P/P",
@@ -2777,7 +2777,7 @@
     },
     {
       "name": "Mushroom Sliced 200Gp/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mushroom%20Sliced%20200gp/P",
@@ -2823,7 +2823,7 @@
     },
     {
       "name": "Avocado Shepard",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Avocado%20Shepard",
@@ -2869,7 +2869,7 @@
     },
     {
       "name": "Crafted Sourdough Loaf Signature White",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Crafted%20Sourdough%20Loaf%20Signature%20White",
@@ -2907,7 +2907,7 @@
     },
     {
       "name": "Potato Brushed 4Kg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Brushed%204kg",
@@ -2943,7 +2943,7 @@
     },
     {
       "name": "Pepsi Max Cola Cans 10X375Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 9.21,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Pepsi%20Max%20Cola%20Cans%2010x375ml",
@@ -2995,7 +2995,7 @@
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Coca%20Cola%20Zero%20Sugar%2010x375ml",
@@ -3035,7 +3035,7 @@
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Steggles%20Gravy%20Chicken%20Schnitzel%20600g",
@@ -3073,7 +3073,7 @@
     },
     {
       "name": "Ww Beef Rump Steak 250G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Beef%20Rump%20Steak%20250g",
@@ -3115,7 +3115,7 @@
     },
     {
       "name": "Mild Deli Salami Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mild%20Deli%20Salami%20Kg",
@@ -3153,7 +3153,7 @@
     },
     {
       "name": "Ec Sustainable Cottage Cheese 500G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Ec%20Sustainable%20Cottage%20Cheese%20500g",
@@ -3189,7 +3189,7 @@
     },
     {
       "name": "Ww Light Thickened Cream 300Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 3.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Light%20Thickened%20Cream%20300ml",
@@ -3236,7 +3236,7 @@
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=YoPRO%20Yoghurt%20Pot%20Vanilla%20160g",
@@ -3278,7 +3278,7 @@
     },
     {
       "name": "Ww Cage Free Eggs Xl 12Pk 700G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cage%20Free%20Eggs%20XL%2012pk%20700g",
@@ -3320,7 +3320,7 @@
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Vegeta%20Chicken%20Stock%20Cubes%2060g",
@@ -3358,7 +3358,7 @@
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Vegeta%20Beef%20Stock%20Cubes%2060g",
@@ -3396,7 +3396,7 @@
     },
     {
       "name": "Hillview Cheese Block Tasty 1Kg",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 9.86,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Hillview%20Cheese%20Block%20Tasty%201kg",
@@ -3441,7 +3441,7 @@
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Heinz%20Tomato%20Ketchup%20500ml",
@@ -3483,7 +3483,7 @@
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Real%20Foods%20Corn%20Thins%20Multigrain%20150g",
@@ -3521,7 +3521,7 @@
     },
     {
       "name": "Ww Sundried Tomato Strips 270G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Sundried%20Tomato%20Strips%20270g",
@@ -3599,7 +3599,7 @@
     },
     {
       "name": "Cobs Popcorn Best Ever Butter 5Pk 65G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cobs%20Popcorn%20Best%20Ever%20Butter%205pk%2065g",
@@ -3641,7 +3641,7 @@
     },
     {
       "name": "Lettuce Cos Hearts 2 Pack",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lettuce%20Cos%20Hearts%202%20Pack",
@@ -3683,7 +3683,7 @@
     },
     {
       "name": "Apple The Odd Bunch 1Kg Pp",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Apple%20The%20Odd%20Bunch%201kg%20PP",
@@ -3720,7 +3720,7 @@
     },
     {
       "name": "Cucumber Continentalodd Bunch",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cucumber%20ContinentalOdd%20Bunch",
@@ -3758,7 +3758,7 @@
     },
     {
       "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nu%20Pure%20Lem%20Lime%20Spklg%20Wtr%20500ml%20x%2012pk",
@@ -3797,7 +3797,7 @@
     },
     {
       "name": "Commandeverydayvalue3Small 3Med Hooks",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=CommandEverydayValue3Small%203Med%20hooks",
@@ -3835,7 +3835,7 @@
     },
     {
       "name": "Woolworths Art Bag",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Art%20Bag",
@@ -3877,7 +3877,7 @@
     },
     {
       "name": "Shine Dishwashing Liquid Lemon 1L",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Shine%20Dishwashing%20Liquid%20Lemon%201L",
@@ -3915,7 +3915,7 @@
     },
     {
       "name": "La Gina Passata With Basil 680G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=La%20Gina%20Passata%20with%20Basil%20680g",
@@ -3953,7 +3953,7 @@
     },
     {
       "name": "Omo Wonder Wash Odour Refresh 1.18L",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#OMO%20Wonder%20Wash%20Odour%20Refresh%201.18L",
@@ -3991,7 +3991,7 @@
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Diced%20Tomatoes%20Onion%20Grlc%20Basil%20400g",
@@ -4113,7 +4113,7 @@
     },
     {
       "name": "Potato Lower Carb 1.5Kg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Lower%20Carb%201.5kg",
@@ -4151,7 +4151,7 @@
     },
     {
       "name": "Tomato Cherry Red 250G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Tomato%20Cherry%20Red%20250g%20P/P",
@@ -4194,7 +4194,7 @@
     },
     {
       "name": "Woolworths Paper Bag",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Paper%20Bag",
@@ -4240,7 +4240,7 @@
     },
     {
       "name": "Ww Lean Beef Mince 500G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%20500g",
@@ -4282,7 +4282,7 @@
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
@@ -4320,7 +4320,7 @@
     },
     {
       "name": "La Casa Fresh Mozzarella 125G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 2.77,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=La%20Casa%20Fresh%20Mozzarella%20125g",
@@ -4408,7 +4408,7 @@
     },
     {
       "name": "Ww Australian Butter Unsalted 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Australian%20Butter%20Unsalted%20250g",
@@ -4450,7 +4450,7 @@
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Perfect%20Italiano%20Shaved%20Parmesan%20125g",
@@ -4488,7 +4488,7 @@
     },
     {
       "name": "Ww Country Style Roast Chicken 1Ea",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Country%20Style%20Roast%20Chicken%201EA",
@@ -4528,7 +4528,7 @@
     },
     {
       "name": "Pepsi Max Cola Drink 1.25L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 2.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Pepsi%20Max%20Cola%20Drink%201.25L",
@@ -4569,7 +4569,7 @@
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 1.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Coca%20Cola%20Drink%20Classic%201.25L",
@@ -4610,7 +4610,7 @@
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Pepsi%20Max%20Cola%20Mango%201.25L",
@@ -4685,7 +4685,7 @@
     },
     {
       "name": "F/F Body Wash Cucumber & Kakadu Plum 1L",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#F/F%20Body%20Wash%20Cucumber%20&%20Kakadu%20Plum%201L",
@@ -4721,7 +4721,7 @@
     },
     {
       "name": "Cadbury Strawberry Eggs 118G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Cadbury%20Strawberry%20Eggs%20118g",
@@ -4755,7 +4755,7 @@
     },
     {
       "name": "Cadbury Turkish Delight Eggs 117G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Cadbury%20Turkish%20Delight%20Eggs%20117g",
@@ -4789,7 +4789,7 @@
     },
     {
       "name": "Kettle Chips Sea Salt & Vinegar 165G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Kettle%20Chips%20Sea%20Salt%20&%20Vinegar%20165g",
@@ -4827,7 +4827,7 @@
     },
     {
       "name": "Ww Natural Greek Style Yoghurt 2Kg",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 7.94,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Natural%20Greek%20Style%20Yoghurt%202kg",
@@ -4874,7 +4874,7 @@
     },
     {
       "name": "D'Orsogna Champagne Leg Ham Shaved",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 5.81,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=D'Orsogna%20Champagne%20Leg%20Ham%20Shaved",
@@ -4912,7 +4912,7 @@
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 2.18,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dorsogna%20Leg%20Hm%20Trplsmkd%2097%%20F/f%20Shvd%20Kg",
@@ -4950,7 +4950,7 @@
     },
     {
       "name": "Ww Winter Veg Mix 1Kg",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Winter%20Veg%20Mix%201kg",
@@ -4987,7 +4987,7 @@
     },
     {
       "name": "Ww Beef Family Sharing Roast",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 17.18,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Beef%20Family%20Sharing%20Roast",
@@ -5025,7 +5025,7 @@
     },
     {
       "name": "Essentials Butter Unsalted 500G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Essentials%20Butter%20Unsalted%20500g",
@@ -5061,7 +5061,7 @@
     },
     {
       "name": "Western Star Spreadable Supersoft 500G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 6.3,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Western%20Star%20Spreadable%20Supersoft%20500g",
@@ -5103,7 +5103,7 @@
     },
     {
       "name": "Ww Light Thickened Cream 600Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Light%20Thickened%20Cream%20600ml",
@@ -5150,7 +5150,7 @@
     },
     {
       "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20BBQ%20Bflied%20Chicken%20Greek%20Lemn%20Herb%20RW",
@@ -5188,7 +5188,7 @@
     },
     {
       "name": "Potato Brushed 2Kg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Brushed%202Kg",
@@ -5230,7 +5230,7 @@
     },
     {
       "name": "Bega Peanut Butter Crunchy 755G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bega%20Peanut%20Butter%20Crunchy%20755g",
@@ -5268,7 +5268,7 @@
     },
     {
       "name": "Carrot 1Kg P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Carrot%201kg%20P/P",
@@ -5309,7 +5309,7 @@
     },
     {
       "name": "Beanette 400G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Beanette%20400g%20P/P",
@@ -5359,7 +5359,7 @@
     },
     {
       "name": "Multigrain Loaf 680G",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 2.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Multigrain%20Loaf%20680g",
@@ -5401,7 +5401,7 @@
     },
     {
       "name": "Ww Pikelets 200G 8Pk",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Pikelets%20200g%208Pk",
@@ -5439,7 +5439,7 @@
     },
     {
       "name": "F/C Babyspinach 120G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=F/C%20BabySpinach%20120g",
@@ -5493,7 +5493,7 @@
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#6023464%20Lenovo%20TbOne%208.7",
@@ -5527,7 +5527,7 @@
     },
     {
       "name": "Coca Cola Pet 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Coca%20Cola%20Pet%20600ML",
@@ -5564,7 +5564,7 @@
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Beef%20Scotch%20Fillet%20Steak%20Medium",
@@ -5602,7 +5602,7 @@
     },
     {
       "name": "Fab Pi Sublime Velvet 1.8Kg",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Fab%20PI%20Sublime%20Velvet%201.8Kg",
@@ -5640,7 +5640,7 @@
     },
     {
       "name": "Whiskas Kitten 2-12M Mixed Favs 12X85G",
-      "type": "pantry",
+      "type": "pet",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Whiskas%20Kitten%202-12m%20Mixed%20Favs%2012x85g",
@@ -5680,7 +5680,7 @@
     },
     {
       "name": "Omo Wonder Wash Lqudspeed Clean 1.18L",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#OMO%20Wonder%20Wash%20LqudSpeed%20Clean%201.18L",
@@ -5718,7 +5718,7 @@
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 4.4,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Temptations%20Tantal%20Turkey%20Cat%20Treats%2085g",
@@ -5756,7 +5756,7 @@
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 5.6,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Whiskas%20Kitten%20Food%20Chicken%20&%20Tuna%20800g",
@@ -5802,7 +5802,7 @@
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 1.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Pepsi%20Max%20Soft%20Drink%20Vanilla%201.25L",
@@ -5843,7 +5843,7 @@
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nu%20Pure%20Lemon%20Lime%20SpklingWater12x500ml",
@@ -5878,7 +5878,7 @@
     },
     {
       "name": "Quilton Toilet Tissue King Size 6Pk",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quilton%20Toilet%20Tissue%20King%20Size%206pk",
@@ -5920,7 +5920,7 @@
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#RRD%20Potato%20Chips%20Honey%20Soy%20Chicken%20165g",
@@ -5958,7 +5958,7 @@
     },
     {
       "name": "Mn Protein Cups Chocpeanut Butter 50G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#MN%20Protein%20Cups%20ChocPeanut%20Butter%2050g",
@@ -5996,7 +5996,7 @@
     },
     {
       "name": "Cheer Cheese Block Tasty 200G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cheer%20Cheese%20Block%20Tasty%20200g",
@@ -6034,7 +6034,7 @@
     },
     {
       "name": "Libra Tampons Super 16Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 3.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Libra%20Tampons%20Super%2016pk",
@@ -6114,7 +6114,7 @@
     },
     {
       "name": "Bega Peanut Butter Crunchy 470G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bega%20Peanut%20Butter%20Crunchy%20470g",
@@ -6152,7 +6152,7 @@
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 2.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Shapes%20L&C%20Cheddar%20Cheese%20120g",
@@ -6228,7 +6228,7 @@
     },
     {
       "name": "G Active Flav Water Berry 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=G%20Active%20Flav%20Water%20Berry%20600Ml",
@@ -6263,7 +6263,7 @@
     },
     {
       "name": "Gem Deodorant Vanilla 127G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Gem%20Deodorant%20Vanilla%20127g",
@@ -6301,7 +6301,7 @@
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=McCain%20Peas%20&%20Super%20Juicy%20Corn%20500g",
@@ -6339,7 +6339,7 @@
     },
     {
       "name": "Potato Spudlite Baby750G Pp",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Spudlite%20Baby750g%20PP",
@@ -6393,7 +6393,7 @@
     },
     {
       "name": "Old Gold Dark Chocolate 70% 180G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Old%20Gold%20Dark%20Chocolate%2070%%20180g",
@@ -6431,7 +6431,7 @@
     },
     {
       "name": "Ww Chicken Breast Fillets Small Rspca",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 8.28,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Small%20RSPCA",
@@ -6481,7 +6481,7 @@
     },
     {
       "name": "Ww Thickened Cream 600Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.05,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Thickened%20Cream%20600ml",
@@ -6528,7 +6528,7 @@
     },
     {
       "name": "Omg Choc Protein Oat Milk 350Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=OMG%20Choc%20Protein%20Oat%20Milk%20350mL",
@@ -6563,7 +6563,7 @@
     },
     {
       "name": "Ww Liquid Stock Chicken Style 1L",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Liquid%20Stock%20Chicken%20Style%201L",
@@ -6601,7 +6601,7 @@
     },
     {
       "name": "Woolworths Corned Beef Shaved Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 5.49,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Corned%20Beef%20Shaved%20kg",
@@ -6639,7 +6639,7 @@
     },
     {
       "name": "Don Melosi Ham Shaved Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 5.76,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Don%20Melosi%20Ham%20Shaved%20Kg",
@@ -6681,7 +6681,7 @@
     },
     {
       "name": "Rokeby Protein Smoothie Dbl Esprs 425Ml",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Rokeby%20Protein%20Smoothie%20Dbl%20Esprs%20425mL",
@@ -6716,7 +6716,7 @@
     },
     {
       "name": "Colgate Total Tpaste Pr Frag Mint 95G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 5.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Colgate%20Total%20Tpaste%20PR%20Frag%20Mint%2095g",
@@ -6754,7 +6754,7 @@
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20All%20Butter%20Croissant%20189g%203Pk",
@@ -6792,7 +6792,7 @@
     },
     {
       "name": "Twisted Protein Pint Btr Crml Ckie 475Ml",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Twisted%20Protein%20Pint%20Btr%20Crml%20Ckie%20475ml",
@@ -6827,7 +6827,7 @@
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 23.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Fairy%20Plat%20Plus%20Lemon%20Dish%20Tabs%2042Pk",
@@ -6865,7 +6865,7 @@
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mission%20Soft%20&%20Fluffy%20Wrap%2012%20pk",
@@ -6941,7 +6941,7 @@
     },
     {
       "name": "Ww Australian Diced Tomatoes 400G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Australian%20Diced%20Tomatoes%20400g",
@@ -6979,7 +6979,7 @@
     },
     {
       "name": "Nescafe Coffee Conc Mocha 500Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nescafe%20Coffee%20Conc%20Mocha%20500ml",
@@ -7018,7 +7018,7 @@
     },
     {
       "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 5.47,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nescafe%20Esp%20Conc%20Sweet%20Vanilla%20500ml",
@@ -7065,7 +7065,7 @@
     },
     {
       "name": "G Active Flav Water Grape 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#G%20Active%20Flav%20Water%20Grape%20600ml",
@@ -7142,7 +7142,7 @@
     },
     {
       "name": "Colgate Toothpaste Harry Potter 100G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 6.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Colgate%20Toothpaste%20Harry%20Potter%20100g",
@@ -7180,7 +7180,7 @@
     },
     {
       "name": "Colgate Tpaste Optic Wht Proser Frsh 80G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 11.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Colgate%20Tpaste%20Optic%20Wht%20ProSer%20Frsh%2080g",
@@ -7218,7 +7218,7 @@
     },
     {
       "name": "Lindt Excellence 95% Cocoa Block 80G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 5.99,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Lindt%20Excellence%2095%%20Cocoa%20Block%2080g",
@@ -7268,7 +7268,7 @@
     },
     {
       "name": "Lindt Excellence 85% Cocoa 100G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 6.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Lindt%20Excellence%2085%%20Cocoa%20100g",
@@ -7306,7 +7306,7 @@
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Buderim%20Ginger%20Cordial%20No%20Sgr%20LLB%20750ml",
@@ -7379,7 +7379,7 @@
     },
     {
       "name": "Waterfords Sparkling Water Og Passion 1L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20Sparkling%20Water%20OG%20Passion%201L",
@@ -7417,7 +7417,7 @@
     },
     {
       "name": "Waterfords Sparkling Water Apple Berry1L",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20Sparkling%20Water%20Apple%20Berry1L",
@@ -7455,7 +7455,7 @@
     },
     {
       "name": "Rexona Men Advanced Sport Ap 220Ml",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Rexona%20Men%20Advanced%20Sport%20AP%20220ml",
@@ -7490,7 +7490,7 @@
     },
     {
       "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Rexona%20Men%20AP%20Adv%20Coconut%20Clns%20220ml",
@@ -7525,7 +7525,7 @@
     },
     {
       "name": "Ww Juice Lemon 500Ml",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Juice%20Lemon%20500ml",
@@ -7564,7 +7564,7 @@
     },
     {
       "name": "Sweet Corn 500G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Sweet%20Corn%20500g%20P/P",
@@ -7602,7 +7602,7 @@
     },
     {
       "name": "Carrot Baby 500G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Carrot%20Baby%20500g",
@@ -7644,7 +7644,7 @@
     },
     {
       "name": "Pak Choy Baby",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.87,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pak%20Choy%20Baby",
@@ -7690,7 +7690,7 @@
     },
     {
       "name": "Ww Cheese Block Tasty 500G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cheese%20Block%20Tasty%20500g",
@@ -7740,7 +7740,7 @@
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
@@ -7778,7 +7778,7 @@
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 14.51,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
@@ -7838,7 +7838,7 @@
     },
     {
       "name": "Impressed Tropical Juice 425Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 2.65,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Impressed%20Tropical%20Juice%20425ml",
@@ -7880,7 +7880,7 @@
     },
     {
       "name": "Hydralyte Efferv Tab Strawb Kiwi 10Pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 6.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Hydralyte%20Efferv%20Tab%20Strawb%20Kiwi%2010pk",
@@ -7918,7 +7918,7 @@
     },
     {
       "name": "M&Ms Minis 145G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 3.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#M&Ms%20Minis%20145g",
@@ -7956,7 +7956,7 @@
     },
     {
       "name": "Golden Pikelets 8Pk 200G",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Golden%20Pikelets%208pk%20200g",
@@ -7994,7 +7994,7 @@
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 5.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Multix%20Garbage%20Bag%20Extra%20Wide%2056L50Pk",
@@ -8070,7 +8070,7 @@
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.08,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Diced%20Italian%20Tomatoes%20400g",
@@ -8116,7 +8116,7 @@
     },
     {
       "name": "Woolworths Almond Milk Unsweetened 1L",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Almond%20Milk%20Unsweetened%201L",
@@ -8154,7 +8154,7 @@
     },
     {
       "name": "Hygiene Plus Gloves Powder Free 24Pk",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Hygiene%20Plus%20Gloves%20Powder%20Free%2024pk",
@@ -8194,7 +8194,7 @@
     },
     {
       "name": "Lynx Ff Body Spray Cherry Spritz 150Ml",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Lynx%20FF%20body%20spray%20cherry%20spritz%20150ml",
@@ -8229,7 +8229,7 @@
     },
     {
       "name": "Greens Gravy Granles Roast Meat 120G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 3.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Greens%20Gravy%20Granles%20Roast%20Meat%20120g",
@@ -8271,7 +8271,7 @@
     },
     {
       "name": "Mission Carb Balancespinach 288G Pk 6",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mission%20Carb%20BalanceSpinach%20288g%20Pk%206",
@@ -8313,7 +8313,7 @@
     },
     {
       "name": "Mutti Tomato Paste Dbl Conc 130G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.65,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mutti%20Tomato%20Paste%20Dbl%20Conc%20130g",
@@ -8351,7 +8351,7 @@
     },
     {
       "name": "Quest Chocolate Chip Cookie Dough Bar60G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 3.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Quest%20Chocolate%20Chip%20Cookie%20Dough%20Bar60g",
@@ -8389,7 +8389,7 @@
     },
     {
       "name": "Mayvers Dark Roastedextracrunchy Pb 375G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 5.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mayvers%20Dark%20RoastedExtraCrunchy%20PB%20375g",
@@ -8427,7 +8427,7 @@
     },
     {
       "name": "Native Bouquet",
-      "type": "pantry",
+      "type": "other",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Native%20Bouquet",
@@ -8465,7 +8465,7 @@
     },
     {
       "name": "Pepsi Max Drink Pet 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Drink%20Pet%20600ml",
@@ -8502,7 +8502,7 @@
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 9.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nurofen%20Zavance%20Liquid%20Caps%2020pk",
@@ -8540,7 +8540,7 @@
     },
     {
       "name": "Woolworths Chiller Bag",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Chiller%20Bag",
@@ -8578,7 +8578,7 @@
     },
     {
       "name": "Beef Bolar Blade Roast",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 25.72,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Beef%20Bolar%20Blade%20Roast",
@@ -8620,7 +8620,7 @@
     },
     {
       "name": "Ww Beef Corned Silverside Small Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 18.66,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Beef%20Corned%20Silverside%20Small%20Kg",
@@ -8658,7 +8658,7 @@
     },
     {
       "name": "Mount Franklin Wtr Spring Natrl 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mount%20Franklin%20Wtr%20Spring%20Natrl%20600ML",
@@ -8693,7 +8693,7 @@
     },
     {
       "name": "Coca Cola Zero Sugarpet 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Coca%20Cola%20Zero%20SugarPet%20600ml",
@@ -8733,7 +8733,7 @@
     },
     {
       "name": "Corn Cobbettes 425G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Corn%20Cobbettes%20425g%20P/P",
@@ -8771,7 +8771,7 @@
     },
     {
       "name": "Dine Farm Coll Cat Salmon Swt Pot 85G",
-      "type": "pantry",
+      "type": "pet",
       "price_mode": "each",
       "target": 1.72,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Farm%20Coll%20Cat%20Salmon%20Swt%20Pot%2085g",
@@ -8817,7 +8817,7 @@
     },
     {
       "name": "Click And Stay Bag",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Click%20and%20Stay%20Bag",
@@ -8855,7 +8855,7 @@
     },
     {
       "name": "Mission Carb Balanceorig Wraps 288G 6 Pk",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mission%20Carb%20BalanceOrig%20Wraps%20288g%206%20Pk",
@@ -8934,7 +8934,7 @@
     },
     {
       "name": "Thk Roasted Seaweed Lightly Salted 8X4G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 4.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#THK%20Roasted%20Seaweed%20Lightly%20Salted%208x4g",
@@ -8972,7 +8972,7 @@
     },
     {
       "name": "Woolworths Onion Powder 38G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Onion%20Powder%2038g",
@@ -9010,7 +9010,7 @@
     },
     {
       "name": "Ww Pineapple Slices In Juice 425G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Pineapple%20Slices%20in%20Juice%20425g",
@@ -9048,7 +9048,7 @@
     },
     {
       "name": "Dine Cat Food Lamb Cuts In Gravy 85G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Dine%20Cat%20Food%20Lamb%20Cuts%20In%20Gravy%2085g",
@@ -9086,7 +9086,7 @@
     },
     {
       "name": "Dine Cat Saucy Morsels Salmon 85G",
-      "type": "pantry",
+      "type": "pet",
       "price_mode": "each",
       "target": 0.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Dine%20Cat%20Saucy%20Morsels%20Salmon%2085g",
@@ -9124,7 +9124,7 @@
     },
     {
       "name": "Dine Cat Kitten 2-12M Tender Chicken 85G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Dine%20Cat%20Kitten%202-12m%20Tender%20Chicken%2085g",
@@ -9200,7 +9200,7 @@
     },
     {
       "name": "Ww 35Hr Srdgh Loaf White 1Ea",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 5.93,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%2035hr%20Srdgh%20Loaf%20White%201EA",
@@ -9246,7 +9246,7 @@
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 3.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Dine%20Creamy%20Treats%20Sfd%20Select%204x12g",
@@ -9284,7 +9284,7 @@
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 5.18,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Quilton%20Classic%203Ply%20T/Tissue%208pk",
@@ -9322,7 +9322,7 @@
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Infuzions%20Air%20Fries%20Aioli%2075g",
@@ -9360,7 +9360,7 @@
     },
     {
       "name": "Beef Scotch Fillet Steak 170G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Beef%20Scotch%20Fillet%20Steak%20170g",
@@ -9402,7 +9402,7 @@
     },
     {
       "name": "Western Star Unsalted Butter 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Western%20Star%20Unsalted%20Butter%20250g",
@@ -9440,7 +9440,7 @@
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pauls%20PLUS+%20Protein%20F/Milk%20Choc%20400ml",
@@ -9475,7 +9475,7 @@
     },
     {
       "name": "Asparagus Green Bnch",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Asparagus%20Green%20Bnch",
@@ -9551,7 +9551,7 @@
     },
     {
       "name": "Dorsogna Tasty Sticks Mild Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 6.1,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dorsogna%20Tasty%20Sticks%20Mild%20Kg",
@@ -9589,7 +9589,7 @@
     },
     {
       "name": "Mushroom Cups Sliced 500G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 5.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mushroom%20Cups%20Sliced%20500g",
@@ -9627,7 +9627,7 @@
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Farm%20Coll%20Chicken%20Cat%20Food%2085g",
@@ -9669,7 +9669,7 @@
     },
     {
       "name": "La Gina Passata Italian Tomato 680G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.94,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=La%20Gina%20Passata%20Italian%20Tomato%20680g",
@@ -9829,7 +9829,7 @@
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Tomato%20Roma%20Mini%20250g%20P/P",
@@ -9867,7 +9867,7 @@
     },
     {
       "name": "Sunbites Grain Waves Sweet Chilli 170G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Sunbites%20Grain%20Waves%20Sweet%20Chilli%20170g",
@@ -9943,7 +9943,7 @@
     },
     {
       "name": "Musashi High Protin Sltd Crml Bar 90G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Musashi%20High%20Protin%20Sltd%20Crml%20Bar%2090g",
@@ -9981,7 +9981,7 @@
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 3.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cocobella%20Coconut%20Wtr%20W/Mln%20and%20Mnt%201L",
@@ -10019,7 +10019,7 @@
     },
     {
       "name": "Mainland Organic Salted Sprd Butter 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
@@ -10055,7 +10055,7 @@
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Cat%20Food%20Tuna%20Mornay%20&%20Cheese%2085g",
@@ -10093,7 +10093,7 @@
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 3.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Creamy%20Treats%20Tuna%20&%20Prawn%204x12g",
@@ -10131,7 +10131,7 @@
     },
     {
       "name": "Ww Lean Pork Mince 500G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Pork%20Mince%20500g",
@@ -10169,7 +10169,7 @@
     },
     {
       "name": "Avocado Hass",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.84,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Avocado%20Hass",
@@ -10227,7 +10227,7 @@
     },
     {
       "name": "Ww Cream Cheese Light Spread 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cream%20Cheese%20Light%20Spread%20250g",
@@ -10265,7 +10265,7 @@
     },
     {
       "name": "F/C Slaw Classic Coleslaw 500G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=F/C%20Slaw%20Classic%20Coleslaw%20500g",
@@ -10303,7 +10303,7 @@
     },
     {
       "name": "Ww Free Range Lge Eggs 18Pk 900G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 8.4,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Free%20Range%20Lge%20Eggs%2018pk%20900g",
@@ -10341,7 +10341,7 @@
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Spud%20Lite%201.5%20kg%20PP",
@@ -10380,7 +10380,7 @@
     },
     {
       "name": "Cabbage Green Half",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cabbage%20Green%20Half",
@@ -10418,7 +10418,7 @@
     },
     {
       "name": "Hans Middle Bacon Rashers Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 14.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Hans%20Middle%20Bacon%20Rashers%20Kg",
@@ -10456,7 +10456,7 @@
     },
     {
       "name": "Woolworths Turkish Rolls 400G Pk 4",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Turkish%20Rolls%20400g%20Pk%204",
@@ -10494,7 +10494,7 @@
     },
     {
       "name": "Old Gold Dark Choc Original 180G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Old%20Gold%20Dark%20Choc%20Original%20180g",
@@ -10566,7 +10566,7 @@
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Simply%20Potato%20Chips%20Salt%20&%20Pepper%20120g",
@@ -10604,7 +10604,7 @@
     },
     {
       "name": "Macro Org Natural Corn Chips 200G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Macro%20Org%20Natural%20Corn%20Chips%20200g",
@@ -10642,7 +10642,7 @@
     },
     {
       "name": "Duck Action Burst Tropical Vibes 500Ml",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Duck%20Action%20Burst%20Tropical%20Vibes%20500ml",
@@ -10680,7 +10680,7 @@
     },
     {
       "name": "Bref Brilliant Gel Spring Rain 42G",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Bref%20Brilliant%20Gel%20Spring%20Rain%2042g",
@@ -10718,7 +10718,7 @@
     },
     {
       "name": "Gumption Cleaner Cream 500G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Gumption%20Cleaner%20Cream%20500g",
@@ -10756,7 +10756,7 @@
     },
     {
       "name": "Ww Cage Free Eggs Large 18Pk 900G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cage%20Free%20Eggs%20Large%2018pk%20900g",
@@ -10794,7 +10794,7 @@
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Mccain%20Pizza%20Slice%20Meatlovers%20600g",
@@ -10832,7 +10832,7 @@
     },
     {
       "name": "Df Thick & Creamy Classic Vanilla 4X110G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Classic%20Vanilla%204x110g",
@@ -10882,7 +10882,7 @@
     },
     {
       "name": "White Label Extra Tasty Cheese Block 1Kg",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 9.3,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=White%20Label%20Extra%20Tasty%20Cheese%20Block%201kg",
@@ -10922,7 +10922,7 @@
     },
     {
       "name": "Strikepro Multi Apple Cedarwood750Ml",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.91,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=StrikePRO%20Multi%20Apple%20Cedarwood750ml",
@@ -10960,7 +10960,7 @@
     },
     {
       "name": "Powerade Flo Cap Zero M/Blast 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Powerade%20Flo%20Cap%20Zero%20M/Blast%20600ml",
@@ -10995,7 +10995,7 @@
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Powerade%20Flo%20Cap%20Zero%20Berry%20Ice%20600ml",
@@ -11068,7 +11068,7 @@
     },
     {
       "name": "Aeroplane Jelly Lite Strawbery 2X9G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Aeroplane%20Jelly%20Lite%20Strawbery%202x9g",
@@ -11106,7 +11106,7 @@
     },
     {
       "name": "Mushroom Cups 500G P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 5.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mushroom%20Cups%20500g%20P/P",
@@ -11148,7 +11148,7 @@
     },
     {
       "name": "Pepsi Max Cans 375Ml 30Pk",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 25.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Cans%20375ml%2030Pk",
@@ -11230,7 +11230,7 @@
     },
     {
       "name": "Vitasoy Almond Milk Unsweetened 1L",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 2.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Vitasoy%20Almond%20Milk%20Unsweetened%201L",
@@ -11272,7 +11272,7 @@
     },
     {
       "name": "Chicken Breast Fillets Rspca Apprvd",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 4.15,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Chicken%20Breast%20Fillets%20RSPCA%20Apprvd",
@@ -11310,7 +11310,7 @@
     },
     {
       "name": "Chicken Necks Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0.98,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Chicken%20Necks%20Kg",
@@ -11386,7 +11386,7 @@
     },
     {
       "name": "Voost Efferv Multivitamin Orange 20Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 5.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Voost%20Efferv%20Multivitamin%20Orange%2020pk",
@@ -11424,7 +11424,7 @@
     },
     {
       "name": "Pump Water Pure 750Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pump%20Water%20Pure%20750ml",
@@ -11459,7 +11459,7 @@
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=F/C%20Salad%20Baby%20Spinach%20280G",
@@ -11497,7 +11497,7 @@
     },
     {
       "name": "Potato Mash 1.5Kg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 5.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Mash%201.5kg",
@@ -11535,7 +11535,7 @@
     },
     {
       "name": "Oatly Oat Drink Barista Edition 1L",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.4,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Oatly%20Oat%20Drink%20Barista%20Edition%201L",
@@ -11649,7 +11649,7 @@
     },
     {
       "name": "Bega Peanut Butter Crunchy 375G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bega%20Peanut%20Butter%20Crunchy%20375g",
@@ -11725,7 +11725,7 @@
     },
     {
       "name": "Ww Ess Coconut Cream 400Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20ESS%20Coconut%20Cream%20400ml",
@@ -11759,7 +11759,7 @@
     },
     {
       "name": "Colgate Total Toothpaste Original 115G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Colgate%20Total%20Toothpaste%20Original%20115g",
@@ -11797,7 +11797,7 @@
     },
     {
       "name": "Continental Classics Chicken Rice 120G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Continental%20Classics%20Chicken%20Rice%20120g",
@@ -11835,7 +11835,7 @@
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 2.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Armada%20Baking%20Paper%2015m%20x%2030cm",
@@ -11873,7 +11873,7 @@
     },
     {
       "name": "Campbells Real Stock Chicken Slt/Rd 1L",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 2.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Campbells%20Real%20Stock%20Chicken%20Slt/rd%201l",
@@ -11911,7 +11911,7 @@
     },
     {
       "name": "La Molisana Egg Fettuccine 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=La%20Molisana%20Egg%20Fettuccine%20250g",
@@ -11949,7 +11949,7 @@
     },
     {
       "name": "Breaka Milk Chocolate 300Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Breaka%20Milk%20Chocolate%20300mL",
@@ -11983,7 +11983,7 @@
     },
     {
       "name": "Dorsogna Streaky Bacon 500G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 14.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dorsogna%20Streaky%20Bacon%20500G",
@@ -12021,7 +12021,7 @@
     },
     {
       "name": "Nurofen Tablets 200Mg 12Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nurofen%20Tablets%20200mg%2012pk",
@@ -12097,7 +12097,7 @@
     },
     {
       "name": "Ww Chocolate Mud Cake 1Ea",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 6.6,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chocolate%20Mud%20Cake%201EA",
@@ -12135,7 +12135,7 @@
     },
     {
       "name": "Western Star Spread Supersoft 375G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 4.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Western%20Star%20Spread%20Supersoft%20375g",
@@ -12173,7 +12173,7 @@
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 16.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DOrsogna%20Streaky%20Bacon%20750g",
@@ -12215,7 +12215,7 @@
     },
     {
       "name": "Woolworths Tasty Cheese Slices 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Tasty%20Cheese%20Slices%20250g",
@@ -12253,7 +12253,7 @@
     },
     {
       "name": "Lettuce Iceberg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lettuce%20Iceberg",
@@ -12291,7 +12291,7 @@
     },
     {
       "name": "Waterfords L/F Blackcurrant 1L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20L/F%20Blackcurrant%201L",
@@ -12364,7 +12364,7 @@
     },
     {
       "name": "Waterfords L/F Orangepassion 1L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20L/F%20OrangePassion%201L",
@@ -12402,7 +12402,7 @@
     },
     {
       "name": "Arnott'S Cruskits Original 125G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Arnott's%20Cruskits%20Original%20125g",
@@ -12440,7 +12440,7 @@
     },
     {
       "name": "Balnea Mens Multi Action Body Wash 1L",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 7.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Balnea%20Mens%20Multi%20Action%20Body%20Wash%201L",
@@ -12478,7 +12478,7 @@
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 8.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Voost%20Hydrate%20Raspberry%20Sugar%20Free%2020pk",
@@ -12516,7 +12516,7 @@
     },
     {
       "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Strike%20Pro%20Disinfectnt%20Wipes%20Apple%20100pk",
@@ -12554,7 +12554,7 @@
     },
     {
       "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Noshu%20Low%20Carb%20Pnut%20&%20Crml%20Bar%20160g%205Pk",
@@ -12592,7 +12592,7 @@
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bega%20Tasty%20Cheese%20Block%20750g",
@@ -12630,7 +12630,7 @@
     },
     {
       "name": "Ww Natural Greek Style Yoghurt 1Kg",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Natural%20Greek%20Style%20Yoghurt%201kg",
@@ -12667,7 +12667,7 @@
     },
     {
       "name": "Birds Eye Veg Rice Crt Cauli Broc 500G",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Birds%20Eye%20Veg%20Rice%20Crt%20Cauli%20Broc%20500g",
@@ -12705,7 +12705,7 @@
     },
     {
       "name": "Finish Ultimate Lemon Dish Tabs 62Pk",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Finish%20Ultimate%20Lemon%20Dish%20Tabs%2062Pk",
@@ -12778,7 +12778,7 @@
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%2035hr%20Sourdough%20Loaf%20Seeded%201EA",
@@ -12926,7 +12926,7 @@
     },
     {
       "name": "Fab Laundry Powder Fresh Blossoms 2Kg",
-      "type": "pantry",
+      "type": "household",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Fab%20Laundry%20Powder%20Fresh%20Blossoms%202kg",
@@ -12964,7 +12964,7 @@
     },
     {
       "name": "Bc Wht Choc Slt Crml Protein Bar 40G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.4,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=BC%20Wht%20Choc%20Slt%20Crml%20Protein%20Bar%2040g",
@@ -13002,7 +13002,7 @@
     },
     {
       "name": "Bsc High Pro Low Cb Bar Cookies&Crm 92G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=BSC%20High%20Pro%20Low%20Cb%20Bar%20Cookies&Crm%2092g",
@@ -13040,7 +13040,7 @@
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=BSc%20VC%20Soft%20Protein%20Bar%20Carml%20H/comb%2055g",
@@ -13078,7 +13078,7 @@
     },
     {
       "name": "Bsc Chupachups Proteinbarchocvan 55",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=BSC%20ChupaChups%20ProteinBarChocVan%2055",
@@ -13116,7 +13116,7 @@
     },
     {
       "name": "Primo Salami Sticks Mild Pepp 90G 5Pk",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Primo%20Salami%20Sticks%20Mild%20Pepp%2090g%205Pk",
@@ -13154,7 +13154,7 @@
     },
     {
       "name": "Libra Tampons Super 32Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 7.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Libra%20Tampons%20Super%2032pk",
@@ -13192,7 +13192,7 @@
     },
     {
       "name": "Carefree Liners B/There Gstrng24Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Carefree%20Liners%20B/There%20Gstrng24pk",
@@ -13232,7 +13232,7 @@
     },
     {
       "name": "Lurpak Butter Lighter Slightly Sltd 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lurpak%20Butter%20Lighter%20Slightly%20Sltd%20250g",
@@ -13270,7 +13270,7 @@
     },
     {
       "name": "Ww Coleslaw 110G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Coleslaw%20110g",
@@ -13308,7 +13308,7 @@
     },
     {
       "name": "Bar Counter Dark Chocolate Almnd 160G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 13.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bar%20Counter%20Dark%20Chocolate%20Almnd%20160g",
@@ -13346,7 +13346,7 @@
     },
     {
       "name": "Chief Beef Brisket Traditional 40G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Chief%20Beef%20Brisket%20Traditional%2040g",
@@ -13422,7 +13422,7 @@
     },
     {
       "name": "Libra Tampons Regular 32Pk",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 7.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Libra%20Tampons%20Regular%2032pk",
@@ -13460,7 +13460,7 @@
     },
     {
       "name": "Ingham'S Chk Tenders Swt Chli 400G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Ingham's%20Chk%20Tenders%20Swt%20Chli%20400g",
@@ -13498,7 +13498,7 @@
     },
     {
       "name": "Connoisseur Minis Cookies&Cream 6Pk360Ml",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 7.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Connoisseur%20Minis%20Cookies&Cream%206pk360ml",
@@ -13536,7 +13536,7 @@
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Pork%20Loin%20Crackling%20Roast",
@@ -13572,7 +13572,7 @@
     },
     {
       "name": "Ww Texas Bbq B'Flied Boneless Chicken Rw",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 11.2,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Texas%20BBQ%20B'flied%20Boneless%20Chicken%20RW",
@@ -13610,7 +13610,7 @@
     },
     {
       "name": "Krc Kabana Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=KRC%20Kabana%20KG",
@@ -13644,7 +13644,7 @@
     },
     {
       "name": "Primo Diced Bacon Kg",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Primo%20Diced%20Bacon%20Kg",
@@ -13682,7 +13682,7 @@
     },
     {
       "name": "Don Salami Hungarian Plain 200G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Don%20Salami%20Hungarian%20Plain%20200g",
@@ -13720,7 +13720,7 @@
     },
     {
       "name": "Perfect Italiano Chsperfect Bakes 150G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Perfect%20Italiano%20ChsPerfect%20Bakes%20150g",
@@ -13762,7 +13762,7 @@
     },
     {
       "name": "Thomas Dux Camembert125G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Thomas%20Dux%20Camembert125g",
@@ -13800,7 +13800,7 @@
     },
     {
       "name": "Lettuce Oakleaf Combo",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lettuce%20Oakleaf%20Combo",
@@ -13838,7 +13838,7 @@
     },
     {
       "name": "Arnott'S Jatz Cracker Original 225G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Arnott's%20Jatz%20Cracker%20Original%20225g",
@@ -13876,7 +13876,7 @@
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 2.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Shapes%20Biscuits%20Chicken%20Crimpy%20175g",
@@ -13914,7 +13914,7 @@
     },
     {
       "name": "Potato Roasting 1.5Kg",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 5.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Potato%20Roasting%201.5kg",
@@ -13952,7 +13952,7 @@
     },
     {
       "name": "Onion Brown 2Kg P/P",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Onion%20Brown%202kg%20P/P",
@@ -13987,7 +13987,7 @@
     },
     {
       "name": "Bread Crusty Baguette",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bread%20Crusty%20Baguette",
@@ -14025,7 +14025,7 @@
     },
     {
       "name": "6009270 Lego Disney Classic",
-      "type": "pantry",
+      "type": "other",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#6009270%20LEGO%20Disney%20Classic",
@@ -14063,7 +14063,7 @@
     },
     {
       "name": "F/C Slaw Kaleslaw 350G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 3.96,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=F/C%20Slaw%20Kaleslaw%20350g",
@@ -14101,7 +14101,7 @@
     },
     {
       "name": "Birds Eye Australian Garden Mix 1Kg",
-      "type": "pantry",
+      "type": "frozen",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Birds%20Eye%20Australian%20Garden%20Mix%201kg",
@@ -14138,7 +14138,7 @@
     },
     {
       "name": "Kr Castlemaine Salami Hungarian Mld",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=KR%20Castlemaine%20Salami%20Hungarian%20Mld",
@@ -14172,7 +14172,7 @@
     },
     {
       "name": "Wicked Sister Protein Pud Chocolate 170G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.3,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Wicked%20Sister%20Protein%20Pud%20Chocolate%20170g",
@@ -14210,7 +14210,7 @@
     },
     {
       "name": "Pics Peanut Butter Crunchy 380G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 5.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pics%20Peanut%20Butter%20Crunchy%20380g",
@@ -14248,7 +14248,7 @@
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 1.3,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Condensed%20Tomato%20Soup%20420g",
@@ -14286,7 +14286,7 @@
     },
     {
       "name": "Crusty Tiger Vienna Loaf Bread",
-      "type": "pantry",
+      "type": "bakery",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Crusty%20Tiger%20Vienna%20Loaf%20Bread",
@@ -14324,7 +14324,7 @@
     },
     {
       "name": "Ww Beef Stir Fry Heart Smart 500G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Beef%20Stir%20Fry%20Heart%20Smart%20500g",
@@ -14362,7 +14362,7 @@
     },
     {
       "name": "Dorsogna Chorizo Twin Pack 250G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 6.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DOrsogna%20Chorizo%20Twin%20Pack%20250g",
@@ -14400,7 +14400,7 @@
     },
     {
       "name": "Riverland Ham 100G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Riverland%20Ham%20100g",
@@ -14438,7 +14438,7 @@
     },
     {
       "name": "Primo Silverside 80G",
-      "type": "pantry",
+      "type": "meat",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Primo%20Silverside%2080g",
@@ -14476,7 +14476,7 @@
     },
     {
       "name": "Ww Cheese Shredded Tasty 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cheese%20Shredded%20Tasty%20250g",
@@ -14514,7 +14514,7 @@
     },
     {
       "name": "Philadelphia Cream Cheese Lght Blck 250G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 2.85,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Philadelphia%20Cream%20Cheese%20Lght%20Blck%20250g",
@@ -14552,7 +14552,7 @@
     },
     {
       "name": "Sunny Queen Fms Cge Free Eggs 12Pk 700G",
-      "type": "pantry",
+      "type": "dairy",
       "price_mode": "each",
       "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Sunny%20Queen%20Fms%20Cge%20Free%20Eggs%2012pk%20700g",
@@ -14590,7 +14590,7 @@
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
-      "type": "pantry",
+      "type": "pet",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#NGift%20Dog%20Casserole%20Kang%20&%20Veg%201.2kg",
@@ -14663,7 +14663,7 @@
     },
     {
       "name": "Lucas Ointment Papaw 75G",
-      "type": "pantry",
+      "type": "personal_care",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lucas%20Ointment%20Papaw%2075g",
@@ -14701,7 +14701,7 @@
     },
     {
       "name": "Aeroplane Jelly Berry Blue 85G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 1.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Aeroplane%20Jelly%20Berry%20Blue%2085g",
@@ -14739,7 +14739,7 @@
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Aeroplane%20Jelly%20Lite%20Blueberry%202x9g",
@@ -14777,7 +14777,7 @@
     },
     {
       "name": "Mango Calypso",
-      "type": "pantry",
+      "type": "produce",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mango%20Calypso",
@@ -14811,7 +14811,7 @@
     },
     {
       "name": "Quest Bar White Choc Raspberry 60G",
-      "type": "pantry",
+      "type": "snacks",
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quest%20Bar%20White%20Choc%20Raspberry%2060g",
@@ -14849,7 +14849,7 @@
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
-      "type": "pantry",
+      "type": "pet",
       "price_mode": "each",
       "target": 9.09,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=#Pedigree%20Adult%207+%20Dog%20Food%20Turkey%203kg",
@@ -14887,7 +14887,7 @@
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "each",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Coca%20Cola%20Classic%2010x375ml",
@@ -14927,7 +14927,7 @@
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
-      "type": "pantry",
+      "type": "beverages",
       "price_mode": "litre",
       "target": 0,
       "compare_group": "cola",
