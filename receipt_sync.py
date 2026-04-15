@@ -26,16 +26,61 @@ def save_inventory(inv):
     with open(INV_FILE, "w") as f:
         json.dump(inv, f, indent=4)
 
-def normalize_name(name):
-    # simple standardizer for fuzzy matching
-    return name.lower().replace(" ", "").replace("-", "")
+# ── Fuzzy receipt-to-inventory matching ──────────────────────────────────────
+# Woolworths receipt names differ from inventory names in many ways:
+#   Receipt: "WW NATURAL GREEK YOGHURT 2KG"
+#   Inventory: "Ww Natural Greek Style Yoghurt 2Kg"
+# We use a token-overlap score (Jaccard + coverage) that's robust to this.
 
-def fuzzy_match(new_name, inventory):
-    norm_new = normalize_name(new_name)
+# Words that carry no useful signal for matching
+_STOP = {
+    'ww', 'woolworths', 'coles', 'pk', 'pack', 'ea', 'pp', 'fc',
+    'the', 'and', 'with', 'wth', 'rspca', 'ml', 'kg', 'gm', 'lt',
+    'g', 'l', 'x',
+}
+
+def _tokens(name):
+    """Extract meaningful tokens from a product name."""
+    raw = re.findall(r'[a-z0-9]+', name.lower())
+    return [t for t in raw if t not in _STOP and len(t) > 1]
+
+def _match_score(receipt_name, inv_name):
+    """
+    Returns (score 0-1, common_token_count).
+    score = average of Jaccard similarity and coverage-of-shorter-name.
+    Requires at least 2 tokens in common.
+    """
+    rt = set(_tokens(receipt_name))
+    it = set(_tokens(inv_name))
+    if not rt or not it:
+        return 0.0, 0
+    common = rt & it
+    n = len(common)
+    if n < 2:  # Hard minimum: must share at least 2 meaningful tokens
+        return 0.0, n
+    jaccard  = n / len(rt | it)
+    coverage = n / min(len(rt), len(it))
+    return (jaccard + coverage) / 2.0, n
+
+def find_best_inv_match(receipt_name, inventory, threshold=0.45):
+    """
+    Find the best-matching inventory item for a receipt product name.
+    Returns (item, score) or (None, 0) if no match above threshold.
+    Picks the highest-scoring item; on a tie, takes the one with more
+    price_history entries (most-tracked = most likely to be the right one).
+    """
+    best_score, best_n, best_item = 0.0, 0, None
     for item in inventory:
-        if normalize_name(item["name"]) in norm_new or norm_new in normalize_name(item["name"]):
-            return True
-    return False
+        score, n = _match_score(receipt_name, item['name'])
+        if score > best_score or (score == best_score and n > best_n):
+            best_score, best_n, best_item = score, n, item
+    if best_score >= threshold:
+        return best_item, best_score
+    return None, 0.0
+
+# Keep old normalize_name for any legacy callers
+def normalize_name(name):
+    return name.lower().replace(' ', '').replace('-', '')
 
 import datetime
 
@@ -308,35 +353,38 @@ def run_sync(all_receipts=True, months_back=6):
                 if price_f > 0 and len(item_name) > 3 and not item_name[0].isdigit():
                     items_found += 1
                     matched_existing = False
-                    norm_name = normalize_name(item_name)
+
+                    # ── Fuzzy match against inventory ─────────────────────────
+                    matched_item, score = find_best_inv_match(item_name, inventory)
+                    if matched_item:
+                        if 'price_history' not in matched_item:
+                            matched_item['price_history'] = []
+                        if not any(h.get('date') == receipt_date_str for h in matched_item['price_history']):
+                            matched_item['price_history'].append({'date': receipt_date_str, 'price': price_f})
+                            prices_updated += 1
+                        matched_item['stock'] = 'full'
+                        matched_item['last_purchased'] = receipt_date_str
+                        matched_existing = True
+                        match_type = 'exact' if score > 0.99 else f'fuzzy({score:.2f})'
+                        logging.debug(f"    {match_type}: '{item_name}' → '{matched_item['name']}' @ ${price_f}")
                     
-                    for item in inventory:
-                        if normalize_name(item["name"]) == norm_name:
-                            if "price_history" not in item: item["price_history"] = []
-                            if not any(h.get("date") == receipt_date_str for h in item["price_history"]):
-                                item["price_history"].append({"date": receipt_date_str, "price": price_f})
-                                prices_updated += 1
-                            
-                            # Auto-Stocking implementation
-                            item["stock"] = "full"
-                            item["last_purchased"] = receipt_date_str
-                            
-                            matched_existing = True
-                            break
-                    
-                    if not matched_existing and not fuzzy_match(item_name, inventory):
-                        search_term = item_name.replace(' ', '%20')
-                        new_entry = {
-                            "name": item_name.title(),
-                            "type": "pantry",
-                            "price_mode": "each",
-                            "target": price_f,
-                            "woolworths": f"https://www.woolworths.com.au/shop/search/products?searchTerm={search_term}", 
-                            "coles": "",
-                            "price_history": [{"date": receipt_date_str, "price": price_f}]
-                        }
-                        inventory.append(new_entry)
-                        new_items_added += 1
+                    if not matched_existing:
+                        # Only add as new item if nothing in inventory is even close
+                        _, guard_score = find_best_inv_match(item_name, inventory, threshold=0.35)
+                        if guard_score == 0.0:
+                            search_term = item_name.replace(' ', '%20')
+                            new_entry = {
+                                "name": item_name.title(),
+                                "type": "pantry",
+                                "price_mode": "each",
+                                "target": price_f,
+                                "woolworths": f"https://www.woolworths.com.au/shop/search/products?searchTerm={search_term}",
+                                "coles": "",
+                                "price_history": [{"date": receipt_date_str, "price": price_f}]
+                            }
+                            inventory.append(new_entry)
+                            new_items_added += 1
+
 
             logging.info(f"  Parsed {items_found} items from receipt #{index+1}")
 
