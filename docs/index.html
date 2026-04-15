@@ -18,7 +18,6 @@
                     <i data-feather="shopping-bag"></i>
                     <h1>WooliesBot</h1>
                 </div>
-                <p class="subtitle">Your automated grocery tracker</p>
                 <div class="live-status">
                     <div class="status-item">
                         <i data-feather="clock" class="icon-sm"></i> 
@@ -64,72 +63,69 @@
     <main class="container">
         <!-- Tab 1: Deals & Shopping -->
         <section id="tab-deals" class="tab-content active">
+
+            <!-- ── A: Compact Stats Strip (replaces bulky sidebar stat cards) ── -->
+            <div class="stats-strip">
+                <div class="strip-stat">
+                    <i data-feather="database" class="strip-icon"></i>
+                    <div class="strip-info">
+                        <span class="strip-label">Tracked</span>
+                        <span class="strip-value"><span id="total-items">0</span> items · <span id="total-specials">0</span> on special</span>
+                    </div>
+                </div>
+                <div class="strip-stat" id="specials-countdown">
+                    <i data-feather="clock" class="strip-icon"></i>
+                    <div class="strip-info">
+                        <span class="strip-label">Specials</span>
+                        <span class="strip-value" id="countdown-text">Calculating...</span>
+                    </div>
+                </div>
+                <div class="strip-stat">
+                    <i data-feather="pie-chart" class="strip-icon"></i>
+                    <div class="strip-info">
+                        <span class="strip-label">Budget</span>
+                        <span class="strip-value" id="budget-spent-text">$0 / $800</span>
+                        <div class="strip-progress-bg"><div id="budget-progress" class="strip-progress-fill" style="width:0%; background: var(--woolies-green);"></div></div>
+                    </div>
+                </div>
+                <div class="strip-stat">
+                    <i data-feather="trending-down" class="strip-icon"></i>
+                    <div class="strip-info">
+                        <span class="strip-label">Potential Savings</span>
+                        <span class="strip-value" id="cart-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="dashboard-grid">
-                <!-- Sidebar: Stats & Essentials -->
+                <!-- Sidebar: Top 5, Essentials, Cola Battle only -->
                 <aside class="stats-sidebar">
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: #818cf8;"><i data-feather="database"></i></div>
-                        <div class="stat-info">
-                            <span class="stat-label">Tracked Items</span>
-                            <span class="stat-value"><span id="total-items">0</span> / <span id="total-specials">0</span> <small style="font-size: 11px; opacity: 0.7;">Specials</small></span>
+                    <!-- F: Buy Now — LOW STOCK + ON SPECIAL -->
+                    <div class="stat-card buy-now-card" id="buy-now-card" style="display:none;">
+                        <div class="stat-header">
+                            <h3>🔥 Buy Now</h3>
+                            <span class="buy-now-badge" id="buy-now-count">0</span>
                         </div>
+                        <p style="font-size:11px; color:var(--text-muted); margin-bottom:10px;">Running low + on special right now</p>
+                        <div id="buy-now-list" class="buy-now-list"></div>
                     </div>
 
-                    <div class="stat-card" id="specials-countdown">
-                        <div class="stat-icon"><i data-feather="clock"></i></div>
-                        <div class="stat-info">
-                            <span class="stat-label">Specials Reset In</span>
-                            <span class="stat-value" id="countdown-text">Calculating...</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card" id="budget-tracker">
-                        <div class="stat-icon"><i data-feather="pie-chart"></i></div>
-                        <div class="stat-info" style="flex: 1;">
-                            <div class="stat-row">
-                                <span class="stat-label">Monthly Budget</span>
-                                <span class="stat-value" id="budget-spent-text">$0 / $800</span>
-                            </div>
-                            <div class="progress-bar-bg">
-                                <div id="budget-progress" class="progress-fill" style="width: 0%; background: var(--woolies-green);"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card highlight">
-                        <div class="stat-icon"><i data-feather="trending-down"></i></div>
-                        <div class="stat-info">
-                            <div class="stat-row">
-                                <span class="stat-label">Potential Savings</span>
-                                <div class="shop-mode-toggle">
-                                    <span class="mode-label active" data-mode="weekly">Weekly</span>
-                                    <span class="mode-label" data-mode="big">Monthly</span>
-                                </div>
-                            </div>
-                            <span class="stat-value" id="cart-total">$0.00</span>
-                            <div class="progress-bar-bg">
-                                <div id="discount-progress" class="progress-fill" style="width: 0%;"></div>
-                            </div>
-                            <span class="stat-hint" id="discount-status">Add $500 for 10% off</span>
-                        </div>
-                    </div>
-
-                    <!-- Wednesday refresh banner (shown Tue evening / Wed) -->
+                    <!-- Wednesday banners (compact now) -->
                     <div class="stat-card wednesday-banner hidden" id="wednesday-banner">
                         <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:24px;">📅</span>
+                            <span style="font-size:20px;">📅</span>
                             <div>
-                                <div style="font-weight:700; font-size:13px;">Specials refresh tomorrow!</div>
-                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies &amp; Coles update every Wednesday. Check back for new deals.</div>
+                                <div style="font-weight:700; font-size:12px;">Specials refresh tomorrow!</div>
+                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">New deals every Wednesday morning.</div>
                             </div>
                         </div>
                     </div>
                     <div class="stat-card wednesday-banner hidden" id="wednesday-live-banner">
                         <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:24px;">🔄</span>
+                            <span style="font-size:20px;">🔄</span>
                             <div>
-                                <div style="font-weight:700; font-size:13px;">New specials are live today!</div>
-                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies &amp; Coles updated their specials this morning.</div>
+                                <div style="font-weight:700; font-size:12px;">New specials live today!</div>
+                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies & Coles updated this morning.</div>
                             </div>
                         </div>
                     </div>
@@ -170,12 +166,11 @@
                                 <button class="filter-btn" data-filter="woolworths">W</button>
                                 <button class="filter-btn" data-filter="coles">C</button>
                             </div>
-                            <div class="filter-group">
-                                <select id="sort-select" class="sort-select">
-                                    <option value="discount">Highest %</option>
-                                    <option value="price">Price</option>
-                                    <option value="name">A-Z</option>
-                                </select>
+                            <!-- E: Sort pills (replaces native <select>) -->
+                            <div class="sort-pills" id="sort-pills">
+                                <button class="sort-pill active" data-sort="discount">% Off</button>
+                                <button class="sort-pill" data-sort="price">Price</button>
+                                <button class="sort-pill" data-sort="name">A–Z</button>
                             </div>
                         </div>
                     </div>
@@ -198,7 +193,7 @@
                     <!-- Predictions / Due Soon -->
                     <section id="predictions-section" class="predictions-section hidden">
                         <h2 class="section-title"><i data-feather="shopping-cart"></i> Time to Restock?</h2>
-                        <p class="section-subtitle">You might be running low on these — based on your stock levels &amp; how often you usually buy them.</p>
+                        <p class="section-subtitle">You might be running low on these — based on your stock levels & how often you usually buy them.</p>
                         <div id="predictions-grid" class="horizontal-scroll-grid"></div>
                     </section>
 
@@ -218,23 +213,29 @@
                 </div>
             </div>
 
-            <!-- All Items Table -->
+            <!-- D: Master Tracklist — collapsible, collapsed by default -->
             <section class="master-table-section">
-                <h2 class="section-title">📋 Master Tracklist</h2>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Store</th>
-                                <th>In Pantry?</th>
-                                <th>Today's Price</th>
-                                <th>Buy Below $</th>
-                                <th>Price Trend</th>
-                            </tr>
-                        </thead>
-                        <tbody id="all-items-tbody"></tbody>
-                    </table>
+                <button class="master-table-toggle" id="master-table-toggle" onclick="toggleMasterTable()" aria-expanded="false">
+                    <span>📋 Master Tracklist</span>
+                    <span class="master-table-meta" id="master-table-meta"></span>
+                    <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
+                </button>
+                <div class="master-table-body" id="master-table-body" style="display:none;">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Store</th>
+                                    <th>In Pantry?</th>
+                                    <th>Today's Price</th>
+                                    <th>Buy Below $</th>
+                                    <th>Price Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-items-tbody"></tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
         </section>
@@ -415,7 +416,7 @@
             </div>
             <div class="modal-footer">
                 <button id="settings-cancel">Cancel</button>
-                <button id="settings-save" class="primary">Save & Connect</button>
+                <button id="settings-save" class="primary">Save &amp; Connect</button>
             </div>
         </div>
     </div>

@@ -3026,3 +3026,398 @@ footer {
     text-transform: capitalize;
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UX IMPROVEMENTS — v4
+   A) Stats Strip  B) Near-miss fallback  D) Collapsible table
+   E) Sort pills   F) Buy Now card
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── A: Compact Stats Strip ─────────────────────────────────────────────── */
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.strip-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.strip-stat + .strip-stat::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: var(--border-color);
+}
+
+.strip-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.strip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.strip-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+
+.strip-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.strip-progress-bg {
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 100px;
+    margin-top: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.strip-progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.8s ease;
+}
+
+#specials-countdown.urgent .strip-value {
+    color: #fca5a5;
+}
+
+@media (max-width: 900px) {
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .strip-stat:nth-child(3)::before { display: none; }
+}
+@media (max-width: 768px) {
+    .stats-strip {
+        padding: 0.8rem 1rem;
+        margin: 0.8rem 0;
+        gap: 0.6rem;
+        border-radius: 14px;
+    }
+}
+
+/* ── D: Collapsible Master Tracklist ────────────────────────────────────── */
+.master-table-section { margin-top: 3rem; margin-bottom: 2rem; }
+
+.master-table-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    backdrop-filter: var(--glass-blur);
+}
+
+.master-table-toggle:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.master-table-toggle[aria-expanded="true"] {
+    border-radius: 16px 16px 0 0;
+}
+
+.master-table-meta {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+.toggle-chevron {
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.master-table-toggle[aria-expanded="true"] .toggle-chevron {
+    transform: rotate(180deg);
+}
+
+.master-table-body {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.master-table-body .table-container {
+    border-radius: 0;
+    border: none;
+}
+
+/* ── E: Sort Pills ──────────────────────────────────────────────────────── */
+.sort-pills {
+    display: flex;
+    gap: 4px;
+    background: rgba(0,0,0,0.3);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.sort-pill {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sort-pill:hover {
+    color: var(--text-main);
+    background: rgba(255,255,255,0.06);
+}
+
+.sort-pill.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+/* ── F: Buy Now Card ────────────────────────────────────────────────────── */
+.buy-now-card {
+    border-color: rgba(239, 68, 68, 0.35) !important;
+    background: linear-gradient(135deg, rgba(239,68,68,0.07), rgba(10,10,12,0.9)) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.buy-now-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ef4444, #f97316, #ef4444);
+    background-size: 200%;
+    animation: shimmer-red 3s linear infinite;
+}
+
+@keyframes shimmer-red {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.buy-now-badge {
+    background: var(--coles-red);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 100px;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(239,68,68,0.4);
+}
+
+.buy-now-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.buy-now-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.buy-now-row:hover {
+    background: rgba(239,68,68,0.12);
+    border-color: rgba(239,68,68,0.35);
+    transform: translateX(3px);
+}
+
+.buy-now-stock-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--coles-red);
+    box-shadow: 0 0 6px var(--coles-red);
+    flex-shrink: 0;
+}
+
+.buy-now-info { flex: 1; min-width: 0; }
+
+.buy-now-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buy-now-price { font-size: 11px; color: #34d399; font-weight: 700; }
+
+.buy-now-save {
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    background: var(--coles-red);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── B: No-deals empty state ────────────────────────────────────────────── */
+.no-deals-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+}
+
+.no-deals-state p { font-size: 14px; margin-bottom: 1.5rem; opacity: 0.7; }
+
+.no-deals-near-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    text-align: left;
+    opacity: 0.8;
+}
+
+/* stat-card base (for sidebar) - ensure it still works with new layout */
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.stat-header h3 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99,102,241,0.1);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.stat-icon svg { width: 16px; height: 16px; }
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.stat-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.8s ease;
+}

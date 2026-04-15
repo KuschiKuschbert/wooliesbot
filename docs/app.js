@@ -164,11 +164,15 @@ function setupFilters() {
         });
     });
 
-    // Sorting
-    document.getElementById('sort-select')?.addEventListener('change', (e) => {
-        _currentSort = e.target.value;
-        _currentPage = 1; // Reset to page 1
-        renderSpecials();
+    // Sort pills (E — replaces native <select>)
+    document.querySelectorAll('.sort-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            _currentSort = pill.dataset.sort;
+            _currentPage = 1;
+            renderSpecials();
+        });
     });
 
     // Clear List
@@ -221,10 +225,13 @@ function renderDashboard() {
     renderStats();
     renderTop5Deals();
     renderEssentials();
+    renderBuyNow();         // F: Buy Now priority card
     renderPredictions();
     renderNearMisses();
     renderSpecials();
-    renderAllItems();
+    // Master table is lazy-loaded on expand (D) — just update the meta count
+    const metaEl = document.getElementById('master-table-meta');
+    if (metaEl) metaEl.textContent = `${_data.length} items`;
     updateListCount();
     checkPriceDropAlerts();
 }
@@ -919,7 +926,30 @@ function renderSpecials() {
     });
 
     if (displayItems.length === 0) {
-        grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1;">No deep deals today.</p>';
+        // B: Show near-miss fallback instead of plain empty state
+        const nearMisses = _data
+            .filter(item => {
+                if (!item.target || !item.price) return false;
+                const ratio = item.price / item.target;
+                return ratio > 1 && ratio <= 1.10; // within 10% above target
+            })
+            .sort((a, b) => (a.price / a.target) - (b.price / b.target))
+            .slice(0, 6);
+
+        if (nearMisses.length > 0) {
+            grid.innerHTML = `
+                <div class="no-deals-state" style="grid-column:1/-1;">
+                    <p>No active deals matching your filters right now.</p>
+                    <div class="no-deals-near-title">🎯 Closest to deal price — worth watching:</div>
+                </div>`;
+            nearMisses.forEach((item, i) => {
+                const card = createItemCard(item, i);
+                card.classList.add('near-miss-card');
+                grid.appendChild(card);
+            });
+        } else {
+            grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align:center;">No deals today — check back Wednesday when specials refresh! 🗓️</p>';
+        }
         if (typeof renderPagination === 'function') renderPagination(0);
         return;
     }
@@ -981,7 +1011,71 @@ function renderPagination(totalItems) {
     if (typeof feather !== 'undefined') feather.replace();
 }
 
+
+// ── D: Collapsible Master Tracklist ──────────────────────────────────────
+function toggleMasterTable() {
+    const btn = document.getElementById('master-table-toggle');
+    const body = document.getElementById('master-table-body');
+    if (!btn || !body) return;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+        body.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+    } else {
+        body.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+        // Lazy-render: only render if empty
+        const tbody = document.getElementById('all-items-tbody');
+        if (tbody && tbody.children.length === 0) renderAllItems();
+        if (typeof feather !== 'undefined') feather.replace();
+    }
+}
+
+// ── F: Buy Now Priority View ──────────────────────────────────────────────
+function renderBuyNow() {
+    const card = document.getElementById('buy-now-card');
+    const list = document.getElementById('buy-now-list');
+    const badge = document.getElementById('buy-now-count');
+    if (!card || !list) return;
+
+    const priorityItems = _data.filter(item => {
+        const isLow = item.stock === 'low';
+        const isOnSpecial = item.on_special === true;
+        const atTarget = item.target && item.price && item.price <= item.target;
+        return isLow && (isOnSpecial || atTarget);
+    }).sort((a, b) => {
+        // Sort by savings % descending
+        const savA = a.was_price ? (a.was_price - a.price) / a.was_price : 0;
+        const savB = b.was_price ? (b.was_price - b.price) / b.was_price : 0;
+        return savB - savA;
+    }).slice(0, 8);
+
+    if (priorityItems.length === 0) {
+        card.style.display = 'none';
+        return;
+    }
+
+    card.style.display = 'block';
+    badge.textContent = priorityItems.length;
+    list.innerHTML = priorityItems.map(item => {
+        const price = item.eff_price || item.price || 0;
+        const wasPr = item.was_price;
+        const saveStr = wasPr ? `-${Math.round((wasPr - price) / wasPr * 100)}%` : '🎯';
+        const priceStr = price ? `$${price.toFixed(2)}` : '—';
+        return `
+            <div class="buy-now-row" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
+                <div class="buy-now-stock-dot"></div>
+                <div class="buy-now-info">
+                    <div class="buy-now-name">${item.name}</div>
+                    <div class="buy-now-price">${priceStr}${wasPr ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasPr.toFixed(2)}</span>` : ''}</div>
+                </div>
+                <div class="buy-now-save">${saveStr}</div>
+            </div>`;
+    }).join('');
+}
+
 function renderAllItems() {
+
     const tbody = document.getElementById('all-items-tbody');
     if (!tbody) return;
     tbody.innerHTML = '';
