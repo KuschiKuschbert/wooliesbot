@@ -332,7 +332,16 @@ function renderStats() {
 
 
 // ── Essentials: editable, persisted in localStorage ───────────────────────
-const DEFAULT_ESSENTIALS = ["Capsicum", "Onions", "Spinach", "Eggs", "Cream", "Cheese", "Avocado", "Zucchini"];
+const DEFAULT_ESSENTIALS = [
+    // Produce
+    "Spinach", "Onions", "Capsicum", "Zucchini", "Avocado", "Baby Potatoes", "Beanette",
+    // Dairy / Protein
+    "Eggs", "Cream", "Cheese", "Greek Yoghurt", "Chicken Breast",
+    // Pantry
+    "Passata", "Maple Syrup",
+    // Drinks
+    "Pepsi Max",
+];
 
 function getEssentials() {
     const stored = localStorage.getItem('essentialsList');
@@ -355,6 +364,50 @@ function maybeResetEssentials() {
     }
 }
 
+// ── Fuzzy price lookup — matches display names to tracked product names ─────
+// 'Spinach' → 'F/C Babyspinach 120G', 'Chicken Breast' → 'Ww Chicken Breast Fillets...'
+// When multiple items match, prefers the one with most purchase history.
+function findDataItem(name) {
+    const dataArr = _data || [];
+    const q = name.toLowerCase().trim();
+
+    const byHistory = (a, b) =>
+        (b.price_history?.length || 0) - (a.price_history?.length || 0);
+
+    // 1. Exact match (case insensitive)
+    const exact = dataArr.find(i => i.name.toLowerCase() === q);
+    if (exact) return exact;
+
+    // 2. All meaningful words in the display name appear in the tracked item name
+    //    e.g. "Chicken Breast" → items containing both "chicken" AND "breast"
+    //    e.g. "Baby Potatoes" → items containing both "baby" AND "potato"
+    const words = q.split(/\s+/).filter(w => w.length > 2);
+    if (words.length) {
+        // Also try stemmed forms (strip trailing 's'/'es') for each word
+        const stems = words.map(w => w.replace(/i?e?s$/, ''));
+        const matches = dataArr.filter(i => {
+            const n = i.name.toLowerCase();
+            return stems.every(s => n.includes(s));
+        });
+        if (matches.length) return matches.sort(byHistory)[0];
+    }
+
+    // 3. Single-word query only: try stem match across all tracked items
+    //    e.g. "Onions" → stem "onion" → "Onion Brown 1Kg P/P"
+    //    Skip for multi-word to avoid false positives like "Baby" matching "Babyspinach"
+    if (words.length <= 1) {
+        const sigWords = q.split(/\s+/).filter(w => w.length > 3);
+        const stems3 = sigWords.map(w => w.replace(/i?e?s$/, ''));
+        for (const s of stems3) {
+            const matches = dataArr.filter(i => i.name.toLowerCase().includes(s));
+            if (matches.length) return matches.sort(byHistory)[0];
+        }
+    }
+
+    return null;
+}
+
+
 function renderEssentials() {
     maybeResetEssentials();
     const list = document.getElementById('essentials-list');
@@ -364,11 +417,8 @@ function renderEssentials() {
     const essentials = getEssentials();
     const checkedItems = JSON.parse(localStorage.getItem('essentialsChecked') || '[]');
 
-    // Build a lookup map from _data for live prices
-    const dataMap = {};
-    (_data || []).forEach(item => {
-        dataMap[item.name.toLowerCase()] = item;
-    });
+    // ── Fuzzy price lookup (delegates to module-level findDataItem) ─────────
+
 
     // ── Header row with edit toggle ──────────────────────────────────────
     const header = document.createElement('div');
@@ -399,7 +449,8 @@ function renderEssentials() {
 
     sorted.forEach(itemName => {
         const isChecked = checkedItems.includes(itemName);
-        const dataItem = dataMap[itemName.toLowerCase()];
+        const dataItem = findDataItem(itemName);
+
         const price = dataItem ? (dataItem.eff_price || dataItem.price) : null;
         const onSpecial = dataItem?.on_special;
         const stock = dataItem?.stock;
@@ -509,22 +560,20 @@ function removeFromEssentials(itemName) {
 }
 
 function addEssentialToList(itemName) {
-    // Find the item in _data and add to shopping list
-    const dataItem = (_data || []).find(i => i.name.toLowerCase() === itemName.toLowerCase());
+    // Use fuzzy matching to find the real tracked product
+    const dataItem = findDataItem(itemName);
     if (dataItem) {
         addToList(dataItem.name);
     } else {
-        // Add by name with no price
-        let list = _shoppingList;
-        if (!list.find(i => i.name === itemName)) {
-            list.push({ name: itemName, price: null, qty: 1 });
-            _shoppingList = list;
-            localStorage.setItem('shoppingList', JSON.stringify(list));
+        // Fallback: add by display name with no price
+        if (!_shoppingList.find(i => i.name === itemName)) {
+            _shoppingList.push({ name: itemName, price: null, qty: 1 });
+            localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
             renderShoppingList();
             updateListCount();
         }
     }
-    renderEssentials(); // re-render to show button dimmed
+    renderEssentials();
 }
 
 
