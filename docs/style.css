@@ -3421,3 +3421,227 @@ footer {
     border-radius: 100px;
     transition: width 0.8s ease;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ENHANCED ESSENTIALS CHECKLIST
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.essentials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.essentials-progress-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.essentials-header-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.essentials-reset-btn,
+.essentials-edit-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0;
+}
+
+.essentials-reset-btn:hover { background: rgba(255,255,255,0.12); color: white; }
+.essentials-edit-btn:hover  { background: rgba(99,102,241,0.15); border-color: var(--primary); color: var(--primary); }
+
+/* Progress bar */
+.essentials-progress-bar-bg {
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 100px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.essentials-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--woolies-green), #34d399);
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(16,185,129,0.3);
+}
+
+/* Item rows */
+.essential-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 4px;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+}
+
+.essential-row:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.essential-row.checked {
+    opacity: 0.45;
+}
+
+.essential-checkbox-area {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex: 1;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.essential-cb {
+    accent-color: var(--primary);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.essential-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.2s;
+}
+
+.essential-label.checked {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* Right-side meta (price + buttons) */
+.essential-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.essential-price {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.essential-price.on-sale {
+    color: var(--woolies-green);
+}
+
+.essential-add-btn {
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 6px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.essential-add-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.essential-remove-btn {
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s;
+}
+
+.essential-remove-btn:hover { opacity: 1; }
+.essential-remove-btn.hidden { display: none; }
+
+/* Add item input row */
+.essential-add-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.essential-add-row.hidden { display: none; }
+
+.essential-new-input {
+    flex: 1;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-family: var(--font-body);
+    padding: 5px 10px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.essential-new-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.essential-add-confirm-btn {
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.essential-add-confirm-btn:hover {
+    background: #4f46e5;
+    transform: scale(1.03);
+}

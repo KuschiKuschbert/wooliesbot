@@ -330,38 +330,203 @@ function renderStats() {
 }
 
 
-const ESSENTIALS = ["Capsicum", "Onions", "Spinach", "Eggs", "Cream", "Cheese", "Avocado", "Zucchini"];
+
+// ── Essentials: editable, persisted in localStorage ───────────────────────
+const DEFAULT_ESSENTIALS = ["Capsicum", "Onions", "Spinach", "Eggs", "Cream", "Cheese", "Avocado", "Zucchini"];
+
+function getEssentials() {
+    const stored = localStorage.getItem('essentialsList');
+    return stored ? JSON.parse(stored) : [...DEFAULT_ESSENTIALS];
+}
+
+function saveEssentials(list) {
+    localStorage.setItem('essentialsList', JSON.stringify(list));
+}
+
+// Auto-reset checked items each new grocery week (Sunday)
+function maybeResetEssentials() {
+    const today = new Date();
+    const todayStr = today.toDateString();
+    const lastReset = localStorage.getItem('essentialsLastReset');
+    // Reset on Sunday (day 0)
+    if (today.getDay() === 0 && lastReset !== todayStr) {
+        localStorage.removeItem('essentialsChecked');
+        localStorage.setItem('essentialsLastReset', todayStr);
+    }
+}
 
 function renderEssentials() {
+    maybeResetEssentials();
     const list = document.getElementById('essentials-list');
+    if (!list) return;
     list.innerHTML = '';
-    
+
+    const essentials = getEssentials();
     const checkedItems = JSON.parse(localStorage.getItem('essentialsChecked') || '[]');
 
-    ESSENTIALS.forEach(item => {
-        const div = document.createElement('label');
-        div.className = 'essential-item';
-        const isChecked = checkedItems.includes(item);
-        
-        div.innerHTML = `
-            <input type="checkbox" ${isChecked ? 'checked' : ''}>
-            <span class="${isChecked ? 'checked' : ''}">${item}</span>
-        `;
-        
-        div.querySelector('input').addEventListener('change', (e) => {
+    // Build a lookup map from _data for live prices
+    const dataMap = {};
+    (_data || []).forEach(item => {
+        dataMap[item.name.toLowerCase()] = item;
+    });
+
+    // ── Header row with edit toggle ──────────────────────────────────────
+    const header = document.createElement('div');
+    header.className = 'essentials-header';
+    const doneCount = checkedItems.length;
+    const totalCount = essentials.length;
+    header.innerHTML = `
+        <span class="essentials-progress-text">${doneCount}/${totalCount} got</span>
+        <div class="essentials-header-actions">
+            <button class="essentials-reset-btn" onclick="resetEssentialsChecked()" title="Uncheck all">↺</button>
+            <button class="essentials-edit-btn" onclick="toggleEssentialsEdit()" title="Edit list" id="essentials-edit-btn">✏️</button>
+        </div>`;
+    list.appendChild(header);
+
+    // ── Progress bar ─────────────────────────────────────────────────────
+    const progressWrap = document.createElement('div');
+    progressWrap.className = 'essentials-progress-bar-bg';
+    progressWrap.innerHTML = `<div class="essentials-progress-fill" style="width:${totalCount ? (doneCount/totalCount*100) : 0}%"></div>`;
+    list.appendChild(progressWrap);
+
+    // ── Item rows ─────────────────────────────────────────────────────────
+    // Unchecked first, then checked (greyed)
+    const sorted = [...essentials].sort((a, b) => {
+        const aChecked = checkedItems.includes(a);
+        const bChecked = checkedItems.includes(b);
+        return aChecked - bChecked;
+    });
+
+    sorted.forEach(itemName => {
+        const isChecked = checkedItems.includes(itemName);
+        const dataItem = dataMap[itemName.toLowerCase()];
+        const price = dataItem ? (dataItem.eff_price || dataItem.price) : null;
+        const onSpecial = dataItem?.on_special;
+        const stock = dataItem?.stock;
+
+        // Stock dot colour
+        const dotClass = stock === 'low' ? 'low' : stock === 'medium' ? 'medium' : stock === 'full' ? 'full' : '';
+        const stockDot = dotClass ? `<span class="stock-dot ${dotClass}" title="${stock} stock"></span>` : '';
+
+        // Price badge
+        const priceBadge = price
+            ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}$${price.toFixed(2)}</span>`
+            : '';
+
+        const row = document.createElement('div');
+        row.className = `essential-row${isChecked ? ' checked' : ''}`;
+        row.innerHTML = `
+            <label class="essential-checkbox-area">
+                <input type="checkbox" class="essential-cb" ${isChecked ? 'checked' : ''} data-item="${itemName}">
+                <span class="essential-label ${isChecked ? 'checked' : ''}">${stockDot}${itemName}</span>
+            </label>
+            <div class="essential-meta">
+                ${priceBadge}
+                <button class="essential-add-btn" title="Add to shopping list"
+                    onclick="addEssentialToList('${itemName.replace(/'/g, "\\'")}')"
+                    style="${isChecked ? 'opacity:0.4;' : ''}">+</button>
+                <button class="essential-remove-btn hidden" title="Remove from essentials"
+                    onclick="removeFromEssentials('${itemName.replace(/'/g, "\\'")}')" data-remove>🗑</button>
+            </div>`;
+
+        row.querySelector('.essential-cb').addEventListener('change', (e) => {
             let current = JSON.parse(localStorage.getItem('essentialsChecked') || '[]');
             if (e.target.checked) {
-                current.push(item);
+                current.push(itemName);
             } else {
-                current = current.filter(i => i !== item);
+                current = current.filter(i => i !== itemName);
             }
             localStorage.setItem('essentialsChecked', JSON.stringify(current));
             renderEssentials();
         });
-        
-        list.appendChild(div);
+
+        list.appendChild(row);
     });
+
+    // ── Edit mode: add new item input ─────────────────────────────────────
+    const editMode = list.dataset.editMode === 'true';
+    const addRow = document.createElement('div');
+    addRow.className = 'essential-add-row' + (editMode ? '' : ' hidden');
+    addRow.id = 'essential-add-row';
+    addRow.innerHTML = `
+        <input type="text" id="essential-new-input" placeholder="Add item..." class="essential-new-input">
+        <button class="essential-add-confirm-btn" onclick="addToEssentials()">Add</button>`;
+    list.appendChild(addRow);
+
+    // Restore edit mode visual state
+    if (editMode) {
+        list.querySelectorAll('[data-remove]').forEach(btn => btn.classList.remove('hidden'));
+        const editBtn = document.getElementById('essentials-edit-btn');
+        if (editBtn) editBtn.textContent = '✓';
+    }
+
+    if (typeof feather !== 'undefined') feather.replace();
 }
+
+function resetEssentialsChecked() {
+    localStorage.removeItem('essentialsChecked');
+    renderEssentials();
+}
+
+function toggleEssentialsEdit() {
+    const list = document.getElementById('essentials-list');
+    if (!list) return;
+    const isEditing = list.dataset.editMode === 'true';
+    list.dataset.editMode = isEditing ? 'false' : 'true';
+    renderEssentials();
+    if (!isEditing) {
+        // Focus the add input
+        setTimeout(() => document.getElementById('essential-new-input')?.focus(), 50);
+    }
+}
+
+function addToEssentials() {
+    const input = document.getElementById('essential-new-input');
+    if (!input) return;
+    const val = input.value.trim();
+    if (!val) return;
+    const essentials = getEssentials();
+    if (!essentials.map(e => e.toLowerCase()).includes(val.toLowerCase())) {
+        essentials.push(val);
+        saveEssentials(essentials);
+    }
+    input.value = '';
+    renderEssentials();
+    // Keep edit mode open
+    const list = document.getElementById('essentials-list');
+    if (list) list.dataset.editMode = 'true';
+    renderEssentials();
+}
+
+function removeFromEssentials(itemName) {
+    const essentials = getEssentials().filter(e => e.toLowerCase() !== itemName.toLowerCase());
+    saveEssentials(essentials);
+    const list = document.getElementById('essentials-list');
+    if (list) list.dataset.editMode = 'true';
+    renderEssentials();
+    if (list) list.dataset.editMode = 'true';
+    renderEssentials();
+}
+
+function addEssentialToList(itemName) {
+    // Find the item in _data and add to shopping list
+    const dataItem = (_data || []).find(i => i.name.toLowerCase() === itemName.toLowerCase());
+    if (dataItem) {
+        addToList(dataItem.name);
+    } else {
+        // Add by name with no price
+        let list = _shoppingList;
+        if (!list.find(i => i.name === itemName)) {
+            list.push({ name: itemName, price: null, qty: 1 });
+            _shoppingList = list;
+            localStorage.setItem('shoppingList', JSON.stringify(list));
+            renderShoppingList();
+            updateListCount();
+        }
+    }
+    renderEssentials(); // re-render to show button dimmed
+}
+
 
 function renderNearMisses() {
     const section = document.getElementById('near-misses-section');
