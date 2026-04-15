@@ -1049,6 +1049,26 @@ def export_data_to_json(results):
                     item.pop(price_field, None)
                     item["price_unavailable"] = True
 
+            # ── Sanity-check size field vs product name ──────────────────────────────
+            # The Woolworths/Coles API sometimes returns "25L" for a "1.25L" product
+            # (the leading "1." gets stripped). Cross-check and fix from name if so.
+            raw_size = item.get("size", "")
+            name_lower = item.get("name", "").lower()
+            if raw_size:
+                m_size = re.match(r'^(\d+\.?\d*)(l|kg|ml|g)$', raw_size.strip().lower())
+                if m_size:
+                    api_num = float(m_size.group(1))
+                    unit = m_size.group(2)
+                    # Look for the real size in the name (e.g. "1.25L")
+                    m_name = re.search(r'(\d+\.?\d*)\s*' + unit + r'\b', name_lower)
+                    if m_name:
+                        name_num = float(m_name.group(1))
+                        # If they differ by the api_num matching name_num mod 10 or mod 100
+                        # (classic sign of leading digits being dropped)
+                        if abs(api_num - name_num) > 0.01 and abs(name_num) > 0:
+                            corrected = f"{name_num}{unit.upper()}"
+                            logging.warning(f"Size mismatch for '{item['name']}': API={raw_size} name={corrected} — using name")
+                            item["size"] = corrected
 
             merged.append(item)
 
