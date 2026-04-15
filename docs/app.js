@@ -1120,11 +1120,17 @@ function renderColaBattle() {
             return url ? `<a href="${url}" target="_blank" rel="noopener" class="fighter-view-link">View on store →</a>` : '';
         };
 
+        // Use scrape store for winner colour — not stale item.store field
+        const getActiveStore = (item) => {
+            if (!item) return 'woolworths';
+            return (item.scrape_history || []).slice(-1)[0]?.store || item.store || 'woolworths';
+        };
+
         return `
             <div class="battle-arena">
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
-                    <div class="fighter ${pWinner ? `winner winner-${pepsi?.store}` : ''}">
+                    <div class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsi)}` : ''}">
                         ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
@@ -1133,7 +1139,7 @@ function renderColaBattle() {
                         ${viewLink(pepsi)}
                     </div>
                     <div class="battle-vs">VS</div>
-                    <div class="fighter ${cWinner ? `winner winner-${coke?.store}` : ''}">
+                    <div class="fighter ${cWinner ? `winner winner-${getActiveStore(coke)}` : ''}">
                         ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
