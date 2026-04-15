@@ -1014,15 +1014,41 @@ def export_data_to_json(results):
                 if recent_store:
                     item["store"] = recent_store
 
+
+            # ── Sync price from today's scrape_history entry ────────────────────────────
+            # If the scraper produced a fresh snapshot today, trust it over any stale
+            # value in `price` (which may be from a corrupted run weeks ago).
+            today_snap = next(
+                (e for e in reversed(item.get("scrape_history", []))
+                 if e.get("date") == today_str and e.get("price") and e["price"] > 0),
+                None
+            )
+            if today_snap:
+                fresh = today_snap["price"]
+                # Only overwrite if it's plausibly saner than what we have
+                # (i.e. the fresh price is lower or the existing one is clearly wrong)
+                existing_price = item.get("price") or 0
+                cat = item.get("type", "")
+                sane_ceiling = 60 if cat in ("produce", "dairy", "bakery") else 300
+                if existing_price > sane_ceiling or fresh < existing_price * 0.7:
+                    logging.info(
+                        f"Correcting stale price for {item['name']}: "
+                        f"${existing_price:.2f} → ${fresh:.2f} (from today's scrape)"
+                    )
+                    item["price"] = fresh
+                    item["eff_price"] = fresh
+
             # ── Sanity-clamp obviously wrong prices ─────────────────────────────────
-            # Prices above $1000 are data errors (e.g. cents mis-parsed as dollars).
-            _PRICE_ERROR_THRESHOLD = 1000
+            # Per-category ceilings catch realistic corruption (cents→dollars errors etc.)
+            cat = item.get("type", "")
+            _PRICE_ERROR_THRESHOLD = 60 if cat in ("produce", "dairy", "bakery") else 1000
             for price_field in ("price", "eff_price", "was_price"):
                 v = item.get(price_field)
                 if v is not None and v > _PRICE_ERROR_THRESHOLD:
-                    logging.warning(f"Clamping bad {price_field} for {item['name']}: {v}")
+                    logging.warning(f"Clamping bad {price_field} for {item['name']}: ${v}")
                     item.pop(price_field, None)
                     item["price_unavailable"] = True
+
 
             merged.append(item)
 
