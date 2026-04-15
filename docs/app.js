@@ -721,17 +721,17 @@ async function monitorApi() {
         // Detect HTTPS Mixed Content block
         if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
             dot.className = 'status-dot offline';
-            text.textContent = 'HTTPS Blocked';
+            text.textContent = 'Live Sync: Blocked';
             return;
         }
 
         const res = await fetch(`${_apiUrl}/status`).catch(() => null);
         if (res && res.ok) {
             dot.className = 'status-dot online';
-            text.textContent = 'Bridge Online';
+            text.textContent = 'Live Sync: On';
         } else {
             dot.className = 'status-dot offline';
-            text.textContent = 'Bridge Offline';
+            text.textContent = 'Live Sync: Off';
         }
     } catch {
         dot.className = 'status-dot offline';

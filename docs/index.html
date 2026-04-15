@@ -33,7 +33,7 @@
                 <!-- Pulsing Server Status -->
                 <div class="api-indicator">
                     <div id="api-status-dot" class="status-dot"></div>
-                    <span id="api-status-text">Bridge Offline</span>
+                    <span id="api-status-text">Live Sync: Off</span>
                     <span class="status-divider">|</span>
                     <div id="cloud-status-dot" class="status-dot cloud-dot"></div>
                     <span id="cloud-status-text">Global Bot: Checking...</span>
@@ -78,7 +78,7 @@
                     <div class="stat-card" id="specials-countdown">
                         <div class="stat-icon"><i data-feather="clock"></i></div>
                         <div class="stat-info">
-                            <span class="stat-label">Reset Timer</span>
+                            <span class="stat-label">Specials Reset In</span>
                             <span class="stat-value" id="countdown-text">Calculating...</span>
                         </div>
                     </div>
@@ -102,8 +102,8 @@
                             <div class="stat-row">
                                 <span class="stat-label">Potential Savings</span>
                                 <div class="shop-mode-toggle">
-                                    <span class="mode-label active" data-mode="weekly">W</span>
-                                    <span class="mode-label" data-mode="big">M</span>
+                                    <span class="mode-label active" data-mode="weekly">Weekly</span>
+                                    <span class="mode-label" data-mode="big">Monthly</span>
                                 </div>
                             </div>
                             <span class="stat-value" id="cart-total">$0.00</span>
@@ -225,10 +225,10 @@
                             <tr>
                                 <th>Item Name</th>
                                 <th>Store</th>
-                                <th>Stock</th>
-                                <th>Current</th>
-                                <th>Target</th>
-                                <th>History</th>
+                                <th>In Pantry?</th>
+                                <th>Today's Price</th>
+                                <th>Buy Below $</th>
+                                <th>Price Trend</th>
                             </tr>
                         </thead>
                         <tbody id="all-items-tbody"></tbody>
@@ -274,11 +274,11 @@
                     </div>
                     <div id="savings-breakdown">
                         <div class="savings-metric">
-                            <span class="label">Historical Realized Savings:</span>
+                            <span class="label">Total Saved (vs full price):</span>
                             <span class="value" id="analytic-savings-val">$0</span>
                         </div>
                         <div class="savings-metric">
-                            <span class="label">Shopping Efficiency:</span>
+                            <span class="label">Deal Hit Rate <small style="opacity:0.6;font-weight:400;">(% bought on special)</small>:</span>
                             <span class="value" id="analytic-efficiency-val">0%</span>
                         </div>
                     </div>
