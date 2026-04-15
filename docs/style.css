@@ -3675,3 +3675,62 @@ footer {
     border-color: rgba(239, 68, 68, 0.6);
     color: #fca5a5;
 }
+
+/* Cola Battle — store badges, special badge, view link */
+.fighter-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 4px 0 6px;
+}
+
+.fighter-store-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.fighter-store-badge.woolies {
+    background: rgba(0, 148, 68, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(0, 148, 68, 0.3);
+}
+
+.fighter-store-badge.coles {
+    background: rgba(220, 38, 38, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.fighter-on-special {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    background: rgba(251, 146, 60, 0.15);
+    color: #fb923c;
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.fighter-view-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid rgba(var(--accent-rgb, 99, 102, 241), 0.3);
+    border-radius: 8px;
+    transition: all 0.15s ease;
+    background: rgba(var(--accent-rgb, 99, 102, 241), 0.06);
+}
+
+.fighter-view-link:hover {
+    background: rgba(var(--accent-rgb, 99, 102, 241), 0.15);
+    color: #fff;
+    border-color: var(--accent);
+}
