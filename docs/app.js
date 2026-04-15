@@ -974,10 +974,14 @@ async function monitorApi() {
     if (!dot || !text) return;
 
     try {
-        // Detect HTTPS Mixed Content block
+        // HTTPS (e.g. GitHub Pages) cannot call http://localhost — browser mixed-content block (expected).
+        const onGithubPages = /\.github\.io$/i.test(window.location.hostname || '');
         if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
             dot.className = 'status-dot offline';
-            text.textContent = 'Live Sync: Blocked';
+            text.textContent = onGithubPages
+                ? 'Bridge: local only (cloud view)'
+                : 'Live Sync: N/A (use bridge URL in settings)';
+            text.title = 'Set Bridge URL in settings to your Mac IP or tunnel (HTTPS cannot reach localhost).';
             return;
         }
 
