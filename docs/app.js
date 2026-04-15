@@ -177,21 +177,7 @@ function setupFilters() {
         }
     });
 
-    // Sync Keep
-    document.getElementById('sync-keep-btn')?.addEventListener('click', async () => {
-        const btn = document.getElementById('sync-keep-btn');
-        try {
-            btn.innerHTML = '<i data-feather="loader" class=""></i> Starting Sync...';
-            feather.replace();
-            const response = await fetch(`${_apiUrl}/sync`);
-            if (response.ok) {
-                btn.innerHTML = '<i data-feather="check"></i> Syncing...';
-                setTimeout(() => { btn.innerHTML = '<i data-feather="refresh-cw"></i> Sync to Google Keep'; feather.replace(); }, 3000);
-            }
-        } catch (e) {
-            alert(`Bridge not running at ${_apiUrl}. Update settings if using a tunnel or IP.`);
-        }
-    });
+    // (Keep sync button removed — use copy-list-btn for sharing)
     
     // Settings Logic
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
@@ -583,21 +569,20 @@ function updateListCount() {
     const mobileEl = document.getElementById('mobile-list-count');
     if (mobileEl) mobileEl.textContent = _shoppingList.length;
     
-    const syncBtn = document.getElementById('sync-keep-btn');
-    if (syncBtn) syncBtn.disabled = _shoppingList.length === 0;
-
     // Enable copy button
     const copyBtn = document.getElementById('copy-list-btn');
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
 }
 
-function addToList(itemName) {
+function addToList(itemName, callerBtn) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
 
+    // Resolve the calling button — prefer explicit param, fall back to event context
+    const btn = callerBtn || event?.currentTarget || null;
+
     // Prevent duplicates
     if (_shoppingList.find(l => l.name === itemName)) {
-        const btn = event?.currentTarget;
         if (btn) {
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i data-feather="check"></i> In list!';
@@ -630,7 +615,6 @@ function addToList(itemName) {
     updateListCount();
     
     // Visual feedback
-    const btn = event?.currentTarget;
     if (btn) {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i data-feather="check"></i> Added!';
@@ -1067,7 +1051,7 @@ async function saveItemChanges() {
     if (!_selectedItemForModal || !activeStock) return;
     
     try {
-        const response = await fetch('http://localhost:5001/update_stock', {
+        const response = await fetch(`${_apiUrl}/update_stock`, {
             method: 'POST',
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
@@ -1600,7 +1584,7 @@ function renderTop5Deals() {
         const medal = ['🥇','🥈','🥉','4️⃣','5️⃣'][i];
         const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
         return `
-            <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; renderDashboard();" title="${item.name}">
+            <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${item.name}">
                 <span class="top5-medal">${medal}</span>
                 <div class="top5-info">
                     <div class="top5-name">${item.name.length > 28 ? item.name.substring(0,28)+'…' : item.name}</div>
