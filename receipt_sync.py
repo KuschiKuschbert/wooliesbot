@@ -15,16 +15,32 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 INV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
 
+# CSS selector for activity-feed receipt cards on everyday.com.au
+CARD_SELECTOR = "[class*='activity-list'] [class*='card'], [class*='transaction-card'], [class*='activity-card'], .activity-list-item"
+
 def load_inventory():
+    """Returns the items list from data.json."""
+    try:
+        with open(INV_FILE, "r") as f:
+            raw = json.load(f)
+        return raw if isinstance(raw, list) else raw.get("items", [])
+    except:
+        return []
+
+def load_inventory_raw():
+    """Returns the full data.json dict (preserves metadata like last_updated)."""
     try:
         with open(INV_FILE, "r") as f:
             return json.load(f)
     except:
-        return []
+        return {"items": []}
 
-def save_inventory(inv):
+def save_inventory(items):
+    """Writes items list back to data.json, preserving existing metadata."""
+    raw = load_inventory_raw()
+    raw["items"] = items
     with open(INV_FILE, "w") as f:
-        json.dump(inv, f, indent=4)
+        json.dump(raw, f, indent=4)
 
 # ── Fuzzy receipt-to-inventory matching ──────────────────────────────────────
 # Woolworths receipt names differ from inventory names in many ways:
