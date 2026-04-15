@@ -333,20 +333,23 @@ function renderStats() {
 
 // ── Essentials: editable, persisted in localStorage ───────────────────────
 const DEFAULT_ESSENTIALS = [
-    // Produce
-    "Spinach", "Onions", "Capsicum", "Zucchini", "Avocado",
-    "Baby Potatoes", "Cherry Tomatoes", "Sliced Mushrooms", "Pak Choy",
+    // Produce (by purchase frequency)
+    "Spinach", "Onions", "Avocado", "Baby Potatoes", "Broccolini",
+    "Capsicum", "Zucchini", "Cherry Tomatoes", "Sliced Mushrooms", "Pak Choy",
     // Dairy
-    "Eggs", "Cream", "Cheese", "Greek Yoghurt", "Bocconcini", "Creamy Vanilla",
-    // Protein
-    "Chicken Breast",
+    "Eggs", "Cream", "Cheese", "Greek Yoghurt", "Bocconcini", "Creamy Vanilla", "Sour Cream",
+    // Protein (Beef Mince is #1 most-bought item)
+    "Chicken Breast", "Beef Mince",
     // Pantry
-    "Passata", "Maple Syrup", "Fajita Seasoning",
+    "Passata", "Diced Tomatoes", "Garlic", "Maple Syrup", "Fajita Seasoning",
     // Bakery
-    "Sourdough Loaf",
+    "Sourdough Loaf", "English Muffins",
+    // Drinks
+    "Nescafe Vanilla", "Pepsi Max",
     // Treats & Pets
     "Lindt 95%", "Whiskas",
 ];
+
 
 
 function getEssentials() {
