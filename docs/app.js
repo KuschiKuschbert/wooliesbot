@@ -1100,8 +1100,14 @@ function renderColaBattle() {
             if (!item) return null;
             const scrapeStore = (item.scrape_history || []).slice(-1)[0]?.store;
             const activeStore = scrapeStore || item.store;
-            if (activeStore === 'coles' && item.coles) return item.coles;
-            return item.woolworths || item.coles || null;
+            if (activeStore === 'coles') {
+                // Prefer specific Coles product URL, fall back to Coles search
+                if (item.coles) return item.coles;
+                const q = encodeURIComponent(item.name);
+                return `https://www.coles.com.au/search?q=${q}`;
+            }
+            // Woolworths — prefer specific URL, fall back to search
+            return item.woolworths || `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
         };
 
         const getStoreBadge = (item) => {
