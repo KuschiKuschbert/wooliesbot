@@ -1002,6 +1002,28 @@ def export_data_to_json(results):
                     "store": item.get("store"),
                 })
             item["scrape_history"] = sh
+            # ── Backfill `store` if not set by the live scrape ──────────────────────
+            # Items that weren't scraped this cycle (or where the scraper returned
+            # store=None) should inherit the store from their most recent scrape snapshot.
+            if not item.get("store") or item.get("store") == "none":
+                recent_store = next(
+                    (entry.get("store") for entry in reversed(item.get("scrape_history", []))
+                     if entry.get("store") and entry["store"] != "none"),
+                    None
+                )
+                if recent_store:
+                    item["store"] = recent_store
+
+            # ── Sanity-clamp obviously wrong prices ─────────────────────────────────
+            # Prices above $1000 are data errors (e.g. cents mis-parsed as dollars).
+            _PRICE_ERROR_THRESHOLD = 1000
+            for price_field in ("price", "eff_price", "was_price"):
+                v = item.get(price_field)
+                if v is not None and v > _PRICE_ERROR_THRESHOLD:
+                    logging.warning(f"Clamping bad {price_field} for {item['name']}: {v}")
+                    item.pop(price_field, None)
+                    item["price_unavailable"] = True
+
             merged.append(item)
 
         payload = {
