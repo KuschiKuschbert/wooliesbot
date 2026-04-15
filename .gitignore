@@ -1,6 +1,7 @@
 chrome_profile/
 *.log*
 error_*.png
+logs/
 __pycache__/
 .DS_Store
 scratch/

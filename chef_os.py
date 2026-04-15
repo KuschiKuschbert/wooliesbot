@@ -221,7 +221,8 @@ def _extract_woolworths_json(driver):
         logging.debug(f"  Woolworths JSON-LD parse error: {e}")
     return None
 
-_coles_cached_build_id = None
+_coles_cached_build_id = None  # single global — do NOT redeclare below
+_data_write_lock = threading.Lock()  # prevents concurrent data.json writes
 
 def _refresh_coles_metadata(session):
     """Fetch Coles homepage to extract the current Next.js buildId."""
@@ -526,8 +527,10 @@ def _scrape_store_batch(store_key, items_with_urls):
             else:
                 safe_name = item['name'].replace(' ', '_').replace('/', '_')
                 try:
-                    driver.save_screenshot(f"error_{safe_name}_{store_key}.png")
-                except:
+                    _ss_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "screenshots")
+                    os.makedirs(_ss_dir, exist_ok=True)
+                    driver.save_screenshot(os.path.join(_ss_dir, f"error_{safe_name}_{store_key}.png"))
+                except Exception:
                     pass
                 logging.warning(f"[{label}] ✗ Failed after {MAX_RETRIES} attempts: {item['name']}")
             time.sleep(0.5)
@@ -1005,8 +1008,9 @@ def export_data_to_json(results):
             "last_updated": now_str,
             "items": merged,
         }
-        with open(data_path, "w") as f:
-            json.dump(payload, f, indent=2)
+        with _data_write_lock:
+            with open(data_path, "w") as f:
+                json.dump(payload, f, indent=2)
         logging.info(f"Exported data.json successfully ({len(merged)} items, scrape_history updated).")
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
@@ -1015,19 +1019,22 @@ def sync_to_github():
     """Commits and pushes the docs/ folder and updated JSON data to GitHub."""
     import subprocess
     try:
-        # Update heartbeat file before syncing
+        # Update heartbeat file before syncing.
+        # NEXT_SCHEDULED_RUN is updated by the main loop AFTER schedule.run_pending();
+        # by the time sync_to_github() is called (from a daemon thread), the main loop
+        # has already ticked and NEXT_SCHEDULED_RUN reflects the upcoming run.
         heartbeat_path = os.path.join("docs", "heartbeat.json")
         next_run_str = NEXT_SCHEDULED_RUN.isoformat() if NEXT_SCHEDULED_RUN else None
         with open(heartbeat_path, "w") as f:
             json.dump({
-                "last_heartbeat": datetime.datetime.now().isoformat(), 
+                "last_heartbeat": datetime.datetime.now().isoformat(),
                 "next_run": next_run_str,
                 "status": "active"
             }, f)
 
         logging.info("Syncing data to GitHub...")
-        # Capture root and docs changes
-        subprocess.run(["git", "add", "docs/*.json", "docs/images/*.jpg"], check=False, capture_output=True)
+        # Stage all docs/ changes (shell globs don't expand in subprocess.run without shell=True)
+        subprocess.run(["git", "add", "docs/"], check=False, capture_output=True)
         
         # Check if there are changes to commit
         status = subprocess.run(["git", "status", "--porcelain", "docs/"], capture_output=True, text=True)
@@ -1036,7 +1043,7 @@ def sync_to_github():
             subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True)
             logging.info("Successfully pushed updated data & heartbeat to GitHub.")
         else:
-            logging.info("No data changes detected, but heartbeat pushed if modified.")
+            logging.info("No data changes to commit (heartbeat only).")
     except subprocess.CalledProcessError as e:
         logging.error(f"GitHub sync failed: {e.stderr.decode()}")
     except Exception as e:
@@ -1186,12 +1193,13 @@ def _discover_coles_prices(batch_size=20):
 
         time.sleep(3)
 
-    # Save back
+    # Save back — use the write lock to avoid racing with export_data_to_json()
     if matched > 0:
-        if isinstance(raw, dict):
-            raw["items"] = data
-        with open(data_path, "w") as f:
-            json.dump(raw if isinstance(raw, dict) else data, f, indent=2)
+        with _data_write_lock:
+            if isinstance(raw, dict):
+                raw["items"] = data
+            with open(data_path, "w") as f:
+                json.dump(raw if isinstance(raw, dict) else data, f, indent=2)
 
     total = sum(1 for i in data if i.get("coles"))
     logging.info(f"[Coles] Discovered {matched} matches ({cheaper} cheaper). Total with Coles: {total}/{len(data)}")
@@ -1336,7 +1344,7 @@ def _enrich_with_unit_price(result):
 
 # ── curl_cffi search functions (zero-browser) ────────────────────────────────
 
-_coles_cached_build_id = None  # cache across sessions
+# NOTE: _coles_cached_build_id is declared once at the top of the file — do not redeclare here.
 
 
 def _cffi_get_coles_build_id(session):
@@ -2202,12 +2210,10 @@ if __name__ == "__main__":
                     logging.error(f"Sunday ping failed: {e}")
                     send_telegram(f"🚨 Sunday ping failed:\n{str(e)}")
 
-            # Write the deep sync flag so the next cycle picks it up
+            # Deep sync flag is written once manually (or by an external trigger).
+            # Do NOT auto-write it here — that would trigger a 24-month re-scrape
+            # on every cold boot after the first run.
             _DEEP_SYNC_FLAG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".deep_sync_needed")
-            if not os.path.exists(_DEEP_SYNC_FLAG_PATH):
-                with open(_DEEP_SYNC_FLAG_PATH, "w") as _f:
-                    _f.write(datetime.datetime.now().isoformat())
-                logging.info("Deep sync flag written — receipt scrape will trigger on next scheduled cycle.")
 
             # Update website frequently (every 4 hours) without telegram messages
             schedule.every(4).hours.do(_silent_update)
@@ -2236,9 +2242,13 @@ if __name__ == "__main__":
             logging.critical(f"CRITICAL: Main loop crashed. Restarting in 30s...\nError: {e}\n{error_trace}")
             try:
                 send_telegram(f"⚠️ *WooliesBot Supervisor Error:* Main loop crashed. Attempting auto-restart in 30s...\n\n`{str(e)[:100]}`")
-            except:
+            except Exception:
                 pass
             time.sleep(30)
 
-        send_telegram(f"🚨 *FATAL CRASH*: WoolesBot stopped.\n{_escape_md(str(e))}")
+        # `e` is only in scope here if the inner except ran; guard accordingly
+        try:
+            send_telegram(f"🚨 *FATAL CRASH*: WoolesBot stopped.\n{_escape_md(str(e))}")
+        except Exception:
+            pass
         sys.exit(1)

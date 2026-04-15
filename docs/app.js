@@ -21,6 +21,10 @@ let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
+// Track sparkline Chart instances so we can destroy them before recreating.
+// Keyed by container element ID string.
+const _sparklineCharts = {};
+
 
 async function initDashboard() {
     try {
@@ -242,12 +246,16 @@ function renderCountdown() {
     const now = new Date();
     const day = now.getDay(); // 0=Sun, 2=Tue, 3=Wed
     
+    // Days until next Wednesday — 0 means Wednesday IS today (just refreshed)
     let daysLeft = (3 - day + 7) % 7;
-    if (daysLeft === 0) daysLeft = 7; // It reset today
     
-    if (daysLeft <= 1) {
+    if (daysLeft === 0) {
+        // It's Wednesday — new specials just dropped
+        pill.classList.remove('urgent');
+        textEl.textContent = 'New specials live today!';
+    } else if (daysLeft === 1) {
         pill.classList.add('urgent');
-        textEl.textContent = daysLeft === 1 ? "Ends TOMORROW (Tue)" : "Ends TODAY (Tue)";
+        textEl.textContent = 'Ends TOMORROW (Tue)';
     } else {
         pill.classList.remove('urgent');
         textEl.textContent = `Specials end in ${daysLeft} days`;
@@ -480,7 +488,7 @@ function createItemCard(item, index, type = 'special') {
                 <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
             </div>
             ${storeCompareHtml}
-            <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}')">
+            <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}'  , this)">
                 <i data-feather="plus"></i> Add to List
             </button>
             <div class="chart-container-sm" id="chart-${type}-${index}">
@@ -578,8 +586,8 @@ function addToList(itemName, callerBtn) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
 
-    // Resolve the calling button — prefer explicit param, fall back to event context
-    const btn = callerBtn || event?.currentTarget || null;
+    // callerBtn is passed explicitly as `this` from the onclick attribute
+    const btn = callerBtn || null;
 
     // Prevent duplicates
     if (_shoppingList.find(l => l.name === itemName)) {
@@ -1493,6 +1501,13 @@ function renderSparkline(containerId, historyData, storeClass) {
     const canvas = container.querySelector('canvas');
     if (!canvas) return;
 
+    // Destroy existing Chart instance on this canvas before creating a new one
+    // to prevent memory leaks on repeated renderDashboard() calls.
+    if (_sparklineCharts[containerId]) {
+        try { _sparklineCharts[containerId].destroy(); } catch (_) {}
+        delete _sparklineCharts[containerId];
+    }
+
     const color = storeClass === 'woolworths' ? '#10b981' : '#ef4444';
     
     // Sort history by date just in case
@@ -1504,7 +1519,7 @@ function renderSparkline(containerId, historyData, storeClass) {
     const labels = recent.map(h => h.date);
     const data = recent.map(h => h.price);
 
-    new Chart(canvas, {
+    _sparklineCharts[containerId] = new Chart(canvas, {
         type: 'line',
         data: {
             labels: labels,
