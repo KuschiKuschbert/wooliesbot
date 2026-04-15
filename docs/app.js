@@ -334,14 +334,20 @@ function renderStats() {
 // ── Essentials: editable, persisted in localStorage ───────────────────────
 const DEFAULT_ESSENTIALS = [
     // Produce
-    "Spinach", "Onions", "Capsicum", "Zucchini", "Avocado", "Baby Potatoes", "Beanette",
-    // Dairy / Protein
-    "Eggs", "Cream", "Cheese", "Greek Yoghurt", "Chicken Breast",
+    "Spinach", "Onions", "Capsicum", "Zucchini", "Avocado",
+    "Baby Potatoes", "Cherry Tomatoes", "Sliced Mushrooms", "Pak Choy",
+    // Dairy
+    "Eggs", "Cream", "Cheese", "Greek Yoghurt", "Bocconcini", "Creamy Vanilla",
+    // Protein
+    "Chicken Breast",
     // Pantry
-    "Passata", "Maple Syrup",
-    // Drinks
-    "Pepsi Max",
+    "Passata", "Maple Syrup", "Fajita Seasoning",
+    // Bakery
+    "Sourdough Loaf",
+    // Treats & Pets
+    "Lindt 95%", "Whiskas",
 ];
+
 
 function getEssentials() {
     const stored = localStorage.getItem('essentialsList');
