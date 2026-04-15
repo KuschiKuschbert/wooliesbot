@@ -510,6 +510,15 @@ function renderEssentials() {
         <button class="essential-add-confirm-btn" onclick="addToEssentials()">Add</button>`;
     list.appendChild(addRow);
 
+    // ── Edit mode: reset to defaults button ───────────────────────────────
+    const resetRow = document.createElement('div');
+    resetRow.className = 'essential-reset-defaults-row' + (editMode ? '' : ' hidden');
+    resetRow.innerHTML = `
+        <button class="essential-reset-defaults-btn" onclick="resetEssentialsToDefaults()">
+            ↺ Reset to default list
+        </button>`;
+    list.appendChild(resetRow);
+
     // Restore edit mode visual state
     if (editMode) {
         list.querySelectorAll('[data-remove]').forEach(btn => btn.classList.remove('hidden'));
@@ -522,6 +531,15 @@ function renderEssentials() {
 
 function resetEssentialsChecked() {
     localStorage.removeItem('essentialsChecked');
+    renderEssentials();
+}
+
+function resetEssentialsToDefaults() {
+    if (!confirm('Reset to the default list? Your custom changes will be lost.')) return;
+    localStorage.removeItem('essentialsList');
+    localStorage.removeItem('essentialsChecked');
+    const list = document.getElementById('essentials-list');
+    if (list) list.dataset.editMode = 'false';
     renderEssentials();
 }
 
