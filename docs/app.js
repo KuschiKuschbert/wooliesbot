@@ -1123,6 +1123,8 @@ function renderColaBattle() {
         const name = item.name.toLowerCase();
         // Exclude flavour variants — only original Coke/Pepsi and their no-sugar equivalents compete
         if (/mango|vanilla|cherry|lime|raspberry|ginger|lemon|creaming soda|orange|grape|melon/i.test(name)) return;
+        // Skip items with no verified store data — stale eff_price values are unreliable
+        if (!item.all_stores || Object.keys(item.all_stores).length === 0) return;
         const price = getItemUnitPrice(item);
         if (price === Infinity || price === 0) return;
 
