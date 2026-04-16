@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WooliesBot">
+    <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -59,6 +64,11 @@
             </div>
         </div>
     </header>
+
+    <!-- Pull-to-refresh indicator -->
+    <div id="ptr-indicator" class="ptr-indicator" aria-hidden="true">
+        <div class="ptr-spinner"></div>
+    </div>
 
     <main class="container">
         <!-- Tab 1: Deals & Shopping -->
@@ -153,8 +163,12 @@
                     </div>
                 </aside>
 
+                <!-- Mobile priority rail (Buy Now + Top 5): visible only on ≤768px -->
+                <div id="mobile-priority-rail" class="priority-rail" aria-label="Priority items"></div>
+
                 <!-- Main Section: Filtering & Grid -->
                 <div class="main-feed">
+                    <div class="sticky-filter-bar">
                     <div class="feed-header">
                         <div class="search-wrap">
                             <i data-feather="search"></i>
@@ -175,7 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="category-scroll">
+                    <div class="category-scroll category-scroll-fade">
                         <button class="filter-btn-cat active" data-cat="all">All</button>
                         <button class="filter-btn-cat" data-cat="produce">🥬 Produce</button>
                         <button class="filter-btn-cat" data-cat="meat">🥩 Meat</button>
@@ -189,6 +203,7 @@
                         <button class="filter-btn-cat" data-cat="personal_care">🪥 Care</button>
                         <button class="filter-btn-cat" data-cat="pet">🐾 Pet</button>
                     </div>
+                    </div><!-- /.sticky-filter-bar -->
 
                     <!-- Predictions / Due Soon -->
                     <section id="predictions-section" class="predictions-section hidden">
@@ -221,7 +236,8 @@
                     <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
                 </button>
                 <div class="master-table-body" id="master-table-body" style="display:none;">
-                    <div class="table-container">
+                    <!-- Desktop table -->
+                    <div class="table-container master-desktop-table">
                         <table class="data-table">
                             <thead>
                                 <tr>
@@ -236,6 +252,8 @@
                             <tbody id="all-items-tbody"></tbody>
                         </table>
                     </div>
+                    <!-- Mobile card list -->
+                    <div id="all-items-list" class="tracklist-mobile-list master-mobile-list"></div>
                 </div>
             </section>
         </section>
@@ -380,6 +398,7 @@
 
     <!-- Shopping List Drawer -->
     <div id="list-drawer" class="list-drawer">
+        <div class="drawer-grabber" id="drawer-grabber"></div>
         <div class="drawer-header">
             <h3>🛒 Shopping List</h3>
             <div class="drawer-header-actions">

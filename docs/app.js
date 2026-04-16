@@ -1,7 +1,130 @@
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
-    initDashboard();
+    registerSW();
+    showSkeletons();
+    initDashboard().then(() => hideSkeletons());
+    setupPullToRefresh();
+    setupBottomSheetDrag();
 });
+
+// ── PWA Service Worker ────────────────────────────────────────────────────────
+function registerSW() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+}
+
+// ── Haptics helper ────────────────────────────────────────────────────────────
+function haptic(ms = 10) {
+    try { navigator.vibrate?.(ms); } catch {}
+}
+
+// ── Skeleton loaders ──────────────────────────────────────────────────────────
+function showSkeletons() {
+    const grid = document.getElementById('specials-grid');
+    if (!grid) return;
+    const count = window.innerWidth <= 480 ? 4 : 6;
+    grid.innerHTML = Array.from({ length: count }, () => `
+        <div class="skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-line med" style="margin-top:12px;"></div>
+            <div class="skeleton skeleton-line short"></div>
+            <div class="skeleton skeleton-btn"></div>
+        </div>
+    `).join('');
+}
+
+function hideSkeletons() {
+    // renderDashboard() will overwrite specials-grid; nothing extra needed
+}
+
+// ── Pull-to-refresh ───────────────────────────────────────────────────────────
+function setupPullToRefresh() {
+    const indicator = document.getElementById('ptr-indicator');
+    if (!indicator) return;
+
+    let startY = 0;
+    let pulling = false;
+    let triggered = false;
+    const THRESHOLD = 70;
+
+    document.addEventListener('touchstart', (e) => {
+        if (window.scrollY > 10) return;
+        startY = e.touches[0].clientY;
+        pulling = true;
+        triggered = false;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+        if (!pulling) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 10 && window.scrollY <= 0) {
+            indicator.classList.add('ptr-visible');
+            if (dy > THRESHOLD && !triggered) {
+                triggered = true;
+                haptic(20);
+            }
+        } else {
+            indicator.classList.remove('ptr-visible');
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchend', async () => {
+        if (!pulling) return;
+        pulling = false;
+        if (triggered) {
+            try {
+                await initDashboard();
+            } finally {
+                indicator.classList.remove('ptr-visible');
+            }
+        } else {
+            indicator.classList.remove('ptr-visible');
+        }
+    });
+}
+
+// ── Bottom-sheet drag-to-dismiss ──────────────────────────────────────────────
+function setupBottomSheetDrag() {
+    const drawer = document.getElementById('list-drawer');
+    const grabber = document.getElementById('drawer-grabber');
+    if (!drawer || !grabber) return;
+
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+
+    const onStart = (y) => {
+        startY = y;
+        currentY = 0;
+        isDragging = true;
+        drawer.style.transition = 'none';
+    };
+
+    const onMove = (y) => {
+        if (!isDragging) return;
+        currentY = Math.max(0, y - startY);
+        drawer.style.transform = `translateY(${currentY}px)`;
+    };
+
+    const onEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        drawer.style.transition = '';
+        if (currentY > 140) {
+            toggleDrawer();
+        } else {
+            drawer.style.transform = '';
+        }
+    };
+
+    grabber.addEventListener('touchstart', (e) => onStart(e.touches[0].clientY), { passive: true });
+    grabber.addEventListener('touchmove', (e) => onMove(e.touches[0].clientY), { passive: true });
+    grabber.addEventListener('touchend', onEnd);
+    grabber.addEventListener('mousedown', (e) => onStart(e.clientY));
+    document.addEventListener('mousemove', (e) => { if (isDragging) onMove(e.clientY); });
+    document.addEventListener('mouseup', onEnd);
+}
 
 let _data = [];
 let _history = {};
@@ -54,6 +177,8 @@ function displayName(name) {
 }
 
 
+let _monitorsStarted = false;
+
 async function initDashboard() {
     try {
         const dataRes = await fetch('data.json').catch(() => null);
@@ -71,11 +196,14 @@ async function initDashboard() {
                 }
             }
         }
-        
-        setInterval(monitorApi, 30000); // Check local bridge status every 30s
-        setInterval(monitorCloudHealth, 300000); // Check cloud health every 5 mins
-        monitorApi(); // Initial check
-        monitorCloudHealth(); // Initial check
+
+        if (!_monitorsStarted) {
+            _monitorsStarted = true;
+            setInterval(monitorApi, 30000);
+            setInterval(monitorCloudHealth, 300000);
+            monitorApi();
+            monitorCloudHealth();
+        }
 
         // Build _history from inline scrape_history (single source of truth)
         _data.forEach(item => {
@@ -99,7 +227,8 @@ function setupFilters() {
     
     const switchTab = (target) => {
         _currentTab = target;
-        
+        haptic(8);
+
         // Sync desktop buttons
         navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
         
@@ -241,9 +370,15 @@ function saveSettings() {
 }
 
 function toggleDrawer() {
-    document.getElementById('list-drawer').classList.toggle('open');
-    document.getElementById('drawer-overlay').classList.toggle('open');
-    if (document.getElementById('list-drawer').classList.contains('open')) renderShoppingList();
+    const drawer = document.getElementById('list-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    drawer.style.transform = ''; // reset any drag position
+    drawer.classList.toggle('open');
+    overlay.classList.toggle('open');
+    if (drawer.classList.contains('open')) {
+        haptic(8);
+        renderShoppingList();
+    }
 }
 
 
@@ -254,6 +389,7 @@ function renderDashboard() {
     renderTop5Deals();
     renderEssentials();
     renderBuyNow();         // F: Buy Now priority card
+    renderMobilePriorityRail(); // mobile-only rail above feed
     renderPredictions();
     renderNearMisses();
     renderSpecials();
@@ -760,30 +896,42 @@ function createItemCard(item, index, type = 'special') {
         ? (item.coles || '#') 
         : (item.woolworths || '#');
 
+    const escapedName = item.name.replace(/'/g, "\\'");
+
     card.innerHTML = `
-        ${imgHtml}
-        <div class="item-content">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
-                    <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                </a>
-                <div style="display:flex; gap:4px; align-items:center;">
-                    ${staleBadge}
-                    ${confidenceBadge}
-                    <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
+        <div class="card-swipe-wrap">
+            <div class="card-face">
+                ${imgHtml}
+                <div class="item-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
+                            <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+                        </a>
+                        <div style="display:flex; gap:4px; align-items:center;">
+                            ${staleBadge}
+                            ${confidenceBadge}
+                            <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
+                        </div>
+                    </div>
+                    <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
+                    <div class="item-price-row">
+                        ${priceHtml}
+                        <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
+                    </div>
+                    ${storeCompareHtml}
+                    <button class="add-to-list-btn" onclick="addToList('${escapedName}', this)">
+                        <i data-feather="plus"></i> Add to List
+                    </button>
+                    <div class="chart-container-sm" id="chart-${type}-${index}">
+                        <canvas></canvas>
+                    </div>
                 </div>
             </div>
-            <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
-            <div class="item-price-row">
-                ${priceHtml}
-                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
-            </div>
-            ${storeCompareHtml}
-            <button class="add-to-list-btn" onclick="addToList('${item.name.replace(/'/g, "\\'")}'  , this)">
-                <i data-feather="plus"></i> Add to List
-            </button>
-            <div class="chart-container-sm" id="chart-${type}-${index}">
-                <canvas></canvas>
+            <div class="card-swipe-action" aria-hidden="true">
+                <button class="card-swipe-btn" onclick="addToList('${escapedName}', this); this.closest('.card-swipe-wrap').scrollLeft=0;" title="Add to list">
+                    <i data-feather="shopping-cart"></i>
+                    <span>Add</span>
+                </button>
             </div>
         </div>
     `;
@@ -912,7 +1060,8 @@ function addToList(itemName, callerBtn) {
     _shoppingList.push(listItem);
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
     updateListCount();
-    
+    haptic(12);
+
     // Visual feedback
     if (btn) {
         const originalText = btn.innerHTML;
@@ -1369,11 +1518,93 @@ function toggleMasterTable() {
     } else {
         body.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        // Lazy-render: only render if empty
+        // Lazy-render: check both table (desktop) and card list (mobile)
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const tbody = document.getElementById('all-items-tbody');
-        if (tbody && tbody.children.length === 0) renderAllItems();
+        const mobileList = document.getElementById('all-items-list');
+        const needsRender = isMobile
+            ? (mobileList && mobileList.children.length === 0)
+            : (tbody && tbody.children.length === 0);
+        if (needsRender) renderAllItems();
         if (typeof feather !== 'undefined') feather.replace();
     }
+}
+
+// ── Mobile Priority Rail ──────────────────────────────────────────────────────
+function renderMobilePriorityRail() {
+    const rail = document.getElementById('mobile-priority-rail');
+    if (!rail || !window.matchMedia('(max-width: 768px)').matches) return;
+
+    // Buy Now items (low stock + on special)
+    const priorityItems = _data.filter(item =>
+        item.stock === 'low' && (item.on_special || (item.target && item.price && item.price <= item.target))
+    ).sort((a, b) => {
+        const savA = a.was_price ? (a.was_price - a.price) / a.was_price : 0;
+        const savB = b.was_price ? (b.was_price - b.price) / b.was_price : 0;
+        return savB - savA;
+    }).slice(0, 6);
+
+    // Top 5 deals
+    const topDeals = _data
+        .filter(item => {
+            const ep = item.eff_price || item.price || 0;
+            return ep > 0 && !item.price_unavailable && (
+                item.on_special || ((item.target || 0) > 0 && ep <= item.target)
+            );
+        })
+        .map(item => {
+            const ep = item.eff_price || item.price;
+            const shelf = item.price || ep;
+            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || ep);
+            const savePct = ref > shelf ? Math.round((1 - shelf / ref) * 100) : 0;
+            return { ...item, _ep: ep, _savePct: savePct };
+        })
+        .filter(i => i._savePct > 0)
+        .sort((a, b) => b._savePct - a._savePct)
+        .slice(0, 5);
+
+    let html = '<div class="priority-rail-inner">';
+
+    if (priorityItems.length > 0) {
+        html += `<div class="priority-rail-section">
+            <div class="priority-rail-title">🔥 Buy Now <span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 7px;border-radius:100px;">${priorityItems.length}</span></div>
+            ${priorityItems.map(item => {
+                const price = item.eff_price || item.price || 0;
+                const saveStr = item.was_price && item.was_price > item.price
+                    ? `-${Math.round((item.was_price - item.price) / item.was_price * 100)}%` : '🎯';
+                return `<div class="buy-now-row" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
+                    <div class="buy-now-stock-dot"></div>
+                    <div class="buy-now-info">
+                        <div class="buy-now-name">${displayName(item.name)}</div>
+                        <div class="buy-now-price">$${price.toFixed(2)}</div>
+                    </div>
+                    <div class="buy-now-save">${saveStr}</div>
+                </div>`;
+            }).join('')}
+        </div>`;
+    }
+
+    if (topDeals.length > 0) {
+        const medals = ['🥇','🥈','🥉','4️⃣','5️⃣'];
+        html += `<div class="priority-rail-section">
+            <div class="priority-rail-title">🏆 Top Deals</div>
+            ${topDeals.map((item, i) => {
+                const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
+                const name = displayName(item.name);
+                return `<div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${name}">
+                    <span class="top5-medal">${medals[i]}</span>
+                    <div class="top5-info">
+                        <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
+                        <div class="top5-price" style="color:${storeColor};">$${item._ep.toFixed(2)}</div>
+                    </div>
+                    <span class="top5-save">-${item._savePct}%</span>
+                </div>`;
+            }).join('')}
+        </div>`;
+    }
+
+    html += '</div>';
+    rail.innerHTML = html;
 }
 
 // ── F: Buy Now Priority View ──────────────────────────────────────────────
@@ -1409,7 +1640,7 @@ function renderBuyNow() {
         const saveStr = wasPr && wasPr > shelf ? `-${Math.round((wasPr - shelf) / wasPr * 100)}%` : '🎯';
         const priceStr = price ? `$${price.toFixed(2)}` : '—';
         return `
-            <div class="buy-now-row" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
+                <div class="buy-now-row" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
                     <div class="buy-now-name">${displayName(item.name)}</div>
@@ -1421,16 +1652,65 @@ function renderBuyNow() {
 }
 
 function renderAllItems() {
-
-    const tbody = document.getElementById('all-items-tbody');
-    if (!tbody) return;
-    tbody.innerHTML = '';
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     const filteredData = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText) || displayName(item.name).toLowerCase().includes(_searchText);
         return matchesStore && matchesSearch;
     }).sort((a, b) => displayName(a.name).localeCompare(displayName(b.name)));
+
+    if (isMobile) {
+        // ── Mobile: render as compact rows ────────────────────────────────
+        const list = document.getElementById('all-items-list');
+        if (!list) return;
+        list.innerHTML = '';
+
+        filteredData.forEach((item, index) => {
+            const effPrice = item.eff_price || item.price;
+            const isSpecial = item.on_special || ((item.target || 0) > 0 && effPrice <= item.target && !item.price_unavailable);
+            const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
+            const storeLabel = item.store === 'woolworths' ? '🟢 W' : '🔴 C';
+
+            let priceHtml;
+            const itemShelf = item.price || effPrice;
+            if (item.on_special && item.was_price && item.was_price > itemShelf) {
+                const savePct = Math.round((1 - itemShelf / item.was_price) * 100);
+                priceHtml = `<span style="color:var(--woolies-green);">$${effPrice.toFixed(2)}</span> <span style="font-size:10px;opacity:0.5;text-decoration:line-through;">$${item.was_price.toFixed(2)}</span>`;
+            } else {
+                priceHtml = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
+            }
+
+            const row = document.createElement('div');
+            row.className = 'tracklist-row';
+            row.onclick = () => { haptic(8); openStockModal(item.name); };
+            row.innerHTML = `
+                <div class="tracklist-row-info">
+                    <div class="tracklist-row-name">${displayName(item.name)}${isSpecial ? ' 🔥' : ''}</div>
+                    <div class="tracklist-row-sub">
+                        <span>${storeLabel}</span>
+                        <div class="stock-dot ${stockColor}" title="${item.stock}"></div>
+                        ${(item.target || 0) > 0 ? `<span style="opacity:0.5;">Target $${item.target.toFixed(2)}</span>` : ''}
+                    </div>
+                </div>
+                <div>
+                    <div class="tracklist-row-price">${priceHtml}</div>
+                    <div class="tracklist-sparkline" id="chart-mob-${index}"><canvas></canvas></div>
+                </div>
+            `;
+            list.appendChild(row);
+
+            if (_history[item.name] && _history[item.name].history.length > 0) {
+                renderSparkline(`chart-mob-${index}`, _history[item.name].history, item.store);
+            }
+        });
+        return;
+    }
+
+    // ── Desktop: existing table render ────────────────────────────────────
+    const tbody = document.getElementById('all-items-tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
 
     filteredData.forEach((item, index) => {
         const tr = document.createElement('tr');
@@ -1509,6 +1789,7 @@ async function saveItemChanges() {
         });
         
         if (response.ok) {
+            haptic(15);
             _selectedItemForModal.stock = activeStock;
             _selectedItemForModal.target = newTarget;
             renderDashboard();
@@ -1932,6 +2213,26 @@ function renderDeeperInsights(brandPrices) {
     `;
 
     container.innerHTML = html;
+
+    // Mobile carousel: add dot indicators
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        const cards = container.querySelectorAll('.deep-insight-card');
+        if (cards.length > 1) {
+            const dots = document.createElement('div');
+            dots.className = 'insights-dots';
+            dots.innerHTML = Array.from(cards).map((_, i) =>
+                `<span class="insight-dot${i === 0 ? ' active' : ''}"></span>`
+            ).join('');
+            container.appendChild(dots);
+
+            const insightsFlex = container.closest('.insights-flex') || container;
+            const scrollEl = container;
+            scrollEl.addEventListener('scroll', () => {
+                const idx = Math.round(scrollEl.scrollLeft / (scrollEl.scrollWidth / cards.length));
+                dots.querySelectorAll('.insight-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+            }, { passive: true });
+        }
+    }
 }
 
 
