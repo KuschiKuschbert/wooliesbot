@@ -25,6 +25,34 @@ const MONTHLY_BUDGET = 800;
 // Keyed by container element ID string.
 const _sparklineCharts = {};
 
+const _DISPLAY_ABBREVS = [
+    [/\bWw\b/gi, 'Woolworths'], [/\bDf\b/gi, 'Dairy Farmers'],
+    [/\bEss\b/gi, 'Essentials'], [/\bSrdgh\b/gi, 'Sourdough'],
+    [/\bHmlyn\b/gi, 'Himalayan'], [/\bBflied\b/gi, 'Butterflied'],
+    [/\bB'Flied\b/gi, 'Butterflied'], [/\bLemn\b/gi, 'Lemon'],
+    [/\bGrlc\b/gi, 'Garlic'], [/\bStarwberry\b/gi, 'Strawberry'],
+    [/\bConc\b/gi, 'Concentrate'], [/\bRw\b/gi, ''],
+    [/\bTrplsmkd\b/gi, 'Triple Smoked'], [/\bShvd\b/gi, 'Shaved'],
+    [/\bApprvd\b/gi, 'Approved'], [/\bF\/F\b/gi, 'Fat Free'],
+    [/\bF\/C\b/gi, 'Fresh Choice'], [/\bP\/P\b/gi, ''],
+    [/\bPnut\b/gi, 'Peanut'], [/\bCrml\b/gi, 'Caramel'],
+    [/\bCkie\b/gi, 'Cookie'], [/\bBtr\b/gi, 'Butter'],
+    [/\bEfferv\b/gi, 'Effervescent'], [/\bHm\b/gi, 'Ham'],
+    [/\bT\/Tiss\b/gi, 'Toilet Tissue'], [/\bLge\b/gi, 'Large'],
+    [/\bXl\b/gi, 'XL'], [/\bChoc\b/gi, 'Chocolate'],
+    [/\bPud\b/gi, 'Pudding'], [/\bBbq\b/gi, 'BBQ'],
+    [/\bPb\b/gi, 'Peanut Butter'], [/\bDbl\b/gi, 'Double'],
+    [/\bEsprs\b/gi, 'Espresso'], [/\bFlav\b/gi, 'Flavoured'],
+    [/\bWtr\b/gi, 'Water'], [/\bNatrl\b/gi, 'Natural'],
+    [/\b35Hr\b/gi, '35 Hour'], [/\bCb\b/gi, 'Carb'],
+];
+function displayName(name) {
+    if (!name) return '';
+    let n = name;
+    for (const [re, rep] of _DISPLAY_ABBREVS) n = n.replace(re, rep);
+    return n.replace(/\s{2,}/g, ' ').trim();
+}
+
 
 async function initDashboard() {
     try {
@@ -281,12 +309,13 @@ function renderStats() {
     
     _data.forEach(item => {
         const effPrice = item.eff_price || item.price;
+        const shelf = item.price || effPrice;
         const isSpecial = item.on_special || (item.target > 0 && effPrice <= item.target && !item.price_unavailable);
         if (isSpecial) {
             specialsCount++;
-            // Use was_price for savings when available (more accurate than target)
-            const ref = item.was_price || item.target || 0;
-            savingsToday += Math.max(0, ref - effPrice);
+            // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
+            const ref = item.was_price ? Math.max(0, item.was_price - shelf) : Math.max(0, (item.target || 0) - effPrice);
+            savingsToday += ref;
         }
     });
 
@@ -683,9 +712,12 @@ function createItemCard(item, index, type = 'special') {
         : '';
 
     // Was/Now pricing for store-confirmed specials
+    // Compare was_price to shelf price; cap at 70% to catch unit mismatches in stale data
+    const shelfPrice = item.price || effPrice;
     let priceHtml;
-    if (item.on_special && item.was_price && item.was_price > effPrice) {
-        const savePct = Math.round((1 - effPrice / item.was_price) * 100);
+    const hasSaneWas = item.on_special && item.was_price && item.was_price > shelfPrice && item.was_price < shelfPrice * 4;
+    if (hasSaneWas) {
+        const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
             <span class="item-price">$${effPrice.toFixed(2)}</span>
             <span class="was-price">Was $${item.was_price.toFixed(2)}</span>
@@ -741,7 +773,7 @@ function createItemCard(item, index, type = 'special') {
                     <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
                 </div>
             </div>
-            <h3 class="item-title" style="margin-top: 8px;">${item.name}</h3>
+            <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
             <div class="item-price-row">
                 ${priceHtml}
                 <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
@@ -921,7 +953,7 @@ function renderShoppingList() {
         div.innerHTML = `
             ${item.image ? `<img src="${item.image}" onerror="this.style.display='none'">` : '<div style="width:40px;height:40px;background:rgba(255,255,255,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;"><i data-feather="image" style="width:16px;"></i></div>'}
             <div class="shopping-item-info">
-                <div class="shopping-item-name">${item.qty}× ${item.name} ${specialBadge}</div>
+                <div class="shopping-item-name">${item.qty}× ${displayName(item.name)} ${specialBadge}</div>
                 <div class="shopping-item-price">${item.store === 'woolworths' ? '🟢 Woolies' : '🔴 Coles'} — $${itemTotal.toFixed(2)}</div>
             </div>
             <button class="icon-btn" onclick="removeFromList(${index})"><i data-feather="trash-2"></i></button>
@@ -1155,7 +1187,7 @@ function renderColaBattle() {
                         ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
-                        <div class="fighter-product">${pepsi ? pepsi.name : 'No Data'}</div>
+                        <div class="fighter-product">${pepsi ? displayName(pepsi.name) : 'No Data'}</div>
                         <div class="fighter-meta">${getStoreBadge(pepsi)}${isOnSpecial(pepsi) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
                         ${viewLink(pepsi)}
                     </div>
@@ -1164,7 +1196,7 @@ function renderColaBattle() {
                         ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
-                        <div class="fighter-product">${coke ? coke.name : 'No Data'}</div>
+                        <div class="fighter-product">${coke ? displayName(coke.name) : 'No Data'}</div>
                         <div class="fighter-meta">${getStoreBadge(coke)}${isOnSpecial(coke) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
                         ${viewLink(coke)}
                     </div>
@@ -1191,7 +1223,7 @@ function renderSpecials() {
     const displayItems = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesCat = _currentCatFilter === 'all' || item.type === _currentCatFilter;
-        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
+        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText) || displayName(item.name).toLowerCase().includes(_searchText);
         const effPrice = item.eff_price || item.price;
         // Store says "on special" OR price is at/below our target
         const isSpecial = item.on_special || (item.target > 0 && effPrice <= item.target && !item.price_unavailable);
@@ -1208,12 +1240,14 @@ function renderSpecials() {
         if (_currentSort === 'price') return priceA - priceB;
         
         if (_currentSort === 'discount') {
-            // Use was_price (store signal) if available, otherwise target
-            const refA = a.was_price || a.target || priceA;
-            const refB = b.was_price || b.target || priceB;
-            const savingsA = (refA - priceA) / refA;
-            const savingsB = (refB - priceB) / refB;
-            return savingsB - savingsA; // Biggest discount first
+            // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
+            const shelfA = a.price || priceA;
+            const shelfB = b.price || priceB;
+            const refA = a.was_price && a.was_price > shelfA ? a.was_price : (a.target || shelfA);
+            const refB = b.was_price && b.was_price > shelfB ? b.was_price : (b.target || shelfB);
+            const savingsA = (refA - shelfA) / refA;
+            const savingsB = (refB - shelfB) / refB;
+            return savingsB - savingsA;
         }
         return 0;
     });
@@ -1353,13 +1387,14 @@ function renderBuyNow() {
     list.innerHTML = priorityItems.map(item => {
         const price = item.eff_price || item.price || 0;
         const wasPr = item.was_price;
-        const saveStr = wasPr ? `-${Math.round((wasPr - price) / wasPr * 100)}%` : '🎯';
+        const shelf = item.price || price;
+        const saveStr = wasPr && wasPr > shelf ? `-${Math.round((wasPr - shelf) / wasPr * 100)}%` : '🎯';
         const priceStr = price ? `$${price.toFixed(2)}` : '—';
         return `
             <div class="buy-now-row" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
-                    <div class="buy-now-name">${item.name}</div>
+                    <div class="buy-now-name">${displayName(item.name)}</div>
                     <div class="buy-now-price">${priceStr}${wasPr ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasPr.toFixed(2)}</span>` : ''}</div>
                 </div>
                 <div class="buy-now-save">${saveStr}</div>
@@ -1375,9 +1410,9 @@ function renderAllItems() {
 
     const filteredData = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
-        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText);
+        const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText) || displayName(item.name).toLowerCase().includes(_searchText);
         return matchesStore && matchesSearch;
-    }).sort((a, b) => a.name.localeCompare(b.name));
+    }).sort((a, b) => displayName(a.name).localeCompare(displayName(b.name)));
 
     filteredData.forEach((item, index) => {
         const tr = document.createElement('tr');
@@ -1386,8 +1421,9 @@ function renderAllItems() {
         const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
         
         let priceCell;
-        if (item.on_special && item.was_price && item.was_price > effPrice) {
-            const savePct = Math.round((1 - effPrice / item.was_price) * 100);
+        const itemShelf = item.price || effPrice;
+        if (item.on_special && item.was_price && item.was_price > itemShelf) {
+            const savePct = Math.round((1 - itemShelf / item.was_price) * 100);
             priceCell = `$${effPrice.toFixed(2)} <span class="was-price">$${item.was_price.toFixed(2)}</span> <span class="save-badge">-${savePct}%</span>`;
         } else {
             priceCell = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
@@ -1395,7 +1431,7 @@ function renderAllItems() {
 
         tr.innerHTML = `
             <td>
-                <span style="font-weight:600;">${item.name}</span>
+                <span style="font-weight:600;">${displayName(item.name)}</span>
                 ${isSpecial ? ' 🔥' : ''}
             </td>
             <td><span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span></td>
@@ -1425,7 +1461,7 @@ function openStockModal(itemName) {
     if (!item) return;
     
     _selectedItemForModal = item;
-    document.getElementById('modal-title').textContent = item.name;
+    document.getElementById('modal-title').textContent = displayName(item.name);
     document.getElementById('target-input-modal').value = item.target;
     
     document.querySelectorAll('.stock-btn').forEach(btn => {
@@ -1546,9 +1582,9 @@ function renderAnalytics() {
 
     // 4. Total historical savings: add was_price-based savings for current specials
     _data.forEach(item => {
-        const ep = item.eff_price || item.price || 0;
-        if (item.on_special && item.was_price && item.was_price > ep) {
-            totalRealizedSavings += (item.was_price - ep);
+        const shelf = item.price || 0;
+        if (item.on_special && item.was_price && item.was_price > shelf) {
+            totalRealizedSavings += (item.was_price - shelf);
         }
     });
 
@@ -1837,7 +1873,7 @@ function renderDeeperInsights(brandPrices) {
             <div class="smart-buy-list">
                 ${smartBuys.map(item => `
                     <div class="smart-buy-item">
-                        <span class="name">${item.name}</span>
+                        <span class="name">${displayName(item.name)}</span>
                         <div class="meta">
                             <span class="price">$${item.eff_price?.toFixed(2)}</span>
                             <span class="volatility-tag high">Volatility: ${(_volatility[item.name] || 0).toFixed(0)}%</span>
@@ -1969,8 +2005,9 @@ function renderTop5Deals() {
         })
         .map(item => {
             const ep = item.eff_price || item.price;
-            const ref = item.was_price || item.target || ep;
-            const savePct = ref > ep ? Math.round((1 - ep / ref) * 100) : 0;
+            const shelf = item.price || ep;
+            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || ep);
+            const savePct = ref > shelf ? Math.round((1 - shelf / ref) * 100) : 0;
             return { ...item, _ep: ep, _savePct: savePct };
         })
         .filter(i => i._savePct > 0)
@@ -1986,10 +2023,10 @@ function renderTop5Deals() {
         const medal = ['🥇','🥈','🥉','4️⃣','5️⃣'][i];
         const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
         return `
-            <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${item.name}">
+            <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${displayName(item.name)}">
                 <span class="top5-medal">${medal}</span>
                 <div class="top5-info">
-                    <div class="top5-name">${item.name.length > 28 ? item.name.substring(0,28)+'…' : item.name}</div>
+                    <div class="top5-name">${(() => { const dn = displayName(item.name); return dn.length > 28 ? dn.substring(0,28)+'…' : dn; })()}</div>
                     <div class="top5-price" style="color:${storeColor};">$${item._ep.toFixed(2)}</div>
                 </div>
                 <span class="top5-save">-${item._savePct}%</span>
@@ -2013,7 +2050,7 @@ function copyShoppingList() {
         lines.push('🟢 Woolworths');
         woolies.forEach(i => {
             const special = i.on_special ? ' 🏷️' : '';
-            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${i.name}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
+            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${displayName(i.name)}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
         });
         lines.push('');
     }
@@ -2021,7 +2058,7 @@ function copyShoppingList() {
         lines.push('🔴 Coles');
         coles.forEach(i => {
             const special = i.on_special ? ' 🏷️' : '';
-            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${i.name}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
+            lines.push(`  ${i.qty > 1 ? i.qty + 'x ' : ''}${displayName(i.name)}${special} — $${((i.price || 0) * i.qty).toFixed(2)}`);
         });
         lines.push('');
     }
@@ -2076,7 +2113,7 @@ function showPriceDropToast(items) {
     toast.id = 'price-drop-toast';
     toast.className = 'price-drop-toast';
 
-    const names = items.slice(0, 3).map(i => i.name.split(' ').slice(0, 2).join(' ')).join(', ');
+    const names = items.slice(0, 3).map(i => displayName(i.name).split(' ').slice(0, 2).join(' ')).join(', ');
     const more = items.length > 3 ? ` +${items.length - 3} more` : '';
 
     toast.innerHTML = `
@@ -2109,12 +2146,13 @@ function renderSavingsGauge() {
 
     _data.forEach(item => {
         const ep = item.eff_price || item.price || 0;
+        const shelf = item.price || ep;
         if (ep <= 0 || item.price_unavailable) return;
 
-        // If store has a was_price, that's the true potential saving
-        if (item.on_special && item.was_price && item.was_price > ep) {
-            currentSavings += (item.was_price - ep);
-            potentialSavings += (item.was_price - ep);
+        // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
+        if (item.on_special && item.was_price && item.was_price > shelf) {
+            currentSavings += (item.was_price - shelf);
+            potentialSavings += (item.was_price - shelf);
             specialCount++;
         } else if (item.target > 0 && ep <= item.target) {
             // Target-based saving
@@ -2181,9 +2219,9 @@ function renderWeeklySavings() {
     const dealItems = [];
 
     _data.forEach(item => {
-        const ep = item.eff_price || item.price || 0;
-        if (item.on_special && item.was_price && item.was_price > ep) {
-            const saved = item.was_price - ep;
+        const shelf = item.price || 0;
+        if (item.on_special && item.was_price && item.was_price > shelf && shelf > 0) {
+            const saved = item.was_price - shelf;
             totalSaved += saved;
             totalWouldCost += item.was_price;
             dealItems.push({ name: item.name, saved, savePct: Math.round((saved / item.was_price) * 100), store: item.store });
@@ -2199,7 +2237,7 @@ function renderWeeklySavings() {
         <div class="weekly-deals-list">
             ${topDeals.map(d => `
                 <div class="weekly-deal-row">
-                    <span class="wdr-name">${d.name.length > 26 ? d.name.slice(0, 26) + '…' : d.name}</span>
+                    <span class="wdr-name">${(() => { const dn = displayName(d.name); return dn.length > 26 ? dn.slice(0, 26) + '…' : dn; })()}</span>
                     <span class="wdr-save">-${d.savePct}% ($${d.saved.toFixed(2)})</span>
                 </div>
             `).join('')}
@@ -2326,11 +2364,12 @@ function renderDealHeatmap() {
         const ep = item.eff_price || item.price || 0;
         heatData[cat][store].total++;
 
+        const shelf = item.price || ep;
         const isSpecial = item.on_special || (item.target > 0 && ep <= item.target && !item.price_unavailable);
         if (isSpecial) {
             heatData[cat][store].specials++;
-            const ref = item.was_price || item.target || ep;
-            heatData[cat][store].savings += (ref - ep);
+            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || shelf);
+            heatData[cat][store].savings += Math.max(0, ref - shelf);
         }
     });
 
@@ -2454,7 +2493,7 @@ function renderVolatilityLeaderboard() {
                         <div class="vol-rank">#${i + 1}</div>
                         <div class="vol-info">
                             <div class="vol-name">
-                                ${item.name.length > 32 ? item.name.slice(0, 32) + '…' : item.name}
+                                ${(() => { const dn = displayName(item.name); return dn.length > 32 ? dn.slice(0, 32) + '…' : dn; })()}
                                 ${item.isOnSpecial ? '<span class="vol-special-badge">🔥 ON SPECIAL</span>' : ''}
                             </div>
                             <div class="vol-bar-wrap">
@@ -2655,7 +2694,7 @@ function openItemDeepdive(itemName) {
         <div class="deepdive-panel">
             <div class="deepdive-header">
                 <div>
-                    <h3 class="deepdive-title">${item.name}</h3>
+                    <h3 class="deepdive-title">${displayName(item.name)}</h3>
                     <div class="deepdive-meta">
                         <span class="store-badge ${item.store}" style="margin-top:0;">${item.store === 'woolworths' ? 'Woolies' : 'Coles'}</span>
                         ${isOnSpecial ? '<span class="save-badge">ON SPECIAL</span>' : ''}
