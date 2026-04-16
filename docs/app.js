@@ -1329,34 +1329,35 @@ function renderColaBattle() {
             return item.on_special || (sd && sd.on_special);
         };
 
-        const viewLink = (item) => {
-            const url = getStoreUrl(item);
-            return url ? `<a href="${url}" target="_blank" rel="noopener" class="fighter-view-link">View on store →</a>` : '';
-        };
-
         const getActiveStore = (item) => getBestStore(item);
+
+        const pUrl = getStoreUrl(pepsi);
+        const cUrl = getStoreUrl(coke);
+
+        const pTag = pepsi && pUrl ? 'a' : 'div';
+        const cTag = coke && cUrl ? 'a' : 'div';
+        const pHref = pepsi && pUrl ? ` href="${pUrl}" target="_blank" rel="noopener"` : '';
+        const cHref = coke && cUrl ? ` href="${cUrl}" target="_blank" rel="noopener"` : '';
 
         return `
             <div class="battle-arena">
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
-                    <div class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsi)}` : ''}">
+                    <${pTag} class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsi)}` : ''}"${pHref}>
                         ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
                         <div class="fighter-product">${pepsi ? displayName(pepsi.name) : 'No Data'}</div>
                         <div class="fighter-meta">${getStoreBadge(pepsi)}${isOnSpecial(pepsi) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
-                        ${viewLink(pepsi)}
-                    </div>
+                    </${pTag}>
                     <div class="battle-vs">VS</div>
-                    <div class="fighter ${cWinner ? `winner winner-${getActiveStore(coke)}` : ''}">
+                    <${cTag} class="fighter ${cWinner ? `winner winner-${getActiveStore(coke)}` : ''}"${cHref}>
                         ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
                         <div class="fighter-product">${coke ? displayName(coke.name) : 'No Data'}</div>
                         <div class="fighter-meta">${getStoreBadge(coke)}${isOnSpecial(coke) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
-                        ${viewLink(coke)}
-                    </div>
+                    </${cTag}>
                 </div>
             </div>
         `;
