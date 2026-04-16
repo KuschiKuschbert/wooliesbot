@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17 07:13 AM",
+  "last_updated": "2026-04-17 09:29 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1446,9 +1446,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.7,
-          "unit_price": 7.7,
-          "eff_price": 7.7,
+          "price": 8.58,
+          "unit_price": 8.58,
+          "eff_price": 8.58,
           "was_price": null,
           "on_special": false
         },
@@ -5478,7 +5478,7 @@
       "name": "Ww Original Water Crackers 125G",
       "type": "beverages",
       "price_mode": "each",
-      "target": 0.76,
+      "target": 0.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
       "coles": "https://www.coles.com.au/product/original-water-crackers-5389901",
       "price_history": [
@@ -5494,8 +5494,8 @@
       "subcategory": "beverages",
       "size": "125G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 4 prices",
+      "target_confidence": "high",
+      "target_method": "was $2.80, now $0.95 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -5515,7 +5515,7 @@
         {
           "date": "2026-04-17",
           "price": 0.95,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -5530,11 +5530,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -7009,9 +7009,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.3,
-          "unit_price": 9.3,
-          "eff_price": 9.3,
+          "price": 11.2,
+          "unit_price": 14.93,
+          "eff_price": 11.2,
           "was_price": null,
           "on_special": false
         },
@@ -20015,7 +20015,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 8.5,
+      "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -20026,26 +20026,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 8.5,
+      "price": 7.0,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.90, now $8.50 (store special)",
+      "target_method": "was $8.50, now $7.00 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -20060,15 +20060,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "coles",
-      "unit_price": 3.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 2.8,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 2.37,
-          "eff_price": 8.9,
-          "was_price": 9.9,
+          "price": 7.0,
+          "unit_price": 2.8,
+          "eff_price": 7.0,
+          "was_price": 8.5,
           "on_special": true
         },
         "coles": {
@@ -20081,13 +20081,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.5,
-      "on_special": false,
+      "eff_price": 7.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter"
+      "name_check": "Mainland Organic Butter Block Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -20144,14 +20144,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -20169,7 +20169,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -24684,7 +24684,7 @@
       "name": "Waterfords L/F Orangepassion 1L",
       "type": "beverages",
       "price_mode": "each",
-      "target": 2.0,
+      "target": 1.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20L/F%20OrangePassion%201L",
       "coles": "https://www.coles.com.au/product/tahitian-lime-sparkling-water-3047780",
       "price_history": [
@@ -24700,8 +24700,8 @@
       "subcategory": "beverages",
       "size": "1L",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 4 prices",
+      "target_confidence": "high",
+      "target_method": "was $2.00, now $1.50 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -24721,39 +24721,34 @@
         {
           "date": "2026-04-17",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         }
       ],
       "was_price": 2.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Waterfords_L_F_Orangepassion_1L.jpg",
       "image_url": "images/waterfords_lf_orangepassion_1l.jpg",
       "store": "coles",
-      "unit_price": 2.0,
+      "unit_price": 1.5,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 1.5,
+          "unit_price": 1.5,
           "eff_price": 1.5,
           "was_price": 2.0,
-          "on_special": true
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.0,
       "eff_price": 1.5,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
-      "stale_as_of": "2026-04-17"
+      "stale_as_of": "2026-04-17",
+      "name_check": "Tahitian Lime Sparkling Water"
     },
     {
       "name": "Arnott'S Cruskits Original 125G",
@@ -25968,6 +25963,7 @@
         },
         "coles": {
           "price": 11.0,
+          "unit_price": 2.32,
           "eff_price": 11.0,
           "was_price": null,
           "on_special": false
@@ -26913,7 +26909,7 @@
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Ingham's%20Chk%20Tenders%20Swt%20Chli%20400g",
-      "coles": "",
+      "coles": "https://www.coles.com.au/product/four-chicken-kyivs-creamy-garlic-9925486",
       "price_history": [
         {
           "date": "2025-12-22",
@@ -26968,6 +26964,12 @@
           "eff_price": 4.5,
           "was_price": 5.5,
           "on_special": true
+        },
+        "coles": {
+          "price": 11.5,
+          "eff_price": 11.5,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -27661,7 +27663,7 @@
       "price_mode": "each",
       "target": 2.73,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Arnott's%20Jatz%20Cracker%20Original%20225g",
-      "coles": "",
+      "coles": "https://www.coles.com.au/product/multipack-bluey-pizza-cracker-5288518",
       "price_history": [
         {
           "date": "2025-12-22",
@@ -27714,6 +27716,12 @@
           "price": 4.0,
           "unit_price": 1.78,
           "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
+        "coles": {
+          "price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
