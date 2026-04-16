@@ -1121,6 +1121,8 @@ function renderColaBattle() {
 
     colaItems.forEach(item => {
         const name = item.name.toLowerCase();
+        // Exclude flavour variants — only original Coke/Pepsi and their no-sugar equivalents compete
+        if (/mango|vanilla|cherry|lime|raspberry|ginger|lemon|creaming soda|orange|grape|melon/i.test(name)) return;
         const price = getItemUnitPrice(item);
         if (price === Infinity || price === 0) return;
 
@@ -1158,11 +1160,17 @@ function renderColaBattle() {
         const getStoreUrl = (item) => {
             if (!item) return null;
             const store = getBestStore(item);
+            const hasStoreData = Object.keys(item.all_stores || {}).length > 0;
             if (store === 'coles') {
                 if (item.coles) return item.coles;
                 return `https://www.coles.com.au/search?q=${encodeURIComponent(item.name)}`;
             }
-            return item.woolworths || `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
+            // Only trust a PDP link when we have recent scrape data confirming the product exists;
+            // stale /productdetails/ links frequently 404 after range refreshes.
+            if (item.woolworths && (hasStoreData || !item.woolworths.includes('/productdetails/'))) {
+                return item.woolworths;
+            }
+            return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
         };
 
         const getStoreBadge = (item) => {
