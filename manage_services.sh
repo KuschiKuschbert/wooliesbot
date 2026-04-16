@@ -6,16 +6,22 @@ LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
 
 API_PLIST="com.wooliesbot.api.plist"
 WORKER_PLIST="com.wooliesbot.automation.plist"
-OLD_PLIST="com.chefos.automation.plist"
+LEGACY_CHEFOS_PLIST="com.chefsos.plist"
+LEGACY_CHEFOS_AUTOMATION="com.chefos.automation.plist"
 
 function install() {
     echo "⚙️ Installing WooliesBot Services..."
     
-    # 1. Unload old service if exists
-    if [ -f "$LAUNCH_AGENTS_DIR/$OLD_PLIST" ]; then
-        echo "   - Removing legacy service..."
-        launchctl unload "$LAUNCH_AGENTS_DIR/$OLD_PLIST" 2>/dev/null
-        rm "$LAUNCH_AGENTS_DIR/$OLD_PLIST"
+    # 1. Remove legacy LaunchAgents (duplicate chef_os or old names)
+    if [ -f "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_PLIST" ]; then
+        echo "   - Removing legacy $LEGACY_CHEFOS_PLIST (use $WORKER_PLIST for chef_os)..."
+        launchctl unload "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_PLIST" 2>/dev/null
+        rm -f "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_PLIST"
+    fi
+    if [ -f "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_AUTOMATION" ]; then
+        echo "   - Removing legacy $LEGACY_CHEFOS_AUTOMATION..."
+        launchctl unload "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_AUTOMATION" 2>/dev/null
+        rm -f "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_AUTOMATION"
     fi
     
     # 2. Copy new plists
@@ -33,6 +39,7 @@ function stop() {
     echo "🛑 Stopping WooliesBot Services..."
     launchctl unload "$LAUNCH_AGENTS_DIR/$API_PLIST" 2>/dev/null
     launchctl unload "$LAUNCH_AGENTS_DIR/$WORKER_PLIST" 2>/dev/null
+    launchctl unload "$LAUNCH_AGENTS_DIR/$LEGACY_CHEFOS_PLIST" 2>/dev/null
     echo "✅ Services stopped."
 }
 

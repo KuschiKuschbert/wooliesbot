@@ -6,7 +6,7 @@
     <string>com.wooliesbot.automation</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/python3</string>
+        <string>/Users/danielkuschmierz/Woolies Script/.venv/bin/python</string>
         <string>/Users/danielkuschmierz/Woolies Script/chef_os.py</string>
     </array>
     <key>WorkingDirectory</key>
@@ -17,7 +17,10 @@
     <string>/Users/danielkuschmierz/Woolies Script/logs/worker_output.log</string>
     <key>RunAtLoad</key>
     <true/>
+    <!-- Restart chef_os if it crashes; ThrottleInterval avoids tight restart loops -->
     <key>KeepAlive</key>
     <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
 </dict>
 </plist>

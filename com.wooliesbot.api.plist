@@ -6,7 +6,7 @@
     <string>com.wooliesbot.api</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/python3</string>
+        <string>/Users/danielkuschmierz/Woolies Script/.venv/bin/python</string>
         <string>/Users/danielkuschmierz/Woolies Script/api.py</string>
     </array>
     <key>WorkingDirectory</key>
@@ -19,5 +19,7 @@
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
 </dict>
 </plist>
