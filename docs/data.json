@@ -5301,7 +5301,7 @@
       "price_mode": "each",
       "target": 1.87,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Cola%20Cans%2010X375Ml",
-      "coles": "https://www.coles.com.au/product/max-no-sugar-cola-soft-drink-bottle-5441863",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-04-13",
@@ -5356,7 +5356,7 @@
       "on_special": false,
       "local_image": "images/Pepsi_Max_Cola_Cans_10X375Ml.jpg",
       "image_url": "images/pepsi_max_cola_cans_10x375ml.jpg",
-      "unit_price": 1.5,
+      "unit_price": 5.33,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
@@ -5380,7 +5380,7 @@
       "price_mode": "each",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Coca%20Cola%20Zero%20Sugar%2010X375Ml",
-      "coles": "https://www.coles.com.au/product/zero-sugar-250ml-9989955",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-04-05",
@@ -5432,13 +5432,6 @@
           "eff_price": 10.5,
           "was_price": 21.0,
           "on_special": true
-        },
-        "coles": {
-          "price": 15.0,
-          "unit_price": 4.0,
-          "eff_price": 15.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -9761,7 +9754,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Coca%20Cola%20Pet%20600Ml",
-      "coles": "https://www.coles.com.au/product/zero-caffeine-zero-sugar-9985466",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-03-18",
@@ -9799,15 +9792,7 @@
       "local_image": "images/Coca_Cola_Pet_600Ml.jpg",
       "unit_price": 11.2,
       "unit": "litre",
-      "all_stores": {
-        "coles": {
-          "price": 2.8,
-          "unit_price": 11.2,
-          "eff_price": 2.8,
-          "was_price": null,
-          "on_special": false
-        }
-      },
+      "all_stores": {},
       "price_unavailable": false,
       "image_url": "images/coca_cola_pet_600ml.jpg",
       "avg_price": 4.0,
@@ -14950,7 +14935,7 @@
       "price_mode": "each",
       "target": 4.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Drink%20Pet%20600Ml",
-      "coles": "https://www.coles.com.au/product/max-mango-soft-drink-10x375ml-3813402",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-28",
@@ -15352,7 +15337,7 @@
       "price_mode": "each",
       "target": 3.28,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Coca%20Cola%20Zero%20Sugarpet%20600Ml",
-      "coles": "https://www.coles.com.au/product/zero-sugar-250ml-9989955",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-23",
@@ -19672,7 +19657,7 @@
       "price_mode": "each",
       "target": 12.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Cans%20375Ml%2030Pk",
-      "coles": "https://www.coles.com.au/product/max-soft-drink-no-sugar-cans-multipack-375ml-2684166",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-02",
@@ -19686,12 +19671,12 @@
       "stock": "full",
       "last_purchased": "2025-12-23",
       "compare_group": "cola",
-      "price": 12.0,
+      "price": 29.5,
       "brand": "Pepsi",
       "subcategory": "beverages",
       "size": "375Ml",
       "tags": [],
-      "store": "coles",
+      "store": "woolworths",
       "target_confidence": "high",
       "target_method": "was $20.00, now $12.00 (store special)",
       "target_data_points": 4,
@@ -19711,11 +19696,11 @@
           "store": "coles"
         }
       ],
-      "was_price": 20.0,
-      "on_special": true,
+      "was_price": null,
+      "on_special": false,
       "local_image": "images/Pepsi_Max_Cans_375Ml_30Pk.jpg",
       "image_url": "images/pepsi_max_cans_375ml_30pk.jpg",
-      "unit_price": 3.2,
+      "unit_price": 2.62,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
@@ -19724,18 +19709,11 @@
           "eff_price": 29.5,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 12.0,
-          "unit_price": 3.2,
-          "eff_price": 12.0,
-          "was_price": 20.0,
-          "on_special": true
         }
       },
       "price_unavailable": false,
       "avg_price": 25.0,
-      "eff_price": 12.0,
+      "eff_price": 29.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16"

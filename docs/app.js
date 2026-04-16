@@ -1143,41 +1143,49 @@ function renderColaBattle() {
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
+        const getBestStore = (item) => {
+            if (!item) return 'woolworths';
+            const stores = item.all_stores || {};
+            let best = item.store || 'woolworths';
+            let bestPrice = Infinity;
+            for (const [sk, sd] of Object.entries(stores)) {
+                const p = sd.price || sd.eff_price;
+                if (p && p > 0 && p < bestPrice) { bestPrice = p; best = sk; }
+            }
+            return best;
+        };
+
         const getStoreUrl = (item) => {
             if (!item) return null;
-            const scrapeStore = (item.scrape_history || []).slice(-1)[0]?.store;
-            const activeStore = scrapeStore || item.store;
-            if (activeStore === 'coles') {
-                // Prefer specific Coles product URL, fall back to Coles search
+            const store = getBestStore(item);
+            if (store === 'coles') {
                 if (item.coles) return item.coles;
-                const q = encodeURIComponent(item.name);
-                return `https://www.coles.com.au/search?q=${q}`;
+                return `https://www.coles.com.au/search?q=${encodeURIComponent(item.name)}`;
             }
-            // Woolworths — prefer specific URL, fall back to search
             return item.woolworths || `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
         };
 
         const getStoreBadge = (item) => {
             if (!item) return '';
-            const scrapeStore = (item.scrape_history || []).slice(-1)[0]?.store;
-            const store = scrapeStore || item.store;
+            const store = getBestStore(item);
             return store === 'woolworths'
                 ? '<span class="fighter-store-badge woolies">Woolworths</span>'
                 : '<span class="fighter-store-badge coles">Coles</span>';
         };
 
-        const isOnSpecial = (item) => item && (item.on_special || (item.scrape_history || []).slice(-1)[0]?.is_special);
+        const isOnSpecial = (item) => {
+            if (!item) return false;
+            const store = getBestStore(item);
+            const sd = (item.all_stores || {})[store];
+            return item.on_special || (sd && sd.on_special);
+        };
 
         const viewLink = (item) => {
             const url = getStoreUrl(item);
             return url ? `<a href="${url}" target="_blank" rel="noopener" class="fighter-view-link">View on store →</a>` : '';
         };
 
-        // Use scrape store for winner colour — not stale item.store field
-        const getActiveStore = (item) => {
-            if (!item) return 'woolworths';
-            return (item.scrape_history || []).slice(-1)[0]?.store || item.store || 'woolworths';
-        };
+        const getActiveStore = (item) => getBestStore(item);
 
         return `
             <div class="battle-arena">
