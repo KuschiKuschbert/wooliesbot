@@ -21,6 +21,7 @@ from logging.handlers import RotatingFileHandler
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException as SeleniumTimeout
+from selenium.common.exceptions import InvalidSessionIdException, NoSuchWindowException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -80,12 +81,100 @@ STORES = {
 # compare_group: items with same group compete — cheapest wins
 # Use docs/data.json for both the bot and the dashboard tracking
 _inv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
+
+
+def _normalize_items_payload(raw):
+    """Return list of item dicts whether data.json is wrapped {items:[]} or a legacy bare array."""
+    if isinstance(raw, list):
+        return raw
+    if isinstance(raw, dict):
+        items = raw.get("items")
+        if isinstance(items, list):
+            return items
+    return []
+
+
+def _load_items_from_disk():
+    """Read docs/data.json and return items list (never raises)."""
+    try:
+        with open(_inv_file, "r") as _f:
+            return _normalize_items_payload(json.load(_f))
+    except Exception as e:
+        logging.warning(f"Failed to load docs/data.json: {e}")
+        return []
+
+
 try:
-    with open(_inv_file, "r") as _f:
-        TRACKING_LIST = json.load(_f)
-except Exception as e:
-    logging.warning(f"Failed to load docs/data.json: {e}")
+    TRACKING_LIST = _load_items_from_disk()
+except Exception:
     TRACKING_LIST = []
+
+
+def reload_tracking_list():
+    """Reload inventory from disk into TRACKING_LIST (for long-running daemon)."""
+    global TRACKING_LIST
+    TRACKING_LIST = _load_items_from_disk()
+    return TRACKING_LIST
+
+
+# --- Scraper tuning (env overrides beat adaptive adjustments) ---
+def _env_int(key, default):
+    try:
+        return int(os.environ.get(key, str(default)))
+    except ValueError:
+        return default
+
+
+def _env_float(key, default):
+    try:
+        return float(os.environ.get(key, str(default)))
+    except ValueError:
+        return default
+
+
+_BASE_CFFI_WORKERS = max(1, _env_int("WOOLIESBOT_CFFI_BATCH_WORKERS", 4))
+_BASE_CHROME_THRESHOLD = min(0.95, max(0.35, _env_float("WOOLIESBOT_CHROME_FALLBACK_THRESHOLD", 0.6)))
+_BASE_HTTP_RETRIES = max(1, _env_int("WOOLIESBOT_CFFI_HTTP_RETRIES", 4))
+_OUTLIER_DEVIATION_PCT = min(90, max(5, _env_float("WOOLIESBOT_OUTLIER_DEVIATION_PCT", 40)))
+_ADAPTIVE_ENABLED = os.environ.get("WOOLIESBOT_ADAPTIVE", "1").strip().lower() not in ("0", "false", "no")
+_METRICS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "scraper_metrics.json")
+_MAX_METRICS_RUNS = max(5, _env_int("WOOLIESBOT_METRICS_HISTORY", 30))
+_GLOBAL_CFFI_WORKERS_CAP = max(1, _env_int("WOOLIESBOT_CFFI_MAX_WORKERS", 6))
+# Coles: stricter edge limits — cap parallel fetches and optional sequential mode
+_COLES_CFFI_WORKERS_CAP = max(1, _env_int("WOOLIESBOT_CFFI_COLES_WORKERS", 2))
+_COLES_SEQUENTIAL = os.environ.get("WOOLIESBOT_COLES_SEQUENTIAL", "0").strip().lower() in (
+    "1",
+    "true",
+    "yes",
+)
+_COLES_CHALLENGE_BACKOFF_SEC = min(180, max(15, _env_int("WOOLIESBOT_COLES_CHALLENGE_BACKOFF_SEC", 45)))
+_COLES_DISCOVERY_SLEEP_SEC = max(0.5, _env_float("WOOLIESBOT_COLES_DISCOVERY_SLEEP_SEC", 2.0))
+_COLES_DISCOVERY_MIN_SCORE = max(0.0, min(0.5, _env_float("WOOLIESBOT_COLES_DISCOVERY_MIN_SCORE", 0.12)))
+# HTML length heuristics (Akamai / Next.js shells vary; strict 5k rejects valid ~4.5k responses)
+_WOOLIES_WARMUP_MIN_CHARS = max(2000, _env_int("WOOLIESBOT_WOOLIES_WARMUP_MIN_CHARS", 3500))
+_COLES_WARMUP_MIN_CHARS = max(400, _env_int("WOOLIESBOT_COLES_WARMUP_MIN_CHARS", 1800))
+_PDP_MIN_HTML_CHARS = max(2000, _env_int("WOOLIESBOT_PDP_MIN_HTML_CHARS", 4500))
+_REQ_JITTER_MIN_SEC = max(0.0, _env_float("WOOLIESBOT_REQUEST_JITTER_MIN_SEC", 1.5))
+_REQ_JITTER_MAX_SEC = max(_REQ_JITTER_MIN_SEC, _env_float("WOOLIESBOT_REQUEST_JITTER_MAX_SEC", 4.0))
+_HTTP_PROXY_GLOBAL = os.environ.get("WOOLIESBOT_HTTP_PROXY", "").strip()
+_HTTP_PROXY_WOOLIES = os.environ.get("WOOLIESBOT_WOOLIES_PROXY", "").strip()
+_HTTP_PROXY_COLES = os.environ.get("WOOLIESBOT_COLES_PROXY", "").strip()
+
+# Coles BFF (Backend-for-Frontend) API — bypasses Imperva JS challenges entirely
+_COLES_BFF_SUBSCRIPTION_KEY = os.environ.get(
+    "WOOLIESBOT_COLES_BFF_KEY", "eae83861d1cd4de6bb9cd8a2cd6f041e"
+).strip()
+_COLES_BFF_STORE_ID = os.environ.get("WOOLIESBOT_COLES_STORE_ID", "0584").strip()
+
+# Per-run counters (reset in check_prices)
+_scrape_run_stats = {
+    "http_429": 0,
+    "http_5xx": 0,
+    "cffi_attempts": 0,
+    "stores_used_chrome": [],
+    "coles_challenge": 0,
+    "coles_429": 0,
+}
 
 # --- B-LIST: Shelf-stable items to add when Big Shop cart is under $500 ---
 # Use these to bridge the gap and maximise the 10% Everyday Extra discount (saves ~$50)
@@ -141,6 +230,32 @@ def send_telegram(message):
         except Exception as e:
             logging.error(f"Error sending Telegram: {e}")
 
+class BrowserSessionDead(Exception):
+    """Raised when the Chrome/WebDriver session is no longer usable (window closed, invalid session)."""
+
+
+def _is_broken_session_error(exc):
+    """True if the driver must be recreated before any further commands."""
+    if isinstance(exc, (InvalidSessionIdException, NoSuchWindowException)):
+        return True
+    msg = str(exc).lower()
+    return (
+        "no such window" in msg
+        or "invalid session id" in msg
+        or "web view not found" in msg
+        or "chrome not reachable" in msg
+    )
+
+
+def _safe_quit_driver(driver):
+    if not driver:
+        return
+    try:
+        driver.quit()
+    except Exception:
+        pass
+
+
 def get_browser():
     # Use undetected_chromedriver to bypass Woolworths bot detection
     options = uc.ChromeOptions()
@@ -192,31 +307,9 @@ def _extract_woolworths_json(driver):
         scripts = driver.find_elements(By.CSS_SELECTOR, 'script[type="application/ld+json"]')
         for s in scripts:
             data = json.loads(s.get_attribute('innerHTML'))
-            if data.get('@type') != 'Product':
-                continue
-            offers = data.get('offers', {})
-            price = offers.get('price')
-            if not price or float(price) == 0:
-                continue
-            spec = offers.get('priceSpecification', {})
-            unit_price_val = spec.get('price')
-            unit_text = (spec.get('unitText') or '').lower()
-            # Determine unit from unitText
-            unit = 'each'
-            if 'kg' in unit_text and '100g' not in unit_text:
-                unit = 'kg'
-            elif '100g' in unit_text:
-                unit = '100g'
-            elif 'ml' in unit_text or 'litre' in unit_text:
-                unit = 'litre'
-            up = float(unit_price_val) if unit_price_val and float(unit_price_val) > 0 else None
-            return {
-                "price": float(price),
-                "unit_price": up,
-                "unit": unit,
-                "name_check": data.get('name', ''),
-                "image_url": data.get('image', ''),
-            }
+            p = _walk_woolworths_ld_node(data)
+            if p:
+                return p
     except Exception as e:
         logging.debug(f"  Woolworths JSON-LD parse error: {e}")
     return None
@@ -224,17 +317,32 @@ def _extract_woolworths_json(driver):
 _coles_cached_build_id = None  # single global — do NOT redeclare below
 _data_write_lock = threading.Lock()  # prevents concurrent data.json writes
 
+def _parse_coles_build_id_from_html(html):
+    """Extract Next.js buildId from Coles HTML (homepage or product shell)."""
+    if not html:
+        return None
+    m = re.search(r'"buildId"\s*:\s*"([^"]+)"', html)
+    return m.group(1) if m else None
+
+
+def _apply_coles_build_id_from_html(html, source="html"):
+    """Set global _coles_cached_build_id when found in HTML."""
+    global _coles_cached_build_id
+    bid = _parse_coles_build_id_from_html(html)
+    if bid:
+        _coles_cached_build_id = bid
+        logging.info(f"Coles buildId from {source}: {bid}")
+        return True
+    return False
+
+
 def _refresh_coles_metadata(session):
     """Fetch Coles homepage to extract the current Next.js buildId."""
     global _coles_cached_build_id
     try:
         logging.debug("Refreshing Coles buildId...")
-        resp = session.get("https://www.coles.com.au/product/a-123456", headers=_get_coles_headers(), timeout=10)
-        # Try to find buildId in __NEXT_DATA__
-        match = re.search(r'"buildId":"([^"]+)"', resp.text)
-        if match:
-            _coles_cached_build_id = match.group(1)
-            logging.info(f"Coles buildId synchronized: {_coles_cached_build_id}")
+        resp = session.get("https://www.coles.com.au/product/a-123456", headers=_get_coles_headers(_get_random_ua_profile()), timeout=10)
+        if _apply_coles_build_id_from_html(resp.text, "coles_product_shell"):
             return True
     except Exception as e:
         logging.debug(f"Coles metadata refresh failed: {e}")
@@ -284,20 +392,102 @@ def _extract_coles_json(driver):
     return None
 
 
-def _get_coles_headers():
+_UA_PROFILES = [
+    {
+        "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "sec_ch_ua": '"Chromium";v="131", "Google Chrome";v="131", "Not-A.Brand";v="24"',
+        "platform": '"macOS"',
+        "impersonate": "chrome131",
+    },
+    {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "sec_ch_ua": '"Chromium";v="131", "Google Chrome";v="131", "Not-A.Brand";v="24"',
+        "platform": '"Windows"',
+        "impersonate": "chrome131",
+    },
+    {
+        "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "sec_ch_ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+        "platform": '"macOS"',
+        "impersonate": "chrome124",
+    },
+]
+
+_run_ua_profile = None  # set once at start of each scrape run
+
+
+def _get_run_ua_profile():
+    """Return the UA profile locked for the entire scrape run (fingerprint consistency)."""
+    global _run_ua_profile
+    if _run_ua_profile is None:
+        _run_ua_profile = random.choice(_UA_PROFILES)
+    return _run_ua_profile
+
+
+def _get_random_ua_profile():
+    return _get_run_ua_profile()
+
+
+def _sleep_request_jitter(multiplier=1.0):
+    lo = max(0.0, _REQ_JITTER_MIN_SEC * multiplier)
+    hi = max(lo, _REQ_JITTER_MAX_SEC * multiplier)
+    if hi > 0:
+        time.sleep(random.uniform(lo, hi))
+
+
+_BATCH_SIZE = max(5, _env_int("WOOLIESBOT_BATCH_SIZE", 20))
+_BATCH_PAUSE_MIN = max(5.0, _env_float("WOOLIESBOT_BATCH_PAUSE_MIN_SEC", 20.0))
+_BATCH_PAUSE_MAX = max(_BATCH_PAUSE_MIN, _env_float("WOOLIESBOT_BATCH_PAUSE_MAX_SEC", 40.0))
+_CIRCUIT_BREAKER_STREAK = max(2, _env_int("WOOLIESBOT_CIRCUIT_BREAKER_STREAK", 3))
+_CIRCUIT_BREAKER_PAUSE = max(30, _env_int("WOOLIESBOT_CIRCUIT_BREAKER_PAUSE_SEC", 120))
+
+
+def _proxy_for_store(store_key):
+    if store_key == "woolworths":
+        return _HTTP_PROXY_WOOLIES or _HTTP_PROXY_GLOBAL
+    if store_key == "coles":
+        return _HTTP_PROXY_COLES or _HTTP_PROXY_GLOBAL
+    return _HTTP_PROXY_GLOBAL
+
+
+def _get_woolworths_headers(url=None, profile=None):
+    """Browser-like headers for Woolworths PDP fetches (Akamai)."""
+    profile = profile or _get_random_ua_profile()
+    h = {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-AU,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Sec-Ch-Ua": profile["sec_ch_ua"],
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": profile["platform"],
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin" if (url and "woolworths.com.au" in url) else "none",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+        "User-Agent": profile["ua"],
+    }
+    if url and "woolworths.com.au" in url:
+        h["Referer"] = "https://www.woolworths.com.au/"
+    return h
+
+
+def _get_coles_headers(profile=None):
     """Returns headers that mimic a real Chrome browser on macOS to bypass Akamai."""
+    profile = profile or _get_random_ua_profile()
     return {
         "Accept": "application/json, text/plain, */*",
         "Accept-Language": "en-AU,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
-        "Sec-Ch-Ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+        "Sec-Ch-Ua": profile["sec_ch_ua"],
         "Sec-Ch-Ua-Mobile": "?0",
-        "Sec-Ch-Ua-Platform": '"macOS"',
+        "Sec-Ch-Ua-Platform": profile["platform"],
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "same-origin",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "User-Agent": profile["ua"],
         "X-Requested-With": "XMLHttpRequest"
     }
 
@@ -313,7 +503,12 @@ def _cffi_fetch_coles_api(session, url, build_id):
         # Coles API URL pattern
         api_url = f"https://www.coles.com.au/_next/data/{build_id}/product/{prod_slug}.json"
         
-        resp = session.get(api_url, headers=_get_coles_headers(), timeout=10)
+        resp = session.get(api_url, headers=_get_coles_headers(_get_random_ua_profile()), timeout=10)
+        global _coles_cached_build_id
+        if resp.status_code == 404:
+            logging.warning("Coles _next/data API 404 — buildId may have expired")
+            _coles_cached_build_id = None
+            return None
         if resp.status_code == 200:
             data = resp.json().get('pageProps', {}).get('product', {})
             pricing = data.get('pricing', {})
@@ -335,9 +530,173 @@ def _cffi_fetch_coles_api(session, url, build_id):
                     "image_url": img,
                     "was_price": pricing.get("was"),
                     "is_special": pricing.get("promotionType") == "SPECIAL",
+                    "name_check": data.get("name", ""),
                 }
     except Exception as e:
         logging.debug(f"Coles API fetch error: {e}")
+    return None
+
+
+def _extract_coles_product_id(url):
+    """Extract numeric product ID from a Coles PDP URL (the trailing digits)."""
+    m = re.search(r"-(\d{4,})$", url.rstrip("/"))
+    return m.group(1) if m else None
+
+
+def _cffi_fetch_coles_bff(session, url, store_id=None):
+    """Fetch Coles product data via the BFF REST API (bypasses Imperva entirely).
+    Returns a scrape-result dict on success, None on failure."""
+    pid = _extract_coles_product_id(url)
+    if not pid:
+        return None
+    sid = store_id or _COLES_BFF_STORE_ID
+    api_url = (
+        f"https://www.coles.com.au/api/bff/products/{pid}"
+        f"?storeId={sid}&subscription-key={_COLES_BFF_SUBSCRIPTION_KEY}"
+    )
+    try:
+        resp = session.get(api_url, headers={"Accept": "application/json"}, timeout=15)
+        if resp.status_code != 200 or not resp.text:
+            logging.debug(f"Coles BFF HTTP {resp.status_code} for pid={pid}")
+            return None
+        data = resp.json()
+        if not isinstance(data, dict):
+            return None
+        pricing = data.get("pricing")
+        if not pricing or not pricing.get("now"):
+            return None
+        price = float(pricing["now"])
+        unit_data = pricing.get("unit") or {}
+        up_raw = unit_data.get("price")
+        up = float(up_raw) if up_raw else None
+        measure = (unit_data.get("ofMeasureUnits") or "").lower()
+        of_type = (unit_data.get("ofMeasureType") or "").lower()
+        if measure in ("kg", "g") or of_type in ("kg", "g"):
+            unit = "kg"
+        elif measure in ("l", "litre", "ml") or of_type in ("l", "litre", "ml"):
+            unit = "litre"
+        elif measure == "100g" or of_type == "100g":
+            unit = "100g"
+        else:
+            unit = "each"
+        image_uris = data.get("imageUris") or []
+        img = ""
+        if image_uris:
+            uri = image_uris[0].get("uri", "")
+            if uri:
+                img = f"https://productimages.coles.com.au{uri}" if uri.startswith("/") else uri
+        was = pricing.get("was")
+        is_special = pricing.get("promotionType") == "SPECIAL"
+        return {
+            "price": price,
+            "unit_price": up,
+            "unit": unit,
+            "image_url": img,
+            "was_price": float(was) if was and float(was) > 0 else None,
+            "is_special": is_special,
+            "name_check": data.get("name", ""),
+        }
+    except Exception as e:
+        logging.debug(f"Coles BFF error pid={pid}: {e}")
+    return None
+
+
+def _scrape_coles_bff(items_with_urls):
+    """Scrape all Coles items via the BFF REST API.
+    Returns (list of (idx, data), list of (idx, item, url) failures)."""
+    if not items_with_urls:
+        return [], []
+    logging.info(f"[Coles] BFF API scan for {len(items_with_urls)} items...")
+    session = _create_cffi_session("coles")
+    results = []
+    failed = []
+    for item_num, (idx, item, url) in enumerate(items_with_urls):
+        data = _cffi_fetch_coles_bff(session, url)
+        if data:
+            data["store"] = "coles"
+            results.append((idx, data))
+            logging.info(
+                f"[Coles] ({item_num+1}/{len(items_with_urls)}) ✓ {item['name']} "
+                f"${data['price']:.2f}"
+            )
+        else:
+            failed.append((idx, item, url))
+            logging.info(
+                f"[Coles] ({item_num+1}/{len(items_with_urls)}) ✗ {item['name']} "
+                f"(no BFF pricing)"
+            )
+        time.sleep(random.uniform(0.3, 0.8))
+    logging.info(
+        f"[Coles] BFF API done: {len(results)}/{len(items_with_urls)} succeeded, "
+        f"{len(failed)} need Chrome fallback"
+    )
+    return results, failed
+
+
+def _woolworths_product_from_ld_dict(data):
+    """Build product scrape dict from a schema.org Product JSON-LD object."""
+    if not isinstance(data, dict):
+        return None
+    t = data.get("@type")
+    if t != "Product" and not (isinstance(t, list) and "Product" in t):
+        return None
+    offers = data.get("offers", {})
+    if isinstance(offers, list) and offers:
+        offers = offers[0]
+    if not isinstance(offers, dict):
+        return None
+    price = offers.get("price")
+    if not price or float(price) == 0:
+        return None
+    spec = offers.get("priceSpecification", {}) or {}
+    if isinstance(spec, list) and spec:
+        spec = spec[0]
+    if not isinstance(spec, dict):
+        spec = {}
+    unit_price_val = spec.get("price")
+    unit_text = (spec.get("unitText") or "").lower()
+    unit = "each"
+    if "kg" in unit_text and "100g" not in unit_text:
+        unit = "kg"
+    elif "100g" in unit_text:
+        unit = "100g"
+    elif "ml" in unit_text or "litre" in unit_text:
+        unit = "litre"
+    up = float(unit_price_val) if unit_price_val and float(unit_price_val) > 0 else None
+    img = data.get("image", "")
+    if isinstance(img, list) and img:
+        img = img[0]
+    return {
+        "price": float(price),
+        "unit_price": up,
+        "unit": unit,
+        "name_check": data.get("name", ""),
+        "image_url": img if isinstance(img, str) else "",
+    }
+
+
+def _walk_woolworths_ld_node(node):
+    """Depth-first search for Product nodes (@graph, arrays, nested)."""
+    p = _woolworths_product_from_ld_dict(node)
+    if p:
+        return p
+    if isinstance(node, dict):
+        g = node.get("@graph")
+        if isinstance(g, list):
+            for el in g:
+                p = _walk_woolworths_ld_node(el)
+                if p:
+                    return p
+        for v in node.values():
+            if isinstance(v, (dict, list)):
+                p = _walk_woolworths_ld_node(v)
+                if p:
+                    return p
+    elif isinstance(node, list):
+        for el in node:
+            p = _walk_woolworths_ld_node(el)
+            if p:
+                return p
     return None
 
 
@@ -345,43 +704,171 @@ def _extract_woolworths_json_from_html(html):
     """Extract product data from Woolworths JSON-LD in raw HTML.
     Returns dict with price, unit_price, unit, name_check or None."""
     try:
-        # Find all script tags with type="application/ld+json"
+        # Find all script tags with type="application/ld+json" (content may include '<' in JSON strings)
         for m in re.finditer(
-            r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>([^<]+)</script>',
+            r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
             html,
             re.IGNORECASE | re.DOTALL,
         ):
             try:
-                data = json.loads(m.group(1).strip())
-                if data.get('@type') != 'Product':
-                    continue
-                offers = data.get('offers', {})
-                price = offers.get('price')
-                if not price or float(price) == 0:
-                    continue
-                spec = offers.get('priceSpecification', {}) or {}
-                unit_price_val = spec.get('price')
-                unit_text = (spec.get('unitText') or '').lower()
-                unit = 'each'
-                if 'kg' in unit_text and '100g' not in unit_text:
-                    unit = 'kg'
-                elif '100g' in unit_text:
-                    unit = '100g'
-                elif 'ml' in unit_text or 'litre' in unit_text:
-                    unit = 'litre'
-                up = float(unit_price_val) if unit_price_val and float(unit_price_val) > 0 else None
-                return {
-                    "price": float(price),
-                    "unit_price": up,
-                    "unit": unit,
-                    "name_check": data.get('name', ''),
-                    "image_url": data.get('image', ''),
-                }
+                raw = json.loads(m.group(1).strip())
+                p = _walk_woolworths_ld_node(raw)
+                if p:
+                    return p
             except json.JSONDecodeError:
                 continue
     except Exception as e:
         logging.debug(f"  Woolworths JSON-LD from HTML parse error: {e}")
     return None
+
+
+def _is_woolworths_search_url(url):
+    return "searchTerm=" in url or "/search/" in url
+
+
+_RECEIPT_ABBREVIATIONS = {
+    "Ww": "Woolworths", "Df": "Dairy Farmers", "Ess": "Essentials",
+    "Srdgh": "Sourdough", "Hmlyn": "Himalayan", "Bflied": "Butterflied",
+    "B'Flied": "Butterflied", "Lemn": "Lemon", "Grlc": "Garlic",
+    "Starwberry": "Strawberry", "Conc": "Concentrate", "Rw": "",
+    "Trplsmkd": "Triple Smoked", "Shvd": "Shaved",
+    "Apprvd": "Approved", "F/F": "Fat Free", "F/C": "Fresh Choice",
+    "P/P": "", "Ff": "", "Pnut": "Peanut", "Crml": "Caramel",
+    "Ckie": "Cookie", "Btr": "Butter", "Efferv": "Effervescent",
+    "Ap": "Antiperspirant", "Cb": "Carb", "Hm": "Ham",
+    "T/Tissue": "Toilet Tissue", "Lge": "Large", "Xl": "Extra Large",
+    "Choc": "Chocolate", "Pud": "Pudding", "Crspy": "Crispy",
+    "Bbq": "BBQ", "Crnchy": "Crunchy", "Pb": "Peanut Butter",
+    "35Hr": "35 Hour", "Dbl": "Double", "Esprs": "Espresso",
+    "Flav": "Flavoured", "Wtr": "Water", "Natrl": "Natural",
+    "Tbone": "T-Bone", "Bflied": "Butterflied",
+}
+
+
+def _clean_search_term(inventory_name):
+    """Build a friendlier search term from a raw inventory name.
+    Strips sizes, receipt abbreviations, and punctuation that confuse search."""
+    t = inventory_name
+    t = re.sub(r"\d+\.?\d*\s*(g|kg|ml|l|pk|pack|ea|each)\b", "", t, flags=re.IGNORECASE)
+    t = re.sub(r"\b\d+[xX]\d+\b", "", t)
+    for abbr, full in _RECEIPT_ABBREVIATIONS.items():
+        t = re.sub(rf"\b{re.escape(abbr)}\b", full, t, flags=re.IGNORECASE)
+    t = re.sub(r"[#&/]", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    words = [w for w in t.split() if len(w) > 1][:6]
+    return " ".join(words)
+
+
+def _extract_search_term_from_url(url):
+    """Pull the search term from a Woolworths search URL.
+    Handles edge cases: literal '&' / '#' inside the value, fragment leakage."""
+    from urllib.parse import urlparse, parse_qs, unquote
+    # Strip leading '#' that some URLs embed before the term
+    url = url.replace("searchTerm=#", "searchTerm=")
+    parsed = urlparse(url)
+    qs = parse_qs(parsed.query)
+    term = qs.get("searchTerm", [""])[0]
+    if not term and parsed.fragment:
+        term = parsed.fragment
+    return unquote(term).strip() if term else ""
+
+
+def _cffi_search_woolworths_product(session, search_term, inventory_name=None):
+    """Use the Woolworths search API to get the top product result with pricing.
+    Returns a product dict or None."""
+    api_url = "https://www.woolworths.com.au/apis/ui/Search/products"
+    profile = _get_run_ua_profile()
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Referer": "https://www.woolworths.com.au/shop/search/products",
+        "User-Agent": profile["ua"],
+        "Sec-Ch-Ua": profile["sec_ch_ua"],
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": profile["platform"],
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+        "Origin": "https://www.woolworths.com.au",
+    }
+    payload = {
+        "Filters": [],
+        "IsSpecial": False,
+        "Location": f"/shop/search/products?searchTerm={search_term}",
+        "PageNumber": 1,
+        "PageSize": 3,
+        "SearchTerm": search_term,
+        "SortType": "TraderRelevance",
+    }
+    try:
+        resp = session.post(api_url, json=payload, headers=headers, timeout=15)
+        if resp.status_code == 429:
+            _scrape_run_stats["http_429"] = _scrape_run_stats.get("http_429", 0) + 1
+            return None
+        if resp.status_code != 200:
+            logging.debug(f"Woolworths search API HTTP {resp.status_code} for '{search_term[:30]}'")
+            return None
+        data = resp.json()
+        products = data.get("Products", [])
+        if not products:
+            return None
+        bundle = products[0]
+        items = bundle.get("Products", [])
+        if not items:
+            return None
+        # Try top results, pick the best name-overlap match
+        best_result = None
+        best_overlap = 0.0
+        for bundle in products[:3]:
+            for prod in (bundle.get("Products") or [])[:1]:
+                price = prod.get("Price")
+                if not price or price <= 0:
+                    continue
+                api_name = prod.get("Name", "")
+                ov = _token_overlap_score(inventory_name or search_term, api_name)
+                if ov < 0.2:
+                    logging.debug(f"Search skip low overlap ({ov:.2f}): want={inventory_name!r} got={api_name!r}")
+                    continue
+                if ov > best_overlap:
+                    best_overlap = ov
+                    best_result = prod
+        if not best_result:
+            return None
+        prod = best_result
+        price = prod.get("Price")
+        cup_str = prod.get("CupString", "")
+        cup_price = prod.get("CupPrice")
+        cup_measure = (prod.get("CupMeasure") or "").strip().upper().replace(" ", "")
+        unit = "each"
+        if cup_measure in ("1KG", "KG"):
+            unit = "kg"
+        elif cup_measure in ("100G", "10G"):
+            unit = "100g"
+        elif cup_measure in ("1L", "100ML", "10ML"):
+            unit = "litre"
+        up = float(cup_price) if cup_price and float(cup_price) > 0 else None
+        if unit == "100g" and up:
+            pass
+        elif unit == "litre" and up and "100ML" in cup_measure:
+            up = up * 10
+        elif unit == "litre" and up and "10ML" in cup_measure:
+            up = up * 100
+        elif unit == "100g" and up and "10G" in cup_measure:
+            up = up * 10
+        was = prod.get("WasPrice")
+        image = prod.get("MediumImageFile") or prod.get("SmallImageFile") or ""
+        return {
+            "price": float(price),
+            "unit_price": up,
+            "unit": unit,
+            "name_check": prod.get("Name", ""),
+            "image_url": image,
+            "was_price": float(was) if was and float(was) > float(price) else None,
+            "is_special": bool(prod.get("IsOnSpecial")),
+        }
+    except Exception as e:
+        logging.debug(f"Woolworths search API error for '{search_term[:30]}': {e}")
+        return None
 
 
 def _extract_coles_json_from_html(html):
@@ -433,17 +920,34 @@ def _extract_coles_json_from_html(html):
 
 # ─── SCRAPER (JSON-first, CSS-fallback, with page validation) ────────────────
 
+def _wait_for_real_page(driver, min_chars=5000, timeout=25):
+    """Poll page_source until it grows past a JS-challenge interstitial.
+    Returns True once the page exceeds *min_chars*, False on timeout."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            if len(driver.page_source) >= min_chars:
+                return True
+        except Exception:
+            pass
+        time.sleep(2)
+    return False
+
+
 def scrape_item_from_store(driver, url, store_key):
     """Scrape price + unit price from a single store product page.
     Strategy: 1) try structured JSON  2) fall back to CSS selectors."""
     store = STORES[store_key]
     try:
         driver.get(url)
-        time.sleep(random.uniform(1.5, 3.5))
+        if store_key == "coles":
+            _wait_for_real_page(driver, min_chars=_PDP_MIN_HTML_CHARS, timeout=20)
+        else:
+            time.sleep(random.uniform(1.5, 3.5))
 
         # ── Page validation: detect bot blocks / empty pages ──
         page_len = len(driver.page_source)
-        if page_len < 5000:
+        if page_len < _PDP_MIN_HTML_CHARS:
             logging.warning(f"  [{store_key}] Page too short ({page_len} chars) — possible bot block")
             return None
 
@@ -497,34 +1001,278 @@ def scrape_item_from_store(driver, url, store_key):
         logging.warning(f"  [{store_key}] Page load timed out (45s) — skipping")
         return None
     except Exception as e:
+        if _is_broken_session_error(e):
+            raise BrowserSessionDead(str(e)) from e
         logging.debug(f"  {store_key} scrape error: {e}")
         return None
 
 MAX_RETRIES = 2  # up to 2 attempts per item
+_MAX_BROWSER_SESSION_RESTARTS = 12  # per Chrome batch — avoids infinite loops if Chrome keeps dying
+
+
+def _token_overlap_score(inv_name, scraped_name):
+    """Jaccard-like overlap on alphanumeric tokens (0..1).
+    Expands receipt abbreviations before comparing so 'Ww'='Woolworths' etc."""
+    if not inv_name or not scraped_name:
+        return 0.0
+    def _norm_tokens(text):
+        expanded = text
+        for abbr, full in _RECEIPT_ABBREVIATIONS.items():
+            if full:
+                expanded = re.sub(rf"\b{re.escape(abbr)}\b", full, expanded, flags=re.IGNORECASE)
+        # Brand / label normalization for Coles result labels.
+        expanded = re.sub(r"\bcoke\b", "coca cola", expanded, flags=re.IGNORECASE)
+        expanded = re.sub(r"\bcoca-?cola\b", "coca cola", expanded, flags=re.IGNORECASE)
+        expanded = re.sub(r"\bno sugar\b", "zero sugar", expanded, flags=re.IGNORECASE)
+        expanded = re.sub(r"\bt\\/tiss(?:ue)?\b", "toilet tissue", expanded, flags=re.IGNORECASE)
+        stop = {
+            "woolworths", "coles", "soft", "drink", "drinks", "product",
+            "pack", "pk", "multipack", "bottle", "bottles", "can", "cans",
+            "tub", "tray", "bag", "bags", "punnet", "punnets", "approx",
+            "prepacked", "each"
+        }
+        return {t for t in re.findall(r"[a-z0-9]+", expanded.lower()) if t not in stop}
+    ta = _norm_tokens(inv_name)
+    tb = _norm_tokens(scraped_name)
+    if not ta or not tb:
+        return 0.0
+    return len(ta & tb) / len(ta | tb)
+
+
+def _extract_size_signals(text):
+    """Extract comparable size signals from a label.
+    Used to reject obvious mismatches like 600ml vs 10x375ml."""
+    if not text:
+        return {"packs": set(), "volumes_ml": set(), "weights_g": set()}
+    low = text.lower()
+    packs = {int(m.group(1)) for m in re.finditer(r"\b(\d+)\s*(?:pk|pack)\b", low)}
+    volumes_ml = set()
+    weights_g = set()
+
+    for m in re.finditer(r"\b(\d+)\s*[xX]\s*(\d+(?:\.\d+)?)\s*(ml|l|g|kg)\b", low):
+        count = int(m.group(1))
+        qty = float(m.group(2))
+        unit = m.group(3)
+        packs.add(count)
+        if unit == "ml":
+            volumes_ml.add(int(round(qty)))
+            volumes_ml.add(int(round(count * qty)))
+        elif unit == "l":
+            volumes_ml.add(int(round(qty * 1000)))
+            volumes_ml.add(int(round(count * qty * 1000)))
+        elif unit == "g":
+            weights_g.add(int(round(qty)))
+            weights_g.add(int(round(count * qty)))
+        elif unit == "kg":
+            weights_g.add(int(round(qty * 1000)))
+            weights_g.add(int(round(count * qty * 1000)))
+
+    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(ml|l)\b", low):
+        qty = float(m.group(1))
+        volumes_ml.add(int(round(qty if m.group(2) == "ml" else qty * 1000)))
+    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(g|kg)\b", low):
+        qty = float(m.group(1))
+        weights_g.add(int(round(qty if m.group(2) == "g" else qty * 1000)))
+
+    return {"packs": packs, "volumes_ml": volumes_ml, "weights_g": weights_g}
+
+
+def _size_signals_compatible(inventory_name, scraped_name):
+    """Return False when inventory and scraped labels clearly disagree on size."""
+    a = _extract_size_signals(inventory_name)
+    b = _extract_size_signals(scraped_name)
+    for key in ("packs", "volumes_ml", "weights_g"):
+        if a[key] and b[key] and not (a[key] & b[key]):
+            return False
+    return True
+
+
+def _read_metrics_runs():
+    try:
+        if os.path.exists(_METRICS_PATH):
+            with open(_METRICS_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list):
+                return data[-_MAX_METRICS_RUNS:]
+    except Exception as e:
+        logging.debug(f"metrics read: {e}")
+    return []
+
+
+def _append_metrics_run(entry):
+    try:
+        os.makedirs(os.path.dirname(_METRICS_PATH), exist_ok=True)
+        runs = _read_metrics_runs()
+        runs.append(entry)
+        runs = runs[-_MAX_METRICS_RUNS:]
+        with open(_METRICS_PATH, "w", encoding="utf-8") as f:
+            json.dump(runs, f, indent=2)
+    except Exception as e:
+        logging.warning(f"metrics write failed: {e}")
+
+
+def _get_cffi_workers():
+    w = _BASE_CFFI_WORKERS
+    if os.environ.get("WOOLIESBOT_CFFI_BATCH_WORKERS"):
+        return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
+    if not _ADAPTIVE_ENABLED:
+        return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
+    recent = _read_metrics_runs()[-3:]
+    if recent:
+        tot_429 = sum(r.get("http_429", 0) for r in recent)
+        tot_challenge = sum(r.get("coles_challenge", 0) for r in recent)
+        low_success = [r for r in recent if r.get("cffi_success_rate") is not None and r.get("cffi_success_rate", 1) < 0.78]
+        if tot_429 >= 4:
+            w = max(2, w - 2)
+        elif tot_429 >= 2:
+            w = max(2, w - 1)
+        if tot_challenge >= 3:
+            w = max(1, w - 1)
+        if len(low_success) >= 2:
+            w = max(1, w - 1)
+    return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
+
+
+def _get_chrome_fallback_threshold():
+    t = _BASE_CHROME_THRESHOLD
+    if os.environ.get("WOOLIESBOT_CHROME_FALLBACK_THRESHOLD"):
+        return min(0.95, max(0.35, t))
+    if not _ADAPTIVE_ENABLED:
+        return min(0.95, max(0.35, t))
+    recent = [r for r in _read_metrics_runs()[-5:] if r.get("cffi_success_rate") is not None]
+    if len(recent) >= 3 and all(r.get("cffi_success_rate", 0) >= 0.95 for r in recent[-3:]):
+        t = min(0.88, t + 0.03)
+    if recent:
+        latest = recent[-1].get("cffi_success_rate", 1)
+        if latest < 0.55:
+            t = max(0.4, t - 0.15)
+        elif latest < 0.75:
+            t = max(0.45, t - 0.08)
+    return min(0.95, max(0.35, t))
+
+
+def _get_cffi_workers_for_store(store_key):
+    """Woolworths uses global worker budget; Coles uses a lower cap to reduce 429 / challenges."""
+    w = _get_cffi_workers()
+    if store_key != "coles":
+        return w
+    return min(w, _COLES_CFFI_WORKERS_CAP)
+
+
+def _coles_body_looks_blocked(text):
+    """Detect Akamai / Imperva / bot interstitial HTML (not a product page)."""
+    if not text:
+        return True
+    if "Pardon Our Interruption" in text:
+        return True
+    low = text.lower()[:3000]
+    if "incapsula" in low or "visid_incap" in low or "imperva" in low:
+        return True
+    if "<html" in low and "application/ld+json" not in low and "__next_data__" not in low:
+        if "coles.com.au" in low or "challenge" in low or "akamai" in low:
+            return True
+    return False
+
+
+def _http_retry_budget():
+    r = _BASE_HTTP_RETRIES
+    if os.environ.get("WOOLIESBOT_CFFI_HTTP_RETRIES"):
+        return max(1, r)
+    if not _ADAPTIVE_ENABLED:
+        return max(1, r)
+    runs = _read_metrics_runs()
+    if runs and runs[-1].get("http_5xx", 0) >= 3:
+        return min(5, r + 1)
+    return max(1, r)
+
+
+def _finalize_cffi_product_dict(data, inventory_name, store_key=None):
+    """Build stored product dict; reject results with very low name overlap."""
+    if inventory_name and data.get("name_check"):
+        ov = _token_overlap_score(inventory_name, data["name_check"])
+        min_overlap = 0.12 if store_key == "coles" else 0.15
+        if store_key == "coles" and not _size_signals_compatible(inventory_name, data["name_check"]):
+            logging.warning(
+                f"Rejecting Coles size mismatch: inventory={inventory_name!r} vs page={data.get('name_check')!r} price=${data.get('price')}"
+            )
+            return None
+        if ov < min_overlap:
+            logging.warning(
+                f"Rejecting low overlap ({ov:.2f}): inventory={inventory_name!r} vs page={data.get('name_check')!r} price=${data.get('price')}"
+            )
+            return None
+    return {
+        "price": data["price"],
+        "unit_price": data.get("unit_price"),
+        "unit": data.get("unit", "each"),
+        "image_url": data.get("image_url", ""),
+        "was_price": data.get("was_price"),
+        "on_special": bool(data.get("is_special") or data.get("was_price")),
+    }
+
 
 def _scrape_store_batch(store_key, items_with_urls):
     """Scrape all items for ONE store in its own browser.
     Includes retry logic: each item gets up to MAX_RETRIES attempts.
-    Returns list of (item_index, store_data)."""
+    Returns (store_key, list of (item_index, store_data))."""
     label = STORES[store_key]["label"]
     logging.info(f"[{label}] Starting browser for {len(items_with_urls)} items...")
     driver = get_browser()
+
+    if store_key == "coles":
+        try:
+            driver.get("https://www.coles.com.au/")
+            if _wait_for_real_page(driver, min_chars=_COLES_WARMUP_MIN_CHARS, timeout=30):
+                logging.info(f"[{label}] Browser warm-up done (Imperva challenge passed)")
+            else:
+                page_len = len(driver.page_source) if driver else 0
+                logging.warning(
+                    f"[{label}] Warm-up blocked by Imperva ({page_len} chars after 30s) "
+                    f"— skipping Chrome batch entirely"
+                )
+                _safe_quit_driver(driver)
+                return store_key, []
+        except Exception as e:
+            logging.debug(f"[{label}] Browser warm-up: {e}")
+
+    session_restarts = 0
     results = []
+    fail_streak = 0
     try:
-        for idx, item, url in items_with_urls:
-            logging.info(f"[{label}] {item['name']}")
+        for item_num, (idx, item, url) in enumerate(items_with_urls):
+            logging.info(f"[{label}] ({item_num+1}/{len(items_with_urls)}) {item['name']}")
             data = None
-            for attempt in range(MAX_RETRIES):
-                data = scrape_item_from_store(driver, url, store_key)
+            attempt = 0
+            while attempt < MAX_RETRIES:
+                try:
+                    data = scrape_item_from_store(driver, url, store_key)
+                except BrowserSessionDead as e:
+                    session_restarts += 1
+                    logging.warning(
+                        f"[{label}] Browser session lost ({e!s}) — restarting ({session_restarts}/{_MAX_BROWSER_SESSION_RESTARTS})..."
+                    )
+                    _safe_quit_driver(driver)
+                    driver = None
+                    if session_restarts > _MAX_BROWSER_SESSION_RESTARTS:
+                        logging.error(
+                            f"[{label}] Too many dead browser sessions — stopping Chrome batch early "
+                            f"({len(results)}/{len(items_with_urls)} done)."
+                        )
+                        return store_key, results
+                    driver = get_browser()
+                    continue
                 if data:
                     break
-                if attempt < MAX_RETRIES - 1:
-                    logging.info(f"[{label}]   Retry #{attempt+2} for {item['name']}...")
-                    time.sleep(2 + attempt * 2)  # 2s first retry, 4s second
+                attempt += 1
+                if attempt < MAX_RETRIES:
+                    logging.info(f"[{label}]   Retry #{attempt+1} for {item['name']}...")
+                    time.sleep(3 + attempt * 3)
             if data:
                 data["store"] = store_key
                 results.append((idx, data))
+                fail_streak = 0
             else:
+                fail_streak += 1
                 safe_name = item['name'].replace(' ', '_').replace('/', '_')
                 try:
                     _ss_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "screenshots")
@@ -533,57 +1281,209 @@ def _scrape_store_batch(store_key, items_with_urls):
                 except Exception:
                     pass
                 logging.warning(f"[{label}] ✗ Failed after {MAX_RETRIES} attempts: {item['name']}")
-            time.sleep(0.5)
+                if fail_streak >= _CIRCUIT_BREAKER_STREAK:
+                    pause = _CIRCUIT_BREAKER_PAUSE + random.uniform(10, 25)
+                    logging.warning(f"[{label}] Circuit breaker: {fail_streak} failures — pausing {pause:.0f}s")
+                    time.sleep(pause)
+                    fail_streak = 0
+            time.sleep(random.uniform(2.0, 4.5))
     except Exception as e:
         logging.error(f"[{label}] Browser crashed: {e}")
     finally:
-        try:
-            driver.quit()
-        except:
-            pass
+        _safe_quit_driver(driver)
     logging.info(f"[{label}] Done. {len(results)}/{len(items_with_urls)} scraped.")
     return store_key, results
 
 
 def _scrape_store_batch_cffi(store_key, items_with_urls):
-    """Scrape all items for ONE store using curl_cffi (no browser).
-    Uses parallel fetches. Returns (store_key, list of (idx, data))."""
+    """Scrape items for ONE store using curl_cffi (no browser).
+    Returns (store_key, list of (idx, data)) — successes only.
+
+    Always runs sequentially with a single session to avoid fingerprint
+    multiplexing and nghttp2 thread-safety issues.  Batch pauses and a
+    circuit breaker reduce Akamai / Imperva detection risk.
+    """
     label = STORES[store_key]["label"]
+    if not items_with_urls:
+        return store_key, []
+
+    if store_key == "coles":
+        logging.info(f"[{label}] Skipping curl_cffi (Imperva JS challenge — Chrome only)")
+        return store_key, []
+
     homepage = "https://www.woolworths.com.au/" if store_key == "woolworths" else "https://www.coles.com.au/"
-    logging.info(f"[{label}] Starting curl_cffi scan for {len(items_with_urls)} items...")
-    session = _create_cffi_session()
+    logging.info(f"[{label}] Starting curl_cffi scan for {len(items_with_urls)} items (sequential)...")
+    session = _create_cffi_session(store_key)
     try:
         resp = session.get(homepage, timeout=15)
-        if resp.status_code != 200 or len(resp.text) < 5000:
-            logging.warning(f"[{label}] Warm-up failed (HTTP {resp.status_code}, {len(resp.text)} chars)")
-            return store_key, []
+        if resp.status_code != 200 or len(resp.text) < _WOOLIES_WARMUP_MIN_CHARS:
+            logging.warning(
+                f"[{label}] Warm-up issue (HTTP {resp.status_code}, {len(resp.text)} chars) — retrying TLS profiles"
+            )
+            ok = False
+            for imp in _CFFI_IMPERSONATIONS:
+                try:
+                    proxy = _proxy_for_store(store_key)
+                    if proxy:
+                        session = cffi_requests.Session(
+                            impersonate=imp,
+                            proxies={"http": proxy, "https": proxy},
+                        )
+                    else:
+                        session = cffi_requests.Session(impersonate=imp)
+                    resp = session.get(homepage, timeout=15)
+                    if resp.status_code == 200 and len(resp.text) >= _WOOLIES_WARMUP_MIN_CHARS:
+                        logging.info(f"[{label}] Warm-up OK with impersonate={imp}")
+                        ok = True
+                        break
+                except Exception as e:
+                    logging.debug(f"[{label}] warm-up {imp}: {e}")
+            if not ok:
+                logging.warning(f"[{label}] Warm-up failed — blocked or unreachable via curl_cffi")
+                return store_key, []
+        logging.info(f"[{label}] Warm-up OK ({len(resp.text)} chars, cookies={len(session.cookies)})")
     except Exception as e:
         logging.error(f"[{label}] Warm-up error: {e}")
         return store_key, []
 
-    _CFFI_BATCH_WORKERS = 6
+    time.sleep(random.uniform(2.0, 4.0))
 
-    def fetch_one(args):
-        idx, item, url = args
-        data = _cffi_fetch_product(session, url, store_key)
-        if data:
-            data["store"] = store_key
-            return (idx, data)
-        return (idx, None)
+    def _warm_new_session():
+        """Create a fresh session and warm it up with the homepage."""
+        s = _create_cffi_session(store_key)
+        try:
+            wr = s.get(homepage, timeout=15)
+            if wr.status_code == 200 and len(wr.text) >= _WOOLIES_WARMUP_MIN_CHARS:
+                return s
+        except Exception:
+            pass
+        return s
+
+    pdp_items = [(i, it, u) for i, it, u in items_with_urls if not _is_woolworths_search_url(u)]
+    search_items = [(i, it, u) for i, it, u in items_with_urls if _is_woolworths_search_url(u)]
+    logging.info(f"[{label}] {len(pdp_items)} PDP URLs, {len(search_items)} search API items")
 
     results = []
-    with ThreadPoolExecutor(max_workers=_CFFI_BATCH_WORKERS) as pool:
-        futures = [pool.submit(fetch_one, job) for job in items_with_urls]
-        for future in as_completed(futures):
-            try:
-                idx, data = future.result()
+
+    # Phase 1: Search API items (lightweight JSON, much less likely to trigger blocks)
+    if search_items:
+        logging.info(f"[{label}] Phase 1: Search API for {len(search_items)} items")
+        fail_streak = 0
+        for batch_start in range(0, len(search_items), _BATCH_SIZE):
+            batch = search_items[batch_start : batch_start + _BATCH_SIZE]
+            batch_num = batch_start // _BATCH_SIZE + 1
+            total_batches = (len(search_items) + _BATCH_SIZE - 1) // _BATCH_SIZE
+            logging.info(
+                f"[{label}] Search batch {batch_num}/{total_batches} "
+                f"({len(batch)} items, {len(results)} scraped so far)"
+            )
+            for idx, item, url in batch:
+                _sleep_request_jitter(0.5)
+                inv_name = item.get("name", "")
+                search_term = _extract_search_term_from_url(url)
+                if not search_term:
+                    search_term = inv_name
+                data = _cffi_search_woolworths_product(session, search_term, inv_name)
+                if not data and search_term != inv_name:
+                    clean = _clean_search_term(inv_name)
+                    if clean and clean != search_term:
+                        _sleep_request_jitter(0.3)
+                        data = _cffi_search_woolworths_product(session, clean, inv_name)
                 if data:
-                    results.append((idx, data))
-            except Exception as e:
-                logging.debug(f"[{label}] fetch error: {e}")
+                    result = _finalize_cffi_product_dict(data, inv_name, store_key=store_key)
+                    if result:
+                        result["store"] = store_key
+                        results.append((idx, result))
+                        fail_streak = 0
+                    else:
+                        fail_streak += 1
+                else:
+                    fail_streak += 1
+                    if fail_streak >= _CIRCUIT_BREAKER_STREAK * 2:
+                        logging.warning(f"[{label}] Search API: {fail_streak} consecutive misses — rotating session")
+                        time.sleep(random.uniform(10, 20))
+                        session = _warm_new_session()
+                        fail_streak = 0
+            if batch_start + _BATCH_SIZE < len(search_items):
+                pause = random.uniform(8.0, 15.0)
+                logging.info(f"[{label}] Search batch pause: {pause:.1f}s")
+                time.sleep(pause)
+        logging.info(f"[{label}] Search API done: {len(results)}/{len(search_items)} found")
+
+    # Phase 2: PDP items (full HTML pages, heavier, needs more pacing)
+    if pdp_items:
+        logging.info(f"[{label}] Phase 2: PDP scrape for {len(pdp_items)} items")
+        if search_items:
+            pause = random.uniform(15, 25)
+            logging.info(f"[{label}] Phase transition pause: {pause:.1f}s — rotating session")
+            time.sleep(pause)
+            session = _warm_new_session()
+        fail_streak = 0
+        circuit_breaks = 0
+        for batch_start in range(0, len(pdp_items), _BATCH_SIZE):
+            batch = pdp_items[batch_start : batch_start + _BATCH_SIZE]
+            batch_num = batch_start // _BATCH_SIZE + 1
+            total_batches = (len(pdp_items) + _BATCH_SIZE - 1) // _BATCH_SIZE
+            logging.info(
+                f"[{label}] PDP batch {batch_num}/{total_batches} "
+                f"({len(batch)} items, {len(results)} scraped so far)"
+            )
+            for idx, item, url in batch:
+                _sleep_request_jitter(1.0)
+                inv_name = item.get("name", "")
+                result = _cffi_fetch_product(session, url, store_key, inventory_name=inv_name)
+                if isinstance(result, dict):
+                    result["store"] = store_key
+                    results.append((idx, result))
+                    fail_streak = 0
+                elif result == _CFFI_RESULT_NO_PRICE:
+                    clean = _clean_search_term(inv_name)
+                    if clean:
+                        _sleep_request_jitter(0.3)
+                        fallback = _cffi_search_woolworths_product(session, clean, inv_name)
+                        if fallback:
+                            fb = _finalize_cffi_product_dict(fallback, inv_name, store_key=store_key)
+                            if fb:
+                                fb["store"] = store_key
+                                results.append((idx, fb))
+                                logging.info(f"    ✓ PDP→Search fallback: {inv_name}")
+                    fail_streak = 0
+                else:
+                    fail_streak += 1
+                    if fail_streak >= _CIRCUIT_BREAKER_STREAK:
+                        circuit_breaks += 1
+                        pause = _CIRCUIT_BREAKER_PAUSE + random.uniform(15, 45)
+                        logging.warning(
+                            f"[{label}] Circuit breaker #{circuit_breaks}: {fail_streak} consecutive blocks "
+                            f"— pausing {pause:.0f}s then rotating session"
+                        )
+                        time.sleep(pause)
+                        session = _warm_new_session()
+                        logging.info(f"[{label}] Fresh session created after circuit breaker")
+                        fail_streak = 0
+                        if circuit_breaks >= 4:
+                            logging.warning(
+                                f"[{label}] Too many circuit breaks ({circuit_breaks}) — stopping PDP early "
+                                f"({len(results)}/{len(items_with_urls)} done)"
+                            )
+                            return store_key, results
+            if batch_start + _BATCH_SIZE < len(pdp_items):
+                pause = random.uniform(_BATCH_PAUSE_MIN, _BATCH_PAUSE_MAX)
+                logging.info(f"[{label}] PDP batch pause: {pause:.1f}s — rotating session")
+                time.sleep(pause)
+                session = _warm_new_session()
 
     logging.info(f"[{label}] Done. {len(results)}/{len(items_with_urls)} scraped.")
     return store_key, results
+
+
+def _successful_idxs_from_batch(batch_results):
+    return {idx for idx, _ in batch_results}
+
+
+def _failed_jobs_from_batch(jobs, batch_results):
+    ok = _successful_idxs_from_batch(batch_results)
+    return [j for j in jobs if j[0] not in ok]
 
 
 _PRICE_UNRELIABLE = 99999.0  # sentinel for bad / missing prices
@@ -622,10 +1522,110 @@ def _effective_price(item, store_result):
         return store_result["price"]
     return store_result["price"]
 
+
+def _build_inv_map_from_file():
+    """name -> item dict for price_history merge (handles wrapped data.json)."""
+    inv_data = {}
+    try:
+        with open(_inv_file, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+        for it in _normalize_items_payload(raw):
+            if it.get("name"):
+                inv_data[it["name"]] = it
+    except Exception:
+        pass
+    return inv_data
+
+
+def _maybe_confirm_outlier_price(item, item_result, inv_data):
+    """One extra cffi fetch if shelf price diverges sharply from historical median."""
+    hist = inv_data.get(item["name"], {}).get("price_history") or []
+    prices = [h["price"] for h in hist if h.get("price") is not None and h["price"] > 0]
+    if len(prices) < 3:
+        return item_result
+    prices_sorted = sorted(prices)
+    median_p = prices_sorted[len(prices_sorted) // 2]
+    new_p = item_result.get("price") or 0
+    if median_p <= 0 or new_p <= 0:
+        return item_result
+    dev = abs(new_p - median_p) / median_p
+    if dev <= (_OUTLIER_DEVIATION_PCT / 100.0):
+        return item_result
+    sk = item_result.get("store")
+    if sk not in STORES or sk == "none":
+        return item_result
+    url = item.get(sk)
+    if not url:
+        return item_result
+    logging.info(f"Outlier confirm ({dev:.0%} vs median ${median_p:.2f}): {item['name']}")
+    session = _create_cffi_session(sk)
+    try:
+        hw = "https://www.woolworths.com.au/" if sk == "woolworths" else "https://www.coles.com.au/"
+        wresp = session.get(hw, timeout=15)
+        if sk == "coles" and wresp.status_code == 200:
+            _apply_coles_build_id_from_html(wresp.text, "outlier_coles_warmup")
+        data = _cffi_fetch_product(session, url, sk, inventory_name=item.get("name"))
+    except Exception as e:
+        logging.debug(f"Outlier re-fetch failed: {e}")
+        return item_result
+    if not isinstance(data, dict):
+        return item_result
+    new_shelf = data.get("price")
+    if not new_shelf:
+        return item_result
+    new_eff = _effective_price(item, data)
+    if new_eff >= _PRICE_UNRELIABLE:
+        return item_result
+    old_dev = abs(new_p - median_p)
+    new_dev = abs(new_shelf - median_p)
+    if new_dev >= old_dev and abs(new_shelf - median_p) / median_p > (_OUTLIER_DEVIATION_PCT / 100.0):
+        return item_result
+    ep = _effective_price(item, data)
+    all_stores = dict(item_result.get("all_stores") or {})
+    if sk in all_stores:
+        all_stores[sk] = {
+            "price": data["price"],
+            "unit_price": data.get("unit_price"),
+            "eff_price": ep,
+            "was_price": data.get("was_price"),
+            "on_special": data.get("on_special", False),
+        }
+    out = {
+        **item,
+        "price": data["price"],
+        "unit_price": data.get("unit_price"),
+        "unit": data.get("unit"),
+        "eff_price": ep,
+        "store": sk,
+        "all_stores": all_stores,
+        "price_unavailable": item_result.get("price_unavailable", False),
+        "image_url": data.get("image_url", item_result.get("image_url", "")),
+        "was_price": data.get("was_price"),
+        "on_special": data.get("on_special", False),
+        "price_history": item_result.get("price_history", []),
+        "avg_price": item_result.get("avg_price", 0),
+    }
+    remote_img = data.get("image_url") or out.get("image_url")
+    if remote_img and not str(remote_img).startswith("images/"):
+        local_img_path = _download_product_image(remote_img, item["name"])
+        if local_img_path:
+            out["image_url"] = local_img_path
+    return out
+
+
 def check_prices():
-    """Scrape all items from all stores IN PARALLEL.
-    Uses curl_cffi (fast). Falls back to Chrome for a store if >25% items fail."""
-    # Build per-store work lists: [(item_index, item, url), ...]
+    """Scrape all items: Woolworths via curl_cffi (sequential), Coles via BFF API.
+    Chrome fallback for items where the primary API path fails."""
+    global _run_ua_profile
+    _run_ua_profile = random.choice(_UA_PROFILES)
+    reload_tracking_list()
+    _scrape_run_stats["http_429"] = 0
+    _scrape_run_stats["http_5xx"] = 0
+    _scrape_run_stats["stores_used_chrome"] = []
+    _scrape_run_stats["coles_challenge"] = 0
+    _scrape_run_stats["coles_429"] = 0
+    chrome_subset_events = 0
+
     store_jobs = {}
     for idx, item in enumerate(TRACKING_LIST):
         for store_key in STORES:
@@ -634,75 +1634,139 @@ def check_prices():
                 store_jobs.setdefault(store_key, []).append((idx, item, url))
 
     total_urls = sum(len(v) for v in store_jobs.values())
-    logging.info(f"Starting Price Scan... ({len(TRACKING_LIST)} items, {total_urls} URLs, curl_cffi)")
+    threshold = _get_chrome_fallback_threshold()
+    logging.info(
+        f"Starting Price Scan... ({len(TRACKING_LIST)} items, {total_urls} URLs, "
+        f"chrome_threshold={threshold:.0%}, UA={_run_ua_profile['impersonate']})"
+    )
 
-    # Try curl_cffi first (no browser)
-    all_store_results = {}  # store_key -> [(idx, data), ...]
-    with ThreadPoolExecutor(max_workers=len(store_jobs)) as pool:
-        futures = {
-            pool.submit(_scrape_store_batch_cffi, sk, jobs): sk
-            for sk, jobs in store_jobs.items()
-        }
-        for future in as_completed(futures):
-            try:
-                store_key, batch_results = future.result()
-                all_store_results[store_key] = batch_results
-            except Exception as e:
-                sk = futures[future]
-                logging.error(f"Store {sk} cffi scrape failed entirely: {e}")
-                all_store_results[sk] = []
+    all_store_results = {}
 
-    # Fallback: if a store got <75% success, retry with Chrome
-    for store_key, jobs in store_jobs.items():
-        batch = all_store_results.get(store_key, [])
-        if len(jobs) == 0:
-            continue
-        success_rate = len(batch) / len(jobs)
-        if success_rate < 0.75:
-            label = STORES[store_key]["label"]
-            logging.warning(f"[{label}] cffi success {len(batch)}/{len(jobs)} ({success_rate:.0%}) — falling back to Chrome")
+    # Woolworths: curl_cffi first (sequential), then Chrome for failures
+    woolies_jobs = store_jobs.get("woolworths", [])
+    if woolies_jobs:
+        _, batch1 = _scrape_store_batch_cffi("woolworths", woolies_jobs)
+        failed = _failed_jobs_from_batch(woolies_jobs, batch1)
+        batch_merged = list(batch1)
+        if failed:
+            logging.info(f"[Woolies] Retrying {len(failed)} failed URL(s) (cffi, 2nd pass)...")
+            time.sleep(random.uniform(15, 25))
+            _, batch2 = _scrape_store_batch_cffi("woolworths", failed)
+            by_idx = {i: d for i, d in batch_merged}
+            for i, d in batch2:
+                by_idx[i] = d
+            batch_merged = list(by_idx.items())
+
+        success_rate = len(batch_merged) / len(woolies_jobs) if woolies_jobs else 1.0
+        if success_rate < threshold:
+            failed_chrome = _failed_jobs_from_batch(woolies_jobs, batch_merged)
+            if failed_chrome:
+                logging.warning(
+                    f"[Woolies] cffi {len(batch_merged)}/{len(woolies_jobs)} ({success_rate:.0%}) "
+                    f"— Chrome for {len(failed_chrome)} remaining"
+                )
+                try:
+                    _, chrome_results = _scrape_store_batch("woolworths", failed_chrome)
+                    chrome_subset_events += 1
+                    _scrape_run_stats["stores_used_chrome"].append("woolworths")
+                    by_idx = {i: d for i, d in batch_merged}
+                    for i, d in chrome_results:
+                        by_idx[i] = d
+                    batch_merged = list(by_idx.items())
+                except Exception as e:
+                    logging.error(f"[Woolies] Chrome subset failed: {e}")
+        all_store_results["woolworths"] = batch_merged
+
+    # Coles: BFF API first (bypasses Imperva), Chrome fallback for failures
+    coles_jobs = store_jobs.get("coles", [])
+    if coles_jobs:
+        bff_results, bff_failed = _scrape_coles_bff(coles_jobs)
+        all_coles = list(bff_results)
+        if bff_failed:
+            logging.info(
+                f"[Coles] Chrome fallback for {len(bff_failed)} items without BFF pricing..."
+            )
             try:
-                _, chrome_results = _scrape_store_batch(store_key, jobs)
-                all_store_results[store_key] = chrome_results
+                _, chrome_results = _scrape_store_batch("coles", bff_failed)
+                chrome_subset_events += 1
+                _scrape_run_stats["stores_used_chrome"].append("coles")
+                all_coles.extend(chrome_results)
             except Exception as e:
-                logging.error(f"[{label}] Chrome fallback failed: {e}")
+                logging.error(f"[Coles] Chrome fallback failed: {e}")
+        all_store_results["coles"] = all_coles
+
+    total_jobs = sum(len(v) for v in store_jobs.values()) if store_jobs else 0
+    cffi_ok = sum(len(all_store_results.get(sk, [])) for sk in store_jobs)
+    cffi_rate = (cffi_ok / total_jobs) if total_jobs else 1.0
 
     # Merge results: group by item index, pick cheapest store
-    item_store_data = {}  # idx -> [store_data, ...]
+    item_store_data = {}
     for store_key, batch in all_store_results.items():
         for idx, data in batch:
             item_store_data.setdefault(idx, []).append(data)
 
     results = []
-    # Load inventory to get price_history
-    inv_data = {}
-    try:
-        with open(_inv_file, "r") as f:
-            for item in json.load(f):
-                inv_data[item["name"]] = item
-    except:
-        pass
+    inv_data = _build_inv_map_from_file()
+
+    def _has_reliable_price(value):
+        return isinstance(value, (int, float)) and 0 < value < _PRICE_UNRELIABLE
+
+    def _carry_forward_previous(item, existing, history, avg_price, reason):
+        """Keep last-known-good price when a live scrape fails."""
+        prev_price = existing.get("price")
+        prev_eff = existing.get("eff_price")
+        if not (_has_reliable_price(prev_price) and _has_reliable_price(prev_eff)):
+            return None
+        store = existing.get("store")
+        all_stores = existing.get("all_stores") or {}
+        if (not store or store == "none") and all_stores:
+            store = next(iter(all_stores.keys()), "none")
+        return {
+            **item,
+            "price": prev_price,
+            "unit_price": existing.get("unit_price"),
+            "unit": existing.get("unit"),
+            "eff_price": prev_eff,
+            "store": store or "none",
+            "all_stores": all_stores,
+            "price_unavailable": False,
+            "image_url": existing.get("image_url", ""),
+            "was_price": existing.get("was_price"),
+            "on_special": existing.get("on_special", False),
+            "price_history": history,
+            "avg_price": avg_price,
+            "stale": True,
+            "stale_source": reason,
+            "stale_as_of": datetime.datetime.now().strftime("%Y-%m-%d"),
+        }
 
     for idx, item in enumerate(TRACKING_LIST):
         store_results = item_store_data.get(idx, [])
+        existing = inv_data.get(item["name"], {})
         # Merge price history for averaging
-        history = inv_data.get(item["name"], {}).get("price_history", [])
+        history = existing.get("price_history", [])
         avg_price = sum(h["price"] for h in history) / len(history) if history else 0
 
         if not store_results:
-            results.append({
-                **item,
-                "price": 0,
-                "unit_price": None,
-                "unit": None,
-                "eff_price": _PRICE_UNRELIABLE,
-                "store": "none",
-                "all_stores": {},
-                "price_unavailable": True,
-                "image_url": "",
-                "price_history": history,
-                "avg_price": avg_price
-            })
+            carried = _carry_forward_previous(item, existing, history, avg_price, "scrape_failed")
+            if carried:
+                logging.warning(f"  {item['name']}: scrape failed — carrying forward last known good price")
+                results.append(carried)
+            else:
+                results.append({
+                    **item,
+                    "price": 0,
+                    "unit_price": None,
+                    "unit": None,
+                    "eff_price": _PRICE_UNRELIABLE,
+                    "store": "none",
+                    "all_stores": {},
+                    "price_unavailable": True,
+                    "image_url": "",
+                    "price_history": history,
+                    "avg_price": avg_price,
+                    "stale": False,
+                })
             continue
 
 
@@ -724,20 +1788,26 @@ def check_prices():
             }
         # If all stores were unreliable, keep item but flag it
         if not all_stores and eff >= _PRICE_UNRELIABLE:
-            logging.info(f"  {item['name']}: all stores unreliable — marking as price_unavailable")
-            results.append({
-                **item,
-                "price": best["price"],
-                "unit_price": best.get("unit_price"),
-                "unit": best.get("unit"),
-                "eff_price": _PRICE_UNRELIABLE,
-                "store": best["store"],
-                "all_stores": {},
-                "price_unavailable": True,
-                "image_url": best.get("image_url", ""),
-                "price_history": history,
-                "avg_price": avg_price
-            })
+            carried = _carry_forward_previous(item, existing, history, avg_price, "all_stores_unreliable")
+            if carried:
+                logging.warning(f"  {item['name']}: all stores unreliable — carrying forward last known good price")
+                results.append(carried)
+            else:
+                logging.info(f"  {item['name']}: all stores unreliable — marking as price_unavailable")
+                results.append({
+                    **item,
+                    "price": best["price"],
+                    "unit_price": best.get("unit_price"),
+                    "unit": best.get("unit"),
+                    "eff_price": _PRICE_UNRELIABLE,
+                    "store": best["store"],
+                    "all_stores": {},
+                    "price_unavailable": True,
+                    "image_url": best.get("image_url", ""),
+                    "price_history": history,
+                    "avg_price": avg_price,
+                    "stale": False,
+                })
             continue
         # If best was unreliable but some stores are OK, re-pick best from reliable stores
         if eff >= _PRICE_UNRELIABLE and all_stores:
@@ -749,6 +1819,12 @@ def check_prices():
                 if sr["store"] == best_store_key:
                     best = sr
                     break
+        # Normalize was_price to same units as eff_price for litre/kg items
+        raw_was = best.get("was_price")
+        if raw_was and item.get("price_mode") == "litre":
+            pl = item.get("pack_litres")
+            if pl and pl > 0:
+                raw_was = raw_was / pl
         item_result = {
             **item,
             "price": best["price"],
@@ -759,10 +1835,11 @@ def check_prices():
             "all_stores": all_stores,
             "price_unavailable": False,
             "image_url": best.get("image_url", ""),
-            "was_price": best.get("was_price"),
+            "was_price": round(raw_was, 2) if raw_was else None,
             "on_special": best.get("on_special", False),
             "price_history": history,
-            "avg_price": avg_price
+            "avg_price": avg_price,
+            "stale": False,
         }
 
         # Handle local image download
@@ -772,6 +1849,7 @@ def check_prices():
             if local_img_path:
                 item_result["image_url"] = local_img_path
 
+        item_result = _maybe_confirm_outlier_price(item, item_result, inv_data)
         results.append(item_result)
 
     # Scraper Health Check
@@ -780,6 +1858,21 @@ def check_prices():
         health_msg = f"⚠️ *SCRAPER HEALTH ALERT*\n{unavail_count}/{len(TRACKING_LIST)} items have no reliable price. "
         health_msg += "Site layouts may have changed."
         send_telegram(health_msg)
+
+    _append_metrics_run({
+        "ts": datetime.datetime.now().isoformat(),
+        "items": len(TRACKING_LIST),
+        "total_url_jobs": total_jobs,
+        "cffi_success_rate": round(cffi_rate, 4),
+        "http_429": _scrape_run_stats.get("http_429", 0),
+        "http_5xx": _scrape_run_stats.get("http_5xx", 0),
+        "coles_429": _scrape_run_stats.get("coles_429", 0),
+        "coles_challenge": _scrape_run_stats.get("coles_challenge", 0),
+        "coles_sequential": bool(_COLES_SEQUENTIAL),
+        "coles_workers_cap": _COLES_CFFI_WORKERS_CAP,
+        "chrome_subset_events": chrome_subset_events,
+        "stores_chrome": sorted(set(_scrape_run_stats.get("stores_used_chrome", []))),
+    })
 
     logging.info(f"Price Scan complete. {len(results)}/{len(TRACKING_LIST)} items with prices.")
     return results
@@ -982,21 +2075,48 @@ def export_data_to_json(results):
             name = item["name"]
             existing = existing_by_name.get(name, {})
 
+            def _is_effectively_empty(value):
+                if value is None:
+                    return True
+                if isinstance(value, (dict, list, tuple, set)):
+                    return len(value) == 0
+                if isinstance(value, str):
+                    return value == ""
+                if isinstance(value, (int, float)) and not isinstance(value, bool):
+                    return value == 0
+                return False
+
             # Carry over accumulated fields that the scraper doesn't produce
             for keep_field in ("scrape_history", "price_history", "brand", "subcategory",
                                "size", "tags", "target_confidence", "target_method",
                                "target_data_points", "target_updated", "last_purchased",
                                "local_image", "on_special", "was_price",
                                "type", "all_stores", "coles"):
-                if keep_field in existing and keep_field not in item:
+                if keep_field in existing and (
+                    keep_field not in item or _is_effectively_empty(item.get(keep_field))
+                ):
                     item[keep_field] = existing[keep_field]
 
             # Append today's scrape snapshot to scrape_history
             sh = item.get("scrape_history", [])
-            if not sh or sh[-1].get("date") != today_str:
+            sh = [
+                entry for entry in sh
+                if not (
+                    entry.get("date") == today_str and
+                    isinstance(entry.get("price"), (int, float)) and
+                    entry["price"] >= _PRICE_UNRELIABLE
+                )
+            ]
+            snapshot_price = item.get("eff_price", item.get("price", 0))
+            snapshot_reliable = (
+                isinstance(snapshot_price, (int, float)) and
+                0 < snapshot_price < _PRICE_UNRELIABLE and
+                not item.get("price_unavailable")
+            )
+            if snapshot_reliable and (not sh or sh[-1].get("date") != today_str):
                 sh.append({
                     "date": today_str,
-                    "price": item.get("eff_price", item.get("price", 0)),
+                    "price": snapshot_price,
                     "is_special": item.get("on_special", False),
                     "was_price": item.get("was_price"),
                     "store": item.get("store"),
@@ -1083,17 +2203,26 @@ def export_data_to_json(results):
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
 
-def sync_to_github():
-    """Commits and pushes the docs/ folder and updated JSON data to GitHub."""
+def sync_to_github(next_scheduled=None):
+    """Commits and pushes the docs/ folder and updated JSON data to GitHub.
+
+    next_scheduled: optional datetime for the next scrape (pass from run_report on the main
+    thread so heartbeat matches schedule library state; avoids stale NEXT_SCHEDULED_RUN).
+    """
     import subprocess
     try:
-        # Update heartbeat file before syncing.
-        # NEXT_SCHEDULED_RUN is updated by the main loop AFTER schedule.run_pending();
-        # by the time sync_to_github() is called (from a daemon thread), the main loop
-        # has already ticked and NEXT_SCHEDULED_RUN reflects the upcoming run.
         heartbeat_path = os.path.join("docs", "heartbeat.json")
-        next_run_str = NEXT_SCHEDULED_RUN.isoformat() if NEXT_SCHEDULED_RUN else None
-        with open(heartbeat_path, "w") as f:
+        nr = next_scheduled
+        if nr is None:
+            try:
+                nr = schedule.next_run()
+            except Exception:
+                nr = None
+        if nr is None:
+            nr = NEXT_SCHEDULED_RUN
+        next_run_str = nr.isoformat() if nr else None
+
+        with open(heartbeat_path, "w", encoding="utf-8") as f:
             json.dump({
                 "last_heartbeat": datetime.datetime.now().isoformat(),
                 "next_run": next_run_str,
@@ -1101,19 +2230,30 @@ def sync_to_github():
             }, f)
 
         logging.info("Syncing data to GitHub...")
-        # Stage all docs/ changes (shell globs don't expand in subprocess.run without shell=True)
-        subprocess.run(["git", "add", "docs/"], check=False, capture_output=True)
-        
-        # Check if there are changes to commit
-        status = subprocess.run(["git", "status", "--porcelain", "docs/"], capture_output=True, text=True)
-        if status.stdout.strip():
-            subprocess.run(["git", "commit", "-m", "Auto-update dashboard data [skip ci]"], check=True, capture_output=True)
-            subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True)
-            logging.info("Successfully pushed updated data & heartbeat to GitHub.")
-        else:
-            logging.info("No data changes to commit (heartbeat only).")
+        add_r = subprocess.run(["git", "add", "docs/"], capture_output=True, text=True)
+        if add_r.returncode != 0:
+            logging.error(f"git add docs/ failed (exit {add_r.returncode}): {add_r.stderr.strip()}")
+            return
+
+        # Exit 0 = no staged diff; 1 = staged changes exist
+        diff_r = subprocess.run(["git", "diff", "--cached", "--quiet"], capture_output=True)
+        if diff_r.returncode == 0:
+            logging.info("GitHub sync: nothing to commit under docs/ (working tree matches HEAD).")
+            return
+
+        subprocess.run(
+            ["git", "commit", "-m", "Auto-update dashboard data [skip ci]"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True, text=True)
+        logging.info("Successfully pushed updated data & heartbeat to GitHub.")
     except subprocess.CalledProcessError as e:
-        logging.error(f"GitHub sync failed: {e.stderr.decode()}")
+        err = e.stderr or e.stdout or ""
+        if isinstance(err, bytes):
+            err = err.decode()
+        logging.error(f"GitHub sync failed: {err}")
     except Exception as e:
         logging.error(f"Error during GitHub sync: {e}")
 
@@ -1140,9 +2280,9 @@ def _download_product_image(url, name):
             return f"images/{local_filename}"
             
     try:
-        # Use a real User-Agent to avoid blocks
+        profile = _get_random_ua_profile()
         headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            "User-Agent": profile["ua"]
         }
         response = requests.get(url, headers=headers, timeout=20)
         if response.status_code == 200:
@@ -1158,18 +2298,10 @@ def _download_product_image(url, name):
     return ""
 
 def _discover_coles_prices(batch_size=20):
-    """Search Coles for items that don't have a Coles URL yet.
-    Processes a small batch per cycle to avoid rate limiting.
-    Over ~17 cycles (~3 days at 4h intervals) covers all items."""
-    import re as _re
-    try:
-        from curl_cffi import requests as _cffi_requests
-    except ImportError:
-        logging.debug("curl_cffi not available for Coles discovery")
-        return
-
+    """Search Coles via _next/data JSON API (same stack as main scraper) and rank hits by name overlap.
+    Paced sleeps + adaptive backoff when searches return nothing (possible soft block)."""
     data_path = "docs/data.json"
-    with open(data_path, "r") as f:
+    with open(data_path, "r", encoding="utf-8") as f:
         raw = json.load(f)
     data = raw.get("items", raw) if isinstance(raw, dict) else raw
 
@@ -1179,22 +2311,31 @@ def _discover_coles_prices(batch_size=20):
         return
 
     batch = no_coles[:batch_size]
-    logging.info(f"[Coles] Discovering prices for {len(batch)}/{len(no_coles)} items without Coles URLs...")
+    logging.info(f"[Coles] Discovering URLs for {len(batch)}/{len(no_coles)} items (API search + ranking)...")
 
-    session = _cffi_requests.Session(impersonate="safari15_5")
+    session = _create_cffi_session("coles")
     try:
-        session.get("https://www.coles.com.au/", timeout=15)
-    except Exception:
-        logging.warning("[Coles] Could not reach coles.com.au")
+        w = session.get("https://www.coles.com.au/", timeout=20)
+        if w.status_code != 200 or _coles_body_looks_blocked(w.text):
+            logging.warning("[Coles discovery] Homepage blocked or failed — aborting this cycle")
+            return
+        _apply_coles_build_id_from_html(w.text, "coles_discovery_warmup")
+    except Exception as e:
+        logging.warning(f"[Coles] Could not reach coles.com.au: {e}")
+        return
+
+    bid = _cffi_get_coles_build_id(session)
+    if not bid:
+        logging.warning("[Coles discovery] No buildId — aborting")
         return
 
     matched = 0
     cheaper = 0
+    sleep_mult = 1.0
 
     for item in batch:
         name = item.get("name", "")
-        # Simplify name for search
-        search = _re.sub(r'\d+\.?\d*\s*(G|Kg|Ml|L|Pk|Pack)\b', '', name, flags=_re.IGNORECASE)
+        search = re.sub(r"\d+\.?\d*\s*(G|Kg|Ml|L|Pk|Pack)\b", "", name, flags=re.IGNORECASE)
         search = search.replace("Ww ", "").replace("P/P", "").strip()
         words = [w for w in search.split() if len(w) > 1][:3]
         search = " ".join(words)
@@ -1202,48 +2343,45 @@ def _discover_coles_prices(batch_size=20):
             continue
 
         try:
-            resp = session.get(
-                f"https://www.coles.com.au/search?q={search}",
-                timeout=15,
-            )
-            if "Pardon Our Interruption" in resp.text:
-                logging.warning("[Coles] Rate limited — stopping discovery for this cycle.")
-                break
+            results, did_you_mean = _cffi_search_coles(session, search, bid, max_results=12)
+            retry_q = _coles_needs_spelling_retry(search, results, did_you_mean)
+            if retry_q:
+                logging.info(f"[Coles discovery] spelling retry: {search!r} → {retry_q!r}")
+                results, _ = _cffi_search_coles(session, retry_q, bid, max_results=12)
 
-            m = _re.search(
-                r'<script[^>]*id=["\']__NEXT_DATA__["\'][^>]*>([^<]+)</script>',
-                resp.text, _re.I | _re.DOTALL,
-            )
-            if not m:
-                continue
-
-            nd = json.loads(m.group(1).strip())
-            results = (nd.get("props", {}).get("pageProps", {})
-                        .get("searchResults", {}).get("results", []))
             if not results:
+                sleep_mult = min(3.0, sleep_mult * 1.2)
+                time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
                 continue
 
-            r = results[0]
-            pricing = r.get("pricing", {})
-            price = pricing.get("now")
-            if not price or float(price) <= 0:
+            ranked = _rank_coles_search_results_for_inventory(name, results)
+            best = ranked[0]
+            label = f"{best.get('brand', '')} {best.get('name', '')}".strip()
+            score = _token_overlap_score(name, label)
+            if score < _COLES_DISCOVERY_MIN_SCORE or not _size_signals_compatible(name, label):
+                logging.info(f"[Coles] Skipping low match (score={score:.2f}) for {name!r} vs {label!r}")
+                time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
                 continue
 
-            coles_name = r.get("name", "")
-            prod_id = r.get("id", "")
-            slug = _re.sub(r"[^a-z0-9]+", "-", coles_name.lower()).strip("-")
-            cp = float(price)
-            cw = pricing.get("was")
-            cs = pricing.get("promotionType") == "SPECIAL"
+            purl = _coles_product_url_from_search_hit(best)
+            if not purl:
+                logging.warning(f"[Coles] No product id in search hit for {name!r}")
+                time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
+                continue
+
+            cp = float(best["price"])
+            cw = best.get("was_price")
+            cs = bool(best.get("on_special"))
 
             all_stores = item.get("all_stores", {})
             all_stores["coles"] = {
-                "price": cp, "eff_price": cp,
+                "price": cp,
+                "eff_price": cp,
                 "was_price": float(cw) if cw else None,
                 "on_special": cs,
             }
             item["all_stores"] = all_stores
-            item["coles"] = f"https://www.coles.com.au/product/{slug}-{prod_id}"
+            item["coles"] = purl
 
             wp = item.get("eff_price") or item.get("price", 999)
             if cp < wp:
@@ -1256,17 +2394,17 @@ def _discover_coles_prices(batch_size=20):
                 cheaper += 1
 
             matched += 1
-        except Exception:
-            pass
+            sleep_mult = max(1.0, sleep_mult * 0.92)
+        except Exception as ex:
+            logging.debug(f"[Coles discovery] item error: {ex}")
 
-        time.sleep(3)
+        time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
 
-    # Save back — use the write lock to avoid racing with export_data_to_json()
     if matched > 0:
         with _data_write_lock:
             if isinstance(raw, dict):
                 raw["items"] = data
-            with open(data_path, "w") as f:
+            with open(data_path, "w", encoding="utf-8") as f:
                 json.dump(raw if isinstance(raw, dict) else data, f, indent=2)
 
     total = sum(1 for i in data if i.get("coles"))
@@ -1279,6 +2417,7 @@ def run_report(full_list=False, send_telegram_messages=True):
     send_telegram_messages: whether to output the full report to telegram.
     Big Shop (bulk qty) auto-detected from date (after 14th).
     """
+    global NEXT_SCHEDULED_RUN
     try:
         today = datetime.datetime.now()
         weekday = today.weekday()  # Mon=0, Sun=6
@@ -1306,8 +2445,19 @@ def run_report(full_list=False, send_telegram_messages=True):
         except Exception as _e:
             logging.warning(f"Coles discovery skipped: {_e}")
 
-        # Deploy to GitHub pages
-        threading.Thread(target=sync_to_github, daemon=True).start()
+        # Deploy to GitHub pages — capture next run on this thread so heartbeat.json matches schedule
+        next_for_heartbeat = None
+        try:
+            next_for_heartbeat = schedule.next_run()
+        except Exception:
+            pass
+        if next_for_heartbeat:
+            NEXT_SCHEDULED_RUN = next_for_heartbeat
+        threading.Thread(
+            target=sync_to_github,
+            kwargs={"next_scheduled": next_for_heartbeat},
+            daemon=True,
+        ).start()
 
         if not send_telegram_messages:
             logging.info("send_telegram_messages is False. Exiting early, no message sent.")
@@ -1422,7 +2572,7 @@ def _cffi_get_coles_build_id(session):
     for url in ["https://www.coles.com.au/", COLES_WARMUP_URL]:
         try:
             resp = session.get(url, timeout=15)
-            if resp.status_code == 200 and len(resp.text) > 5000:
+            if resp.status_code == 200:
                 m = re.search(r'"buildId"\s*:\s*"([^"]+)"', resp.text)
                 if m:
                     _coles_cached_build_id = m.group(1)
@@ -1504,19 +2654,31 @@ def _cffi_search_coles(session, query, build_id, max_results=5):
     global _coles_cached_build_id
     try:
         encoded = query.replace(" ", "+")
-        resp = session.get(
-            f"https://www.coles.com.au/_next/data/{build_id}/search/products.json?q={encoded}",
-            timeout=15,
-        )
+        api_url = f"https://www.coles.com.au/_next/data/{build_id}/search/products.json?q={encoded}"
+        resp = None
+        for attempt in range(2):
+            resp = session.get(api_url, headers=_get_coles_headers(_get_random_ua_profile()), timeout=20)
+            if resp.status_code == 429 and attempt == 0:
+                time.sleep(25 + random.random() * 40)
+                continue
+            break
+        if resp is None:
+            return [], None
         if resp.status_code == 404:
-            # buildId likely expired — try to re-extract
-            logging.warning(f"Coles search 404 — buildId may have expired, clearing cache")
+            logging.warning("Coles search 404 — buildId may have expired, clearing cache")
             _coles_cached_build_id = None
             return [], None
         if resp.status_code != 200:
             logging.warning(f"Coles search API HTTP {resp.status_code}")
             return [], None
-        data = resp.json()
+        if _coles_body_looks_blocked(resp.text):
+            logging.warning("Coles search blocked (interstitial HTML instead of JSON)")
+            return [], None
+        try:
+            data = resp.json()
+        except json.JSONDecodeError:
+            logging.warning("Coles search: response was not JSON (likely blocked)")
+            return [], None
         sr = data.get("pageProps", {}).get("searchResults", {})
         did_you_mean = sr.get("didYouMean")  # list of suggestions or None
         results = []
@@ -1528,16 +2690,18 @@ def _cffi_search_coles(session, query, build_id, max_results=5):
             if now_price is None or now_price <= 0:
                 continue
             cup_price, cup_measure = _parse_coles_unit(pricing)
+            pid = r.get("id") or r.get("productId") or ""
             result = {
                 "name": r.get("name", ""),
                 "brand": r.get("brand", ""),
+                "product_id": str(pid) if pid is not None else "",
                 "price": float(now_price),
                 "was_price": pricing.get("was"),
                 "cup_price": cup_price,
                 "cup_measure": cup_measure,
                 "cup_string": pricing.get("comparable", ""),
                 "size": r.get("size", ""),
-                "on_special": pricing.get("promotionType") is not None,
+                "on_special": pricing.get("promotionType") == "SPECIAL",
                 "store": "coles",
             }
             _enrich_with_unit_price(result)
@@ -1547,6 +2711,32 @@ def _cffi_search_coles(session, query, build_id, max_results=5):
     except Exception as e:
         logging.error(f"Coles search error: {e}")
         return [], None
+
+
+def _rank_coles_search_results_for_inventory(inventory_name, results):
+    """Sort search hits by token overlap with inventory label (best first)."""
+    if not results:
+        return []
+    scored = []
+    inv = inventory_name or ""
+    for r in results:
+        label = f"{r.get('brand', '')} {r.get('name', '')}".strip()
+        s = _token_overlap_score(inv, label)
+        scored.append((s, r))
+    scored.sort(key=lambda x: -x[0])
+    return [r for _, r in scored]
+
+
+def _coles_product_url_from_search_hit(hit):
+    """Build canonical Coles PDP URL from a search API hit."""
+    name = hit.get("name", "") or "product"
+    pid = (hit.get("product_id") or "").strip()
+    if not pid:
+        return None
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    if not slug:
+        slug = "product"
+    return f"https://www.coles.com.au/product/{slug}-{pid}"
 
 
 def _coles_needs_spelling_retry(query, results, did_you_mean):
@@ -1570,69 +2760,114 @@ def _coles_needs_spelling_retry(query, results, did_you_mean):
 
 
 # Preferred TLS fingerprints (ordered by reliability against Akamai)
-_CFFI_IMPERSONATIONS = ["chrome124", "chrome120", "chrome116"]
+_CFFI_IMPERSONATIONS = ["chrome131", "chrome124", "chrome120", "chrome116"]
 
 
-def _create_cffi_session():
-    """Create a curl_cffi session with the best available impersonation."""
-    for imp in _CFFI_IMPERSONATIONS:
+def _create_cffi_session(store_key=None):
+    """Create a curl_cffi session matching the run's locked UA fingerprint."""
+    profile = _get_run_ua_profile()
+    imp = profile.get("impersonate", "chrome131")
+    proxy = _proxy_for_store(store_key)
+    kwargs = {}
+    if proxy:
+        kwargs["proxies"] = {"http": proxy, "https": proxy}
+    try:
+        return cffi_requests.Session(impersonate=imp, **kwargs)
+    except TypeError:
+        return cffi_requests.Session(impersonate=imp)
+    except Exception:
+        pass
+    for fallback_imp in _CFFI_IMPERSONATIONS:
         try:
-            return cffi_requests.Session(impersonate=imp)
+            return cffi_requests.Session(impersonate=fallback_imp, **kwargs)
+        except TypeError:
+            return cffi_requests.Session(impersonate=fallback_imp)
         except Exception:
             continue
     return cffi_requests.Session(impersonate="chrome124")
 
 
-def _cffi_fetch_product(session, url, store_key):
-    """Fetch product page HTML and extract price JSON. Returns dict or None."""
-    try:
-        # For Coles, try the specific NEXT.js API first (much faster/cleaner)
-        if store_key == "coles":
-            # We need a buildId. If we don't have one, we can still try standard HTML fetch.
-            global _coles_cached_build_id
-            if _coles_cached_build_id:
-                data = _cffi_fetch_coles_api(session, url, _coles_cached_build_id)
-                if data: return data
+_CFFI_RESULT_NO_PRICE = "NO_PRICE"
+_CFFI_RESULT_BLOCKED = "BLOCKED"
 
-        resp = session.get(url, headers=_get_coles_headers() if store_key == "coles" else {}, timeout=15)
-        if resp.status_code != 200 or len(resp.text) < 5000:
-            return None
-        if store_key == "woolworths":
+
+def _cffi_fetch_product(session, url, store_key, inventory_name=None):
+    """Fetch product HTML via curl_cffi and extract structured JSON data.
+
+    Returns:
+        dict  — success (product data)
+        "NO_PRICE" — page loaded fine but product has no price (out of stock, etc.)
+        "BLOCKED"  — HTTP error or short page (Akamai block)
+        None  — exception / unknown failure
+    """
+    budget = _http_retry_budget()
+    profile = _get_run_ua_profile()
+    short_name = (inventory_name or url.split("/")[-1])[:45]
+
+    for attempt in range(budget):
+        try:
+            headers = _get_woolworths_headers(url, profile)
+            if attempt > 0:
+                time.sleep(3.0 + random.uniform(1, 4) + attempt * 2.0)
+            resp = session.get(url, headers=headers, timeout=20)
+            code = resp.status_code
+            body_len = len(resp.text)
+            if code == 429:
+                _scrape_run_stats["http_429"] = _scrape_run_stats.get("http_429", 0) + 1
+                logging.warning(f"cffi 429 for {short_name} (attempt {attempt+1})")
+            elif code >= 500:
+                _scrape_run_stats["http_5xx"] = _scrape_run_stats.get("http_5xx", 0) + 1
+            if code in (429, 502, 503, 504) and attempt < budget - 1:
+                time.sleep(8.0 + random.uniform(2, 10) + attempt * 5.0)
+                continue
+            if code == 403:
+                logging.debug(f"cffi 403 for {short_name} ({body_len} chars)")
+                return _CFFI_RESULT_BLOCKED
+            if code == 404:
+                logging.debug(f"cffi 404 for {short_name}")
+                return _CFFI_RESULT_NO_PRICE
+            if code != 200:
+                logging.debug(f"cffi HTTP {code} for {short_name} ({body_len} chars)")
+                return _CFFI_RESULT_BLOCKED
+            if body_len < _PDP_MIN_HTML_CHARS:
+                logging.debug(f"cffi short page for {short_name} ({body_len} chars — probably blocked)")
+                return _CFFI_RESULT_BLOCKED
             data = _extract_woolworths_json_from_html(resp.text)
-        else:
-            data = _extract_coles_json_from_html(resp.text)
-            
-        if data and data.get("price", 0) > 0:
-            return {
-                "price": data["price"],
-                "unit_price": data.get("unit_price"),
-                "unit": data.get("unit", "each"),
-                "image_url": data.get("image_url", ""),
-                "was_price": data.get("was_price"),
-                "on_special": bool(data.get("is_special") or data.get("was_price")),
-            }
-    except Exception as e:
-        logging.debug(f"cffi fetch error {url[:50]}: {e}")
+            if data and data.get("price", 0) > 0:
+                result = _finalize_cffi_product_dict(data, inventory_name, store_key=store_key)
+                return result if result else _CFFI_RESULT_NO_PRICE
+            logging.debug(f"cffi no price in HTML for {short_name} ({body_len} chars)")
+            return _CFFI_RESULT_NO_PRICE
+        except Exception as e:
+            logging.debug(f"cffi fetch error {short_name}: {e}")
+    return _CFFI_RESULT_BLOCKED
     return None
 
 
 def _init_search_sessions():
     """Create curl_cffi sessions for both stores and warm them up.
     Returns (woolies_session, coles_session, coles_build_id)."""
-    woolies_session = _create_cffi_session()
-    coles_session = _create_cffi_session()
+    woolies_session = _create_cffi_session("woolworths")
+    coles_session = _create_cffi_session("coles")
 
     # Warm up Woolworths (get cookies)
     try:
         resp = woolies_session.get("https://www.woolworths.com.au/", timeout=15)
-        if resp.status_code != 200 or len(resp.text) < 5000:
+        if resp.status_code != 200 or len(resp.text) < _WOOLIES_WARMUP_MIN_CHARS:
             logging.warning(f"Woolworths warm-up: HTTP {resp.status_code}, {len(resp.text)} chars — retrying")
             # Retry with different impersonation
             for imp in _CFFI_IMPERSONATIONS[1:]:
                 try:
-                    woolies_session = cffi_requests.Session(impersonate=imp)
+                    proxy = _proxy_for_store("woolworths")
+                    if proxy:
+                        woolies_session = cffi_requests.Session(
+                            impersonate=imp,
+                            proxies={"http": proxy, "https": proxy},
+                        )
+                    else:
+                        woolies_session = cffi_requests.Session(impersonate=imp)
                     resp = woolies_session.get("https://www.woolworths.com.au/", timeout=15)
-                    if len(resp.text) > 5000:
+                    if resp.status_code == 200 and len(resp.text) >= _WOOLIES_WARMUP_MIN_CHARS:
                         logging.info(f"Woolworths warm-up OK with {imp}")
                         break
                 except Exception:
@@ -1652,7 +2887,14 @@ def _init_search_sessions():
         # Retry with different impersonation
         for imp in _CFFI_IMPERSONATIONS[1:]:
             try:
-                coles_session = cffi_requests.Session(impersonate=imp)
+                proxy = _proxy_for_store("coles")
+                if proxy:
+                    coles_session = cffi_requests.Session(
+                        impersonate=imp,
+                        proxies={"http": proxy, "https": proxy},
+                    )
+                else:
+                    coles_session = cffi_requests.Session(impersonate=imp)
                 _refresh_coles_metadata(coles_session)
                 coles_build_id = _coles_cached_build_id
                 if coles_build_id:
@@ -2294,12 +3536,10 @@ if __name__ == "__main__":
             logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
             
             while True:
-                # Keep the global next run time synchronized
+                schedule.run_pending()
                 next_job = schedule.next_run()
                 if next_job:
                     NEXT_SCHEDULED_RUN = next_job
-                
-                schedule.run_pending()
                 time.sleep(60)
                 
         except KeyboardInterrupt:
