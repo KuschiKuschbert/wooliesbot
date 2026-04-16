@@ -844,6 +844,19 @@ def _cffi_search_woolworths_product(session, search_term, inventory_name=None):
                 if ov < 0.2:
                     logging.debug(f"Search skip low overlap ({ov:.2f}): want={inventory_name!r} got={api_name!r}")
                     continue
+                # Asymmetric weight check: if inventory specifies a large pack (≥500g) but the
+                # search result has no weight signal at all, the result is likely a loose/individual
+                # item matched too loosely (e.g. "Carrot Fresh" matching "Carrot 1Kg P/P").
+                # Require a stronger overlap in that case rather than outright rejection.
+                a_sig = _extract_size_signals(inventory_name or search_term)
+                b_sig = _extract_size_signals(api_name)
+                if a_sig["weights_g"] and not b_sig["weights_g"]:
+                    if any(w >= 500 for w in a_sig["weights_g"]) and ov < 0.35:
+                        logging.debug(
+                            f"Search skip large-weight mismatch ({ov:.2f}<0.35): "
+                            f"want={inventory_name!r} got={api_name!r}"
+                        )
+                        continue
                 if ov > best_overlap:
                     best_overlap = ov
                     best_result = prod
@@ -2377,12 +2390,27 @@ def _discover_coles_prices(batch_size=20):
 
             ranked = _rank_coles_search_results_for_inventory(name, results)
             best = ranked[0]
-            label = f"{best.get('brand', '')} {best.get('name', '')}".strip()
+            # Include size field so _size_signals_compatible can see "1.25L", "10 Pack", etc.
+            # Coles BFF separates size from name (e.g. name="Max No Sugar Cola Bottle", size="1.25L")
+            label = " ".join(filter(None, [best.get("brand", ""), best.get("name", ""), best.get("size", "")])).strip()
             score = _token_overlap_score(name, label)
             if score < _COLES_DISCOVERY_MIN_SCORE or not _size_signals_compatible(name, label):
                 logging.info(f"[Coles] Skipping low match (score={score:.2f}) for {name!r} vs {label!r}")
                 time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
                 continue
+            # Asymmetric guard: if inventory specifies a size but result label still has none,
+            # require stronger overlap (mirrors the WW large-weight guard).
+            inv_sig = _extract_size_signals(name)
+            res_sig = _extract_size_signals(label)
+            if any(inv_sig[k] for k in ("packs", "volumes_ml", "weights_g")) and \
+                    not any(res_sig[k] for k in ("packs", "volumes_ml", "weights_g")):
+                if score < 0.50:
+                    logging.info(
+                        f"[Coles] Skipping asymmetric size (score={score:.2f}<0.50): "
+                        f"{name!r} vs {label!r}"
+                    )
+                    time.sleep(_COLES_DISCOVERY_SLEEP_SEC * sleep_mult)
+                    continue
 
             purl = _coles_product_url_from_search_hit(best)
             if not purl:
@@ -2493,11 +2521,13 @@ def run_report(full_list=False, send_telegram_messages=True):
             )
         )
 
-        # Minimal Telegram notification — all details are on the dashboard
+        # Telegram notification — link directly to the live dashboard
+        items_scraped = len([r for r in raw_results if not r.get("price_unavailable")])
+        scrape_time = today.strftime("%-I:%M %p")
         summary = (
-            f"🛒 *WooliesBot* — prices updated\\.\n"
-            f"🏷️ *{specials_count}* deals on right now\\.\n"
-            f"🌐 [Open Dashboard](https://KuschiKuschbert\\.github\\.io/wooliesbot/)"
+            f"🛒 *WooliesBot* updated at {scrape_time}\n"
+            f"🏷️ *{specials_count}* deals · {items_scraped} items tracked\n"
+            f"👉 [View Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
         )
 
         if send_telegram_messages:
