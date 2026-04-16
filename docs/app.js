@@ -19,6 +19,16 @@ function haptic(ms = 10) {
     try { navigator.vibrate?.(ms); } catch {}
 }
 
+let _priceDropToastTimer = null;
+
+function dismissPriceDropToast() {
+    document.getElementById('price-drop-toast')?.remove();
+    if (_priceDropToastTimer) {
+        clearTimeout(_priceDropToastTimer);
+        _priceDropToastTimer = null;
+    }
+}
+
 // ── Skeleton loaders ──────────────────────────────────────────────────────────
 function showSkeletons() {
     const grid = document.getElementById('specials-grid');
@@ -228,6 +238,7 @@ function setupFilters() {
     const switchTab = (target) => {
         _currentTab = target;
         haptic(8);
+        dismissPriceDropToast();
 
         // Sync desktop buttons
         navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
@@ -2396,8 +2407,7 @@ function checkPriceDropAlerts() {
 }
 
 function showPriceDropToast(items) {
-    // Remove any existing toast
-    document.getElementById('price-drop-toast')?.remove();
+    dismissPriceDropToast();
 
     const toast = document.createElement('div');
     toast.id = 'price-drop-toast';
@@ -2408,16 +2418,15 @@ function showPriceDropToast(items) {
 
     toast.innerHTML = `
         <span style="font-size:18px;">🔥</span>
-        <div style="flex:1;">
+        <div style="flex:1;min-width:0;">
             <div style="font-weight:700;font-size:13px;">New deals detected!</div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${names}${more}</div>
         </div>
-        <button onclick="this.parentElement.remove()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:4px;font-size:16px;">×</button>
+        <button type="button" onclick="dismissPriceDropToast()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:18px;line-height:1;" aria-label="Dismiss">×</button>
     `;
 
     document.body.appendChild(toast);
-    // Auto-dismiss after 8 seconds
-    setTimeout(() => toast.remove(), 8000);
+    _priceDropToastTimer = setTimeout(() => dismissPriceDropToast(), 6500);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

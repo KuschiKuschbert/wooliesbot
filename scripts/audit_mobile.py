@@ -195,6 +195,9 @@ PROBE_JS = r"""
     );
     const persistent = [];
     toastCandidates.forEach(el => {
+        if (el.classList && el.classList.contains('price-drop-toast')) {
+            return; /* auto-dismiss + anchored; ignore during snapshot */
+        }
         const cs = getComputedStyle(el);
         const r = el.getBoundingClientRect();
         if ((cs.position === 'fixed' || cs.position === 'sticky')
@@ -254,9 +257,9 @@ PROBE_JS = r"""
     const strip = document.querySelector('.stats-strip');
     let stripFade = null;
     if (strip) {
-        const cs = getComputedStyle(strip, '::after') || {};
-        const before = getComputedStyle(strip, '::before') || {};
-        const hasMask = (cs.content && cs.content !== 'none') || (before.content && before.content !== 'none');
+        const cs = getComputedStyle(strip);
+        const mask = (cs.maskImage || cs.webkitMaskImage || '').toString();
+        const hasMask = mask && mask !== 'none' && mask !== 'initial';
         const scrollable = strip.scrollWidth > strip.clientWidth + 4;
         stripFade = { scrollable, hasMask };
         push(

@@ -3973,6 +3973,14 @@ button, a, label, [role="button"] {
         padding: 0 10px calc(10px + env(safe-area-inset-bottom, 0px)) 10px;
         height: auto;
         min-height: 60px;
+        align-items: stretch;
+    }
+
+    .mobile-bottom-nav .mobile-nav-link {
+        min-height: 52px;
+        justify-content: center;
+        padding: 8px 4px 10px;
+        box-sizing: border-box;
     }
 
     .mobile-badge {
@@ -4124,6 +4132,7 @@ button, a, label, [role="button"] {
     }
 
     .sort-pill {
+        min-width: 44px;
         min-height: 44px;
         padding: 0 10px;
         font-size: 11px;
@@ -4151,6 +4160,7 @@ button, a, label, [role="button"] {
     .category-scroll-fade .filter-btn-cat {
         flex-shrink: 0;
         scroll-snap-align: start;
+        min-width: 44px;
         min-height: 44px;
         padding: 0 12px;
         font-size: 12px;
@@ -4171,6 +4181,13 @@ button, a, label, [role="button"] {
     .item-card:hover {
         transform: none; /* Disable lift on touch */
         box-shadow: none;
+    }
+
+    .item-card .store-badge {
+        min-height: 44px;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        align-items: center;
     }
 
     .add-to-list-btn {
@@ -4208,6 +4225,21 @@ button, a, label, [role="button"] {
 
     .drawer-header {
         padding-top: 0;
+    }
+
+    #close-drawer.icon-btn {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .clear-list-btn {
+        min-height: 44px;
+        padding: 10px 14px;
+        box-sizing: border-box;
     }
 
     .drawer-content {
