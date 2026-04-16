@@ -2206,6 +2206,26 @@ footer {
     border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
+.stale-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    white-space: nowrap;
+}
+
+.stale-badge.compact {
+    padding: 1px 6px;
+    font-size: 9px;
+}
+
 /* ─── Target Intelligence Panel ──────────────────────────────────────────── */
 .target-intel-header {
     display: flex;

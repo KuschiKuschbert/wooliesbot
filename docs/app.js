@@ -462,6 +462,7 @@ function renderEssentials() {
 
         const price = dataItem ? (dataItem.eff_price || dataItem.price) : null;
         const onSpecial = dataItem?.on_special;
+        const staleBadge = dataItem?.stale ? getStaleBadge(dataItem, true) : '';
         const stock = dataItem?.stock;
 
         // Stock dot colour
@@ -470,7 +471,7 @@ function renderEssentials() {
 
         // Price badge
         const priceBadge = price
-            ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}$${price.toFixed(2)}</span>`
+            ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}$${price.toFixed(2)}</span>${staleBadge}`
             : '';
 
         const row = document.createElement('div');
@@ -650,6 +651,14 @@ function getConfidenceBadge(item) {
     return `<span class="confidence-badge low" title="Low confidence: ${method} — buy more to improve!">🔴 Low</span>`;
 }
 
+function getStaleBadge(item, compact = false) {
+    if (!item?.stale) return '';
+    const asOf = item.stale_as_of ? ` (last good: ${item.stale_as_of})` : '';
+    const title = `Using last known good price${asOf}`;
+    const label = compact ? 'Stale' : '⏳ Stale';
+    return `<span class="stale-badge${compact ? ' compact' : ''}" title="${title}">${label}</span>`;
+}
+
 function createItemCard(item, index, type = 'special') {
     const effPrice = item.eff_price || item.price;
     const isSpecial = type === 'special' && effPrice <= item.target && !item.price_unavailable;
@@ -668,6 +677,7 @@ function createItemCard(item, index, type = 'special') {
 
     const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
     const confidenceBadge = getConfidenceBadge(item);
+    const staleBadge = getStaleBadge(item);
     const targetTooltip = item.target_method 
         ? `title="${item.target_method}${item.target_data_points ? ` (${item.target_data_points} data points)` : ''}"` 
         : '';
@@ -726,6 +736,7 @@ function createItemCard(item, index, type = 'special') {
                     <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
                 </a>
                 <div style="display:flex; gap:4px; align-items:center;">
+                    ${staleBadge}
                     ${confidenceBadge}
                     <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
                 </div>
@@ -1145,7 +1156,7 @@ function renderColaBattle() {
                         <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
                         <div class="fighter-product">${pepsi ? pepsi.name : 'No Data'}</div>
-                        <div class="fighter-meta">${getStoreBadge(pepsi)}${isOnSpecial(pepsi) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}</div>
+                        <div class="fighter-meta">${getStoreBadge(pepsi)}${isOnSpecial(pepsi) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
                         ${viewLink(pepsi)}
                     </div>
                     <div class="battle-vs">VS</div>
@@ -1154,7 +1165,7 @@ function renderColaBattle() {
                         <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
                         <div class="fighter-product">${coke ? coke.name : 'No Data'}</div>
-                        <div class="fighter-meta">${getStoreBadge(coke)}${isOnSpecial(coke) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}</div>
+                        <div class="fighter-meta">${getStoreBadge(coke)}${isOnSpecial(coke) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
                         ${viewLink(coke)}
                     </div>
                 </div>
