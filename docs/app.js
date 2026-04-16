@@ -899,39 +899,29 @@ function createItemCard(item, index, type = 'special') {
     const escapedName = item.name.replace(/'/g, "\\'");
 
     card.innerHTML = `
-        <div class="card-swipe-wrap">
-            <div class="card-face">
-                ${imgHtml}
-                <div class="item-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
-                            <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                        </a>
-                        <div style="display:flex; gap:4px; align-items:center;">
-                            ${staleBadge}
-                            ${confidenceBadge}
-                            <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
-                        </div>
-                    </div>
-                    <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
-                    <div class="item-price-row">
-                        ${priceHtml}
-                        <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
-                    </div>
-                    ${storeCompareHtml}
-                    <button class="add-to-list-btn" onclick="addToList('${escapedName}', this)">
-                        <i data-feather="plus"></i> Add to List
-                    </button>
-                    <div class="chart-container-sm" id="chart-${type}-${index}">
-                        <canvas></canvas>
-                    </div>
+        ${imgHtml}
+        <div class="item-content">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
+                    <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
+                </a>
+                <div style="display:flex; gap:4px; align-items:center;">
+                    ${staleBadge}
+                    ${confidenceBadge}
+                    <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
                 </div>
             </div>
-            <div class="card-swipe-action" aria-hidden="true">
-                <button class="card-swipe-btn" onclick="addToList('${escapedName}', this); this.closest('.card-swipe-wrap').scrollLeft=0;" title="Add to list">
-                    <i data-feather="shopping-cart"></i>
-                    <span>Add</span>
-                </button>
+            <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
+            <div class="item-price-row">
+                ${priceHtml}
+                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
+            </div>
+            ${storeCompareHtml}
+            <button class="add-to-list-btn" onclick="addToList('${escapedName}', this)">
+                <i data-feather="plus"></i> Add to List
+            </button>
+            <div class="chart-container-sm" id="chart-${type}-${index}">
+                <canvas></canvas>
             </div>
         </div>
     `;
@@ -2213,26 +2203,6 @@ function renderDeeperInsights(brandPrices) {
     `;
 
     container.innerHTML = html;
-
-    // Mobile carousel: add dot indicators
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        const cards = container.querySelectorAll('.deep-insight-card');
-        if (cards.length > 1) {
-            const dots = document.createElement('div');
-            dots.className = 'insights-dots';
-            dots.innerHTML = Array.from(cards).map((_, i) =>
-                `<span class="insight-dot${i === 0 ? ' active' : ''}"></span>`
-            ).join('');
-            container.appendChild(dots);
-
-            const insightsFlex = container.closest('.insights-flex') || container;
-            const scrollEl = container;
-            scrollEl.addEventListener('scroll', () => {
-                const idx = Math.round(scrollEl.scrollLeft / (scrollEl.scrollWidth / cards.length));
-                dots.querySelectorAll('.insight-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
-            }, { passive: true });
-        }
-    }
 }
 
 
@@ -2705,6 +2675,32 @@ function renderDealHeatmap() {
         const bTotal = (heatData[b]?.woolworths?.specials || 0) + (heatData[b]?.coles?.specials || 0);
         return bTotal - aTotal;
     });
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+        // Simple vertical list: one row per category showing winner
+        container.innerHTML = `<div class="heatmap-mobile-list">
+            ${sortedCats.map(cat => {
+                const w = heatData[cat]?.woolworths || { specials: 0, total: 0, savings: 0 };
+                const c = heatData[cat]?.coles || { specials: 0, total: 0, savings: 0 };
+                const wWinner = w.specials >= c.specials && w.specials > 0;
+                const cWinner = c.specials > w.specials && c.specials > 0;
+                const totalSpecials = w.specials + c.specials;
+                if (totalSpecials === 0) return '';
+                const winner = wWinner ? '🟢 Woolies' : cWinner ? '🔴 Coles' : '—';
+                const winnerClass = wWinner ? 'woolies' : cWinner ? 'coles' : '';
+                const totalSavings = (w.savings + c.savings);
+                return `<div class="heatmap-mobile-row">
+                    <span class="heatmap-mobile-cat">${CAT_EMOJI[cat] || '📦'} ${cat.replace('_', ' ')}</span>
+                    <span class="heatmap-mobile-counts">${w.specials}W · ${c.specials}C</span>
+                    <span class="heatmap-mobile-winner ${winnerClass}">${winner}</span>
+                    ${totalSavings > 0.05 ? `<span class="heatmap-mobile-save">$${totalSavings.toFixed(2)} off</span>` : ''}
+                </div>`;
+            }).filter(Boolean).join('')}
+        </div>`;
+        return;
+    }
 
     container.innerHTML = `
         <div class="heatmap-grid">

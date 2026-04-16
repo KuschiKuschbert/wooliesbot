@@ -4140,68 +4140,92 @@ button, a, label, [role="button"] {
         min-height: 200px;
     }
 
-    /* Heatmap: stacked rows (remove 160px label col) */
-    .heatmap-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 4px;
+    /* Heatmap: hide the 3-col grid — JS renders mobile list instead */
+    .heatmap-grid { display: none; }
+
+    /* Mobile heatmap list */
+    .heatmap-mobile-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
     }
 
-    .heatmap-header-col { display: none; }
-    .heatmap-label {
-        grid-column: 1 / -1;
-        font-size: 11px;
-        padding: 4px 2px;
+    .heatmap-mobile-row {
+        display: grid;
+        grid-template-columns: 1fr auto auto auto;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 0;
         border-bottom: 1px solid var(--border-color);
-        margin-bottom: 2px;
+        font-size: 13px;
     }
 
-    /* Deep insights: horizontal snap */
+    .heatmap-mobile-row:last-child { border-bottom: none; }
+
+    .heatmap-mobile-cat {
+        font-weight: 600;
+        color: var(--text-main);
+        text-transform: capitalize;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .heatmap-mobile-counts {
+        font-size: 11px;
+        color: var(--text-muted);
+        white-space: nowrap;
+    }
+
+    .heatmap-mobile-winner {
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+        padding: 2px 8px;
+        border-radius: 100px;
+    }
+
+    .heatmap-mobile-winner.woolies {
+        background: rgba(16,185,129,0.12);
+        color: #34d399;
+    }
+
+    .heatmap-mobile-winner.coles {
+        background: rgba(239,68,68,0.12);
+        color: #fca5a5;
+    }
+
+    .heatmap-mobile-save {
+        font-size: 10px;
+        font-weight: 700;
+        color: #fbbf24;
+        white-space: nowrap;
+    }
+
+    /* Deep insights: vertical stack, compact */
     .insights-flex {
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        flex-direction: column !important;
+        overflow-x: unset !important;
         gap: 0.75rem;
-        padding-bottom: 0.5rem;
     }
-
-    .insights-flex::-webkit-scrollbar { display: none; }
 
     .deep-insight-card {
-        flex: 0 0 85vw !important;
+        flex: unset !important;
         min-width: unset !important;
-        scroll-snap-align: start;
-    }
-
-    /* Insights carousel dot indicators */
-    .insights-dots {
-        display: flex;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 8px;
-    }
-
-    .insight-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--border-color);
-        transition: background 0.2s;
-    }
-
-    .insight-dot.active {
-        background: var(--primary);
+        width: 100% !important;
     }
 
     /* best-time + volatility: compact */
     .vol-row .vol-rank { display: none; }
     .best-time-bar-label { font-size: 11px; }
 
-    /* Inflation grid: 2 col on mobile */
-    .inflation-grid {
-        gap: 0.5rem;
+    /* Inflation grid: single col on mobile */
+    .inflation-grid { gap: 0.5rem; }
+
+    /* Analytics: collapse description text to save space */
+    .analytics-card > p {
+        font-size: 11px;
+        margin-bottom: 1rem;
     }
 }
 
@@ -4228,75 +4252,4 @@ button, a, label, [role="button"] {
 }
 
 
-/* ── Swipe-to-add card wrapper ──────────────────────────────── */
-.card-swipe-wrap {
-    display: contents; /* transparent on desktop — layout unchanged */
-}
-
-.card-face {
-    display: contents; /* transparent on desktop */
-}
-
-.card-swipe-action {
-    display: none; /* hidden on desktop */
-}
-
-@media (max-width: 768px) {
-    .item-card {
-        overflow: hidden; /* ensure clip */
-    }
-
-    .card-swipe-wrap {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        width: 100%;
-        /* Prevent vertical scroll interference */
-        overscroll-behavior-x: contain;
-    }
-
-    .card-swipe-wrap::-webkit-scrollbar { display: none; }
-
-    .card-face {
-        display: flex;
-        flex-direction: column;
-        flex: 0 0 100%;
-        scroll-snap-align: start;
-        min-width: 0;
-    }
-
-    .card-swipe-action {
-        display: flex;
-        flex: 0 0 72px;
-        scroll-snap-align: end;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(79,70,229,0.35));
-        border-left: 1px solid rgba(99,102,241,0.3);
-    }
-
-    .card-swipe-btn {
-        background: none;
-        border: none;
-        color: #a5b4fc;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        font-size: 10px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-        padding: 8px;
-    }
-
-    .card-swipe-btn svg {
-        width: 22px;
-        height: 22px;
-    }
-}
 
