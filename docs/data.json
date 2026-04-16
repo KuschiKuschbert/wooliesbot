@@ -4131,13 +4131,6 @@
       "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 15.4,
           "unit_price": 11.0,
@@ -5433,7 +5426,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Steggles%20Gravy%20Chicken%20Schnitzel%20600G",
-      "coles": "https://www.coles.com.au/product/chicken-goujons-8434332",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-04-05",
@@ -5478,13 +5471,6 @@
           "price": 12.0,
           "unit_price": 20.0,
           "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 13.5,
-          "unit_price": 13.5,
-          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         }
@@ -6712,7 +6698,7 @@
       "price_mode": "each",
       "target": 5.85,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Nu%20Pure%20Lem%20Lime%20Spklg%20Water%20500Ml%20X%2012Pk",
-      "coles": "https://www.coles.com.au/product/ultra-pure-water-5284754",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-04-05",
@@ -6760,13 +6746,6 @@
           "eff_price": 9.85,
           "was_price": 11.0,
           "on_special": true
-        },
-        "coles": {
-          "price": 5.85,
-          "unit_price": 1.17,
-          "eff_price": 5.85,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -7204,7 +7183,7 @@
       "price_mode": "each",
       "target": 1.51,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Continental%20P%26S%20M%20Carbonara%2080G",
-      "coles": "https://www.coles.com.au/product/continental-parsley-1867900",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-03-29",
@@ -8221,7 +8200,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Golden%20Circle%20P/Appl%20Sliced%20440G",
-      "coles": "https://www.coles.com.au/product/sliced-beetroot-131585",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-03-24",
@@ -8826,7 +8805,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Beef%20Family%20Sharing%20Roast",
-      "coles": "https://www.coles.com.au/product/frozen-family-beef-pie-5335629",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-03-24",
@@ -8866,15 +8845,7 @@
       "store": "coles",
       "unit_price": 1.67,
       "unit": "kg",
-      "all_stores": {
-        "coles": {
-          "price": 10.0,
-          "unit_price": 1.67,
-          "eff_price": 10.0,
-          "was_price": null,
-          "on_special": false
-        }
-      },
+      "all_stores": {},
       "price_unavailable": false,
       "avg_price": 17.18,
       "eff_price": 10.0,
@@ -11317,7 +11288,7 @@
       "type": "meat",
       "price_mode": "each",
       "target": 8.51,
-      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Chicken%20Breast%20Fillets%20Small%20Rspca",
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/119259/woolworths-rspca-approved-chicken-breast-fillet-skinless-small",
       "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-small-pack-2263168",
       "price_history": [
         {
@@ -11375,13 +11346,6 @@
       "unit_price": 14.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 8.7,
           "unit_price": 14.5,
@@ -13817,13 +13781,6 @@
       "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 17.5,
           "unit_price": 17.5,
@@ -16668,7 +16625,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=La%20Tosca%20Fresh%20Fettuccini%20375G",
-      "coles": "https://www.coles.com.au/product/fresh-mozzarella-2462186",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-15",
@@ -16713,13 +16670,6 @@
           "price": 4.0,
           "unit_price": 1.07,
           "eff_price": 4.0,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 6.0,
-          "unit_price": 30.0,
-          "eff_price": 6.0,
           "was_price": null,
           "on_special": false
         }
@@ -18070,7 +18020,7 @@
       "price_mode": "each",
       "target": 8.72,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20Free%20Range%20Large%20Eggs%2018Pk%20900G",
-      "coles": "https://www.coles.com.au/product/free-range-pork-leg-roast-boneless-2741871",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-08",
@@ -18616,7 +18566,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Macro%20Org%20Natural%20Corn%20Chips%20200G",
-      "coles": "https://www.coles.com.au/product/natural-8170332",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-08",
@@ -19105,7 +19055,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=White%20Label%20Extra%20Tasty%20Cheese%20Block%201Kg",
-      "coles": "https://www.coles.com.au/product/white-label-chardonnay-750ml-1223601",
+      "coles": "",
       "price_history": [
         {
           "date": "2026-02-02",
@@ -19152,13 +19102,6 @@
           "price": 10.5,
           "unit_price": 10.5,
           "eff_price": 10.5,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 30.0,
-          "unit_price": null,
-          "eff_price": 30.0,
           "was_price": null,
           "on_special": false
         }
@@ -19772,75 +19715,6 @@
       "price_unavailable": false,
       "avg_price": 2.0,
       "eff_price": 2.03,
-      "stale": false,
-      "stale_source": "scrape_failed",
-      "stale_as_of": "2026-04-16"
-    },
-    {
-      "name": "Chicken Breast Fillets Rspca Apprvd",
-      "type": "meat",
-      "price_mode": "each",
-      "target": 0,
-      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Chicken%20Breast%20Fillets%20Rspca%20Approved",
-      "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-large-pack-2263179",
-      "price_history": [
-        {
-          "date": "2026-02-02",
-          "price": 4.15
-        }
-      ],
-      "stock": "full",
-      "last_purchased": "2026-02-02",
-      "price": 15.4,
-      "brand": "Private Label",
-      "subcategory": "other",
-      "size": "Standard",
-      "tags": [],
-      "target_confidence": "low",
-      "target_method": "watching (need more data)",
-      "target_data_points": 3,
-      "target_updated": "2026-04-16",
-      "scrape_history": [
-        {
-          "date": "2026-04-15",
-          "price": 2.95,
-          "is_special": true,
-          "store": "woolworths"
-        },
-        {
-          "date": "2026-04-16",
-          "price": 2.95,
-          "is_special": true,
-          "was_price": null,
-          "store": "woolworths"
-        }
-      ],
-      "was_price": null,
-      "on_special": false,
-      "local_image": "images/Chicken_Breast_Fillets_Rspca_Apprvd.jpg",
-      "image_url": "images/chicken_breast_fillets_rspca_apprvd.jpg",
-      "store": "coles",
-      "unit_price": 11.0,
-      "unit": "kg",
-      "all_stores": {
-        "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 15.4,
-          "unit_price": 11.0,
-          "eff_price": 15.4,
-          "was_price": null,
-          "on_special": false
-        }
-      },
-      "price_unavailable": false,
-      "avg_price": 4.15,
-      "eff_price": 15.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16"
@@ -23025,7 +22899,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bsc%20Chupachups%20Proteinbarchocvan%2055",
-      "coles": "https://www.coles.com.au/product/x-chupa-chups-protein-water-cola-9943819",
+      "coles": "",
       "price_history": [
         {
           "date": "2025-12-27",
@@ -24688,7 +24562,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=6009270%20Lego%20Disney%20Classic",
-      "coles": "https://www.coles.com.au/product/stitch-capsule-mini-figures-wave-3-8074420",
+      "coles": "",
       "price_history": [
         {
           "date": "2025-12-16",
@@ -24819,7 +24693,7 @@
       "price_mode": "each",
       "target": 0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Birds%20Eye%20Australian%20Garden%20Mix%201Kg",
-      "coles": "https://www.coles.com.au/product/australian-corn-kernels-9189518",
+      "coles": "",
       "price_history": [
         {
           "date": "2025-12-14",
@@ -24863,13 +24737,6 @@
           "price": 11.0,
           "unit_price": 5.5,
           "eff_price": 11.0,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 5.7,
-          "unit_price": 6.91,
-          "eff_price": 5.7,
           "was_price": null,
           "on_special": false
         }

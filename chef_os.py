@@ -742,6 +742,11 @@ _RECEIPT_ABBREVIATIONS = {
     "35Hr": "35 Hour", "Dbl": "Double", "Esprs": "Espresso",
     "Flav": "Flavoured", "Wtr": "Water", "Natrl": "Natural",
     "Tbone": "T-Bone", "Bflied": "Butterflied",
+    "P&S": "Pasta Sauce", "L&C": "Light Crispy",
+    "L/F": "Low Fat", "P/Appl": "Pineapple", "P/Apple": "Pineapple",
+    "W/Mln": "Watermelon", "F/Milk": "Full Cream Milk",
+    "M/Blast": "Mountain Blast", "H/Comb": "Honeycomb",
+    "B/There": "Barely There",
 }
 
 
@@ -817,6 +822,9 @@ def _cffi_search_woolworths_product(session, search_term, inventory_name=None):
         if not items:
             return None
         # Try top results, pick the best name-overlap match
+        _SIZE_MODIFIERS = {"small", "mini", "large", "bulk", "family", "mega"}
+        inv_text = (inventory_name or search_term).lower()
+        inv_sizes = _SIZE_MODIFIERS & set(re.findall(r"[a-z]+", inv_text))
         best_result = None
         best_overlap = 0.0
         for bundle in products[:3]:
@@ -826,6 +834,13 @@ def _cffi_search_woolworths_product(session, search_term, inventory_name=None):
                     continue
                 api_name = prod.get("Name", "")
                 ov = _token_overlap_score(inventory_name or search_term, api_name)
+                if inv_sizes:
+                    result_sizes = _SIZE_MODIFIERS & set(re.findall(r"[a-z]+", api_name.lower()))
+                    if result_sizes and result_sizes != inv_sizes:
+                        logging.debug(f"Search skip conflicting size: want={inv_sizes} got={result_sizes} name={api_name!r}")
+                        continue
+                    if not result_sizes:
+                        ov *= 0.5
                 if ov < 0.2:
                     logging.debug(f"Search skip low overlap ({ov:.2f}): want={inventory_name!r} got={api_name!r}")
                     continue
@@ -1191,9 +1206,9 @@ def _finalize_cffi_product_dict(data, inventory_name, store_key=None):
     if inventory_name and data.get("name_check"):
         ov = _token_overlap_score(inventory_name, data["name_check"])
         min_overlap = 0.12 if store_key == "coles" else 0.15
-        if store_key == "coles" and not _size_signals_compatible(inventory_name, data["name_check"]):
+        if not _size_signals_compatible(inventory_name, data["name_check"]):
             logging.warning(
-                f"Rejecting Coles size mismatch: inventory={inventory_name!r} vs page={data.get('name_check')!r} price=${data.get('price')}"
+                f"Rejecting size mismatch ({store_key}): inventory={inventory_name!r} vs page={data.get('name_check')!r} price=${data.get('price')}"
             )
             return None
         if ov < min_overlap:
@@ -1208,6 +1223,7 @@ def _finalize_cffi_product_dict(data, inventory_name, store_key=None):
         "image_url": data.get("image_url", ""),
         "was_price": data.get("was_price"),
         "on_special": bool(data.get("is_special") or data.get("was_price")),
+        "name_check": data.get("name_check", ""),
     }
 
 
@@ -1840,6 +1856,7 @@ def check_prices():
             "price_history": history,
             "avg_price": avg_price,
             "stale": False,
+            "name_check": best.get("name_check", ""),
         }
 
         # Handle local image download
@@ -2114,13 +2131,17 @@ def export_data_to_json(results):
                 not item.get("price_unavailable")
             )
             if snapshot_reliable and (not sh or sh[-1].get("date") != today_str):
-                sh.append({
+                entry = {
                     "date": today_str,
                     "price": snapshot_price,
                     "is_special": item.get("on_special", False),
                     "was_price": item.get("was_price"),
                     "store": item.get("store"),
-                })
+                }
+                nc = item.get("name_check", "")
+                if nc:
+                    entry["matched_name"] = nc
+                sh.append(entry)
             item["scrape_history"] = sh
             # ── Backfill `store` if not set by the live scrape ──────────────────────
             # Items that weren't scraped this cycle (or where the scraper returned
