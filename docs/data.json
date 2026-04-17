@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18 04:19 AM",
+  "last_updated": "2026-04-18 09:48 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -9604,7 +9604,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 2.95,
+      "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -9615,13 +9615,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 5 prices",
+      "target_confidence": "high",
+      "target_method": "was $5.50, now $4.00 (store special)",
       "target_data_points": 5,
       "target_updated": "2026-04-18",
       "scrape_history": [
@@ -9656,19 +9656,19 @@
         }
       ],
       "was_price": 5.5,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 0.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
-          "was_price": null,
-          "on_special": false
+          "price": 4.0,
+          "unit_price": 0.91,
+          "eff_price": 4.0,
+          "was_price": 5.5,
+          "on_special": true
         },
         "coles": {
           "price": 5.95,
@@ -9680,7 +9680,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -11013,13 +11013,13 @@
       "local_image": "images/Dorsogna_Leg_Hm_Trplsmkd_97%_F_F_Shvd_Kg.jpg",
       "image_url": "images/dorsogna_leg_hm_trplsmkd_97_ff_shvd_kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.35,
+      "unit_price": 28.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         }
@@ -11030,7 +11030,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "D'Orsogna Triple Smoked Leg Ham"
+      "name_check": "D'Orsogna Ham Leg Triple Smoked 97% Fat Free Shaved From The Deli"
     },
     {
       "name": "Ww Winter Veg Mix 1Kg",
@@ -17168,7 +17168,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 7.7,
+      "target": 6.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -17179,33 +17179,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 6.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.80, now $7.70 (store special)",
+      "target_method": "was $8.80, now $6.00 (store special)",
       "target_data_points": 5,
       "target_updated": "2026-04-18",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": true,
+          "is_special": false,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -17213,26 +17213,26 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": true,
+          "is_special": false,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
         }
       ],
-      "was_price": 9.8,
-      "on_special": false,
+      "was_price": 8.8,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
-      "store": "coles",
-      "unit_price": 1.28,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.2,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 6.0,
+          "unit_price": 1.2,
+          "eff_price": 6.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 7.7,
@@ -17244,11 +17244,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 6.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cheese & Bacon Pizza Slices 2 Pack"
+      "name_check": "McCain Pizza Cheese & Bacon"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -29333,7 +29333,7 @@
       "name": "Bar Counter Dark Chocolate Almnd 160G",
       "type": "snacks",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Bar%20Counter%20Dark%20Chocolate%20Almnd%20160g",
       "coles": "https://www.coles.com.au/product/snacks-dark-chocolate-almond-high-protein-bar-1751224",
       "price_history": [
@@ -29344,7 +29344,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-23",
-      "price": 14.99,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -29388,9 +29388,9 @@
       "on_special": false,
       "local_image": "images/Bar_Counter_Dark_Chocolate_Almnd_160G.jpg",
       "image_url": "images/bar_counter_dark_chocolate_almnd_160g.jpg",
-      "store": "woolworths",
-      "unit_price": 9.37,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 10.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
           "price": 14.99,
@@ -29398,15 +29398,22 @@
           "eff_price": 14.99,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 4.0,
+          "unit_price": 10.0,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 13.0,
-      "eff_price": 14.99,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dark Chocolate Coffee Creams 160g"
+      "name_check": "Snacks Dark Chocolate Almond High Protein Bar"
     },
     {
       "name": "Chief Beef Brisket Traditional 40G",
