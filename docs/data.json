@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17 02:14 PM",
+  "last_updated": "2026-04-17 06:55 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5478,7 +5478,7 @@
       "name": "Ww Original Water Crackers 125G",
       "type": "beverages",
       "price_mode": "each",
-      "target": 0.95,
+      "target": 0.76,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
       "coles": "https://www.coles.com.au/product/original-water-crackers-5389901",
       "price_history": [
@@ -5494,8 +5494,8 @@
       "subcategory": "beverages",
       "size": "125G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $2.80, now $0.95 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 4 prices",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -5515,7 +5515,7 @@
         {
           "date": "2026-04-17",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -5530,11 +5530,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -8696,7 +8696,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 4.0,
+      "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -8707,13 +8707,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $5.50, now $4.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 4 prices",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -8740,19 +8740,19 @@
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -8764,7 +8764,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -8953,7 +8953,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 6.0,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "250G",
@@ -8989,10 +8989,17 @@
       "on_special": false,
       "local_image": "images/Ww_Australian_Butter_Unsalted_250G.jpg",
       "image_url": "images/ww_australian_butter_unsalted_250g.jpg",
-      "store": "coles",
-      "unit_price": 2.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.6,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.0,
           "unit_price": 2.4,
@@ -9003,11 +9010,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 6.0,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Australian Almond Butter"
+      "name_check": "Woolworths Australian Butter Unsalted"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -10118,6 +10125,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 35.0,
+          "unit_price": 17.5,
+          "eff_price": 35.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -11199,7 +11213,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $14.50, now $13.00 (store special)",
+      "target_method": "was $17.50, now $13.00 (store special)",
       "target_data_points": 6,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -11234,11 +11248,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 20.0,
-          "unit_price": 66.67,
-          "eff_price": 20.0,
-          "was_price": null,
-          "on_special": false
+          "price": 15.5,
+          "unit_price": 55.36,
+          "eff_price": 15.5,
+          "was_price": 17.5,
+          "on_special": true
         },
         "coles": {
           "price": 13.0,
@@ -11784,6 +11798,13 @@
       "unit_price": 6.2,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.2,
           "unit_price": 6.2,
@@ -19167,13 +19188,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 6.0,
+      "price": 5.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 5 prices",
+      "target_confidence": "high",
+      "target_method": "was $7.00, now $5.00 (store special)",
       "target_data_points": 5,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -19200,19 +19221,19 @@
         }
       ],
       "was_price": 7.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mushroom_Cups_Sliced_500G.jpg",
       "image_url": "images/mushroom_cups_sliced_500g.jpg",
       "store": "woolworths",
-      "unit_price": 16.0,
+      "unit_price": 10.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 16.0,
-          "eff_price": 6.0,
-          "was_price": null,
-          "on_special": false
+          "price": 5.0,
+          "unit_price": 10.0,
+          "eff_price": 5.0,
+          "was_price": 7.0,
+          "on_special": true
         },
         "coles": {
           "price": 7.0,
@@ -19224,11 +19245,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 6.0,
+      "eff_price": 5.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mushrooms Cups Sliced Punnet"
+      "name_check": "Woolworths Mushroom Sliced"
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -19406,7 +19427,7 @@
       "name": "Ycc Mustard Dijon 200G",
       "type": "pantry",
       "price_mode": "each",
-      "target": 2.9,
+      "target": 3.6,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=YCC%20Mustard%20Dijon%20200g",
       "coles": "https://www.coles.com.au/product/dijon-mustard-5434948",
       "price_history": [
@@ -19417,26 +19438,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 2.9,
+      "price": 3.6,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "200G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $4.50, now $2.90 (store special)",
+      "target_method": "was $4.50, now $3.60 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 3.02,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 3.02,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
@@ -19449,21 +19470,14 @@
           "matched_name": "Your Condiment Co Dijon Mustard Dijon Mustard"
         }
       ],
-      "was_price": null,
+      "was_price": 4.5,
       "on_special": false,
       "local_image": "images/Ycc_Mustard_Dijon_200G.jpg",
       "image_url": "images/ycc_mustard_dijon_200g.jpg",
-      "store": "woolworths",
-      "unit_price": 1.45,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 2.12,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.9,
-          "unit_price": 1.45,
-          "eff_price": 2.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.6,
           "unit_price": 2.12,
@@ -19474,11 +19488,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.9,
-      "eff_price": 2.9,
+      "eff_price": 3.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Your Condiment Co Dijon Mustard Dijon Mustard"
+      "name_check": "Dijon Mustard"
     },
     {
       "name": "Ycc Mustard Wholegrain 200G",
@@ -20151,14 +20165,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -20176,7 +20190,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -25105,13 +25119,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 5.93,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 1.63,
-          "eff_price": 4.9,
+          "price": 8.9,
+          "unit_price": 5.93,
+          "eff_price": 8.9,
           "was_price": null,
           "on_special": false
         },
@@ -25129,7 +25143,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
+      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -28234,7 +28248,7 @@
       ],
       "local_image": "images/Birds_Eye_Australian_Garden_Mix_1Kg.jpg",
       "store": "coles",
-      "unit_price": 5.5,
+      "unit_price": 6.91,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -28246,6 +28260,7 @@
         },
         "coles": {
           "price": 5.7,
+          "unit_price": 6.91,
           "eff_price": 5.7,
           "was_price": null,
           "on_special": false
@@ -28260,7 +28275,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Birds Eye Australian Garden Mix Broccoli Carrots Green Beans Capsicum"
+      "name_check": "Australian Corn Kernels"
     },
     {
       "name": "Kr Castlemaine Salami Hungarian Mld",
