@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17 09:29 AM",
+  "last_updated": "2026-04-17 02:14 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6596,14 +6596,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -6624,7 +6624,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream"
+      "name_check": "Light Thickened Cream"
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -7009,9 +7009,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.2,
-          "unit_price": 14.93,
-          "eff_price": 11.2,
+          "price": 9.3,
+          "unit_price": 13.29,
+          "eff_price": 9.3,
           "was_price": null,
           "on_special": false
         },
@@ -8696,7 +8696,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 2.95,
+      "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -8707,13 +8707,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 4 prices",
+      "target_confidence": "high",
+      "target_method": "was $5.50, now $4.00 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -8739,20 +8739,20 @@
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
-      "was_price": null,
-      "on_special": false,
+      "was_price": 5.5,
+      "on_special": true,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 0.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
-          "was_price": null,
-          "on_special": false
+          "price": 4.0,
+          "unit_price": 0.91,
+          "eff_price": 4.0,
+          "was_price": 5.5,
+          "on_special": true
         },
         "coles": {
           "price": 5.95,
@@ -8764,7 +8764,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -10347,14 +10347,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -10375,7 +10375,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream"
+      "name_check": "Light Thickened Cream"
     },
     {
       "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
@@ -11199,7 +11199,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $17.50, now $13.00 (store special)",
+      "target_method": "was $14.50, now $13.00 (store special)",
       "target_data_points": 6,
       "target_updated": "2026-04-17",
       "scrape_history": [
@@ -11234,11 +11234,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.5,
-          "unit_price": 55.36,
-          "eff_price": 15.5,
-          "was_price": 17.5,
-          "on_special": true
+          "price": 20.0,
+          "unit_price": 66.67,
+          "eff_price": 20.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 13.0,
@@ -15032,10 +15032,17 @@
         }
       ],
       "local_image": "images/Rexona_Men_Advanced_Sport_Ap_220Ml.jpg",
-      "store": "coles",
-      "unit_price": 4.77,
+      "store": "woolworths",
+      "unit_price": 27.200000000000003,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 5.99,
+          "unit_price": 27.200000000000003,
+          "eff_price": 5.99,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.5,
           "unit_price": 4.77,
@@ -15053,7 +15060,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 10.5,
-      "name_check": "Men Deodorant 72hr Advanced Aerosol Sport"
+      "name_check": "Rexona Men Advanced Protection Antiperspirant All Blacks Invisible Dry (72H) 220mL"
     },
     {
       "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
@@ -20015,7 +20022,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 7.0,
+      "target": 8.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -20026,26 +20033,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 7.0,
+      "price": 8.5,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.50, now $7.00 (store special)",
+      "target_method": "was $9.90, now $8.50 (store special)",
       "target_data_points": 4,
       "target_updated": "2026-04-17",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": false,
+          "is_special": true,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths"
         },
@@ -20060,15 +20067,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "woolworths",
-      "unit_price": 2.8,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 3.4,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 2.8,
-          "eff_price": 7.0,
-          "was_price": 8.5,
+          "price": 8.9,
+          "unit_price": 2.37,
+          "eff_price": 8.9,
+          "was_price": 9.9,
           "on_special": true
         },
         "coles": {
@@ -20081,13 +20088,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 7.0,
-      "on_special": true,
+      "eff_price": 8.5,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Mainland Organic Butter Block Butter"
+      "name_check": "Organic Salted Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -22807,14 +22814,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -22835,7 +22842,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle"
+      "name_check": "Pump Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -25098,13 +25105,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 5.93,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.93,
-          "eff_price": 8.9,
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -25122,7 +25129,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars"
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -25794,17 +25801,10 @@
       "on_special": false,
       "local_image": "images/Ww_Garam_Masala_29G.jpg",
       "image_url": "images/ww_garam_masala_29g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.69,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 0.76,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.69,
-          "eff_price": 2.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.2,
           "unit_price": 0.76,
@@ -25819,7 +25819,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Garam Masala"
+      "name_check": "Garam Masala"
     },
     {
       "name": "Fab Laundry Powder Fresh Blossoms 2Kg",
@@ -26967,6 +26967,7 @@
         },
         "coles": {
           "price": 11.5,
+          "unit_price": 19.17,
           "eff_price": 11.5,
           "was_price": null,
           "on_special": false
@@ -27721,6 +27722,7 @@
         },
         "coles": {
           "price": 5.0,
+          "unit_price": 2.98,
           "eff_price": 5.0,
           "was_price": null,
           "on_special": false
@@ -28187,7 +28189,7 @@
       "price_mode": "each",
       "target": 5.27,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Birds%20Eye%20Australian%20Garden%20Mix%201kg",
-      "coles": "",
+      "coles": "https://www.coles.com.au/product/australian-corn-kernels-9189518",
       "price_history": [
         {
           "date": "2025-12-14",
@@ -28196,7 +28198,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 11.0,
+      "price": 5.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -28231,7 +28233,7 @@
         }
       ],
       "local_image": "images/Birds_Eye_Australian_Garden_Mix_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 5.5,
       "unit": "kg",
       "all_stores": {
@@ -28241,12 +28243,18 @@
           "eff_price": 11.0,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 5.7,
+          "eff_price": 5.7,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "image_url": "images/birds_eye_australian_garden_mix_1kg.jpg",
       "avg_price": 6.5,
-      "eff_price": 11.0,
+      "eff_price": 5.7,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
