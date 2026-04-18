@@ -1,6 +1,6 @@
-# Deploy: cd workers/wooliesbot-write && npm install && npx wrangler deploy
-# Secrets: npx wrangler secret put GH_TOKEN
-#         npx wrangler secret put WOOLIESBOT_WRITE_SECRET
+# Deploy locally: npm install && npx wrangler deploy
+# Or use GitHub Actions workflow: .github/workflows/deploy-worker.yml (CLOUDFLARE_API_TOKEN + …)
+# Secrets for runtime: GH_TOKEN + WOOLIESBOT_WRITE_SECRET (via wrangler secret put or CI job)
 #
 # Fill repo owner/name to match your GitHub repository (Pages source for docs/data.json).
 
