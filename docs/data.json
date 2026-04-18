@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19 07:22 AM",
+  "last_updated": "2026-04-19 09:41 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -19288,8 +19288,8 @@
       "subcategory": "other",
       "size": "56L",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $6.50, now $5.70 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 6 prices",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -19332,19 +19332,19 @@
         }
       ],
       "was_price": 6.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Multix_Garbage_Bag_Extra_Wide_56L50Pk.jpg",
       "image_url": "images/multix_garbage_bag_extra_wide_56l50pk.jpg",
-      "store": "woolworths",
-      "unit_price": 0.57,
+      "store": "coles",
+      "unit_price": 0.18,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 0.57,
-          "eff_price": 5.7,
-          "was_price": 6.5,
-          "on_special": true
+          "price": 14.75,
+          "unit_price": 0.15,
+          "eff_price": 14.75,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 9.0,
@@ -19360,7 +19360,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Multix Council Liner Garbage Bags"
+      "name_check": "Extra Wide Garbage Bags 85cm x 70cm 56l"
     },
     {
       "name": "Cornish Sea Salt Flakes 150G",
@@ -20895,7 +20895,7 @@
       "name": "Mount Franklin Wtr Spring Natrl 600Ml",
       "type": "beverages",
       "price_mode": "each",
-      "target": 1.7,
+      "target": 2.3,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mount%20Franklin%20Wtr%20Spring%20Natrl%20600ML",
       "coles": "https://www.coles.com.au/product/chilled-spring-water-natural-7014331",
       "price_history": [
@@ -20906,13 +20906,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.45,
+      "price": 2.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 6 prices",
+      "target_confidence": "high",
+      "target_method": "was $3.30, now $2.30 (store special)",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -20932,7 +20932,7 @@
         {
           "date": "2026-04-17",
           "price": 2.3,
-          "is_special": false,
+          "is_special": true,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20940,7 +20940,7 @@
         {
           "date": "2026-04-18",
           "price": 2.3,
-          "is_special": false,
+          "is_special": true,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20948,7 +20948,7 @@
         {
           "date": "2026-04-19",
           "price": 2.3,
-          "is_special": false,
+          "is_special": true,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20956,15 +20956,15 @@
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.08,
+      "unit_price": 1.53,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 4.08,
-          "eff_price": 2.45,
-          "was_price": null,
-          "on_special": false
+          "price": 2.3,
+          "unit_price": 1.53,
+          "eff_price": 2.3,
+          "was_price": 3.3,
+          "on_special": true
         },
         "coles": {
           "price": 2.45,
@@ -20977,8 +20977,8 @@
       "price_unavailable": false,
       "image_url": "images/mount_franklin_wtr_spring_natrl_600ml.jpg",
       "avg_price": 2.45,
-      "eff_price": 2.45,
-      "on_special": false,
+      "eff_price": 2.3,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -24293,14 +24293,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -24318,7 +24318,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -27447,7 +27447,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 3.25,
+      "price": 3.3,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "750Ml",
@@ -27497,13 +27497,13 @@
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.33,
+      "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.25,
-          "unit_price": 4.33,
-          "eff_price": 3.25,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -27518,7 +27518,7 @@
       "price_unavailable": false,
       "image_url": "images/pump_water_pure_750ml.jpg",
       "avg_price": 3.15,
-      "eff_price": 3.25,
+      "eff_price": 3.3,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -30212,7 +30212,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 4.9,
+      "price": 8.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -30265,13 +30265,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 5.93,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 1.63,
-          "eff_price": 4.9,
+          "price": 8.9,
+          "unit_price": 5.93,
+          "eff_price": 8.9,
           "was_price": null,
           "on_special": false
         },
@@ -30285,11 +30285,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 4.9,
+      "eff_price": 8.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
+      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
