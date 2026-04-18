@@ -2,12 +2,33 @@
 
 Services are defined in the repo as `com.wooliesbot.api.plist` and `com.wooliesbot.automation.plist` (the latter runs `chef_os.py`). Both use the project `.venv` Python.
 
-**Install or restart (recommended):**
+## Optional components (not required for scrape → `data.json` → GitHub Pages)
+
+| Piece | Purpose |
+|-------|---------|
+| **`com.wooliesbot.automation.plist`** | Core: scheduled scrapes + dashboard updates |
+| **`com.wooliesbot.api.plist`** | Local HTTP bridge (`api.py`) so the dashboard can POST stock edits when opened via LAN URL |
+| **Telegram** (`.env`) | Alerts and `/shop` commands — scrapes still run without it |
+| **`keep_sync.py`** | Shopping list → Google Keep — unrelated to prices |
+| **`receipt_sync.py`** | Receipt history enrichment — optional |
+| **`scripts/e2e_validate.py`** | Manual validation — optional |
+| **`scripts/e2e_mobile.py`** | Playwright tests — optional (`requirements-dev.txt`) |
+
+**Install or restart (recommended — both API + scraper):**
 
 ```bash
 cd "/Users/danielkuschmierz/Woolies Script"
 chmod +x manage_services.sh
 ./manage_services.sh install
+```
+
+**Scraper only (no local API bridge):** use `./manage_services.sh install-no-api` so stock updates from the phone/browser bridge are not available until you install the API plist separately.
+
+**Stop only the API bridge** (keep `chef_os` running):
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.wooliesbot.api.plist 2>/dev/null
+rm -f ~/Library/LaunchAgents/com.wooliesbot.api.plist
 ```
 
 **Stop** (so processes stay down — required before manual `chef_os.py` tests if you do not want launchd to relaunch):
@@ -21,6 +42,8 @@ chmod +x manage_services.sh
 Telegram credentials belong in `.env` (loaded by `chef_os.py`); do not embed tokens in plist files.
 
 Optional **scraper / anti-bot tuning** (`WOOLIESBOT_*`) is documented in `.env.example`; copy keys into `.env` only if you need to override defaults.
+
+**Inventory `item_id`:** rows get a stable UUID from [`export_data_to_json`](chef_os.py) on the next scrape if missing. No separate migration script is required.
 
 ## Optional: scheduled variant discovery (snippet only — Phase 3)
 

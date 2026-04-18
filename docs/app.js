@@ -171,8 +171,6 @@ let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
 let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
-/** Matches WOOLIESBOT_API_TOKEN on api.py — set via Phone sync settings */
-let _bridgeToken = localStorage.getItem('bridge_token') || '';
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
@@ -771,8 +769,6 @@ function setupFilters() {
 function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('bridge-url-input').value = _apiUrl;
-    const tok = document.getElementById('bridge-token-input');
-    if (tok) tok.value = _bridgeToken ? '••••••••' : '';
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('bridge-url-input')?.focus(), 0);
 }
@@ -789,19 +785,6 @@ function saveSettings() {
     if (val) {
         _apiUrl = val;
         localStorage.setItem('bridge_url', _apiUrl);
-    }
-    const tokEl = document.getElementById('bridge-token-input');
-    if (tokEl) {
-        const raw = tokEl.value.trim();
-        if (raw === '••••••••') {
-            /* unchanged — keep existing _bridgeToken */
-        } else if (raw === '') {
-            _bridgeToken = '';
-            localStorage.removeItem('bridge_token');
-        } else {
-            _bridgeToken = raw;
-            localStorage.setItem('bridge_token', raw);
-        }
     }
     closeSettings();
     monitorApi();
@@ -2222,10 +2205,7 @@ async function saveItemChanges() {
     try {
         const response = await fetch(`${_apiUrl}/update_stock`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                ...(_bridgeToken ? { 'X-WooliesBot-Token': _bridgeToken } : {}),
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
                 item_id: _selectedItemForModal.item_id || null,

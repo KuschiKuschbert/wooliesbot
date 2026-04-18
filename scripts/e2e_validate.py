@@ -657,6 +657,21 @@ def run_layer_b(items, filter_name=None):
     if filter_name:
         items = [i for i in items if filter_name.lower() in i.get("name", "").lower()]
 
+    from collections import Counter
+
+    ids = [i.get("item_id") for i in items if isinstance(i, dict) and i.get("item_id")]
+    id_dup = [k for k, v in Counter(ids).items() if v > 1]
+    names = [i.get("name") for i in items if isinstance(i, dict)]
+    name_dup = [k for k, v in Counter(names).items() if k and v > 1]
+    missing_id = sum(1 for i in items if isinstance(i, dict) and not i.get("item_id"))
+
+    if id_dup:
+        print(f"  IDENTITY FAIL: duplicate item_id ({len(id_dup)} keys): {id_dup[:6]}")
+    if name_dup:
+        print(f"  IDENTITY WARN: duplicate display name ({len(name_dup)}): {name_dup[:4]}...")
+    if missing_id:
+        print(f"  IDENTITY WARN: {missing_id} items missing item_id")
+
     import datetime
     today = datetime.date.today().isoformat()
     results = []
@@ -765,6 +780,23 @@ def run_layer_b(items, filter_name=None):
             _print_row(name, price, eff_price, None, match, "(sample)")
 
         results.append({"item": name, "match": match, "notes": "; ".join(notes_list)})
+
+    if id_dup:
+        results.append(
+            {
+                "item": "__inventory_identity__",
+                "match": "DIFF",
+                "notes": f"duplicate item_id count={len(id_dup)}",
+            }
+        )
+    if name_dup:
+        results.append(
+            {
+                "item": "__duplicate_names__",
+                "match": "WARN",
+                "notes": f"duplicate name rows={len(name_dup)}",
+            }
+        )
 
     ok = sum(1 for r in results if r["match"] == "OK")
     warn = sum(1 for r in results if r["match"] == "WARN")

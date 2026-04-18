@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install curl_cffi for e2e_validate imports
+        run: pip install curl_cffi requests
+
+      - name: Compile Python modules
+        run: |
+          python3 -m py_compile chef_os.py api.py receipt_sync.py keep_sync.py
+          python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py
+
+      - name: Inventory identity (duplicate item_id / names)
+        run: python3 scripts/check_inventory_identity.py
+
+      - name: Block hard-coded Telegram secrets (long string fallbacks)
+        run: |
+          python3 << 'PY'
+          import pathlib, re
+          text = pathlib.Path("chef_os.py").read_text(encoding="utf-8")
+          # Disallow: TELEGRAM_* = os.environ.get(...) or "<long secret>"
+          if re.search(
+              r"TELEGRAM_(TOKEN|CHAT_ID)\s*=.*or\s+[\"']([0-9A-Za-z:_\\-]{16,})[\"']",
+              text,
+              re.DOTALL,
+          ):
+              print("Remove hard-coded Telegram fallbacks from chef_os.py")
+              raise SystemExit(1)
+          print("OK")
+          PY

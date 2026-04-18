@@ -2,6 +2,4 @@ selenium>=4.16.0
 undetected-chromedriver>=3.5.0
 schedule>=1.2.0
 curl_cffi>=0.7.0
-# Mobile e2e tests (scripts/e2e_mobile.py): pip install then
-#   python -m playwright install chromium
-playwright>=1.58.0
+# Mobile UI tests: pip install -r requirements-dev.txt && python -m playwright install chromium

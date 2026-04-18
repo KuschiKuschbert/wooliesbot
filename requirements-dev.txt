@@ -1,0 +1,6 @@
+# Optional dev / QA tooling (not required for chef_os scraping or GitHub Pages).
+# Install: pip install -r requirements-dev.txt && python -m playwright install chromium
+#
+# Used by scripts/e2e_mobile.py (Playwright mobile dashboard tests).
+
+playwright>=1.58.0

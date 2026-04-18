@@ -12,7 +12,7 @@ import re
 import os
 import json
 import fcntl
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import uuid
 import importlib.util as _ilu
 import pathlib as _pl
 
@@ -56,6 +56,7 @@ def _env_truthy(name, default=False):
 
 # Cross-process mutex so launchd + `chef_os.py --now` cannot race on data.json
 _SCRAPE_LOCK_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "chef_os_scrape.lock")
+_GIT_PUSH_LOCK_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "chef_os_git_push.lock")
 
 
 def _acquire_scrape_lock():
@@ -90,20 +91,55 @@ def _release_scrape_lock(fd):
         pass
 
 
-TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN") or "8368391759:AAHsHDDhofVl4WQQIWpHsNNPQnzvS80jOmU"
-TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID") or "-1003888115204"
+def _acquire_git_push_lock():
+    """Exclusive lock so concurrent sync_to_github runs do not interleave git operations."""
+    try:
+        os.makedirs(os.path.dirname(_GIT_PUSH_LOCK_PATH), exist_ok=True)
+        fd = os.open(_GIT_PUSH_LOCK_PATH, os.O_CREAT | os.O_RDWR, 0o644)
+    except OSError as e:
+        logging.warning(f"Could not open git push lock file: {e}")
+        return None
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return fd
+    except BlockingIOError:
+        try:
+            os.close(fd)
+        except OSError:
+            pass
+        return None
+
+
+def _release_git_push_lock(fd):
+    if fd is None:
+        return
+    try:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+    except OSError:
+        pass
+    try:
+        os.close(fd)
+    except OSError:
+        pass
+
+
+TELEGRAM_TOKEN = (os.environ.get("TELEGRAM_TOKEN") or "").strip()
+TELEGRAM_CHAT_ID = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
 
 # --- LOGGING (rotating to prevent disk fill) ---
 _log_format = '%(asctime)s - %(levelname)s - %(message)s'
+_log_level = logging.DEBUG if _env_truthy("WOOLIESBOT_DEBUG", default=False) else logging.INFO
 _log_handlers = [
     RotatingFileHandler("chef_os.log", maxBytes=5*1024*1024, backupCount=3, encoding="utf-8"),
     logging.StreamHandler(sys.stdout)
 ]
 for h in _log_handlers:
     h.setFormatter(logging.Formatter(_log_format))
-logging.basicConfig(level=logging.DEBUG, handlers=_log_handlers)
-if not os.environ.get("TELEGRAM_TOKEN"):
-    logging.warning("TELEGRAM_TOKEN not set in env. Set TELEGRAM_TOKEN and TELEGRAM_CHAT_ID for security.")
+logging.basicConfig(level=_log_level, handlers=_log_handlers)
+if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+    logging.warning(
+        "Telegram disabled: set TELEGRAM_TOKEN and TELEGRAM_CHAT_ID in .env for notifications and bot commands."
+    )
 
 # --- STORES ---
 STORES = {
@@ -139,6 +175,17 @@ def _normalize_items_payload(raw):
         if isinstance(items, list):
             return items
     return []
+
+
+def _inventory_row_key(item):
+    """Stable dict key for merging inventory with data.json (prefer item_id)."""
+    if not isinstance(item, dict):
+        return ""
+    iid = item.get("item_id")
+    if iid:
+        return str(iid)
+    name = item.get("name")
+    return "name:" + name if name else ""
 
 
 def _load_items_from_disk():
@@ -179,15 +226,13 @@ def _env_float(key, default):
         return default
 
 
-_BASE_CFFI_WORKERS = max(1, _env_int("WOOLIESBOT_CFFI_BATCH_WORKERS", 4))
 _BASE_CHROME_THRESHOLD = min(0.95, max(0.35, _env_float("WOOLIESBOT_CHROME_FALLBACK_THRESHOLD", 0.6)))
 _BASE_HTTP_RETRIES = max(1, _env_int("WOOLIESBOT_CFFI_HTTP_RETRIES", 4))
 _OUTLIER_DEVIATION_PCT = min(90, max(5, _env_float("WOOLIESBOT_OUTLIER_DEVIATION_PCT", 40)))
 _ADAPTIVE_ENABLED = os.environ.get("WOOLIESBOT_ADAPTIVE", "1").strip().lower() not in ("0", "false", "no")
 _METRICS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "scraper_metrics.json")
 _MAX_METRICS_RUNS = max(5, _env_int("WOOLIESBOT_METRICS_HISTORY", 30))
-_GLOBAL_CFFI_WORKERS_CAP = max(1, _env_int("WOOLIESBOT_CFFI_MAX_WORKERS", 6))
-# Coles: stricter edge limits — cap parallel fetches and optional sequential mode
+# Retained for scraper_metrics.json (sequential BFF path; not parallel worker count)
 _COLES_CFFI_WORKERS_CAP = max(1, _env_int("WOOLIESBOT_CFFI_COLES_WORKERS", 2))
 _COLES_SEQUENTIAL = os.environ.get("WOOLIESBOT_COLES_SEQUENTIAL", "0").strip().lower() in (
     "1",
@@ -251,6 +296,9 @@ def _escape_md(text):
 def send_telegram(message):
     """Send message(s) to Telegram. Splits at newlines if over limit.
     Falls back to plain text if Markdown parse fails."""
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        logging.debug("Telegram not configured; message skipped.")
+        return
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     if len(message) <= TELEGRAM_MAX_LEN:
         parts = [message]
@@ -1186,28 +1234,6 @@ def _append_metrics_run(entry):
         logging.warning(f"metrics write failed: {e}")
 
 
-def _get_cffi_workers():
-    w = _BASE_CFFI_WORKERS
-    if os.environ.get("WOOLIESBOT_CFFI_BATCH_WORKERS"):
-        return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
-    if not _ADAPTIVE_ENABLED:
-        return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
-    recent = _read_metrics_runs()[-3:]
-    if recent:
-        tot_429 = sum(r.get("http_429", 0) for r in recent)
-        tot_challenge = sum(r.get("coles_challenge", 0) for r in recent)
-        low_success = [r for r in recent if r.get("cffi_success_rate") is not None and r.get("cffi_success_rate", 1) < 0.78]
-        if tot_429 >= 4:
-            w = max(2, w - 2)
-        elif tot_429 >= 2:
-            w = max(2, w - 1)
-        if tot_challenge >= 3:
-            w = max(1, w - 1)
-        if len(low_success) >= 2:
-            w = max(1, w - 1)
-    return max(1, min(w, _GLOBAL_CFFI_WORKERS_CAP))
-
-
 def _get_chrome_fallback_threshold():
     t = _BASE_CHROME_THRESHOLD
     if os.environ.get("WOOLIESBOT_CHROME_FALLBACK_THRESHOLD"):
@@ -1224,14 +1250,6 @@ def _get_chrome_fallback_threshold():
         elif latest < 0.75:
             t = max(0.45, t - 0.08)
     return min(0.95, max(0.35, t))
-
-
-def _get_cffi_workers_for_store(store_key):
-    """Woolworths uses global worker budget; Coles uses a lower cap to reduce 429 / challenges."""
-    w = _get_cffi_workers()
-    if store_key != "coles":
-        return w
-    return min(w, _COLES_CFFI_WORKERS_CAP)
 
 
 def _coles_body_looks_blocked(text):
@@ -1600,14 +1618,15 @@ def _effective_price(item, store_result):
 
 
 def _build_inv_map_from_file():
-    """name -> item dict for price_history merge (handles wrapped data.json)."""
+    """Merge key (item_id or name:*) -> item dict for price_history merge."""
     inv_data = {}
     try:
         with open(_inv_file, "r", encoding="utf-8") as f:
             raw = json.load(f)
         for it in _normalize_items_payload(raw):
-            if it.get("name"):
-                inv_data[it["name"]] = it
+            k = _inventory_row_key(it)
+            if k:
+                inv_data[k] = it
     except Exception:
         pass
     return inv_data
@@ -1615,7 +1634,10 @@ def _build_inv_map_from_file():
 
 def _maybe_confirm_outlier_price(item, item_result, inv_data):
     """One extra cffi fetch if shelf price diverges sharply from historical median."""
-    hist = inv_data.get(item["name"], {}).get("price_history") or []
+    prev = inv_data.get(_inventory_row_key(item)) or {}
+    if not prev.get("price_history") and item.get("name"):
+        prev = inv_data.get("name:" + item["name"], {})
+    hist = prev.get("price_history") or []
     prices = [h["price"] for h in hist if h.get("price") is not None and h["price"] > 0]
     if len(prices) < 3:
         return item_result
@@ -1818,7 +1840,9 @@ def check_prices():
 
     for idx, item in enumerate(TRACKING_LIST):
         store_results = item_store_data.get(idx, [])
-        existing = inv_data.get(item["name"], {})
+        existing = inv_data.get(_inventory_row_key(item)) or {}
+        if not existing and item.get("name"):
+            existing = inv_data.get("name:" + item["name"], {})
         # Merge price history for averaging
         history = existing.get("price_history", [])
         avg_price = sum(h["price"] for h in history) / len(history) if history else 0
@@ -2136,21 +2160,32 @@ def export_data_to_json(results):
         today_str = now.strftime("%Y-%m-%d")
 
         # Load existing data to preserve scrape_history and other accumulated fields
-        existing_by_name = {}
+        existing_by_key = {}
         if os.path.exists(data_path):
             try:
                 with open(data_path, "r") as f:
                     raw = json.load(f)
                 existing_items = raw if isinstance(raw, list) else raw.get("items", [])
-                existing_by_name = {item["name"]: item for item in existing_items}
+                for ei in existing_items:
+                    k = _inventory_row_key(ei)
+                    if k:
+                        existing_by_key[k] = ei
             except Exception:
-                existing_by_name = {}
+                existing_by_key = {}
 
         # Merge: overlay fresh results onto existing items, preserving history fields
         merged = []
         for item in results:
-            name = item["name"]
-            existing = existing_by_name.get(name, {})
+            if not item.get("item_id") and item.get("name"):
+                legacy = existing_by_key.get("name:" + item["name"])
+                if legacy and legacy.get("item_id"):
+                    item["item_id"] = legacy["item_id"]
+                else:
+                    item["item_id"] = str(uuid.uuid4())
+            key = _inventory_row_key(item)
+            existing = existing_by_key.get(key, {}) if key else {}
+            if not existing and item.get("name"):
+                existing = existing_by_key.get("name:" + item["name"], {})
 
             def _is_effectively_empty(value):
                 if value is None:
@@ -2291,6 +2326,15 @@ def sync_to_github(next_scheduled=None):
     thread so heartbeat matches schedule library state; avoids stale NEXT_SCHEDULED_RUN).
     """
     import subprocess
+
+    lock_fd = _acquire_git_push_lock()
+    if lock_fd is None:
+        logging.warning("GitHub sync skipped: another sync is already in progress.")
+        return
+
+    def _run_git(args, check=False):
+        return subprocess.run(args, capture_output=True, text=True, check=check)
+
     try:
         heartbeat_path = os.path.join("docs", "heartbeat.json")
         nr = next_scheduled
@@ -2311,13 +2355,21 @@ def sync_to_github(next_scheduled=None):
             }, f)
 
         logging.info("Syncing data to GitHub...")
-        add_r = subprocess.run(["git", "add", "docs/"], capture_output=True, text=True)
+        pull_r = _run_git(["git", "pull", "--rebase", "origin", "main"])
+        if pull_r.returncode != 0:
+            logging.error(
+                f"git pull --rebase failed (exit {pull_r.returncode}): "
+                f"{(pull_r.stderr or pull_r.stdout or '').strip()}"
+            )
+            return
+
+        add_r = _run_git(["git", "add", "docs/"])
         if add_r.returncode != 0:
             logging.error(f"git add docs/ failed (exit {add_r.returncode}): {add_r.stderr.strip()}")
             return
 
         # Exit 0 = no staged diff; 1 = staged changes exist
-        diff_r = subprocess.run(["git", "diff", "--cached", "--quiet"], capture_output=True)
+        diff_r = _run_git(["git", "diff", "--cached", "--quiet"])
         if diff_r.returncode == 0:
             logging.info("GitHub sync: nothing to commit under docs/ (working tree matches HEAD).")
             return
@@ -2328,7 +2380,19 @@ def sync_to_github(next_scheduled=None):
             capture_output=True,
             text=True,
         )
-        subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True, text=True)
+
+        push_r = _run_git(["git", "push", "origin", "main"])
+        if push_r.returncode != 0:
+            logging.warning(
+                f"git push failed (exit {push_r.returncode}), retrying after pull — "
+                f"{(push_r.stderr or push_r.stdout or '').strip()}"
+            )
+            pull2 = _run_git(["git", "pull", "--rebase", "origin", "main"])
+            if pull2.returncode != 0:
+                logging.error(f"git pull retry failed: {(pull2.stderr or pull2.stdout or '').strip()}")
+                return
+            subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True, text=True)
+
         logging.info("Successfully pushed updated data & heartbeat to GitHub.")
     except subprocess.CalledProcessError as e:
         err = e.stderr or e.stdout or ""
@@ -2337,6 +2401,8 @@ def sync_to_github(next_scheduled=None):
         logging.error(f"GitHub sync failed: {err}")
     except Exception as e:
         logging.error(f"Error during GitHub sync: {e}")
+    finally:
+        _release_git_push_lock(lock_fd)
 
 def _slugify_name(name):
     """Turns an item name into a safe filename."""
@@ -3373,9 +3439,12 @@ def _strip_bot_suffix(cmd):
 
 def telegram_bot_listener():
     """Polls Telegram for commands like /shop."""
+    if not TELEGRAM_TOKEN:
+        logging.info("Telegram bot listener disabled (no TELEGRAM_TOKEN).")
+        return
     last_update_id = 0
     logging.info("Telegram Bot Listener started.")
-    
+
     while True:
         try:
             url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates"
@@ -3588,8 +3657,9 @@ if __name__ == "__main__":
                 run_report()
                 sys.exit(0)
 
-            # Start Telegram Listener in a background thread
-            threading.Thread(target=telegram_bot_listener, daemon=True).start()
+            # Start Telegram Listener only when credentials are configured
+            if TELEGRAM_TOKEN:
+                threading.Thread(target=telegram_bot_listener, daemon=True).start()
 
             # ---------- Deep Receipt Sync (one-shot on next cycle) ----------
             _DEEP_SYNC_FLAG = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".deep_sync_needed")

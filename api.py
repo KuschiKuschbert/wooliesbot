@@ -10,6 +10,29 @@ from logging.handlers import RotatingFileHandler
 from keep_sync import run_keep_sync
 
 PORT = 5001
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _load_dotenv():
+    """Load .env if present (same pattern as chef_os.py)."""
+    try:
+        env_path = os.path.join(SCRIPT_DIR, ".env")
+        if not os.path.exists(env_path):
+            return
+        with open(env_path) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    except Exception:
+        pass
+
+
+_load_dotenv()
+
+BIND_HOST = (os.environ.get("WOOLIESBOT_API_HOST") or "127.0.0.1").strip()
 
 # ── Logging ──────────────────────────────────────────────────────────────────
 _log_format = '%(asctime)s - %(levelname)s - %(message)s'
@@ -19,7 +42,7 @@ _stream = logging.StreamHandler()
 _stream.setFormatter(logging.Formatter(_log_format))
 logging.basicConfig(level=logging.INFO, handlers=[_handler, _stream])
 
-DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
+DATA_FILE = os.path.join(SCRIPT_DIR, "docs", "data.json")
 _data_lock = threading.Lock()
 
 
@@ -62,10 +85,15 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
                 params = json.loads(post_data)
 
                 item_name = params.get('name')
-                new_stock  = params.get('stock')  # 'low', 'medium', 'full'
+                item_id = params.get('item_id')
+                new_stock = params.get('stock')  # 'low', 'medium', 'full'
                 new_target = params.get('target')  # optional float
 
-                if not item_name or not new_stock:
+                if not new_stock:
+                    self.send_response(400)
+                    self.end_headers()
+                    return
+                if not item_id and not item_name:
                     self.send_response(400)
                     self.end_headers()
                     return
@@ -74,7 +102,12 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
                     raw, items = _load_data()
                     updated = False
                     for item in items:
-                        if item.get('name') == item_name:
+                        match = False
+                        if item_id and item.get("item_id") == item_id:
+                            match = True
+                        elif item_name and item.get('name') == item_name:
+                            match = True
+                        if match:
                             item['stock'] = new_stock
                             if new_stock == 'full':
                                 item['last_purchased'] = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -110,7 +143,6 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-            # Run sync in a separate thread so we can reply immediately
             threading.Thread(target=run_keep_sync, daemon=True).start()
             self.wfile.write(json.dumps({"status": "success", "message": "Sync started in background"}).encode())
 
@@ -128,13 +160,12 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
 
 def run_server():
     os.makedirs("logs", exist_ok=True)
-    # Allow restarting the server immediately without 'Address already in use' error
     socketserver.TCPServer.allow_reuse_address = True
 
     while True:
         try:
-            with socketserver.TCPServer(("", PORT), LocalBotHandler) as httpd:
-                logging.info(f"✅ WooliesBot local API running at http://localhost:{PORT}")
+            with socketserver.TCPServer((BIND_HOST, PORT), LocalBotHandler) as httpd:
+                logging.info(f"✅ WooliesBot local API at http://{BIND_HOST}:{PORT}")
                 httpd.serve_forever()
         except Exception as e:
             logging.error(f"API Server error: {e}. Restarting in 5s...")

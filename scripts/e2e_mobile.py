@@ -30,7 +30,7 @@ Usage:
   python scripts/e2e_mobile.py --base-url URL      # skip the built-in server
 
 Dependencies:
-  pip install playwright
+  pip install -r requirements-dev.txt
   python -m playwright install chromium
 """
 from __future__ import annotations
