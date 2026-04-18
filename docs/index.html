@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
     <link rel="manifest" href="manifest.webmanifest">
-    <title>WooliesBot Dashboard</title>
+    <title>WooliesBot — grocery deals & savings</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -38,10 +38,10 @@
                 <!-- Pulsing Server Status -->
                 <div class="api-indicator">
                     <div id="api-status-dot" class="status-dot"></div>
-                    <span id="api-status-text">Live Sync: Off</span>
+                    <span id="api-status-text">Phone sync: off</span>
                     <span class="status-divider">|</span>
                     <div id="cloud-status-dot" class="status-dot cloud-dot"></div>
-                    <span id="cloud-status-text">Global Bot: Checking...</span>
+                    <span id="cloud-status-text">Background updates: checking…</span>
                 </div>
             </div>
 
@@ -50,13 +50,13 @@
                     <i data-feather="tag"></i> Deals
                 </button>
                 <button type="button" class="nav-link" data-tab="analytics">
-                    <i data-feather="bar-chart-2"></i> Analytics
+                    <i data-feather="bar-chart-2"></i> Insights
                 </button>
             </nav>
 
             <div class="header-actions">
-                <a href="discovery-review.html" style="text-decoration:none;padding:0.5rem 0.75rem;font-size:13px;color:var(--text-muted);border:1px solid var(--border-color);border-radius:8px;" title="Review discover_variants.py output before merging into data.json">Discovery</a>
-                <button id="settings-btn" class="icon-btn" style="margin-right: 8px;" title="Bridge Settings" type="button" aria-label="Bridge settings">
+                <a href="discovery-review.html" style="text-decoration:none;padding:0.5rem 0.75rem;font-size:13px;color:var(--text-muted);border:1px solid var(--border-color);border-radius:8px;" title="Review suggested new products before adding them to your list (advanced)">Review</a>
+                <button id="settings-btn" class="icon-btn" style="margin-right: 8px;" title="Phone sync &amp; connection" type="button" aria-label="Phone sync and connection settings">
                     <i data-feather="settings"></i>
                 </button>
                 <button id="toggle-list-btn" class="list-toggle-pill" type="button" aria-expanded="false" aria-controls="list-drawer">
@@ -81,7 +81,7 @@
                 <div class="strip-stat">
                     <i data-feather="database" class="strip-icon"></i>
                     <div class="strip-info">
-                        <span class="strip-label">Tracked</span>
+                        <span class="strip-label">Your list</span>
                         <span class="strip-value"><span id="total-items">0</span> items · <span id="total-specials">0</span> on special</span>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="strip-stat">
                     <i data-feather="trending-down" class="strip-icon"></i>
                     <div class="strip-info">
-                        <span class="strip-label">Potential Savings</span>
+                        <span class="strip-label">You could save</span>
                         <span class="strip-value" id="cart-total">$0.00</span>
                     </div>
                 </div>
@@ -159,14 +159,14 @@
 
                     <div class="stat-card cola-card" id="cola-battle-container">
                         <div class="stat-header">
-                            <h3>🥤 Cola Battle</h3>
+                            <h3>🥤 Soft drink head-to-head</h3>
                         </div>
-                        <div class="stat-hint">Loading comparison...</div>
+                        <div class="stat-hint">Finding the best litre price…</div>
                     </div>
                 </aside>
 
                 <!-- Mobile priority rail (Buy Now + Top 5): visible only on ≤768px -->
-                <div id="mobile-priority-rail" class="priority-rail" aria-label="Priority items"></div>
+                <div id="mobile-priority-rail" class="priority-rail" aria-label="Highlights"></div>
 
                 <!-- Main Section: Filtering & Grid -->
                 <div class="main-feed">
@@ -174,13 +174,13 @@
                     <div class="feed-header">
                         <div class="search-wrap">
                             <i data-feather="search"></i>
-                            <input type="text" id="dashboard-search" placeholder="Search Master List...">
+                            <input type="text" id="dashboard-search" placeholder="Search products…" autocomplete="off">
                         </div>
                         <div class="filter-controls">
                             <div class="store-filter">
                                 <button class="filter-btn active" data-filter="all">All</button>
-                                <button class="filter-btn" data-filter="woolworths">W</button>
-                                <button class="filter-btn" data-filter="coles">C</button>
+                                <button class="filter-btn" data-filter="woolworths" title="Woolworths only">W</button>
+                                <button class="filter-btn" data-filter="coles" title="Coles only">C</button>
                             </div>
                             <!-- E: Sort pills (replaces native <select>) -->
                             <div class="sort-pills" id="sort-pills">
@@ -217,13 +217,13 @@
                     <!-- Almost There -->
                     <section id="near-misses-section" class="featured-section hidden">
                         <h2 class="section-title">🎯 Getting Close to Deal Price</h2>
-                        <p class="section-subtitle">These are within 5% of your target price — keep an eye out, they could drop to a deal soon.</p>
+                        <p class="section-subtitle">Almost at your good-deal price — worth watching; they might hit special soon.</p>
                         <div id="near-misses-grid" class="specials-grid"></div>
                     </section>
 
                     <!-- Main Grid -->
                     <section id="specials-section">
-                        <h2 class="section-title">🛍️ Deal Dashboard</h2>
+                        <h2 class="section-title">🛍️ Specials &amp; deals</h2>
                         <div id="specials-grid" class="specials-grid"></div>
                         <div id="pagination-controls" class="pagination-container"></div>
                     </section>
@@ -233,7 +233,7 @@
             <!-- D: Master Tracklist — collapsible, collapsed by default -->
             <section class="master-table-section">
                 <button class="master-table-toggle" id="master-table-toggle" onclick="toggleMasterTable()" aria-expanded="false">
-                    <span>📋 Master Tracklist</span>
+                    <span>📋 Everything you track</span>
                     <span class="master-table-meta" id="master-table-meta"></span>
                     <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
                 </button>
@@ -247,7 +247,7 @@
                                     <th>Store</th>
                                     <th>In Pantry?</th>
                                     <th>Today's Price</th>
-                                    <th>Buy Below $</th>
+                                    <th>Good deal at</th>
                                     <th>Price Trend</th>
                                 </tr>
                             </thead>
@@ -263,15 +263,15 @@
         <!-- Tab 2: Analytics & Insights -->
         <section id="tab-analytics" class="tab-content">
             <div class="analytics-header">
-                <h2>📈 Market Insights</h2>
-                <p class="subtitle">Tracking grocery inflation and your savings performance</p>
+                <h2>📈 Savings &amp; trends</h2>
+                <p class="subtitle">See how prices move and where you’re saving most</p>
             </div>
 
             <div class="analytics-grid">
                 <!-- Row 1: Main charts -->
                 <div class="analytics-card span-2">
                     <div class="card-header">
-                        <h3>Grocery Price Trends</h3>
+                        <h3>Your grocery spend over time</h3>
                         <i data-feather="trending-up"></i>
                     </div>
                     <div class="chart-container">
@@ -281,7 +281,7 @@
 
                 <div class="analytics-card">
                     <div class="card-header">
-                        <h3>Category Split</h3>
+                        <h3>Spend by category</h3>
                         <i data-feather="pie-chart"></i>
                     </div>
                     <div class="chart-container">
@@ -292,16 +292,16 @@
                 <!-- Row 2: Savings trio -->
                 <div class="analytics-card">
                     <div class="card-header">
-                        <h3>Savings Achievement</h3>
+                        <h3>How much you’re saving</h3>
                         <i data-feather="target"></i>
                     </div>
                     <div id="savings-breakdown">
                         <div class="savings-metric">
-                            <span class="label">Total Saved (vs full price):</span>
+                            <span class="label">Estimated saved vs full price:</span>
                             <span class="value" id="analytic-savings-val">$0</span>
                         </div>
                         <div class="savings-metric">
-                            <span class="label">Deal Hit Rate <small style="opacity:0.6;font-weight:400;">(% bought on special)</small>:</span>
+                            <span class="label">Bought on special <small style="opacity:0.6;font-weight:400;">(when price was at or below your deal)</small>:</span>
                             <span class="value" id="analytic-efficiency-val">0%</span>
                         </div>
                     </div>
@@ -326,11 +326,11 @@
                 <!-- Row 3: Category Inflation full width -->
                 <div class="analytics-card span-3">
                     <div class="card-header">
-                        <h3>📊 Category Price Inflation</h3>
+                        <h3>📊 Price changes by category</h3>
                         <i data-feather="activity"></i>
                     </div>
                     <p style="font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;">
-                        Average price change vs 60 days ago, based on your tracked items' price history.
+                        Compared to about two months ago, for products you’re tracking.
                     </p>
                     <div id="category-inflation-container" class="inflation-grid"></div>
                 </div>
@@ -338,7 +338,7 @@
                 <!-- Row 4: Deep Insights -->
                 <div class="analytics-card span-3" id="deep-insights-section">
                     <div class="card-header">
-                        <h3>Deep Insights &amp; Predictions</h3>
+                        <h3>Smart tips</h3>
                         <i data-feather="zap"></i>
                     </div>
                     <div id="deep-insights-container" class="insights-flex"></div>
@@ -346,11 +346,11 @@
 
                 <div class="analytics-card span-3" id="compare-group-diagnostics-card">
                     <div class="card-header">
-                        <h3>Compare group diagnostics</h3>
+                        <h3>Product matching (advanced)</h3>
                         <i data-feather="layers"></i>
                     </div>
                     <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">
-                        Surfaces data issues that prevent “best in group” ranking (mixed <code>price_mode</code> or too few store prices).
+                        For troubleshooting: shows when similar products can’t be compared fairly across stores (e.g. different unit types or missing prices).
                     </p>
                     <div id="compare-group-diagnostics"></div>
                 </div>
@@ -358,11 +358,11 @@
                 <!-- Row 5: Deal Heat Map full width -->
                 <div class="analytics-card span-3">
                     <div class="card-header">
-                        <h3>🌡️ Deal Heat Map — Woolies vs Coles by Category</h3>
+                        <h3>🌡️ Who’s cheaper, by aisle</h3>
                         <i data-feather="grid"></i>
                     </div>
                     <p style="font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;">
-                        Which store wins each category? Colour = savings %, count = active specials.
+                        Darker = bigger savings. Numbers = how many specials we’re comparing.
                     </p>
                     <div id="deal-heatmap-container"></div>
                 </div>
@@ -370,7 +370,7 @@
                 <!-- Row 6: Volatility Leaderboard + Best Time -->
                 <div class="analytics-card span-2">
                     <div class="card-header">
-                        <h3>📉 Price Volatility Leaderboard</h3>
+                        <h3>📉 Prices that bounce around most</h3>
                         <i data-feather="trending-up"></i>
                     </div>
                     <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">Items that jump in price most — buy on special &amp; stock up!</p>
@@ -405,7 +405,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>Updated via Chef OS Automation — WooliesBot v3</p>
+            <p>Prices refresh on a schedule — WooliesBot</p>
         </div>
     </footer>
 
@@ -422,11 +422,11 @@
         <div id="shopping-list-items" class="drawer-content"></div>
         <div class="drawer-footer">
             <div class="list-total-row">
-                <span>Total Est:</span>
+                <span>About</span>
                 <span id="list-total-price">$0.00</span>
             </div>
             <button type="button" id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
-                <i data-feather="copy"></i> Copy List
+                <i data-feather="copy"></i> Copy for messages
             </button>
         </div>
     </div>
@@ -436,19 +436,22 @@
     <div id="settings-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
         <div class="modal">
             <div class="modal-header">
-                <h3 id="settings-modal-title">⚙️ Bridge Settings</h3>
-                <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Fix 'Bridge Offline' for phone/HTTPS</p>
+                <h3 id="settings-modal-title">⚙️ Phone sync</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Connect to your Mac to update pantry stock from your phone.</p>
             </div>
             <div class="modal-body">
                 <div class="alert warn" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 10px; margin-bottom: 15px; font-size: 13px;">
-                    <strong>HTTPS Blocked?</strong> If using GitHub Pages, you must enter your Mac's IP (e.g. 192.168.1.5:5001) or an HTTPS tunnel.
+                    <strong>Using this site over HTTPS?</strong> Enter your computer’s address on your home Wi‑Fi (example: <code style="font-size:11px;">http://192.168.1.5:5001</code>) — the browser can’t reach “localhost” on your phone directly.
                 </div>
-                <label>Bridge API URL:</label>
-                <input type="text" id="bridge-url-input" placeholder="http://192.168.1.XX:5001" style="margin-top: 8px; font-family: monospace;">
+                <label for="bridge-url-input">Computer address</label>
+                <input type="text" id="bridge-url-input" placeholder="http://192.168.1.x:5001" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
+                <label for="bridge-token-input" style="margin-top:16px;display:block;">Bridge token (optional)</label>
+                <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">If you set <code style="font-size:11px;">WOOLIESBOT_API_TOKEN</code> in the Mac <code style="font-size:11px;">.env</code>, paste the same value here so stock updates can authenticate.</p>
+                <input type="password" id="bridge-token-input" placeholder="Leave empty if no token" autocomplete="new-password" style="margin-top: 4px; font-family: monospace;">
             </div>
             <div class="modal-footer">
                 <button type="button" id="settings-cancel">Cancel</button>
-                <button type="button" id="settings-save" class="primary">Save &amp; Connect</button>
+                <button type="button" id="settings-save" class="primary">Save</button>
             </div>
         </div>
     </div>
@@ -458,13 +461,13 @@
         <div class="modal">
             <h3 id="modal-title">Item Name</h3>
             <div class="modal-body">
-                <label>Set Stock Level:</label>
+                <label>How much do you have left?</label>
                 <div class="stock-selector">
                     <button type="button" class="stock-btn low" data-level="low">Low</button>
                     <button type="button" class="stock-btn med" data-level="medium">Medium</button>
                     <button type="button" class="stock-btn full" data-level="full">Full</button>
                 </div>
-                <label style="margin-top:20px; display:block;">Target Price ($):</label>
+                <label style="margin-top:20px; display:block;">Good deal price ($) — buy at or below this</label>
                 <input type="number" id="target-input-modal" step="0.10">
             </div>
             <div class="modal-footer">
@@ -483,7 +486,7 @@
             <i data-feather="bar-chart-2"></i>
             <span>Insights</span>
         </button>
-        <button type="button" class="mobile-nav-link" id="mobile-refresh-btn" aria-label="Refresh dashboard">
+        <button type="button" class="mobile-nav-link" id="mobile-refresh-btn" aria-label="Refresh prices">
             <i data-feather="refresh-cw"></i>
             <span>Refresh</span>
         </button>

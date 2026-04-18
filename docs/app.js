@@ -171,6 +171,8 @@ let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
 let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
+/** Matches WOOLIESBOT_API_TOKEN on api.py — set via Phone sync settings */
+let _bridgeToken = localStorage.getItem('bridge_token') || '';
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
@@ -196,6 +198,28 @@ function escapeHtml(s) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+}
+
+/** Matches chef_os merge keys: prefer item_id, then display name */
+function itemKey(item) {
+    if (!item || typeof item !== 'object') return '';
+    return item.item_id || item.name || '';
+}
+
+function resolveInventoryItem(itemName, itemId) {
+    const arr = _data || [];
+    if (itemId) {
+        const byId = arr.find(i => i.item_id === itemId);
+        if (byId) return byId;
+    }
+    if (itemName) return arr.find(i => i.name === itemName) || null;
+    return null;
+}
+
+function shoppingListDedupeMatch(row, inventoryItem) {
+    if (!row || !inventoryItem) return false;
+    if (inventoryItem.item_id && row.item_id === inventoryItem.item_id) return true;
+    return row.name === inventoryItem.name;
 }
 
 function formatCompareEffPrice(priceMode, eff) {
@@ -306,7 +330,7 @@ function renderCompareGroupDiagnostics() {
     if (!_compareGroupIssues.length) {
         el.innerHTML = `
             <p class="cg-diag-ok">
-                All compare groups look consistent: no mixed <code>price_mode</code> values and no groups stuck with fewer than two comparable store prices.
+                All good — products are comparing fairly across Woolies and Coles.
             </p>`;
         return;
     }
@@ -315,14 +339,14 @@ function renderCompareGroupDiagnostics() {
         if (issue.type === 'mixed_price_mode') {
             const modes = issue.modes.map((m) => escapeHtml(m)).join(', ');
             return `<li class="cg-diag-issue">
-                <strong>${escapeHtml(issue.groupKey)}</strong> — mixed price modes (${modes}).
-                Cross-SKU “best in group” ranking is skipped; use <strong>Compare sizes</strong> on a card to inspect each SKU.
+                <strong>${escapeHtml(issue.groupKey)}</strong> — mixed units (${modes}), so “best deal” isn’t compared automatically.
+                Tap <strong>Compare sizes</strong> on a product card to see each option.
             </li>`;
         }
         if (issue.type === 'single_candidate') {
             return `<li class="cg-diag-issue">
-                <strong>${escapeHtml(issue.groupKey)}</strong> — only ${issue.candidateCount ?? 0} comparable store price(s).
-                Add missing store URLs or wait for prices.
+                <strong>${escapeHtml(issue.groupKey)}</strong> — we only have ${issue.candidateCount ?? 0} matching price(s) across stores so far.
+                Once both Woolies and Coles have data, comparisons will show up.
             </li>`;
         }
         return '';
@@ -340,18 +364,10 @@ function openCompareGroupModal(groupKey) {
     closeCompareGroupModal();
     closeItemDeepdive();
 
-    function pmLabel(it) {
-        const m = it?.price_mode || 'each';
-        if (m === 'kg') return '$/kg comparable';
-        if (m === 'litre') return '$/L comparable';
-        return 'each / pack shelf';
-    }
-
     const members = _data.filter((i) => i.compare_group === groupKey);
     const modes = new Set(members.map((i) => i.price_mode || 'each'));
     const mixedModes = modes.size > 1;
     const modeLabel = mixedModes ? 'mixed' : (members[0]?.price_mode || 'each');
-    const footModeExpl = mixedModes ? 'varies per row' : escapeHtml(pmLabel(members[0]));
 
     let globalBest = Infinity;
     const rows = [...members].map((item) => {
@@ -370,10 +386,14 @@ function openCompareGroupModal(groupKey) {
     });
 
     const eps = 0.01;
+    const footnoteText = mixedModes
+        ? 'These products use different units — compare the “Best unit” column row by row.'
+        : 'Prices are normalised to the same unit so different pack sizes can be compared.';
+
     const banner = mixedModes
         ? `<div class="cg-modal-banner cg-modal-banner-warn">
-            Mixed <code>price_mode</code> in this group (${[...modes].sort().join(', ')}).
-            Compare unit labels per row — dashboard-wide “best in group” is disabled for this group.
+            Mixed units in this group (${[...modes].sort().join(', ')}).
+            Use <strong>Compare sizes</strong> on the main screen for a fair “best deal” once units match.
            </div>`
         : '';
 
@@ -420,7 +440,7 @@ function openCompareGroupModal(groupKey) {
                     <h3 id="cg-modal-title" class="cg-modal-title">${escapeHtml(groupKey.replace(/_/g, ' '))}</h3>
                     <div class="cg-modal-meta">
                         <span class="cg-modal-badge">${escapeHtml(modeLabel)}</span>
-                        <span class="cg-modal-count">${members.length} SKU${members.length === 1 ? '' : 's'}</span>
+                        <span class="cg-modal-count">${members.length} product size${members.length === 1 ? '' : 's'}</span>
                     </div>
                 </div>
                 <button type="button" class="deepdive-close" onclick="closeCompareGroupModal()" aria-label="Close">
@@ -442,7 +462,7 @@ function openCompareGroupModal(groupKey) {
                 </table>
             </div>
             <div class="cg-modal-footer">
-                <span class="cg-modal-footnote">Comparable unit labels follow each row’s <code>price_mode</code> (${footModeExpl}).</span>
+                <span class="cg-modal-footnote">${footnoteText}</span>
             </div>
         </div>`;
 
@@ -571,8 +591,22 @@ async function initDashboard() {
 
         if (!_monitorsStarted) {
             _monitorsStarted = true;
-            setInterval(monitorApi, 30000);
-            setInterval(monitorCloudHealth, 300000);
+            const tick = () => {
+                if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+                monitorApi();
+            };
+            const tickCloud = () => {
+                if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+                monitorCloudHealth();
+            };
+            setInterval(tick, 30000);
+            setInterval(tickCloud, 300000);
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    monitorApi();
+                    monitorCloudHealth();
+                }
+            });
             monitorApi();
             monitorCloudHealth();
         }
@@ -580,7 +614,7 @@ async function initDashboard() {
         // Build _history from inline scrape_history (single source of truth)
         _data.forEach(item => {
             if (item.scrape_history && item.scrape_history.length > 0) {
-                _history[item.name] = { target: item.target, history: item.scrape_history };
+                _history[itemKey(item)] = { target: item.target, history: item.scrape_history };
             }
         });
 
@@ -595,8 +629,8 @@ async function initDashboard() {
     } catch (e) {
         console.error("Failed to initialize dashboard:", e);
         const statusEl = document.getElementById('app-status');
-        if (statusEl) statusEl.textContent = 'Error loading data.';
-        document.getElementById('specials-grid').innerHTML = '<p style="color: #ef4444;">Error loading data.</p>';
+        if (statusEl) statusEl.textContent = 'Could not load prices. Pull down to refresh or try again.';
+        document.getElementById('specials-grid').innerHTML = '<p style="color: #ef4444;">Could not load prices. Check your connection and refresh.</p>';
     }
 }
 
@@ -737,6 +771,8 @@ function setupFilters() {
 function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('bridge-url-input').value = _apiUrl;
+    const tok = document.getElementById('bridge-token-input');
+    if (tok) tok.value = _bridgeToken ? '••••••••' : '';
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('bridge-url-input')?.focus(), 0);
 }
@@ -753,6 +789,19 @@ function saveSettings() {
     if (val) {
         _apiUrl = val;
         localStorage.setItem('bridge_url', _apiUrl);
+    }
+    const tokEl = document.getElementById('bridge-token-input');
+    if (tokEl) {
+        const raw = tokEl.value.trim();
+        if (raw === '••••••••') {
+            /* unchanged — keep existing _bridgeToken */
+        } else if (raw === '') {
+            _bridgeToken = '';
+            localStorage.removeItem('bridge_token');
+        } else {
+            _bridgeToken = raw;
+            localStorage.setItem('bridge_token', raw);
+        }
     }
     closeSettings();
     monitorApi();
@@ -1191,7 +1240,7 @@ function addEssentialToList(itemName) {
     // Use fuzzy matching to find the real tracked product
     const dataItem = findDataItem(itemName);
     if (dataItem) {
-        addToList(dataItem.name);
+        addToList(dataItem.name, undefined, dataItem.item_id || null);
     } else {
         // Fallback: add by display name with no price
         if (!_shoppingList.find(i => i.name === itemName)) {
@@ -1243,19 +1292,19 @@ function getConfidenceBadge(item) {
         const isHigh = conf === 'high';
         const icon = isHigh ? '🟢' : '';
         if (!conf) return ''; // no badge for old items with no metadata yet
-        return `<span class="confidence-badge high" title="High confidence: ${method} (${pts} data points)">🟢 High</span>`;
+        return `<span class="confidence-badge high" title="Solid estimate (${method ? method + ', ' : ''}${pts} price checks)">🟢 Solid</span>`;
     }
     if (conf === 'medium') {
-        return `<span class="confidence-badge medium" title="Medium confidence: ${method} (${pts} data points)">🟡 Med</span>`;
+        return `<span class="confidence-badge medium" title="Fair estimate (${method ? method + ', ' : ''}${pts} price checks)">🟡 Fair</span>`;
     }
-    return `<span class="confidence-badge low" title="Low confidence: ${method} — buy more to improve!">🔴 Low</span>`;
+    return `<span class="confidence-badge low" title="Rough estimate — more shops will improve this (${method || 'needs data'})">🔴 Rough</span>`;
 }
 
 function getStaleBadge(item, compact = false) {
     if (!item?.stale) return '';
     const asOf = item.stale_as_of ? ` (last good: ${item.stale_as_of})` : '';
-    const title = `Using last known good price${asOf}`;
-    const label = compact ? 'Stale' : '⏳ Stale';
+    const title = `Showing last confirmed price${asOf}`;
+    const label = compact ? 'Old price' : '⏳ Old price';
     return `<span class="stale-badge${compact ? ' compact' : ''}" title="${title}">${label}</span>`;
 }
 
@@ -1350,12 +1399,12 @@ function createItemCard(item, index, type = 'special') {
             <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
             <div class="item-price-row">
                 ${priceHtml}
-                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
+                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Good deal: $' + item.target.toFixed(2) : '<span style="opacity:0.4">No deal price yet</span>'}</span>
             </div>
             ${storeCompareHtml}
             ${groupBestHtml}
-            <button class="add-to-list-btn" onclick="addToList('${escapedName}', this)">
-                <i data-feather="plus"></i> Add to List
+            <button class="add-to-list-btn" onclick="addToList(${JSON.stringify(item.name)}, this, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+                <i data-feather="plus"></i> Add to shopping list
             </button>
             <div class="chart-container-sm" id="chart-${type}-${index}">
                 <canvas></canvas>
@@ -1364,8 +1413,8 @@ function createItemCard(item, index, type = 'special') {
     `;
     
     setTimeout(() => {
-        if (_history[item.name] && _history[item.name].history.length > 0) {
-            renderSparkline(`chart-${type}-${index}`, _history[item.name].history, storeClass);
+        if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
+            renderSparkline(`chart-${type}-${index}`, _history[itemKey(item)].history, storeClass);
         }
         feather.replace();
     }, 0);
@@ -1458,15 +1507,15 @@ function updateListCount() {
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
 }
 
-function addToList(itemName, callerBtn) {
-    const item = _data.find(i => i.name === itemName);
+function addToList(itemName, callerBtn, itemId) {
+    const item = resolveInventoryItem(itemName, itemId);
     if (!item) return;
 
     // callerBtn is passed explicitly as `this` from the onclick attribute
     const btn = callerBtn || null;
 
     // Prevent duplicates
-    if (_shoppingList.find(l => l.name === itemName)) {
+    if (_shoppingList.find(l => shoppingListDedupeMatch(l, item))) {
         if (btn) {
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i data-feather="check"></i> In list!';
@@ -1485,6 +1534,7 @@ function addToList(itemName, callerBtn) {
     }
 
     const listItem = {
+        item_id: item.item_id || null,
         name: item.name,
         price: item.eff_price || item.price,
         qty: qty,
@@ -1608,23 +1658,23 @@ async function monitorApi() {
         if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
             dot.className = 'status-dot offline';
             text.textContent = onGithubPages
-                ? 'Bridge: local only (cloud view)'
-                : 'Live Sync: N/A (use bridge URL in settings)';
-            text.title = 'Set Bridge URL in settings to your Mac IP or tunnel (HTTPS cannot reach localhost).';
+                ? 'Phone sync: cloud only here'
+                : 'Phone sync: add your computer’s address in settings';
+            text.title = 'On HTTPS, open Settings and enter your Mac’s Wi‑Fi address (localhost won’t work from your phone).';
             return;
         }
 
         const res = await fetch(`${_apiUrl}/status`).catch(() => null);
         if (res && res.ok) {
             dot.className = 'status-dot online';
-            text.textContent = 'Live Sync: On';
+            text.textContent = 'Phone sync: on';
         } else {
             dot.className = 'status-dot offline';
-            text.textContent = 'Live Sync: Off';
+            text.textContent = 'Phone sync: off';
         }
     } catch {
         dot.className = 'status-dot offline';
-        text.textContent = 'Bridge Offline';
+        text.textContent = 'Phone sync: offline';
     }
 }
 
@@ -1644,10 +1694,10 @@ async function monitorCloudHealth() {
 
             if (minsAgo < 35) {
                 dot.className = 'status-dot cloud-dot active';
-                text.textContent = 'Global Bot: Active';
+                text.textContent = 'Background updates: active';
             } else {
                 dot.className = 'status-dot cloud-dot silent';
-                text.textContent = `Global Bot: Silent (${Math.round(minsAgo)}m ago)`;
+                text.textContent = `Background updates: quiet (${Math.round(minsAgo)}m ago)`;
             }
 
             // Sync the 'Last Checked' header display with the cloud heartbeat
@@ -1657,7 +1707,7 @@ async function monitorCloudHealth() {
         }
     } catch (e) {
         dot.className = 'status-dot cloud-dot silent';
-        text.textContent = 'Global Bot: Unknown';
+        text.textContent = 'Background updates: unavailable';
     }
 }
 
@@ -1737,7 +1787,7 @@ function renderColaBattle() {
                         ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Pepsi</div>
                         <div class="fighter-price">${pPriceLabel}</div>
-                        <div class="fighter-product">${pepsi ? displayName(pepsi.name) : 'No Data'}</div>
+                        <div class="fighter-product">${pepsi ? displayName(pepsi.name) : '—'}</div>
                         <div class="fighter-meta">${getStoreBadge(pepsiC)}${isOnSpecialWin(pepsiC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
                     </${pTag}>
                     <div class="battle-vs">VS</div>
@@ -1745,7 +1795,7 @@ function renderColaBattle() {
                         ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Coke</div>
                         <div class="fighter-price">${cPriceLabel}</div>
-                        <div class="fighter-product">${coke ? displayName(coke.name) : 'No Data'}</div>
+                        <div class="fighter-product">${coke ? displayName(coke.name) : '—'}</div>
                         <div class="fighter-meta">${getStoreBadge(cokeC)}${isOnSpecialWin(cokeC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
                     </${cTag}>
                 </div>
@@ -1755,11 +1805,11 @@ function renderColaBattle() {
 
     container.innerHTML = `
         <div class="cola-battle-header">
-            <i data-feather="zap"></i> Ultimate Cola Battle
+            <i data-feather="zap"></i> Coke vs Pepsi (best $/L)
         </div>
-        ${renderBattleRow('No-Sugar Arena', pickWinner(buckets.noSugar.pepsi), pickWinner(buckets.noSugar.coke))}
+        ${renderBattleRow('No sugar', pickWinner(buckets.noSugar.pepsi), pickWinner(buckets.noSugar.coke))}
         <div class="arena-divider"></div>
-        ${renderBattleRow('Classic Arena', pickWinner(buckets.classic.pepsi), pickWinner(buckets.classic.coke))}
+        ${renderBattleRow('Classic', pickWinner(buckets.classic.pepsi), pickWinner(buckets.classic.coke))}
     `;
     feather.replace();
 }
@@ -1814,8 +1864,8 @@ function renderSpecials() {
         if (nearMisses.length > 0) {
             grid.innerHTML = `
                 <div class="no-deals-state" style="grid-column:1/-1;">
-                    <p>No active deals matching your filters right now.</p>
-                    <div class="no-deals-near-title">🎯 Closest to deal price — worth watching:</div>
+                    <p>No specials match what you’ve selected — here are a few that are almost at your good-deal price:</p>
+                    <div class="no-deals-near-title">🎯 Worth watching</div>
                 </div>`;
             nearMisses.forEach((item, i) => {
                 const card = createItemCard(item, i);
@@ -1823,7 +1873,7 @@ function renderSpecials() {
                 grid.appendChild(card);
             });
         } else {
-            grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align:center;">No deals today — check back Wednesday when specials refresh! 🗓️</p>';
+            grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align:center;">Nothing in your filters right now — try another category or check back after Wednesday’s new specials. 🗓️</p>';
         }
         if (typeof renderPagination === 'function') renderPagination(0);
         return;
@@ -1953,7 +2003,7 @@ function renderMobilePriorityRail() {
                 const price = item.eff_price || item.price || 0;
                 const saveStr = item.was_price && item.was_price > item.price
                     ? `-${Math.round((item.was_price - item.price) / item.was_price * 100)}%` : '🎯';
-                return `<div class="buy-now-row" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
+                return `<div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="buy-now-stock-dot"></div>
                     <div class="buy-now-info">
                         <div class="buy-now-name">${displayName(item.name)}</div>
@@ -2021,7 +2071,7 @@ function renderBuyNow() {
         const saveStr = wasPr && wasPr > shelf ? `-${Math.round((wasPr - shelf) / wasPr * 100)}%` : '🎯';
         const priceStr = price ? `$${price.toFixed(2)}` : '—';
         return `
-                <div class="buy-now-row" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
+                <div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
                     <div class="buy-now-name">${displayName(item.name)}</div>
@@ -2064,14 +2114,14 @@ function renderAllItems() {
 
             const row = document.createElement('div');
             row.className = 'tracklist-row';
-            row.onclick = () => { haptic(8); openStockModal(item.name); };
+            row.onclick = () => { haptic(8); openStockModal(item.name, item.item_id || null); };
             row.innerHTML = `
                 <div class="tracklist-row-info">
                     <div class="tracklist-row-name">${displayName(item.name)}${isSpecial ? ' 🔥' : ''}</div>
                     <div class="tracklist-row-sub">
                         <span>${storeLabel}</span>
                         <div class="stock-dot ${stockColor}" title="${item.stock}"></div>
-                        ${(item.target || 0) > 0 ? `<span style="opacity:0.5;">Target $${item.target.toFixed(2)}</span>` : ''}
+                        ${(item.target || 0) > 0 ? `<span style="opacity:0.5;">Deal $${item.target.toFixed(2)}</span>` : ''}
                     </div>
                 </div>
                 <div>
@@ -2081,8 +2131,8 @@ function renderAllItems() {
             `;
             list.appendChild(row);
 
-            if (_history[item.name] && _history[item.name].history.length > 0) {
-                renderSparkline(`chart-mob-${index}`, _history[item.name].history, item.store);
+            if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
+                renderSparkline(`chart-mob-${index}`, _history[itemKey(item)].history, item.store);
             }
         });
         return;
@@ -2115,12 +2165,12 @@ function renderAllItems() {
             </td>
             <td><span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span></td>
             <td>
-                <div class="stock-clickable" onclick="openStockModal('${item.name.replace(/'/g, "\\'")}')">
+                <div class="stock-clickable" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="stock-dot ${stockColor}"></div> ${item.stock}
                 </div>
             </td>
             <td>${priceCell}</td>
-            <td>${(item.target || 0) > 0 ? '$' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</td>
+            <td>${(item.target || 0) > 0 ? '$' + item.target.toFixed(2) : '<span style="opacity:0.4">—</span>'}</td>
             <td>
                 <div class="chart-container-td" id="chart-td-${index}">
                     <canvas></canvas>
@@ -2129,14 +2179,14 @@ function renderAllItems() {
         `;
         tbody.appendChild(tr);
 
-        if (_history[item.name] && _history[item.name].history.length > 0) {
-            renderSparkline(`chart-td-${index}`, _history[item.name].history, item.store);
+        if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
+            renderSparkline(`chart-td-${index}`, _history[itemKey(item)].history, item.store);
         }
     });
 }
 
-function openStockModal(itemName) {
-    const item = _data.find(i => i.name === itemName);
+function openStockModal(itemName, itemId) {
+    const item = resolveInventoryItem(itemName, itemId);
     if (!item) return;
 
     _focusBeforeStockModal = document.activeElement;
@@ -2172,9 +2222,15 @@ async function saveItemChanges() {
     try {
         const response = await fetch(`${_apiUrl}/update_stock`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                ...(_bridgeToken ? { 'X-WooliesBot-Token': _bridgeToken } : {}),
+            },
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
-                stock: activeStock
+                item_id: _selectedItemForModal.item_id || null,
+                stock: activeStock,
+                target: Number.isFinite(newTarget) ? newTarget : undefined,
             })
         });
         
@@ -2186,7 +2242,7 @@ async function saveItemChanges() {
             closeModal();
         }
     } catch (e) {
-        alert("Bridge error.");
+        alert("Could not reach your computer. Check the address in Settings and that the app is running.");
     }
 }
 
@@ -2210,7 +2266,7 @@ function renderAnalytics() {
             const avg = phPrices.reduce((a, b) => a + b) / phPrices.length;
             const variance = phPrices.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / phPrices.length;
             const stdDev = Math.sqrt(variance);
-            _volatility[item.name] = (stdDev / avg) * 100;
+            _volatility[itemKey(item)] = (stdDev / avg) * 100;
         }
 
         // ── Price trends from price_history ────────────────────────────────
@@ -2278,7 +2334,7 @@ function renderAnalytics() {
     });
 
     document.getElementById('analytic-savings-val').textContent = `$${totalRealizedSavings.toFixed(2)}`;
-    document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}% (${itemsAtTarget}/${itemsWithTargets} items at target)`;
+    document.getElementById('analytic-efficiency-val').textContent = `${efficiency.toFixed(0)}% (${itemsAtTarget} of ${itemsWithTargets} at or below your deal price)`;
 
     // Charts
     const spendingCtx = document.getElementById('spending-chart')?.getContext('2d');
@@ -2339,7 +2395,7 @@ function renderAnalytics() {
                         yAxisID: 'yPrice',
                     },
                     {
-                        label: 'Items at Target (%)',
+                        label: 'At or below deal price (%)',
                         data: specialsRateLine,
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.05)',
@@ -2363,7 +2419,7 @@ function renderAnalytics() {
                         callbacks: {
                             label: (ctx) => ctx.datasetIndex === 0
                                 ? `Avg Price: $${ctx.parsed.y.toFixed(2)}`
-                                : `At Target: ${ctx.parsed.y.toFixed(1)}%`
+                                : `At or below deal: ${ctx.parsed.y.toFixed(1)}%`
                         }
                     }
                 },
@@ -2475,7 +2531,7 @@ function renderTargetIntelligence() {
     container.innerHTML = `
         <div class="target-intel-header">
             <i data-feather="target"></i>
-            <span>Target Intelligence</span>
+            <span>Deal price confidence</span>
         </div>
 
         <div class="target-confidence-bar-wrap">
@@ -2494,7 +2550,7 @@ function renderTargetIntelligence() {
         <div class="target-intel-stats">
             <div class="ti-stat">
                 <div class="ti-val">${high}</div>
-                <div class="ti-label">Data-Driven<br>Targets</div>
+                <div class="ti-label">Strong<br>suggestions</div>
             </div>
             <div class="ti-stat">
                 <div class="ti-val">${low + noMeta}</div>
@@ -2509,7 +2565,7 @@ function renderTargetIntelligence() {
         ${needsData > 0 ? `
         <div class="ti-tip">
             <i data-feather="info"></i>
-            <span>Run <strong>receipt_sync.py</strong> to unlock better targets for <strong>${needsData}</strong> untracked items.</span>
+            <span>More shopping history would sharpen deal prices for <strong>${needsData}</strong> items.</span>
         </div>` : '<div class="ti-tip success"><i data-feather="check-circle"></i><span>All items have price observations — great coverage!</span></div>'}
     `;
 
@@ -2523,11 +2579,11 @@ function renderDeeperInsights(brandPrices) {
     // 1. Smart Buys (Low price, high volatility)
     const smartBuys = _data
         .filter(item => {
-            const vol = _volatility[item.name] || 0;
+            const vol = _volatility[itemKey(item)] || 0;
             const isOnSpecial = (item.eff_price || 999) <= (item.target || 0);
             return isOnSpecial && vol > 10; // High confidence special
         })
-        .sort((a, b) => (_volatility[b.name] || 0) - (_volatility[a.name] || 0))
+        .sort((a, b) => (_volatility[itemKey(b)] || 0) - (_volatility[itemKey(a)] || 0))
         .slice(0, 3);
 
     // 2. Store Bias
@@ -2566,12 +2622,12 @@ function renderDeeperInsights(brandPrices) {
                         <span class="name">${displayName(item.name)}</span>
                         <div class="meta">
                             <span class="price">$${item.eff_price?.toFixed(2)}</span>
-                            <span class="volatility-tag high">Volatility: ${(_volatility[item.name] || 0).toFixed(0)}%</span>
+                            <span class="volatility-tag high">Volatility: ${(_volatility[itemKey(item)] || 0).toFixed(0)}%</span>
                         </div>
                     </div>
                 `).join('')}
             </div>
-            <p class="insight-tip">These items are at their target price and historically jump back up quickly.</p>
+            <p class="insight-tip">These are at your good-deal price and usually go up again soon — grab them if you need them.</p>
         </div>
 
         <div class="deep-insight-card">
@@ -2705,7 +2761,7 @@ function renderTop5Deals() {
         .slice(0, 5);
 
     if (deals.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:8px 0;">No deals detected yet.</p>';
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:8px 0;">No standout deals yet — prices update through the week.</p>';
         return;
     }
 
@@ -2778,13 +2834,13 @@ function checkPriceDropAlerts() {
     _data.forEach(item => {
         const ep = item.eff_price || item.price || 0;
         const isSpecial = item.on_special || ((item.target || 0) > 0 && ep <= item.target && !item.price_unavailable);
-        if (isSpecial && !_alertedItems.has(item.name)) {
+        const k = itemKey(item);
+        if (isSpecial && !_alertedItems.has(k)) {
             newDrops.push(item);
-            _alertedItems.add(item.name);
+            _alertedItems.add(k);
         }
-        // Clear alert if item is no longer special (so it can alert again next time)
-        if (!isSpecial && _alertedItems.has(item.name)) {
-            _alertedItems.delete(item.name);
+        if (!isSpecial && _alertedItems.has(k)) {
+            _alertedItems.delete(k);
         }
     });
 
@@ -3006,7 +3062,7 @@ function renderCategoryInflation() {
         const pct = r.change;
         const barWidth = Math.min(Math.abs(pct) / maxChange * 100, 100);
         const up = pct > 0;
-        const label = r.isTargetBased ? `${pct > 0 ? '+' : ''}${pct.toFixed(1)}% above target avg` :
+        const label = r.isTargetBased ? `${pct > 0 ? '+' : ''}${pct.toFixed(1)}% above usual deal avg` :
                       `${pct > 0 ? '↑' : '↓'} ${Math.abs(pct).toFixed(1)}% vs 60d ago`;
         const emoji = CAT_EMOJI[r.cat] || '📦';
         return `
@@ -3331,10 +3387,10 @@ function renderPantryHealthScore() {
     const metrics = [
         { label: 'Stock Status', score: Math.round(stockScore), icon: '📦',
           hint: `${lowStockCount} items low, ${medStockCount} medium` },
-        { label: 'Target Coverage', score: Math.round(targetCovScore), icon: '🎯',
-          hint: `${withTarget} of ${total} items have targets` },
-        { label: 'Target Confidence', score: Math.round(confScore), icon: '🔬',
-          hint: `${highConf} high-confidence targets` },
+        { label: 'Deal prices set', score: Math.round(targetCovScore), icon: '🎯',
+          hint: `${withTarget} of ${total} items have a “good deal” price` },
+        { label: 'Price estimates', score: Math.round(confScore), icon: '🔬',
+          hint: `${highConf} items with strong price history` },
         { label: 'Deal Capture', score: Math.round(dealScore), icon: '🔥',
           hint: `${specials} active deals right now` },
     ];
@@ -3396,7 +3452,7 @@ function openItemDeepdive(itemName) {
 
     const ph = item.price_history || [];
     const sorted = [...ph].sort((a, b) => new Date(a.date) - new Date(b.date));
-    const vol = _volatility[itemName] || 0;
+    const vol = _volatility[itemKey(item)] || 0;
     const ep = item.eff_price || item.price || 0;
     const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
     const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
@@ -3415,7 +3471,7 @@ function openItemDeepdive(itemName) {
                         <span class="store-badge ${item.store}" style="margin-top:0;">${item.store === 'woolworths' ? 'Woolies' : 'Coles'}</span>
                         ${isOnSpecial ? '<span class="save-badge">ON SPECIAL</span>' : ''}
                         ${item.target_confidence ? `<span class="confidence-badge ${item.target_confidence}">
-                            ${item.target_confidence === 'high' ? '🟢' : item.target_confidence === 'medium' ? '🟡' : '🔴'} ${item.target_confidence} conf.
+                            ${item.target_confidence === 'high' ? '🟢 Solid estimate' : item.target_confidence === 'medium' ? '🟡 Fair estimate' : '🔴 Rough estimate'}
                         </span>` : ''}
                     </div>
                 </div>
@@ -3430,11 +3486,11 @@ function openItemDeepdive(itemName) {
                 </div>
                 ${item.target > 0 ? `<div class="dd-stat">
                     <div class="dd-stat-val">$${item.target.toFixed(2)}</div>
-                    <div class="dd-stat-label">Target</div>
+                    <div class="dd-stat-label">Good deal</div>
                 </div>` : ''}
                 ${item.was_price ? `<div class="dd-stat">
                     <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${item.was_price.toFixed(2)}</div>
-                    <div class="dd-stat-label">Was Price</div>
+                    <div class="dd-stat-label">Was</div>
                 </div>` : ''}
                 <div class="dd-stat">
                     <div class="dd-stat-val ${vol > 15 ? 'vol-high' : vol > 8 ? 'vol-med' : ''}">${vol.toFixed(0)}%</div>
@@ -3442,12 +3498,12 @@ function openItemDeepdive(itemName) {
                 </div>
                 <div class="dd-stat">
                     <div class="dd-stat-val">${ph.length}</div>
-                    <div class="dd-stat-label">Data Points</div>
+                    <div class="dd-stat-label">Price checks</div>
                 </div>
             </div>
             ${item.compare_group ? `
             <div class="deepdive-compare-group">
-                <span class="dd-cg-label">Compare group: <code>${escapeHtml(item.compare_group)}</code></span>
+                <span class="dd-cg-label">Similar products at other sizes</span>
                 <button type="button" class="cg-compare-btn cg-compare-btn-sm" data-compare-group="${escapeHtml(item.compare_group)}">Open</button>
             </div>` : ''}
             <div class="deepdive-chart-wrap">
@@ -3459,8 +3515,8 @@ function openItemDeepdive(itemName) {
                     <span>${item.type || 'uncategorised'} · ${item.brand || 'unknown brand'}</span>
                     ${item.size ? `<span>Size: ${item.size}</span>` : ''}
                 </div>
-                <button class="sync-btn" style="padding:10px 20px;width:auto;" onclick="addToList('${item.name.replace(/'/g, "\\'")}'); closeItemDeepdive();">
-                    <i data-feather="plus"></i> Add to List
+                <button class="sync-btn" style="padding:10px 20px;width:auto;" onclick="addToList(${JSON.stringify(item.name)}, null, ${item.item_id ? JSON.stringify(item.item_id) : 'null'}); closeItemDeepdive();">
+                    <i data-feather="plus"></i> Add to shopping list
                 </button>
             </div>
         </div>
@@ -3491,7 +3547,7 @@ function openItemDeepdive(itemName) {
                         pointHoverRadius: 8,
                     },
                     ...(item.target > 0 ? [{
-                        label: 'Target',
+                        label: 'Good deal',
                         data: sorted.map(() => item.target),
                         borderColor: '#6366f1',
                         borderDash: [6, 4],
