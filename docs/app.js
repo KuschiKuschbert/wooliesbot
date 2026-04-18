@@ -160,6 +160,12 @@ const PRICE_UNRELIABLE = 99999;
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
 
+/** Inventory row count per compare_group (for UI entry points) */
+let _compareGroupMemberCounts = new Map();
+
+/** Structured issues: mixed_price_mode, single_candidate */
+let _compareGroupIssues = [];
+
 function isReliableEffPrice(ep) {
     return typeof ep === 'number' && Number.isFinite(ep) && ep > 0 && ep < PRICE_UNRELIABLE;
 }
@@ -222,6 +228,7 @@ function expandItemStoreCandidates(item) {
 
 function rebuildCompareGroupMeta() {
     _compareGroupMeta = new Map();
+    _compareGroupIssues = [];
     const byGroup = new Map();
     for (const item of _data) {
         const g = item.compare_group;
@@ -230,10 +237,17 @@ function rebuildCompareGroupMeta() {
         byGroup.get(g).push(item);
     }
 
+    _compareGroupMemberCounts = new Map();
+    for (const [k, members] of byGroup) {
+        _compareGroupMemberCounts.set(k, members.length);
+    }
+
     for (const [groupKey, members] of byGroup) {
         const modes = new Set(members.map(i => i.price_mode || 'each'));
         if (modes.size > 1) {
-            console.warn(`[compare_group] Skipping "${groupKey}": mixed price_mode (${[...modes].join(', ')})`);
+            const modeList = [...modes].sort();
+            _compareGroupIssues.push({ type: 'mixed_price_mode', groupKey, modes: modeList });
+            console.warn(`[compare_group] Skipping "${groupKey}": mixed price_mode (${modeList.join(', ')})`);
             continue;
         }
         const mode = members[0].price_mode || 'each';
@@ -244,7 +258,14 @@ function rebuildCompareGroupMeta() {
             candidates.push(...expandItemStoreCandidates(item));
         }
 
-        if (candidates.length < 2) continue;
+        if (candidates.length < 2) {
+            _compareGroupIssues.push({
+                type: 'single_candidate',
+                groupKey,
+                candidateCount: candidates.length,
+            });
+            continue;
+        }
 
         candidates.sort(compareCandidates);
         const best = candidates[0];
@@ -256,6 +277,169 @@ function rebuildCompareGroupMeta() {
             candidateCount: candidates.length,
         });
     }
+}
+
+function renderCompareGroupDiagnostics() {
+    const el = document.getElementById('compare-group-diagnostics');
+    if (!el) return;
+
+    if (!_compareGroupIssues.length) {
+        el.innerHTML = `
+            <p class="cg-diag-ok">
+                All compare groups look consistent: no mixed <code>price_mode</code> values and no groups stuck with fewer than two comparable store prices.
+            </p>`;
+        return;
+    }
+
+    const items = _compareGroupIssues.map((issue) => {
+        if (issue.type === 'mixed_price_mode') {
+            const modes = issue.modes.map((m) => escapeHtml(m)).join(', ');
+            return `<li class="cg-diag-issue">
+                <strong>${escapeHtml(issue.groupKey)}</strong> — mixed price modes (${modes}).
+                Cross-SKU “best in group” ranking is skipped; use <strong>Compare sizes</strong> on a card to inspect each SKU.
+            </li>`;
+        }
+        if (issue.type === 'single_candidate') {
+            return `<li class="cg-diag-issue">
+                <strong>${escapeHtml(issue.groupKey)}</strong> — only ${issue.candidateCount ?? 0} comparable store price(s).
+                Add missing store URLs or wait for prices.
+            </li>`;
+        }
+        return '';
+    }).join('');
+
+    el.innerHTML = `<ul class="cg-diag-list">${items}</ul>`;
+}
+
+function closeCompareGroupModal() {
+    document.getElementById('compare-group-modal')?.remove();
+}
+
+function openCompareGroupModal(groupKey) {
+    if (!groupKey) return;
+    closeCompareGroupModal();
+    closeItemDeepdive();
+
+    function pmLabel(it) {
+        const m = it?.price_mode || 'each';
+        if (m === 'kg') return '$/kg comparable';
+        if (m === 'litre') return '$/L comparable';
+        return 'each / pack shelf';
+    }
+
+    const members = _data.filter((i) => i.compare_group === groupKey);
+    const modes = new Set(members.map((i) => i.price_mode || 'each'));
+    const mixedModes = modes.size > 1;
+    const modeLabel = mixedModes ? 'mixed' : (members[0]?.price_mode || 'each');
+    const footModeExpl = mixedModes ? 'varies per row' : escapeHtml(pmLabel(members[0]));
+
+    let globalBest = Infinity;
+    const rows = [...members].map((item) => {
+        const me = minEffPriceAcrossStores(item);
+        if (Number.isFinite(me) && isReliableEffPrice(me)) globalBest = Math.min(globalBest, me);
+        return item;
+    });
+
+    rows.sort((a, b) => {
+        const ma = minEffPriceAcrossStores(a);
+        const mb = minEffPriceAcrossStores(b);
+        if (Number.isFinite(ma) && Number.isFinite(mb)) return ma - mb;
+        if (Number.isFinite(ma)) return -1;
+        if (Number.isFinite(mb)) return 1;
+        return (a.name || '').localeCompare(b.name || '');
+    });
+
+    const eps = 0.01;
+    const banner = mixedModes
+        ? `<div class="cg-modal-banner cg-modal-banner-warn">
+            Mixed <code>price_mode</code> in this group (${[...modes].sort().join(', ')}).
+            Compare unit labels per row — dashboard-wide “best in group” is disabled for this group.
+           </div>`
+        : '';
+
+    const tableRows = rows.map((item) => {
+        const pm = item.price_mode || 'each';
+        const wsd = item.all_stores?.woolworths;
+        const csd = item.all_stores?.coles;
+        const wep = wsd?.eff_price;
+        const cep = csd?.eff_price;
+        const wStr = isReliableEffPrice(wep) ? formatCompareEffPrice(pm, wep) : '—';
+        const cStr = isReliableEffPrice(cep) ? formatCompareEffPrice(pm, cep) : '—';
+        const rowMin = minEffPriceAcrossStores(item);
+        const bestUnit = formatCompareEffPrice(pm, Number.isFinite(rowMin) && isReliableEffPrice(rowMin) ? rowMin : NaN);
+        const isWinner = Number.isFinite(globalBest) && Number.isFinite(rowMin)
+            && isReliableEffPrice(rowMin) && Math.abs(rowMin - globalBest) <= eps;
+        const trClass = isWinner ? 'cg-row cg-row-best' : 'cg-row';
+
+        const wUrl = escapeHtml(getStoreUrlForStore(item, 'woolworths'));
+        const cUrl = escapeHtml(getStoreUrlForStore(item, 'coles'));
+
+        return `<tr class="${trClass}">
+            <td class="cg-col-name">${escapeHtml(displayName(item.name))}</td>
+            <td class="cg-col-price">
+                ${wStr}
+                <a class="cg-pdp-link" href="${wUrl}" target="_blank" rel="noopener" title="Open at Woolworths">↗</a>
+            </td>
+            <td class="cg-col-price">
+                ${cStr}
+                <a class="cg-pdp-link" href="${cUrl}" target="_blank" rel="noopener" title="Open at Coles">↗</a>
+            </td>
+            <td class="cg-col-unit">${bestUnit}</td>
+        </tr>`;
+    }).join('');
+
+    const modal = document.createElement('div');
+    modal.id = 'compare-group-modal';
+    modal.className = 'cg-modal-overlay';
+    modal.onclick = (e) => { if (e.target === modal) closeCompareGroupModal(); };
+
+    modal.innerHTML = `
+        <div class="cg-modal-panel" role="dialog" aria-labelledby="cg-modal-title">
+            <div class="cg-modal-header">
+                <div>
+                    <h3 id="cg-modal-title" class="cg-modal-title">${escapeHtml(groupKey.replace(/_/g, ' '))}</h3>
+                    <div class="cg-modal-meta">
+                        <span class="cg-modal-badge">${escapeHtml(modeLabel)}</span>
+                        <span class="cg-modal-count">${members.length} SKU${members.length === 1 ? '' : 's'}</span>
+                    </div>
+                </div>
+                <button type="button" class="deepdive-close" onclick="closeCompareGroupModal()" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            ${banner}
+            <div class="cg-modal-table-wrap">
+                <table class="cg-modal-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Woolies</th>
+                            <th>Coles</th>
+                            <th>Best unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>${tableRows}</tbody>
+                </table>
+            </div>
+            <div class="cg-modal-footer">
+                <span class="cg-modal-footnote">Comparable unit labels follow each row’s <code>price_mode</code> (${footModeExpl}).</span>
+            </div>
+        </div>`;
+
+    document.body.appendChild(modal);
+    if (typeof feather !== 'undefined') feather.replace();
+}
+
+let _compareGroupUiReady = false;
+function setupCompareGroupInteractions() {
+    if (_compareGroupUiReady) return;
+    _compareGroupUiReady = true;
+    document.body.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-compare-group]');
+        if (!btn || !btn.dataset.compareGroup) return;
+        e.preventDefault();
+        openCompareGroupModal(btn.dataset.compareGroup);
+    });
 }
 
 function getStoreUrlForStore(item, storeKey) {
@@ -287,19 +471,29 @@ function classifyColaCandidate(item) {
 function buildGroupBestRowHtml(item) {
     const g = item.compare_group;
     if (!g) return '';
-    const meta = _compareGroupMeta.get(g);
-    if (!meta || meta.candidateCount < 2) return '';
+    const memberN = _compareGroupMemberCounts.get(g) || 0;
+    if (memberN < 2) return '';
 
-    const minSelf = minEffPriceAcrossStores(item);
-    const eps = 0.01;
-    if (Number.isFinite(minSelf) && Math.abs(minSelf - meta.winnerEff) <= eps) {
-        return '<div class="group-best-hint group-best-on-top" title="Lowest comparable unit price in this compare_group">You\'re on the best deal in this group</div>';
+    const btn = `<button type="button" class="cg-compare-btn" data-compare-group="${escapeHtml(g)}">Compare sizes</button>`;
+
+    let hintHtml = '';
+    const meta = _compareGroupMeta.get(g);
+    if (meta && meta.candidateCount >= 2) {
+        const minSelf = minEffPriceAcrossStores(item);
+        const eps = 0.01;
+        if (Number.isFinite(minSelf) && Math.abs(minSelf - meta.winnerEff) <= eps) {
+            hintHtml = '<div class="group-best-hint group-best-on-top" title="Lowest comparable unit price in this compare_group">You\'re on the best deal in this group</div>';
+        } else {
+            const storeLabel = meta.winnerStore === 'woolworths' ? 'Woolworths' : 'Coles';
+            const priceStr = formatCompareEffPrice(meta.mode, meta.winnerEff);
+            const shortName = escapeHtml(displayName(meta.winnerItemName));
+            hintHtml = `<div class="group-best-hint" title="Cheapest comparable unit across all SKUs and stores in this group">Best in group: ${priceStr} · ${storeLabel} · ${shortName}</div>`;
+        }
+    } else {
+        hintHtml = `<div class="group-best-hint cg-hint-muted" title="Open Compare sizes to see each SKU; dashboard ranking is off until modes align and both stores have prices">Compare SKUs — see all sizes &amp; stores</div>`;
     }
 
-    const storeLabel = meta.winnerStore === 'woolworths' ? 'Woolworths' : 'Coles';
-    const priceStr = formatCompareEffPrice(meta.mode, meta.winnerEff);
-    const shortName = escapeHtml(displayName(meta.winnerItemName));
-    return `<div class="group-best-hint" title="Cheapest comparable unit across all SKUs and stores in this group">Best in group: ${priceStr} · ${storeLabel} · ${shortName}</div>`;
+    return `<div class="cg-group-row">${hintHtml}<div class="cg-compare-actions">${btn}</div></div>`;
 }
 
 // Track sparkline Chart instances so we can destroy them before recreating.
@@ -371,6 +565,8 @@ async function initDashboard() {
         });
 
         rebuildCompareGroupMeta();
+        renderCompareGroupDiagnostics();
+        setupCompareGroupInteractions();
 
         setupFilters();
         renderDashboard();
@@ -2141,6 +2337,7 @@ function renderAnalytics() {
     renderVolatilityLeaderboard();
     renderBestTimeToBuy();
     renderPantryHealthScore();
+    renderCompareGroupDiagnostics();
 }
 
 function renderTargetIntelligence() {
@@ -3095,6 +3292,8 @@ function openItemDeepdive(itemName) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
 
+    closeCompareGroupModal();
+
     // Remove existing modal
     document.getElementById('deepdive-modal')?.remove();
 
@@ -3149,6 +3348,11 @@ function openItemDeepdive(itemName) {
                     <div class="dd-stat-label">Data Points</div>
                 </div>
             </div>
+            ${item.compare_group ? `
+            <div class="deepdive-compare-group">
+                <span class="dd-cg-label">Compare group: <code>${escapeHtml(item.compare_group)}</code></span>
+                <button type="button" class="cg-compare-btn cg-compare-btn-sm" data-compare-group="${escapeHtml(item.compare_group)}">Open</button>
+            </div>` : ''}
             <div class="deepdive-chart-wrap">
                 ${sorted.length > 1 ? '<canvas id="deepdive-canvas"></canvas>' :
                   '<p style="color:var(--text-muted);text-align:center;padding:3rem;font-size:13px;">Not enough price history to chart.<br>At least 2 data points needed.</p>'}
