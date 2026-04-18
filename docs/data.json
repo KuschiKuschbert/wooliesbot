@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18 09:48 AM",
+  "last_updated": "2026-04-18 05:21 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7210,6 +7210,13 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.9,
+          "unit_price": 15.8,
+          "eff_price": 7.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -9604,7 +9611,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 4.0,
+      "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -9615,13 +9622,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $5.50, now $4.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 5 prices",
       "target_data_points": 5,
       "target_updated": "2026-04-18",
       "scrape_history": [
@@ -9656,19 +9663,19 @@
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -9680,7 +9687,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -11013,13 +11020,13 @@
       "local_image": "images/Dorsogna_Leg_Hm_Trplsmkd_97%_F_F_Shvd_Kg.jpg",
       "image_url": "images/dorsogna_leg_hm_trplsmkd_97_ff_shvd_kg.jpg",
       "store": "woolworths",
-      "unit_price": 28.0,
+      "unit_price": 22.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         }
@@ -11030,7 +11037,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "D'Orsogna Ham Leg Triple Smoked 97% Fat Free Shaved From The Deli"
+      "name_check": "D'Orsogna Triple Smoked Leg Ham"
     },
     {
       "name": "Ww Winter Veg Mix 1Kg",
@@ -12375,7 +12382,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $14.50, now $9.00 (store special)",
+      "target_method": "was $37.20, now $9.00 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-18",
       "scrape_history": [
@@ -12413,16 +12420,16 @@
       "on_special": false,
       "local_image": "images/Ww_Beef_Scotch_Fillet_Steak_Medium.jpg",
       "image_url": "images/ww_beef_scotch_fillet_steak_medium.jpg",
-      "store": "woolworths",
-      "unit_price": 52.94,
+      "store": "coles",
+      "unit_price": 52.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 52.94,
-          "eff_price": 9.0,
-          "was_price": null,
-          "on_special": false
+          "price": 33.6,
+          "unit_price": 42.0,
+          "eff_price": 33.6,
+          "was_price": 37.2,
+          "on_special": true
         },
         "coles": {
           "price": 13.0,
@@ -12438,7 +12445,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Scotch Fillet Steak"
+      "name_check": "Graze Grassfed Beef Scotch Fillet Steak"
     },
     {
       "name": "Fab Pi Sublime Velvet 1.8Kg",
@@ -14235,6 +14242,13 @@
       "unit_price": 3.06,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 8.0,
+          "unit_price": 4.85,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.5,
           "unit_price": 3.06,
