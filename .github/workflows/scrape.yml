@@ -1,0 +1,52 @@
+name: Scrape & push data
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 06:00 UTC daily — adjust or remove if you only want manual runs
+    - cron: "0 6 * * *"
+
+concurrency:
+  group: wooliesbot-scrape
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Google Chrome
+        run: |
+          set -e
+          wget -q -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+          sudo apt-get install -y /tmp/google-chrome.deb
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Git identity (sync_to_github)
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Run scrape and push docs
+        env:
+          GITHUB_ACTIONS: "true"
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python chef_os.py --now
+
+      - name: Validate data.json (layers B + C)
+        run: |
+          python scripts/e2e_validate.py --layer B --strict-exit
+          python scripts/e2e_validate.py --layer C --strict-exit

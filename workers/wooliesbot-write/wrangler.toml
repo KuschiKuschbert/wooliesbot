@@ -1,0 +1,15 @@
+# Deploy: cd workers/wooliesbot-write && npm install && npx wrangler deploy
+# Secrets: npx wrangler secret put GH_TOKEN
+#         npx wrangler secret put WOOLIESBOT_WRITE_SECRET
+#
+# Fill repo owner/name to match your GitHub repository (Pages source for docs/data.json).
+
+name = "wooliesbot-write"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+GITHUB_REPO_OWNER = "KuschiKuschbert"
+GITHUB_REPO_NAME = "wooliesbot"
+# Browser Origin is scheme + host only (no /wooliesbot path).
+ALLOWED_ORIGINS = "https://kuschikuschbert.github.io"

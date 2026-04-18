@@ -2623,11 +2623,12 @@ def run_report(full_list=False, send_telegram_messages=True):
             pass
         if next_for_heartbeat:
             NEXT_SCHEDULED_RUN = next_for_heartbeat
-        threading.Thread(
-            target=sync_to_github,
-            kwargs={"next_scheduled": next_for_heartbeat},
-            daemon=True,
-        ).start()
+        sync_kw = {"next_scheduled": next_for_heartbeat}
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            # Actions must finish git push before the process exits (--now uses sys.exit).
+            sync_to_github(**sync_kw)
+        else:
+            threading.Thread(target=sync_to_github, kwargs=sync_kw, daemon=True).start()
 
         if not send_telegram_messages:
             logging.info("send_telegram_messages is False. Exiting early, no message sent.")

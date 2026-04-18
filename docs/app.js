@@ -229,6 +229,10 @@ let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
 let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
+/** Cloudflare Worker base URL for POST /update_stock (optional; overrides bridge for writes). */
+let _writeApiUrl = localStorage.getItem('write_api_url') || '';
+/** Shared secret header for the Worker — stored only in localStorage in the browser. */
+let _writeApiSecret = localStorage.getItem('write_api_secret') || '';
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
@@ -254,6 +258,17 @@ function escapeHtml(s) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+}
+
+/** Base URL for pantry/stock writes: Worker if configured, else LAN bridge (`_apiUrl`). */
+function getStockWriteBase() {
+    const w = (_writeApiUrl || '').trim();
+    if (w) return w.replace(/\/$/, '');
+    return (_apiUrl || '').trim().replace(/\/$/, '');
+}
+
+function usesCloudWrite() {
+    return Boolean((_writeApiUrl || '').trim());
 }
 
 /** Matches chef_os merge keys: prefer item_id, then display name */
@@ -832,9 +847,11 @@ function setupFilters() {
 
 function openSettings() {
     _focusBeforeSettings = document.activeElement;
+    document.getElementById('write-api-url-input').value = _writeApiUrl;
+    document.getElementById('write-api-secret-input').value = _writeApiSecret;
     document.getElementById('bridge-url-input').value = _apiUrl;
     document.getElementById('settings-modal').style.display = 'flex';
-    setTimeout(() => document.getElementById('bridge-url-input')?.focus(), 0);
+    setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
 
 function closeSettings() {
@@ -845,6 +862,11 @@ function closeSettings() {
 }
 
 function saveSettings() {
+    _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
+    _writeApiSecret = document.getElementById('write-api-secret-input').value;
+    localStorage.setItem('write_api_url', _writeApiUrl);
+    localStorage.setItem('write_api_secret', _writeApiSecret);
+
     const val = document.getElementById('bridge-url-input').value.trim();
     if (val) {
         _apiUrl = val;
@@ -1702,29 +1724,55 @@ async function monitorApi() {
     const text = document.getElementById('api-status-text');
     if (!dot || !text) return;
 
+    const cloudBase = (_writeApiUrl || '').trim().replace(/\/$/, '');
+    if (cloudBase) {
+        try {
+            const res = await fetch(`${cloudBase}/health?t=${Date.now()}`, { method: 'GET', cache: 'no-store' }).catch(() => null);
+            if (res && res.ok) {
+                const data = await res.json().catch(() => ({}));
+                const ok = data.ok !== false && data.configured !== false;
+                if (ok) {
+                    dot.className = 'status-dot online';
+                    text.textContent = 'Pantry writes: cloud ready';
+                    text.title = '';
+                    return;
+                }
+            }
+            dot.className = 'status-dot offline';
+            text.textContent = 'Pantry writes: cloud unavailable';
+            text.title = 'Check Worker URL and secrets (GitHub token + write secret).';
+            return;
+        } catch {
+            dot.className = 'status-dot offline';
+            text.textContent = 'Pantry writes: cloud offline';
+            text.title = '';
+            return;
+        }
+    }
+
     try {
         // HTTPS (e.g. GitHub Pages) cannot call http://localhost — browser mixed-content block (expected).
         const onGithubPages = /\.github\.io$/i.test(window.location.hostname || '');
         if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
             dot.className = 'status-dot offline';
             text.textContent = onGithubPages
-                ? 'Phone sync: cloud only here'
-                : 'Phone sync: add your computer’s address in settings';
-            text.title = 'On HTTPS, open Settings and enter your Mac’s Wi‑Fi address (localhost won’t work from your phone).';
+                ? 'Pantry writes: set cloud Worker URL'
+                : 'Pantry writes: add computer address';
+            text.title = 'On HTTPS from your phone, use Settings → Cloud write API, or your Mac’s Wi‑Fi address for the bridge.';
             return;
         }
 
         const res = await fetch(`${_apiUrl}/status`).catch(() => null);
         if (res && res.ok) {
             dot.className = 'status-dot online';
-            text.textContent = 'Phone sync: on';
+            text.textContent = 'Pantry writes: bridge on';
         } else {
             dot.className = 'status-dot offline';
-            text.textContent = 'Phone sync: off';
+            text.textContent = 'Pantry writes: bridge off';
         }
     } catch {
         dot.className = 'status-dot offline';
-        text.textContent = 'Phone sync: offline';
+        text.textContent = 'Pantry writes: offline';
     }
 }
 
@@ -2270,9 +2318,14 @@ async function saveItemChanges() {
     if (!_selectedItemForModal || !activeStock) return;
     
     try {
-        const response = await fetch(`${_apiUrl}/update_stock`, {
+        const base = getStockWriteBase();
+        const headers = { 'Content-Type': 'application/json' };
+        if (usesCloudWrite() && _writeApiSecret) {
+            headers['X-WooliesBot-Secret'] = _writeApiSecret;
+        }
+        const response = await fetch(`${base}/update_stock`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers,
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
                 item_id: _selectedItemForModal.item_id || null,
@@ -2280,16 +2333,25 @@ async function saveItemChanges() {
                 target: Number.isFinite(newTarget) ? newTarget : undefined,
             })
         });
-        
+
         if (response.ok) {
             haptic(15);
             _selectedItemForModal.stock = activeStock;
             _selectedItemForModal.target = newTarget;
             renderDashboard();
             closeModal();
+        } else if (response.status === 401 || response.status === 403) {
+            alert('Write rejected — check the write secret in Settings (must match the Worker).');
+        } else if (!response.ok) {
+            const errText = await response.text().catch(() => '');
+            alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
         }
     } catch (e) {
-        alert("Could not reach your computer. Check the address in Settings and that the app is running.");
+        alert(
+            usesCloudWrite()
+                ? 'Could not reach the cloud write API. Check the Worker URL and your connection.'
+                : 'Could not reach your computer. Check the address in Settings and that api.py is running.'
+        );
     }
 }
 
