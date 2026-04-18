@@ -49,6 +49,63 @@ function dismissPriceDropToast() {
     }
 }
 
+let _uiToastTimer = null;
+
+function showUiToast(message, duration = 3400) {
+    document.getElementById('ui-toast')?.remove();
+    if (_uiToastTimer) {
+        clearTimeout(_uiToastTimer);
+        _uiToastTimer = null;
+    }
+    const t = document.createElement('div');
+    t.id = 'ui-toast';
+    t.className = 'ui-toast';
+    t.setAttribute('role', 'status');
+    t.textContent = message;
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add('ui-toast-visible'));
+    _uiToastTimer = setTimeout(() => {
+        t.classList.remove('ui-toast-visible');
+        setTimeout(() => t.remove(), 320);
+    }, duration);
+}
+
+/** Deals hero pill — mirrors header “last updated” when available */
+function syncDealsHeroStatus() {
+    const live = document.getElementById('deals-hero-live');
+    if (!live) return;
+    const src = document.getElementById('last-updated');
+    const t = src && src.textContent ? src.textContent.trim() : '';
+    if (t && t !== 'Checking...') {
+        live.textContent = `Snapshot · ${t}`;
+        return;
+    }
+    if (_data && _data.length) {
+        live.textContent = `${_data.length} products tracked`;
+        return;
+    }
+    live.textContent = 'Waiting for data…';
+}
+
+function setInsightsChartEmpty(canvasId, isEmpty, title, hint) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const wrap = canvas.closest('.chart-container');
+    if (!wrap) return;
+    wrap.classList.toggle('has-empty-overlay', Boolean(isEmpty));
+    let el = wrap.querySelector('.insights-chart-empty');
+    if (!isEmpty) {
+        el?.remove();
+        return;
+    }
+    if (!el) {
+        el = document.createElement('div');
+        el.className = 'insights-chart-empty';
+        wrap.appendChild(el);
+    }
+    el.innerHTML = `<p class="insights-empty-title">${escapeHtml(title)}</p><p class="insights-empty-hint">${escapeHtml(hint)}</p>`;
+}
+
 // ── Skeleton loaders ──────────────────────────────────────────────────────────
 function showSkeletons() {
     const grid = document.getElementById('specials-grid');
@@ -104,7 +161,8 @@ function setupPullToRefresh() {
         pulling = false;
         if (triggered) {
             try {
-                await initDashboard();
+                const ok = await initDashboard();
+                if (ok) showUiToast('Prices updated');
             } finally {
                 indicator.classList.remove('ptr-visible');
             }
@@ -624,11 +682,15 @@ async function initDashboard() {
         const statusOk = document.getElementById('app-status');
         if (statusOk) statusOk.textContent = '';
         renderDashboard();
+        syncDealsHeroStatus();
+        return true;
     } catch (e) {
         console.error("Failed to initialize dashboard:", e);
         const statusEl = document.getElementById('app-status');
         if (statusEl) statusEl.textContent = 'Could not load prices. Pull down to refresh or try again.';
         document.getElementById('specials-grid').innerHTML = '<p style="color: #ef4444;">Could not load prices. Check your connection and refresh.</p>';
+        syncDealsHeroStatus();
+        return false;
     }
 }
 
@@ -673,7 +735,9 @@ function setupFilters() {
     document.getElementById('mobile-refresh-btn')?.addEventListener('click', () => {
         const btn = document.getElementById('mobile-refresh-btn');
         btn.classList.add('spin');
-        initDashboard().finally(() => {
+        initDashboard().then((ok) => {
+            if (ok) showUiToast('Prices updated');
+        }).finally(() => {
             setTimeout(() => btn.classList.remove('spin'), 1000);
         });
     });
@@ -865,6 +929,7 @@ function renderDashboard() {
     if (metaEl) metaEl.textContent = `${_data.length} items`;
     updateListCount();
     checkPriceDropAlerts();
+    syncDealsHeroStatus();
 }
 
 
@@ -1628,6 +1693,8 @@ function updateLastCheckedDisplay() {
 
     // 3. Refresh feather icons for the new structure
     if (typeof feather !== 'undefined') feather.replace();
+
+    syncDealsHeroStatus();
 }
 
 async function monitorApi() {
@@ -2322,6 +2389,17 @@ function renderAnalytics() {
 
     if (spendingCtx) {
         const sortedDates = Object.keys(priceIndexByMonth).sort();
+        const spendHistoryEmpty = sortedDates.length === 0;
+        setInsightsChartEmpty('spending-chart', spendHistoryEmpty,
+            'Not enough price history yet',
+            'Need several months of price_history per item. Charts fill in as WooliesBot records prices.');
+
+        if (spendHistoryEmpty) {
+            if (window.mySpendingChart) {
+                window.mySpendingChart.destroy();
+                window.mySpendingChart = null;
+            }
+        } else {
         const chartData = sortedDates.map(d => priceIndexByMonth[d].sum / priceIndexByMonth[d].count);
 
         // Second dataset: count how many distinct items hit their target each month
@@ -2365,13 +2443,13 @@ function renderAnalytics() {
                     {
                         label: 'Avg Item Price ($)',
                         data: chartData,
-                        borderColor: '#6366f1',
-                        backgroundColor: 'rgba(99, 102, 241, 0.08)',
+                        borderColor: '#818cf8',
+                        backgroundColor: 'rgba(129, 140, 248, 0.1)',
                         fill: true,
                         tension: 0.4,
                         borderWidth: 3,
                         pointRadius: 5,
-                        pointBackgroundColor: '#6366f1',
+                        pointBackgroundColor: '#818cf8',
                         yAxisID: 'yPrice',
                     },
                     {
@@ -2426,11 +2504,24 @@ function renderAnalytics() {
                 }
             }
         });
+        }
     }
 
     if (categoryCtx) {
         const labels = Object.keys(categories);
         const dataValues = Object.values(categories);
+        const catSum = dataValues.reduce((a, b) => a + b, 0);
+        const categoryEmpty = labels.length === 0 || catSum <= 0;
+        setInsightsChartEmpty('category-chart', categoryEmpty,
+            'No category spend yet',
+            'Once items have prices and categories, this doughnut chart shows where money clusters.');
+
+        if (categoryEmpty) {
+            if (window.myCategoryChart) {
+                window.myCategoryChart.destroy();
+                window.myCategoryChart = null;
+            }
+        } else {
         
         if (window.myCategoryChart) window.myCategoryChart.destroy();
 
@@ -2457,6 +2548,7 @@ function renderAnalytics() {
                 cutout: '70%'
             }
         });
+        }
     }
 
     renderDeeperInsights(brandPrices);

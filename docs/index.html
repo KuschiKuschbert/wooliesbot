@@ -10,13 +10,13 @@
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="icon" href="data:,">
 </head>
-<body>
+<body data-ui-surface="2036-visible">
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
@@ -75,6 +75,19 @@
     <main class="container">
         <!-- Tab 1: Deals & Shopping -->
         <section id="tab-deals" class="tab-content active">
+
+            <div class="deals-canvas" aria-label="Deals dashboard">
+            <header class="deals-hero">
+                <div class="deals-hero-main">
+                    <p class="deals-hero-eyebrow">Live specials intelligence</p>
+                    <h2 class="deals-hero-title display-headline">Spend less on what you actually buy</h2>
+                    <p class="deals-hero-sub">Woolworths &amp; Coles — ranked by your deal prices and what’s on special today.</p>
+                </div>
+                <div class="deals-hero-status" id="deals-hero-status" title="Price snapshot freshness">
+                    <span class="deals-hero-dot" aria-hidden="true"></span>
+                    <span id="deals-hero-live">Loading prices…</span>
+                </div>
+            </header>
 
             <!-- ── A: Compact Stats Strip (replaces bulky sidebar stat cards) ── -->
             <div class="stats-strip">
@@ -258,10 +271,12 @@
                     <div id="all-items-list" class="tracklist-mobile-list master-mobile-list"></div>
                 </div>
             </section>
+            </div><!-- /.deals-canvas -->
         </section>
 
         <!-- Tab 2: Analytics & Insights -->
         <section id="tab-analytics" class="tab-content">
+            <div class="insights-shell">
             <div class="analytics-header">
                 <h2 class="section-title">📈 Savings &amp; trends</h2>
                 <p class="section-subtitle">See how prices move and where you’re saving most</p>
@@ -400,12 +415,13 @@
                     <div id="target-intelligence-container"></div>
                 </div>
             </div>
+            </div><!-- /.insights-shell -->
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>Prices refresh on a schedule — WooliesBot</p>
+            <p>Prices refresh on a schedule — WooliesBot <span class="footer-ui-stamp" id="footer-ui-stamp" title="Static UI bundle id">· UI 2036-visible</span></p>
         </div>
     </footer>
 

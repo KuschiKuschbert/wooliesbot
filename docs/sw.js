@@ -1,5 +1,7 @@
-// WooliesBot Service Worker — stale-while-revalidate cache
-const CACHE = 'wooliesbot-v3-2036';
+// WooliesBot Service Worker — stale-while-revalidate cache.
+// If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
+// or hard-refresh; cache name bumps force a fresh precache on next visit.
+const CACHE = 'wooliesbot-v4-visible-ui';
 const PRECACHE = [
     './',
     './index.html',
@@ -7,7 +9,7 @@ const PRECACHE = [
     './style.css',
     './app.js',
     './data.json',
-    'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap',
+    'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap',
     'https://cdn.jsdelivr.net/npm/chart.js',
     'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
 ];
