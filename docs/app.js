@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
     registerSW();
     showSkeletons();
+    setupOverlayEscapeHandler();
     initDashboard().then(() => hideSkeletons());
     setupPullToRefresh();
     setupBottomSheetDrag();
@@ -17,6 +18,25 @@ function registerSW() {
 // ── Haptics helper ────────────────────────────────────────────────────────────
 function haptic(ms = 10) {
     try { navigator.vibrate?.(ms); } catch {}
+}
+
+function prefersReducedMotion() {
+    try {
+        return typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch {
+        return false;
+    }
+}
+
+let _focusBeforeDrawer = null;
+let _focusBeforeSettings = null;
+let _focusBeforeStockModal = null;
+
+function syncTabAriaCurrent(target) {
+    document.querySelectorAll('.nav-link[data-tab], .mobile-nav-link[data-tab]').forEach(el => {
+        if (el.dataset.tab === target) el.setAttribute('aria-current', 'page');
+        else el.removeAttribute('aria-current');
+    });
 }
 
 let _priceDropToastTimer = null;
@@ -569,9 +589,13 @@ async function initDashboard() {
         setupCompareGroupInteractions();
 
         setupFilters();
+        const statusOk = document.getElementById('app-status');
+        if (statusOk) statusOk.textContent = '';
         renderDashboard();
     } catch (e) {
         console.error("Failed to initialize dashboard:", e);
+        const statusEl = document.getElementById('app-status');
+        if (statusEl) statusEl.textContent = 'Error loading data.';
         document.getElementById('specials-grid').innerHTML = '<p style="color: #ef4444;">Error loading data.</p>';
     }
 }
@@ -591,13 +615,16 @@ function setupFilters() {
         
         // Sync mobile buttons
         mobileNavLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
+
+        syncTabAriaCurrent(target);
         
         // Switch content
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.classList.toggle('active', tab.id === `tab-${target}`);
         });
         
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (prefersReducedMotion()) window.scrollTo(0, 0);
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
         
         if (target === 'analytics') renderAnalytics();
         else renderDashboard();
@@ -708,12 +735,17 @@ function setupFilters() {
 }
 
 function openSettings() {
+    _focusBeforeSettings = document.activeElement;
     document.getElementById('bridge-url-input').value = _apiUrl;
     document.getElementById('settings-modal').style.display = 'flex';
+    setTimeout(() => document.getElementById('bridge-url-input')?.focus(), 0);
 }
 
 function closeSettings() {
     document.getElementById('settings-modal').style.display = 'none';
+    const prev = _focusBeforeSettings;
+    _focusBeforeSettings = null;
+    prev?.focus?.();
 }
 
 function saveSettings() {
@@ -729,13 +761,59 @@ function saveSettings() {
 function toggleDrawer() {
     const drawer = document.getElementById('list-drawer');
     const overlay = document.getElementById('drawer-overlay');
+    const toggleBtns = [
+        document.getElementById('toggle-list-btn'),
+        document.getElementById('mobile-toggle-list')
+    ].filter(Boolean);
     drawer.style.transform = ''; // reset any drag position
+    const willOpen = !drawer.classList.contains('open');
+    if (willOpen) _focusBeforeDrawer = document.activeElement;
     drawer.classList.toggle('open');
     overlay.classList.toggle('open');
-    if (drawer.classList.contains('open')) {
+    const isOpen = drawer.classList.contains('open');
+    toggleBtns.forEach(btn => btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'));
+    if (isOpen) {
         haptic(8);
         renderShoppingList();
+        setTimeout(() => document.getElementById('close-drawer')?.focus(), 0);
+    } else {
+        const prev = _focusBeforeDrawer;
+        _focusBeforeDrawer = null;
+        prev?.focus?.();
     }
+}
+
+function setupOverlayEscapeHandler() {
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if (document.getElementById('compare-group-modal')) {
+            e.preventDefault();
+            closeCompareGroupModal();
+            return;
+        }
+        if (document.getElementById('deepdive-modal')) {
+            e.preventDefault();
+            closeItemDeepdive();
+            return;
+        }
+        const stockModal = document.getElementById('overlay-modal');
+        if (stockModal && stockModal.style.display === 'flex') {
+            e.preventDefault();
+            closeModal();
+            return;
+        }
+        const settingsModal = document.getElementById('settings-modal');
+        if (settingsModal && settingsModal.style.display === 'flex') {
+            e.preventDefault();
+            closeSettings();
+            return;
+        }
+        const drawer = document.getElementById('list-drawer');
+        if (drawer?.classList.contains('open')) {
+            e.preventDefault();
+            toggleDrawer();
+        }
+    });
 }
 
 
@@ -1360,11 +1438,21 @@ function renderPredictions() {
 function updateListCount() {
     const el = document.getElementById('list-count');
     if (el) el.textContent = _shoppingList.length;
-    
+
     // Update mobile badge
     const mobileEl = document.getElementById('mobile-list-count');
     if (mobileEl) mobileEl.textContent = _shoppingList.length;
-    
+
+    const n = _shoppingList.length;
+    const mobileToggle = document.getElementById('mobile-toggle-list');
+    if (mobileToggle) {
+        mobileToggle.setAttribute('aria-label', n === 1 ? 'Shopping list, 1 item' : `Shopping list, ${n} items`);
+    }
+    const deskToggle = document.getElementById('toggle-list-btn');
+    if (deskToggle) {
+        deskToggle.setAttribute('aria-label', n === 1 ? 'Shopping list, 1 item' : `Shopping list, ${n} items`);
+    }
+
     // Enable copy button
     const copyBtn = document.getElementById('copy-list-btn');
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
@@ -2050,7 +2138,8 @@ function renderAllItems() {
 function openStockModal(itemName) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
-    
+
+    _focusBeforeStockModal = document.activeElement;
     _selectedItemForModal = item;
     document.getElementById('modal-title').textContent = displayName(item.name);
     document.getElementById('target-input-modal').value = item.target;
@@ -2060,10 +2149,18 @@ function openStockModal(itemName) {
     });
     
     document.getElementById('overlay-modal').style.display = 'flex';
+    setTimeout(() => {
+        document.querySelector('#overlay-modal .stock-btn.active')?.focus()
+            || document.getElementById('target-input-modal')?.focus()
+            || document.getElementById('modal-cancel')?.focus();
+    }, 0);
 }
 
 function closeModal() {
     document.getElementById('overlay-modal').style.display = 'none';
+    const prev = _focusBeforeStockModal;
+    _focusBeforeStockModal = null;
+    prev?.focus?.();
 }
 
 async function saveItemChanges() {

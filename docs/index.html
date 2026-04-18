@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
     <meta name="theme-color" content="#050505">
+    <meta name="color-scheme" content="dark">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
@@ -45,20 +46,20 @@
             </div>
 
             <nav class="main-nav">
-                <button class="nav-link active" data-tab="deals">
+                <button type="button" class="nav-link active" data-tab="deals" aria-current="page">
                     <i data-feather="tag"></i> Deals
                 </button>
-                <button class="nav-link" data-tab="analytics">
+                <button type="button" class="nav-link" data-tab="analytics">
                     <i data-feather="bar-chart-2"></i> Analytics
                 </button>
             </nav>
 
             <div class="header-actions">
                 <a href="discovery-review.html" style="text-decoration:none;padding:0.5rem 0.75rem;font-size:13px;color:var(--text-muted);border:1px solid var(--border-color);border-radius:8px;" title="Review discover_variants.py output before merging into data.json">Discovery</a>
-                <button id="settings-btn" class="icon-btn" style="margin-right: 8px;" title="Bridge Settings">
+                <button id="settings-btn" class="icon-btn" style="margin-right: 8px;" title="Bridge Settings" type="button" aria-label="Bridge settings">
                     <i data-feather="settings"></i>
                 </button>
-                <button id="toggle-list-btn" class="list-toggle-pill">
+                <button id="toggle-list-btn" class="list-toggle-pill" type="button" aria-expanded="false" aria-controls="list-drawer">
                     <i data-feather="shopping-cart"></i>
                     <span id="list-count">0</span> items
                 </button>
@@ -409,13 +410,13 @@
     </footer>
 
     <!-- Shopping List Drawer -->
-    <div id="list-drawer" class="list-drawer">
-        <div class="drawer-grabber" id="drawer-grabber"></div>
+    <div id="list-drawer" class="list-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+        <div class="drawer-grabber" id="drawer-grabber" aria-hidden="true"></div>
         <div class="drawer-header">
-            <h3>🛒 Shopping List</h3>
+            <h3 id="drawer-title">🛒 Shopping List</h3>
             <div class="drawer-header-actions">
-                <button id="clear-list-btn" class="clear-list-btn">Clear All</button>
-                <button id="close-drawer" class="icon-btn"><i data-feather="x"></i></button>
+                <button id="clear-list-btn" class="clear-list-btn" type="button">Clear All</button>
+                <button id="close-drawer" class="icon-btn" type="button" aria-label="Close shopping list"><i data-feather="x"></i></button>
             </div>
         </div>
         <div id="shopping-list-items" class="drawer-content"></div>
@@ -424,7 +425,7 @@
                 <span>Total Est:</span>
                 <span id="list-total-price">$0.00</span>
             </div>
-            <button id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
+            <button type="button" id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
                 <i data-feather="copy"></i> Copy List
             </button>
         </div>
@@ -432,10 +433,10 @@
     <div id="drawer-overlay" class="drawer-overlay"></div>
 
     <!-- Settings Modal (Bridge Fix) -->
-    <div id="settings-modal" class="modal-overlay" style="display:none;">
+    <div id="settings-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
         <div class="modal">
             <div class="modal-header">
-                <h3>⚙️ Bridge Settings</h3>
+                <h3 id="settings-modal-title">⚙️ Bridge Settings</h3>
                 <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Fix 'Bridge Offline' for phone/HTTPS</p>
             </div>
             <div class="modal-body">
@@ -446,52 +447,54 @@
                 <input type="text" id="bridge-url-input" placeholder="http://192.168.1.XX:5001" style="margin-top: 8px; font-family: monospace;">
             </div>
             <div class="modal-footer">
-                <button id="settings-cancel">Cancel</button>
-                <button id="settings-save" class="primary">Save &amp; Connect</button>
+                <button type="button" id="settings-cancel">Cancel</button>
+                <button type="button" id="settings-save" class="primary">Save &amp; Connect</button>
             </div>
         </div>
     </div>
 
     <!-- Modals (Stock / Target Edit) -->
-    <div id="overlay-modal" class="modal-overlay" style="display:none;">
+    <div id="overlay-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal">
             <h3 id="modal-title">Item Name</h3>
             <div class="modal-body">
                 <label>Set Stock Level:</label>
                 <div class="stock-selector">
-                    <button class="stock-btn low" data-level="low">Low</button>
-                    <button class="stock-btn med" data-level="medium">Medium</button>
-                    <button class="stock-btn full" data-level="full">Full</button>
+                    <button type="button" class="stock-btn low" data-level="low">Low</button>
+                    <button type="button" class="stock-btn med" data-level="medium">Medium</button>
+                    <button type="button" class="stock-btn full" data-level="full">Full</button>
                 </div>
                 <label style="margin-top:20px; display:block;">Target Price ($):</label>
                 <input type="number" id="target-input-modal" step="0.10">
             </div>
             <div class="modal-footer">
-                <button id="modal-cancel">Cancel</button>
-                <button id="modal-save" class="primary">Save Changes</button>
+                <button type="button" id="modal-cancel">Cancel</button>
+                <button type="button" id="modal-save" class="primary">Save Changes</button>
             </div>
         </div>
     </div>
 
-    <nav class="mobile-bottom-nav">
-        <button class="mobile-nav-link active" data-tab="deals">
+    <nav class="mobile-bottom-nav" aria-label="Primary">
+        <button type="button" class="mobile-nav-link active" data-tab="deals" aria-current="page">
             <i data-feather="tag"></i>
             <span>Deals</span>
         </button>
-        <button class="mobile-nav-link" data-tab="analytics">
+        <button type="button" class="mobile-nav-link" data-tab="analytics">
             <i data-feather="bar-chart-2"></i>
             <span>Insights</span>
         </button>
-        <button class="mobile-nav-link" id="mobile-refresh-btn">
+        <button type="button" class="mobile-nav-link" id="mobile-refresh-btn" aria-label="Refresh dashboard">
             <i data-feather="refresh-cw"></i>
             <span>Refresh</span>
         </button>
-        <button class="mobile-nav-link" id="mobile-toggle-list">
+        <button type="button" class="mobile-nav-link" id="mobile-toggle-list" aria-expanded="false" aria-controls="list-drawer" aria-label="Shopping list, 0 items">
             <i data-feather="shopping-cart"></i>
-            <span class="mobile-badge" id="mobile-list-count">0</span>
+            <span class="mobile-badge" id="mobile-list-count" aria-hidden="true">0</span>
             <span>List</span>
         </button>
     </nav>
+
+    <div id="app-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="app.js"></script>
 </body>

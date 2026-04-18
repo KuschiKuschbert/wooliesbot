@@ -1,4 +1,5 @@
 :root {
+    color-scheme: dark;
     --bg-base: #050505;
     --bg-dark: #0a0a0c;
     --bg-card: rgba(18, 18, 24, 0.65);
@@ -23,6 +24,82 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Screen-reader-only (live regions, skip links) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Keyboard focus — visible ring without mouse clutter */
+button:focus-visible,
+a:focus-visible,
+.nav-link:focus-visible,
+.mobile-nav-link:focus-visible,
+.filter-btn:focus-visible,
+.sort-pill:focus-visible,
+.filter-btn-cat:focus-visible,
+.icon-btn:focus-visible,
+.stock-btn:focus-visible,
+.master-table-toggle:focus-visible,
+.list-toggle-pill:focus-visible,
+.clear-list-btn:focus-visible,
+.sync-btn:focus-visible,
+.modal-footer button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.search-wrap input:focus-visible,
+input[type="text"]:focus-visible,
+input[type="number"]:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.pagination-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton,
+    .skeleton-card .skeleton {
+        animation: none !important;
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .ptr-spinner {
+        animation: none !important;
+    }
+
+    .spin {
+        animation: none !important;
+    }
+
+    .spin svg {
+        transform: none;
+    }
+
+    .price-drop-toast {
+        animation: none !important;
+    }
+
+    .list-drawer {
+        transition: none !important;
+    }
+
+    .drawer-overlay {
+        transition: none !important;
+    }
 }
 
 body {
@@ -1528,14 +1605,8 @@ footer {
         flex-direction: column;
     }
 
-    .stats-sidebar {
-        order: 2; /* Move stats below the feed */
-        padding-bottom: 100px; /* Space for bottom nav */
-    }
-
-    .main-feed {
-        order: 1;
-    }
+    /* Column order (priority rail → sidebar strip → main feed) is defined only in the
+       MOBILE OVERHAUL block later in this file — avoids conflicting order rules here. */
 
     .feed-header {
         flex-direction: column;
@@ -4311,6 +4382,7 @@ button, a, label, [role="button"] {
     /* ── Mobile priority rail ───────────────────── */
     .priority-rail {
         display: block;
+        order: 0;
         margin: 0.2rem 0 0.35rem;
     }
 
@@ -4352,10 +4424,10 @@ button, a, label, [role="button"] {
         gap: 6px;
     }
 
-    /* ── Sticky filter bar ──────────────────────── */
+    /* ── Sticky filter bar (below header + notch safe area) ───────────────── */
     .sticky-filter-bar {
         position: sticky;
-        top: 46px; /* under compact header */
+        top: calc(env(safe-area-inset-top, 0px) + 52px);
         z-index: 900;
         background: rgba(5, 5, 5, 0.88);
         backdrop-filter: blur(16px);
@@ -4538,14 +4610,45 @@ button, a, label, [role="button"] {
     .master-desktop-table { display: none; }
     .master-mobile-list   { display: block; }
 
-    /* ── Sidebar push below fold: hide on mobile
-         since priority rail handles Buy Now / Top 5 */
+    /* ── Mobile column order (single source of truth):
+         .priority-rail order:0 → .stats-sidebar order:1 → .main-feed order:2
+         Sidebar shows Essentials + Cola + banners; priority rail mirrors Buy Now + Top 5.
+         Hide duplicate #top5-card / #buy-now-card in sidebar (see rules below). */
     .stats-sidebar {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        order: 1;
+        margin-top: 0.15rem;
+        padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .stats-sidebar #top5-card,
+    .stats-sidebar #buy-now-card {
+        display: none !important;
+    }
+
+    /* Long essentials lists scroll inside the card so filters + grid stay easier to reach */
+    .stats-sidebar .essentials-checklist {
+        max-height: min(38vh, 280px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-right: 4px;
+        margin-top: 8px;
+        scrollbar-width: thin;
+    }
+
+    .stats-sidebar .cola-card .arena-fighters {
+        gap: 6px;
+    }
+
+    .stats-sidebar .fighter-product {
+        font-size: 11px;
+        line-height: 1.25;
     }
 
     .main-feed {
-        order: 1;
+        order: 2;
     }
 
     /* ── Analytics: compact cards ───────────────── */
