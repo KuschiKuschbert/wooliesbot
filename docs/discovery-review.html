@@ -2,100 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#050505">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a14">
+    <meta name="color-scheme" content="dark">
     <title>WooliesBot — Discovery review</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .dr-page { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; }
-        .dr-hero {
-            margin-bottom: 24px;
-        }
-        .dr-hero h1 {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .dr-hero p { color: var(--text-muted); font-size: 14px; max-width: 52ch; }
-        .dr-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 20px;
-            backdrop-filter: var(--glass-blur);
-        }
-        .dr-panel label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-        .dr-textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: rgba(0,0,0,0.35);
-            color: var(--text-main);
-            font-family: ui-monospace, monospace;
-            font-size: 12px;
-            resize: vertical;
-        }
-        .dr-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
-        .dr-btn {
-            padding: 10px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: rgba(255,255,255,0.06);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        .dr-btn:hover { background: rgba(255,255,255,0.1); }
-        .dr-btn.primary { background: var(--primary); border-color: transparent; color: #fff; }
-        .dr-btn.primary:hover { filter: brightness(1.08); }
-        .dr-file { font-size: 13px; color: var(--text-muted); }
-        .dr-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
-        .dr-stats { font-size: 13px; color: var(--text-muted); }
-        .dr-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-color); }
-        table.dr-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .dr-table th, .dr-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .dr-table th { color: var(--text-muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-        .dr-table tr:hover td { background: rgba(255,255,255,0.03); }
-        .dr-table a { color: var(--woolies-green); word-break: break-all; font-size: 11px; }
-        .dr-table a.coles { color: var(--coles-red); }
-        .dr-empty { padding: 24px; text-align: center; color: var(--text-muted); font-size: 14px; }
-        .dr-export {
-            width: 100%;
-            min-height: 140px;
-            margin-top: 12px;
-        }
-        .dr-checkbox { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
-        .dr-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 16px; }
-        .dr-back:hover { color: var(--text-main); }
-        .dr-warn {
-            font-size: 12px;
-            color: #fbbf24;
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-top: 12px;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
-                <a href="index.html" class="dr-back" style="margin:0;">← Dashboard</a>
-                <div class="logo">
-                    <h1 style="font-size:1.25rem;">Discovery review</h1>
+                <a href="index.html" class="dr-back">← Dashboard</a>
+                <div class="logo dr-logo-lockup">
+                    <span class="dr-logo-mark" aria-hidden="true">◇</span>
+                    <h1 class="dr-logo-title">Discovery review</h1>
                 </div>
             </div>
         </div>
@@ -116,9 +37,9 @@
                 <button type="button" class="dr-btn" id="btn-clear">Clear</button>
             </div>
             <div class="dr-warn">Always backup <code>docs/data.json</code> before merging. Remove <code>_discovery_meta</code> keys when pasting into inventory (toggle below).</div>
-            <details style="margin-top:14px;color:var(--text-muted);font-size:13px;">
-                <summary style="cursor:pointer;color:var(--primary);font-weight:600;">Safety checklist (read before merge)</summary>
-                <ul style="margin:10px 0 0 18px;line-height:1.65;">
+            <details class="dr-details">
+                <summary class="dr-details-summary">Safety checklist (read before merge)</summary>
+                <ul class="dr-details-body">
                     <li>Git commit or copy <code>docs/data.json</code> before pasting rows.</li>
                     <li>Strip <code>_discovery_meta</code> / export with “Strip _ keys” enabled.</li>
                     <li>Deduplicate names and PDP URLs against existing items.</li>
@@ -133,7 +54,7 @@
             <div class="dr-toolbar">
                 <button type="button" class="dr-btn" id="btn-all">Select all</button>
                 <button type="button" class="dr-btn" id="btn-none">Select none</button>
-                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-main);">
+                <label>
                     <input type="checkbox" id="strip-meta" checked class="dr-checkbox">
                     Strip <code>_discovery_meta</code> and keys starting with <code>_</code> in export
                 </label>
@@ -156,7 +77,7 @@
                 <div class="dr-empty" id="dr-empty" style="display:none;">No draft_items found in JSON.</div>
             </div>
 
-            <label for="export-out" style="margin-top:20px;">Export — paste into <code>items</code> array</label>
+            <label for="export-out" class="dr-export-label">Export — paste into <code>items</code> array</label>
             <textarea id="export-out" class="dr-textarea dr-export" readonly></textarea>
             <div class="dr-row">
                 <button type="button" class="dr-btn primary" id="btn-copy">Copy export</button>

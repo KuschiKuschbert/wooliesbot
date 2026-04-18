@@ -1,8 +1,9 @@
 // WooliesBot Service Worker — stale-while-revalidate cache
-const CACHE = 'wooliesbot-v1';
+const CACHE = 'wooliesbot-v3-2036';
 const PRECACHE = [
     './',
     './index.html',
+    './discovery-review.html',
     './style.css',
     './app.js',
     './data.json',
