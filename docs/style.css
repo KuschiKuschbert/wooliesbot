@@ -18,6 +18,11 @@
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     --glass-blur: blur(16px);
+    /* Shared glass panels (Deals stat-card + Insights analytics-card) */
+    --surface-radius: 20px;
+    --surface-padding: 1.75rem;
+    --surface-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --surface-hover-translate-y: -5px;
 }
 
 * {
@@ -262,14 +267,14 @@ body {
 .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 28px;
+    border-radius: var(--surface-radius);
+    padding: var(--surface-padding);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: var(--surface-shadow);
 }
 
 .stat-card::before {
@@ -283,7 +288,7 @@ body {
 }
 
 .stat-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(var(--surface-hover-translate-y));
     background: var(--bg-card-hover);
     border-color: rgba(255,255,255,0.15);
 }
@@ -746,15 +751,17 @@ body {
 .tab-content.active { display: block; animation: fadeInUp 0.4s ease; }
 
 .analytics-header {
-    margin: 3rem 0;
-    padding-left: 10px;
-    border-left: 4px solid var(--primary);
+    margin: 2.5rem 0 1.5rem;
+    padding-left: 0;
+    border-left: none;
 }
 
-.analytics-header h2 {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -1px;
+.analytics-header .section-title {
+    margin-bottom: 0.35rem;
+}
+
+.analytics-header .section-subtitle {
+    margin-bottom: 0;
 }
 
 .analytics-grid {
@@ -767,17 +774,18 @@ body {
 .analytics-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 2rem;
+    border-radius: var(--surface-radius);
+    padding: var(--surface-padding);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: var(--surface-shadow);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .analytics-card:hover {
     background: var(--bg-card-hover);
-    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(var(--surface-hover-translate-y));
 }
 
 .analytics-card.span-2 { grid-column: span 2; }
@@ -921,9 +929,6 @@ body {
     color: white;
     box-shadow: 0 4px 12px var(--primary-glow);
 }
-
-#tab-analytics { display: none; }
-#tab-analytics.active { display: block; }
 
 .deal-badge {
     display: inline-block;
@@ -1619,16 +1624,16 @@ footer {
     }
 
     .analytics-header {
-        margin: 1.5rem 0;
+        margin: 1rem 0 0.75rem;
     }
 
-    .analytics-header h2 {
-        font-size: 24px;
+    .analytics-header .section-title {
+        font-size: 1.35rem;
     }
 
     .analytics-grid {
         grid-template-columns: 1fr;
-        padding-bottom: 80px;
+        padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
     }
 
     .analytics-card.span-2, .analytics-card.span-3 {
@@ -3775,15 +3780,15 @@ a.fighter.winner:hover {
     opacity: 0.8;
 }
 
-/* stat-card base (for sidebar) - ensure it still works with new layout */
+/* stat-card (sidebar): same surface tokens as analytics-card — avoid drift */
 .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 1.2rem 1.4rem;
+    border-radius: var(--surface-radius);
+    padding: var(--surface-padding);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    box-shadow: var(--surface-shadow);
 }
 
 .stat-header {

@@ -2471,6 +2471,21 @@ function renderAnalytics() {
     renderBestTimeToBuy();
     renderPantryHealthScore();
     renderCompareGroupDiagnostics();
+
+    if (typeof feather !== 'undefined') feather.replace();
+    resizeInsightsCharts();
+}
+
+/** After tab switch, Chart.js may have wrong dimensions if the tab was `display:none`. */
+function resizeInsightsCharts() {
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            try {
+                window.mySpendingChart?.resize();
+                window.myCategoryChart?.resize();
+            } catch (e) { /* ignore */ }
+        });
+    });
 }
 
 function renderTargetIntelligence() {
