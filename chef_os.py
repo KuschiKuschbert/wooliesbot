@@ -11,6 +11,7 @@ import random
 import re
 import os
 import json
+import fcntl
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import importlib.util as _ilu
 import pathlib as _pl
@@ -43,6 +44,52 @@ def _load_dotenv():
     except Exception:
         pass
 _load_dotenv()
+
+
+def _env_truthy(name, default=False):
+    """True if env var is set to 1/true/yes/on (or not 0/false when default=True)."""
+    v = (os.environ.get(name) or "").strip().lower()
+    if default:
+        return v not in ("0", "false", "no", "off", "")
+    return v in ("1", "true", "yes", "on")
+
+
+# Cross-process mutex so launchd + `chef_os.py --now` cannot race on data.json
+_SCRAPE_LOCK_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "chef_os_scrape.lock")
+
+
+def _acquire_scrape_lock():
+    """Return fd if exclusive lock acquired, else None (another run_report is active)."""
+    try:
+        os.makedirs(os.path.dirname(_SCRAPE_LOCK_PATH), exist_ok=True)
+        fd = os.open(_SCRAPE_LOCK_PATH, os.O_CREAT | os.O_RDWR, 0o644)
+    except OSError as e:
+        logging.warning(f"Could not open scrape lock file: {e}")
+        return None
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return fd
+    except BlockingIOError:
+        try:
+            os.close(fd)
+        except OSError:
+            pass
+        return None
+
+
+def _release_scrape_lock(fd):
+    if fd is None:
+        return
+    try:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+    except OSError:
+        pass
+    try:
+        os.close(fd)
+    except OSError:
+        pass
+
+
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN") or "8368391759:AAHsHDDhofVl4WQQIWpHsNNPQnzvS80jOmU"
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID") or "-1003888115204"
 
@@ -814,11 +861,11 @@ def _cffi_search_woolworths_product(session, search_term, inventory_name=None):
             logging.debug(f"Woolworths search API HTTP {resp.status_code} for '{search_term[:30]}'")
             return None
         data = resp.json()
-        products = data.get("Products", [])
+        products = data.get("Products") or []
         if not products:
             return None
         bundle = products[0]
-        items = bundle.get("Products", [])
+        items = bundle.get("Products") or []
         if not items:
             return None
         # Try top results, pick the best name-overlap match
@@ -2465,7 +2512,15 @@ def run_report(full_list=False, send_telegram_messages=True):
     full_list: /show_staples - full staples list with all prices. False = deals only.
     send_telegram_messages: whether to output the full report to telegram.
     Big Shop (bulk qty) auto-detected from date (after 14th).
+    Uses a cross-process file lock so only one scrape mutates data.json at a time.
     """
+    lock_fd = _acquire_scrape_lock()
+    if lock_fd is None:
+        logging.warning(
+            "Scrape skipped: another run_report is already in progress (lock held)."
+        )
+        return
+    notify_errors = send_telegram_messages or _env_truthy("WOOLIESBOT_TELEGRAM_ERRORS")
     global NEXT_SCHEDULED_RUN
     try:
         today = datetime.datetime.now()
@@ -2536,7 +2591,10 @@ def run_report(full_list=False, send_telegram_messages=True):
     except Exception as e:
         error_trace = traceback.format_exc()
         logging.error(f"Error in run_report: {e}\n{error_trace}")
-        send_telegram(f"🚨 *REPORT ERROR*:\n{_escape_md(str(e))}")
+        if notify_errors:
+            send_telegram(f"🚨 *REPORT ERROR*:\n{_escape_md(str(e))}")
+    finally:
+        _release_scrape_lock(lock_fd)
 
 # ─── AD-HOC PRODUCT SEARCH (/find) ───────────────────────────────────────────
 
@@ -2673,11 +2731,19 @@ def _cffi_search_woolworths(session, query, max_results=5):
         data = resp.json()
         suggested = data.get("SuggestedTerm")
         results = []
-        for group in data.get("Products", [])[:max_results]:
+        for group in (data.get("Products") or [])[:max_results]:
             prod = (group.get("Products") or [{}])[0]
             if not prod.get("Name") or prod.get("Price") is None:
                 continue
             cup_price, cup_measure = _parse_woolworths_cup(prod.get("CupString", ""))
+            raw_sc = prod.get("Stockcode") if prod.get("Stockcode") is not None else prod.get("StockCode")
+            stockcode = None
+            if raw_sc is not None:
+                try:
+                    stockcode = int(raw_sc)
+                except (TypeError, ValueError):
+                    stockcode = None
+            url_slug = (prod.get("UrlFriendlyName") or "").strip()
             result = {
                 "name": prod.get("Name", ""),
                 "brand": prod.get("Brand", ""),
@@ -2689,6 +2755,8 @@ def _cffi_search_woolworths(session, query, max_results=5):
                 "size": prod.get("PackageSize", ""),
                 "on_special": prod.get("IsOnSpecial", False),
                 "store": "woolworths",
+                "stockcode": stockcode,
+                "url_friendly": url_slug,
             }
             _enrich_with_unit_price(result)
             results.append(result)
@@ -3576,14 +3644,22 @@ if __name__ == "__main__":
             # on every cold boot after the first run.
             _DEEP_SYNC_FLAG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".deep_sync_needed")
 
+            # Avoid stacking duplicate jobs if the outer supervisor loop restarts after a crash
+            schedule.clear()
+
             # Update website frequently (every 4 hours) without telegram messages
             schedule.every(4).hours.do(_silent_update)
 
             # Trigger telegram ping ONLY on Sunday morning with a link to the website
             schedule.every().sunday.at("09:00").do(_sunday_ping)
             
-            # Startup notification — welcoming intro + full command reference
-            send_telegram("⚙️ *WooliesBot Internal Supervisor active.* System is now monitoring prices and listening for commands.")
+            # Startup notification — optional (set WOOLIESBOT_TELEGRAM_STARTUP=0 to mute; default on)
+            _su = (os.environ.get("WOOLIESBOT_TELEGRAM_STARTUP") or "1").strip().lower()
+            if _su not in ("0", "false", "no", "off"):
+                send_telegram(
+                    "⚙️ *WooliesBot Internal Supervisor active.* "
+                    "System is now monitoring prices and listening for commands."
+                )
             logging.info("WoolesBot is active. Listening for Sunday 9am and /shop command...")
             
             while True:

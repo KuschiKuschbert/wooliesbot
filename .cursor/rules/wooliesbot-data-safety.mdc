@@ -1,0 +1,40 @@
+---
+description: >-
+  Mandatory safety and workflow rules for WooliesBot inventory (docs/data.json),
+  chef_os scraping, variant discovery, and compare_group edits. Applies to every
+  Cursor session in this workspace.
+alwaysApply: true
+---
+
+# WooliesBot — Data & operations safety (always)
+
+Follow these in **every** conversation that touches inventory, scrapers, or supermarket APIs. For anti-bot TLS/request rules, see **wooliesbot-scraper** (`chef_os.py`).
+
+## Inventory and `docs/data.json`
+
+- **Never bulk-replace** [`docs/data.json`](docs/data.json) without a **backup or git checkpoint** (commit, branch, or copy). One bad paste can wipe hundreds of URLs.
+- After adding or merging rows: check **duplicate `name`**, **duplicate store URLs**, and consistent **`compare_group`** ids (prefer stable `snake_case`, e.g. `cola`, `tp_quilton`).
+- **`compare_group`** is manual taxonomy — keep names consistent so dashboard group hints stay meaningful.
+
+## Daemon vs manual edits
+
+- Do **not** assume manual edits persist if **`chef_os.py`** (launchd) is still running with stale in-memory `TRACKING_LIST` — **stop/restart** the service per project docs before permanent URL fixes, or edits can be overwritten on next save.
+
+## Discovery / extra search traffic
+
+- Variant discovery and inventory-scan modes issue **additional** Search/API calls. **Cap** queries per run; **do not parallelize** curl_cffi search (same constraints as [`chef_os.py`](chef_os.py)).
+- Avoid hammering discovery during a **full scheduled scrape** on the same host when possible.
+- **Weighted / deli** products: poor BFF coverage — treat automated variant expansion as **high risk**; prefer explicit PDP URLs or exclude by category.
+
+## Verification
+
+- After changing scrape paths, URLs, or inventory shape: run [`scripts/e2e_validate.py`](scripts/e2e_validate.py) (at least layers **B** and **C**; **D** sample when URLs change).
+- Periodically sanity-check **compare_group** winners (wrong flavour/line still possible).
+
+## Privacy
+
+- [`docs/data.json`](docs/data.json) may encode **purchase and preference patterns** if committed. Be mindful when sharing repos or screenshots.
+
+## Product semantics
+
+- Dashboard **group-best** can recommend **large packs** with best $/unit — use as **information**; per-item **targets** and personal pack-size limits still apply.

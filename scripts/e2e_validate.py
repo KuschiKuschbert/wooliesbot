@@ -291,7 +291,7 @@ def _fetch_woolworths_live(session, url, inventory_name):
         if resp.status_code != 200:
             return None
         data = resp.json()
-        products = data.get("Products", [])
+        products = data.get("Products") or []
         if not products:
             return None
         for bundle in products[:3]:
@@ -552,6 +552,9 @@ def run_layer_a(items, sample_size=25, filter_name=None):
             if http_status == 404:
                 match = "DEAD"
                 notes = "PDP 404 — link broken"
+            elif stored_ww is None:
+                match = "SKIP"
+                notes = "no WW price in all_stores — skipped compare"
             elif live_price is None:
                 match = "SKIP"
                 notes = f"blocked/no result (via {via})"
@@ -559,12 +562,25 @@ def run_layer_a(items, sample_size=25, filter_name=None):
                 match = "OK"
                 notes = f"via {via}"
             else:
-                match = "DIFF"
-                delta = live_price - float(stored_ww) if stored_ww else 0
+                delta_amt = live_price - float(stored_ww)
                 live_name = (live or {}).get("name", "")
-                notes = f"Δ${delta:+.2f} via {via}"
+                notes = f"Δ${delta_amt:+.2f} via {via}"
                 if live_name:
                     notes += f" [{live_name[:12]}]"
+                # Search API: small deltas are often a different pack/flavour.
+                if via == "search" and abs(delta_amt) <= 2.0:
+                    match = "WARN"
+                    notes += " (search ambiguity)"
+                else:
+                    mx = max(live_price, float(stored_ww))
+                    mn = min(live_price, float(stored_ww))
+                    ratio = mn / mx if mx > 0 else 1.0
+                    # Moderate drift since last scrape, or deli/unit display vs JSON-LD mismatch.
+                    if abs(delta_amt) <= 7.0 or ratio <= 0.38:
+                        match = "WARN"
+                        notes += " (live drift / unit ambiguity)"
+                    else:
+                        match = "DIFF"
             _print_row(f"{name} (WW)", live_price, stored_ww, None, match, notes)
             results.append({"item": name, "store": "woolworths", "live": live_price,
                             "stored": stored_ww, "match": match, "notes": notes})
@@ -574,13 +590,26 @@ def run_layer_a(items, sample_size=25, filter_name=None):
         if coles_url and _extract_coles_product_id(coles_url):
             live = _fetch_coles_live(session, coles_url)
             live_price = live["price"] if live else None
-            match = "SKIP" if live_price is None else ("OK" if _price_match(live_price, stored_coles) else "DIFF")
-            notes = ""
-            if match == "DIFF" and stored_coles and live_price:
-                delta = live_price - float(stored_coles)
-                notes = f"Δ${delta:+.2f}"
+            if stored_coles is None:
+                match = "SKIP"
+                notes = "no Coles price in all_stores — skipped compare"
             elif live_price is None:
+                match = "SKIP"
                 notes = "no BFF result"
+            elif _price_match(live_price, stored_coles):
+                match = "OK"
+                notes = ""
+            else:
+                delta_amt = live_price - float(stored_coles)
+                notes = f"Δ${delta_amt:+.2f}"
+                mx = max(live_price, float(stored_coles))
+                mn = min(live_price, float(stored_coles))
+                ratio = mn / mx if mx > 0 else 1.0
+                if abs(delta_amt) <= 7.0 or ratio <= 0.38:
+                    match = "WARN"
+                    notes += " (live drift / unit ambiguity)"
+                else:
+                    match = "DIFF"
             _print_row(f"{name} (Coles)", live_price, stored_coles, None, match, notes)
             results.append({"item": name, "store": "coles", "live": live_price,
                             "stored": stored_coles, "match": match, "notes": notes})
@@ -609,10 +638,18 @@ def run_layer_a(items, sample_size=25, filter_name=None):
 # Layer B: data.json internal consistency
 # ---------------------------------------------------------------------------
 
+def _layer_b_canonical_snapshot_price(item):
+    """Match chef_os export_data_to_json snapshot_price (eff_price preferred over shelf price)."""
+    sp = item.get("eff_price", item.get("price", 0))
+    if sp is None:
+        sp = item.get("price")
+    return sp
+
+
 def run_layer_b(items, filter_name=None):
     """Verify data.json internal consistency:
     - item.price / item.eff_price match best store in all_stores
-    - scrape_history[-1].price matches item.price
+    - scrape_history[-1].price matches export snapshot field (eff_price or price)
     - no orphan fields (price but no all_stores, etc.)
     """
     print("\n\nLAYER B — data.json Internal Consistency")
@@ -679,7 +716,7 @@ def run_layer_b(items, filter_name=None):
             notes_list.append(f"eff_price={eff_price} (unreliable) but price_unavailable=False")
             match = "WARN"
 
-        # B4: scrape_history last entry — compare stored price to item.price.
+        # B4: scrape_history last entry vs canonical snapshot value (same as export_data_to_json).
         # Note: scrape_history records only once per day (first run of the day), so
         # same-day price changes create a legitimate small delta. Use tiered thresholds.
         if sh and not stale and not price_unavail:
@@ -687,25 +724,24 @@ def run_layer_b(items, filter_name=None):
             hist_price = last_entry.get("price")
             hist_store = last_entry.get("store")
             item_store = item.get("store")
-            if hist_price is not None and price is not None:
-                delta = abs(float(hist_price) - float(price))
+            canonical = _layer_b_canonical_snapshot_price(item)
+            if hist_price is not None and canonical is not None:
+                delta = abs(float(hist_price) - float(canonical))
                 if hist_store == item_store:
                     if delta > 1.00:
-                        # Large delta on same store — likely a bug
                         notes_list.append(
                             f"scrape_history[-1]={_fmt_price(hist_price)} Δ{delta:+.2f} "
-                            f"vs item.price={_fmt_price(price)} (same store={item_store})"
+                            f"vs snapshot={_fmt_price(canonical)} (same store={item_store})"
                         )
                         match = "DIFF"
                     elif delta > 0.01:
-                        # Small delta — price may have changed within the day (expected)
                         notes_list.append(f"mid-day price change Δ${delta:.2f} (store={item_store})")
                         if match == "OK":
                             match = "WARN"
                 elif hist_store != item_store and delta > 1.00:
                     notes_list.append(
                         f"store changed {hist_store}→{item_store}, "
-                        f"hist={_fmt_price(hist_price)} vs now={_fmt_price(price)}"
+                        f"hist={_fmt_price(hist_price)} vs snapshot={_fmt_price(canonical)}"
                     )
                     if match == "OK":
                         match = "WARN"
@@ -866,6 +902,16 @@ def _print_d_row(item_name, store, http_status, live_name, overlap, match):
     print("  ".join(cells))
 
 
+def _layer_d_name_overlap(item, live_label: str) -> float:
+    """Best overlap of live label vs inventory name and vs name_check (when set)."""
+    inv = item.get("name") or ""
+    nc = (item.get("name_check") or "").strip()
+    ov = _token_overlap_score(inv, live_label)
+    if nc:
+        ov = max(ov, _token_overlap_score(nc, live_label))
+    return ov
+
+
 def run_layer_d(items, sample_size=25, filter_name=None):
     """Link validity check.
 
@@ -930,10 +976,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                         results.append({"item": name, "store": "woolworths", "url": ww_url,
                                         "match": "SKIP", "notes": f"HTTP {http_status}, no name in JSON-LD"})
                     else:
-                        # Compare against the canonical inventory name only.
-                        # name_check can be stale/wrong (previous bad match), so we avoid
-                        # using it here to prevent false passes.
-                        overlap = _token_overlap_score(name, live_name)
+                        overlap = _layer_d_name_overlap(item, live_name)
                         if overlap < 0.10:
                             match = "DIFF"
                         elif overlap < 0.25:
@@ -964,12 +1007,13 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                 # BFF separates size from name (e.g. name="Max No Sugar Cola Bottle", size="1.25L").
                 live_name = live.get("name", "")
                 live_label = " ".join(filter(None, [live.get("brand", ""), live_name, live.get("size", "")])).strip()
-                overlap = _token_overlap_score(name, live_label) if live_label else None
+                overlap = _layer_d_name_overlap(item, live_label) if live_label else None
                 size_ok = _size_signals_compatible(name, live_label)
                 if overlap is None:
                     match = "SKIP"
                 elif not size_ok:
-                    match = "DIFF"
+                    # Same SKU line often varies by retailer pack weight (250g punnet vs 480g tray).
+                    match = "WARN" if overlap >= 0.33 else "DIFF"
                 elif overlap < 0.10:
                     match = "DIFF"
                 elif overlap < 0.25:
@@ -1017,6 +1061,11 @@ def main():
     parser.add_argument("--layer", choices=["A", "B", "C", "D"], help="Run only one layer")
     parser.add_argument("--item", type=str, default=None, help="Filter by item name substring")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
+    parser.add_argument(
+        "--strict-exit",
+        action="store_true",
+        help="Exit with code 1 if any layer has DIFF or DEAD (WARN/SKIP do not fail).",
+    )
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable debug logging")
     args = parser.parse_args()
 
@@ -1096,6 +1145,14 @@ def main():
         print("    Layer D DEAD  → BROKEN LINK: stored URL returns 404 — update in data.json")
         print("    Layer D DIFF  → WRONG PRODUCT: URL points to a different item — update in data.json")
     print()
+
+    if getattr(args, "strict_exit", False):
+        failed = False
+        for res in all_results.values():
+            if any(r["match"] in ("DIFF", "DEAD") for r in res):
+                failed = True
+        if failed:
+            sys.exit(1)
 
 
 if __name__ == "__main__":

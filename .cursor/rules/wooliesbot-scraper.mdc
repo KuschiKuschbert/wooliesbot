@@ -1,0 +1,146 @@
+---
+description: Architecture and anti-bot strategies for the WooliesBot price scraper (chef_os.py). Read when editing scraper code, debugging blocked requests, or adding new stores/items.
+globs: chef_os.py
+alwaysApply: false
+---
+
+# WooliesBot Scraper — Architecture & Anti-Bot Playbook
+
+## Architecture (chef_os.py)
+
+- **413+ tracked items**, each with Woolworths URL and (usually) a Coles URL
+- Data stored in `docs/data.json`, served via GitHub Pages dashboard at `https://KuschiKuschbert.github.io/wooliesbot/`
+- Scheduled via launchd (`com.wooliesbot.automation.plist`)
+
+## Scraping Strategy per Store
+
+### Woolworths (curl_cffi, no browser)
+
+| Phase | Method | Items | Speed |
+|-------|--------|-------|-------|
+| Search API | `POST /apis/ui/Search/products` | ~355 search-URL items | ~0.5s jitter |
+| PDP HTML | `GET /shop/productdetails/...` + JSON-LD extraction | ~59 PDP items | ~1.5s jitter |
+| PDP→Search fallback | If PDP has no JSON-LD price, retry via Search API with cleaned inventory name | PDP misses | automatic |
+
+- One UA profile locked for the entire run (`_run_ua_profile`)
+- Sequential processing, batches of 20 with 8-15s pauses
+- Circuit breaker on consecutive **blocks** (not missing prices)
+- `_CFFI_RESULT_NO_PRICE` vs `_CFFI_RESULT_BLOCKED` — only blocks trigger circuit breaker
+
+### Woolworths — Product Matching (`_cffi_search_woolworths_product`)
+
+Two layers of size-signal validation before accepting a search result:
+
+1. **`_SIZE_MODIFIERS`** — word-level set check: `{"small", "mini", "large", "bulk", "family", "mega"}`. If inventory and result have conflicting modifier words → reject.
+
+2. **`_size_signals_compatible`** — numeric size check: extracts `packs`, `volumes_ml`, `weights_g` from both names. Rejects if both sides have a non-empty set for the same key and they conflict.
+
+3. **Asymmetric large-weight guard** (added 2026-04): If the inventory item specifies a large pack (≥500g) but the search result has **no weight signal at all**, reject when `_token_overlap_score < 0.35`. This prevents loose/individual items (e.g. "Carrot Fresh") matching pack items ("Carrot 1Kg P/P").
+
+### Coles — BFF API (curl_cffi, no browser)
+
+**Primary method. Bypasses Imperva entirely.**
+
+```
+GET https://www.coles.com.au/api/bff/products/{product_id}
+    ?storeId={_COLES_BFF_STORE_ID}
+    &subscription-key={_COLES_BFF_SUBSCRIPTION_KEY}
+```
+
+- Product ID = trailing digits of the PDP URL (`-(\d{4,})$`)
+- Returns JSON: `pricing.now`, `pricing.was`, `pricing.unit`, `pricing.promotionType`
+- Unit mapping: `ofMeasureUnits` "g"/"kg" → `"kg"`, "ml"/"l" → `"litre"`
+- ~91% success rate; items without BFF pricing are deli/weighted produce
+- **BFF returning `price=None` means out-of-stock, not dead URL** — keep the URL, price will return
+
+### Coles — Chrome fallback (last resort)
+
+- `undetected_chromedriver` with `--headless=new`
+- Warm-up visits coles.com.au; `_wait_for_real_page()` polls page_source for up to 30s
+- **If warm-up is still blocked by Imperva, the entire Chrome batch is skipped** (saves 15+ min)
+- Currently Imperva blocks headless Chrome — Chrome fallback yields ~0%
+
+### Coles — URL Discovery
+
+- `_discover_coles_prices(batch_size=N)` searches Coles `_next/data` search API
+- Ranks results by token-overlap score against inventory name
+- Saves PDP URLs to `data.json` for future BFF API lookups
+- Can be run in bulk (batch_size=400) for one-time catchup
+- **Coles URL format**: `https://www.coles.com.au/product/{slug}-{id}` — slug = lowercase name with non-alphanumeric chars replaced by `-`. **No apostrophes in slug** (e.g. "Jatz Crackers Original" → `jatz-crackers-original-8646782`)
+
+## Key Anti-Bot Rules
+
+1. **Never parallelize curl_cffi requests** — nghttp2 thread-safety issues + fingerprint multiplexing
+2. **One UA profile per run** — consistency avoids mid-session fingerprint changes
+3. **Batch + pause + session rotation** — fresh TLS session every batch or circuit breaker trip
+4. **Distinguish "no price" from "blocked"** — don't waste circuit breaker on legitimately empty pages
+5. **Coles HTML is impenetrable** — Imperva JS challenge defeats both curl_cffi and headless Chrome; always prefer BFF API
+6. **Search-term cleanup** — `_clean_search_term()` strips sizes, expands abbreviations (Ww→Woolworths, Df→Dairy Farmers)
+
+## Common Failure Modes
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Woolworths 403/short pages | Akamai block | Circuit breaker → session rotation |
+| Coles "Page too short (96x chars)" | Imperva JS challenge | Use BFF API, not Chrome |
+| `'str' object has no attribute 'get'` | Sentinel string from `_cffi_fetch_product` | Check `isinstance(data, dict)` not `if data` |
+| Empty search terms | `&` or `#` in URL breaks `parse_qs` | `_extract_search_term_from_url` strips these |
+| "unit scrape failed" on Coles | `ofMeasureUnits: "g"` mapped to "each" | Map "g" → "kg" in BFF parser |
+| WW search matches loose/individual item | Search result has no weight signal but inventory does | Asymmetric large-weight guard (≥500g → ov < 0.35 → reject) |
+| Layer A false positive on PDP items | Validator was using search API not PDP URL | Layer A now branches: PDP URL → GET directly, search URL → search API |
+| Multiple zombie scrape processes | Manual `--now` + launchd daemon stacking | `pkill -f chef_os.py` before any restart; then reinstall service |
+| URL fixes overwritten after manual edit | Daemon had old `TRACKING_LIST` in memory; saves after your edit | Always `pkill -f chef_os.py` + stop/reinstall service **before** editing `data.json` for permanent fixes |
+| WW 2nd retry pass gets 0/N from Search API | Akamai session exhausted after Phase 1 | Normal — PDP items in retry batch still go through Phase 2; search misses are expected |
+
+## e2e Validation (`scripts/e2e_validate.py`)
+
+Four validation layers:
+- **Layer A** — live API vs `data.json`: WW PDP items GET the PDP directly (like-for-like); WW search items hit Search API; Coles uses BFF
+- **Layer B** — internal consistency: `all_stores` ↔ `item.price` ↔ `scrape_history`
+- **Layer C** — dashboard rendering: emulates `app.js` `eff_price || price` logic, `hasSaneWas` checks
+- **Layer D** — link validity: WW PDPs GET + name overlap; Coles BFF + name overlap; search URLs skipped
+
+Run: `python scripts/e2e_validate.py --layer D --sample 30` for a quick link health check.
+
+## Clean Restart Procedure
+
+When processes pile up or data.json edits get overwritten:
+
+```bash
+pkill -f "chef_os.py"               # kill all instances (launchd + manual)
+sleep 2
+bash manage_services.sh stop        # unload launchd plist
+bash manage_services.sh install     # reinstall + start fresh (one process)
+# now safe to edit data.json or run --now
+```
+
+Always verify only one process with: `ps aux | grep chef_os | grep -v grep`
+
+## Daemon schedule, Telegram, and scrape lock
+
+- **4h silent** — `run_report(full_list=True, send_telegram_messages=False)`; no per-scrape summary Telegram.
+- **Sunday 09:00** — silent scrape then a dedicated weekly Telegram (dashboard link).
+- **Summary Telegram** — only when `run_report` is called with default `send_telegram_messages=True` (`--now`, `/shop`, `/show_staples`).
+- **`run_report` file lock** — `fcntl` exclusive lock on `logs/chef_os_scrape.lock`; concurrent second scrape skips (no `data.json` race).
+- **`WOOLIESBOT_TELEGRAM_STARTUP=0`** — suppress startup “Supervisor active” message.
+- **`WOOLIESBOT_TELEGRAM_ERRORS=1`** — Telegram on `run_report` exceptions during silent runs (default: errors only notify when `send_telegram_messages=True`).
+- **`schedule.clear()`** before registering jobs when the supervisor loop restarts after a crash (avoids duplicate periodic jobs).
+
+## URL Management
+
+- **WW PDP URLs** (`/productdetails/{stockcode}/{slug}`) are the gold standard — like-for-like with what the scraper fetches
+- **WW search URLs** (`/shop/search/products?searchTerm=...`) are fallback — prone to size mismatch
+- **When a WW PDP 404s**: search WW for the replacement stockcode, construct `productdetails/{new_stockcode}/{new_slug}`
+- **When Coles BFF returns `price=None`**: product is out of stock (URL is valid — keep it)
+- **When Coles BFF returns nothing**: product delisted — search Coles `_next/data` API for replacement
+- **Coles slug format**: lowercase, non-alphanumeric → `-`, no apostrophes: `"Arnott's"` → `arnotts`
+
+## Environment Variables
+
+Key tuning knobs (see `.env.example` for full list):
+- `WOOLIESBOT_COLES_BFF_KEY` — BFF subscription key (default: public key)
+- `WOOLIESBOT_COLES_STORE_ID` — store for BFF pricing (default: 0584)
+- `WOOLIESBOT_CHROME_FALLBACK_THRESHOLD` — cffi success rate that triggers Chrome
+- `WOOLIESBOT_REQUEST_JITTER_*` — min/max delay between requests
+- `WOOLIESBOT_TELEGRAM_STARTUP` — set `0` to mute daemon startup Telegram
+- `WOOLIESBOT_TELEGRAM_ERRORS` — set `1` to Telegram-alert on silent `run_report` failures

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  OPTIONAL — not loaded by manage_services.sh by default.
+
+  Weekly discovery snippet only (writes logs/discovery-snippet-*.json).
+  Adjust paths below to match your Mac + repo location, then:
+    cp com.wooliesbot.discovery.plist.example ~/Library/LaunchAgents/com.wooliesbot.discovery.plist
+    launchctl load ~/Library/LaunchAgents/com.wooliesbot.discovery.plist
+
+  Tune env in the wrapper or export WOOLIESBOT_DISCOVERY_* before loading.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.wooliesbot.discovery</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/danielkuschmierz/Woolies Script/scripts/discovery_weekly_snippet.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/danielkuschmierz/Woolies Script</string>
+    <key>StandardOutPath</key>
+    <string>/Users/danielkuschmierz/Woolies Script/logs/discovery_launchd_out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/danielkuschmierz/Woolies Script/logs/discovery_launchd_err.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>0</integer>
+        <key>Hour</key>
+        <integer>10</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+</dict>
+</plist>
