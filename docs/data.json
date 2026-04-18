@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19 02:41 AM",
+  "last_updated": "2026-04-19 07:22 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6672,7 +6672,7 @@
       "name": "Ww Original Water Crackers 125G",
       "type": "beverages",
       "price_mode": "each",
-      "target": 0.95,
+      "target": 0.76,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
       "coles": "https://www.coles.com.au/product/original-water-crackers-5389901",
       "price_history": [
@@ -6688,8 +6688,8 @@
       "subcategory": "beverages",
       "size": "125G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $2.80, now $0.95 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 6 prices",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -6709,7 +6709,7 @@
         {
           "date": "2026-04-17",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -6717,7 +6717,7 @@
         {
           "date": "2026-04-18",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -6725,7 +6725,7 @@
         {
           "date": "2026-04-19",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -6740,11 +6740,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -8010,14 +8010,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -8038,7 +8038,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream"
+      "name_check": "Light Thickened Cream"
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -12532,14 +12532,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -12560,7 +12560,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream"
+      "name_check": "Light Thickened Cream"
     },
     {
       "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
@@ -18280,7 +18280,7 @@
       "name": "Ww Juice Lemon 500Ml",
       "type": "produce",
       "price_mode": "each",
-      "target": 1.65,
+      "target": 1.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Juice%20Lemon%20500ml",
       "coles": "https://www.coles.com.au/product/lemon-juice-9069356",
       "price_history": [
@@ -18295,7 +18295,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 1.65,
+      "price": 1.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "500Ml",
@@ -18321,7 +18321,7 @@
         {
           "date": "2026-04-17",
           "price": 1.65,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lemon Juice"
@@ -18329,7 +18329,7 @@
         {
           "date": "2026-04-18",
           "price": 1.65,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lemon Juice"
@@ -18337,7 +18337,7 @@
         {
           "date": "2026-04-19",
           "price": 1.65,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lemon Juice"
@@ -18345,13 +18345,13 @@
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 3.3000000000000003,
+      "unit_price": 4.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.65,
-          "unit_price": 3.3000000000000003,
-          "eff_price": 1.65,
+          "price": 1.0,
+          "unit_price": 4.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -18366,13 +18366,13 @@
       "price_unavailable": false,
       "image_url": "images/ww_juice_lemon_500ml.jpg",
       "avg_price": 1.65,
-      "eff_price": 1.65,
+      "eff_price": 1.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Lemon Juice"
+      "name_check": "Woolworths Lemon Juice Bottle"
     },
     {
       "name": "Sweet Corn 500G P/P",
@@ -18775,7 +18775,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -18786,33 +18786,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 6.0,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.80, now $6.00 (store special)",
+      "target_method": "was $9.80, now $7.70 (store special)",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -18820,7 +18820,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -18834,20 +18834,20 @@
           "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
-      "was_price": 8.8,
-      "on_special": true,
+      "was_price": 9.8,
+      "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
-      "store": "woolworths",
-      "unit_price": 1.2,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.28,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 1.2,
-          "eff_price": 6.0,
-          "was_price": 8.8,
-          "on_special": true
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 7.7,
@@ -18859,11 +18859,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 6.0,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon"
+      "name_check": "Cheese & Bacon Pizza Slices 2 Pack"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -20895,7 +20895,7 @@
       "name": "Mount Franklin Wtr Spring Natrl 600Ml",
       "type": "beverages",
       "price_mode": "each",
-      "target": 2.3,
+      "target": 1.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mount%20Franklin%20Wtr%20Spring%20Natrl%20600ML",
       "coles": "https://www.coles.com.au/product/chilled-spring-water-natural-7014331",
       "price_history": [
@@ -20906,13 +20906,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.3,
+      "price": 2.45,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $3.30, now $2.30 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 6 prices",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -20932,7 +20932,7 @@
         {
           "date": "2026-04-17",
           "price": 2.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20940,7 +20940,7 @@
         {
           "date": "2026-04-18",
           "price": 2.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20948,7 +20948,7 @@
         {
           "date": "2026-04-19",
           "price": 2.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
@@ -20956,15 +20956,15 @@
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 1.53,
+      "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 1.53,
-          "eff_price": 2.3,
-          "was_price": 3.3,
-          "on_special": true
+          "price": 2.45,
+          "unit_price": 4.08,
+          "eff_price": 2.45,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.45,
@@ -20977,8 +20977,8 @@
       "price_unavailable": false,
       "image_url": "images/mount_franklin_wtr_spring_natrl_600ml.jpg",
       "avg_price": 2.45,
-      "eff_price": 2.3,
-      "on_special": true,
+      "eff_price": 2.45,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -24293,14 +24293,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -24318,7 +24318,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -25090,7 +25090,7 @@
       "name": "Hans Middle Bacon Rashers Kg",
       "type": "meat",
       "price_mode": "each",
-      "target": 12.45,
+      "target": 14.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Hans%20Middle%20Bacon%20Rashers%20Kg",
       "coles": "https://www.coles.com.au/product/middle-bacon-4258996",
       "price_history": [
@@ -25105,33 +25105,33 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 16.8,
+      "price": 14.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 7 prices",
+      "target_confidence": "high",
+      "target_method": "was $19.00, now $14.50 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-19",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 12.65,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 12.65,
-          "is_special": false,
+          "is_special": true,
           "was_price": 19.0,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "was_price": 19.0,
           "store": "woolworths",
           "matched_name": "Hans Middle Bacon Rashers From the Deli"
@@ -25139,7 +25139,7 @@
         {
           "date": "2026-04-18",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "was_price": 19.0,
           "store": "woolworths",
           "matched_name": "Hans Middle Bacon Rashers From the Deli"
@@ -25154,13 +25154,20 @@
         }
       ],
       "was_price": 19.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Hans_Middle_Bacon_Rashers_Kg.jpg",
       "image_url": "images/hans_middle_bacon_rashers_kg.jpg",
-      "store": "coles",
-      "unit_price": 22.4,
+      "store": "woolworths",
+      "unit_price": 14.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 14.5,
+          "unit_price": 14.5,
+          "eff_price": 14.5,
+          "was_price": 19.0,
+          "on_special": true
+        },
         "coles": {
           "price": 16.8,
           "unit_price": 22.4,
@@ -25171,11 +25178,11 @@
       },
       "price_unavailable": false,
       "avg_price": 11.675,
-      "eff_price": 16.8,
+      "eff_price": 14.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Middle Bacon"
+      "name_check": "Hans Middle Bacon Rashers From the Deli"
     },
     {
       "name": "Woolworths Turkish Rolls 400G Pk 4",
@@ -27440,7 +27447,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 3.3,
+      "price": 3.25,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "750Ml",
@@ -27490,13 +27497,13 @@
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
       "store": "woolworths",
-      "unit_price": 2.64,
+      "unit_price": 4.33,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 3.25,
+          "unit_price": 4.33,
+          "eff_price": 3.25,
           "was_price": null,
           "on_special": false
         },
@@ -27511,7 +27518,7 @@
       "price_unavailable": false,
       "image_url": "images/pump_water_pure_750ml.jpg",
       "avg_price": 3.15,
-      "eff_price": 3.3,
+      "eff_price": 3.25,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -30205,7 +30212,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 8.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -30258,13 +30265,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 5.93,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.93,
-          "eff_price": 8.9,
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -30278,11 +30285,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 8.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars"
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
