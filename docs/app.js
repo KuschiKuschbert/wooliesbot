@@ -154,6 +154,154 @@ let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 
+/** Mirrors chef_os._PRICE_UNRELIABLE — eff_price at or above is not comparable */
+const PRICE_UNRELIABLE = 99999;
+
+/** Populated by rebuildCompareGroupMeta() after each data load */
+let _compareGroupMeta = new Map();
+
+function isReliableEffPrice(ep) {
+    return typeof ep === 'number' && Number.isFinite(ep) && ep > 0 && ep < PRICE_UNRELIABLE;
+}
+
+function escapeHtml(s) {
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function formatCompareEffPrice(priceMode, eff) {
+    const mode = priceMode || 'each';
+    if (!isReliableEffPrice(eff)) return '—';
+    if (mode === 'kg') return `$${eff.toFixed(2)}/kg`;
+    if (mode === 'litre') return `$${eff.toFixed(2)}/L`;
+    return `$${eff.toFixed(2)}`;
+}
+
+function minEffPriceAcrossStores(item) {
+    const stores = item.all_stores || {};
+    let m = Infinity;
+    for (const sd of Object.values(stores)) {
+        if (isReliableEffPrice(sd.eff_price)) m = Math.min(m, sd.eff_price);
+    }
+    if (Number.isFinite(m)) return m;
+    const fallback = item.eff_price ?? item.price;
+    return isReliableEffPrice(fallback) ? fallback : Infinity;
+}
+
+function candidateSortTuple(c) {
+    const pl = c.item.pack_litres || 0;
+    const storeRank = c.store === 'woolworths' ? 0 : 1;
+    const cokeBias = /coke|coca/i.test(c.item.name || '') ? 0 : 1;
+    return [c.eff_price, -pl, storeRank, cokeBias, c.item.name || ''];
+}
+
+function compareCandidates(a, b) {
+    const ta = candidateSortTuple(a);
+    const tb = candidateSortTuple(b);
+    for (let i = 0; i < ta.length; i++) {
+        if (ta[i] < tb[i]) return -1;
+        if (ta[i] > tb[i]) return 1;
+    }
+    return 0;
+}
+
+/** Expand one inventory row to { item, store, eff_price } candidates */
+function expandItemStoreCandidates(item) {
+    const out = [];
+    const stores = item.all_stores || {};
+    for (const [storeKey, sd] of Object.entries(stores)) {
+        const ep = sd.eff_price;
+        if (!isReliableEffPrice(ep)) continue;
+        out.push({ item, store: storeKey, eff_price: ep });
+    }
+    return out;
+}
+
+function rebuildCompareGroupMeta() {
+    _compareGroupMeta = new Map();
+    const byGroup = new Map();
+    for (const item of _data) {
+        const g = item.compare_group;
+        if (!g) continue;
+        if (!byGroup.has(g)) byGroup.set(g, []);
+        byGroup.get(g).push(item);
+    }
+
+    for (const [groupKey, members] of byGroup) {
+        const modes = new Set(members.map(i => i.price_mode || 'each'));
+        if (modes.size > 1) {
+            console.warn(`[compare_group] Skipping "${groupKey}": mixed price_mode (${[...modes].join(', ')})`);
+            continue;
+        }
+        const mode = members[0].price_mode || 'each';
+
+        const candidates = [];
+        for (const item of members) {
+            if (item.price_unavailable) continue;
+            candidates.push(...expandItemStoreCandidates(item));
+        }
+
+        if (candidates.length < 2) continue;
+
+        candidates.sort(compareCandidates);
+        const best = candidates[0];
+        _compareGroupMeta.set(groupKey, {
+            mode,
+            winnerEff: best.eff_price,
+            winnerItemName: best.item.name,
+            winnerStore: best.store,
+            candidateCount: candidates.length,
+        });
+    }
+}
+
+function getStoreUrlForStore(item, storeKey) {
+    const hasStoreData = Object.keys(item.all_stores || {}).length > 0;
+    if (storeKey === 'coles') {
+        if (item.coles) return item.coles;
+        return `https://www.coles.com.au/search?q=${encodeURIComponent(item.name)}`;
+    }
+    if (item.woolworths && (hasStoreData || !item.woolworths.includes('/productdetails/'))) {
+        return item.woolworths;
+    }
+    return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
+}
+
+function classifyColaCandidate(item) {
+    const name = (item.name || '').toLowerCase();
+    if (/mango|vanilla|cherry|lime|raspberry|ginger|lemon|creaming soda|orange|grape|melon/i.test(name)) return null;
+    const isNoSugar = name.includes('max') || name.includes('zero') || name.includes('no sugar');
+    const isPepsi = name.includes('pepsi');
+    const isCoke = name.includes('coke') || name.includes('coca');
+    const category = isNoSugar ? 'noSugar' : 'classic';
+    let brand = null;
+    if (isPepsi) brand = 'pepsi';
+    else if (isCoke) brand = 'coke';
+    else return null;
+    return { category, brand };
+}
+
+function buildGroupBestRowHtml(item) {
+    const g = item.compare_group;
+    if (!g) return '';
+    const meta = _compareGroupMeta.get(g);
+    if (!meta || meta.candidateCount < 2) return '';
+
+    const minSelf = minEffPriceAcrossStores(item);
+    const eps = 0.01;
+    if (Number.isFinite(minSelf) && Math.abs(minSelf - meta.winnerEff) <= eps) {
+        return '<div class="group-best-hint group-best-on-top" title="Lowest comparable unit price in this compare_group">You\'re on the best deal in this group</div>';
+    }
+
+    const storeLabel = meta.winnerStore === 'woolworths' ? 'Woolworths' : 'Coles';
+    const priceStr = formatCompareEffPrice(meta.mode, meta.winnerEff);
+    const shortName = escapeHtml(displayName(meta.winnerItemName));
+    return `<div class="group-best-hint" title="Cheapest comparable unit across all SKUs and stores in this group">Best in group: ${priceStr} · ${storeLabel} · ${shortName}</div>`;
+}
+
 // Track sparkline Chart instances so we can destroy them before recreating.
 // Keyed by container element ID string.
 const _sparklineCharts = {};
@@ -221,6 +369,8 @@ async function initDashboard() {
                 _history[item.name] = { target: item.target, history: item.scrape_history };
             }
         });
+
+        rebuildCompareGroupMeta();
 
         setupFilters();
         renderDashboard();
@@ -908,6 +1058,7 @@ function createItemCard(item, index, type = 'special') {
         : (item.woolworths || '#');
 
     const escapedName = item.name.replace(/'/g, "\\'");
+    const groupBestHtml = buildGroupBestRowHtml(item);
 
     card.innerHTML = `
         ${imgHtml}
@@ -928,6 +1079,7 @@ function createItemCard(item, index, type = 'special') {
                 <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Target: $' + item.target.toFixed(2) : '<span style="opacity:0.4">watching</span>'}</span>
             </div>
             ${storeCompareHtml}
+            ${groupBestHtml}
             <button class="add-to-list-btn" onclick="addToList('${escapedName}', this)">
                 <i data-feather="plus"></i> Add to List
             </button>
@@ -1225,149 +1377,92 @@ async function monitorCloudHealth() {
     }
 }
 
-function getItemUnitPrice(item) {
-    if (item.eff_price && item.eff_price > 0 && item.price_mode === 'litre') return item.eff_price;
-    if (item.price === 0) return Infinity;
-
-    // Smart parsing for items that don't have an effective per-litre price yet
-    const name = item.name.toLowerCase();
-    let volume = 0;
-
-    // Match patterns like "1.25L", "2L", "600ml"
-    const lMatch = name.match(/(\d+\.?\d*)l/);
-    const mlMatch = name.match(/(\d+)ml/);
-    
-    // Match multipacks like "375ml x 30" or "30pk"
-    const pkMatch = name.match(/(\d+)pk/);
-    const multiMatch = name.match(/(\d+)x(\d+)/);
-
-    if (lMatch) volume = parseFloat(lMatch[1]);
-    else if (mlMatch) volume = parseFloat(mlMatch[1]) / 1000;
-    
-    if (multiMatch) {
-        // "30x375" scenario
-        const count = parseInt(multiMatch[1]);
-        const size = parseInt(multiMatch[2]);
-        volume = (count * size) / 1000;
-    } else if (pkMatch && volume > 0) {
-        // "375ml 30pk" scenario
-        volume *= parseInt(pkMatch[1]);
-    }
-
-    if (volume > 0) return item.price / volume;
-    return item.price; // Fallback to unit price if volume can't be parsed
-}
-
 function renderColaBattle() {
-    const colaItems = _data.filter(i => (i.compare_group === 'cola' || i.name.toLowerCase().includes('pepsi') || i.name.toLowerCase().includes('coke')) && !i.price_unavailable);
+    const colaItems = _data.filter(
+        i =>
+            (i.compare_group === 'cola' || i.name.toLowerCase().includes('pepsi') || i.name.toLowerCase().includes('coke')) &&
+            !i.price_unavailable
+    );
     const container = document.getElementById('cola-battle-container') || document.querySelector('.cola-card');
     if (!container) return;
 
-    // Categorization
-    const groups = {
-        noSugar: { pepsi: null, coke: null },
-        classic: { pepsi: null, coke: null }
+    const buckets = {
+        noSugar: { pepsi: [], coke: [] },
+        classic: { pepsi: [], coke: [] },
     };
 
-    colaItems.forEach(item => {
-        const name = item.name.toLowerCase();
-        // Exclude flavour variants — only original Coke/Pepsi and their no-sugar equivalents compete
-        if (/mango|vanilla|cherry|lime|raspberry|ginger|lemon|creaming soda|orange|grape|melon/i.test(name)) return;
-        // Skip items with no verified store data — stale eff_price values are unreliable
-        if (!item.all_stores || Object.keys(item.all_stores).length === 0) return;
-        const price = getItemUnitPrice(item);
-        if (price === Infinity || price === 0) return;
-
-        const isNoSugar = name.includes('max') || name.includes('zero') || name.includes('no sugar');
-        const isPepsi = name.includes('pepsi');
-        const isCoke = name.includes('coke') || name.includes('coca');
-
-        const category = isNoSugar ? 'noSugar' : 'classic';
-        const brand = isPepsi ? 'pepsi' : (isCoke ? 'coke' : null);
-
-        if (brand && (!groups[category][brand] || price < groups[category][brand].unitPrice)) {
-            groups[category][brand] = { ...item, unitPrice: price };
+    for (const item of colaItems) {
+        if (!item.all_stores || Object.keys(item.all_stores).length === 0) continue;
+        for (const c of expandItemStoreCandidates(item)) {
+            const cls = classifyColaCandidate(c.item);
+            if (!cls) continue;
+            buckets[cls.category][cls.brand].push(c);
         }
-    });
+    }
 
-    // Sub-renderer for a battle row
-    const renderBattleRow = (title, pepsi, coke) => {
-        const pP = pepsi ? pepsi.unitPrice : Infinity;
-        const cP = coke ? coke.unitPrice : Infinity;
+    const pickWinner = arr => {
+        if (!arr || arr.length === 0) return null;
+        return [...arr].sort(compareCandidates)[0];
+    };
+
+    const renderBattleRow = (title, pepsiC, cokeC) => {
+        const pP = pepsiC ? pepsiC.eff_price : Infinity;
+        const cP = cokeC ? cokeC.eff_price : Infinity;
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
-        const getBestStore = (item) => {
-            if (!item) return 'woolworths';
-            const stores = item.all_stores || {};
-            let best = item.store || 'woolworths';
-            let bestPrice = Infinity;
-            for (const [sk, sd] of Object.entries(stores)) {
-                const p = sd.price || sd.eff_price;
-                if (p && p > 0 && p < bestPrice) { bestPrice = p; best = sk; }
-            }
-            return best;
+        const pepsi = pepsiC ? pepsiC.item : null;
+        const coke = cokeC ? cokeC.item : null;
+
+        const getStoreUrl = win => {
+            if (!win) return null;
+            return getStoreUrlForStore(win.item, win.store);
         };
 
-        const getStoreUrl = (item) => {
-            if (!item) return null;
-            const store = getBestStore(item);
-            const hasStoreData = Object.keys(item.all_stores || {}).length > 0;
-            if (store === 'coles') {
-                if (item.coles) return item.coles;
-                return `https://www.coles.com.au/search?q=${encodeURIComponent(item.name)}`;
-            }
-            // Only trust a PDP link when we have recent scrape data confirming the product exists;
-            // stale /productdetails/ links frequently 404 after range refreshes.
-            if (item.woolworths && (hasStoreData || !item.woolworths.includes('/productdetails/'))) {
-                return item.woolworths;
-            }
-            return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
-        };
-
-        const getStoreBadge = (item) => {
-            if (!item) return '';
-            const store = getBestStore(item);
-            return store === 'woolworths'
+        const getStoreBadge = win => {
+            if (!win) return '';
+            return win.store === 'woolworths'
                 ? '<span class="fighter-store-badge woolies">Woolworths</span>'
                 : '<span class="fighter-store-badge coles">Coles</span>';
         };
 
-        const isOnSpecial = (item) => {
-            if (!item) return false;
-            const store = getBestStore(item);
-            const sd = (item.all_stores || {})[store];
-            return item.on_special || (sd && sd.on_special);
+        const isOnSpecialWin = win => {
+            if (!win) return false;
+            const sd = (win.item.all_stores || {})[win.store];
+            return (sd && sd.on_special) || win.item.on_special;
         };
 
-        const getActiveStore = (item) => getBestStore(item);
+        const getActiveStore = win => (win ? win.store : 'woolworths');
 
-        const pUrl = getStoreUrl(pepsi);
-        const cUrl = getStoreUrl(coke);
+        const pUrl = getStoreUrl(pepsiC);
+        const cUrl = getStoreUrl(cokeC);
 
-        const pTag = pepsi && pUrl ? 'a' : 'div';
-        const cTag = coke && cUrl ? 'a' : 'div';
-        const pHref = pepsi && pUrl ? ` href="${pUrl}" target="_blank" rel="noopener"` : '';
-        const cHref = coke && cUrl ? ` href="${cUrl}" target="_blank" rel="noopener"` : '';
+        const pTag = pepsiC && pUrl ? 'a' : 'div';
+        const cTag = cokeC && cUrl ? 'a' : 'div';
+        const pHref = pepsiC && pUrl ? ` href="${pUrl}" target="_blank" rel="noopener"` : '';
+        const cHref = cokeC && cUrl ? ` href="${cUrl}" target="_blank" rel="noopener"` : '';
+
+        const pPriceLabel = pepsiC ? `$${pepsiC.eff_price.toFixed(2)}/L` : '—';
+        const cPriceLabel = cokeC ? `$${cokeC.eff_price.toFixed(2)}/L` : '—';
 
         return `
             <div class="battle-arena">
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
-                    <${pTag} class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsi)}` : ''}"${pHref}>
+                    <${pTag} class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsiC)}` : ''}"${pHref}>
                         ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Pepsi</div>
-                        <div class="fighter-price">$${pP === Infinity ? '—' : pP.toFixed(2)}/L</div>
+                        <div class="fighter-price">${pPriceLabel}</div>
                         <div class="fighter-product">${pepsi ? displayName(pepsi.name) : 'No Data'}</div>
-                        <div class="fighter-meta">${getStoreBadge(pepsi)}${isOnSpecial(pepsi) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
+                        <div class="fighter-meta">${getStoreBadge(pepsiC)}${isOnSpecialWin(pepsiC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
                     </${pTag}>
                     <div class="battle-vs">VS</div>
-                    <${cTag} class="fighter ${cWinner ? `winner winner-${getActiveStore(coke)}` : ''}"${cHref}>
+                    <${cTag} class="fighter ${cWinner ? `winner winner-${getActiveStore(cokeC)}` : ''}"${cHref}>
                         ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
                         <div class="fighter-brand">Coke</div>
-                        <div class="fighter-price">$${cP === Infinity ? '—' : cP.toFixed(2)}/L</div>
+                        <div class="fighter-price">${cPriceLabel}</div>
                         <div class="fighter-product">${coke ? displayName(coke.name) : 'No Data'}</div>
-                        <div class="fighter-meta">${getStoreBadge(coke)}${isOnSpecial(coke) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
+                        <div class="fighter-meta">${getStoreBadge(cokeC)}${isOnSpecialWin(cokeC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
                     </${cTag}>
                 </div>
             </div>
@@ -1378,9 +1473,9 @@ function renderColaBattle() {
         <div class="cola-battle-header">
             <i data-feather="zap"></i> Ultimate Cola Battle
         </div>
-        ${renderBattleRow('No-Sugar Arena', groups.noSugar.pepsi, groups.noSugar.coke)}
+        ${renderBattleRow('No-Sugar Arena', pickWinner(buckets.noSugar.pepsi), pickWinner(buckets.noSugar.coke))}
         <div class="arena-divider"></div>
-        ${renderBattleRow('Classic Arena', groups.classic.pepsi, groups.classic.coke)}
+        ${renderBattleRow('Classic Arena', pickWinner(buckets.classic.pepsi), pickWinner(buckets.classic.coke))}
     `;
     feather.replace();
 }

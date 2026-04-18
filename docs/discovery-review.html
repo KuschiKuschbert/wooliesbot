@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    <title>WooliesBot — Discovery review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dr-page { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; }
+        .dr-hero {
+            margin-bottom: 24px;
+        }
+        .dr-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .dr-hero p { color: var(--text-muted); font-size: 14px; max-width: 52ch; }
+        .dr-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            backdrop-filter: var(--glass-blur);
+        }
+        .dr-panel label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+        .dr-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.35);
+            color: var(--text-main);
+            font-family: ui-monospace, monospace;
+            font-size: 12px;
+            resize: vertical;
+        }
+        .dr-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+        .dr-btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.06);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .dr-btn:hover { background: rgba(255,255,255,0.1); }
+        .dr-btn.primary { background: var(--primary); border-color: transparent; color: #fff; }
+        .dr-btn.primary:hover { filter: brightness(1.08); }
+        .dr-file { font-size: 13px; color: var(--text-muted); }
+        .dr-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+        .dr-stats { font-size: 13px; color: var(--text-muted); }
+        .dr-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-color); }
+        table.dr-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .dr-table th, .dr-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .dr-table th { color: var(--text-muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .dr-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .dr-table a { color: var(--woolies-green); word-break: break-all; font-size: 11px; }
+        .dr-table a.coles { color: var(--coles-red); }
+        .dr-empty { padding: 24px; text-align: center; color: var(--text-muted); font-size: 14px; }
+        .dr-export {
+            width: 100%;
+            min-height: 140px;
+            margin-top: 12px;
+        }
+        .dr-checkbox { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
+        .dr-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 16px; }
+        .dr-back:hover { color: var(--text-main); }
+        .dr-warn {
+            font-size: 12px;
+            color: #fbbf24;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="header-left">
+                <a href="index.html" class="dr-back" style="margin:0;">← Dashboard</a>
+                <div class="logo">
+                    <h1 style="font-size:1.25rem;">Discovery review</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dr-page container">
+        <div class="dr-hero">
+            <h1>Review variant proposals</h1>
+            <p>Paste JSON from <code style="color:var(--primary);">python scripts/discover_variants.py …</code> or load a snippet file. Select rows, then copy the <code>items</code> array into <code>docs/data.json</code> (after backup). This page does not save to disk.</p>
+        </div>
+
+        <section class="dr-panel">
+            <label for="json-input">Discovery JSON</label>
+            <textarea id="json-input" class="dr-textarea" placeholder='Paste full stdout JSON here…'></textarea>
+            <div class="dr-row">
+                <input type="file" id="json-file" accept=".json,application/json" class="dr-file">
+                <button type="button" class="dr-btn primary" id="btn-parse">Parse &amp; preview</button>
+                <button type="button" class="dr-btn" id="btn-clear">Clear</button>
+            </div>
+            <div class="dr-warn">Always backup <code>docs/data.json</code> before merging. Remove <code>_discovery_meta</code> keys when pasting into inventory (toggle below).</div>
+            <details style="margin-top:14px;color:var(--text-muted);font-size:13px;">
+                <summary style="cursor:pointer;color:var(--primary);font-weight:600;">Safety checklist (read before merge)</summary>
+                <ul style="margin:10px 0 0 18px;line-height:1.65;">
+                    <li>Git commit or copy <code>docs/data.json</code> before pasting rows.</li>
+                    <li>Strip <code>_discovery_meta</code> / export with “Strip _ keys” enabled.</li>
+                    <li>Deduplicate names and PDP URLs against existing items.</li>
+                    <li>Restart/stop duplicate <code>chef_os.py</code> processes before relying on saves (see wooliesbot-data-safety rule).</li>
+                    <li>After merge run <code>python scripts/e2e_validate.py --layer B</code> and <code>--layer C</code>.</li>
+                    <li>Optional URL smoke: <code>RUN_LAYER_D=1 ./scripts/verify_wooliesbot_stack.sh</code>.</li>
+                </ul>
+            </details>
+        </section>
+
+        <section class="dr-panel" id="preview-section" style="display:none;">
+            <div class="dr-toolbar">
+                <button type="button" class="dr-btn" id="btn-all">Select all</button>
+                <button type="button" class="dr-btn" id="btn-none">Select none</button>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-main);">
+                    <input type="checkbox" id="strip-meta" checked class="dr-checkbox">
+                    Strip <code>_discovery_meta</code> and keys starting with <code>_</code> in export
+                </label>
+                <span class="dr-stats" id="dr-count"></span>
+            </div>
+            <div class="dr-table-wrap">
+                <table class="dr-table" id="dr-table">
+                    <thead>
+                        <tr>
+                            <th style="width:36px;"></th>
+                            <th>Name</th>
+                            <th>Woolworths</th>
+                            <th>Coles</th>
+                            <th>compare_group</th>
+                            <th>price_mode</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dr-tbody"></tbody>
+                </table>
+                <div class="dr-empty" id="dr-empty" style="display:none;">No draft_items found in JSON.</div>
+            </div>
+
+            <label for="export-out" style="margin-top:20px;">Export — paste into <code>items</code> array</label>
+            <textarea id="export-out" class="dr-textarea dr-export" readonly></textarea>
+            <div class="dr-row">
+                <button type="button" class="dr-btn primary" id="btn-copy">Copy export</button>
+                <button type="button" class="dr-btn" id="btn-download">Download selected.json</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+(function () {
+    const $ = (id) => document.getElementById(id);
+    let rows = [];
+
+    function extractDraftItems(obj) {
+        if (!obj || typeof obj !== 'object') return [];
+        if (Array.isArray(obj.draft_items)) return obj.draft_items.slice();
+        if (Array.isArray(obj.results)) {
+            const out = [];
+            for (const block of obj.results) {
+                if (block && Array.isArray(block.draft_items)) {
+                    out.push(...block.draft_items);
+                }
+            }
+            return out;
+        }
+        return [];
+    }
+
+    function stripMeta(item) {
+        const o = {};
+        for (const [k, v] of Object.entries(item)) {
+            if (k.startsWith('_')) continue;
+            o[k] = v;
+        }
+        return o;
+    }
+
+    function parse() {
+        let text = $('json-input').value.trim();
+        if (!text) {
+            alert('Paste JSON first.');
+            return;
+        }
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            alert('Invalid JSON: ' + e.message);
+            return;
+        }
+        const draftItems = extractDraftItems(data);
+        rows = draftItems.map((item, i) => ({ item, i, selected: true }));
+
+        $('preview-section').style.display = 'block';
+        renderTable();
+        updateExport();
+    }
+
+    function renderTable() {
+        const tbody = $('dr-tbody');
+        const empty = $('dr-empty');
+        tbody.innerHTML = '';
+        if (!rows.length) {
+            empty.style.display = 'block';
+            $('dr-count').textContent = '0 proposals';
+            return;
+        }
+        empty.style.display = 'none';
+        $('dr-count').textContent = rows.length + ' proposal(s)';
+
+        for (let idx = 0; idx < rows.length; idx++) {
+            const r = rows[idx];
+            const it = r.item;
+            const tr = document.createElement('tr');
+            const w = it.woolworths || '';
+            const c = it.coles || '';
+            const cg = it.compare_group || '—';
+            const pm = it.price_mode || '—';
+            tr.innerHTML = `
+                <td><input type="checkbox" class="dr-checkbox dr-row-chk" data-idx="${idx}" ${r.selected ? 'checked' : ''}></td>
+                <td>${escapeHtml(it.name || '')}</td>
+                <td>${w ? `<a href="${escapeAttr(w)}" target="_blank" rel="noopener">Open</a>` : '—'}</td>
+                <td>${c ? `<a href="${escapeAttr(c)}" target="_blank" rel="noopener" class="coles">Open</a>` : '—'}</td>
+                <td>${escapeHtml(String(cg))}</td>
+                <td>${escapeHtml(String(pm))}</td>
+            `;
+            tbody.appendChild(tr);
+        }
+
+        tbody.querySelectorAll('.dr-row-chk').forEach((cb) => {
+            cb.addEventListener('change', () => {
+                const i = +cb.dataset.idx;
+                rows[i].selected = cb.checked;
+                updateExport();
+            });
+        });
+    }
+
+    function escapeHtml(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+    function escapeAttr(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+    }
+
+    function updateExport() {
+        const strip = $('strip-meta').checked;
+        const chosen = rows.filter((r) => r.selected).map((r) => {
+            const it = r.item;
+            return strip ? stripMeta(it) : { ...it };
+        });
+        const text = JSON.stringify(chosen, null, 2);
+        $('export-out').value = text;
+    }
+
+    $('btn-parse').addEventListener('click', parse);
+    $('btn-clear').addEventListener('click', () => {
+        $('json-input').value = '';
+        rows = [];
+        $('preview-section').style.display = 'none';
+        $('export-out').value = '';
+    });
+
+    $('json-file').addEventListener('change', (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        const r = new FileReader();
+        r.onload = () => {
+            $('json-input').value = r.result;
+            parse();
+        };
+        r.readAsText(f);
+    });
+
+    $('btn-all').addEventListener('click', () => {
+        rows.forEach((r) => { r.selected = true; });
+        renderTable();
+        updateExport();
+    });
+    $('btn-none').addEventListener('click', () => {
+        rows.forEach((r) => { r.selected = false; });
+        renderTable();
+        updateExport();
+    });
+    $('strip-meta').addEventListener('change', updateExport);
+
+    $('btn-copy').addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText($('export-out').value);
+            $('btn-copy').textContent = 'Copied!';
+            setTimeout(() => { $('btn-copy').textContent = 'Copy export'; }, 2000);
+        } catch {
+            $('export-out').select();
+            document.execCommand('copy');
+        }
+    });
+
+    $('btn-download').addEventListener('click', () => {
+        const blob = new Blob([$('export-out').value], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'discovery-selected-items.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    });
+})();
+    </script>
+</body>
+</html>

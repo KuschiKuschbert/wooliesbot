@@ -554,6 +554,24 @@ body {
     white-space: nowrap;
 }
 
+/* Compare-group hint (cross-size / cross-store best unit price) */
+.group-best-hint {
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--text-muted);
+    margin: 6px 0 4px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.group-best-on-top {
+    color: var(--accent-green, #10b981);
+    border-color: rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.06);
+}
+
 /* Layout Grid Overhaul */
 .dashboard-grid {
     display: grid;
