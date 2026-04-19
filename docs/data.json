@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19 12:09 PM",
+  "last_updated": "2026-04-19 04:50 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8504,7 +8504,7 @@
       "all_stores": {
         "woolworths": {
           "price": 9.3,
-          "unit_price": 13.29,
+          "unit_price": 9.3,
           "eff_price": 9.3,
           "was_price": null,
           "on_special": false
@@ -8724,7 +8724,7 @@
       "name": "Ww Sundried Tomato Strips 270G",
       "type": "produce",
       "price_mode": "each",
-      "target": 2.66,
+      "target": 2.65,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Sundried%20Tomato%20Strips%20270g",
       "coles": "https://www.coles.com.au/product/sundried-tomato-strips-6070326",
       "price_history": [
@@ -8739,7 +8739,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.75,
+      "price": 2.65,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "270G",
@@ -8789,10 +8789,17 @@
       ],
       "local_image": "images/Ww_Sundried_Tomato_Strips_270G.jpg",
       "image_url": "images/ww_sundried_tomato_strips_270g.jpg",
-      "store": "coles",
-      "unit_price": 9.82,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 0.98,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 2.65,
+          "unit_price": 0.98,
+          "eff_price": 2.65,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.75,
           "unit_price": 9.82,
@@ -8803,13 +8810,13 @@
       },
       "price_unavailable": false,
       "avg_price": 2.65,
-      "eff_price": 2.75,
+      "eff_price": 2.65,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Sundried Tomato Strips"
+      "name_check": "Woolworths Sundried Tomato Strips"
     },
     {
       "name": "Ww Hmlyn Pink Salt Refill 500G",
@@ -10526,7 +10533,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 4.0,
+      "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -10537,13 +10544,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $5.50, now $4.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 6 prices",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -10579,26 +10586,26 @@
         {
           "date": "2026-04-19",
           "price": 4.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -10610,7 +10617,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -12069,13 +12076,13 @@
       "local_image": "images/Dorsogna_Leg_Hm_Trplsmkd_97%_F_F_Shvd_Kg.jpg",
       "image_url": "images/dorsogna_leg_hm_trplsmkd_97_ff_shvd_kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.35,
+      "unit_price": 28.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         }
@@ -12086,7 +12093,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "D'Orsogna Triple Smoked Leg Ham"
+      "name_check": "D'Orsogna Ham Leg Triple Smoked 97% Fat Free Shaved From The Deli"
     },
     {
       "name": "Ww Winter Veg Mix 1Kg",
@@ -12255,6 +12262,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 35.0,
+          "unit_price": 17.5,
+          "eff_price": 35.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -12532,14 +12546,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -12560,7 +12574,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream"
+      "name_check": "Woolworths Light Thickened Cream"
     },
     {
       "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
@@ -18630,14 +18644,14 @@
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
       "image_url": "images/pak_choy_baby.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 4.9,
+          "unit_price": 4.9,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -18655,7 +18669,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens"
+      "name_check": "Asian Choy Pak"
     },
     {
       "name": "Ww Cheese Block Tasty 500G",
@@ -18869,7 +18883,7 @@
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 14.44,
+      "target": 9.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -18908,7 +18922,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 17.5,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -18916,7 +18930,7 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "p15 of 13 prices (few sales detected)",
+      "target_method": "was $12.00, now $9.00 (store special)",
       "target_data_points": 13,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -18959,19 +18973,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
-      "store": "coles",
-      "unit_price": 17.5,
+      "store": "woolworths",
+      "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
+          "price": 9.0,
+          "unit_price": 9.0,
+          "eff_price": 9.0,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 17.5,
@@ -18983,11 +18997,11 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 17.5,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Free Range Chicken Breast Fillets Bulk"
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
     },
     {
       "name": "Impressed Tropical Juice 425Ml",
@@ -23108,13 +23122,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 6.0,
+      "price": 5.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 7 prices",
+      "target_confidence": "high",
+      "target_method": "was $7.00, now $5.00 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-19",
       "scrape_history": [
@@ -23157,19 +23171,19 @@
         }
       ],
       "was_price": 7.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mushroom_Cups_Sliced_500G.jpg",
       "image_url": "images/mushroom_cups_sliced_500g.jpg",
       "store": "woolworths",
-      "unit_price": 16.0,
+      "unit_price": 10.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 16.0,
-          "eff_price": 6.0,
-          "was_price": null,
-          "on_special": false
+          "price": 5.0,
+          "unit_price": 10.0,
+          "eff_price": 5.0,
+          "was_price": 7.0,
+          "on_special": true
         },
         "coles": {
           "price": 7.0,
@@ -23181,11 +23195,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 6.0,
+      "eff_price": 5.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mushrooms Cups Sliced Punnet"
+      "name_check": "Woolworths Mushroom Sliced"
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -24132,7 +24146,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 8.5,
+      "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -24143,26 +24157,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 8.5,
+      "price": 7.0,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.90, now $8.50 (store special)",
+      "target_method": "was $8.50, now $7.00 (store special)",
       "target_data_points": 6,
       "target_updated": "2026-04-19",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -24185,7 +24199,7 @@
         {
           "date": "2026-04-19",
           "price": 8.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Organic Salted Butter"
@@ -24193,15 +24207,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "coles",
-      "unit_price": 3.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 2.8,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 2.37,
-          "eff_price": 8.9,
-          "was_price": 9.9,
+          "price": 7.0,
+          "unit_price": 2.8,
+          "eff_price": 7.0,
+          "was_price": 8.5,
           "on_special": true
         },
         "coles": {
@@ -24214,13 +24228,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.5,
-      "on_special": false,
+      "eff_price": 7.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter"
+      "name_check": "Mainland Organic Butter Block Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -24293,14 +24307,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -24318,7 +24332,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -36707,7 +36721,7 @@
       "name": "Woolworths Christmaspaper Shopping Bag",
       "type": "pantry",
       "price_mode": "each",
-      "target": 0.38,
+      "target": 0.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Woolworths%20ChristmasPaper%20Shopping%20Bag",
       "coles": "",
       "price_history": [
@@ -36718,15 +36732,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -36771,13 +36785,13 @@
       "target_method": "p20 of 5 prices",
       "target_data_points": 5,
       "target_updated": "2026-04-19",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag"
+      "name_check": "Woolworths Reusable Paper Shopping Bag"
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -37196,14 +37210,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 13.5,
+          "unit_price": 3.6,
+          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         },
@@ -37261,7 +37275,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control"
+      "name_check": "Ant Rid Ant Bait"
     },
     {
       "name": "V Drink Energy Guarana 250Ml",
