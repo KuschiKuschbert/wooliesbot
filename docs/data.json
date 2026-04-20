@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21 01:44 AM",
+  "last_updated": "2026-04-21 06:25 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -9314,13 +9314,6 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 7.9,
-          "unit_price": 15.8,
-          "eff_price": 7.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -10005,7 +9998,7 @@
       "all_stores": {
         "woolworths": {
           "price": 9.3,
-          "unit_price": 9.3,
+          "unit_price": 13.29,
           "eff_price": 9.3,
           "was_price": null,
           "on_special": false
@@ -12370,7 +12363,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 4.0,
+      "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -12381,13 +12374,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $5.50, now $4.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 8 prices",
       "target_data_points": 8,
       "target_updated": "2026-04-21",
       "scrape_history": [
@@ -12423,7 +12416,7 @@
         {
           "date": "2026-04-19",
           "price": 4.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
@@ -12431,7 +12424,7 @@
         {
           "date": "2026-04-20",
           "price": 4.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
@@ -12439,26 +12432,26 @@
         {
           "date": "2026-04-21",
           "price": 4.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -12470,7 +12463,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -18749,13 +18742,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 2.0,
+      "unit_price": 4.2,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 4.2,
+          "unit_price": 4.2,
+          "eff_price": 4.2,
           "was_price": null,
           "on_special": false
         },
@@ -18773,7 +18766,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Unox Real Chicken Liquid Stock"
+      "name_check": "Massel Gourmet Liquid Stock Chicken"
     },
     {
       "name": "Woolworths Corned Beef Shaved Kg",
@@ -21307,17 +21300,10 @@
         }
       ],
       "local_image": "images/Rexona_Men_Advanced_Sport_Ap_220Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 27.200000000000003,
+      "store": "coles",
+      "unit_price": 4.77,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 5.99,
-          "unit_price": 27.200000000000003,
-          "eff_price": 5.99,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.5,
           "unit_price": 4.77,
@@ -21335,7 +21321,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 10.5,
-      "name_check": "Rexona Men Advanced Protection Antiperspirant All Blacks Invisible Dry (72H) 220mL"
+      "name_check": "Men Deodorant 72hr Advanced Aerosol Sport"
     },
     {
       "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
@@ -28470,14 +28456,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -28495,7 +28481,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -32223,14 +32209,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -32251,7 +32237,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle"
+      "name_check": "Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -41991,7 +41977,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest Protein Bar Choc Brownie"
+      "name_check": "Quest White Chocolate Raspberry"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
