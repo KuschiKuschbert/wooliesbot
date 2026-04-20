@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-20 06:56 AM",
+  "last_updated": "2026-04-20 11:39 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7269,7 +7269,7 @@
       "name": "Ww Original Water Crackers 125G",
       "type": "beverages",
       "price_mode": "each",
-      "target": 0.8,
+      "target": 0.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
       "coles": "https://www.coles.com.au/product/original-water-crackers-5389901",
       "price_history": [
@@ -7285,8 +7285,8 @@
       "subcategory": "beverages",
       "size": "125G",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 7 prices",
+      "target_confidence": "high",
+      "target_method": "was $2.80, now $0.95 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
@@ -7306,7 +7306,7 @@
         {
           "date": "2026-04-17",
           "price": 0.95,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7314,7 +7314,7 @@
         {
           "date": "2026-04-18",
           "price": 0.95,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7322,7 +7322,7 @@
         {
           "date": "2026-04-19",
           "price": 0.95,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7330,7 +7330,7 @@
         {
           "date": "2026-04-20",
           "price": 0.95,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7345,11 +7345,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -13136,9 +13136,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -20403,7 +20403,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 7.7,
+      "target": 6.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -20414,33 +20414,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 6.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.80, now $7.70 (store special)",
+      "target_method": "was $8.80, now $6.00 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": true,
+          "is_special": false,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -20448,7 +20448,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": true,
+          "is_special": false,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -20470,20 +20470,20 @@
           "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
-      "was_price": 9.8,
-      "on_special": false,
+      "was_price": 8.8,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
-      "store": "coles",
-      "unit_price": 1.28,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.2,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 6.0,
+          "unit_price": 1.2,
+          "eff_price": 6.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 7.7,
@@ -20495,11 +20495,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 6.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cheese & Bacon Pizza Slices 2 Pack"
+      "name_check": "McCain Pizza Cheese & Bacon"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -26215,7 +26215,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 8.5,
+      "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -26226,26 +26226,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 8.5,
+      "price": 7.0,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.90, now $8.50 (store special)",
+      "target_method": "was $8.50, now $7.00 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -26268,7 +26268,7 @@
         {
           "date": "2026-04-19",
           "price": 8.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Organic Salted Butter"
@@ -26284,15 +26284,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "coles",
-      "unit_price": 3.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 2.8,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 2.37,
-          "eff_price": 8.9,
-          "was_price": 9.9,
+          "price": 7.0,
+          "unit_price": 2.8,
+          "eff_price": 7.0,
+          "was_price": 8.5,
           "on_special": true
         },
         "coles": {
@@ -26305,13 +26305,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.5,
-      "on_special": false,
+      "eff_price": 7.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter"
+      "name_check": "Mainland Organic Butter Block Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -26392,14 +26392,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -26417,7 +26417,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -26958,13 +26958,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 14.0,
+      "price": 12.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $26.10, now $14.00 (store special)",
+      "target_method": "was $26.10, now $12.70 (store special)",
       "target_data_points": 8,
       "target_updated": "2026-04-20",
       "scrape_history": [
@@ -27019,13 +27019,13 @@
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
       "image_url": "images/ww_free_range_lge_eggs_18pk_900g.jpg",
       "store": "woolworths",
-      "unit_price": 1.56,
+      "unit_price": 1.41,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 14.0,
-          "unit_price": 1.56,
-          "eff_price": 14.0,
+          "price": 12.7,
+          "unit_price": 1.41,
+          "eff_price": 12.7,
           "was_price": null,
           "on_special": false
         },
@@ -27039,11 +27039,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 14.0,
+      "eff_price": 12.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Lake Macquarie 18 Large Free Range Eggs"
+      "name_check": "Sunny Queen 18 Large Free Range Eggs"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -29403,19 +29403,19 @@
       "name": "Chicken Breast Fillets Rspca Apprvd",
       "type": "meat",
       "price_mode": "each",
-      "target": 4.43,
+      "target": 2.95,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Chicken%20Breast%20Fillets%20RSPCA%20Apprvd",
       "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-large-pack-2263179",
       "price_history": [],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 9.0,
+      "price": 15.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $12.00, now $9.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 6 prices",
       "target_data_points": 6,
       "target_updated": "2026-04-20",
       "scrape_history": [
@@ -29466,19 +29466,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Chicken_Breast_Fillets_Rspca_Apprvd.jpg",
       "image_url": "images/chicken_breast_fillets_rspca_apprvd.jpg",
-      "store": "woolworths",
-      "unit_price": 9.0,
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 9.0,
-          "eff_price": 9.0,
-          "was_price": 12.0,
-          "on_special": true
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 15.4,
@@ -29493,8 +29493,8 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "eff_price": 9.0,
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
+      "eff_price": 15.4,
+      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack"
     },
     {
       "name": "Chicken Necks Kg",
@@ -29874,14 +29874,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -29902,7 +29902,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle"
+      "name_check": "Pump Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -38417,6 +38417,7 @@
         },
         "coles": {
           "price": 8.5,
+          "unit_price": 1.63,
           "eff_price": 8.5,
           "was_price": null,
           "on_special": false
@@ -40096,6 +40097,7 @@
         },
         "coles": {
           "price": 4.2,
+          "unit_price": 4.2,
           "eff_price": 4.2,
           "was_price": null,
           "on_special": false
