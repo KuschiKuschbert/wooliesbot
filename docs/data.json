@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-20 11:39 AM",
+  "last_updated": "2026-04-20 04:22 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6233,7 +6233,7 @@
       "name": "Ww Rspca Chicken Breast Fillets",
       "type": "meat",
       "price_mode": "each",
-      "target": 13.86,
+      "target": 9.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20RSPCA%20Chicken%20Breast%20Fillets",
       "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-large-pack-2263179",
       "price_history": [
@@ -6244,26 +6244,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 15.4,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 7 prices",
+      "target_confidence": "high",
+      "target_method": "was $12.00, now $9.00 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 13.64,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 13.64,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -6301,19 +6301,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Rspca_Chicken_Breast_Fillets.jpg",
       "image_url": "images/ww_rspca_chicken_breast_fillets.jpg",
-      "store": "coles",
-      "unit_price": 11.0,
+      "store": "woolworths",
+      "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
+          "price": 9.0,
+          "unit_price": 9.0,
+          "eff_price": 9.0,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 15.4,
@@ -6325,11 +6325,11 @@
       },
       "price_unavailable": false,
       "avg_price": 14.74,
-      "eff_price": 15.4,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack"
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
     },
     {
       "name": "Ww Yoghurt Starwberry 1Kg",
@@ -7269,7 +7269,7 @@
       "name": "Ww Original Water Crackers 125G",
       "type": "beverages",
       "price_mode": "each",
-      "target": 0.95,
+      "target": 0.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Original%20Water%20Crackers%20125g",
       "coles": "https://www.coles.com.au/product/original-water-crackers-5389901",
       "price_history": [
@@ -7285,8 +7285,8 @@
       "subcategory": "beverages",
       "size": "125G",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $2.80, now $0.95 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 7 prices",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
@@ -7306,7 +7306,7 @@
         {
           "date": "2026-04-17",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7314,7 +7314,7 @@
         {
           "date": "2026-04-18",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7322,7 +7322,7 @@
         {
           "date": "2026-04-19",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7330,7 +7330,7 @@
         {
           "date": "2026-04-20",
           "price": 0.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
@@ -7345,11 +7345,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -13136,9 +13136,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -13341,6 +13341,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 35.0,
+          "unit_price": 17.5,
+          "eff_price": 35.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -17312,7 +17319,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 1.9,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "1L",
@@ -17373,13 +17380,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 1.9,
+      "unit_price": 2.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.9,
-          "unit_price": 1.9,
-          "eff_price": 1.9,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         },
@@ -17393,11 +17400,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.9,
-      "eff_price": 1.9,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Chicken Liquid Stock"
+      "name_check": "Unox Real Chicken Liquid Stock"
     },
     {
       "name": "Woolworths Corned Beef Shaved Kg",
@@ -26215,7 +26222,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 7.0,
+      "target": 8.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -26226,26 +26233,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 7.0,
+      "price": 8.5,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.50, now $7.00 (store special)",
+      "target_method": "was $9.90, now $8.50 (store special)",
       "target_data_points": 7,
       "target_updated": "2026-04-20",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": false,
+          "is_special": true,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths"
         },
@@ -26268,7 +26275,7 @@
         {
           "date": "2026-04-19",
           "price": 8.5,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Organic Salted Butter"
@@ -26284,15 +26291,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "woolworths",
-      "unit_price": 2.8,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 3.4,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 2.8,
-          "eff_price": 7.0,
-          "was_price": 8.5,
+          "price": 8.9,
+          "unit_price": 2.37,
+          "eff_price": 8.9,
+          "was_price": 9.9,
           "on_special": true
         },
         "coles": {
@@ -26305,13 +26312,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 7.0,
-      "on_special": true,
+      "eff_price": 8.5,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Mainland Organic Butter Block Butter"
+      "name_check": "Organic Salted Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -26958,13 +26965,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 14.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $26.10, now $12.70 (store special)",
+      "target_method": "was $26.10, now $14.00 (store special)",
       "target_data_points": 8,
       "target_updated": "2026-04-20",
       "scrape_history": [
@@ -27019,13 +27026,13 @@
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
       "image_url": "images/ww_free_range_lge_eggs_18pk_900g.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.56,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 14.0,
+          "unit_price": 1.56,
+          "eff_price": 14.0,
           "was_price": null,
           "on_special": false
         },
@@ -27039,11 +27046,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 14.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs"
+      "name_check": "Lake Macquarie 18 Large Free Range Eggs"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -29874,14 +29881,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -29902,7 +29909,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle"
+      "name_check": "Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -34220,7 +34227,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
     },
     {
       "name": "Bsc Chupachups Proteinbarchocvan 55",
@@ -40266,17 +40273,10 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 3.0,
-      "unit_price": 12.0,
+      "unit_price": 17.05,
       "unit": "kg",
-      "store": "woolworths",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.0,
-          "unit_price": 12.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.5,
           "unit_price": 17.05,
@@ -40339,7 +40339,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Ready To Steam Zucchini Spaghetti"
+      "name_check": "Zucchini Slice"
     },
     {
       "name": "Harris Filter Papers 10-12 Cup Sz4 40Pk",
@@ -40448,14 +40448,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 13.5,
+          "unit_price": 3.6,
+          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         },
@@ -40521,7 +40521,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control"
+      "name_check": "Ant Rid Ant Bait"
     },
     {
       "name": "V Drink Energy Guarana 250Ml",
