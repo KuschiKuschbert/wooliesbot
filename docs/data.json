@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21 03:50 PM",
+  "last_updated": "2026-04-21 08:32 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -14731,14 +14731,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -14759,7 +14759,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream"
+      "name_check": "Woolworths Light Thickened Cream"
     },
     {
       "name": "Ww Bbq Bflied Chicken Greek Lemn Herb Rw",
@@ -28456,14 +28456,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -28481,7 +28481,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -32209,14 +32209,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -32237,7 +32237,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle"
+      "name_check": "Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -41977,7 +41977,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest White Chocolate Raspberry"
+      "name_check": "Quest Protein Bar Choc Brownie"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -43437,18 +43437,11 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 3.0,
-      "unit_price": 12.0,
+      "price": 7.5,
+      "unit_price": 17.05,
       "unit": "kg",
-      "store": "woolworths",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.0,
-          "unit_price": 12.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.5,
           "unit_price": 17.05,
@@ -43513,13 +43506,13 @@
       "target_method": "p20 of 7 prices",
       "target_data_points": 7,
       "target_updated": "2026-04-21",
-      "eff_price": 3.0,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Ready To Steam Zucchini Spaghetti"
+      "name_check": "Zucchini Slice"
     },
     {
       "name": "Harris Filter Papers 10-12 Cup Sz4 40Pk",
