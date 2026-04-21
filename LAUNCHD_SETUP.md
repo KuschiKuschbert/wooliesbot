@@ -43,6 +43,10 @@ Telegram credentials belong in `.env` (loaded by `chef_os.py`); do not embed tok
 
 Optional **scraper / anti-bot tuning** (`WOOLIESBOT_*`) is documented in `.env.example`; copy keys into `.env` only if you need to override defaults.
 
+### Google Keep sync from GitHub Pages cart
+
+To sync a cart built on GitHub Pages (not `file://`), keep `api.py` running and set `GOOGLE_KEEP_URL` in `.env` to your Keep note/list URL (`#NOTE/...` or `#LIST/...`). Keep the `chrome_profile` session logged into Google. The dashboard can then call `POST /sync` with `{ "shoppingList": [...] }`, and `keep_sync.py` will push those rows into the configured Keep note in the background.
+
 **Inventory `item_id`:** rows get a stable UUID from [`export_data_to_json`](chef_os.py) on the next scrape if missing. No separate migration script is required.
 
 ## Optional: scheduled variant discovery (snippet only — Phase 3)

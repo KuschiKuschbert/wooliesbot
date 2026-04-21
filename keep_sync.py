@@ -39,7 +39,30 @@ KEEP_URL      = os.environ.get("GOOGLE_KEEP_URL", "")
 DASHBOARD_URL = "file://" + os.path.join(_SCRIPT_DIR, "docs", "index.html")
 
 
-def run_keep_sync():
+def _normalize_shopping_list(shopping_list):
+    """Return a clean list of dict rows with at least a non-empty name."""
+    if not isinstance(shopping_list, list):
+        return []
+    cleaned = []
+    for row in shopping_list:
+        if not isinstance(row, dict):
+            continue
+        name = str(row.get("name", "")).strip()
+        if not name:
+            continue
+        qty_raw = row.get("qty", 1)
+        try:
+            qty = int(qty_raw)
+        except (TypeError, ValueError):
+            qty = 1
+        cleaned.append({
+            "name": name,
+            "qty": qty if qty > 0 else 1,
+        })
+    return cleaned
+
+
+def run_keep_sync(shopping_list=None):
     """
     Synchronizes the shopping list from the dashboard to Google Keep.
 
@@ -52,9 +75,16 @@ def run_keep_sync():
     if not KEEP_URL:
         logging.error(
             "GOOGLE_KEEP_URL is not set. Add it to your .env file:\n"
-            "  GOOGLE_KEEP_URL=https://keep.google.com/u/0/#LIST/your_list_id"
+            "  GOOGLE_KEEP_URL=https://keep.google.com/u/0/#NOTE/your_note_id\n"
+            "  (or https://keep.google.com/u/0/#LIST/your_list_id)"
         )
         return
+
+    if shopping_list is not None:
+        shopping_list = _normalize_shopping_list(shopping_list)
+        if not shopping_list:
+            logging.warning("⚠️ Provided shopping list is empty. Nothing to sync.")
+            return
 
     user_data_dir = os.path.join(_SCRIPT_DIR, "chrome_profile")
     options = uc.ChromeOptions()
@@ -65,22 +95,23 @@ def run_keep_sync():
     wait = WebDriverWait(driver, 20)  # up to 20s per element
 
     try:
-        # ── 1. Get Shopping List from Dashboard ──────────────────────────────
-        logging.info("Opening local dashboard to fetch shopping list...")
-        driver.get(DASHBOARD_URL)
-        # Wait for the page JS to initialise (shoppingList in localStorage)
-        time.sleep(2)
+        # ── 1. Get Shopping List source ──────────────────────────────────────
+        if shopping_list is None:
+            logging.info("Opening local dashboard to fetch shopping list...")
+            driver.get(DASHBOARD_URL)
+            # Wait for the page JS to initialise (shoppingList in localStorage)
+            time.sleep(2)
 
-        shopping_list = driver.execute_script(
-            "return JSON.parse(localStorage.getItem('shoppingList') || '[]')"
-        )
-
-        if not shopping_list:
-            logging.warning("⚠️ Shopping list is empty. Nothing to sync.")
-            driver.quit()
-            return
-
-        logging.info(f"📋 Found {len(shopping_list)} items in list. Syncing to Keep...")
+            shopping_list = driver.execute_script(
+                "return JSON.parse(localStorage.getItem('shoppingList') || '[]')"
+            )
+            shopping_list = _normalize_shopping_list(shopping_list)
+            if not shopping_list:
+                logging.warning("⚠️ Shopping list is empty. Nothing to sync.")
+                return
+            logging.info(f"📋 Found {len(shopping_list)} items in local dashboard list. Syncing to Keep...")
+        else:
+            logging.info(f"📋 Using {len(shopping_list)} cart items from API request. Syncing to Keep...")
 
         # ── 2. Open Google Keep ───────────────────────────────────────────────
         driver.get(KEEP_URL)

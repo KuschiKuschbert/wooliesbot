@@ -78,7 +78,66 @@ class LocalBotHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        if self.path == '/update_stock':
+        if self.path == '/sync':
+            try:
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length) if content_length > 0 else b"{}"
+                params = json.loads(post_data)
+                shopping_list = params.get('shoppingList')
+
+                if not isinstance(shopping_list, list):
+                    self.send_response(400)
+                    self.send_header('Content-type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({
+                        "status": "bad_request",
+                        "message": "shoppingList must be a JSON array"
+                    }).encode())
+                    return
+
+                cleaned = []
+                for row in shopping_list:
+                    if not isinstance(row, dict):
+                        continue
+                    name = str(row.get("name", "")).strip()
+                    if not name:
+                        continue
+                    qty_raw = row.get("qty", 1)
+                    try:
+                        qty = int(qty_raw)
+                    except (TypeError, ValueError):
+                        qty = 1
+                    cleaned.append({
+                        "name": name,
+                        "qty": qty if qty > 0 else 1,
+                    })
+
+                if not cleaned:
+                    self.send_response(400)
+                    self.send_header('Content-type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({
+                        "status": "bad_request",
+                        "message": "shoppingList has no valid items"
+                    }).encode())
+                    return
+
+                self.send_response(200)
+                self.send_header('Content-type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                threading.Thread(target=run_keep_sync, kwargs={"shopping_list": cleaned}, daemon=True).start()
+                self.wfile.write(json.dumps({
+                    "status": "success",
+                    "message": "Sync started in background",
+                    "items": len(cleaned)
+                }).encode())
+            except Exception as e:
+                logging.error(f"sync error: {e}")
+                self.send_error(500, str(e))
+        elif self.path == '/update_stock':
             try:
                 content_length = int(self.headers.get('Content-Length', 0))
                 post_data = self.rfile.read(content_length)

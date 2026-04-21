@@ -441,6 +441,12 @@
                 <span>About</span>
                 <span id="list-total-price">$0.00</span>
             </div>
+            <button type="button" id="open-keep-btn" class="sync-btn" disabled>
+                <i data-feather="external-link"></i> Open in Google Keep
+            </button>
+            <button type="button" id="sync-keep-btn" class="sync-btn" disabled>
+                <i data-feather="refresh-cw"></i> Sync to Google Keep
+            </button>
             <button type="button" id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
                 <i data-feather="copy"></i> Copy for messages
             </button>
@@ -471,6 +477,9 @@
                 </div>
                 <label for="bridge-url-input">Computer address</label>
                 <input type="text" id="bridge-url-input" placeholder="http://192.168.1.x:5001" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
+                <label for="keep-url-input" style="margin-top: 14px; display:block;">Google Keep note URL</label>
+                <input type="url" id="keep-url-input" placeholder="https://keep.google.com/u/0/#NOTE/your_note_id" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Use the same note URL configured in your Mac's <code style="font-size:11px;">GOOGLE_KEEP_URL</code>.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" id="settings-cancel">Cancel</button>

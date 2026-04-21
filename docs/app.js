@@ -229,6 +229,7 @@ let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
 let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
+let _keepNoteUrl = localStorage.getItem('google_keep_note_url') || '';
 /** Cloudflare Worker base URL for POST /update_stock (optional; overrides bridge for writes). */
 let _writeApiUrl = localStorage.getItem('write_api_url') || '';
 /** Shared secret header for the Worker — stored only in localStorage in the browser. */
@@ -837,7 +838,8 @@ function setupFilters() {
         }
     });
 
-    // (Keep sync button removed — use copy-list-btn for sharing)
+    document.getElementById('open-keep-btn')?.addEventListener('click', openShoppingListInKeep);
+    document.getElementById('sync-keep-btn')?.addEventListener('click', syncShoppingListToKeep);
     
     // Settings Logic
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
@@ -850,6 +852,7 @@ function openSettings() {
     document.getElementById('write-api-url-input').value = _writeApiUrl;
     document.getElementById('write-api-secret-input').value = _writeApiSecret;
     document.getElementById('bridge-url-input').value = _apiUrl;
+    document.getElementById('keep-url-input').value = _keepNoteUrl;
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
@@ -866,6 +869,8 @@ function saveSettings() {
     _writeApiSecret = document.getElementById('write-api-secret-input').value;
     localStorage.setItem('write_api_url', _writeApiUrl);
     localStorage.setItem('write_api_secret', _writeApiSecret);
+    _keepNoteUrl = document.getElementById('keep-url-input').value.trim();
+    localStorage.setItem('google_keep_note_url', _keepNoteUrl);
 
     const val = document.getElementById('bridge-url-input').value.trim();
     if (val) {
@@ -873,6 +878,7 @@ function saveSettings() {
         localStorage.setItem('bridge_url', _apiUrl);
     }
     closeSettings();
+    updateListCount();
     monitorApi();
 }
 
@@ -1575,6 +1581,78 @@ function updateListCount() {
     // Enable copy button
     const copyBtn = document.getElementById('copy-list-btn');
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
+    const syncBtn = document.getElementById('sync-keep-btn');
+    if (syncBtn) syncBtn.disabled = _shoppingList.length === 0;
+    const openKeepBtn = document.getElementById('open-keep-btn');
+    if (openKeepBtn) openKeepBtn.disabled = !_keepNoteUrl;
+}
+
+function openShoppingListInKeep() {
+    if (!_keepNoteUrl) {
+        alert('Add your Google Keep note URL in Settings first.');
+        return;
+    }
+    window.open(_keepNoteUrl, '_blank', 'noopener,noreferrer');
+}
+
+async function syncShoppingListToKeep() {
+    if (_shoppingList.length === 0) {
+        alert('Your shopping list is empty.');
+        return;
+    }
+    const base = (_apiUrl || '').trim().replace(/\/$/, '');
+    if (!base) {
+        alert('Set your local bridge URL in Settings first.');
+        return;
+    }
+
+    const btn = document.getElementById('sync-keep-btn');
+    const original = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i data-feather="loader"></i> Starting...';
+        if (typeof feather !== 'undefined') feather.replace();
+    }
+
+    const payload = _shoppingList.map(item => ({
+        item_id: item.item_id || null,
+        name: item.name || '',
+        qty: item.qty || 1,
+        price: item.price || null,
+        store: item.store || null,
+        on_special: Boolean(item.on_special),
+    }));
+
+    try {
+        const res = await fetch(`${base}/sync`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ shoppingList: payload }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.status !== 'success') {
+            throw new Error(data.message || `Sync request failed (${res.status})`);
+        }
+        if (btn) {
+            btn.innerHTML = '<i data-feather="check"></i> Sync started';
+            btn.style.background = 'var(--woolies-green)';
+            if (typeof feather !== 'undefined') feather.replace();
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.style.background = '';
+                updateListCount();
+                if (typeof feather !== 'undefined') feather.replace();
+            }, 2200);
+        }
+    } catch (err) {
+        if (btn) {
+            btn.innerHTML = original;
+            btn.style.background = '';
+            updateListCount();
+            if (typeof feather !== 'undefined') feather.replace();
+        }
+        alert(`Keep sync failed: ${err.message || err}`);
+    }
 }
 
 function addToList(itemName, callerBtn, itemId) {
