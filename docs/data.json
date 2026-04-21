@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21 06:25 AM",
+  "last_updated": "2026-04-21 11:09 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6751,7 +6751,7 @@
       "name": "Ww Rspca Chicken Breast Fillets",
       "type": "meat",
       "price_mode": "each",
-      "target": 14.08,
+      "target": 9.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20RSPCA%20Chicken%20Breast%20Fillets",
       "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-large-pack-2263179",
       "price_history": [
@@ -6762,26 +6762,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 15.4,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 8 prices",
+      "target_confidence": "high",
+      "target_method": "was $12.00, now $9.00 (store special)",
       "target_data_points": 8,
       "target_updated": "2026-04-21",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 13.64,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 13.64,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -6827,19 +6827,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Rspca_Chicken_Breast_Fillets.jpg",
       "image_url": "images/ww_rspca_chicken_breast_fillets.jpg",
-      "store": "coles",
-      "unit_price": 11.0,
+      "store": "woolworths",
+      "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
+          "price": 9.0,
+          "unit_price": 9.0,
+          "eff_price": 9.0,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 15.4,
@@ -6851,11 +6851,11 @@
       },
       "price_unavailable": false,
       "avg_price": 14.74,
-      "eff_price": 15.4,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack"
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
     },
     {
       "name": "Ww Yoghurt Starwberry 1Kg",
@@ -7857,9 +7857,9 @@
       "price_unavailable": false,
       "avg_price": 3.15,
       "eff_price": 3.5,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
-      "stale_as_of": "2026-04-16",
+      "stale_as_of": "2026-04-21",
       "name_check": "La Molisana Extra Di Lusso 28 Fusilli"
     },
     {
@@ -18742,13 +18742,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 4.2,
+      "unit_price": 2.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.2,
-          "unit_price": 4.2,
-          "eff_price": 4.2,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         },
@@ -18766,7 +18766,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Massel Gourmet Liquid Stock Chicken"
+      "name_check": "Unox Real Chicken Liquid Stock"
     },
     {
       "name": "Woolworths Corned Beef Shaved Kg",
@@ -20057,17 +20057,10 @@
         }
       ],
       "local_image": "images/Nescafe_Esp_Conc_Sweet_Vanilla_500Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 22.0,
+      "store": "coles",
+      "unit_price": 2.2,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 11.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 11.0,
           "unit_price": 2.2,
@@ -20085,7 +20078,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Nescafe Espresso Concentrate Sweet Vanilla Liquid Coffee"
+      "name_check": "Espresso Coffee Concentrate Vanilla"
     },
     {
       "name": "G Active Flav Water Grape 600Ml",
@@ -21300,10 +21293,17 @@
         }
       ],
       "local_image": "images/Rexona_Men_Advanced_Sport_Ap_220Ml.jpg",
-      "store": "coles",
-      "unit_price": 4.77,
+      "store": "woolworths",
+      "unit_price": 27.200000000000003,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 5.99,
+          "unit_price": 27.200000000000003,
+          "eff_price": 5.99,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.5,
           "unit_price": 4.77,
@@ -21321,7 +21321,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 10.5,
-      "name_check": "Men Deodorant 72hr Advanced Aerosol Sport"
+      "name_check": "Rexona Men Advanced Protection Antiperspirant All Blacks Invisible Dry (72H) 220mL"
     },
     {
       "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
@@ -22113,7 +22113,7 @@
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 14.5,
+      "target": 9.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -22152,7 +22152,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 17.5,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -22160,20 +22160,20 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "sale median (6/15 obs, 40% on sale)",
+      "target_method": "was $12.00, now $9.00 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-21",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 14.5,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 14.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
@@ -22219,19 +22219,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
-      "store": "coles",
-      "unit_price": 17.5,
+      "store": "woolworths",
+      "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
+          "price": 9.0,
+          "unit_price": 9.0,
+          "eff_price": 9.0,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 17.5,
@@ -22243,11 +22243,11 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 17.5,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Free Range Chicken Breast Fillets Bulk"
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
     },
     {
       "name": "Impressed Tropical Juice 425Ml",
@@ -26729,7 +26729,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 4.5,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -26797,17 +26797,10 @@
       "on_special": false,
       "local_image": "images/Asparagus_Green_Bnch.jpg",
       "image_url": "images/asparagus_green_bnch.jpg",
-      "store": "woolworths",
-      "unit_price": 4.5,
+      "store": "coles",
+      "unit_price": 4.9,
       "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 4.5,
-          "unit_price": 4.5,
-          "eff_price": 4.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.9,
           "unit_price": 4.9,
@@ -26818,11 +26811,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.55,
-      "eff_price": 4.5,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Green Asparagus Bunch Green"
+      "name_check": "Green Asparagus"
     },
     {
       "name": "La Tosca Fresh Fettuccini 375G",
@@ -28147,7 +28140,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar White Chocolate Caramel"
+      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -41977,7 +41970,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest White Chocolate Raspberry"
+      "name_check": "Quest Protein Bar Choc Brownie"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
