@@ -2225,7 +2225,7 @@ def export_data_to_json(results):
                 0 < snapshot_price < _PRICE_UNRELIABLE and
                 not item.get("price_unavailable")
             )
-            if snapshot_reliable and (not sh or sh[-1].get("date") != today_str):
+            if snapshot_reliable:
                 entry = {
                     "date": today_str,
                     "price": snapshot_price,
@@ -2236,7 +2236,11 @@ def export_data_to_json(results):
                 nc = item.get("name_check", "")
                 if nc:
                     entry["matched_name"] = nc
-                sh.append(entry)
+                if sh and sh[-1].get("date") == today_str:
+                    # Keep today's history row aligned with the latest successful snapshot.
+                    sh[-1] = entry
+                else:
+                    sh.append(entry)
             item["scrape_history"] = sh
             # ── Backfill `store` if not set by the live scrape ──────────────────────
             # Items that weren't scraped this cycle (or where the scraper returned
