@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21 11:09 AM",
+  "last_updated": "2026-04-21 03:50 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6751,7 +6751,7 @@
       "name": "Ww Rspca Chicken Breast Fillets",
       "type": "meat",
       "price_mode": "each",
-      "target": 9.0,
+      "target": 14.08,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20RSPCA%20Chicken%20Breast%20Fillets",
       "coles": "https://www.coles.com.au/product/rspca-approved-chicken-breast-fillets-large-pack-2263179",
       "price_history": [
@@ -6762,26 +6762,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 9.0,
+      "price": 15.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
-      "target_confidence": "high",
-      "target_method": "was $12.00, now $9.00 (store special)",
+      "target_confidence": "medium",
+      "target_method": "p20 of 8 prices",
       "target_data_points": 8,
       "target_updated": "2026-04-21",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 13.64,
-          "is_special": false,
+          "is_special": true,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 13.64,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths"
         },
@@ -6827,19 +6827,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Rspca_Chicken_Breast_Fillets.jpg",
       "image_url": "images/ww_rspca_chicken_breast_fillets.jpg",
-      "store": "woolworths",
-      "unit_price": 9.0,
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 9.0,
-          "eff_price": 9.0,
-          "was_price": 12.0,
-          "on_special": true
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 15.4,
@@ -6851,11 +6851,11 @@
       },
       "price_unavailable": false,
       "avg_price": 14.74,
-      "eff_price": 9.0,
+      "eff_price": 15.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
+      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack"
     },
     {
       "name": "Ww Yoghurt Starwberry 1Kg",
@@ -16744,6 +16744,13 @@
       "unit_price": 6.2,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.2,
           "unit_price": 6.2,
@@ -18673,7 +18680,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.0,
+      "price": 1.9,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "1L",
@@ -18742,13 +18749,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 2.0,
+      "unit_price": 1.9,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 1.9,
+          "unit_price": 1.9,
+          "eff_price": 1.9,
           "was_price": null,
           "on_special": false
         },
@@ -18762,11 +18769,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.9,
-      "eff_price": 2.0,
+      "eff_price": 1.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Unox Real Chicken Liquid Stock"
+      "name_check": "Woolworths Chicken Liquid Stock"
     },
     {
       "name": "Woolworths Corned Beef Shaved Kg",
@@ -20057,10 +20064,17 @@
         }
       ],
       "local_image": "images/Nescafe_Esp_Conc_Sweet_Vanilla_500Ml.jpg",
-      "store": "coles",
-      "unit_price": 2.2,
+      "store": "woolworths",
+      "unit_price": 22.0,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 11.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 11.0,
           "unit_price": 2.2,
@@ -20078,7 +20092,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Espresso Coffee Concentrate Vanilla"
+      "name_check": "Nescafe Espresso Concentrate Sweet Vanilla Liquid Coffee"
     },
     {
       "name": "G Active Flav Water Grape 600Ml",
@@ -21293,17 +21307,10 @@
         }
       ],
       "local_image": "images/Rexona_Men_Advanced_Sport_Ap_220Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 27.200000000000003,
+      "store": "coles",
+      "unit_price": 4.77,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 5.99,
-          "unit_price": 27.200000000000003,
-          "eff_price": 5.99,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.5,
           "unit_price": 4.77,
@@ -21321,7 +21328,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 10.5,
-      "name_check": "Rexona Men Advanced Protection Antiperspirant All Blacks Invisible Dry (72H) 220mL"
+      "name_check": "Men Deodorant 72hr Advanced Aerosol Sport"
     },
     {
       "name": "Rexona Men Ap Adv Coconut Clns 220Ml",
@@ -22113,7 +22120,7 @@
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 9.0,
+      "target": 14.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -22152,7 +22159,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 9.0,
+      "price": 17.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -22160,20 +22167,20 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "was $12.00, now $9.00 (store special)",
+      "target_method": "sale median (6/15 obs, 40% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-21",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
@@ -22219,19 +22226,19 @@
         }
       ],
       "was_price": 12.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
-      "store": "woolworths",
-      "unit_price": 9.0,
+      "store": "coles",
+      "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 9.0,
-          "eff_price": 9.0,
-          "was_price": 12.0,
-          "on_special": true
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 17.5,
@@ -22243,11 +22250,11 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 9.0,
+      "eff_price": 17.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
+      "name_check": "Free Range Chicken Breast Fillets Bulk"
     },
     {
       "name": "Impressed Tropical Juice 425Ml",
@@ -28140,7 +28147,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,"
+      "name_check": "Musashi High Protein Bar White Chocolate Caramel"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -28256,7 +28263,7 @@
       "name": "Mainland Organic Salted Sprd Butter 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 8.5,
+      "target": 7.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mainland%20Organic%20Salted%20Sprd%20Butter%20250g",
       "coles": "https://www.coles.com.au/product/organic-salted-butter-1708076",
       "price_history": [
@@ -28267,26 +28274,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 8.5,
+      "price": 7.0,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.90, now $8.50 (store special)",
+      "target_method": "was $8.50, now $7.00 (store special)",
       "target_data_points": 8,
       "target_updated": "2026-04-21",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 7.2,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
@@ -28309,7 +28316,7 @@
         {
           "date": "2026-04-19",
           "price": 8.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Organic Salted Butter"
@@ -28325,7 +28332,7 @@
         {
           "date": "2026-04-21",
           "price": 8.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Organic Salted Butter"
@@ -28333,15 +28340,15 @@
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
       "image_url": "images/mainland_organic_salted_sprd_butter_250g.jpg",
-      "store": "coles",
-      "unit_price": 3.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 2.8,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 2.37,
-          "eff_price": 8.9,
-          "was_price": 9.9,
+          "price": 7.0,
+          "unit_price": 2.8,
+          "eff_price": 7.0,
+          "was_price": 8.5,
           "on_special": true
         },
         "coles": {
@@ -28354,13 +28361,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.5,
-      "on_special": false,
+      "eff_price": 7.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter"
+      "name_check": "Mainland Organic Butter Block Butter"
     },
     {
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
@@ -28449,14 +28456,14 @@
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -28474,7 +28481,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -32202,14 +32209,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -32230,7 +32237,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle"
+      "name_check": "Pump Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",
@@ -41970,7 +41977,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest Protein Bar Choc Brownie"
+      "name_check": "Quest White Chocolate Raspberry"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -43430,11 +43437,18 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 7.5,
-      "unit_price": 17.05,
+      "price": 3.0,
+      "unit_price": 12.0,
       "unit": "kg",
-      "store": "coles",
+      "store": "woolworths",
       "all_stores": {
+        "woolworths": {
+          "price": 3.0,
+          "unit_price": 12.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 7.5,
           "unit_price": 17.05,
@@ -43499,13 +43513,13 @@
       "target_method": "p20 of 7 prices",
       "target_data_points": 7,
       "target_updated": "2026-04-21",
-      "eff_price": 7.5,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Zucchini Slice"
+      "name_check": "Woolworths Ready To Steam Zucchini Spaghetti"
     },
     {
       "name": "Harris Filter Papers 10-12 Cup Sz4 40Pk",
