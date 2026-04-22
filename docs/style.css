@@ -2059,8 +2059,8 @@ body.drawer-open {
     }
 
     .header {
-        padding-top: calc(0.24rem + env(safe-area-inset-top, 0px));
-        padding-bottom: 0.24rem;
+        padding-top: calc(env(safe-area-inset-top, 0px) + 0.04rem);
+        padding-bottom: 0.04rem;
         position: relative;
         top: auto;
         z-index: 2;
@@ -2070,11 +2070,11 @@ body.drawer-open {
     .header-content {
         flex-direction: row;
         justify-content: space-between;
-        gap: 0.65rem;
+        gap: 0.45rem;
         padding: 0;
         text-align: left;
         align-items: center;
-        min-height: 44px;
+        min-height: 40px;
     }
 
     .header-left {
@@ -2086,19 +2086,19 @@ body.drawer-open {
 
     .logo {
         flex-direction: row;
-        gap: 0.5rem;
+        gap: 0.35rem;
         align-items: center;
     }
 
     .logo h1 {
-        font-size: 1.05rem;
+        font-size: 0.98rem;
         letter-spacing: -0.04em;
     }
 
     .logo i,
     .logo svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 
     #settings-btn.icon-btn,
@@ -2124,7 +2124,7 @@ body.drawer-open {
     .header-actions {
         display: flex;
         justify-content: flex-end;
-        gap: 10px;
+        gap: 6px;
         align-items: center;
         flex-shrink: 0;
     }
