@@ -2859,7 +2859,12 @@ function renderMobilePriorityRail() {
 
     const priorityItems = getPriorityItems(_data, 6);
     const topDeals = getTopDeals(_data, 5);
-    if (priorityItems.length === 0 && topDeals.length === 0) {
+    const fallbackDeals = (_data || [])
+        .map(item => ({ ...item, _snap: computeItemSavingsSnapshot(item) }))
+        .filter(item => item._snap.isDeal && !item.price_unavailable)
+        .sort((a, b) => b._snap.savedDollar - a._snap.savedDollar)
+        .slice(0, 5);
+    if (priorityItems.length === 0 && topDeals.length === 0 && fallbackDeals.length === 0) {
         rail.innerHTML = '';
         return;
     }
@@ -2897,6 +2902,25 @@ function renderMobilePriorityRail() {
                         <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
                     </div>
                     <span class="top5-save">-${item._snap.savePct}%</span>
+                </div>`;
+            }).join('')}
+        </div>`;
+    }
+
+    // Keep at least two high-signal panels visible when possible.
+    // If one panel is missing due sparse low-stock/savings data, provide a fallback list.
+    if (priorityItems.length > 0 && topDeals.length === 0 && fallbackDeals.length > 0) {
+        html += `<div class="priority-rail-section">
+            <div class="priority-rail-title">✨ Worth checking</div>
+            ${fallbackDeals.map((item, i) => {
+                const name = displayName(item.name);
+                return `<div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${name}">
+                    <span class="top5-medal">${i + 1}</span>
+                    <div class="top5-info">
+                        <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
+                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
+                    </div>
+                    <span class="top5-save">$${item._snap.savedDollar.toFixed(2)}</span>
                 </div>`;
             }).join('')}
         </div>`;

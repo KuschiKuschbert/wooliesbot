@@ -2061,6 +2061,10 @@ body.drawer-open {
     .header {
         padding-top: calc(0.24rem + env(safe-area-inset-top, 0px));
         padding-bottom: 0.24rem;
+        position: relative;
+        top: auto;
+        z-index: 2;
+        box-shadow: none;
     }
 
     .header-content {
@@ -5147,8 +5151,8 @@ button, a, label, [role="button"] {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0.5rem;
-        padding: 0.5rem 0.75rem;
-        margin: 0.3rem 0 0.4rem;
+        padding: 0.3rem 0.6rem;
+        margin: 0.15rem 0 0.25rem;
         -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 28px), transparent 100%);
         mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 28px), transparent 100%);
     }
@@ -5159,7 +5163,7 @@ button, a, label, [role="button"] {
         flex: 0 0 auto;
         min-width: 190px;
         scroll-snap-align: start;
-        padding: 0.7rem 1rem;
+        padding: 0.55rem 0.8rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 12px;
@@ -6057,7 +6061,10 @@ table.dr-table {
     .deals-hero {
         flex-direction: column;
         align-items: stretch;
-        margin-top: 0.35rem;
+        margin-top: 0.2rem;
+        margin-bottom: 0.7rem;
+        padding: 0.9rem 0.95rem;
+        gap: 0.55rem 0.8rem;
     }
 
     .deals-hero-status {
@@ -6109,7 +6116,7 @@ table.dr-table {
 
     body.mobile-scrolled .sticky-filter-bar {
         position: sticky;
-        top: calc(env(safe-area-inset-top, 0px) + 42px);
+        top: calc(env(safe-area-inset-top, 0px) + 2px);
         padding-top: 0.2rem;
         padding-bottom: 0.2rem;
         background: rgba(5, 5, 5, 0.93);
