@@ -254,6 +254,7 @@ const SHOPPING_TRIP_SESSIONS_MAX = 200;
 const SHOPPING_TRIP_TIMEOUT_MS = 2 * 60 * 60 * 1000; // 2h idle timeout failsafe
 const SHOPPING_TRIP_TIMEOUT_REMINDER_KEY = 'shoppingTripTimeoutReminderPending';
 const SHOPPING_LIST_TOMBSTONES_KEY = 'shoppingListTombstones';
+const CART_LIST_PRIMARY_KEY = 'cart_list_primary';
 const SHOPPING_SYNC_POLL_MS = 30000;
 const SHOPPING_SYNC_FAIL_TOAST_MS = 120000;
 
@@ -265,6 +266,7 @@ let _shoppingSyncLastFailureAt = 0;
 let _shoppingTripMilestonesShown = new Set();
 let _shoppingTripBeatLastToastShown = false;
 let _analyticsResizeTimer = null;
+let _cartListPrimary = loadCartPrimaryPreference();
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
@@ -322,6 +324,25 @@ function normalizeShoppingListShape(rows) {
 function persistShoppingList() {
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
     localStorage.setItem(SHOPPING_LIST_TOMBSTONES_KEY, JSON.stringify(_shoppingListTombstones));
+}
+
+function defaultCartPrimaryPreference() {
+    try {
+        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
+    } catch {
+        return false;
+    }
+}
+
+function loadCartPrimaryPreference() {
+    const raw = localStorage.getItem(CART_LIST_PRIMARY_KEY);
+    if (raw === '1') return true;
+    if (raw === '0') return false;
+    return defaultCartPrimaryPreference();
+}
+
+function isCartPrimaryDevice() {
+    return Boolean(_cartListPrimary);
 }
 
 function ensureShoppingDeviceId() {
@@ -390,6 +411,7 @@ function buildShoppingSyncPayload() {
         device_id: _shoppingDeviceId,
         items: _shoppingList,
         tombstones: _shoppingListTombstones,
+        is_cart_primary: isCartPrimaryDevice(),
     });
 }
 
@@ -419,10 +441,11 @@ function markShoppingSyncDirty() {
     }, 900);
 }
 
-async function syncShoppingListCloud(mode = 'poll') {
+async function syncShoppingListCloud(mode = 'poll', options = {}) {
+    const force = Boolean(options && options.force);
     const base = getStockWriteBase();
-    if (!base) return;
-    if (_shoppingSyncInFlight) return;
+    if (!base) return false;
+    if (_shoppingSyncInFlight) return false;
     ensureShoppingDeviceId();
     _shoppingSyncInFlight = true;
     try {
@@ -440,7 +463,7 @@ async function syncShoppingListCloud(mode = 'poll') {
             applyRemoteShoppingSyncPayload(data.payload || {});
             _shoppingSyncDirty = false;
             _shoppingSyncLastFailureAt = 0;
-            return;
+            return true;
         }
 
         const res = await fetch(`${base}/shopping_list`, {
@@ -452,18 +475,33 @@ async function syncShoppingListCloud(mode = 'poll') {
             throw new Error(data.error || data.message || `sync poll failed (${res.status})`);
         }
         const payload = normalizeShoppingSyncPayload(data.payload || {});
-        if (_shoppingSyncLastRemoteUpdatedAt && payload.updated_at === _shoppingSyncLastRemoteUpdatedAt) return;
+        if (!force && _shoppingSyncLastRemoteUpdatedAt && payload.updated_at === _shoppingSyncLastRemoteUpdatedAt) return true;
         applyRemoteShoppingSyncPayload(payload);
         _shoppingSyncLastFailureAt = 0;
+        return true;
     } catch (err) {
         const now = Date.now();
         if (!_shoppingSyncLastFailureAt || (now - _shoppingSyncLastFailureAt) > SHOPPING_SYNC_FAIL_TOAST_MS) {
             _shoppingSyncLastFailureAt = now;
             showUiToast(`Cart sync offline: ${err.message || err}`, 3200);
         }
+        return false;
     } finally {
         _shoppingSyncInFlight = false;
     }
+}
+
+async function forceLoadShoppingListFromCloud() {
+    if (!getStockWriteBase() || !_writeApiSecret.trim()) {
+        showUiToast('Add Worker URL + secret first');
+        return;
+    }
+    if (_shoppingSyncInFlight) {
+        showUiToast('Sync already in progress');
+        return;
+    }
+    const ok = await syncShoppingListCloud('poll', { force: true });
+    if (ok) showUiToast('Cart reloaded from cloud');
 }
 
 function loadShoppingTripSessions() {
@@ -1306,6 +1344,7 @@ function setupFilters() {
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
     document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
     document.getElementById('settings-save')?.addEventListener('click', saveSettings);
+    document.getElementById('settings-load-cloud-btn')?.addEventListener('click', forceLoadShoppingListFromCloud);
 }
 
 function syncCompareGroupDetailsState() {
@@ -1334,6 +1373,10 @@ function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('write-api-url-input').value = _writeApiUrl;
     document.getElementById('write-api-secret-input').value = _writeApiSecret;
+    const primaryToggle = document.getElementById('cart-primary-device-toggle');
+    if (primaryToggle) primaryToggle.checked = isCartPrimaryDevice();
+    const loadBtn = document.getElementById('settings-load-cloud-btn');
+    if (loadBtn) loadBtn.disabled = !getStockWriteBase() || !_writeApiSecret.trim();
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
@@ -1348,8 +1391,11 @@ function closeSettings() {
 function saveSettings() {
     _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
     _writeApiSecret = document.getElementById('write-api-secret-input').value;
+    const primaryToggle = document.getElementById('cart-primary-device-toggle');
+    _cartListPrimary = Boolean(primaryToggle?.checked);
     localStorage.setItem('write_api_url', _writeApiUrl);
     localStorage.setItem('write_api_secret', _writeApiSecret);
+    localStorage.setItem(CART_LIST_PRIMARY_KEY, _cartListPrimary ? '1' : '0');
     closeSettings();
     updateListCount();
     monitorApi();

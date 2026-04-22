@@ -524,11 +524,17 @@ async function handleShoppingListPost(request, env) {
 		return jsonResponse({ error: "invalid_json" }, 400, env, origin);
 	}
 	const incoming = normalizeShoppingPayload(incomingRaw);
+	// Two write modes:
+	// - primary snapshot: incoming payload replaces remote cart state
+	// - default merge: incoming payload is merged into remote cart state
+	const isPrimarySnapshot = Boolean(incomingRaw && incomingRaw.is_cart_primary === true);
 	const maxAttempts = 6;
 	for (let attempt = 1; attempt <= maxAttempts; attempt++) {
 		const read = await readShoppingListPayload(cfg, env, origin);
 		if (!read.ok) return read.response;
-		const merged = mergeShoppingPayloads(read.payload, incoming);
+		const merged = isPrimarySnapshot
+			? { ...incoming, updated_at: nowIso() }
+			: mergeShoppingPayloads(read.payload, incoming);
 		const contentB64 = utf8ToBase64(`${JSON.stringify(merged, null, 2)}\n`);
 		const putRes = await githubPutFile(
 			cfg.owner,

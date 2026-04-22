@@ -492,6 +492,15 @@
                 <input type="password" id="write-api-secret-input" placeholder="Same as WOOLIESBOT_WRITE_SECRET on the Worker" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
                 <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Stored only in this browser’s local storage — never committed to the repo.</p>
 
+                <label for="cart-primary-device-toggle" style="margin-top: 14px; display:flex; align-items:center; gap:10px;">
+                    <input type="checkbox" id="cart-primary-device-toggle">
+                    <span>This device is the source of truth for the cart</span>
+                </label>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Recommended on your phone. When enabled, cart pushes from this device replace the cloud cart snapshot.</p>
+
+                <button type="button" id="settings-load-cloud-btn" style="margin-top: 12px;">Load cart from cloud</button>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Use this to replace this browser's local list with the latest cloud cart.</p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" id="settings-cancel">Cancel</button>
