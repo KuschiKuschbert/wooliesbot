@@ -5,13 +5,16 @@ on:
     branches: [main, master]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: "3.12"
 
@@ -21,7 +24,7 @@ jobs:
       - name: Compile Python modules
         run: |
           python3 -m py_compile chef_os.py receipt_sync.py
-          python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py
+          python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py scripts/scrape_pipeline.py scripts/telegram_notify.py
 
       - name: Inventory identity (duplicate item_id / names)
         run: python3 scripts/check_inventory_identity.py

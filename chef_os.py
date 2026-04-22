@@ -2577,6 +2577,86 @@ def _discover_coles_prices(batch_size=20):
     logging.info(f"[Coles] Discovered {matched} matches ({cheaper} cheaper). Total with Coles: {total}/{len(data)}")
 
 
+def _recalculate_smart_targets():
+    """Re-run smart target recalculation in-process."""
+    _st_path = _pl.Path(__file__).parent / "scripts" / "smart_targets.py"
+    _spec = _ilu.spec_from_file_location("smart_targets", _st_path)
+    _st = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_st)
+    _st.recalculate_targets(dry_run=False)
+
+
+def _run_local_link_self_heal(report_basename="e2e_validate_links_local.json"):
+    """Run Layer D scan/apply with auto-repair, writing a JSON report under logs/."""
+    import subprocess
+
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    validator = os.path.join(root_dir, "scripts", "e2e_validate.py")
+    links_report = os.path.join(root_dir, "logs", report_basename)
+    os.makedirs(os.path.dirname(links_report), exist_ok=True)
+
+    if not os.path.exists(validator):
+        logging.warning("Link self-heal skipped: scripts/e2e_validate.py not found.")
+        return False
+
+    scan_cmd = [
+        sys.executable,
+        validator,
+        "--layer",
+        "D",
+        "--all",
+        "--repair-bad-links",
+        "--json-out",
+        links_report,
+    ]
+    apply_cmd = [
+        sys.executable,
+        validator,
+        "--apply-url-metadata",
+        links_report,
+        "--repair-bad-links",
+        "--write",
+    ]
+
+    scan_res = subprocess.run(scan_cmd, cwd=root_dir, capture_output=True, text=True)
+    if scan_res.returncode != 0:
+        logging.warning(
+            "Layer D self-heal scan failed (continuing scrape): "
+            f"{(scan_res.stderr or scan_res.stdout or '').strip()[:400]}"
+        )
+        return False
+
+    apply_res = subprocess.run(apply_cmd, cwd=root_dir, capture_output=True, text=True)
+    if apply_res.returncode != 0:
+        logging.warning(
+            "Layer D self-heal apply failed (continuing scrape): "
+            f"{(apply_res.stderr or apply_res.stdout or '').strip()[:400]}"
+        )
+        return False
+
+    logging.info("Local link self-heal completed.")
+    return True
+
+
+def _build_run_summary(raw_results, now_dt=None):
+    """Build a concise Telegram summary for a completed scrape run."""
+    now_dt = now_dt or datetime.datetime.now()
+    specials_count = sum(
+        1 for s in raw_results
+        if s.get('on_special') or (
+            not s.get('price_unavailable')
+            and (s.get('eff_price') or s.get('price', 0)) <= (s.get('target') or 0) > 0
+        )
+    )
+    items_scraped = len([r for r in raw_results if not r.get("price_unavailable")])
+    scrape_time = now_dt.strftime("%-I:%M %p")
+    return (
+        f"🛒 *WooliesBot* updated at {scrape_time}\n"
+        f"🏷️ *{specials_count}* deals · {items_scraped} items tracked\n"
+        f"👉 [View Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
+    ).strip()
+
+
 def run_report(full_list=False, send_telegram_messages=True):
     """Generate and send shopping report.
     full_list: /show_staples - full staples list with all prices. False = deals only.
@@ -2604,11 +2684,7 @@ def run_report(full_list=False, send_telegram_messages=True):
 
         # Re-run smart target engine so targets improve with each scrape cycle
         try:
-            _st_path = _pl.Path(__file__).parent / "scripts" / "smart_targets.py"
-            _spec = _ilu.spec_from_file_location("smart_targets", _st_path)
-            _st = _ilu.module_from_spec(_spec)
-            _spec.loader.exec_module(_st)
-            _st.recalculate_targets(dry_run=False)
+            _recalculate_smart_targets()
             logging.info("Smart target recalculation complete.")
         except Exception as _e:
             logging.warning(f"Smart target recalculation skipped: {_e}")
@@ -2618,6 +2694,14 @@ def run_report(full_list=False, send_telegram_messages=True):
             _discover_coles_prices(batch_size=20)
         except Exception as _e:
             logging.warning(f"Coles discovery skipped: {_e}")
+
+        # Local self-heal: run Layer D auto-repair so manual/launchd scrapes also fix bad links.
+        # Enabled by default; set WOOLIESBOT_LINK_SELF_HEAL=0 to disable.
+        if _env_truthy("WOOLIESBOT_LINK_SELF_HEAL", default=True):
+            try:
+                _run_local_link_self_heal(report_basename="e2e_validate_links_local.json")
+            except Exception as _e:
+                logging.warning(f"Local link self-heal skipped: {_e}")
 
         # Deploy to GitHub pages — capture next run on this thread so heartbeat.json matches schedule
         next_for_heartbeat = None
@@ -2638,26 +2722,10 @@ def run_report(full_list=False, send_telegram_messages=True):
             logging.info("send_telegram_messages is False. Exiting early, no message sent.")
             return
 
-        # Count store-confirmed specials for the notification
-        specials_count = sum(
-            1 for s in raw_results
-            if s.get('on_special') or (
-                not s.get('price_unavailable')
-                and (s.get('eff_price') or s.get('price', 0)) <= (s.get('target') or 0) > 0
-            )
-        )
-
-        # Telegram notification — link directly to the live dashboard
-        items_scraped = len([r for r in raw_results if not r.get("price_unavailable")])
-        scrape_time = today.strftime("%-I:%M %p")
-        summary = (
-            f"🛒 *WooliesBot* updated at {scrape_time}\n"
-            f"🏷️ *{specials_count}* deals · {items_scraped} items tracked\n"
-            f"👉 [View Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
-        )
+        summary = _build_run_summary(raw_results, now_dt=today)
 
         if send_telegram_messages:
-            send_telegram(summary.strip())
+            send_telegram(summary)
 
     except Exception as e:
         error_trace = traceback.format_exc()
@@ -3658,9 +3726,18 @@ if __name__ == "__main__":
             args = parser.parse_args()
 
             if args.now:
-                logging.info("Manual trigger received. Running report now...")
-                run_report()
-                sys.exit(0)
+                logging.info("Manual trigger received. Running one-shot pipeline...")
+                import subprocess
+                pipeline_script = os.path.join(
+                    os.path.dirname(os.path.abspath(__file__)),
+                    "scripts",
+                    "scrape_pipeline.py",
+                )
+                run_now = subprocess.run(
+                    [sys.executable, pipeline_script, "--notify", "success"],
+                    check=False,
+                )
+                sys.exit(run_now.returncode)
 
             # Start Telegram Listener only when credentials are configured
             if TELEGRAM_TOKEN:

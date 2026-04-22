@@ -21,9 +21,14 @@ Usage:
   python scripts/e2e_validate.py --layer C        # run only Layer C (fast, no network)
   python scripts/e2e_validate.py --layer D        # run only Layer D link check
   python scripts/e2e_validate.py --item "Milk"    # filter to items matching name substring
+  python scripts/e2e_validate.py --layer D --json-out logs/e2e_links.json
+  python scripts/e2e_validate.py --layer D --all --repair-bad-links --json-out logs/e2e_links.json
+  python scripts/e2e_validate.py --apply-url-metadata logs/e2e_links.json  # dry-run by default
+  python scripts/e2e_validate.py --apply-url-metadata logs/e2e_links.json --write
 """
 
 import argparse
+import datetime
 import json
 import logging
 import os
@@ -32,7 +37,7 @@ import re
 import sys
 import time
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs, unquote
+from urllib.parse import urlparse, parse_qs, unquote, quote_plus, quote
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -104,6 +109,237 @@ def _is_pdp_url(url):
 def _extract_coles_product_id(url):
     m = re.search(r"-(\d{4,})$", (url or "").rstrip("/"))
     return m.group(1) if m else None
+
+
+def _url_type_for_store_url(store, url):
+    url = (url or "").strip()
+    if not url:
+        return "none"
+    if store == "woolworths":
+        if _is_pdp_url(url):
+            return "pdp"
+        if _is_search_url(url):
+            return "search"
+        return "other"
+    if store == "coles":
+        if _extract_coles_product_id(url):
+            return "pdp"
+        if _is_search_url(url):
+            return "search"
+        return "other"
+    return "other"
+
+
+def _layer_summary(results):
+    return {
+        "ok": sum(1 for r in results if r.get("match") == "OK"),
+        "diff": sum(1 for r in results if r.get("match") == "DIFF"),
+        "warn": sum(1 for r in results if r.get("match") == "WARN"),
+        "dead": sum(1 for r in results if r.get("match") == "DEAD"),
+        "skip": sum(1 for r in results if r.get("match") == "SKIP"),
+        "total": len(results),
+    }
+
+
+def _build_url_metadata_records(layer_d_results):
+    verified_at = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    out = []
+    for r in layer_d_results:
+        store = (r.get("store") or "").strip().lower()
+        url = (r.get("url") or "").strip()
+        if not store or not url:
+            continue
+        out.append({
+            "item": r.get("item"),
+            "item_id": r.get("item_id"),
+            "store": store,
+            "url": url,
+            "url_type": _url_type_for_store_url(store, url),
+            "url_verdict": (r.get("match") or "SKIP").lower(),
+            "url_verified_at": verified_at,
+            "verification_source": "e2e_validate_layer_d",
+            "http_status": r.get("http_status"),
+            "overlap": r.get("overlap"),
+            "live_name": r.get("live_name"),
+            "notes": r.get("notes"),
+        })
+    return out
+
+
+def _best_search_term_for_item(item, store, live_name=None):
+    if live_name:
+        ln = str(live_name).strip()
+        if ln:
+            return ln
+    # Prefer latest store-specific matched_name when available
+    hist = item.get("scrape_history") or []
+    if isinstance(hist, list):
+        for entry in reversed(hist):
+            if not isinstance(entry, dict):
+                continue
+            if (entry.get("store") or "").strip().lower() != store:
+                continue
+            mn = str(entry.get("matched_name") or "").strip()
+            if mn:
+                return mn
+    nc = str(item.get("name_check") or "").strip()
+    if nc:
+        return nc
+    return str(item.get("name") or "").strip()
+
+
+def _build_store_search_url(store, term):
+    q = (term or "").strip()
+    if store == "coles":
+        return f"https://www.coles.com.au/search?q={quote_plus(q)}" if q else "https://www.coles.com.au/search"
+    return (
+        f"https://www.woolworths.com.au/shop/search/products?searchTerm={quote(q, safe='')}"
+        if q else "https://www.woolworths.com.au/shop/search/products"
+    )
+
+
+def _repair_bad_link_records(records, items):
+    by_id = {}
+    by_name = {}
+    for it in items:
+        iid = str(it.get("item_id") or "").strip()
+        name_key = str(it.get("name") or "").strip().lower()
+        if iid and iid not in by_id:
+            by_id[iid] = it
+        if name_key and name_key not in by_name:
+            by_name[name_key] = it
+
+    repaired = []
+    stats = {
+        "eligible": 0,
+        "repaired": 0,
+        "already_search": 0,
+        "not_found": 0,
+        "unchanged": 0,
+    }
+    for rec in records:
+        out = dict(rec)
+        verdict = str(out.get("url_verdict") or "").lower()
+        store = str(out.get("store") or "").lower()
+        if verdict not in {"dead", "diff"} or store not in {"woolworths", "coles"}:
+            repaired.append(out)
+            continue
+
+        stats["eligible"] += 1
+        if (out.get("url_type") or "").lower() == "search":
+            stats["already_search"] += 1
+            repaired.append(out)
+            continue
+
+        item = None
+        iid = str(out.get("item_id") or "").strip()
+        if iid:
+            item = by_id.get(iid)
+        if item is None:
+            item = by_name.get(str(out.get("item") or "").strip().lower())
+        if item is None:
+            stats["not_found"] += 1
+            repaired.append(out)
+            continue
+
+        search_term = _best_search_term_for_item(item, store, live_name=out.get("live_name"))
+        fallback_url = _build_store_search_url(store, search_term)
+        if fallback_url == out.get("url"):
+            stats["unchanged"] += 1
+            repaired.append(out)
+            continue
+
+        out["original_url"] = out.get("url")
+        out["original_url_verdict"] = out.get("url_verdict")
+        out["url"] = fallback_url
+        out["url_type"] = "search"
+        out["url_verdict"] = "repaired_search_fallback"
+        out["repair_reason"] = f"auto_repair_{verdict}"
+        stats["repaired"] += 1
+        repaired.append(out)
+    return repaired, stats
+
+
+def _load_data_container():
+    with open(DATA_JSON, encoding="utf-8") as f:
+        raw = json.load(f)
+    if isinstance(raw, list):
+        return raw, raw
+    return raw, raw.get("items", [])
+
+
+def _save_data_container(raw, items):
+    payload = items if isinstance(raw, list) else {**raw, "items": items}
+    DATA_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _resolve_item_for_metadata_record(items, record):
+    item_id = (record.get("item_id") or "").strip()
+    name = (record.get("item") or "").strip().lower()
+    if item_id:
+        matches = [i for i in items if str(i.get("item_id") or "").strip() == item_id]
+        if len(matches) == 1:
+            return matches[0], None
+        if len(matches) > 1:
+            return None, "ambiguous_item_id"
+    if not name:
+        return None, "missing_item_key"
+    by_name = [i for i in items if str(i.get("name") or "").strip().lower() == name]
+    if len(by_name) == 1:
+        return by_name[0], None
+    if len(by_name) > 1:
+        return None, "ambiguous_name"
+    return None, "not_found"
+
+
+def _set_if_changed(obj, key, value):
+    old = obj.get(key)
+    if old == value:
+        return False
+    obj[key] = value
+    return True
+
+
+def apply_url_metadata_records(items, records):
+    stats = {
+        "records_total": len(records),
+        "applied": 0,
+        "changed_fields": 0,
+        "skipped_not_found": 0,
+        "skipped_ambiguous": 0,
+        "skipped_invalid": 0,
+    }
+    for rec in records:
+        store = (rec.get("store") or "").strip().lower()
+        url = (rec.get("url") or "").strip()
+        if store not in {"woolworths", "coles"} or not url:
+            stats["skipped_invalid"] += 1
+            continue
+        item, err = _resolve_item_for_metadata_record(items, rec)
+        if item is None:
+            if err in {"ambiguous_item_id", "ambiguous_name"}:
+                stats["skipped_ambiguous"] += 1
+            elif err in {"not_found", "missing_item_key"}:
+                stats["skipped_not_found"] += 1
+            else:
+                stats["skipped_invalid"] += 1
+            continue
+
+        item_changed = False
+        if _set_if_changed(item, store, url):
+            stats["changed_fields"] += 1
+            item_changed = True
+
+        all_stores = item.setdefault("all_stores", {})
+        store_obj = all_stores.setdefault(store, {})
+        for key in ("url", "url_type", "url_verdict", "url_verified_at", "verification_source", "http_status", "overlap", "live_name", "notes"):
+            if key in rec:
+                if _set_if_changed(store_obj, key, rec.get(key)):
+                    stats["changed_fields"] += 1
+                    item_changed = True
+        if item_changed:
+            stats["applied"] += 1
+    return stats
 
 
 def _token_overlap_score(inv_name, scraped_name):
@@ -523,6 +759,7 @@ def run_layer_a(items, sample_size=25, filter_name=None):
 
     for item in sampled:
         name = item.get("name", "?")
+        item_id = item.get("item_id")
         ww_url = item.get("woolworths", "")
         coles_url = item.get("coles", "")
         stored_ww = None
@@ -773,6 +1010,39 @@ def run_layer_b(items, filter_name=None):
             notes_list.append("all_stores empty but not price_unavailable")
             match = "WARN"
 
+        # B7: unit semantics guard for litre items
+        item_unit = (item.get("unit") or "").lower()
+        price_mode = item.get("price_mode", "each")
+        if item_unit == "litre" and price_mode != "litre":
+            notes_list.append(f"unit=litre but price_mode={price_mode!r} (expected 'litre')")
+            match = "DIFF"
+
+        if price_mode == "litre":
+            pack_l = item.get("pack_litres")
+            if not isinstance(pack_l, (int, float)) or float(pack_l) <= 0:
+                notes_list.append("price_mode=litre but pack_litres missing/invalid")
+                if match == "OK":
+                    match = "WARN"
+
+            for sk, sd in all_stores.items():
+                ep = sd.get("eff_price")
+                up = sd.get("unit_price")
+                if ep is None or up is None:
+                    continue
+                try:
+                    epf = float(ep)
+                    upf = float(up)
+                except (TypeError, ValueError):
+                    continue
+                if epf >= PRICE_UNRELIABLE:
+                    continue
+                if abs(epf - upf) > 0.05:
+                    notes_list.append(
+                        f"all_stores[{sk}] eff_price={_fmt_price(epf)} vs unit_price={_fmt_price(upf)}"
+                    )
+                    if match == "OK":
+                        match = "WARN"
+
         if match != "OK" or not results or len(results) < 5:
             # Print all non-OK and first few OK for reference
             _print_row(name, price, eff_price, None, match, "; ".join(notes_list)[:22])
@@ -985,6 +1255,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
 
     for item in sampled:
         name = item.get("name", "?")
+        item_id = item.get("item_id")
         ww_url = item.get("woolworths", "")
         coles_url = item.get("coles", "")
 
@@ -995,6 +1266,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                 if result is None:
                     _print_d_row(name, "WW", None, None, None, "SKIP")
                     results.append({"item": name, "store": "woolworths", "url": ww_url,
+                                    "item_id": item_id,
                                     "match": "SKIP", "notes": "fetch failed"})
                 else:
                     http_status = result.get("http_status")
@@ -1002,10 +1274,12 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                     if http_status == 404:
                         _print_d_row(name, "WW", 404, None, None, "DEAD")
                         results.append({"item": name, "store": "woolworths", "url": ww_url,
+                                        "item_id": item_id,
                                         "match": "DEAD", "notes": "404 — link broken"})
                     elif not live_name:
                         _print_d_row(name, "WW", http_status, None, None, "SKIP")
                         results.append({"item": name, "store": "woolworths", "url": ww_url,
+                                        "item_id": item_id,
                                         "match": "SKIP", "notes": f"HTTP {http_status}, no name in JSON-LD"})
                     else:
                         overlap = _layer_d_name_overlap(item, live_name)
@@ -1017,6 +1291,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                             match = "OK"
                         _print_d_row(name, "WW", http_status, live_name, overlap, match)
                         results.append({"item": name, "store": "woolworths", "url": ww_url,
+                                        "item_id": item_id,
                                         "match": match, "overlap": overlap,
                                         "live_name": live_name, "http_status": http_status,
                                         "notes": f"overlap={overlap:.2f}"})
@@ -1025,6 +1300,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                 # Search URL — no PDP to validate
                 _print_d_row(name, "WW", "—", "search URL — skipped", None, "SKIP")
                 results.append({"item": name, "store": "woolworths", "url": ww_url,
+                                "item_id": item_id,
                                 "match": "SKIP", "notes": "WW search URL, no PDP link to check"})
 
         # -- Coles link check --
@@ -1033,6 +1309,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
             if live is None:
                 _print_d_row(name, "Coles", None, None, None, "DEAD")
                 results.append({"item": name, "store": "coles", "url": coles_url,
+                                "item_id": item_id,
                                 "match": "DEAD", "notes": "BFF returned nothing — product ID invalid or delisted"})
             else:
                 # Build full label including size so size-signal check works correctly.
@@ -1055,6 +1332,7 @@ def run_layer_d(items, sample_size=25, filter_name=None):
                 display_name = live_label if live_label else live_name
                 _print_d_row(name, "Coles", 200, display_name, overlap, match)
                 results.append({"item": name, "store": "coles", "url": coles_url,
+                                "item_id": item_id,
                                 "match": match, "overlap": overlap,
                                 "live_name": display_name,
                                 "notes": (f"size_conflict" if not size_ok else f"overlap={overlap:.2f}") if overlap is not None else "no name"})
@@ -1098,6 +1376,28 @@ def main():
         action="store_true",
         help="Exit with code 1 if any layer has DIFF or DEAD (WARN/SKIP do not fail).",
     )
+    parser.add_argument(
+        "--json-out",
+        type=str,
+        default=None,
+        help="Write machine-readable report JSON to this path.",
+    )
+    parser.add_argument(
+        "--apply-url-metadata",
+        type=str,
+        default=None,
+        help="Apply url_metadata_records from a JSON report into docs/data.json.",
+    )
+    parser.add_argument(
+        "--repair-bad-links",
+        action="store_true",
+        help="Convert Layer D DEAD/DIFF PDP URLs to store search fallback URLs before output/apply.",
+    )
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="When used with --apply-url-metadata, persist changes to docs/data.json (default is dry-run).",
+    )
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable debug logging")
     args = parser.parse_args()
 
@@ -1108,6 +1408,9 @@ def main():
 
     if args.seed is not None:
         random.seed(args.seed)
+
+    if args.write and not args.apply_url_metadata:
+        parser.error("--write requires --apply-url-metadata")
 
     print(f"\nWooliesBot e2e Validator")
     print(f"  data.json: {DATA_JSON}")
@@ -1128,10 +1431,11 @@ def main():
             pass
 
     all_results = {}
-    run_a = args.layer in (None, "A")
-    run_b = args.layer in (None, "B")
-    run_c = args.layer in (None, "C")
-    run_d = args.layer in (None, "D")
+    apply_only_mode = bool(args.apply_url_metadata) and args.layer is None and not args.all and not args.item and args.sample == 25
+    run_a = (not apply_only_mode) and args.layer in (None, "A")
+    run_b = (not apply_only_mode) and args.layer in (None, "B")
+    run_c = (not apply_only_mode) and args.layer in (None, "C")
+    run_d = (not apply_only_mode) and args.layer in (None, "D")
 
     if run_b:
         all_results["B"] = run_layer_b(items, filter_name=args.item)
@@ -1151,12 +1455,17 @@ def main():
     print("\n" + "=" * 110)
     print("  FINAL SUMMARY")
     print("=" * 110)
+    if apply_only_mode:
+        print("  Validation layers skipped (apply-only mode).")
+    layer_summaries = {}
     for layer, results in all_results.items():
-        ok = sum(1 for r in results if r["match"] == "OK")
-        diff = sum(1 for r in results if r["match"] == "DIFF")
-        warn = sum(1 for r in results if r["match"] == "WARN")
-        dead = sum(1 for r in results if r["match"] == "DEAD")
-        skip = sum(1 for r in results if r["match"] == "SKIP")
+        s = _layer_summary(results)
+        layer_summaries[layer] = s
+        ok = s["ok"]
+        diff = s["diff"]
+        warn = s["warn"]
+        dead = s["dead"]
+        skip = s["skip"]
         status = "PASS" if diff == 0 and dead == 0 else "FAIL"
         dead_str = f"  DEAD={dead}" if dead else ""
         print(f"  Layer {layer}: {status}  |  OK={ok}  DIFF={diff}  WARN={warn}{dead_str}  SKIP={skip}  total={len(results)}")
@@ -1177,6 +1486,76 @@ def main():
         print("    Layer D DEAD  → BROKEN LINK: stored URL returns 404 — update in data.json")
         print("    Layer D DIFF  → WRONG PRODUCT: URL points to a different item — update in data.json")
     print()
+
+    layer_d_records = _build_url_metadata_records(all_results.get("D", []))
+    if args.repair_bad_links and layer_d_records:
+        layer_d_records, repair_stats = _repair_bad_link_records(layer_d_records, items)
+        print("  Repair candidates:")
+        print(f"    eligible: {repair_stats['eligible']}")
+        print(f"    repaired: {repair_stats['repaired']}")
+        print(f"    already_search: {repair_stats['already_search']}")
+        print(f"    unchanged: {repair_stats['unchanged']}")
+        print(f"    not_found: {repair_stats['not_found']}")
+
+    if args.json_out:
+        out_path = Path(args.json_out)
+        if not out_path.is_absolute():
+            out_path = REPO_ROOT / out_path
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "generated_at": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+            "data_json_path": str(DATA_JSON),
+            "data_json_last_modified_unix": DATA_JSON.stat().st_mtime,
+            "item_count": len(items),
+            "args": {
+                "all": bool(args.all),
+                "sample": args.sample,
+                "layer": args.layer,
+                "item": args.item,
+                "seed": args.seed,
+                "strict_exit": bool(args.strict_exit),
+            },
+            "layer_summaries": layer_summaries,
+            "results": all_results,
+            "url_metadata_records": layer_d_records,
+        }
+        out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        print(f"  Wrote JSON report: {out_path}")
+
+    if args.apply_url_metadata:
+        apply_path = Path(args.apply_url_metadata)
+        if not apply_path.is_absolute():
+            apply_path = REPO_ROOT / apply_path
+        if not apply_path.exists():
+            print(f"  ERROR: metadata file not found: {apply_path}")
+            sys.exit(2)
+        report = json.loads(apply_path.read_text(encoding="utf-8"))
+        records = report.get("url_metadata_records", [])
+        if not isinstance(records, list):
+            print(f"  ERROR: invalid url_metadata_records in {apply_path}")
+            sys.exit(2)
+
+        if args.repair_bad_links:
+            records, repair_stats = _repair_bad_link_records(records, items)
+            print("  Repair before apply:")
+            print(f"    eligible: {repair_stats['eligible']}  repaired: {repair_stats['repaired']}  already_search: {repair_stats['already_search']}  unchanged: {repair_stats['unchanged']}  not_found: {repair_stats['not_found']}")
+
+        raw_container, mutable_items = _load_data_container()
+        stats = apply_url_metadata_records(mutable_items, records)
+        mode = "WRITE" if args.write else "DRY-RUN"
+        print(f"\n  URL metadata apply ({mode})")
+        print(f"    source file: {apply_path}")
+        print(f"    records total: {stats['records_total']}")
+        print(f"    items touched: {stats['applied']}")
+        print(f"    fields changed: {stats['changed_fields']}")
+        print(f"    skipped invalid: {stats['skipped_invalid']}")
+        print(f"    skipped not_found: {stats['skipped_not_found']}")
+        print(f"    skipped ambiguous: {stats['skipped_ambiguous']}")
+        if args.write:
+            _save_data_container(raw_container, mutable_items)
+            print(f"    wrote: {DATA_JSON}")
+        else:
+            print("    no file write performed (use --write to persist)")
 
     if getattr(args, "strict_exit", False):
         failed = False

@@ -1,20 +1,20 @@
-name: Scrape & push data
+name: Weekly scrape + Telegram summary
 
 on:
   workflow_dispatch:
   schedule:
-    # Every 4 hours (UTC)
-    - cron: "0 */4 * * *"
+    # Sunday 09:00 UTC
+    - cron: "0 9 * * 0"
 
 concurrency:
-  group: wooliesbot-scrape
+  group: wooliesbot-weekly-notify
   cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
-  scrape:
+  weekly:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -39,10 +39,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
-      - name: Run scrape and push docs
+      - name: Weekly pipeline run with Telegram summary
         env:
           GITHUB_ACTIONS: "true"
-        run: python scripts/scrape_pipeline.py --notify off
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/scrape_pipeline.py --notify success --weekly
 
       - name: Heartbeat staleness guard
         run: |
@@ -60,7 +62,6 @@ jobs:
           if not ts:
               raise SystemExit("docs/heartbeat.json missing last_heartbeat")
 
-          # Handle both "...Z" and "+00:00" UTC variants.
           ts = ts.replace("Z", "+00:00")
           hb = dt.datetime.fromisoformat(ts)
           now = dt.datetime.now(dt.timezone.utc)
@@ -70,20 +71,10 @@ jobs:
           print(f"heartbeat age OK: {age_min:.1f} minutes")
           PY
 
-      - name: Layer D audit report
-        run: |
-          python scripts/e2e_validate.py --layer D --all --json-out logs/e2e_validate_links_full.json
-
-      - name: Upload Layer D audit artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: e2e-validate-links-full
-          path: logs/e2e_validate_links_full.json
-
       - name: Telegram failure notification
         if: failure()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python scripts/telegram_notify.py --text "🚨 *WooliesBot 4h scrape failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/telegram_notify.py --text "🚨 *WooliesBot weekly run failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
