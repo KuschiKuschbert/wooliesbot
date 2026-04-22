@@ -1,9 +1,9 @@
 :root {
     color-scheme: dark;
-    --bg-base: #05040a;
-    --bg-dark: #12101c;
-    --bg-card: rgba(25, 24, 38, 0.72);
-    --bg-card-hover: rgba(36, 33, 52, 0.9);
+    --bg-base: #0a0b12;
+    --bg-dark: #151722;
+    --bg-card: rgba(20, 23, 33, 0.82);
+    --bg-card-hover: rgba(27, 31, 43, 0.92);
     --text-main: #f1f5f9;
     --text-muted: #a1a2bc;
     --woolies-green: #10b981;
@@ -13,10 +13,10 @@
     --border-color: rgba(255, 255, 255, 0.07);
     --border-strong: rgba(255, 255, 255, 0.14);
     --accent-glow: rgba(99, 102, 241, 0.22);
-    --primary: #9f8bff;
-    --primary-glow: rgba(159, 139, 255, 0.5);
-    --accent-purple: #d3b7ff;
-    --accent-cyan: #67e8f9;
+    --primary: #7f8ea8;
+    --primary-glow: rgba(127, 142, 168, 0.28);
+    --accent-purple: #aeb8ca;
+    --accent-cyan: #7ba7b9;
     --font-heading: 'Outfit', sans-serif;
     --font-display: 'Space Grotesk', 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -132,11 +132,9 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     background-image:
-        radial-gradient(ellipse 110% 75% at 50% -28%, rgba(159, 139, 255, 0.26), transparent 56%),
-        radial-gradient(ellipse at 94% 6%, rgba(236, 72, 153, 0.14), transparent 44%),
-        radial-gradient(ellipse at 6% 94%, rgba(16, 185, 129, 0.08), transparent 46%),
-        radial-gradient(ellipse at 88% 100%, rgba(139, 92, 246, 0.1), transparent 52%),
-        radial-gradient(ellipse at 12% 0%, rgba(34, 211, 238, 0.06), transparent 42%);
+        radial-gradient(ellipse 110% 75% at 50% -28%, rgba(127, 142, 168, 0.12), transparent 58%),
+        radial-gradient(ellipse at 6% 94%, rgba(16, 185, 129, 0.05), transparent 52%),
+        radial-gradient(ellipse at 88% 100%, rgba(148, 163, 184, 0.05), transparent 56%);
     background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
@@ -1014,11 +1012,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-}
-
-.stats-sidebar #top5-card,
-.stats-sidebar #buy-now-card {
-    display: none;
 }
 
 .main-feed {
@@ -2091,14 +2084,14 @@ body.drawer-open {
     }
 
     .logo h1 {
-        font-size: 0.98rem;
+        font-size: 0.94rem;
         letter-spacing: -0.04em;
     }
 
     .logo i,
     .logo svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 
     #settings-btn.icon-btn,
@@ -2133,7 +2126,11 @@ body.drawer-open {
         display: none;
     }
 
-    .subtitle, .live-status, .api-indicator {
+    body.mobile-scrolled .logo h1 {
+        display: none;
+    }
+
+    .subtitle, .live-status, .scrape-status {
         display: none; /* Hide clutter on mobile header */
     }
 
@@ -2149,6 +2146,11 @@ body.drawer-open {
         display: flex;
         flex-direction: column;
         margin-top: 0.75rem;
+    }
+
+    .stats-sidebar #top5-card,
+    .stats-sidebar #buy-now-card {
+        display: none !important;
     }
 
     /* Column order (priority rail → sidebar strip → main feed) is defined only in the
@@ -2399,31 +2401,6 @@ body.drawer-open {
     letter-spacing: 0.5px;
 }
 
-.status-divider {
-    opacity: 0.3;
-    padding: 0 4px;
-}
-
-.status-dot.cloud-dot.active {
-    background: #38bdf8;
-    box-shadow: 0 0 10px #38bdf8;
-}
-
-.status-dot.cloud-dot.active::after {
-    animation: heartbeat-blue 2s infinite;
-}
-
-@keyframes heartbeat-blue {
-    0% { transform: scale(1); opacity: 0.8; }
-    70% { transform: scale(2.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 0; }
-}
-
-.status-dot.cloud-dot.silent {
-    background: #94a3b8;
-    box-shadow: none;
-}
-
 .status-dot {
     width: 10px;
     height: 10px;
@@ -2459,7 +2436,12 @@ body.drawer-open {
     box-shadow: 0 0 10px var(--coles-red);
 }
 
-.api-indicator {
+.status-dot.stale {
+    background: #94a3b8;
+    box-shadow: none;
+}
+
+.scrape-status {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -4996,7 +4978,7 @@ button, a, label, [role="button"] {
 
 /* ── Priority rail ──────────────────────────────────────────── */
 .priority-rail {
-    display: block;
+    display: none;
     margin: 0.45rem 0 0.9rem;
 }
 
@@ -6063,12 +6045,28 @@ table.dr-table {
         align-items: stretch;
         margin-top: 0.2rem;
         margin-bottom: 0.7rem;
-        padding: 0.9rem 0.95rem;
-        gap: 0.55rem 0.8rem;
+        padding: 0.62rem 0.75rem;
+        gap: 0.35rem 0.55rem;
+    }
+
+    .deals-hero-main {
+        flex: 0 1 auto;
     }
 
     .deals-hero-status {
         align-self: flex-start;
+    }
+
+    .deals-hero-eyebrow,
+    .deals-hero-sub {
+        display: none;
+    }
+
+    .deals-hero-title {
+        font-size: 1.02rem;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+        margin: 0;
     }
 
     .insights-shell {

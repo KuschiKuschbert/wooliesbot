@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initDashboard().then(() => hideSkeletons());
     setupPullToRefresh();
     setupBottomSheetDrag();
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H1',location:'docs/app.js:1',message:'dom ready viewport + breakpoint snapshot',data:{innerWidth:window.innerWidth,innerHeight:window.innerHeight,isMobile:isMobileViewport(),isCompact:isCompactViewport(),activeTab:document.body?.dataset?.activeTab||'unknown'},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H5',location:'docs/app.js:1',message:'visual token intensity snapshot',data:{primary:getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),accentPurple:getComputedStyle(document.documentElement).getPropertyValue('--accent-purple').trim(),bgImage:(getComputedStyle(document.body).backgroundImage||'').slice(0,220)},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
 });
 
 // ── PWA Service Worker ────────────────────────────────────────────────────────
@@ -50,6 +56,7 @@ function isCompactViewport() {
 let _focusBeforeDrawer = null;
 let _focusBeforeSettings = null;
 let _focusBeforeStockModal = null;
+let _debugChromeSnapshotLogged = false;
 
 function syncTabAriaCurrent(target) {
     document.querySelectorAll('.nav-link[data-tab], .mobile-nav-link[data-tab]').forEach(el => {
@@ -243,8 +250,6 @@ let _searchText = '';
 let _currentTab = 'deals';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly';
 let _shoppingList = normalizeShoppingListShape(loadShoppingListFromStorage());
-let _shoppingListTombstones = normalizeShoppingListTombstones(loadShoppingListTombstonesFromStorage());
-let _shoppingDeviceId = localStorage.getItem('shopping_device_id') || '';
 let _shoppingTripMode = localStorage.getItem('shoppingTripMode') === '1';
 let _shoppingTripStartedAt = localStorage.getItem('shoppingTripStartedAt') || '';
 let _shoppingTripStartCount = Number.parseInt(localStorage.getItem('shoppingTripStartCount') || '', 10);
@@ -270,22 +275,11 @@ const SHOPPING_TRIP_SESSIONS_KEY = 'shoppingTripSessions';
 const SHOPPING_TRIP_SESSIONS_MAX = 200;
 const SHOPPING_TRIP_TIMEOUT_MS = 2 * 60 * 60 * 1000; // 2h idle timeout failsafe
 const SHOPPING_TRIP_TIMEOUT_REMINDER_KEY = 'shoppingTripTimeoutReminderPending';
-const SHOPPING_LIST_TOMBSTONES_KEY = 'shoppingListTombstones';
-const CART_LIST_PRIMARY_KEY = 'cart_list_primary';
-const SHOPPING_SYNC_POLL_MS = 30000;
-const SHOPPING_SYNC_FAIL_TOAST_MS = 120000;
-
-let _shoppingSyncInFlight = false;
-let _shoppingSyncDirty = false;
-let _shoppingSyncPushTimer = null;
-let _shoppingSyncLastRemoteUpdatedAt = localStorage.getItem('shoppingListLastRemoteUpdatedAt') || '';
-let _shoppingSyncLastFailureAt = 0;
 let _shoppingTripMilestonesShown = new Set();
 let _shoppingTripBeatLastToastShown = false;
 let _analyticsResizeTimer = null;
 let _analyticsViewportMode = '';
 let _analyticsOrientation = '';
-let _cartListPrimary = loadCartPrimaryPreference();
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
@@ -309,26 +303,6 @@ function loadShoppingListFromStorage() {
     }
 }
 
-function loadShoppingListTombstonesFromStorage() {
-    try {
-        const parsed = JSON.parse(localStorage.getItem('shoppingListTombstones') || '{}');
-        return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch {
-        return {};
-    }
-}
-
-function normalizeShoppingListTombstones(raw) {
-    const out = {};
-    if (!raw || typeof raw !== 'object') return out;
-    for (const [k, v] of Object.entries(raw)) {
-        const t = Date.parse(String(v || ''));
-        if (!k || !Number.isFinite(t)) continue;
-        out[k] = new Date(t).toISOString();
-    }
-    return out;
-}
-
 function normalizeShoppingListShape(rows) {
     if (!Array.isArray(rows)) return [];
     return rows.map(row => {
@@ -342,185 +316,11 @@ function normalizeShoppingListShape(rows) {
 
 function persistShoppingList() {
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
-    localStorage.setItem(SHOPPING_LIST_TOMBSTONES_KEY, JSON.stringify(_shoppingListTombstones));
-}
-
-function defaultCartPrimaryPreference() {
-    try {
-        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
-    } catch {
-        return false;
-    }
-}
-
-function loadCartPrimaryPreference() {
-    const raw = localStorage.getItem(CART_LIST_PRIMARY_KEY);
-    if (raw === '1') return true;
-    if (raw === '0') return false;
-    return defaultCartPrimaryPreference();
-}
-
-function isCartPrimaryDevice() {
-    return Boolean(_cartListPrimary);
-}
-
-function ensureShoppingDeviceId() {
-    if (_shoppingDeviceId) return _shoppingDeviceId;
-    try {
-        _shoppingDeviceId = (typeof crypto !== 'undefined' && crypto.randomUUID)
-            ? crypto.randomUUID()
-            : `device_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
-    } catch {
-        _shoppingDeviceId = `device_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
-    }
-    localStorage.setItem('shopping_device_id', _shoppingDeviceId);
-    return _shoppingDeviceId;
-}
-
-function shoppingListSyncKey(row) {
-    if (!row || typeof row !== 'object') return '';
-    if (row.item_id) return `id:${row.item_id}`;
-    const n = String(row.name || '').trim().toLowerCase();
-    return n ? `name:${n}` : '';
 }
 
 function touchShoppingListRow(row, atIso = '') {
     if (!row || typeof row !== 'object') return;
     row.updated_at = atIso || new Date().toISOString();
-}
-
-function markShoppingListTombstoneByKey(key, atIso = '') {
-    if (!key) return;
-    _shoppingListTombstones[key] = atIso || new Date().toISOString();
-}
-
-function clearShoppingListTombstoneByKey(key) {
-    if (!key) return;
-    delete _shoppingListTombstones[key];
-}
-
-function normalizeShoppingSyncPayload(raw) {
-    const src = raw && typeof raw === 'object' ? raw : {};
-    const items = normalizeShoppingListShape(Array.isArray(src.items) ? src.items : []);
-    const tombstones = normalizeShoppingListTombstones(src.tombstones || {});
-    const map = new Map();
-    for (const it of items) {
-        const k = shoppingListSyncKey(it);
-        if (!k) continue;
-        const delMs = Date.parse(String(tombstones[k] || ''));
-        if (Number.isFinite(delMs) && delMs >= Date.parse(it.updated_at)) continue;
-        const prev = map.get(k);
-        if (!prev || Date.parse(it.updated_at) >= Date.parse(prev.updated_at)) map.set(k, it);
-    }
-    const updatedAt = Number.isFinite(Date.parse(String(src.updated_at || '')))
-        ? new Date(Date.parse(String(src.updated_at))).toISOString()
-        : new Date().toISOString();
-    return {
-        updated_at: updatedAt,
-        device_id: String(src.device_id || '').trim() || ensureShoppingDeviceId(),
-        items: [...map.values()],
-        tombstones,
-    };
-}
-
-function buildShoppingSyncPayload() {
-    ensureShoppingDeviceId();
-    return normalizeShoppingSyncPayload({
-        updated_at: new Date().toISOString(),
-        device_id: _shoppingDeviceId,
-        items: _shoppingList,
-        tombstones: _shoppingListTombstones,
-        is_cart_primary: isCartPrimaryDevice(),
-    });
-}
-
-function applyRemoteShoppingSyncPayload(rawPayload) {
-    const payload = normalizeShoppingSyncPayload(rawPayload);
-    _shoppingList = payload.items;
-    _shoppingListTombstones = payload.tombstones;
-    _shoppingSyncLastRemoteUpdatedAt = payload.updated_at;
-    localStorage.setItem('shoppingListLastRemoteUpdatedAt', _shoppingSyncLastRemoteUpdatedAt);
-    persistShoppingList();
-    updateListCount();
-    renderShoppingList();
-}
-
-function getShoppingSyncHeaders() {
-    const headers = { 'Content-Type': 'application/json' };
-    if (_writeApiSecret) headers['X-WooliesBot-Secret'] = _writeApiSecret;
-    return headers;
-}
-
-function markShoppingSyncDirty() {
-    _shoppingSyncDirty = true;
-    if (_shoppingSyncPushTimer) clearTimeout(_shoppingSyncPushTimer);
-    _shoppingSyncPushTimer = setTimeout(() => {
-        _shoppingSyncPushTimer = null;
-        syncShoppingListCloud('push');
-    }, 900);
-}
-
-async function syncShoppingListCloud(mode = 'poll', options = {}) {
-    const force = Boolean(options && options.force);
-    const base = getStockWriteBase();
-    if (!base) return false;
-    if (_shoppingSyncInFlight) return false;
-    ensureShoppingDeviceId();
-    _shoppingSyncInFlight = true;
-    try {
-        if (mode === 'push' || _shoppingSyncDirty) {
-            const payload = buildShoppingSyncPayload();
-            const res = await fetch(`${base}/shopping_list`, {
-                method: 'POST',
-                headers: getShoppingSyncHeaders(),
-                body: JSON.stringify(payload),
-            });
-            const data = await res.json().catch(() => ({}));
-            if (!res.ok || data.status !== 'success') {
-                throw new Error(data.error || data.message || `sync push failed (${res.status})`);
-            }
-            applyRemoteShoppingSyncPayload(data.payload || {});
-            _shoppingSyncDirty = false;
-            _shoppingSyncLastFailureAt = 0;
-            return true;
-        }
-
-        const res = await fetch(`${base}/shopping_list`, {
-            method: 'GET',
-            headers: getShoppingSyncHeaders(),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || data.status !== 'success') {
-            throw new Error(data.error || data.message || `sync poll failed (${res.status})`);
-        }
-        const payload = normalizeShoppingSyncPayload(data.payload || {});
-        if (!force && _shoppingSyncLastRemoteUpdatedAt && payload.updated_at === _shoppingSyncLastRemoteUpdatedAt) return true;
-        applyRemoteShoppingSyncPayload(payload);
-        _shoppingSyncLastFailureAt = 0;
-        return true;
-    } catch (err) {
-        const now = Date.now();
-        if (!_shoppingSyncLastFailureAt || (now - _shoppingSyncLastFailureAt) > SHOPPING_SYNC_FAIL_TOAST_MS) {
-            _shoppingSyncLastFailureAt = now;
-            showUiToast(`Cart sync offline: ${err.message || err}`, 3200);
-        }
-        return false;
-    } finally {
-        _shoppingSyncInFlight = false;
-    }
-}
-
-async function forceLoadShoppingListFromCloud() {
-    if (!getStockWriteBase() || !_writeApiSecret.trim()) {
-        showUiToast('Add Worker URL + secret first');
-        return;
-    }
-    if (_shoppingSyncInFlight) {
-        showUiToast('Sync already in progress');
-        return;
-    }
-    const ok = await syncShoppingListCloud('poll', { force: true });
-    if (ok) showUiToast('Cart reloaded from cloud');
 }
 
 function loadShoppingTripSessions() {
@@ -687,11 +487,9 @@ function toggleListItemPicked(index) {
     const wasPicked = Boolean(row.picked);
     row.picked = !row.picked;
     touchShoppingListRow(row);
-    clearShoppingListTombstoneByKey(shoppingListSyncKey(row));
     markShoppingTripActivity();
     refreshShoppingTripSavedPeak();
     persistShoppingList();
-    markShoppingSyncDirty();
     if (_shoppingTripMode && !wasPicked && row.picked) {
         maybeShowShoppingTripMilestone();
     }
@@ -720,13 +518,9 @@ function maybeShowShoppingTripMilestone() {
 }
 
 function clearPickedListItems() {
-    const removed = _shoppingList.filter(row => row?.picked);
     _shoppingList = _shoppingList.filter(row => !row?.picked);
-    const ts = new Date().toISOString();
-    removed.forEach(row => markShoppingListTombstoneByKey(shoppingListSyncKey(row), ts));
     if (_shoppingList.length === 0 && _shoppingTripMode) setShoppingTripMode(false, 'clear_completed_empty');
     persistShoppingList();
-    if (removed.length) markShoppingSyncDirty();
     updateListCount();
     renderShoppingList();
 }
@@ -1219,9 +1013,7 @@ async function initDashboard() {
             _monitorsStarted = true;
             const tick = () => {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
-                monitorApi();
                 checkShoppingTripTimeout();
-                syncShoppingListCloud('poll');
             };
             const tickCloud = () => {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
@@ -1231,16 +1023,12 @@ async function initDashboard() {
             setInterval(tickCloud, 300000);
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'visible') {
-                    monitorApi();
                     monitorCloudHealth();
                     checkShoppingTripTimeout();
-                    syncShoppingListCloud('poll');
                 }
             });
-            monitorApi();
             monitorCloudHealth();
             checkShoppingTripTimeout();
-            syncShoppingListCloud('poll');
         }
 
         // Build _history from inline scrape_history (single source of truth)
@@ -1397,11 +1185,8 @@ function setupFilters() {
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
             if (_shoppingTripMode) setShoppingTripMode(false, 'clear_all');
-            const ts = new Date().toISOString();
-            _shoppingList.forEach(row => markShoppingListTombstoneByKey(shoppingListSyncKey(row), ts));
             _shoppingList = [];
             persistShoppingList();
-            markShoppingSyncDirty();
             renderShoppingList();
             updateListCount();
         }
@@ -1415,7 +1200,6 @@ function setupFilters() {
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
     document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
     document.getElementById('settings-save')?.addEventListener('click', saveSettings);
-    document.getElementById('settings-load-cloud-btn')?.addEventListener('click', forceLoadShoppingListFromCloud);
 }
 
 function syncCompareGroupDetailsState() {
@@ -1465,6 +1249,15 @@ function setupMobileChromeCompaction() {
         const isMobile = isMobileViewport();
         const scrolled = window.scrollY > 36;
         document.body.classList.toggle('mobile-scrolled', isMobile && scrolled);
+        if (!_debugChromeSnapshotLogged) {
+            _debugChromeSnapshotLogged = true;
+            const headerH = document.querySelector('.header')?.getBoundingClientRect?.().height || 0;
+            const stickyH = document.querySelector('.sticky-filter-bar')?.getBoundingClientRect?.().height || 0;
+            const navH = document.querySelector('.mobile-bottom-nav')?.getBoundingClientRect?.().height || 0;
+            // #region agent log
+            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H2',location:'docs/app.js:setupMobileChromeCompaction',message:'mobile chrome footprint snapshot',data:{isMobile,scrolled,headerH,stickyH,navH,totalFixedChrome:headerH+stickyH+navH,viewportH:window.innerHeight},timestamp:Date.now()})}).catch(()=>{});
+            // #endregion
+        }
     };
     window.addEventListener('scroll', updateMobileChrome, { passive: true });
     window.addEventListener('resize', updateMobileChrome, { passive: true });
@@ -1476,10 +1269,6 @@ function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('write-api-url-input').value = _writeApiUrl;
     document.getElementById('write-api-secret-input').value = _writeApiSecret;
-    const primaryToggle = document.getElementById('cart-primary-device-toggle');
-    if (primaryToggle) primaryToggle.checked = isCartPrimaryDevice();
-    const loadBtn = document.getElementById('settings-load-cloud-btn');
-    if (loadBtn) loadBtn.disabled = !getStockWriteBase() || !_writeApiSecret.trim();
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
@@ -1494,15 +1283,10 @@ function closeSettings() {
 function saveSettings() {
     _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
     _writeApiSecret = document.getElementById('write-api-secret-input').value;
-    const primaryToggle = document.getElementById('cart-primary-device-toggle');
-    _cartListPrimary = Boolean(primaryToggle?.checked);
     localStorage.setItem('write_api_url', _writeApiUrl);
     localStorage.setItem('write_api_secret', _writeApiSecret);
-    localStorage.setItem(CART_LIST_PRIMARY_KEY, _cartListPrimary ? '1' : '0');
     closeSettings();
-    updateListCount();
-    monitorApi();
-    syncShoppingListCloud('poll');
+    monitorCloudHealth();
 }
 
 function toggleDrawer() {
@@ -1582,6 +1366,40 @@ function renderDashboard() {
     updateListCount();
     checkPriceDropAlerts();
     syncDealsHeroStatus();
+    const isMobile = isMobileViewport();
+    const railSections = document.querySelectorAll('#mobile-priority-rail .priority-rail-section').length;
+    const isPredictionsHidden = document.getElementById('predictions-section')?.classList.contains('hidden');
+    const isNearMissHidden = document.getElementById('near-misses-section')?.classList.contains('hidden');
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H4',location:'docs/app.js:renderDashboard',message:'dashboard signal density snapshot',data:{isMobile,totalItems:_data.length,railSections,isPredictionsHidden,isNearMissHidden,specialGridCards:document.querySelectorAll('#specials-grid .item-card').length},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+    const top5Card = document.getElementById('top5-card');
+    const buyNowCard = document.getElementById('buy-now-card');
+    const rail = document.getElementById('mobile-priority-rail');
+    const statsStrip = document.querySelector('.stats-strip');
+    const hero = document.querySelector('.deals-hero');
+    const top5Display = top5Card ? getComputedStyle(top5Card).display : 'missing';
+    const buyNowDisplay = buyNowCard ? getComputedStyle(buyNowCard).display : 'missing';
+    const railDisplay = rail ? getComputedStyle(rail).display : 'missing';
+    const top5ListCount = document.querySelectorAll('#top5-list .top5-row').length;
+    const buyNowListCount = document.querySelectorAll('#buy-now-list .buy-now-row').length;
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round2',hypothesisId:'H6',location:'docs/app.js:renderDashboard',message:'desktop composition visibility snapshot',data:{isMobile,top5Display,buyNowDisplay,railDisplay,top5ListCount,buyNowListCount,railSections},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+    const stickyBar = document.querySelector('.sticky-filter-bar');
+    const stickyH = stickyBar?.getBoundingClientRect?.().height || 0;
+    const statsH = statsStrip?.getBoundingClientRect?.().height || 0;
+    const heroH = hero?.getBoundingClientRect?.().height || 0;
+    const heroMain = hero?.querySelector('.deals-hero-main');
+    const heroTitle = hero?.querySelector('.deals-hero-title');
+    const heroSub = hero?.querySelector('.deals-hero-sub');
+    const heroEyebrow = hero?.querySelector('.deals-hero-eyebrow');
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round3',hypothesisId:'H8',location:'docs/app.js:renderDashboard',message:'hero composition breakdown snapshot',data:{isMobile,heroH,heroMainH:heroMain?.getBoundingClientRect?.().height||0,heroTitleH:heroTitle?.getBoundingClientRect?.().height||0,heroSubH:heroSub?.getBoundingClientRect?.().height||0,heroEyebrowH:heroEyebrow?.getBoundingClientRect?.().height||0,heroSubDisplay:heroSub?getComputedStyle(heroSub).display:'missing',heroEyebrowDisplay:heroEyebrow?getComputedStyle(heroEyebrow).display:'missing',heroTitleSize:heroTitle?getComputedStyle(heroTitle).fontSize:'missing',heroTitleLine:heroTitle?getComputedStyle(heroTitle).lineHeight:'missing'},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round2',hypothesisId:'H7',location:'docs/app.js:renderDashboard',message:'vertical stack footprint snapshot',data:{isMobile,heroH,statsH,stickyH,sum:heroH+statsH+stickyH,viewportH:window.innerHeight},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
 }
 
 
@@ -1932,9 +1750,7 @@ function addEssentialToList(itemName) {
         if (!_shoppingList.find(i => i.name === itemName)) {
             const row = { name: itemName, price: null, qty: 1, picked: false, updated_at: new Date().toISOString() };
             _shoppingList.push(row);
-            clearShoppingListTombstoneByKey(shoppingListSyncKey(row));
             persistShoppingList();
-            markShoppingSyncDirty();
             renderShoppingList();
             updateListCount();
         }
@@ -2339,9 +2155,7 @@ function addToList(itemName, callerBtn, itemId) {
     };
     
     _shoppingList.push(listItem);
-    clearShoppingListTombstoneByKey(shoppingListSyncKey(listItem));
     persistShoppingList();
-    markShoppingSyncDirty();
     updateListCount();
     haptic(12);
 
@@ -2360,11 +2174,8 @@ function addToList(itemName, callerBtn, itemId) {
 }
 
 function removeFromList(index) {
-    const row = _shoppingList[index];
-    if (row) markShoppingListTombstoneByKey(shoppingListSyncKey(row), new Date().toISOString());
     _shoppingList.splice(index, 1);
     persistShoppingList();
-    markShoppingSyncDirty();
     updateListCount();
     renderShoppingList();
 }
@@ -2515,48 +2326,9 @@ function updateLastCheckedDisplay() {
     syncDealsHeroStatus();
 }
 
-async function monitorApi() {
-    const dot = document.getElementById('api-status-dot');
-    const text = document.getElementById('api-status-text');
-    if (!dot || !text) return;
-
-    try {
-        const cloudBase = getStockWriteBase();
-        if (!cloudBase) {
-            dot.className = 'status-dot offline';
-            text.textContent = 'Pantry writes: set cloud Worker URL';
-            text.title = 'Open Settings and set Cloud write API + write secret.';
-            return;
-        }
-
-        const res = await fetch(`${cloudBase}/health?t=${Date.now()}`, { method: 'GET', cache: 'no-store' }).catch(() => null);
-        if (res && res.ok) {
-            const data = await res.json().catch(() => ({}));
-            const ok = data.ok !== false && data.configured !== false;
-            if (!ok) {
-                dot.className = 'status-dot offline';
-                text.textContent = 'Pantry writes: cloud unavailable';
-                text.title = 'Check Worker URL and secrets (GitHub token + write secret).';
-                return;
-            }
-            dot.className = 'status-dot online';
-            text.textContent = 'Pantry writes: cloud ready';
-            text.title = '';
-        } else {
-            dot.className = 'status-dot offline';
-            text.textContent = 'Pantry writes: cloud unavailable';
-            text.title = 'Check Worker URL and secrets (GitHub token + write secret).';
-        }
-    } catch {
-        dot.className = 'status-dot offline';
-        text.textContent = 'Pantry writes: cloud offline';
-        text.title = '';
-    }
-}
-
 async function monitorCloudHealth() {
-    const dot = document.getElementById('cloud-status-dot');
-    const text = document.getElementById('cloud-status-text');
+    const dot = document.getElementById('scrape-status-dot');
+    const text = document.getElementById('scrape-status-text');
     if (!dot || !text) return;
 
     try {
@@ -2569,21 +2341,24 @@ async function monitorCloudHealth() {
             const minsAgo = (now - lastBeat) / (1000 * 60);
 
             if (minsAgo < 35) {
-                dot.className = 'status-dot cloud-dot active';
-                text.textContent = 'Background updates: active';
+                dot.className = 'status-dot online';
+                text.textContent = `Scrape status: healthy (${Math.round(minsAgo)}m ago)`;
             } else {
-                dot.className = 'status-dot cloud-dot silent';
-                text.textContent = `Background updates: quiet (${Math.round(minsAgo)}m ago)`;
+                dot.className = 'status-dot stale';
+                text.textContent = `Scrape status: stale (${Math.round(minsAgo)}m ago)`;
             }
 
             // Sync the 'Last Checked' header display with the cloud heartbeat
             _lastChecked = data.last_heartbeat;
             _nextRun = data.next_run;
             updateLastCheckedDisplay();
+            return;
         }
+        dot.className = 'status-dot offline';
+        text.textContent = 'Scrape status: unavailable';
     } catch (e) {
-        dot.className = 'status-dot cloud-dot silent';
-        text.textContent = 'Background updates: unavailable';
+        dot.className = 'status-dot offline';
+        text.textContent = 'Scrape status: unavailable';
     }
 }
 
@@ -2928,6 +2703,9 @@ function renderMobilePriorityRail() {
 
     html += '</div>';
     rail.innerHTML = html;
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'post-fix',hypothesisId:'H3',location:'docs/app.js:renderMobilePriorityRail',message:'priority rail render result',data:{isMobile:isMobileViewport(),railHasDesktopClass:rail.classList.contains('desktop-priority-rail'),priorityItems:priorityItems.length,topDeals:topDeals.length,fallbackDeals:fallbackDeals.length,renderedSections:rail.querySelectorAll('.priority-rail-section').length},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
 }
 
 // ── F: Buy Now Priority View ──────────────────────────────────────────────
