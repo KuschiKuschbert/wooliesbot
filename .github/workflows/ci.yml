@@ -21,6 +21,9 @@ jobs:
       - name: Install curl_cffi for e2e_validate imports
         run: pip install curl_cffi requests
 
+      - name: File-size guardrails (soft ratchet)
+        run: python3 scripts/check_file_sizes.py
+
       - name: Compile Python modules
         run: |
           python3 -m py_compile chef_os.py receipt_sync.py
