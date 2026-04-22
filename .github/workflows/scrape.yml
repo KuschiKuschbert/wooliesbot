@@ -63,6 +63,8 @@ jobs:
           # Handle both "...Z" and "+00:00" UTC variants.
           ts = ts.replace("Z", "+00:00")
           hb = dt.datetime.fromisoformat(ts)
+          if hb.tzinfo is None:
+              hb = hb.replace(tzinfo=dt.timezone.utc)
           now = dt.datetime.now(dt.timezone.utc)
           age_min = (now - hb).total_seconds() / 60
           if age_min > 180:
