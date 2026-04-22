@@ -1786,6 +1786,14 @@ footer {
     max-width: min(360px, 78vw);
 }
 
+.shopping-trip-compact {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #d4f7ea;
+    letter-spacing: 0.01em;
+}
+
 .shopping-trip-progress-wrap {
     margin-top: 8px;
     width: min(210px, 55vw);
@@ -1869,6 +1877,11 @@ footer {
 .sync-btn:not(:disabled):hover {
     transform: scale(1.02);
     box-shadow: 0 6px 20px var(--primary-glow);
+}
+
+.sync-btn.trip-secondary {
+    opacity: 0.74;
+    filter: saturate(0.65);
 }
 
 /* Shopping Item in Drawer */
@@ -2002,6 +2015,13 @@ footer {
 
 body.drawer-open {
     overflow: hidden;
+}
+
+body.drawer-scroll-lock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 /* --- RESPONSIVE DESIGN --- */
@@ -5366,6 +5386,11 @@ button, a, label, [role="button"] {
         max-width: min(330px, 78vw);
     }
 
+    .shopping-trip-compact {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
     .shopping-trip-progress-wrap {
         width: min(220px, 62vw);
         margin-top: 6px;
@@ -5414,11 +5439,20 @@ button, a, label, [role="button"] {
 
     .shopping-trip-mode #done-shopping-btn,
     .shopping-trip-mode #clear-completed-btn {
+        background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
+        color: #06210f;
+        font-weight: 800;
         box-shadow: 0 8px 22px rgba(129, 140, 248, 0.35);
+    }
+
+    .shopping-trip-mode #go-shopping-btn {
+        opacity: 0.6;
     }
 
     .shopping-trip-mode #copy-list-btn {
         transform: scale(0.98);
+        opacity: 0.74;
+        filter: saturate(0.65);
     }
 
     .shopping-item {
@@ -5439,24 +5473,36 @@ button, a, label, [role="button"] {
         gap: 8px;
     }
 
-    .shopping-trip-mode #copy-list-btn {
-        display: none;
-    }
-
     .shopping-trip-mode .shopping-item {
         padding: 14px 12px;
         gap: 12px;
         border-radius: 14px;
     }
 
+    .shopping-trip-mode .shopping-item--unpicked {
+        border-color: rgba(34, 197, 94, 0.4);
+        background: rgba(34, 197, 94, 0.08);
+    }
+
+    .shopping-trip-mode .shopping-item--picked {
+        opacity: 0.55;
+        background: rgba(255, 255, 255, 0.015);
+    }
+
     .shopping-trip-mode .shopping-item-check {
-        width: 50px;
-        height: 50px;
+        width: 54px;
+        height: 54px;
     }
 
     .shopping-trip-mode .shopping-item-check input {
         width: 24px;
         height: 24px;
+    }
+
+    .shopping-item-remove {
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: 12px;
     }
 
     /* ── Master Tracklist: hide table, show cards ─ */

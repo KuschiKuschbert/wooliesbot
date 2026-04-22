@@ -33,9 +33,16 @@ self.addEventListener('fetch', event => {
     const { request } = event;
     // Only handle GET requests
     if (request.method !== 'GET') return;
+    const url = request.url || '';
+
+    // Always bypass cache for cross-device shopping list sync.
+    if (url.includes('/shopping_list')) {
+        event.respondWith(fetch(request).catch(() => caches.match(request)));
+        return;
+    }
 
     // Network-first for data.json (always fresh)
-    if (request.url.includes('data.json') || request.url.includes('heartbeat.json')) {
+    if (url.includes('data.json') || url.includes('heartbeat.json')) {
         event.respondWith(
             fetch(request)
                 .then(res => {

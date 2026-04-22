@@ -78,6 +78,7 @@ function isCompactViewport() {
 let _focusBeforeDrawer = null;
 let _focusBeforeSettings = null;
 let _focusBeforeStockModal = null;
+let _drawerScrollLockY = 0;
 let _debugChromeSnapshotLogged = false;
 
 function syncTabAriaCurrent(target) {
@@ -309,6 +310,9 @@ let _shoppingListSyncPollTimer = null;
 let _shoppingListSyncPushTimer = null;
 let _shoppingListSyncPushInFlight = false;
 let _shoppingListSyncPullInFlight = false;
+let _shoppingListSyncPushQueued = false;
+let _shoppingListSyncQueuedReason = 'local_edit';
+let _shoppingListSyncFailureStreak = 0;
 
 /** Mirrors chef_os._PRICE_UNRELIABLE — eff_price at or above is not comparable */
 const PRICE_UNRELIABLE = 99999;
@@ -628,27 +632,95 @@ function getShoppingListMaxUpdatedMs(rows = _shoppingList) {
     return latest;
 }
 
+function getShoppingListRowUpdatedMs(row) {
+    const t = Date.parse(String(row?.updated_at || ''));
+    return Number.isFinite(t) ? t : 0;
+}
+
+function shoppingListMergeKey(row, fallbackIdx = -1) {
+    const raw = itemKey(row);
+    const normalized = String(raw || '').trim().toLowerCase();
+    if (normalized) return normalized;
+    return `__anon_${fallbackIdx}_${String(row?.updated_at || '').trim()}`;
+}
+
+function choosePreferredShoppingRow(currentRow, incomingRow, preferIncomingOnTie = false) {
+    if (!currentRow) return { ...incomingRow };
+    if (!incomingRow) return { ...currentRow };
+    const currMs = getShoppingListRowUpdatedMs(currentRow);
+    const nextMs = getShoppingListRowUpdatedMs(incomingRow);
+    if (nextMs > currMs) return { ...incomingRow };
+    if (nextMs < currMs) return { ...currentRow };
+    if (preferIncomingOnTie) return { ...incomingRow };
+    const currSig = JSON.stringify(currentRow);
+    const nextSig = JSON.stringify(incomingRow);
+    return nextSig > currSig ? { ...incomingRow } : { ...currentRow };
+}
+
+function mergeShoppingListRows(localRows, remoteRows) {
+    const normalizedLocal = normalizeShoppingListShape(localRows);
+    const normalizedRemote = normalizeShoppingListShape(remoteRows);
+    const merged = new Map();
+    const orderedKeys = [];
+
+    normalizedLocal.forEach((row, idx) => {
+        const key = shoppingListMergeKey(row, idx);
+        if (!merged.has(key)) orderedKeys.push(key);
+        merged.set(key, choosePreferredShoppingRow(merged.get(key), row));
+    });
+
+    normalizedRemote.forEach((row, idx) => {
+        const key = shoppingListMergeKey(row, normalizedLocal.length + idx);
+        if (!merged.has(key)) orderedKeys.push(key);
+        merged.set(key, choosePreferredShoppingRow(merged.get(key), row, true));
+    });
+
+    return orderedKeys
+        .map((key) => merged.get(key))
+        .filter(Boolean)
+        .map((row) => ({ ...row }));
+}
+
+function noteShoppingListSyncFailure(kind, reason, status = 0) {
+    _shoppingListSyncFailureStreak += 1;
+    console.warn(`[shopping-sync] ${kind} failed (${reason})`, status ? { status } : {});
+    if (_shoppingListSyncFailureStreak === 3 || _shoppingListSyncFailureStreak % 5 === 0) {
+        showUiToast('Cart sync is retrying. Your local changes are still saved on this device.', 3200);
+    }
+}
+
+function noteShoppingListSyncSuccess() {
+    _shoppingListSyncFailureStreak = 0;
+}
+
 function applyRemoteShoppingList(remoteRows, meta = {}) {
-    const normalized = normalizeShoppingListShape(remoteRows);
-    _shoppingList = normalized;
-    persistShoppingList({ skipCloud: true });
+    const merged = mergeShoppingListRows(_shoppingList, remoteRows);
+    const prevSig = JSON.stringify(normalizeShoppingListShape(_shoppingList));
+    const nextSig = JSON.stringify(merged);
+    _shoppingList = merged;
+    if (prevSig !== nextSig) persistShoppingList({ skipCloud: true });
     if (meta.updated_at) setShoppingListCloudStamp(meta.updated_at);
     updateListCount();
     renderShoppingList();
 }
 
 async function pushShoppingListToCloud(reason = 'manual') {
-    if (_shoppingListSyncPushInFlight) return;
+    if (_shoppingListSyncPushInFlight) {
+        _shoppingListSyncPushQueued = true;
+        _shoppingListSyncQueuedReason = reason || _shoppingListSyncQueuedReason;
+        return;
+    }
     const base = getStockWriteBase();
     const secret = (_writeApiSecret || '').trim();
     if (!base || !secret) return;
     _shoppingListSyncPushInFlight = true;
+    const dispatchedReason = reason || 'manual';
     const deviceId = getShoppingDeviceId();
     try {
         const nowIso = new Date().toISOString();
         const payload = {
             device_id: deviceId,
-            reason,
+            reason: dispatchedReason,
             updated_at: nowIso,
             items: normalizeShoppingListShape(_shoppingList),
         };
@@ -660,12 +732,25 @@ async function pushShoppingListToCloud(reason = 'manual') {
             },
             body: JSON.stringify(payload),
         });
-        if (!res.ok) return;
+        if (!res.ok) {
+            noteShoppingListSyncFailure('push', dispatchedReason, res.status);
+            return;
+        }
         const body = await res.json().catch(() => ({}));
         if (body?.updated_at) setShoppingListCloudStamp(body.updated_at);
-    } catch {}
+        noteShoppingListSyncSuccess();
+        pullShoppingListFromCloud('post_push');
+    } catch {
+        noteShoppingListSyncFailure('push', dispatchedReason);
+    }
     finally {
         _shoppingListSyncPushInFlight = false;
+        if (_shoppingListSyncPushQueued) {
+            _shoppingListSyncPushQueued = false;
+            const queuedReason = _shoppingListSyncQueuedReason || 'queued_retry';
+            _shoppingListSyncQueuedReason = 'local_edit';
+            pushShoppingListToCloud(queuedReason);
+        }
     }
 }
 
@@ -684,22 +769,29 @@ async function pullShoppingListFromCloud(reason = 'poll') {
     if (!base || !secret) return;
     _shoppingListSyncPullInFlight = true;
     try {
-        const res = await fetch(`${base}/shopping_list`, {
+        const pullUrl = `${base}/shopping_list?t=${Date.now()}`;
+        const res = await fetch(pullUrl, {
             method: 'GET',
+            cache: 'no-store',
             headers: {
                 'X-WooliesBot-Secret': secret,
                 'X-WooliesBot-Device': getShoppingDeviceId(),
             },
         });
-        if (!res.ok) return;
+        if (!res.ok) {
+            noteShoppingListSyncFailure('pull', reason, res.status);
+            return;
+        }
         const body = await res.json().catch(() => null);
         if (!body || !Array.isArray(body.items)) return;
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
-        const localRowsMs = getShoppingListMaxUpdatedMs(_shoppingList);
-        if (remoteMs <= Math.max(localCloudMs, localRowsMs)) return;
+        if (remoteMs <= localCloudMs) return;
         applyRemoteShoppingList(body.items, { updated_at: body.updated_at, reason });
-    } catch {}
+        noteShoppingListSyncSuccess();
+    } catch {
+        noteShoppingListSyncFailure('pull', reason);
+    }
     finally {
         _shoppingListSyncPullInFlight = false;
     }
@@ -713,6 +805,7 @@ function startShoppingListCloudSyncMonitors() {
     }, SHOPPING_LIST_SYNC_POLL_MS);
 
     window.addEventListener('online', () => pullShoppingListFromCloud('online'));
+    window.addEventListener('focus', () => pullShoppingListFromCloud('focus'));
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') pullShoppingListFromCloud('visible');
     });
@@ -1487,13 +1580,32 @@ function toggleDrawer() {
     toggleBtns.forEach(btn => btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'));
     if (isOpen) {
         haptic(8);
+        lockDrawerBodyScroll();
         renderShoppingList();
         setTimeout(() => document.getElementById('close-drawer')?.focus(), 0);
     } else {
+        unlockDrawerBodyScroll();
         const prev = _focusBeforeDrawer;
         _focusBeforeDrawer = null;
         prev?.focus?.();
     }
+}
+
+function lockDrawerBodyScroll() {
+    if (!isMobileViewport()) return;
+    if (document.body.classList.contains('drawer-scroll-lock')) return;
+    _drawerScrollLockY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.top = `-${_drawerScrollLockY}px`;
+    document.body.classList.add('drawer-scroll-lock');
+}
+
+function unlockDrawerBodyScroll() {
+    if (!document.body.classList.contains('drawer-scroll-lock')) return;
+    document.body.classList.remove('drawer-scroll-lock');
+    document.body.style.top = '';
+    const restoreY = Number.isFinite(_drawerScrollLockY) ? _drawerScrollLockY : 0;
+    window.scrollTo(0, restoreY);
+    _drawerScrollLockY = 0;
 }
 
 function setupOverlayEscapeHandler() {
@@ -2276,7 +2388,10 @@ function updateListCount() {
 
     // Enable copy button
     const copyBtn = document.getElementById('copy-list-btn');
-    if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
+    if (copyBtn) {
+        copyBtn.disabled = _shoppingList.length === 0;
+        copyBtn.classList.toggle('trip-secondary', isShoppingTripMode());
+    }
 
     const goShoppingBtn = document.getElementById('go-shopping-btn');
     if (goShoppingBtn) {
@@ -2366,6 +2481,7 @@ function renderShoppingList() {
     const totalEl = document.getElementById('list-total-price');
     const totalLabelEl = document.getElementById('list-total-label');
     const tripStatusEl = document.getElementById('shopping-trip-status');
+    const tripCompactEl = document.getElementById('shopping-trip-compact');
     const tripProgressWrapEl = document.getElementById('shopping-trip-progress-wrap');
     const tripProgressBarEl = document.getElementById('shopping-trip-progress-bar');
     const drawer = document.getElementById('list-drawer');
@@ -2385,7 +2501,7 @@ function renderShoppingList() {
         if (!shoppingMode || !isPicked) total += itemTotal;
         
         const div = document.createElement('div');
-        div.className = `shopping-item${shoppingMode ? ' shopping-item--trip' : ''}${isPicked ? ' shopping-item--picked' : ''}`;
+        div.className = `shopping-item${shoppingMode ? ' shopping-item--trip' : ''}${isPicked ? ' shopping-item--picked' : ''}${shoppingMode && !isPicked ? ' shopping-item--unpicked' : ''}`;
         const specialBadge = item.on_special && item.was_price
             ? `<span class="save-badge" style="font-size:9px;">SPECIAL</span>` : '';
         const checkboxHtml = shoppingMode
@@ -2447,6 +2563,16 @@ function renderShoppingList() {
             }
         }
     }
+    if (tripCompactEl) {
+        if (!shoppingMode || _shoppingList.length === 0) {
+            tripCompactEl.hidden = true;
+            tripCompactEl.textContent = '';
+        } else {
+            const leftCount = Math.max(0, _shoppingList.length - pickedCount);
+            tripCompactEl.hidden = false;
+            tripCompactEl.textContent = `${leftCount} left / ${_shoppingList.length} total`;
+        }
+    }
     if (tripProgressWrapEl && tripProgressBarEl) {
         if (!shoppingMode || _shoppingList.length === 0) {
             tripProgressWrapEl.hidden = true;
@@ -2456,6 +2582,11 @@ function renderShoppingList() {
             tripProgressWrapEl.hidden = false;
             tripProgressBarEl.style.width = `${Math.max(0, Math.min(100, pct))}%`;
         }
+    }
+    const copyBtn = document.getElementById('copy-list-btn');
+    if (copyBtn) {
+        copyBtn.style.opacity = shoppingMode ? '0.72' : '';
+        copyBtn.style.filter = shoppingMode ? 'saturate(0.65)' : '';
     }
     
     totalEl.textContent = `$${total.toFixed(2)}`;
