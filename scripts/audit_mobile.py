@@ -15,15 +15,11 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import contextlib
-import http.server
 import json
-import socket
-import socketserver
 import sys
-import threading
 from datetime import datetime
 from pathlib import Path
+from mobile_server import pick_free_port as _shared_pick_free_port, serve_docs as _shared_serve_docs
 
 try:
     from playwright.sync_api import sync_playwright
@@ -39,39 +35,12 @@ DOCS_DIR = REPO_ROOT / "docs"
 SHOT_ROOT = REPO_ROOT / "screenshots" / "audit_mobile"
 
 
-# ---------------------------------------------------------------------------
-# Tiny static server (same pattern as e2e_mobile.py)
-# ---------------------------------------------------------------------------
-class _QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *_a, **_kw):
-        pass
-
-
-class _ReusableServer(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
 def _pick_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
+    return _shared_pick_free_port()
 
 
-@contextlib.contextmanager
 def serve_docs(port: int):
-    class H(_QuietHandler):
-        def __init__(self, *a, **kw):
-            super().__init__(*a, directory=str(DOCS_DIR), **kw)
-
-    httpd = _ReusableServer(("127.0.0.1", port), H)
-    t = threading.Thread(target=httpd.serve_forever, daemon=True)
-    t.start()
-    try:
-        yield f"http://127.0.0.1:{port}"
-    finally:
-        httpd.shutdown()
-        httpd.server_close()
+    return _shared_serve_docs(DOCS_DIR, port)
 
 
 # ---------------------------------------------------------------------------

@@ -10,6 +10,7 @@ introduced. Prints a PASS/FAIL summary and saves annotated screenshots to
 Checks:
   01  Page loads, no console errors, service worker registers
   02  PWA manifest is linked and reachable
+  02b Runtime sync config preloads on fresh storage
   03  Mobile: bottom nav visible; stats-sidebar column visible; #buy-now-card / #top5-card hidden in sidebar
   04  Mobile priority rail renders with Buy Now + Top 5 content
   05  Stats strip scrolls horizontally (overflow-x)
@@ -37,16 +38,12 @@ Dependencies:
 from __future__ import annotations
 
 import argparse
-import contextlib
-import http.server
 import json
-import socket
-import socketserver
 import sys
-import threading
 import time
 from datetime import datetime
 from pathlib import Path
+from mobile_server import pick_free_port, serve_docs as _shared_serve_docs
 
 try:
     from playwright.sync_api import (
@@ -69,41 +66,13 @@ DOCS_DIR = REPO_ROOT / "docs"
 SHOT_ROOT = REPO_ROOT / "screenshots" / "e2e_mobile"
 
 
-# --------------------------------------------------------------------------
-# Static server
-# --------------------------------------------------------------------------
-class _QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *_args, **_kwargs):  # silence default access log
-        pass
-
-
-class _ReusableTCPServer(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
 def _pick_free_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
+    return pick_free_port()
 
 
-@contextlib.contextmanager
 def serve_docs(port: int):
     """Serve docs/ on 127.0.0.1:<port> for the duration of the context."""
-
-    class Handler(_QuietHandler):
-        def __init__(self, *a, **kw):
-            super().__init__(*a, directory=str(DOCS_DIR), **kw)
-
-    httpd = _ReusableTCPServer(("127.0.0.1", port), Handler)
-    thread = threading.Thread(target=httpd.serve_forever, daemon=True)
-    thread.start()
-    try:
-        yield f"http://127.0.0.1:{port}"
-    finally:
-        httpd.shutdown()
-        httpd.server_close()
+    return _shared_serve_docs(DOCS_DIR, port)
 
 
 # --------------------------------------------------------------------------
@@ -248,6 +217,34 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         return "PASS", f"{body.get('short_name', body['name'])}"
 
     _try(results, "02", "PWA manifest served", check_manifest)
+
+    # ------------------------------------------------------------------
+    # 02b — Runtime sync config bootstrap should prefill fresh storage
+    # ------------------------------------------------------------------
+    def check_runtime_sync_bootstrap():
+        page.evaluate(
+            """() => {
+                localStorage.removeItem('write_api_url');
+                localStorage.removeItem('write_api_secret');
+            }"""
+        )
+        page.reload(wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+        info = page.evaluate(
+            """() => ({
+                runtimeUrl: Boolean(window.__WOOLIESBOT_ENV__?.writeApiUrl),
+                runtimeSecret: Boolean(window.__WOOLIESBOT_ENV__?.writeApiSecret),
+                storedUrl: Boolean(localStorage.getItem('write_api_url')),
+                storedSecret: Boolean(localStorage.getItem('write_api_secret')),
+            })"""
+        )
+        if not info["runtimeUrl"] or not info["runtimeSecret"]:
+            return "FAIL", f"runtime env missing sync config ({info})"
+        if not info["storedUrl"] or not info["storedSecret"]:
+            return "FAIL", f"local storage not bootstrapped from runtime env ({info})"
+        return "PASS", "runtime sync config prefilled on fresh storage"
+
+    _try(results, "02b", "runtime sync bootstrap", check_runtime_sync_bootstrap)
 
     # ------------------------------------------------------------------
     # 03 — Mobile chrome: bottom nav + sidebar column; rail dupes hidden
