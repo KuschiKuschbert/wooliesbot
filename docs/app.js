@@ -223,7 +223,8 @@ let _currentCatFilter = 'all';
 let _searchText = '';
 let _currentTab = 'deals';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly';
-let _shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+let _shoppingList = normalizeShoppingListShape(loadShoppingListFromStorage());
+let _shoppingTripMode = localStorage.getItem('shoppingTripMode') === '1';
 let _selectedItemForModal = null;
 let _currentPage = 1;
 const _itemsPerPage = 12;
@@ -253,6 +254,57 @@ function isReliableEffPrice(ep) {
     return typeof ep === 'number' && Number.isFinite(ep) && ep > 0 && ep < PRICE_UNRELIABLE;
 }
 
+function loadShoppingListFromStorage() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
+
+function normalizeShoppingListShape(rows) {
+    if (!Array.isArray(rows)) return [];
+    return rows.map(row => {
+        if (!row || typeof row !== 'object') return { name: '', qty: 1, picked: false };
+        return { ...row, picked: Boolean(row.picked) };
+    });
+}
+
+function persistShoppingList() {
+    localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+}
+
+function isShoppingTripMode() {
+    return _shoppingTripMode;
+}
+
+function setShoppingTripMode(on) {
+    _shoppingTripMode = Boolean(on);
+    localStorage.setItem('shoppingTripMode', _shoppingTripMode ? '1' : '0');
+    updateListCount();
+    renderShoppingList();
+}
+
+function toggleListItemPicked(index) {
+    const row = _shoppingList[index];
+    if (!row) return;
+    row.picked = !row.picked;
+    persistShoppingList();
+    renderShoppingList();
+}
+
+function clearPickedListItems() {
+    _shoppingList = _shoppingList.filter(row => !row?.picked);
+    if (_shoppingList.length === 0 && _shoppingTripMode) {
+        _shoppingTripMode = false;
+        localStorage.setItem('shoppingTripMode', '0');
+    }
+    persistShoppingList();
+    updateListCount();
+    renderShoppingList();
+}
+
 function escapeHtml(s) {
     return String(s)
         .replace(/&/g, '&amp;')
@@ -270,6 +322,12 @@ function getStockWriteBase() {
 
 function usesCloudWrite() {
     return Boolean((_writeApiUrl || '').trim());
+}
+
+function isInsecureLocalBridgeBlockedByHttpsPage(bridgeBase) {
+    if (window.location.protocol !== 'https:') return false;
+    const base = String(bridgeBase || '').toLowerCase();
+    return base.startsWith('http://localhost') || base.startsWith('http://127.0.0.1');
 }
 
 /** Matches chef_os merge keys: prefer item_id, then display name */
@@ -832,7 +890,9 @@ function setupFilters() {
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
             _shoppingList = [];
-            localStorage.setItem('shoppingList', '[]');
+            persistShoppingList();
+            _shoppingTripMode = false;
+            localStorage.setItem('shoppingTripMode', '0');
             renderShoppingList();
             updateListCount();
         }
@@ -840,6 +900,9 @@ function setupFilters() {
 
     document.getElementById('open-keep-btn')?.addEventListener('click', openShoppingListInKeep);
     document.getElementById('sync-keep-btn')?.addEventListener('click', syncShoppingListToKeep);
+    document.getElementById('go-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(true));
+    document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false));
+    document.getElementById('clear-completed-btn')?.addEventListener('click', clearPickedListItems);
     
     // Settings Logic
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
@@ -1320,8 +1383,8 @@ function addEssentialToList(itemName) {
     } else {
         // Fallback: add by display name with no price
         if (!_shoppingList.find(i => i.name === itemName)) {
-            _shoppingList.push({ name: itemName, price: null, qty: 1 });
-            localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+            _shoppingList.push({ name: itemName, price: null, qty: 1, picked: false });
+            persistShoppingList();
             renderShoppingList();
             updateListCount();
         }
@@ -1456,7 +1519,6 @@ function createItemCard(item, index, type = 'special') {
         ? (item.coles || '#') 
         : (item.woolworths || '#');
 
-    const escapedName = item.name.replace(/'/g, "\\'");
     const groupBestHtml = buildGroupBestRowHtml(item);
 
     card.innerHTML = `
@@ -1479,7 +1541,7 @@ function createItemCard(item, index, type = 'special') {
             </div>
             ${storeCompareHtml}
             ${groupBestHtml}
-            <button class="add-to-list-btn" onclick="addToList(${JSON.stringify(item.name)}, this, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+            <button type="button" class="add-to-list-btn">
                 <i data-feather="plus"></i> Add to shopping list
             </button>
             <div class="chart-container-sm" id="chart-${type}-${index}">
@@ -1487,14 +1549,19 @@ function createItemCard(item, index, type = 'special') {
             </div>
         </div>
     `;
-    
+
+    const addBtn = card.querySelector('.add-to-list-btn');
+    if (addBtn) {
+        addBtn.addEventListener('click', () => addToList(item.name, addBtn, item.item_id || null));
+    }
+
     setTimeout(() => {
         if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
             renderSparkline(`chart-${type}-${index}`, _history[itemKey(item)].history, storeClass);
         }
         feather.replace();
     }, 0);
-    
+
     return card;
 }
 
@@ -1582,9 +1649,32 @@ function updateListCount() {
     const copyBtn = document.getElementById('copy-list-btn');
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
     const syncBtn = document.getElementById('sync-keep-btn');
-    if (syncBtn) syncBtn.disabled = _shoppingList.length === 0;
+    if (syncBtn) {
+        const blockedByHttps = isInsecureLocalBridgeBlockedByHttpsPage((_apiUrl || '').trim().replace(/\/$/, ''));
+        syncBtn.disabled = _shoppingList.length === 0 || blockedByHttps;
+        syncBtn.title = blockedByHttps
+            ? 'On HTTPS, switch Bridge URL to your Mac Wi-Fi address (not localhost).'
+            : '';
+    }
     const openKeepBtn = document.getElementById('open-keep-btn');
     if (openKeepBtn) openKeepBtn.disabled = !_keepNoteUrl;
+
+    const goShoppingBtn = document.getElementById('go-shopping-btn');
+    if (goShoppingBtn) {
+        goShoppingBtn.hidden = isShoppingTripMode() || _shoppingList.length === 0;
+        goShoppingBtn.disabled = _shoppingList.length === 0;
+    }
+    const doneShoppingBtn = document.getElementById('done-shopping-btn');
+    if (doneShoppingBtn) {
+        doneShoppingBtn.hidden = !isShoppingTripMode();
+        doneShoppingBtn.disabled = _shoppingList.length === 0;
+    }
+    const clearCompletedBtn = document.getElementById('clear-completed-btn');
+    if (clearCompletedBtn) {
+        const pickedCount = _shoppingList.filter(item => item?.picked).length;
+        clearCompletedBtn.hidden = !isShoppingTripMode();
+        clearCompletedBtn.disabled = pickedCount === 0;
+    }
 }
 
 function openShoppingListInKeep() {
@@ -1603,6 +1693,10 @@ async function syncShoppingListToKeep() {
     const base = (_apiUrl || '').trim().replace(/\/$/, '');
     if (!base) {
         alert('Set your local bridge URL in Settings first.');
+        return;
+    }
+    if (isInsecureLocalBridgeBlockedByHttpsPage(base)) {
+        alert('Keep sync is blocked on HTTPS with localhost. In Settings, set Bridge URL to your Mac Wi-Fi address (for example http://192.168.x.x:5001), or open the dashboard over file:// or HTTP.');
         return;
     }
 
@@ -1690,10 +1784,11 @@ function addToList(itemName, callerBtn, itemId) {
         image: item.local_image || item.image_url || null,
         on_special: item.on_special || false,
         was_price: item.was_price || null,
+        picked: false,
     };
     
     _shoppingList.push(listItem);
-    localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+    persistShoppingList();
     updateListCount();
     haptic(12);
 
@@ -1713,7 +1808,7 @@ function addToList(itemName, callerBtn, itemId) {
 
 function removeFromList(index) {
     _shoppingList.splice(index, 1);
-    localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+    persistShoppingList();
     updateListCount();
     renderShoppingList();
 }
@@ -1721,20 +1816,30 @@ function removeFromList(index) {
 function renderShoppingList() {
     const container = document.getElementById('shopping-list-items');
     const totalEl = document.getElementById('list-total-price');
+    const totalLabelEl = document.getElementById('list-total-label');
+    const drawer = document.getElementById('list-drawer');
     if (!container) return;
     
     container.innerHTML = '';
+    const shoppingMode = isShoppingTripMode();
+    if (drawer) drawer.classList.toggle('shopping-trip-mode', shoppingMode);
+    if (totalLabelEl) totalLabelEl.textContent = shoppingMode ? 'Left to buy' : 'About';
     let total = 0;
     
     _shoppingList.forEach((item, index) => {
+        const isPicked = Boolean(item.picked);
         const itemTotal = (item.price || 0) * item.qty;
-        total += itemTotal;
+        if (!shoppingMode || !isPicked) total += itemTotal;
         
         const div = document.createElement('div');
-        div.className = 'shopping-item';
+        div.className = `shopping-item${shoppingMode ? ' shopping-item--trip' : ''}${isPicked ? ' shopping-item--picked' : ''}`;
         const specialBadge = item.on_special && item.was_price
             ? `<span class="save-badge" style="font-size:9px;">SPECIAL</span>` : '';
+        const checkboxHtml = shoppingMode
+            ? `<label class="shopping-item-check"><input type="checkbox" class="shopping-item-picked" data-index="${index}" ${isPicked ? 'checked' : ''} aria-label="Mark item as picked"><span></span></label>`
+            : '';
         div.innerHTML = `
+            ${checkboxHtml}
             ${item.image ? `<img src="${item.image}" onerror="this.style.display='none'">` : '<div style="width:40px;height:40px;background:rgba(255,255,255,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;"><i data-feather="image" style="width:16px;"></i></div>'}
             <div class="shopping-item-info">
                 <div class="shopping-item-name">${item.qty}× ${displayName(item.name)} ${specialBadge}</div>
@@ -1748,8 +1853,19 @@ function renderShoppingList() {
     if (_shoppingList.length === 0) {
         container.innerHTML = '<p style="color:var(--text-muted);text-align:center;margin-top:40px;">Your list is empty.</p>';
     }
+
+    if (shoppingMode) {
+        container.querySelectorAll('.shopping-item-picked').forEach(cb => {
+            cb.addEventListener('change', (e) => {
+                const idx = Number(e.target?.dataset?.index);
+                if (!Number.isInteger(idx)) return;
+                toggleListItemPicked(idx);
+            });
+        });
+    }
     
     totalEl.textContent = `$${total.toFixed(2)}`;
+    updateListCount();
     if (typeof feather !== 'undefined') feather.replace();
 }
 
@@ -3742,7 +3858,7 @@ function openItemDeepdive(itemName) {
                     <span>${item.type || 'uncategorised'} · ${item.brand || 'unknown brand'}</span>
                     ${item.size ? `<span>Size: ${item.size}</span>` : ''}
                 </div>
-                <button class="sync-btn" style="padding:10px 20px;width:auto;" onclick="addToList(${JSON.stringify(item.name)}, null, ${item.item_id ? JSON.stringify(item.item_id) : 'null'}); closeItemDeepdive();">
+                <button type="button" class="sync-btn deepdive-add-btn" style="padding:10px 20px;width:auto;">
                     <i data-feather="plus"></i> Add to shopping list
                 </button>
             </div>
@@ -3750,6 +3866,13 @@ function openItemDeepdive(itemName) {
     `;
 
     document.body.appendChild(modal);
+    const deepAdd = modal.querySelector('.deepdive-add-btn');
+    if (deepAdd) {
+        deepAdd.addEventListener('click', () => {
+            addToList(item.name, null, item.item_id || null);
+            closeItemDeepdive();
+        });
+    }
     feather.replace();
 
     if (sorted.length > 1) {

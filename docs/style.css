@@ -1806,6 +1806,18 @@ footer {
     border: 1px solid var(--border-color);
 }
 
+.shopping-item--trip {
+    gap: 10px;
+}
+
+.shopping-item--picked {
+    opacity: 0.58;
+}
+
+.shopping-item--picked .shopping-item-name {
+    text-decoration: line-through;
+}
+
 .shopping-item img {
     width: 40px;
     height: 40px;
@@ -1826,6 +1838,32 @@ footer {
 .shopping-item-price {
     font-size: 12px;
     color: var(--text-muted);
+}
+
+.shopping-item-check {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.shopping-item-check input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--woolies-green);
+    cursor: pointer;
+}
+
+.shopping-trip-mode #open-keep-btn,
+.shopping-trip-mode #sync-keep-btn,
+.shopping-trip-mode #copy-list-btn {
+    opacity: 0.75;
 }
 
 /* Card Add Button */

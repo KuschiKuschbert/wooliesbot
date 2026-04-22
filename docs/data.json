@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22 03:27 PM",
+  "last_updated": "2026-04-22 08:09 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8454,7 +8454,7 @@
       "price_unavailable": false,
       "avg_price": 3.15,
       "eff_price": 3.5,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Di Lusso 28 Fusilli"
@@ -8555,9 +8555,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -10138,14 +10138,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -10166,7 +10166,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream"
+      "name_check": "Woolworths Light Thickened Cream"
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -13285,7 +13285,7 @@
       "name": "Df Thick & Creamy Strawberry 600G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 2.95,
+      "target": 3.58,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=DF%20Thick%20&%20Creamy%20Strawberry%20600g",
       "coles": "https://www.coles.com.au/product/thick-creamy-yoghurt-strawberry-1198479",
       "price_history": [
@@ -13296,7 +13296,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -13373,13 +13373,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -13393,7 +13393,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -23469,14 +23469,14 @@
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
       "image_url": "images/pak_choy_baby.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 4.9,
-          "eff_price": 4.9,
+          "price": 3.0,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -23494,7 +23494,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Asian Choy Pak"
+      "name_check": "Pak Choy Baby Asian Greens"
     },
     {
       "name": "Ww Cheese Block Tasty 500G",
@@ -23756,7 +23756,7 @@
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 9.0,
+      "target": 12.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -23795,7 +23795,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 9.0,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -23873,14 +23873,14 @@
       "on_special": false,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
-      "store": "coles",
-      "unit_price": 17.5,
+      "store": "woolworths",
+      "unit_price": 12.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -23894,11 +23894,11 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 9.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Free Range Chicken Breast Fillets Bulk"
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet"
     },
     {
       "name": "Impressed Tropical Juice 425Ml",
@@ -30457,7 +30457,7 @@
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 1.4,
+      "target": 1.59,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Cat%20Food%20Tuna%20Mornay%20&%20Cheese%2085g",
       "coles": "https://www.coles.com.au/product/classic-collection-adult-wet-cat-food-saucy-morsels-with-tuna-cheese-tray-7599461",
       "price_history": [
@@ -30472,26 +30472,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 1.4,
+      "price": 1.6,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "85G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $1.60, now $1.40 (store special)",
+      "target_method": "p15 of 10 prices (few sales detected)",
       "target_data_points": 10,
       "target_updated": "2026-04-22",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 1.59,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 1.59,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
@@ -30545,19 +30545,19 @@
         }
       ],
       "was_price": 1.6,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
-      "unit_price": 1.65,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.88,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.4,
-          "unit_price": 1.65,
-          "eff_price": 1.4,
-          "was_price": 1.6,
-          "on_special": true
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.6,
@@ -30569,11 +30569,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.35,
-      "eff_price": 1.4,
+      "eff_price": 1.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -34572,14 +34572,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -34600,7 +34600,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle"
+      "name_check": "Spring Water Bottle"
     },
     {
       "name": "F/C Salad Baby Spinach 280G",

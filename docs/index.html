@@ -438,9 +438,18 @@
         <div id="shopping-list-items" class="drawer-content"></div>
         <div class="drawer-footer">
             <div class="list-total-row">
-                <span>About</span>
+                <span id="list-total-label">About</span>
                 <span id="list-total-price">$0.00</span>
             </div>
+            <button type="button" id="go-shopping-btn" class="sync-btn" disabled>
+                <i data-feather="check-square"></i> Go shopping
+            </button>
+            <button type="button" id="done-shopping-btn" class="sync-btn" hidden>
+                <i data-feather="clipboard"></i> Done shopping
+            </button>
+            <button type="button" id="clear-completed-btn" class="sync-btn" hidden disabled>
+                <i data-feather="check-circle"></i> Clear completed
+            </button>
             <button type="button" id="open-keep-btn" class="sync-btn" disabled>
                 <i data-feather="external-link"></i> Open in Google Keep
             </button>
