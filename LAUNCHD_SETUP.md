@@ -34,6 +34,21 @@ Optional **scraper / anti-bot tuning** (`WOOLIESBOT_*`) is documented in `.env.e
 
 **Inventory `item_id`:** rows get a stable UUID from [`export_data_to_json`](chef_os.py) on the next scrape if missing. No separate migration script is required.
 
+## Cross-device shopping cart sync (mobile + desktop)
+
+Shopping cart sync now uses the cloud write Worker (same origin as `write_api_url`) and a shared repo file:
+
+- Worker endpoints: `GET /shopping_list`, `POST /shopping_list`
+- Shared payload path: `docs/shopping_list_sync.json`
+- Merge semantics:
+  - item key = `item_id` (fallback `name`)
+  - conflicts keep `qty` max and `picked` OR
+  - newer row metadata wins by `updated_at`
+  - deletions use tombstones to avoid resurrecting removed rows
+- Expected delay across devices: usually 5-30s (poll interval + network)
+
+If sync is unavailable, the cart still works locally and retries in the background when the Worker is reachable.
+
 ## Optional: scheduled variant discovery (snippet only — Phase 3)
 
 This does **not** edit `docs/data.json`. It runs [`scripts/discover_variants.py`](scripts/discover_variants.py) in `--inventory-scan` mode and writes `logs/discovery-snippet-*.json`. Review with [`docs/discovery-review.html`](docs/discovery-review.html) before any merge.

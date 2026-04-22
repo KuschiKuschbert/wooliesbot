@@ -7,6 +7,7 @@
  */
 
 const DATA_PATH = "docs/data.json";
+const SHOPPING_LIST_PATH = "docs/shopping_list_sync.json";
 const MAX_BODY_BYTES = 32768;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 45;
@@ -41,6 +42,15 @@ function base64ToUtf8(b64) {
 	const bytes = new Uint8Array(bin.length);
 	for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
 	return new TextDecoder().decode(bytes);
+}
+
+function nowIso() {
+	return new Date().toISOString();
+}
+
+function isoToMs(v) {
+	const t = Date.parse(String(v || ""));
+	return Number.isFinite(t) ? t : 0;
 }
 
 function corsHeaders(env, requestOrigin) {
@@ -200,7 +210,7 @@ async function githubPutFile(owner, repo, token, path, message, contentB64, sha)
 		body: JSON.stringify({
 			message,
 			content: contentB64,
-			sha,
+			...(sha ? { sha } : {}),
 		}),
 	});
 	const text = await res.text();
@@ -213,21 +223,134 @@ async function githubPutFile(owner, repo, token, path, message, contentB64, sha)
 	return { res, data };
 }
 
+function cartItemKey(item) {
+	if (!item || typeof item !== "object") return "";
+	const id = String(item.item_id || "").trim();
+	if (id) return `id:${id}`;
+	const name = String(item.name || "").trim().toLowerCase();
+	return name ? `name:${name}` : "";
+}
+
+function normalizeCartItem(raw) {
+	if (!raw || typeof raw !== "object") return null;
+	const key = cartItemKey(raw);
+	if (!key) return null;
+	const qtyRaw = Number(raw.qty);
+	const qty = Number.isFinite(qtyRaw) && qtyRaw > 0 ? Math.max(1, Math.round(qtyRaw)) : 1;
+	const updatedMs = isoToMs(raw.updated_at);
+	return {
+		item_id: raw.item_id || null,
+		name: String(raw.name || "").trim(),
+		price: Number.isFinite(Number(raw.price)) ? Number(raw.price) : null,
+		qty,
+		store: raw.store || null,
+		image: raw.image || null,
+		on_special: Boolean(raw.on_special),
+		was_price: Number.isFinite(Number(raw.was_price)) ? Number(raw.was_price) : null,
+		picked: Boolean(raw.picked),
+		updated_at: updatedMs ? new Date(updatedMs).toISOString() : nowIso(),
+	};
+}
+
+function normalizeTombstones(raw) {
+	const out = {};
+	if (!raw || typeof raw !== "object") return out;
+	for (const [k, v] of Object.entries(raw)) {
+		const ms = isoToMs(v);
+		if (!k || !ms) continue;
+		out[k] = new Date(ms).toISOString();
+	}
+	return out;
+}
+
+function applyTombstonesToItems(items, tombstones) {
+	const filtered = [];
+	for (const it of items) {
+		const key = cartItemKey(it);
+		if (!key) continue;
+		const delMs = isoToMs(tombstones[key]);
+		if (delMs && delMs >= isoToMs(it.updated_at)) continue;
+		filtered.push(it);
+	}
+	return filtered;
+}
+
+function normalizeShoppingPayload(raw) {
+	const src = raw && typeof raw === "object" ? raw : {};
+	const items = Array.isArray(src.items) ? src.items.map(normalizeCartItem).filter(Boolean) : [];
+	const tombstones = normalizeTombstones(src.tombstones);
+	const itemMap = new Map();
+	for (const it of items) itemMap.set(cartItemKey(it), it);
+	return {
+		updated_at: isoToMs(src.updated_at) ? new Date(isoToMs(src.updated_at)).toISOString() : nowIso(),
+		device_id: String(src.device_id || "").trim() || "unknown",
+		items: applyTombstonesToItems([...itemMap.values()], tombstones),
+		tombstones,
+	};
+}
+
+function mergeCartRows(a, b) {
+	const aMs = isoToMs(a?.updated_at);
+	const bMs = isoToMs(b?.updated_at);
+	const newer = bMs >= aMs ? b : a;
+	const older = bMs >= aMs ? a : b;
+	return {
+		...newer,
+		item_id: newer.item_id || older.item_id || null,
+		name: newer.name || older.name || "",
+		qty: Math.max(Number(a?.qty || 1), Number(b?.qty || 1), 1),
+		picked: Boolean(a?.picked) || Boolean(b?.picked),
+		updated_at: new Date(Math.max(aMs, bMs) || Date.now()).toISOString(),
+	};
+}
+
+function mergeShoppingPayloads(remoteRaw, incomingRaw) {
+	const remote = normalizeShoppingPayload(remoteRaw);
+	const incoming = normalizeShoppingPayload(incomingRaw);
+	const tombstones = { ...remote.tombstones };
+	for (const [k, v] of Object.entries(incoming.tombstones)) {
+		const prev = isoToMs(tombstones[k]);
+		const next = isoToMs(v);
+		if (!prev || next >= prev) tombstones[k] = new Date(next).toISOString();
+	}
+	const map = new Map();
+	for (const it of remote.items) map.set(cartItemKey(it), it);
+	for (const it of incoming.items) {
+		const k = cartItemKey(it);
+		if (!k) continue;
+		const prev = map.get(k);
+		if (!prev) map.set(k, it);
+		else map.set(k, mergeCartRows(prev, it));
+	}
+	const mergedItems = applyTombstonesToItems([...map.values()], tombstones);
+	return {
+		updated_at: nowIso(),
+		device_id: incoming.device_id || remote.device_id || "unknown",
+		items: mergedItems,
+		tombstones,
+	};
+}
+
+function ensureAuthorizedRequest(request, cfg, env, origin) {
+	const hdr = (request.headers.get("X-WooliesBot-Secret") || "").trim();
+	if (hdr !== cfg.secret) {
+		return jsonResponse({ error: "unauthorized" }, 401, env, origin);
+	}
+	const ip = clientIp(request);
+	if (!rateLimitOk(ip)) {
+		return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+	}
+	return null;
+}
+
 async function handleUpdateStock(request, env) {
 	const cfg = requireConfig(env);
 	if (cfg.missing.length) {
 		return jsonResponse({ error: "server_misconfigured", missing: cfg.missing }, 500, env, request.headers.get("Origin"));
 	}
 
-	const hdr = (request.headers.get("X-WooliesBot-Secret") || "").trim();
-	if (hdr !== cfg.secret) {
-		return jsonResponse({ error: "unauthorized" }, 401, env, request.headers.get("Origin"));
-	}
-
-	const ip = clientIp(request);
-	if (!rateLimitOk(ip)) {
-		return jsonResponse({ error: "rate_limited" }, 429, env, request.headers.get("Origin"));
-	}
+	const authErr = ensureAuthorizedRequest(request, cfg, env, request.headers.get("Origin"));
+	if (authErr) return authErr;
 
 	const cl = request.headers.get("Content-Length");
 	if (cl && Number(cl) > MAX_BODY_BYTES) {
@@ -335,6 +458,103 @@ async function handleUpdateStock(request, env) {
 	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
 }
 
+async function readShoppingListPayload(cfg, env, origin) {
+	const { res, data } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
+	if (res.status === 404) {
+		return { ok: true, sha: null, payload: normalizeShoppingPayload({ items: [], tombstones: {} }) };
+	}
+	if (!res.ok) {
+		return {
+			ok: false,
+			response: jsonResponse(
+				{ error: "github_get_failed", status: res.status, message: data.message || data },
+				502,
+				env,
+				origin,
+			),
+		};
+	}
+	const sha = data.sha;
+	const b64 = data.content;
+	if (!sha || !b64) {
+		return { ok: false, response: jsonResponse({ error: "unexpected_github_payload" }, 502, env, origin) };
+	}
+	let decoded;
+	try {
+		decoded = JSON.parse(base64ToUtf8(b64.replace(/\n/g, "")));
+	} catch {
+		return { ok: false, response: jsonResponse({ error: "shopping_list_parse_failed" }, 500, env, origin) };
+	}
+	return { ok: true, sha, payload: normalizeShoppingPayload(decoded) };
+}
+
+async function handleShoppingListGet(request, env) {
+	const origin = request.headers.get("Origin");
+	const cfg = requireConfig(env);
+	if (cfg.missing.length) {
+		return jsonResponse({ error: "server_misconfigured", missing: cfg.missing }, 500, env, origin);
+	}
+	const authErr = ensureAuthorizedRequest(request, cfg, env, origin);
+	if (authErr) return authErr;
+	const read = await readShoppingListPayload(cfg, env, origin);
+	if (!read.ok) return read.response;
+	return jsonResponse({ status: "success", payload: read.payload }, 200, env, origin);
+}
+
+async function handleShoppingListPost(request, env) {
+	const origin = request.headers.get("Origin");
+	const cfg = requireConfig(env);
+	if (cfg.missing.length) {
+		return jsonResponse({ error: "server_misconfigured", missing: cfg.missing }, 500, env, origin);
+	}
+	const authErr = ensureAuthorizedRequest(request, cfg, env, origin);
+	if (authErr) return authErr;
+	const cl = request.headers.get("Content-Length");
+	if (cl && Number(cl) > MAX_BODY_BYTES) {
+		return jsonResponse({ error: "payload_too_large" }, 413, env, origin);
+	}
+	const buf = await request.arrayBuffer();
+	if (buf.byteLength > MAX_BODY_BYTES) {
+		return jsonResponse({ error: "payload_too_large" }, 413, env, origin);
+	}
+	let incomingRaw;
+	try {
+		incomingRaw = JSON.parse(new TextDecoder().decode(buf));
+	} catch {
+		return jsonResponse({ error: "invalid_json" }, 400, env, origin);
+	}
+	const incoming = normalizeShoppingPayload(incomingRaw);
+	const maxAttempts = 6;
+	for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+		const read = await readShoppingListPayload(cfg, env, origin);
+		if (!read.ok) return read.response;
+		const merged = mergeShoppingPayloads(read.payload, incoming);
+		const contentB64 = utf8ToBase64(`${JSON.stringify(merged, null, 2)}\n`);
+		const putRes = await githubPutFile(
+			cfg.owner,
+			cfg.repo,
+			cfg.token,
+			SHOPPING_LIST_PATH,
+			"Sync shopping list via WooliesBot cart API",
+			contentB64,
+			read.sha,
+		);
+		if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
+			continue;
+		}
+		if (!putRes.res.ok) {
+			return jsonResponse(
+				{ error: "github_put_failed", status: putRes.res.status, message: putRes.data.message || putRes.data },
+				502,
+				env,
+				origin,
+			);
+		}
+		return jsonResponse({ status: "success", payload: merged }, 200, env, origin);
+	}
+	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, origin);
+}
+
 export default {
 	async fetch(request, env) {
 		const origin = request.headers.get("Origin");
@@ -352,6 +572,12 @@ export default {
 
 		if (url.pathname === "/update_stock" && request.method === "POST") {
 			return handleUpdateStock(request, env);
+		}
+		if (url.pathname === "/shopping_list" && request.method === "GET") {
+			return handleShoppingListGet(request, env);
+		}
+		if (url.pathname === "/shopping_list" && request.method === "POST") {
+			return handleShoppingListPost(request, env);
 		}
 
 		return new Response("Not found", { status: 404, headers: corsHeaders(env, origin) });

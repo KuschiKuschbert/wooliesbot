@@ -1737,6 +1737,26 @@ footer {
     color: var(--accent-cyan);
     font-weight: 700;
     letter-spacing: 0.01em;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    max-width: min(360px, 78vw);
+}
+
+.shopping-trip-progress-wrap {
+    margin-top: 8px;
+    width: min(210px, 55vw);
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    overflow: hidden;
+}
+
+.shopping-trip-progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--woolies-green), var(--accent-cyan));
+    transition: width 0.28s ease;
 }
 
 .drawer-content {
@@ -1820,6 +1840,7 @@ footer {
 
 .shopping-item--trip {
     gap: 10px;
+    border-color: rgba(16, 185, 129, 0.25);
 }
 
 .shopping-item--picked {
@@ -1886,6 +1907,14 @@ footer {
 .shopping-trip-mode #copy-list-btn {
     opacity: 0.75;
     filter: saturate(0.6);
+}
+
+.shopping-trip-mode .shopping-item-name {
+    font-size: 15px;
+}
+
+.shopping-trip-mode .shopping-item-price {
+    font-size: 13px;
 }
 
 /* Card Add Button */
@@ -2691,7 +2720,7 @@ body.drawer-open {
     cursor: pointer;
 }
 
-a.fighter:hover {
+.fighter:hover {
     transform: translateY(-2px);
     border-color: rgba(255,255,255,0.18);
     background: rgba(255,255,255,0.07);
@@ -2703,7 +2732,7 @@ a.fighter:hover {
     border-width: 2px;
 }
 
-a.fighter.winner:hover {
+.fighter.winner:hover {
     transform: scale(1.03) translateY(-2px);
 }
 
@@ -2734,6 +2763,42 @@ a.fighter.winner:hover {
     background: rgba(0,0,0,0.3);
     text-shadow: 0 1px 2px rgba(0,0,0,0.4);
     letter-spacing: 0.5px;
+}
+
+.fighter-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fighter-add-btn,
+.fighter-link-btn {
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.fighter-add-btn:hover,
+.fighter-link-btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.fighter-add-btn i {
+    width: 12px;
+    height: 12px;
 }
 
 .fighter.winner-woolworths .winner-badge {
@@ -5092,6 +5157,13 @@ button, a, label, [role="button"] {
     .shopping-trip-status {
         font-size: 11px;
         line-height: 1.2;
+        max-width: min(330px, 78vw);
+    }
+
+    .shopping-trip-progress-wrap {
+        width: min(220px, 62vw);
+        margin-top: 6px;
+        height: 8px;
     }
 
     #close-drawer.icon-btn {
@@ -5148,6 +5220,39 @@ button, a, label, [role="button"] {
         gap: 10px;
     }
 
+    .shopping-trip-mode .drawer-header {
+        padding: 4px 14px 8px;
+    }
+
+    .shopping-trip-mode .drawer-content {
+        padding: 10px 12px 6px;
+    }
+
+    .shopping-trip-mode .drawer-footer {
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+        gap: 8px;
+    }
+
+    .shopping-trip-mode #copy-list-btn {
+        display: none;
+    }
+
+    .shopping-trip-mode .shopping-item {
+        padding: 14px 12px;
+        gap: 12px;
+        border-radius: 14px;
+    }
+
+    .shopping-trip-mode .shopping-item-check {
+        width: 50px;
+        height: 50px;
+    }
+
+    .shopping-trip-mode .shopping-item-check input {
+        width: 24px;
+        height: 24px;
+    }
+
     /* ── Master Tracklist: hide table, show cards ─ */
     .master-desktop-table { display: none; }
     .master-mobile-list   { display: block; }
@@ -5182,6 +5287,16 @@ button, a, label, [role="button"] {
 
     .stats-sidebar .cola-card .arena-fighters {
         gap: 6px;
+    }
+
+    .stats-sidebar .cola-card .fighter-actions {
+        gap: 5px;
+    }
+
+    .stats-sidebar .cola-card .fighter-add-btn,
+    .stats-sidebar .cola-card .fighter-link-btn {
+        padding: 6px 9px;
+        font-size: 10px;
     }
 
     .stats-sidebar .fighter-product {

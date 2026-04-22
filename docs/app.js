@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
     registerSW();
+    ensureShoppingDeviceId();
     showSkeletons();
     setupOverlayEscapeHandler();
     initDashboard().then(() => hideSkeletons());
@@ -224,10 +225,14 @@ let _searchText = '';
 let _currentTab = 'deals';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly';
 let _shoppingList = normalizeShoppingListShape(loadShoppingListFromStorage());
+let _shoppingListTombstones = normalizeShoppingListTombstones(loadShoppingListTombstonesFromStorage());
+let _shoppingDeviceId = localStorage.getItem('shopping_device_id') || '';
 let _shoppingTripMode = localStorage.getItem('shoppingTripMode') === '1';
 let _shoppingTripStartedAt = localStorage.getItem('shoppingTripStartedAt') || '';
 let _shoppingTripStartCount = Number.parseInt(localStorage.getItem('shoppingTripStartCount') || '', 10);
 if (!Number.isFinite(_shoppingTripStartCount) || _shoppingTripStartCount < 0) _shoppingTripStartCount = null;
+let _shoppingTripSavedPeak = Number.parseFloat(localStorage.getItem('shoppingTripSavedPeak') || '0');
+if (!Number.isFinite(_shoppingTripSavedPeak) || _shoppingTripSavedPeak < 0) _shoppingTripSavedPeak = 0;
 let _shoppingTripTimeoutAt = Number.parseInt(localStorage.getItem('shoppingTripTimeoutAt') || '', 10);
 if (!Number.isFinite(_shoppingTripTimeoutAt) || _shoppingTripTimeoutAt <= 0) _shoppingTripTimeoutAt = 0;
 let _selectedItemForModal = null;
@@ -247,6 +252,17 @@ const SHOPPING_TRIP_SESSIONS_KEY = 'shoppingTripSessions';
 const SHOPPING_TRIP_SESSIONS_MAX = 200;
 const SHOPPING_TRIP_TIMEOUT_MS = 2 * 60 * 60 * 1000; // 2h idle timeout failsafe
 const SHOPPING_TRIP_TIMEOUT_REMINDER_KEY = 'shoppingTripTimeoutReminderPending';
+const SHOPPING_LIST_TOMBSTONES_KEY = 'shoppingListTombstones';
+const SHOPPING_SYNC_POLL_MS = 30000;
+const SHOPPING_SYNC_FAIL_TOAST_MS = 120000;
+
+let _shoppingSyncInFlight = false;
+let _shoppingSyncDirty = false;
+let _shoppingSyncPushTimer = null;
+let _shoppingSyncLastRemoteUpdatedAt = localStorage.getItem('shoppingListLastRemoteUpdatedAt') || '';
+let _shoppingSyncLastFailureAt = 0;
+let _shoppingTripMilestonesShown = new Set();
+let _shoppingTripBeatLastToastShown = false;
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
@@ -270,16 +286,182 @@ function loadShoppingListFromStorage() {
     }
 }
 
+function loadShoppingListTombstonesFromStorage() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem('shoppingListTombstones') || '{}');
+        return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+        return {};
+    }
+}
+
+function normalizeShoppingListTombstones(raw) {
+    const out = {};
+    if (!raw || typeof raw !== 'object') return out;
+    for (const [k, v] of Object.entries(raw)) {
+        const t = Date.parse(String(v || ''));
+        if (!k || !Number.isFinite(t)) continue;
+        out[k] = new Date(t).toISOString();
+    }
+    return out;
+}
+
 function normalizeShoppingListShape(rows) {
     if (!Array.isArray(rows)) return [];
     return rows.map(row => {
         if (!row || typeof row !== 'object') return { name: '', qty: 1, picked: false };
-        return { ...row, picked: Boolean(row.picked) };
+        const out = { ...row, picked: Boolean(row.picked) };
+        const t = Date.parse(String(out.updated_at || ''));
+        out.updated_at = Number.isFinite(t) ? new Date(t).toISOString() : new Date().toISOString();
+        return out;
     });
 }
 
 function persistShoppingList() {
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+    localStorage.setItem(SHOPPING_LIST_TOMBSTONES_KEY, JSON.stringify(_shoppingListTombstones));
+}
+
+function ensureShoppingDeviceId() {
+    if (_shoppingDeviceId) return _shoppingDeviceId;
+    try {
+        _shoppingDeviceId = (typeof crypto !== 'undefined' && crypto.randomUUID)
+            ? crypto.randomUUID()
+            : `device_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+    } catch {
+        _shoppingDeviceId = `device_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+    }
+    localStorage.setItem('shopping_device_id', _shoppingDeviceId);
+    return _shoppingDeviceId;
+}
+
+function shoppingListSyncKey(row) {
+    if (!row || typeof row !== 'object') return '';
+    if (row.item_id) return `id:${row.item_id}`;
+    const n = String(row.name || '').trim().toLowerCase();
+    return n ? `name:${n}` : '';
+}
+
+function touchShoppingListRow(row, atIso = '') {
+    if (!row || typeof row !== 'object') return;
+    row.updated_at = atIso || new Date().toISOString();
+}
+
+function markShoppingListTombstoneByKey(key, atIso = '') {
+    if (!key) return;
+    _shoppingListTombstones[key] = atIso || new Date().toISOString();
+}
+
+function clearShoppingListTombstoneByKey(key) {
+    if (!key) return;
+    delete _shoppingListTombstones[key];
+}
+
+function normalizeShoppingSyncPayload(raw) {
+    const src = raw && typeof raw === 'object' ? raw : {};
+    const items = normalizeShoppingListShape(Array.isArray(src.items) ? src.items : []);
+    const tombstones = normalizeShoppingListTombstones(src.tombstones || {});
+    const map = new Map();
+    for (const it of items) {
+        const k = shoppingListSyncKey(it);
+        if (!k) continue;
+        const delMs = Date.parse(String(tombstones[k] || ''));
+        if (Number.isFinite(delMs) && delMs >= Date.parse(it.updated_at)) continue;
+        const prev = map.get(k);
+        if (!prev || Date.parse(it.updated_at) >= Date.parse(prev.updated_at)) map.set(k, it);
+    }
+    const updatedAt = Number.isFinite(Date.parse(String(src.updated_at || '')))
+        ? new Date(Date.parse(String(src.updated_at))).toISOString()
+        : new Date().toISOString();
+    return {
+        updated_at: updatedAt,
+        device_id: String(src.device_id || '').trim() || ensureShoppingDeviceId(),
+        items: [...map.values()],
+        tombstones,
+    };
+}
+
+function buildShoppingSyncPayload() {
+    ensureShoppingDeviceId();
+    return normalizeShoppingSyncPayload({
+        updated_at: new Date().toISOString(),
+        device_id: _shoppingDeviceId,
+        items: _shoppingList,
+        tombstones: _shoppingListTombstones,
+    });
+}
+
+function applyRemoteShoppingSyncPayload(rawPayload) {
+    const payload = normalizeShoppingSyncPayload(rawPayload);
+    _shoppingList = payload.items;
+    _shoppingListTombstones = payload.tombstones;
+    _shoppingSyncLastRemoteUpdatedAt = payload.updated_at;
+    localStorage.setItem('shoppingListLastRemoteUpdatedAt', _shoppingSyncLastRemoteUpdatedAt);
+    persistShoppingList();
+    updateListCount();
+    renderShoppingList();
+}
+
+function getShoppingSyncHeaders() {
+    const headers = { 'Content-Type': 'application/json' };
+    if (_writeApiSecret) headers['X-WooliesBot-Secret'] = _writeApiSecret;
+    return headers;
+}
+
+function markShoppingSyncDirty() {
+    _shoppingSyncDirty = true;
+    if (_shoppingSyncPushTimer) clearTimeout(_shoppingSyncPushTimer);
+    _shoppingSyncPushTimer = setTimeout(() => {
+        _shoppingSyncPushTimer = null;
+        syncShoppingListCloud('push');
+    }, 900);
+}
+
+async function syncShoppingListCloud(mode = 'poll') {
+    const base = getStockWriteBase();
+    if (!base) return;
+    if (_shoppingSyncInFlight) return;
+    ensureShoppingDeviceId();
+    _shoppingSyncInFlight = true;
+    try {
+        if (mode === 'push' || _shoppingSyncDirty) {
+            const payload = buildShoppingSyncPayload();
+            const res = await fetch(`${base}/shopping_list`, {
+                method: 'POST',
+                headers: getShoppingSyncHeaders(),
+                body: JSON.stringify(payload),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || data.status !== 'success') {
+                throw new Error(data.error || data.message || `sync push failed (${res.status})`);
+            }
+            applyRemoteShoppingSyncPayload(data.payload || {});
+            _shoppingSyncDirty = false;
+            _shoppingSyncLastFailureAt = 0;
+            return;
+        }
+
+        const res = await fetch(`${base}/shopping_list`, {
+            method: 'GET',
+            headers: getShoppingSyncHeaders(),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.status !== 'success') {
+            throw new Error(data.error || data.message || `sync poll failed (${res.status})`);
+        }
+        const payload = normalizeShoppingSyncPayload(data.payload || {});
+        if (_shoppingSyncLastRemoteUpdatedAt && payload.updated_at === _shoppingSyncLastRemoteUpdatedAt) return;
+        applyRemoteShoppingSyncPayload(payload);
+        _shoppingSyncLastFailureAt = 0;
+    } catch (err) {
+        const now = Date.now();
+        if (!_shoppingSyncLastFailureAt || (now - _shoppingSyncLastFailureAt) > SHOPPING_SYNC_FAIL_TOAST_MS) {
+            _shoppingSyncLastFailureAt = now;
+            showUiToast(`Cart sync offline: ${err.message || err}`, 3200);
+        }
+    } finally {
+        _shoppingSyncInFlight = false;
+    }
 }
 
 function loadShoppingTripSessions() {
@@ -295,6 +477,33 @@ function persistShoppingTripSessions(sessions) {
     localStorage.setItem(SHOPPING_TRIP_SESSIONS_KEY, JSON.stringify(sessions));
 }
 
+function computePickedSavingsAmount(rows = _shoppingList) {
+    return (rows || []).reduce((sum, i) => {
+        if (!i?.picked) return sum;
+        const nowP = Number(i.price || 0);
+        const wasP = Number(i.was_price || 0);
+        const eachSave = Math.max(0, wasP - nowP);
+        return sum + (eachSave * Number(i.qty || 1));
+    }, 0);
+}
+
+function refreshShoppingTripSavedPeak() {
+    if (!_shoppingTripMode) return;
+    const current = computePickedSavingsAmount();
+    if (current > _shoppingTripSavedPeak) {
+        _shoppingTripSavedPeak = current;
+        localStorage.setItem('shoppingTripSavedPeak', _shoppingTripSavedPeak.toFixed(2));
+    }
+}
+
+function getLastShoppingTripSavedAmount() {
+    const sessions = loadShoppingTripSessions();
+    if (!Array.isArray(sessions) || sessions.length === 0) return 0;
+    const last = sessions[sessions.length - 1] || {};
+    const val = Number(last.saved_amount || 0);
+    return Number.isFinite(val) && val > 0 ? val : 0;
+}
+
 function markShoppingTripActivity() {
     if (!_shoppingTripMode) return;
     _shoppingTripTimeoutAt = Date.now() + SHOPPING_TRIP_TIMEOUT_MS;
@@ -305,8 +514,11 @@ function beginShoppingTripSession() {
     if (_shoppingTripStartedAt) return;
     _shoppingTripStartedAt = new Date().toISOString();
     _shoppingTripStartCount = _shoppingList.length;
+    _shoppingTripSavedPeak = 0;
+    _shoppingTripBeatLastToastShown = false;
     localStorage.setItem('shoppingTripStartedAt', _shoppingTripStartedAt);
     localStorage.setItem('shoppingTripStartCount', String(_shoppingTripStartCount));
+    localStorage.setItem('shoppingTripSavedPeak', '0');
     markShoppingTripActivity();
 }
 
@@ -323,6 +535,7 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
     }
     const sessions = loadShoppingTripSessions();
     const pickedCount = _shoppingList.filter(item => item?.picked).length;
+    const sessionSaved = Math.max(computePickedSavingsAmount(), _shoppingTripSavedPeak);
     sessions.push({
         started_at: _shoppingTripStartedAt,
         ended_at: endIso,
@@ -331,6 +544,7 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
         start_count: Number.isFinite(_shoppingTripStartCount) ? _shoppingTripStartCount : _shoppingList.length,
         end_count: _shoppingList.length,
         picked_count: pickedCount,
+        saved_amount: Number(sessionSaved.toFixed(2)),
     });
     const trimmed = sessions.length > SHOPPING_TRIP_SESSIONS_MAX
         ? sessions.slice(-SHOPPING_TRIP_SESSIONS_MAX)
@@ -342,6 +556,9 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
     localStorage.removeItem('shoppingTripStartCount');
     _shoppingTripTimeoutAt = 0;
     localStorage.removeItem('shoppingTripTimeoutAt');
+    _shoppingTripSavedPeak = 0;
+    localStorage.removeItem('shoppingTripSavedPeak');
+    _shoppingTripBeatLastToastShown = false;
 }
 
 function isShoppingTripMode() {
@@ -356,6 +573,8 @@ function setShoppingTripMode(on, reason = 'manual') {
     _shoppingTripMode = next;
     localStorage.setItem('shoppingTripMode', _shoppingTripMode ? '1' : '0');
     if (next) {
+        _shoppingTripMilestonesShown = new Set();
+        _shoppingTripBeatLastToastShown = false;
         markShoppingTripActivity();
         if (localStorage.getItem(SHOPPING_TRIP_TIMEOUT_REMINDER_KEY) === '1') {
             showUiToast('Last trip timed out. Please end your trip with Done shopping when finished.', 5200);
@@ -383,16 +602,49 @@ function checkShoppingTripTimeout() {
 function toggleListItemPicked(index) {
     const row = _shoppingList[index];
     if (!row) return;
+    const wasPicked = Boolean(row.picked);
     row.picked = !row.picked;
+    touchShoppingListRow(row);
+    clearShoppingListTombstoneByKey(shoppingListSyncKey(row));
     markShoppingTripActivity();
+    refreshShoppingTripSavedPeak();
     persistShoppingList();
+    markShoppingSyncDirty();
+    if (_shoppingTripMode && !wasPicked && row.picked) {
+        maybeShowShoppingTripMilestone();
+    }
     renderShoppingList();
 }
 
+function maybeShowShoppingTripMilestone() {
+    const totalCount = _shoppingList.length;
+    if (!_shoppingTripMode || totalCount <= 0) return;
+    const pickedCount = _shoppingList.reduce((sum, i) => sum + (i?.picked ? 1 : 0), 0);
+    const pct = Math.round((pickedCount / totalCount) * 100);
+    const saved = computePickedSavingsAmount();
+    const elapsedMins = _shoppingTripStartedAt
+        ? Math.max(0, Math.round((Date.now() - Date.parse(_shoppingTripStartedAt)) / 60000))
+        : 0;
+    const marks = [
+        { pct: 25, text: `Great start - 25% done in ${elapsedMins}m.` },
+        { pct: 50, text: `Halfway there - saved $${saved.toFixed(2)} so far.` },
+        { pct: 75, text: `Almost done - $${saved.toFixed(2)} saved so far.` },
+        { pct: 100, text: `All ticked in ${elapsedMins}m. Clear completed and tap Done shopping.` },
+    ];
+    const hit = marks.find(m => pct >= m.pct && !_shoppingTripMilestonesShown.has(m.pct));
+    if (!hit) return;
+    _shoppingTripMilestonesShown.add(hit.pct);
+    showUiToast(hit.text, hit.pct === 100 ? 3400 : 2400);
+}
+
 function clearPickedListItems() {
+    const removed = _shoppingList.filter(row => row?.picked);
     _shoppingList = _shoppingList.filter(row => !row?.picked);
+    const ts = new Date().toISOString();
+    removed.forEach(row => markShoppingListTombstoneByKey(shoppingListSyncKey(row), ts));
     if (_shoppingList.length === 0 && _shoppingTripMode) setShoppingTripMode(false, 'clear_completed_empty');
     persistShoppingList();
+    if (removed.length) markShoppingSyncDirty();
     updateListCount();
     renderShoppingList();
 }
@@ -809,6 +1061,7 @@ async function initDashboard() {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
                 monitorApi();
                 checkShoppingTripTimeout();
+                syncShoppingListCloud('poll');
             };
             const tickCloud = () => {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
@@ -821,11 +1074,13 @@ async function initDashboard() {
                     monitorApi();
                     monitorCloudHealth();
                     checkShoppingTripTimeout();
+                    syncShoppingListCloud('poll');
                 }
             });
             monitorApi();
             monitorCloudHealth();
             checkShoppingTripTimeout();
+            syncShoppingListCloud('poll');
         }
 
         // Build _history from inline scrape_history (single source of truth)
@@ -977,8 +1232,11 @@ function setupFilters() {
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
             if (_shoppingTripMode) setShoppingTripMode(false, 'clear_all');
+            const ts = new Date().toISOString();
+            _shoppingList.forEach(row => markShoppingListTombstoneByKey(shoppingListSyncKey(row), ts));
             _shoppingList = [];
             persistShoppingList();
+            markShoppingSyncDirty();
             renderShoppingList();
             updateListCount();
         }
@@ -1017,6 +1275,7 @@ function saveSettings() {
     closeSettings();
     updateListCount();
     monitorApi();
+    syncShoppingListCloud('poll');
 }
 
 function toggleDrawer() {
@@ -1458,8 +1717,11 @@ function addEssentialToList(itemName) {
     } else {
         // Fallback: add by display name with no price
         if (!_shoppingList.find(i => i.name === itemName)) {
-            _shoppingList.push({ name: itemName, price: null, qty: 1, picked: false });
+            const row = { name: itemName, price: null, qty: 1, picked: false, updated_at: new Date().toISOString() };
+            _shoppingList.push(row);
+            clearShoppingListTombstoneByKey(shoppingListSyncKey(row));
             persistShoppingList();
+            markShoppingSyncDirty();
             renderShoppingList();
             updateListCount();
         }
@@ -1778,10 +2040,13 @@ function addToList(itemName, callerBtn, itemId) {
         on_special: item.on_special || false,
         was_price: item.was_price || null,
         picked: false,
+        updated_at: new Date().toISOString(),
     };
     
     _shoppingList.push(listItem);
+    clearShoppingListTombstoneByKey(shoppingListSyncKey(listItem));
     persistShoppingList();
+    markShoppingSyncDirty();
     updateListCount();
     haptic(12);
 
@@ -1800,8 +2065,11 @@ function addToList(itemName, callerBtn, itemId) {
 }
 
 function removeFromList(index) {
+    const row = _shoppingList[index];
+    if (row) markShoppingListTombstoneByKey(shoppingListSyncKey(row), new Date().toISOString());
     _shoppingList.splice(index, 1);
     persistShoppingList();
+    markShoppingSyncDirty();
     updateListCount();
     renderShoppingList();
 }
@@ -1811,6 +2079,8 @@ function renderShoppingList() {
     const totalEl = document.getElementById('list-total-price');
     const totalLabelEl = document.getElementById('list-total-label');
     const tripStatusEl = document.getElementById('shopping-trip-status');
+    const tripProgressWrapEl = document.getElementById('shopping-trip-progress-wrap');
+    const tripProgressBarEl = document.getElementById('shopping-trip-progress-bar');
     const drawer = document.getElementById('list-drawer');
     if (!container) return;
     
@@ -1866,8 +2136,38 @@ function renderShoppingList() {
             tripStatusEl.textContent = '';
         } else {
             const leftCount = Math.max(0, _shoppingList.length - pickedCount);
+            const pct = Math.round((pickedCount / _shoppingList.length) * 100);
+            const savedSoFar = computePickedSavingsAmount();
+            const elapsedMins = _shoppingTripStartedAt
+                ? Math.max(0, Math.round((Date.now() - Date.parse(_shoppingTripStartedAt)) / 60000))
+                : 0;
+            const lastSaved = getLastShoppingTripSavedAmount();
+            let deltaText = '';
+            if (lastSaved > 0) {
+                const delta = savedSoFar - lastSaved;
+                deltaText = delta > 0
+                    ? ` · +$${delta.toFixed(2)} vs last`
+                    : ` · $${Math.max(0, -delta).toFixed(2)} to beat last`;
+                if (delta > 0 && !_shoppingTripBeatLastToastShown) {
+                    _shoppingTripBeatLastToastShown = true;
+                    showUiToast(`You beat last trip savings by $${delta.toFixed(2)}.`, 2600);
+                }
+            }
             tripStatusEl.hidden = false;
-            tripStatusEl.textContent = `${leftCount} left · ${pickedCount} done`;
+            tripStatusEl.textContent = `${leftCount} left · ${pickedCount} done · ${pct}% · saved $${savedSoFar.toFixed(2)}${deltaText} · ${elapsedMins}m`;
+            if (pct >= 100) {
+                tripStatusEl.textContent += ' · Done shopping when finished';
+            }
+        }
+    }
+    if (tripProgressWrapEl && tripProgressBarEl) {
+        if (!shoppingMode || _shoppingList.length === 0) {
+            tripProgressWrapEl.hidden = true;
+            tripProgressBarEl.style.width = '0%';
+        } else {
+            const pct = Math.round((pickedCount / _shoppingList.length) * 100);
+            tripProgressWrapEl.hidden = false;
+            tripProgressBarEl.style.width = `${Math.max(0, Math.min(100, pct))}%`;
         }
     }
     
@@ -2026,9 +2326,6 @@ function renderColaBattle() {
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
-        const pepsi = pepsiC ? pepsiC.item : null;
-        const coke = cokeC ? cokeC.item : null;
-
         const getStoreUrl = win => {
             if (!win) return null;
             return getStoreUrlForStore(win.item, win.store);
@@ -2049,36 +2346,39 @@ function renderColaBattle() {
 
         const getActiveStore = win => (win ? win.store : 'woolworths');
 
-        const pUrl = getStoreUrl(pepsiC);
-        const cUrl = getStoreUrl(cokeC);
-
-        const pTag = pepsiC && pUrl ? 'a' : 'div';
-        const cTag = cokeC && cUrl ? 'a' : 'div';
-        const pHref = pepsiC && pUrl ? ` href="${pUrl}" target="_blank" rel="noopener"` : '';
-        const cHref = cokeC && cUrl ? ` href="${cUrl}" target="_blank" rel="noopener"` : '';
-
-        const pPriceLabel = pepsiC ? `$${pepsiC.eff_price.toFixed(2)}/L` : '—';
-        const cPriceLabel = cokeC ? `$${cokeC.eff_price.toFixed(2)}/L` : '—';
+        const renderFighter = (brand, win, isWinner) => {
+            const item = win ? win.item : null;
+            const url = getStoreUrl(win);
+            const priceLabel = win ? `$${win.eff_price.toFixed(2)}/L` : '—';
+            const storeBadge = getStoreBadge(win);
+            const special = isOnSpecialWin(win) ? '<span class="fighter-on-special">🔥 On Special</span>' : '';
+            const stale = getStaleBadge(item, true);
+            const winnerClass = isWinner ? `winner winner-${getActiveStore(win)}` : '';
+            const addBtn = item
+                ? `<button type="button" class="fighter-add-btn" data-item-name="${encodeURIComponent(item.name || '')}" data-item-id="${encodeURIComponent(item.item_id || '')}"><i data-feather="plus"></i> Add</button>`
+                : '';
+            const viewBtn = url
+                ? `<a class="fighter-link-btn" href="${url}" target="_blank" rel="noopener">View</a>`
+                : '';
+            return `
+                <div class="fighter ${winnerClass}">
+                    ${isWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
+                    <div class="fighter-brand">${brand}</div>
+                    <div class="fighter-price">${priceLabel}</div>
+                    <div class="fighter-product">${item ? displayName(item.name) : '—'}</div>
+                    <div class="fighter-meta">${storeBadge}${special}${stale}</div>
+                    <div class="fighter-actions">${addBtn}${viewBtn}</div>
+                </div>
+            `;
+        };
 
         return `
             <div class="battle-arena">
                 <div class="arena-title">${title}</div>
                 <div class="arena-fighters">
-                    <${pTag} class="fighter ${pWinner ? `winner winner-${getActiveStore(pepsiC)}` : ''}"${pHref}>
-                        ${pWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
-                        <div class="fighter-brand">Pepsi</div>
-                        <div class="fighter-price">${pPriceLabel}</div>
-                        <div class="fighter-product">${pepsi ? displayName(pepsi.name) : '—'}</div>
-                        <div class="fighter-meta">${getStoreBadge(pepsiC)}${isOnSpecialWin(pepsiC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(pepsi, true)}</div>
-                    </${pTag}>
+                    ${renderFighter('Pepsi', pepsiC, pWinner)}
                     <div class="battle-vs">VS</div>
-                    <${cTag} class="fighter ${cWinner ? `winner winner-${getActiveStore(cokeC)}` : ''}"${cHref}>
-                        ${cWinner ? `<div class="winner-badge">🏆 CHEAPEST</div>` : ''}
-                        <div class="fighter-brand">Coke</div>
-                        <div class="fighter-price">${cPriceLabel}</div>
-                        <div class="fighter-product">${coke ? displayName(coke.name) : '—'}</div>
-                        <div class="fighter-meta">${getStoreBadge(cokeC)}${isOnSpecialWin(cokeC) ? '<span class="fighter-on-special">🔥 On Special</span>' : ''}${getStaleBadge(coke, true)}</div>
-                    </${cTag}>
+                    ${renderFighter('Coke', cokeC, cWinner)}
                 </div>
             </div>
         `;
@@ -2092,6 +2392,16 @@ function renderColaBattle() {
         <div class="arena-divider"></div>
         ${renderBattleRow('Classic', pickWinner(buckets.classic.pepsi), pickWinner(buckets.classic.coke))}
     `;
+    container.querySelectorAll('.fighter-add-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const name = decodeURIComponent(btn.dataset.itemName || '');
+            const id = decodeURIComponent(btn.dataset.itemId || '');
+            if (!name) return;
+            addToList(name, btn, id || null);
+        });
+    });
     feather.replace();
 }
 
