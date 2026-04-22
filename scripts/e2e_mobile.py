@@ -19,7 +19,7 @@ Checks:
   09  Add-to-list on a card increments the list count
   10  Drawer opens as a bottom sheet and closes via the X button
   11  Master Tracklist renders as mobile card list (not desktop table)
-  12  Analytics tab: deep insights stack vertically, heatmap uses mobile list
+  12  Analytics tab: deep insights stack vertically, heatmap uses mobile list, no horizontal overflow, shopping-time card renders
   13  Tap-highlight disabled (WebkitTapHighlightColor transparent on buttons)
 
 Usage:
@@ -551,22 +551,34 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         page.wait_for_selector("#tab-analytics.tab-content.active", timeout=5000)
         # Wait for the analytics cards to render at least once.
         page.wait_for_timeout(900)
+        page.evaluate("window.scrollTo(0, 260)")
+        page.wait_for_timeout(120)
         page.screenshot(path=str(shot_dir / "04-analytics.png"), full_page=True)
         info = page.evaluate(
             """() => {
                 const flex = document.querySelector('#deep-insights-container');
                 const grid = document.querySelector('.heatmap-grid');
                 const mlist = document.querySelector('.heatmap-mobile-list');
+                const shoppingTime = document.getElementById('shopping-time-insights');
+                const chart = document.querySelector('#tab-analytics .chart-container');
+                const analyticsTab = document.getElementById('tab-analytics');
                 return {
+                    flexDisplay: flex ? getComputedStyle(flex).display : null,
                     flexDirection: flex ? getComputedStyle(flex).flexDirection : null,
                     flexOverflowX: flex ? getComputedStyle(flex).overflowX : null,
                     gridDisplay: grid ? getComputedStyle(grid).display : null,
                     mlistExists: !!mlist,
                     mlistRows: mlist ? mlist.children.length : 0,
+                    hasShoppingTime: !!shoppingTime,
+                    shoppingTimeText: shoppingTime ? (shoppingTime.textContent || '').trim() : '',
+                    analyticsOverflowPx: analyticsTab ? (analyticsTab.scrollWidth - analyticsTab.clientWidth) : 0,
+                    chartHeight: chart ? chart.getBoundingClientRect().height : null,
                 };
             }"""
         )
         issues = []
+        if info["flexDisplay"] != "flex":
+            issues.append(f"insights display={info['flexDisplay']}")
         if info["flexDirection"] != "column":
             issues.append(f"insights flex-direction={info['flexDirection']}")
         if info["flexOverflowX"] not in (None, "visible", "unset", "clip"):
@@ -577,9 +589,17 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             issues.append("no .heatmap-mobile-list rendered")
         elif info["mlistRows"] == 0:
             issues.append(".heatmap-mobile-list empty")
+        if not info["hasShoppingTime"]:
+            issues.append("shopping-time card missing")
+        elif not info["shoppingTimeText"]:
+            issues.append("shopping-time card empty")
+        if info["analyticsOverflowPx"] > 1:
+            issues.append(f"analytics overflow={info['analyticsOverflowPx']}px")
+        if info["chartHeight"] is not None and info["chartHeight"] > 245:
+            issues.append(f"chart height too tall ({info['chartHeight']:.1f}px)")
         if issues:
             return "FAIL", "; ".join(issues)
-        return "PASS", f"{info['mlistRows']} heatmap rows, stacked insights"
+        return "PASS", f"{info['mlistRows']} heatmap rows, stacked insights, no overflow"
 
     _try(results, "12", "analytics tab mobile layout", check_analytics)
 

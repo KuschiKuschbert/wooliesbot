@@ -338,6 +338,14 @@
                     <div id="weekly-savings-container"></div>
                 </div>
 
+                <div class="analytics-card" id="shopping-time-insights-card">
+                    <div class="card-header">
+                        <h3>⏱️ Average Shopping Time</h3>
+                        <i data-feather="clock"></i>
+                    </div>
+                    <div id="shopping-time-insights"></div>
+                </div>
+
                 <!-- Row 3: Category Inflation full width -->
                 <div class="analytics-card span-3">
                     <div class="card-header">
@@ -364,10 +372,15 @@
                         <h3>Product matching (advanced)</h3>
                         <i data-feather="layers"></i>
                     </div>
-                    <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">
-                        For troubleshooting: shows when similar products can’t be compared fairly across stores (e.g. different unit types or missing prices).
-                    </p>
-                    <div id="compare-group-diagnostics"></div>
+                    <details id="compare-group-details" class="analytics-card-details">
+                        <summary>Show diagnostic details</summary>
+                        <div class="analytics-card-details-body">
+                            <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">
+                                For troubleshooting: shows when similar products can’t be compared fairly across stores (e.g. different unit types or missing prices).
+                            </p>
+                            <div id="compare-group-diagnostics"></div>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Row 5: Deal Heat Map full width -->

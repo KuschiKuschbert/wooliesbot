@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ensureShoppingDeviceId();
     showSkeletons();
     setupOverlayEscapeHandler();
+    setupAnalyticsMobileBehaviors();
     initDashboard().then(() => hideSkeletons());
     setupPullToRefresh();
     setupBottomSheetDrag();
@@ -263,6 +264,7 @@ let _shoppingSyncLastRemoteUpdatedAt = localStorage.getItem('shoppingListLastRem
 let _shoppingSyncLastFailureAt = 0;
 let _shoppingTripMilestonesShown = new Set();
 let _shoppingTripBeatLastToastShown = false;
+let _analyticsResizeTimer = null;
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
@@ -502,6 +504,29 @@ function getLastShoppingTripSavedAmount() {
     const last = sessions[sessions.length - 1] || {};
     const val = Number(last.saved_amount || 0);
     return Number.isFinite(val) && val > 0 ? val : 0;
+}
+
+function getAverageShoppingTripDuration() {
+    const sessions = loadShoppingTripSessions().filter((s) => {
+        const dur = Number(s?.duration_seconds || 0);
+        return Number.isFinite(dur) && dur > 0;
+    });
+    if (!sessions.length) return null;
+    const totalSeconds = sessions.reduce((sum, s) => sum + Number(s.duration_seconds || 0), 0);
+    return {
+        averageSeconds: totalSeconds / sessions.length,
+        sessionCount: sessions.length,
+    };
+}
+
+function formatDurationShort(seconds) {
+    if (!Number.isFinite(seconds) || seconds <= 0) return '0m';
+    const totalMinutes = Math.max(1, Math.round(seconds / 60));
+    const hours = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
+    if (hours <= 0) return `${totalMinutes}m`;
+    if (mins === 0) return `${hours}h`;
+    return `${hours}h ${mins}m`;
 }
 
 function markShoppingTripActivity() {
@@ -948,16 +973,43 @@ function setupCompareGroupInteractions() {
     });
 }
 
-function getStoreUrlForStore(item, storeKey) {
+function latestMatchedNameForStore(item, storeKey) {
+    const hist = Array.isArray(item.scrape_history) ? item.scrape_history : [];
+    for (let i = hist.length - 1; i >= 0; i--) {
+        const entry = hist[i] || {};
+        const matched = (entry.matched_name || '').trim();
+        if (matched && entry.store === storeKey) return matched;
+    }
+    return '';
+}
+
+function buildStoreSearchTerm(item, storeKey) {
+    return (
+        latestMatchedNameForStore(item, storeKey) ||
+        (item.name_check || '').trim() ||
+        (item.name || '').trim()
+    );
+}
+
+function getStoreUrlForStore(item, storeKey, opts = {}) {
     const hasStoreData = Object.keys(item.all_stores || {}).length > 0;
+    const preferSearchForWoolworthsPdp = opts.preferSearchForWoolworthsPdp == null
+        ? true
+        : Boolean(opts.preferSearchForWoolworthsPdp);
     if (storeKey === 'coles') {
         if (item.coles) return item.coles;
-        return `https://www.coles.com.au/search?q=${encodeURIComponent(item.name)}`;
+        return `https://www.coles.com.au/search?q=${encodeURIComponent(buildStoreSearchTerm(item, 'coles'))}`;
     }
-    if (item.woolworths && (hasStoreData || !item.woolworths.includes('/productdetails/'))) {
-        return item.woolworths;
+    if (item.woolworths) {
+        const isWooliesPdp = item.woolworths.includes('/productdetails/');
+        if (preferSearchForWoolworthsPdp && isWooliesPdp) {
+            return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(buildStoreSearchTerm(item, 'woolworths'))}`;
+        }
+        if (hasStoreData || !isWooliesPdp) {
+            return item.woolworths;
+        }
     }
-    return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(item.name)}`;
+    return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(buildStoreSearchTerm(item, 'woolworths'))}`;
 }
 
 function classifyColaCandidate(item) {
@@ -1117,6 +1169,7 @@ function setupFilters() {
     
     const switchTab = (target) => {
         _currentTab = target;
+        document.body.dataset.activeTab = target;
         haptic(8);
         dismissPriceDropToast();
 
@@ -1136,7 +1189,10 @@ function setupFilters() {
         if (prefersReducedMotion()) window.scrollTo(0, 0);
         else window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        if (target === 'analytics') renderAnalytics();
+        if (target === 'analytics') {
+            syncCompareGroupDetailsState();
+            renderAnalytics();
+        }
         else renderDashboard();
     };
 
@@ -1250,6 +1306,28 @@ function setupFilters() {
     document.getElementById('settings-btn')?.addEventListener('click', openSettings);
     document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
     document.getElementById('settings-save')?.addEventListener('click', saveSettings);
+}
+
+function syncCompareGroupDetailsState() {
+    const details = document.getElementById('compare-group-details');
+    if (!details) return;
+    const isDesktop = typeof matchMedia !== 'undefined' && matchMedia('(min-width: 769px)').matches;
+    details.open = isDesktop;
+}
+
+function setupAnalyticsMobileBehaviors() {
+    syncCompareGroupDetailsState();
+    const handleResize = () => {
+        if (_analyticsResizeTimer) clearTimeout(_analyticsResizeTimer);
+        _analyticsResizeTimer = setTimeout(() => {
+            syncCompareGroupDetailsState();
+            if (_currentTab === 'analytics') {
+                resizeInsightsCharts();
+            }
+        }, 140);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.visualViewport?.addEventListener('resize', handleResize, { passive: true });
 }
 
 function openSettings() {
@@ -1851,10 +1929,9 @@ function createItemCard(item, index, type = 'special') {
         `;
     }
 
-    // Product URL for store badge link
-    const productUrl = item.store === 'coles' 
-        ? (item.coles || '#') 
-        : (item.woolworths || '#');
+    // Resolve all store links through one helper so fallback behavior stays consistent.
+    const itemStore = item.store === 'coles' ? 'coles' : 'woolworths';
+    const productUrl = escapeHtml(getStoreUrlForStore(item, itemStore));
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
@@ -2328,7 +2405,7 @@ function renderColaBattle() {
 
         const getStoreUrl = win => {
             if (!win) return null;
-            return getStoreUrlForStore(win.item, win.store);
+            return getStoreUrlForStore(win.item, win.store, { preferSearchForWoolworthsPdp: true });
         };
 
         const getStoreBadge = win => {
@@ -2926,6 +3003,7 @@ function renderAnalytics() {
         return (i.target || 0) > 0 && ep <= i.target && !i.price_unavailable;
     }).length;
     const efficiency = itemsWithTargets > 0 ? (itemsAtTarget / itemsWithTargets) * 100 : 0;
+    const isMobileViewport = typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
 
     // 4. Total historical savings: add was_price-based savings for current specials
     _data.forEach(item => {
@@ -3003,7 +3081,7 @@ function renderAnalytics() {
                         fill: true,
                         tension: 0.4,
                         borderWidth: 3,
-                        pointRadius: 5,
+                        pointRadius: isMobileViewport ? 3 : 5,
                         pointBackgroundColor: '#818cf8',
                         yAxisID: 'yPrice',
                     },
@@ -3016,7 +3094,7 @@ function renderAnalytics() {
                         tension: 0.4,
                         borderWidth: 2,
                         borderDash: [5, 4],
-                        pointRadius: 4,
+                        pointRadius: isMobileViewport ? 2.5 : 4,
                         pointBackgroundColor: '#10b981',
                         yAxisID: 'yPct',
                     }
@@ -3027,7 +3105,7 @@ function renderAnalytics() {
                 maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: {
-                    legend: { labels: { color: '#9ca3af', padding: 20, usePointStyle: true } },
+                    legend: { labels: { color: '#9ca3af', padding: isMobileViewport ? 10 : 20, usePointStyle: true } },
                     tooltip: {
                         callbacks: {
                             label: (ctx) => ctx.datasetIndex === 0
@@ -3039,14 +3117,14 @@ function renderAnalytics() {
                 scales: {
                     x: {
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { color: '#9ca3af', font: { size: 11 } }
+                        ticks: { color: '#9ca3af', font: { size: isMobileViewport ? 10 : 11 } }
                     },
                     yPrice: {
                         type: 'linear',
                         position: 'left',
                         beginAtZero: false,
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { callback: val => '$' + val.toFixed(2), color: '#818cf8' }
+                        ticks: { callback: val => '$' + val.toFixed(2), color: '#818cf8', font: { size: isMobileViewport ? 10 : 11 } }
                     },
                     yPct: {
                         type: 'linear',
@@ -3054,7 +3132,7 @@ function renderAnalytics() {
                         min: 0,
                         max: 100,
                         grid: { drawOnChartArea: false },
-                        ticks: { callback: val => val + '%', color: '#34d399' }
+                        ticks: { callback: val => val + '%', color: '#34d399', font: { size: isMobileViewport ? 10 : 11 } }
                     }
                 }
             }
@@ -3096,8 +3174,8 @@ function renderAnalytics() {
                 maintainAspectRatio: false,
                 plugins: {
                     legend: { 
-                        position: window.innerWidth < 768 ? 'bottom' : 'right', 
-                        labels: { color: '#9ca3af', font: { size: 10 } } 
+                        position: isMobileViewport ? 'bottom' : 'right',
+                        labels: { color: '#9ca3af', font: { size: isMobileViewport ? 9 : 10 } } 
                     }
                 },
                 cutout: '70%'
@@ -3112,6 +3190,7 @@ function renderAnalytics() {
     // ── New Analytics Widgets ──────────────────────────────────────────────
     renderSavingsGauge();
     renderWeeklySavings();
+    renderShoppingTimeInsights();
     renderCategoryInflation();
     renderDealHeatmap();
     renderVolatilityLeaderboard();
@@ -3629,6 +3708,27 @@ function renderWeeklySavings() {
             `).join('')}
             ${topDeals.length === 0 ? '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:1rem 0;">No store-confirmed specials with was_price data yet.</p>' : ''}
         </div>
+    `;
+}
+
+function renderShoppingTimeInsights() {
+    const container = document.getElementById('shopping-time-insights');
+    if (!container) return;
+    const duration = getAverageShoppingTripDuration();
+    if (!duration) {
+        container.innerHTML = `
+            <div class="shopping-time-number">--</div>
+            <p class="shopping-time-sub">No completed trip sessions yet.</p>
+            <p class="shopping-time-note">Finish a trip with Done shopping to start tracking average time.</p>
+        `;
+        return;
+    }
+    const avgLabel = formatDurationShort(duration.averageSeconds);
+    const tripLabel = duration.sessionCount === 1 ? 'trip' : 'trips';
+    container.innerHTML = `
+        <div class="shopping-time-number">${avgLabel}</div>
+        <p class="shopping-time-sub">Average time from ${duration.sessionCount} completed ${tripLabel}.</p>
+        <p class="shopping-time-note">Based on your local shopping trip sessions.</p>
     `;
 }
 

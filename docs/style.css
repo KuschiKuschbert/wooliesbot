@@ -1111,13 +1111,14 @@ body {
 
 .analytics-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
 .analytics-card {
     position: relative;
+    min-width: 0;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--surface-radius);
@@ -1152,6 +1153,7 @@ body {
 }
 
 .analytics-card.span-2 { grid-column: span 2; }
+.analytics-card.span-3 { grid-column: span 3; }
 
 .analytics-card .card-header {
     display: flex;
@@ -1172,11 +1174,39 @@ body {
     opacity: 0.6;
 }
 
+.analytics-card-details {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.analytics-card-details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.75rem 0.9rem;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.analytics-card-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.analytics-card-details-body {
+    padding: 0 0.9rem 0.9rem;
+}
+
 .chart-container {
     position: relative;
     height: 320px;
     width: 100%;
     margin-top: 1rem;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .savings-metric {
@@ -1974,11 +2004,12 @@ body.drawer-open {
     }
 
     .analytics-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: minmax(0, 1fr);
     }
     
-    .analytics-card.span-2 {
-        grid-column: span 2;
+    .analytics-card.span-2,
+    .analytics-card.span-3 {
+        grid-column: span 1;
     }
 }
 
@@ -2117,7 +2148,7 @@ body.drawer-open {
     }
 
     .analytics-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         padding-bottom: var(--mobile-bottom-clearance);
     }
 
@@ -2414,8 +2445,10 @@ body.drawer-open {
 }
 
 /* Deep Insights Section */
-.analytics-card.span-3 {
-    grid-column: span 3;
+@media (min-width: 769px) {
+    .analytics-card.span-3 {
+        grid-column: span 3;
+    }
 }
 
 .premium-viz {
@@ -2455,7 +2488,7 @@ body.drawer-open {
 
 .insights-flex {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     gap: 2rem;
     margin-top: 1rem;
 }
@@ -2505,6 +2538,10 @@ body.drawer-open {
 .smart-buy-item .name {
     font-size: 14px;
     font-weight: 600;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .smart-buy-item .meta {
@@ -2575,10 +2612,14 @@ body.drawer-open {
 
 @media (max-width: 768px) {
     .insights-flex {
+        display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 0.9rem;
     }
     .deep-insight-card {
         min-width: 100%;
+        width: 100%;
     }
 }
 
@@ -3182,6 +3223,29 @@ body.drawer-open {
     margin-bottom: 1.2rem;
 }
 
+/* ─── Average Shopping Time ──────────────────────────────────────────────── */
+.shopping-time-number {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.shopping-time-sub {
+    margin-top: 0.5rem;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.shopping-time-note {
+    margin-top: 0.9rem;
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.85;
+}
+
 .weekly-deals-list {
     display: flex;
     flex-direction: column;
@@ -3199,7 +3263,15 @@ body.drawer-open {
     font-size: 12px;
 }
 
-.wdr-name { color: var(--text-main); font-weight: 500; }
+.wdr-name {
+    color: var(--text-main);
+    font-weight: 500;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 0.75rem;
+}
 .wdr-save { color: #10b981; font-weight: 700; white-space: nowrap; }
 
 /* ─── Category Inflation ─────────────────────────────────────────────────── */
@@ -3483,10 +3555,14 @@ body.drawer-open {
 
 .bt-cat {
     flex: 1;
+    min-width: 0;
     font-size: 12px;
     font-weight: 600;
     color: var(--text-main);
     text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .bt-month {
@@ -5314,7 +5390,9 @@ button, a, label, [role="button"] {
     }
 
     .chart-container {
-        min-height: 200px;
+        height: 220px;
+        min-height: 220px;
+        max-height: 220px;
     }
 
     /* Heatmap: hide the 3-col grid — JS renders mobile list instead */
@@ -5381,7 +5459,9 @@ button, a, label, [role="button"] {
 
     /* Deep insights: vertical stack, compact */
     .insights-flex {
+        display: flex !important;
         flex-direction: column !important;
+        align-items: stretch !important;
         overflow-x: unset !important;
         gap: 0.75rem;
     }
@@ -5404,12 +5484,68 @@ button, a, label, [role="button"] {
         font-size: 11px;
         margin-bottom: 1rem;
     }
+
+    .shopping-time-number {
+        font-size: 1.85rem;
+    }
+
+    .analytics-card-details > summary {
+        padding: 0.68rem 0.8rem;
+    }
+
+    .analytics-card-details-body {
+        padding: 0 0.8rem 0.8rem;
+    }
+
+    .gauge-stats {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
+
+    .tcb-labels {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .target-intel-stats {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+    }
+
+    .ti-stat {
+        padding: 0.95rem;
+    }
 }
 
 /* ============================================================
    xs ≤ 480px
    ============================================================ */
 @media (max-width: 480px) {
+    .analytics-card .card-header {
+        align-items: flex-start;
+        gap: 0.45rem;
+    }
+
+    .analytics-card h3 {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .analytics-card .card-header i,
+    .analytics-card .card-header svg {
+        margin-top: 2px;
+    }
+
+    .shopping-time-number {
+        font-size: 1.65rem;
+    }
+
+    .chart-container {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+
     .specials-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 8px !important;
@@ -5426,6 +5562,18 @@ button, a, label, [role="button"] {
 
     .stats-strip { gap: 0.5rem; }
     .strip-stat { min-width: 170px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .volatility-tag.high,
+    .vol-special-badge {
+        animation: none;
+    }
+
+    .vol-row:hover,
+    .smart-buy-item:hover {
+        transform: none;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
