@@ -19,7 +19,7 @@ Checks:
   09  Add-to-list on a card increments the list count
   10  Drawer opens as a bottom sheet and closes via the X button
   11  Master Tracklist renders as mobile card list (not desktop table)
-  12  Analytics tab: deep insights stack vertically, heatmap uses mobile list, no horizontal overflow, shopping-time card renders
+  12  Analytics tab: narrative stack, advanced diagnostics collapsed on mobile, heatmap swaps list/grid across viewport changes, no horizontal overflow
   13  Tap-highlight disabled (WebkitTapHighlightColor transparent on buttons)
 
 Usage:
@@ -536,7 +536,7 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
     _try(results, "11", "master tracklist mobile view", check_master_tracklist)
 
     # ------------------------------------------------------------------
-    # 12 — Analytics tab uses vertical stack + mobile heatmap
+    # 12 — Analytics tab narrative flow + responsive heatmap swap
     # ------------------------------------------------------------------
     def check_analytics():
         # Defensive: close drawer if still open from prior checks.
@@ -562,6 +562,9 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
                 const shoppingTime = document.getElementById('shopping-time-insights');
                 const chart = document.querySelector('#tab-analytics .chart-container');
                 const analyticsTab = document.getElementById('tab-analytics');
+                const sections = [...document.querySelectorAll('#tab-analytics .insights-story-section')];
+                const firstTitleEl = document.querySelector('#tab-analytics .analytics-card h3');
+                const details = document.getElementById('compare-group-details');
                 return {
                     flexDisplay: flex ? getComputedStyle(flex).display : null,
                     flexDirection: flex ? getComputedStyle(flex).flexDirection : null,
@@ -573,10 +576,19 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
                     shoppingTimeText: shoppingTime ? (shoppingTime.textContent || '').trim() : '',
                     analyticsOverflowPx: analyticsTab ? (analyticsTab.scrollWidth - analyticsTab.clientWidth) : 0,
                     chartHeight: chart ? chart.getBoundingClientRect().height : null,
+                    sectionCount: sections.length,
+                    firstTitle: firstTitleEl ? (firstTitleEl.textContent || '').trim() : '',
+                    compareDetailsOpen: details ? details.open : null,
                 };
             }"""
         )
         issues = []
+        if info["sectionCount"] < 4:
+            issues.append(f"story sections missing ({info['sectionCount']})")
+        if not info["firstTitle"].lower().startswith("how much you"):
+            issues.append(f"story order unexpected (first card={info['firstTitle']!r})")
+        if info["compareDetailsOpen"] is not False:
+            issues.append("advanced diagnostics should be collapsed on mobile")
         if info["flexDisplay"] != "flex":
             issues.append(f"insights display={info['flexDisplay']}")
         if info["flexDirection"] != "column":
@@ -597,9 +609,42 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             issues.append(f"analytics overflow={info['analyticsOverflowPx']}px")
         if info["chartHeight"] is not None and info["chartHeight"] > 245:
             issues.append(f"chart height too tall ({info['chartHeight']:.1f}px)")
+
+        # Confirm runtime swaps heatmap layout when crossing mobile/desktop width.
+        page.set_viewport_size({"width": 900, "height": 844})
+        page.wait_for_timeout(320)
+        desktop_info = page.evaluate(
+            """() => {
+                const grid = document.querySelector('.heatmap-grid');
+                const mlist = document.querySelector('.heatmap-mobile-list');
+                return {
+                    gridDisplay: grid ? getComputedStyle(grid).display : null,
+                    hasMobileList: !!mlist && mlist.children.length > 0,
+                };
+            }"""
+        )
+        page.set_viewport_size({"width": 390, "height": 844})
+        page.wait_for_timeout(320)
+        mobile_back = page.evaluate(
+            """() => {
+                const grid = document.querySelector('.heatmap-grid');
+                const mlist = document.querySelector('.heatmap-mobile-list');
+                return {
+                    gridDisplay: grid ? getComputedStyle(grid).display : null,
+                    hasMobileList: !!mlist && mlist.children.length > 0,
+                };
+            }"""
+        )
+        if desktop_info["gridDisplay"] in (None, "none"):
+            issues.append("heatmap grid did not reappear on desktop viewport")
+        if not mobile_back["hasMobileList"]:
+            issues.append("heatmap mobile list missing after returning to phone viewport")
+        if mobile_back["gridDisplay"] not in (None, "none"):
+            issues.append("heatmap grid still visible after returning to phone viewport")
+
         if issues:
             return "FAIL", "; ".join(issues)
-        return "PASS", f"{info['mlistRows']} heatmap rows, stacked insights, no overflow"
+        return "PASS", f"{info['mlistRows']} heatmap rows, narrative layout + responsive swap ok"
 
     _try(results, "12", "analytics tab mobile layout", check_analytics)
 

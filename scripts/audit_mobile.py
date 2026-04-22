@@ -113,11 +113,11 @@ PROBE_JS = r"""
     push(
         'chrome-height',
         'Fixed chrome vertical footprint',
-        chromeH / vh > 0.35 ? 'high' : chromeH / vh > 0.25 ? 'med' : 'ok',
+        chromeH / vh > 0.33 ? 'high' : chromeH / vh > 0.24 ? 'med' : 'ok',
         { header: Math.round(headerH), sticky: Math.round(stickyH),
           bottomNav: Math.round(bottomH), chrome: Math.round(chromeH), vh,
           pct: Math.round((chromeH / vh) * 100) },
-        chromeH / vh > 0.25
+        chromeH / vh > 0.24
             ? 'Compact header/sticky filter bar so content area is at least 70% of viewport.'
             : '',
     );
@@ -186,6 +186,51 @@ PROBE_JS = r"""
         { gap_px: Math.round(whiteGap), range: gapRange },
         whiteGap > 80
             ? 'Tighten margins between sections; a gap this large usually means a hidden/empty placeholder.'
+            : '',
+    );
+
+    // ---- Above-the-fold high-signal density ----------------------------
+    const activeTab = document.querySelector('.tab-content.active');
+    const signalSelectors = [
+        '.strip-stat',
+        '.priority-rail-section',
+        '.deals-hero-status',
+        '#savings-breakdown',
+        '#weekly-savings-container',
+    ];
+    let aboveFoldSignals = 0;
+    if (activeTab) {
+        signalSelectors.forEach(sel => {
+            activeTab.querySelectorAll(sel).forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.height < 16 || r.width < 20) return;
+                if (r.top < vh * 0.8 && r.bottom > 0) aboveFoldSignals += 1;
+            });
+        });
+    }
+    push(
+        'above-fold-signals',
+        'Above-the-fold high-signal density',
+        aboveFoldSignals < 2 ? 'med' : 'ok',
+        { signals: aboveFoldSignals },
+        aboveFoldSignals < 2
+            ? 'Move one more high-signal card into the first viewport and trim non-essential chrome.'
+            : '',
+    );
+
+    // ---- Insights narrative structure integrity -------------------------
+    const storySections = document.querySelectorAll('#tab-analytics .insights-story-section');
+    const firstStoryTitle = document.querySelector('#tab-analytics .analytics-card h3');
+    push(
+        'insights-story-structure',
+        'Insights narrative section structure',
+        storySections.length < 4 ? 'med' : 'ok',
+        {
+            section_count: storySections.length,
+            first_card_title: firstStoryTitle ? (firstStoryTitle.textContent || '').trim() : null,
+        },
+        storySections.length < 4
+            ? 'Keep four mobile narrative groups: signals, trends, actions, and advanced.'
             : '',
     );
 

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showSkeletons();
     setupOverlayEscapeHandler();
     setupAnalyticsMobileBehaviors();
+    setupMobileChromeCompaction();
     initDashboard().then(() => hideSkeletons());
     setupPullToRefresh();
     setupBottomSheetDrag();
@@ -25,6 +26,22 @@ function haptic(ms = 10) {
 function prefersReducedMotion() {
     try {
         return typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch {
+        return false;
+    }
+}
+
+function isMobileViewport() {
+    try {
+        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
+    } catch {
+        return false;
+    }
+}
+
+function isCompactViewport() {
+    try {
+        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 430px)').matches;
     } catch {
         return false;
     }
@@ -266,6 +283,8 @@ let _shoppingSyncLastFailureAt = 0;
 let _shoppingTripMilestonesShown = new Set();
 let _shoppingTripBeatLastToastShown = false;
 let _analyticsResizeTimer = null;
+let _analyticsViewportMode = '';
+let _analyticsOrientation = '';
 let _cartListPrimary = loadCartPrimaryPreference();
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
@@ -787,14 +806,20 @@ function compareCandidates(a, b) {
     return 0;
 }
 
-/** Expand one inventory row to { item, store, eff_price } candidates */
+/** Expand one inventory row to store-level compare candidates. */
 function expandItemStoreCandidates(item) {
     const out = [];
     const stores = item.all_stores || {};
     for (const [storeKey, sd] of Object.entries(stores)) {
         const ep = sd.eff_price;
         if (!isReliableEffPrice(ep)) continue;
-        out.push({ item, store: storeKey, eff_price: ep });
+        out.push({
+            item,
+            store: storeKey,
+            eff_price: ep,
+            shelf_price: sd.price,
+            unit_price: sd.unit_price,
+        });
     }
     return out;
 }
@@ -1064,6 +1089,51 @@ function classifyColaCandidate(item) {
     return { category, brand };
 }
 
+function colaCandidatePerLitre(c) {
+    if (!c || !c.item) return null;
+    const item = c.item;
+
+    // Prefer deterministic shelf/pack_litres when available.
+    const packL = item.pack_litres;
+    const shelf = c.shelf_price;
+    if (
+        typeof packL === 'number' &&
+        Number.isFinite(packL) &&
+        packL > 0 &&
+        typeof shelf === 'number' &&
+        Number.isFinite(shelf) &&
+        shelf > 0
+    ) {
+        return shelf / packL;
+    }
+
+    if (item.price_mode === 'litre' && isReliableEffPrice(c.eff_price)) return c.eff_price;
+
+    const itemUnit = (item.unit || '').toLowerCase();
+    if (
+        itemUnit === 'litre' &&
+        typeof c.unit_price === 'number' &&
+        Number.isFinite(c.unit_price) &&
+        c.unit_price > 0 &&
+        c.unit_price < PRICE_UNRELIABLE
+    ) {
+        return c.unit_price;
+    }
+
+    return null;
+}
+
+function compareColaCandidates(a, b) {
+    const aPL = typeof a.per_litre === 'number' ? a.per_litre : colaCandidatePerLitre(a);
+    const bPL = typeof b.per_litre === 'number' ? b.per_litre : colaCandidatePerLitre(b);
+    const aOK = typeof aPL === 'number' && Number.isFinite(aPL) && aPL > 0;
+    const bOK = typeof bPL === 'number' && Number.isFinite(bPL) && bPL > 0;
+    if (aOK && !bOK) return -1;
+    if (!aOK && bOK) return 1;
+    if (aOK && bOK && Math.abs(aPL - bPL) > 0.0001) return aPL - bPL;
+    return compareCandidates(a, b);
+}
+
 function buildGroupBestRowHtml(item) {
     const g = item.compare_group;
     if (!g) return '';
@@ -1229,6 +1299,7 @@ function setupFilters() {
         
         if (target === 'analytics') {
             syncCompareGroupDetailsState();
+            syncAnalyticsViewportState();
             renderAnalytics();
         }
         else renderDashboard();
@@ -1354,19 +1425,51 @@ function syncCompareGroupDetailsState() {
     details.open = isDesktop;
 }
 
+function syncAnalyticsViewportState() {
+    _analyticsViewportMode = isMobileViewport() ? 'mobile' : 'desktop';
+    _analyticsOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+}
+
+function rerenderAnalyticsForViewportIfNeeded() {
+    const prevMode = _analyticsViewportMode;
+    const prevOrientation = _analyticsOrientation;
+    syncAnalyticsViewportState();
+    if (_currentTab !== 'analytics') return;
+
+    const modeChanged = prevMode && prevMode !== _analyticsViewportMode;
+    const orientationChanged = prevOrientation && prevOrientation !== _analyticsOrientation;
+    if (modeChanged || orientationChanged) {
+        renderAnalytics();
+        return;
+    }
+    resizeInsightsCharts();
+}
+
 function setupAnalyticsMobileBehaviors() {
+    syncAnalyticsViewportState();
     syncCompareGroupDetailsState();
     const handleResize = () => {
         if (_analyticsResizeTimer) clearTimeout(_analyticsResizeTimer);
         _analyticsResizeTimer = setTimeout(() => {
             syncCompareGroupDetailsState();
-            if (_currentTab === 'analytics') {
-                resizeInsightsCharts();
-            }
+            rerenderAnalyticsForViewportIfNeeded();
         }, 140);
     };
     window.addEventListener('resize', handleResize, { passive: true });
     window.visualViewport?.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', handleResize, { passive: true });
+}
+
+function setupMobileChromeCompaction() {
+    const updateMobileChrome = () => {
+        const isMobile = isMobileViewport();
+        const scrolled = window.scrollY > 36;
+        document.body.classList.toggle('mobile-scrolled', isMobile && scrolled);
+    };
+    window.addEventListener('scroll', updateMobileChrome, { passive: true });
+    window.addEventListener('resize', updateMobileChrome, { passive: true });
+    window.visualViewport?.addEventListener('resize', updateMobileChrome, { passive: true });
+    updateMobileChrome();
 }
 
 function openSettings() {
@@ -2434,18 +2537,21 @@ function renderColaBattle() {
         for (const c of expandItemStoreCandidates(item)) {
             const cls = classifyColaCandidate(c.item);
             if (!cls) continue;
+            const perLitre = colaCandidatePerLitre(c);
+            if (!(typeof perLitre === 'number' && Number.isFinite(perLitre) && perLitre > 0)) continue;
+            c.per_litre = perLitre;
             buckets[cls.category][cls.brand].push(c);
         }
     }
 
     const pickWinner = arr => {
         if (!arr || arr.length === 0) return null;
-        return [...arr].sort(compareCandidates)[0];
+        return [...arr].sort(compareColaCandidates)[0];
     };
 
     const renderBattleRow = (title, pepsiC, cokeC) => {
-        const pP = pepsiC ? pepsiC.eff_price : Infinity;
-        const cP = cokeC ? cokeC.eff_price : Infinity;
+        const pP = pepsiC ? pepsiC.per_litre : Infinity;
+        const cP = cokeC ? cokeC.per_litre : Infinity;
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
@@ -2472,7 +2578,7 @@ function renderColaBattle() {
         const renderFighter = (brand, win, isWinner) => {
             const item = win ? win.item : null;
             const url = getStoreUrl(win);
-            const priceLabel = win ? `$${win.eff_price.toFixed(2)}/L` : '—';
+            const priceLabel = win ? `$${win.per_litre.toFixed(2)}/L` : '—';
             const storeBadge = getStoreBadge(win);
             const special = isOnSpecialWin(win) ? '<span class="fighter-on-special">🔥 On Special</span>' : '';
             const stale = getStaleBadge(item, true);
@@ -2797,7 +2903,7 @@ function renderBuyNow() {
 }
 
 function renderAllItems() {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = isMobileViewport();
 
     const filteredData = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
@@ -2972,6 +3078,7 @@ async function saveItemChanges() {
 }
 
 function renderAnalytics() {
+    syncAnalyticsViewportState();
     // Collect data
     const categories = {};
     // FIXED: Use price_history (has 5 months of data) NOT scrape_history (only 1 entry = today)
@@ -3049,7 +3156,9 @@ function renderAnalytics() {
         return (i.target || 0) > 0 && ep <= i.target && !i.price_unavailable;
     }).length;
     const efficiency = itemsWithTargets > 0 ? (itemsAtTarget / itemsWithTargets) * 100 : 0;
-    const isMobileViewport = typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
+    const isMobile = isMobileViewport();
+    const isCompact = isCompactViewport();
+    document.body.dataset.analyticsViewport = isMobile ? 'mobile' : 'desktop';
 
     // 4. Total historical savings: add was_price-based savings for current specials
     _data.forEach(item => {
@@ -3127,7 +3236,7 @@ function renderAnalytics() {
                         fill: true,
                         tension: 0.4,
                         borderWidth: 3,
-                        pointRadius: isMobileViewport ? 3 : 5,
+                        pointRadius: isCompact ? 2.5 : (isMobile ? 3 : 5),
                         pointBackgroundColor: '#818cf8',
                         yAxisID: 'yPrice',
                     },
@@ -3140,7 +3249,7 @@ function renderAnalytics() {
                         tension: 0.4,
                         borderWidth: 2,
                         borderDash: [5, 4],
-                        pointRadius: isMobileViewport ? 2.5 : 4,
+                        pointRadius: isCompact ? 2 : (isMobile ? 2.5 : 4),
                         pointBackgroundColor: '#10b981',
                         yAxisID: 'yPct',
                     }
@@ -3151,7 +3260,7 @@ function renderAnalytics() {
                 maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: {
-                    legend: { labels: { color: '#9ca3af', padding: isMobileViewport ? 10 : 20, usePointStyle: true } },
+                    legend: { labels: { color: '#9ca3af', padding: isMobile ? 10 : 20, usePointStyle: true } },
                     tooltip: {
                         callbacks: {
                             label: (ctx) => ctx.datasetIndex === 0
@@ -3163,14 +3272,14 @@ function renderAnalytics() {
                 scales: {
                     x: {
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { color: '#9ca3af', font: { size: isMobileViewport ? 10 : 11 } }
+                        ticks: { color: '#9ca3af', font: { size: isCompact ? 9 : (isMobile ? 10 : 11) } }
                     },
                     yPrice: {
                         type: 'linear',
                         position: 'left',
                         beginAtZero: false,
                         grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { callback: val => '$' + val.toFixed(2), color: '#818cf8', font: { size: isMobileViewport ? 10 : 11 } }
+                        ticks: { callback: val => '$' + val.toFixed(2), color: '#818cf8', font: { size: isCompact ? 9 : (isMobile ? 10 : 11) } }
                     },
                     yPct: {
                         type: 'linear',
@@ -3178,7 +3287,7 @@ function renderAnalytics() {
                         min: 0,
                         max: 100,
                         grid: { drawOnChartArea: false },
-                        ticks: { callback: val => val + '%', color: '#34d399', font: { size: isMobileViewport ? 10 : 11 } }
+                        ticks: { callback: val => val + '%', color: '#34d399', font: { size: isCompact ? 9 : (isMobile ? 10 : 11) } }
                     }
                 }
             }
@@ -3220,8 +3329,8 @@ function renderAnalytics() {
                 maintainAspectRatio: false,
                 plugins: {
                     legend: { 
-                        position: isMobileViewport ? 'bottom' : 'right',
-                        labels: { color: '#9ca3af', font: { size: isMobileViewport ? 9 : 10 } } 
+                        position: isMobile ? 'bottom' : 'right',
+                        labels: { color: '#9ca3af', font: { size: isCompact ? 8 : (isMobile ? 9 : 10) } } 
                     }
                 },
                 cutout: '70%'

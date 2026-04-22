@@ -282,150 +282,144 @@
                 <p class="section-subtitle">See how prices move and where you’re saving most</p>
             </div>
 
-            <div class="analytics-grid">
-                <!-- Row 1: Main charts -->
-                <div class="analytics-card span-2">
-                    <div class="card-header">
-                        <h3>Your grocery spend over time</h3>
-                        <i data-feather="trending-up"></i>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="spending-chart"></canvas>
-                    </div>
-                </div>
-
-                <div class="analytics-card">
-                    <div class="card-header">
-                        <h3>Spend by category</h3>
-                        <i data-feather="pie-chart"></i>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="category-chart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Row 2: Savings trio -->
-                <div class="analytics-card">
-                    <div class="card-header">
-                        <h3>How much you’re saving</h3>
-                        <i data-feather="target"></i>
-                    </div>
-                    <div id="savings-breakdown">
-                        <div class="savings-metric">
-                            <span class="label">Estimated saved vs full price:</span>
-                            <span class="value" id="analytic-savings-val">$0</span>
+            <div class="analytics-grid insights-story-flow">
+                <div class="insights-story-section insights-story-section--signals">
+                    <div class="analytics-card analytics-card--hero">
+                        <div class="card-header">
+                            <h3>How much you’re saving</h3>
+                            <i data-feather="target"></i>
                         </div>
-                        <div class="savings-metric">
-                            <span class="label">Bought on special <small style="opacity:0.6;font-weight:400;">(when price was at or below your deal)</small>:</span>
-                            <span class="value" id="analytic-efficiency-val">0%</span>
+                        <div id="savings-breakdown">
+                            <div class="savings-metric">
+                                <span class="label">Estimated saved vs full price:</span>
+                                <span class="value" id="analytic-savings-val">$0</span>
+                            </div>
+                            <div class="savings-metric">
+                                <span class="label">Bought on special <small class="analytics-inline-note">(when price was at or below your deal)</small>:</span>
+                                <span class="value" id="analytic-efficiency-val">0%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="analytics-card">
-                    <div class="card-header">
-                        <h3>🎯 Live Savings Gauge</h3>
-                        <i data-feather="zap"></i>
-                    </div>
-                    <div id="savings-gauge-container"></div>
-                </div>
-
-                <div class="analytics-card">
-                    <div class="card-header">
-                        <h3>💰 This Week's Wins</h3>
-                        <i data-feather="dollar-sign"></i>
-                    </div>
-                    <div id="weekly-savings-container"></div>
-                </div>
-
-                <div class="analytics-card" id="shopping-time-insights-card">
-                    <div class="card-header">
-                        <h3>⏱️ Average Shopping Time</h3>
-                        <i data-feather="clock"></i>
-                    </div>
-                    <div id="shopping-time-insights"></div>
-                </div>
-
-                <!-- Row 3: Category Inflation full width -->
-                <div class="analytics-card span-3">
-                    <div class="card-header">
-                        <h3>📊 Price changes by category</h3>
-                        <i data-feather="activity"></i>
-                    </div>
-                    <p style="font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;">
-                        Compared to about two months ago, for products you’re tracking.
-                    </p>
-                    <div id="category-inflation-container" class="inflation-grid"></div>
-                </div>
-
-                <!-- Row 4: Deep Insights -->
-                <div class="analytics-card span-3" id="deep-insights-section">
-                    <div class="card-header">
-                        <h3>Smart tips</h3>
-                        <i data-feather="zap"></i>
-                    </div>
-                    <div id="deep-insights-container" class="insights-flex"></div>
-                </div>
-
-                <div class="analytics-card span-3" id="compare-group-diagnostics-card">
-                    <div class="card-header">
-                        <h3>Product matching (advanced)</h3>
-                        <i data-feather="layers"></i>
-                    </div>
-                    <details id="compare-group-details" class="analytics-card-details">
-                        <summary>Show diagnostic details</summary>
-                        <div class="analytics-card-details-body">
-                            <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">
-                                For troubleshooting: shows when similar products can’t be compared fairly across stores (e.g. different unit types or missing prices).
-                            </p>
-                            <div id="compare-group-diagnostics"></div>
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>🎯 Live Savings Gauge</h3>
+                            <i data-feather="zap"></i>
                         </div>
-                    </details>
-                </div>
-
-                <!-- Row 5: Deal Heat Map full width -->
-                <div class="analytics-card span-3">
-                    <div class="card-header">
-                        <h3>🌡️ Who’s cheaper, by aisle</h3>
-                        <i data-feather="grid"></i>
+                        <div id="savings-gauge-container"></div>
                     </div>
-                    <p style="font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;">
-                        Darker = bigger savings. Numbers = how many specials we’re comparing.
-                    </p>
-                    <div id="deal-heatmap-container"></div>
-                </div>
 
-                <!-- Row 6: Volatility Leaderboard + Best Time -->
-                <div class="analytics-card span-2">
-                    <div class="card-header">
-                        <h3>📉 Prices that bounce around most</h3>
-                        <i data-feather="trending-up"></i>
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>💰 This Week's Wins</h3>
+                            <i data-feather="dollar-sign"></i>
+                        </div>
+                        <div id="weekly-savings-container"></div>
                     </div>
-                    <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">Items that jump in price most — buy on special &amp; stock up!</p>
-                    <div id="volatility-leaderboard-container"></div>
                 </div>
 
-                <div class="analytics-card">
-                    <div class="card-header">
-                        <h3>📅 Best Month to Buy</h3>
-                        <i data-feather="calendar"></i>
+                <div class="insights-story-section insights-story-section--trends">
+                    <div class="analytics-card span-2 analytics-card--hero">
+                        <div class="card-header">
+                            <h3>Your grocery spend over time</h3>
+                            <i data-feather="trending-up"></i>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="spending-chart"></canvas>
+                        </div>
                     </div>
-                    <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;">Cheapest historical months per category</p>
-                    <div id="best-time-container"></div>
-                </div>
 
-                <!-- Row 7: Pantry Health Score -->
-                <div class="analytics-card span-3">
-                    <div class="card-header">
-                        <h3>🏠 Pantry Health Score</h3>
-                        <i data-feather="award"></i>
+                    <div class="analytics-card analytics-card--compact">
+                        <div class="card-header">
+                            <h3>Spend by category</h3>
+                            <i data-feather="pie-chart"></i>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="category-chart"></canvas>
+                        </div>
                     </div>
-                    <div id="pantry-health-container"></div>
+
+                    <div class="analytics-card span-3">
+                        <div class="card-header">
+                            <h3>📊 Price changes by category</h3>
+                            <i data-feather="activity"></i>
+                        </div>
+                        <p class="analytics-card-copy">Compared to about two months ago, for products you’re tracking.</p>
+                        <div id="category-inflation-container" class="inflation-grid"></div>
+                    </div>
+
+                    <div class="analytics-card span-3">
+                        <div class="card-header">
+                            <h3>🌡️ Who’s cheaper, by aisle</h3>
+                            <i data-feather="grid"></i>
+                        </div>
+                        <p class="analytics-card-copy">Darker = bigger savings. Numbers = how many specials we’re comparing.</p>
+                        <div id="deal-heatmap-container"></div>
+                    </div>
                 </div>
 
-                <!-- Target Intelligence Panel -->
-                <div class="analytics-card span-3">
-                    <div id="target-intelligence-container"></div>
+                <div class="insights-story-section insights-story-section--actions">
+                    <div class="analytics-card span-3" id="deep-insights-section">
+                        <div class="card-header">
+                            <h3>Smart tips</h3>
+                            <i data-feather="zap"></i>
+                        </div>
+                        <div id="deep-insights-container" class="insights-flex"></div>
+                    </div>
+
+                    <div class="analytics-card span-2">
+                        <div class="card-header">
+                            <h3>📉 Prices that bounce around most</h3>
+                            <i data-feather="trending-up"></i>
+                        </div>
+                        <p class="analytics-card-copy">Items that jump in price most - buy on special and stock up.</p>
+                        <div id="volatility-leaderboard-container"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>📅 Best Month to Buy</h3>
+                            <i data-feather="calendar"></i>
+                        </div>
+                        <p class="analytics-card-copy">Cheapest historical months per category.</p>
+                        <div id="best-time-container"></div>
+                    </div>
+
+                    <div class="analytics-card span-3">
+                        <div class="card-header">
+                            <h3>🏠 Pantry Health Score</h3>
+                            <i data-feather="award"></i>
+                        </div>
+                        <div id="pantry-health-container"></div>
+                    </div>
+
+                    <div class="analytics-card span-3">
+                        <div id="target-intelligence-container"></div>
+                    </div>
+                </div>
+
+                <div class="insights-story-section insights-story-section--advanced" data-mobile-collapsed="true">
+                    <div class="analytics-card" id="shopping-time-insights-card">
+                        <div class="card-header">
+                            <h3>⏱️ Average Shopping Time</h3>
+                            <i data-feather="clock"></i>
+                        </div>
+                        <div id="shopping-time-insights"></div>
+                    </div>
+
+                    <div class="analytics-card span-3" id="compare-group-diagnostics-card">
+                        <div class="card-header">
+                            <h3>Product matching (advanced)</h3>
+                            <i data-feather="layers"></i>
+                        </div>
+                        <details id="compare-group-details" class="analytics-card-details">
+                            <summary>Show diagnostic details</summary>
+                            <div class="analytics-card-details-body">
+                                <p class="analytics-card-copy">For troubleshooting: shows when similar products can’t be compared fairly across stores (for example different unit types or missing prices).</p>
+                                <div id="compare-group-diagnostics"></div>
+                            </div>
+                        </details>
+                    </div>
                 </div>
             </div>
             </div><!-- /.insights-shell -->
