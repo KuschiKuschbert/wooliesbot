@@ -24,6 +24,27 @@ function registerSW() {
     }
 }
 
+function ensureShoppingDeviceId() {
+    const key = 'shoppingDeviceId';
+    let id = '';
+    try {
+        id = localStorage.getItem(key) || '';
+    } catch {}
+    if (!id) {
+        try {
+            if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+                id = `wb_${crypto.randomUUID()}`;
+            } else {
+                id = `wb_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+            }
+            localStorage.setItem(key, id);
+        } catch {}
+    }
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'post-fix',hypothesisId:'H9',location:'docs/app.js:ensureShoppingDeviceId',message:'shopping device id ensured',data:{hasId:Boolean(id),idPrefix:id?String(id).slice(0,3):''},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+}
+
 // ── Haptics helper ────────────────────────────────────────────────────────────
 function haptic(ms = 10) {
     try { navigator.vibrate?.(ms); } catch {}

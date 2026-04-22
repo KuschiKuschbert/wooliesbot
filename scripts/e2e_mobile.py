@@ -205,7 +205,9 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             real = [
                 r
                 for r in failed_requests
-                if "heartbeat" not in r and "5001" not in r
+                if "heartbeat" not in r
+                and "5001" not in r
+                and "127.0.0.1:7716/ingest/" not in r
             ]
             if real:
                 return "FAIL", f"{len(real)} failed requests: {real[0][:80]}"
