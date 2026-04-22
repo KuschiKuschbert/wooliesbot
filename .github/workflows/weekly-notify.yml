@@ -78,3 +78,14 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python scripts/telegram_notify.py --text "🚨 *WooliesBot weekly run failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  receipt-sync-after-weekly:
+    name: Weekly receipt sync (self-hosted)
+    needs: weekly
+    if: ${{ needs.weekly.result == 'success' }}
+    uses: ./.github/workflows/receipt-sync.yml
+    with:
+      months_back: "0.25"
+      latest_only: false
+      headless: true
+      skip_enrich: true

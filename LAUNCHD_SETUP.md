@@ -74,7 +74,13 @@ The automation plist runs **one** long-lived `chef_os.py` process (`KeepAlive`).
 
 - Primary orchestrator: [`.github/workflows/scrape.yml`](.github/workflows/scrape.yml) every 4 hours.
 - Weekly summary: [`.github/workflows/weekly-notify.yml`](.github/workflows/weekly-notify.yml).
+- Optional rewards receipt enrichment (self-hosted only): [`.github/workflows/receipt-sync.yml`](.github/workflows/receipt-sync.yml).
+- Weekly workflow chains receipt sync automatically after the weekly price scrape.
 - One-shot runner used by workflows: [`scripts/scrape_pipeline.py`](scripts/scrape_pipeline.py).
 - Telegram is output-only in this mode (no bot command listener required).
 - Cutover checklist/runbook: [`docs/github-cutover-runbook.md`](docs/github-cutover-runbook.md).
 - Minimal hardening checklist: [`docs/github-only-basics-hardening.md`](docs/github-only-basics-hardening.md).
+
+### Receipt sync auth note
+
+`receipt_sync.py` needs an authenticated Everyday Rewards browser profile. GitHub-hosted runners are ephemeral, so they cannot keep this session. Use a **self-hosted runner** plus a persistent profile directory (workflow variable `RECEIPT_SYNC_PROFILE_DIR`, default `$HOME/.wooliesbot/chrome_profile`), and complete login/MFA once on that machine.

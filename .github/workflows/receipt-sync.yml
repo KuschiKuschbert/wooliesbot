@@ -1,0 +1,116 @@
+name: Receipt sync (self-hosted)
+
+on:
+  workflow_call:
+    inputs:
+      months_back:
+        description: "How far back to scan receipts."
+        required: false
+        type: string
+        default: "0.25"
+      latest_only:
+        description: "Process only the latest receipt."
+        required: false
+        type: boolean
+        default: false
+      headless:
+        description: "Run Chrome headless."
+        required: false
+        type: boolean
+        default: true
+      skip_enrich:
+        description: "Skip enrichment phase."
+        required: false
+        type: boolean
+        default: true
+  workflow_dispatch:
+    inputs:
+      months_back:
+        description: "How far back to scan receipts."
+        required: false
+        default: "0.25"
+      latest_only:
+        description: "Process only the latest receipt."
+        required: false
+        type: boolean
+        default: false
+      headless:
+        description: "Run Chrome headless."
+        required: false
+        type: boolean
+        default: true
+      skip_enrich:
+        description: "Skip enrichment phase."
+        required: false
+        type: boolean
+        default: true
+  schedule:
+    # Monday 09:30 UTC
+    - cron: "30 9 * * 1"
+
+concurrency:
+  group: wooliesbot-receipt-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  receipt-sync:
+    # Requires a persistent machine/profile for Everyday Rewards auth sessions.
+    runs-on: self-hosted
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.11"
+
+      - name: Install Google Chrome
+        run: |
+          set -e
+          if command -v apt-get >/dev/null 2>&1; then
+            wget -q -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt-get update
+            sudo apt-get install -y /tmp/google-chrome.deb
+          else
+            echo "apt-get unavailable (likely macOS self-hosted); assuming Chrome already installed."
+          fi
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run last-week receipt sync (headless)
+        run: |
+          PROFILE_DIR="${RECEIPT_SYNC_PROFILE_DIR:-$HOME/.wooliesbot/chrome_profile}"
+          mkdir -p "$PROFILE_DIR"
+          EXTRA_ARGS=""
+
+          if [ "${{ inputs.latest_only }}" = "true" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --latest-only"
+          fi
+          if [ "${{ inputs.headless }}" = "true" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --headless"
+          fi
+          if [ "${{ inputs.skip_enrich }}" = "true" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --skip-enrich"
+          fi
+
+          python receipt_sync.py \
+            --months-back "${{ inputs.months_back || '0.25' }}" \
+            --profile-dir "$PROFILE_DIR" \
+            $EXTRA_ARGS
+
+      - name: Commit and push receipt updates
+        run: |
+          if git diff --quiet -- docs/data.json; then
+            echo "No receipt-driven changes to commit."
+            exit 0
+          fi
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add docs/data.json
+          git commit -m "chore: sync everyday rewards receipts"
+          git push
