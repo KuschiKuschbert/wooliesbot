@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPullToRefresh();
     setupBottomSheetDrag();
     // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasRuntimeSecret:Boolean(_runtimeWriteConfig?.secret),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),hasLocalSecret:Boolean(localStorage.getItem('write_api_secret')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})(),hasActiveSecret:Boolean((_writeApiSecret||'').trim())},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+    // #region agent log
     fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H1',location:'docs/app.js:1',message:'dom ready viewport + breakpoint snapshot',data:{innerWidth:window.innerWidth,innerHeight:window.innerHeight,isMobile:isMobileViewport(),isCompact:isCompactViewport(),activeTab:document.body?.dataset?.activeTab||'unknown'},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
     // #region agent log
@@ -290,6 +293,9 @@ function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
     const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
     const secret = typeof cfg.writeApiSecret === 'string' ? cfg.writeApiSecret : '';
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     return { url, secret };
 }
 
@@ -697,6 +703,9 @@ function applyRemoteShoppingList(remoteRows, meta = {}) {
     const merged = mergeShoppingListRows(_shoppingList, remoteRows);
     const prevSig = JSON.stringify(normalizeShoppingListShape(_shoppingList));
     const nextSig = JSON.stringify(merged);
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H4',location:'docs/app.js:applyRemoteShoppingList',message:'apply remote merge summary',data:{reason:meta?.reason||'',prevCount:Array.isArray(_shoppingList)?_shoppingList.length:0,remoteCount:Array.isArray(remoteRows)?remoteRows.length:0,mergedCount:Array.isArray(merged)?merged.length:0,changed:prevSig!==nextSig,remoteUpdatedAt:meta?.updated_at||''},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     _shoppingList = merged;
     if (prevSig !== nextSig) persistShoppingList({ skipCloud: true });
     if (meta.updated_at) setShoppingListCloudStamp(meta.updated_at);
@@ -706,16 +715,27 @@ function applyRemoteShoppingList(remoteRows, meta = {}) {
 
 async function pushShoppingListToCloud(reason = 'manual') {
     if (_shoppingListSyncPushInFlight) {
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push in-flight, queueing retry',data:{reason,queueReason:_shoppingListSyncQueuedReason,listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         _shoppingListSyncPushQueued = true;
         _shoppingListSyncQueuedReason = reason || _shoppingListSyncQueuedReason;
         return;
     }
     const base = getStockWriteBase();
     const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) return;
+    if (!base || !secret) {
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
+        return;
+    }
     _shoppingListSyncPushInFlight = true;
     const dispatchedReason = reason || 'manual';
     const deviceId = getShoppingDeviceId();
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push start',data:{reason:dispatchedReason,deviceIdPrefix:String(deviceId||'').slice(0,10),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0,baseHost:(()=>{try{return new URL(base).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     try {
         const nowIso = new Date().toISOString();
         const payload = {
@@ -733,14 +753,23 @@ async function pushShoppingListToCloud(reason = 'manual') {
             body: JSON.stringify(payload),
         });
         if (!res.ok) {
+            // #region agent log
+            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push response not ok',data:{reason:dispatchedReason,status:res.status,listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+            // #endregion
             noteShoppingListSyncFailure('push', dispatchedReason, res.status);
             return;
         }
         const body = await res.json().catch(() => ({}));
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push success response',data:{reason:dispatchedReason,updatedAt:body?.updated_at||'',itemCount:body?.item_count??null,receivedItemCount:body?.received_item_count??null,mergeMode:body?.merge_mode||''},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         if (body?.updated_at) setShoppingListCloudStamp(body.updated_at);
         noteShoppingListSyncSuccess();
         pullShoppingListFromCloud('post_push');
     } catch {
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push threw exception',data:{reason:dispatchedReason},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         noteShoppingListSyncFailure('push', dispatchedReason);
     }
     finally {
@@ -766,9 +795,17 @@ async function pullShoppingListFromCloud(reason = 'poll') {
     if (_shoppingListSyncPullInFlight) return;
     const base = getStockWriteBase();
     const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) return;
+    if (!base || !secret) {
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
+        return;
+    }
     _shoppingListSyncPullInFlight = true;
     try {
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull start',data:{reason,localCloudStamp:_shoppingListCloudUpdatedAt||'',localCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         const pullUrl = `${base}/shopping_list?t=${Date.now()}`;
         const res = await fetch(pullUrl, {
             method: 'GET',
@@ -779,6 +816,9 @@ async function pullShoppingListFromCloud(reason = 'poll') {
             },
         });
         if (!res.ok) {
+            // #region agent log
+            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull response not ok',data:{reason,status:res.status},timestamp:Date.now()})}).catch(()=>{});
+            // #endregion
             noteShoppingListSyncFailure('pull', reason, res.status);
             return;
         }
@@ -786,6 +826,9 @@ async function pullShoppingListFromCloud(reason = 'poll') {
         if (!body || !Array.isArray(body.items)) return;
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
+        // #region agent log
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull payload received',data:{reason,remoteUpdatedAt:body?.updated_at||'',remoteUpdatedBy:body?.updated_by||'',remoteCount:Array.isArray(body?.items)?body.items.length:0,localCloudMs,remoteMs,willSkip:remoteMs<=localCloudMs},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         if (remoteMs <= localCloudMs) return;
         applyRemoteShoppingList(body.items, { updated_at: body.updated_at, reason });
         noteShoppingListSyncSuccess();
@@ -835,57 +878,24 @@ function shoppingListDedupeMatch(row, inventoryItem) {
 }
 
 function formatCompareEffPrice(priceMode, eff) {
-    const mode = priceMode || 'each';
-    if (!isReliableEffPrice(eff)) return '—';
-    if (mode === 'kg') return `$${eff.toFixed(2)}/kg`;
-    if (mode === 'litre') return `$${eff.toFixed(2)}/L`;
-    return `$${eff.toFixed(2)}`;
+    return WooliesCompareHelpers.formatCompareEffPrice(priceMode, eff, isReliableEffPrice);
 }
 
 function minEffPriceAcrossStores(item) {
-    const stores = item.all_stores || {};
-    let m = Infinity;
-    for (const sd of Object.values(stores)) {
-        if (isReliableEffPrice(sd.eff_price)) m = Math.min(m, sd.eff_price);
-    }
-    if (Number.isFinite(m)) return m;
-    const fallback = item.eff_price ?? item.price;
-    return isReliableEffPrice(fallback) ? fallback : Infinity;
+    return WooliesCompareHelpers.minEffPriceAcrossStores(item, isReliableEffPrice);
 }
 
 function candidateSortTuple(c) {
-    const pl = c.item.pack_litres || 0;
-    const storeRank = c.store === 'woolworths' ? 0 : 1;
-    const cokeBias = /coke|coca/i.test(c.item.name || '') ? 0 : 1;
-    return [c.eff_price, -pl, storeRank, cokeBias, c.item.name || ''];
+    return WooliesCompareHelpers.candidateSortTuple(c);
 }
 
 function compareCandidates(a, b) {
-    const ta = candidateSortTuple(a);
-    const tb = candidateSortTuple(b);
-    for (let i = 0; i < ta.length; i++) {
-        if (ta[i] < tb[i]) return -1;
-        if (ta[i] > tb[i]) return 1;
-    }
-    return 0;
+    return WooliesCompareHelpers.compareCandidates(a, b);
 }
 
 /** Expand one inventory row to store-level compare candidates. */
 function expandItemStoreCandidates(item) {
-    const out = [];
-    const stores = item.all_stores || {};
-    for (const [storeKey, sd] of Object.entries(stores)) {
-        const ep = sd.eff_price;
-        if (!isReliableEffPrice(ep)) continue;
-        out.push({
-            item,
-            store: storeKey,
-            eff_price: ep,
-            shelf_price: sd.price,
-            unit_price: sd.unit_price,
-        });
-    }
-    return out;
+    return WooliesCompareHelpers.expandItemStoreCandidates(item, isReliableEffPrice);
 }
 
 function rebuildCompareGroupMeta() {
@@ -1101,101 +1111,27 @@ function setupCompareGroupInteractions() {
 }
 
 function latestMatchedNameForStore(item, storeKey) {
-    const hist = Array.isArray(item.scrape_history) ? item.scrape_history : [];
-    for (let i = hist.length - 1; i >= 0; i--) {
-        const entry = hist[i] || {};
-        const matched = (entry.matched_name || '').trim();
-        if (matched && entry.store === storeKey) return matched;
-    }
-    return '';
+    return WooliesCompareHelpers.latestMatchedNameForStore(item, storeKey);
 }
 
 function buildStoreSearchTerm(item, storeKey) {
-    return (
-        latestMatchedNameForStore(item, storeKey) ||
-        (item.name_check || '').trim() ||
-        (item.name || '').trim()
-    );
+    return WooliesCompareHelpers.buildStoreSearchTerm(item, storeKey);
 }
 
 function getStoreUrlForStore(item, storeKey, opts = {}) {
-    const hasStoreData = Object.keys(item.all_stores || {}).length > 0;
-    const preferSearchForWoolworthsPdp = opts.preferSearchForWoolworthsPdp == null
-        ? true
-        : Boolean(opts.preferSearchForWoolworthsPdp);
-    if (storeKey === 'coles') {
-        if (item.coles) return item.coles;
-        return `https://www.coles.com.au/search?q=${encodeURIComponent(buildStoreSearchTerm(item, 'coles'))}`;
-    }
-    if (item.woolworths) {
-        const isWooliesPdp = item.woolworths.includes('/productdetails/');
-        if (preferSearchForWoolworthsPdp && isWooliesPdp) {
-            return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(buildStoreSearchTerm(item, 'woolworths'))}`;
-        }
-        if (hasStoreData || !isWooliesPdp) {
-            return item.woolworths;
-        }
-    }
-    return `https://www.woolworths.com.au/shop/search/products?searchTerm=${encodeURIComponent(buildStoreSearchTerm(item, 'woolworths'))}`;
+    return WooliesCompareHelpers.getStoreUrlForStore(item, storeKey, opts);
 }
 
 function classifyColaCandidate(item) {
-    const name = (item.name || '').toLowerCase();
-    if (/mango|vanilla|cherry|lime|raspberry|ginger|lemon|creaming soda|orange|grape|melon/i.test(name)) return null;
-    const isNoSugar = name.includes('max') || name.includes('zero') || name.includes('no sugar');
-    const isPepsi = name.includes('pepsi');
-    const isCoke = name.includes('coke') || name.includes('coca');
-    const category = isNoSugar ? 'noSugar' : 'classic';
-    let brand = null;
-    if (isPepsi) brand = 'pepsi';
-    else if (isCoke) brand = 'coke';
-    else return null;
-    return { category, brand };
+    return WooliesCompareHelpers.classifyColaCandidate(item);
 }
 
 function colaCandidatePerLitre(c) {
-    if (!c || !c.item) return null;
-    const item = c.item;
-
-    // Prefer deterministic shelf/pack_litres when available.
-    const packL = item.pack_litres;
-    const shelf = c.shelf_price;
-    if (
-        typeof packL === 'number' &&
-        Number.isFinite(packL) &&
-        packL > 0 &&
-        typeof shelf === 'number' &&
-        Number.isFinite(shelf) &&
-        shelf > 0
-    ) {
-        return shelf / packL;
-    }
-
-    if (item.price_mode === 'litre' && isReliableEffPrice(c.eff_price)) return c.eff_price;
-
-    const itemUnit = (item.unit || '').toLowerCase();
-    if (
-        itemUnit === 'litre' &&
-        typeof c.unit_price === 'number' &&
-        Number.isFinite(c.unit_price) &&
-        c.unit_price > 0 &&
-        c.unit_price < PRICE_UNRELIABLE
-    ) {
-        return c.unit_price;
-    }
-
-    return null;
+    return WooliesCompareHelpers.colaCandidatePerLitre(c, isReliableEffPrice, PRICE_UNRELIABLE);
 }
 
 function compareColaCandidates(a, b) {
-    const aPL = typeof a.per_litre === 'number' ? a.per_litre : colaCandidatePerLitre(a);
-    const bPL = typeof b.per_litre === 'number' ? b.per_litre : colaCandidatePerLitre(b);
-    const aOK = typeof aPL === 'number' && Number.isFinite(aPL) && aPL > 0;
-    const bOK = typeof bPL === 'number' && Number.isFinite(bPL) && bPL > 0;
-    if (aOK && !bOK) return -1;
-    if (!aOK && bOK) return 1;
-    if (aOK && bOK && Math.abs(aPL - bPL) > 0.0001) return aPL - bPL;
-    return compareCandidates(a, b);
+    return WooliesCompareHelpers.compareColaCandidates(a, b, colaCandidatePerLitre, compareCandidates);
 }
 
 function buildGroupBestRowHtml(item) {
@@ -1252,10 +1188,7 @@ const _DISPLAY_ABBREVS = [
     [/\b35Hr\b/gi, '35 Hour'], [/\bCb\b/gi, 'Carb'],
 ];
 function displayName(name) {
-    if (!name) return '';
-    let n = name;
-    for (const [re, rep] of _DISPLAY_ABBREVS) n = n.replace(re, rep);
-    return n.replace(/\s{2,}/g, ' ').trim();
+    return WooliesCompareHelpers.displayName(name, _DISPLAY_ABBREVS);
 }
 
 
@@ -1554,6 +1487,9 @@ function closeSettings() {
 function saveSettings() {
     _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
     _writeApiSecret = document.getElementById('write-api-secret-input').value;
+    // #region agent log
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H5',location:'docs/app.js:saveSettings',message:'settings saved for cloud sync',data:{hasUrl:Boolean(_writeApiUrl),hasSecret:Boolean(_writeApiSecret),urlHost:(()=>{try{return new URL(_writeApiUrl).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     localStorage.setItem('write_api_url', _writeApiUrl);
     localStorage.setItem('write_api_secret', _writeApiSecret);
     closeSettings();
