@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22 10:45 AM",
+  "last_updated": "2026-04-22 03:27 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2081,7 +2081,7 @@
       "coles": "https://www.coles.com.au/product/frozen-corn-cobs-293565",
       "stock": "medium",
       "last_purchased": null,
-      "store": "coles",
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
       "size": "Standard",
@@ -2157,13 +2157,13 @@
       "on_special": false,
       "local_image": "images/Corn_Cobs.jpg",
       "image_url": "images/corn_cobs.jpg",
-      "unit_price": 5.5,
+      "unit_price": 5.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 6.0,
-          "eff_price": 6.0,
+          "price": 5.0,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -2181,9 +2181,9 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "price": 5.5,
-      "eff_price": 5.5,
-      "name_check": "Frozen Corn Cobs"
+      "price": 5.0,
+      "eff_price": 5.0,
+      "name_check": "Woolworths Australian Frozen Sweet Corn Cobs"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -10013,6 +10013,13 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.9,
+          "unit_price": 15.8,
+          "eff_price": 7.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -10131,14 +10138,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -10159,7 +10166,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream"
+      "name_check": "Light Thickened Cream"
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -15501,7 +15508,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 8.0,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -15575,10 +15582,17 @@
       ],
       "local_image": "images/Essentials_Butter_Unsalted_500G.jpg",
       "image_url": "images/essentials_butter_unsalted_500g.jpg",
-      "store": "coles",
-      "unit_price": 2.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.4,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 8.0,
           "unit_price": 2.0,
@@ -15589,13 +15603,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.0,
-      "eff_price": 8.0,
+      "eff_price": 7.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Unsalted Butter"
+      "name_check": "Essentials Unsalted Butter"
     },
     {
       "name": "Western Star Spreadable Supersoft 500G",
@@ -20741,7 +20755,7 @@
       "name": "Twisted Protein Pint Btr Crml Ckie 475Ml",
       "type": "snacks",
       "price_mode": "each",
-      "target": 5.19,
+      "target": 7.1,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Twisted%20Protein%20Pint%20Btr%20Crml%20Ckie%20475ml",
       "coles": "https://www.coles.com.au/product/premium-protein-shake-banana-6334905",
       "price_history": [
@@ -20752,13 +20766,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 11.0,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "475Ml",
       "tags": [],
-      "target_confidence": "medium",
-      "target_method": "p20 of 9 prices",
+      "target_confidence": "high",
+      "target_method": "was $11.00, now $8.80 (store special)",
       "target_data_points": 9,
       "target_updated": "2026-04-22",
       "scrape_history": [
@@ -20826,26 +20840,26 @@
       ],
       "local_image": "images/Twisted_Protein_Pint_Btr_Crml_Ckie_475Ml.jpg",
       "store": "woolworths",
-      "unit_price": 23.2,
+      "unit_price": 18.5,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 23.2,
-          "eff_price": 11.0,
-          "was_price": null,
-          "on_special": false
+          "price": 8.8,
+          "unit_price": 18.5,
+          "eff_price": 8.8,
+          "was_price": 11.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "image_url": "images/twisted_protein_pint_btr_crml_ckie_475ml.jpg",
       "avg_price": 5.5,
-      "eff_price": 11.0,
-      "on_special": false,
-      "stale": true,
+      "eff_price": 8.8,
+      "on_special": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-22",
-      "was_price": null,
+      "was_price": 11.0,
       "name_check": "Twisted Healthy Treats Protein Pint Butter Caramel Cookie Frozen Dessert"
     },
     {
@@ -22870,6 +22884,13 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 5.99,
+          "unit_price": 27.200000000000003,
+          "eff_price": 5.99,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -30408,9 +30429,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -37949,7 +37970,7 @@
       "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
       "type": "snacks",
       "price_mode": "each",
-      "target": 6.9,
+      "target": 4.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Noshu%20Low%20Carb%20Pnut%20&%20Crml%20Bar%20160g%205Pk",
       "coles": "https://www.coles.com.au/product/low-carb-peanut-and-caramel-nougat-indulgence-bar-4256684",
       "price_history": [
@@ -37960,13 +37981,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 6.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.90, now $6.90 (store special)",
+      "target_method": "was $8.90, now $4.90 (store special)",
       "target_data_points": 9,
       "target_updated": "2026-04-22",
       "scrape_history": [
@@ -38036,14 +38057,14 @@
       "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
-      "store": "coles",
-      "unit_price": 4.31,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.63,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.93,
-          "eff_price": 8.9,
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -38057,11 +38078,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 6.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Low Carb Peanut And Caramel Nougat Indulgence Bar"
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -39590,7 +39611,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
     },
     {
       "name": "Bsc Chupachups Proteinbarchocvan 55",
@@ -46817,14 +46838,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 2.25,
-      "unit": "each",
-      "store": "coles",
+      "unit_price": 37.5,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 13.5,
-          "unit_price": 3.6,
-          "eff_price": 13.5,
+          "price": 9.0,
+          "unit_price": 37.5,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -46906,7 +46927,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Ant Rid Ant Bait"
+      "name_check": "Combat Ant-Rid Bait Pest Control"
     },
     {
       "name": "V Drink Energy Guarana 250Ml",
