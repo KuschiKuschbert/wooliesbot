@@ -11,7 +11,6 @@ import random
 import re
 import os
 import json
-import fcntl
 import uuid
 import importlib.util as _ilu
 import pathlib as _pl
@@ -28,6 +27,14 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # curl_cffi for zero-browser search — impersonates Chrome TLS fingerprint to bypass Akamai
 from curl_cffi import requests as cffi_requests
+from wooliesbot_shared import (
+    extract_coles_product_id as _shared_extract_coles_product_id,
+    extract_size_signals as _shared_extract_size_signals,
+    size_signals_compatible as _shared_size_signals_compatible,
+    token_overlap_score as _shared_token_overlap_score,
+)
+from wooliesbot_runtime import acquire_file_lock as _acquire_file_lock
+from wooliesbot_runtime import release_file_lock as _release_file_lock
 
 # --- CONFIGURATION (env vars or .env file; see .env.example) ---
 def _load_dotenv():
@@ -61,66 +68,20 @@ _GIT_PUSH_LOCK_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "
 
 def _acquire_scrape_lock():
     """Return fd if exclusive lock acquired, else None (another run_report is active)."""
-    try:
-        os.makedirs(os.path.dirname(_SCRAPE_LOCK_PATH), exist_ok=True)
-        fd = os.open(_SCRAPE_LOCK_PATH, os.O_CREAT | os.O_RDWR, 0o644)
-    except OSError as e:
-        logging.warning(f"Could not open scrape lock file: {e}")
-        return None
-    try:
-        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        return fd
-    except BlockingIOError:
-        try:
-            os.close(fd)
-        except OSError:
-            pass
-        return None
+    return _acquire_file_lock(_SCRAPE_LOCK_PATH, logging.warning)
 
 
 def _release_scrape_lock(fd):
-    if fd is None:
-        return
-    try:
-        fcntl.flock(fd, fcntl.LOCK_UN)
-    except OSError:
-        pass
-    try:
-        os.close(fd)
-    except OSError:
-        pass
+    _release_file_lock(fd)
 
 
 def _acquire_git_push_lock():
     """Exclusive lock so concurrent sync_to_github runs do not interleave git operations."""
-    try:
-        os.makedirs(os.path.dirname(_GIT_PUSH_LOCK_PATH), exist_ok=True)
-        fd = os.open(_GIT_PUSH_LOCK_PATH, os.O_CREAT | os.O_RDWR, 0o644)
-    except OSError as e:
-        logging.warning(f"Could not open git push lock file: {e}")
-        return None
-    try:
-        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        return fd
-    except BlockingIOError:
-        try:
-            os.close(fd)
-        except OSError:
-            pass
-        return None
+    return _acquire_file_lock(_GIT_PUSH_LOCK_PATH, logging.warning)
 
 
 def _release_git_push_lock(fd):
-    if fd is None:
-        return
-    try:
-        fcntl.flock(fd, fcntl.LOCK_UN)
-    except OSError:
-        pass
-    try:
-        os.close(fd)
-    except OSError:
-        pass
+    _release_file_lock(fd)
 
 
 TELEGRAM_TOKEN = (os.environ.get("TELEGRAM_TOKEN") or "").strip()
@@ -634,8 +595,7 @@ def _cffi_fetch_coles_api(session, url, build_id):
 
 def _extract_coles_product_id(url):
     """Extract numeric product ID from a Coles PDP URL (the trailing digits)."""
-    m = re.search(r"-(\d{4,})$", url.rstrip("/"))
-    return m.group(1) if m else None
+    return _shared_extract_coles_product_id(url)
 
 
 def _cffi_fetch_coles_bff(session, url, store_id=None):
@@ -1136,78 +1096,23 @@ _MAX_BROWSER_SESSION_RESTARTS = 12  # per Chrome batch — avoids infinite loops
 def _token_overlap_score(inv_name, scraped_name):
     """Jaccard-like overlap on alphanumeric tokens (0..1).
     Expands receipt abbreviations before comparing so 'Ww'='Woolworths' etc."""
-    if not inv_name or not scraped_name:
-        return 0.0
-    def _norm_tokens(text):
-        expanded = text
-        for abbr, full in _RECEIPT_ABBREVIATIONS.items():
-            if full:
-                expanded = re.sub(rf"\b{re.escape(abbr)}\b", full, expanded, flags=re.IGNORECASE)
-        # Brand / label normalization for Coles result labels.
-        expanded = re.sub(r"\bcoke\b", "coca cola", expanded, flags=re.IGNORECASE)
-        expanded = re.sub(r"\bcoca-?cola\b", "coca cola", expanded, flags=re.IGNORECASE)
-        expanded = re.sub(r"\bno sugar\b", "zero sugar", expanded, flags=re.IGNORECASE)
-        expanded = re.sub(r"\bt\\/tiss(?:ue)?\b", "toilet tissue", expanded, flags=re.IGNORECASE)
-        stop = {
-            "woolworths", "coles", "soft", "drink", "drinks", "product",
-            "pack", "pk", "multipack", "bottle", "bottles", "can", "cans",
-            "tub", "tray", "bag", "bags", "punnet", "punnets", "approx",
-            "prepacked", "each"
-        }
-        return {t for t in re.findall(r"[a-z0-9]+", expanded.lower()) if t not in stop}
-    ta = _norm_tokens(inv_name)
-    tb = _norm_tokens(scraped_name)
-    if not ta or not tb:
-        return 0.0
-    return len(ta & tb) / len(ta | tb)
+    return _shared_token_overlap_score(
+        inv_name,
+        scraped_name,
+        abbreviations=_RECEIPT_ABBREVIATIONS,
+        normalize_brand_aliases=True,
+    )
 
 
 def _extract_size_signals(text):
     """Extract comparable size signals from a label.
     Used to reject obvious mismatches like 600ml vs 10x375ml."""
-    if not text:
-        return {"packs": set(), "volumes_ml": set(), "weights_g": set()}
-    low = text.lower()
-    packs = {int(m.group(1)) for m in re.finditer(r"\b(\d+)\s*(?:pk|pack)\b", low)}
-    volumes_ml = set()
-    weights_g = set()
-
-    for m in re.finditer(r"\b(\d+)\s*[xX]\s*(\d+(?:\.\d+)?)\s*(ml|l|g|kg)\b", low):
-        count = int(m.group(1))
-        qty = float(m.group(2))
-        unit = m.group(3)
-        packs.add(count)
-        if unit == "ml":
-            volumes_ml.add(int(round(qty)))
-            volumes_ml.add(int(round(count * qty)))
-        elif unit == "l":
-            volumes_ml.add(int(round(qty * 1000)))
-            volumes_ml.add(int(round(count * qty * 1000)))
-        elif unit == "g":
-            weights_g.add(int(round(qty)))
-            weights_g.add(int(round(count * qty)))
-        elif unit == "kg":
-            weights_g.add(int(round(qty * 1000)))
-            weights_g.add(int(round(count * qty * 1000)))
-
-    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(ml|l)\b", low):
-        qty = float(m.group(1))
-        volumes_ml.add(int(round(qty if m.group(2) == "ml" else qty * 1000)))
-    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(g|kg)\b", low):
-        qty = float(m.group(1))
-        weights_g.add(int(round(qty if m.group(2) == "g" else qty * 1000)))
-
-    return {"packs": packs, "volumes_ml": volumes_ml, "weights_g": weights_g}
+    return _shared_extract_size_signals(text)
 
 
 def _size_signals_compatible(inventory_name, scraped_name):
     """Return False when inventory and scraped labels clearly disagree on size."""
-    a = _extract_size_signals(inventory_name)
-    b = _extract_size_signals(scraped_name)
-    for key in ("packs", "volumes_ml", "weights_g"):
-        if a[key] and b[key] and not (a[key] & b[key]):
-            return False
-    return True
+    return _shared_size_signals_compatible(inventory_name, scraped_name)
 
 
 def _read_metrics_runs():
@@ -1982,83 +1887,12 @@ def _nl(): return "\n"
 def _sp(): return "\n\n"  # Section spacing for smartphone
 
 
-def _make_table(headers, rows, col_align=None):
-    """Build monospace table for Telegram. Uses code block for alignment.
-    headers, rows: lists of cell values. col_align: '<' left, '>' right per column."""
-    if not rows:
-        return ""
-    n = len(headers)
-    col_align = col_align or ["<"] * n
-
-    def safe(c):
-        return str(c).replace("`", "'")[:30]
-
-    def width(col_idx):
-        items = [safe(h) for h in headers] + [safe(r[col_idx]) for r in rows if col_idx < len(r)]
-        return max(len(x) for x in items) if items else 0
-
-    widths = [width(i) for i in range(n)]
-
-    def row(cells):
-        parts = []
-        for i, c in enumerate(cells):
-            w = widths[i] if i < len(widths) else 10
-            a = col_align[i] if i < len(col_align) else "<"
-            parts.append(f"{safe(c):{a}{w}}")
-        return " │ ".join(parts)
-
-    lines = [row(headers), "─" * (sum(widths) + 3 * (n - 1))]
-    for r in rows:
-        padded = list(r) + [""] * (n - len(r))
-        lines.append(row(padded))
-    return "```\n" + "\n".join(lines) + "\n```"
-
 # Weekly Essentials checklist (always buy, regardless of specials)
 WEEKLY_ESSENTIALS = [
     "Capsicum, Onions, Spinach",
     "Eggs, Cream, Cheese",
     "Avocado, Zucchini",
 ]
-
-def _resolve_compare_groups(results):
-    """For items sharing a compare_group, keep only the cheapest (by eff_price)
-    across all stores and products. Winner appears in normal list (no separate block)."""
-    groups = {}
-    ungrouped = []
-    for item in results:
-        grp = item.get("compare_group")
-        if grp:
-            groups.setdefault(grp, []).append(item)
-        else:
-            ungrouped.append(item)
-
-    winners = []
-    for grp, members in groups.items():
-        options = []
-        for m in members:
-            for sk, sd in m.get("all_stores", {}).items():
-                if sd["eff_price"] >= _PRICE_UNRELIABLE:
-                    continue
-                options.append((m, sk, sd["eff_price"]))
-        if not options:
-            winners.extend(members)
-            continue
-        # Sort by eff_price, then -pack_litres, then Woolies, then Coke over Pepsi, then name
-        options.sort(key=lambda x: (
-            x[2],
-            -(x[0].get("pack_litres") or 0),
-            0 if x[1] == "woolworths" else 1,
-            0 if "coke" in x[0]["name"].lower() else 1,
-            x[0]["name"],
-        ))
-        best_item, best_store, best_price = options[0]
-        winner = {**best_item, "store": best_store, "eff_price": best_price}
-        sd = best_item["all_stores"][best_store]
-        winner["price"] = sd["price"]
-        winner["unit_price"] = sd.get("unit_price")
-        winners.append(winner)
-
-    return ungrouped + winners, []
 
 def _store_badge(store_key):
     s = STORES.get(store_key, {})
@@ -2100,29 +1934,6 @@ def _multi_store_line(item, compact=False):
         else:
             parts.append(f"{se}${sd['price']:.2f}")
     return "  " + " vs ".join(parts)
-
-
-def _format_special_compact(item, qty, type_emoji, cost):
-    """One-line format: 4x Name emoji $X/kg store $cost"""
-    name = _escape_md(item['name'])
-    badge = _store_badge(item.get('store', 'woolworths'))
-    price_str = _price_display(item)
-    line = f"• {qty}x {name} {type_emoji} {price_str} ✓{badge}"
-    if qty > 1:
-        line += f" ${cost:.2f}"
-    return line
-
-
-def _format_compact_compare(item, extra=""):
-    """Format compact W/C comparison: 'W $X  C $Y  → W 🟢'. extra appended (e.g. '  $74.80' for cost)."""
-    woolies_p, coles_p = _item_store_prices(item)
-    store = item.get("store", "woolworths")
-    best = "W" if store == "woolworths" else "C"
-    emoji = STORES.get(store, {}).get("emoji", "")
-    line = f"W {woolies_p}  C {coles_p}  → {best} {emoji}"
-    if extra:
-        line += extra
-    return line
 
 
 def _item_store_prices(item):
@@ -2340,6 +2151,24 @@ def sync_to_github(next_scheduled=None):
         return subprocess.run(args, capture_output=True, text=True, check=check)
 
     try:
+        try:
+            gen = subprocess.run(
+                [sys.executable, "scripts/generate_runtime_env.py"],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if gen.returncode != 0:
+                logging.error(
+                    "Runtime env generation failed before sync_to_github: "
+                    f"{(gen.stderr or gen.stdout or '').strip()}"
+                )
+                return
+            logging.info((gen.stdout or "Runtime env generated.").strip())
+        except Exception as env_exc:
+            logging.error(f"Runtime env generation exception before sync_to_github: {env_exc}")
+            return
+
         heartbeat_path = os.path.join("docs", "heartbeat.json")
         nr = next_scheduled
         if nr is None:
@@ -3709,14 +3538,6 @@ def telegram_bot_listener():
             time.sleep(10)
         
         time.sleep(1)
-
-def _scheduled_report():
-    """Wrapper for schedule to catch errors without killing the scheduler."""
-    try:
-        run_report()
-    except Exception as e:
-        logging.error(f"Scheduled report failed: {e}\n{traceback.format_exc()}")
-        send_telegram(f"🚨 Scheduled report failed:\n{_escape_md(str(e))}")
 
 if __name__ == "__main__":
     while True:

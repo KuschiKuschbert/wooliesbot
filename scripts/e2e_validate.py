@@ -39,10 +39,21 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, quote_plus, quote
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from wooliesbot_shared import (
+    extract_coles_product_id as _shared_extract_coles_product_id,
+    extract_size_signals as _shared_extract_size_signals,
+    size_signals_compatible as _shared_size_signals_compatible,
+    token_overlap_score as _shared_token_overlap_score,
+)
+from e2e_validate_lib import url_metadata as _url_metadata
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_JSON = REPO_ROOT / "docs" / "data.json"
 METRICS_JSON = REPO_ROOT / "logs" / "scraper_metrics.json"
 
@@ -89,45 +100,23 @@ def _make_session(impersonate="chrome131"):
 # Helper: search term extraction (mirrors chef_os._extract_search_term_from_url)
 # ---------------------------------------------------------------------------
 def _extract_search_term(url):
-    url = url.replace("searchTerm=#", "searchTerm=")
-    parsed = urlparse(url)
-    qs = parse_qs(parsed.query)
-    term = qs.get("searchTerm", [""])[0]
-    if not term and parsed.fragment:
-        term = parsed.fragment
-    return unquote(term).strip() if term else ""
+    return _url_metadata.extract_search_term(url)
 
 
 def _is_search_url(url):
-    return "search" in url.lower()
+    return _url_metadata.is_search_url(url)
 
 
 def _is_pdp_url(url):
-    return "productdetails" in url.lower()
+    return _url_metadata.is_pdp_url(url)
 
 
 def _extract_coles_product_id(url):
-    m = re.search(r"-(\d{4,})$", (url or "").rstrip("/"))
-    return m.group(1) if m else None
+    return _shared_extract_coles_product_id(url)
 
 
 def _url_type_for_store_url(store, url):
-    url = (url or "").strip()
-    if not url:
-        return "none"
-    if store == "woolworths":
-        if _is_pdp_url(url):
-            return "pdp"
-        if _is_search_url(url):
-            return "search"
-        return "other"
-    if store == "coles":
-        if _extract_coles_product_id(url):
-            return "pdp"
-        if _is_search_url(url):
-            return "search"
-        return "other"
-    return "other"
+    return _url_metadata.url_type_for_store_url(store, url, _extract_coles_product_id)
 
 
 def _layer_summary(results):
@@ -142,122 +131,21 @@ def _layer_summary(results):
 
 
 def _build_url_metadata_records(layer_d_results):
-    verified_at = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    out = []
-    for r in layer_d_results:
-        store = (r.get("store") or "").strip().lower()
-        url = (r.get("url") or "").strip()
-        if not store or not url:
-            continue
-        out.append({
-            "item": r.get("item"),
-            "item_id": r.get("item_id"),
-            "store": store,
-            "url": url,
-            "url_type": _url_type_for_store_url(store, url),
-            "url_verdict": (r.get("match") or "SKIP").lower(),
-            "url_verified_at": verified_at,
-            "verification_source": "e2e_validate_layer_d",
-            "http_status": r.get("http_status"),
-            "overlap": r.get("overlap"),
-            "live_name": r.get("live_name"),
-            "notes": r.get("notes"),
-        })
-    return out
-
-
-def _best_search_term_for_item(item, store, live_name=None):
-    if live_name:
-        ln = str(live_name).strip()
-        if ln:
-            return ln
-    # Prefer latest store-specific matched_name when available
-    hist = item.get("scrape_history") or []
-    if isinstance(hist, list):
-        for entry in reversed(hist):
-            if not isinstance(entry, dict):
-                continue
-            if (entry.get("store") or "").strip().lower() != store:
-                continue
-            mn = str(entry.get("matched_name") or "").strip()
-            if mn:
-                return mn
-    nc = str(item.get("name_check") or "").strip()
-    if nc:
-        return nc
-    return str(item.get("name") or "").strip()
-
-
-def _build_store_search_url(store, term):
-    q = (term or "").strip()
-    if store == "coles":
-        return f"https://www.coles.com.au/search?q={quote_plus(q)}" if q else "https://www.coles.com.au/search"
-    return (
-        f"https://www.woolworths.com.au/shop/search/products?searchTerm={quote(q, safe='')}"
-        if q else "https://www.woolworths.com.au/shop/search/products"
+    return _url_metadata.build_url_metadata_records(
+        layer_d_results, _extract_coles_product_id
     )
 
 
+def _best_search_term_for_item(item, store, live_name=None):
+    return _url_metadata.best_search_term_for_item(item, store, live_name=live_name)
+
+
+def _build_store_search_url(store, term):
+    return _url_metadata.build_store_search_url(store, term)
+
+
 def _repair_bad_link_records(records, items):
-    by_id = {}
-    by_name = {}
-    for it in items:
-        iid = str(it.get("item_id") or "").strip()
-        name_key = str(it.get("name") or "").strip().lower()
-        if iid and iid not in by_id:
-            by_id[iid] = it
-        if name_key and name_key not in by_name:
-            by_name[name_key] = it
-
-    repaired = []
-    stats = {
-        "eligible": 0,
-        "repaired": 0,
-        "already_search": 0,
-        "not_found": 0,
-        "unchanged": 0,
-    }
-    for rec in records:
-        out = dict(rec)
-        verdict = str(out.get("url_verdict") or "").lower()
-        store = str(out.get("store") or "").lower()
-        if verdict not in {"dead", "diff"} or store not in {"woolworths", "coles"}:
-            repaired.append(out)
-            continue
-
-        stats["eligible"] += 1
-        if (out.get("url_type") or "").lower() == "search":
-            stats["already_search"] += 1
-            repaired.append(out)
-            continue
-
-        item = None
-        iid = str(out.get("item_id") or "").strip()
-        if iid:
-            item = by_id.get(iid)
-        if item is None:
-            item = by_name.get(str(out.get("item") or "").strip().lower())
-        if item is None:
-            stats["not_found"] += 1
-            repaired.append(out)
-            continue
-
-        search_term = _best_search_term_for_item(item, store, live_name=out.get("live_name"))
-        fallback_url = _build_store_search_url(store, search_term)
-        if fallback_url == out.get("url"):
-            stats["unchanged"] += 1
-            repaired.append(out)
-            continue
-
-        out["original_url"] = out.get("url")
-        out["original_url_verdict"] = out.get("url_verdict")
-        out["url"] = fallback_url
-        out["url_type"] = "search"
-        out["url_verdict"] = "repaired_search_fallback"
-        out["repair_reason"] = f"auto_repair_{verdict}"
-        stats["repaired"] += 1
-        repaired.append(out)
-    return repaired, stats
+    return _url_metadata.repair_bad_link_records(records, items)
 
 
 def _load_data_container():
@@ -274,136 +162,33 @@ def _save_data_container(raw, items):
 
 
 def _resolve_item_for_metadata_record(items, record):
-    item_id = (record.get("item_id") or "").strip()
-    name = (record.get("item") or "").strip().lower()
-    if item_id:
-        matches = [i for i in items if str(i.get("item_id") or "").strip() == item_id]
-        if len(matches) == 1:
-            return matches[0], None
-        if len(matches) > 1:
-            return None, "ambiguous_item_id"
-    if not name:
-        return None, "missing_item_key"
-    by_name = [i for i in items if str(i.get("name") or "").strip().lower() == name]
-    if len(by_name) == 1:
-        return by_name[0], None
-    if len(by_name) > 1:
-        return None, "ambiguous_name"
-    return None, "not_found"
+    return _url_metadata.resolve_item_for_metadata_record(items, record)
 
 
 def _set_if_changed(obj, key, value):
-    old = obj.get(key)
-    if old == value:
-        return False
-    obj[key] = value
-    return True
+    return _url_metadata.set_if_changed(obj, key, value)
 
 
 def apply_url_metadata_records(items, records):
-    stats = {
-        "records_total": len(records),
-        "applied": 0,
-        "changed_fields": 0,
-        "skipped_not_found": 0,
-        "skipped_ambiguous": 0,
-        "skipped_invalid": 0,
-    }
-    for rec in records:
-        store = (rec.get("store") or "").strip().lower()
-        url = (rec.get("url") or "").strip()
-        if store not in {"woolworths", "coles"} or not url:
-            stats["skipped_invalid"] += 1
-            continue
-        item, err = _resolve_item_for_metadata_record(items, rec)
-        if item is None:
-            if err in {"ambiguous_item_id", "ambiguous_name"}:
-                stats["skipped_ambiguous"] += 1
-            elif err in {"not_found", "missing_item_key"}:
-                stats["skipped_not_found"] += 1
-            else:
-                stats["skipped_invalid"] += 1
-            continue
-
-        item_changed = False
-        if _set_if_changed(item, store, url):
-            stats["changed_fields"] += 1
-            item_changed = True
-
-        all_stores = item.setdefault("all_stores", {})
-        store_obj = all_stores.setdefault(store, {})
-        for key in ("url", "url_type", "url_verdict", "url_verified_at", "verification_source", "http_status", "overlap", "live_name", "notes"):
-            if key in rec:
-                if _set_if_changed(store_obj, key, rec.get(key)):
-                    stats["changed_fields"] += 1
-                    item_changed = True
-        if item_changed:
-            stats["applied"] += 1
-    return stats
+    return _url_metadata.apply_url_metadata_records(items, records)
 
 
 def _token_overlap_score(inv_name, scraped_name):
     """Jaccard-like overlap on alphanumeric tokens (mirrors chef_os._token_overlap_score).
     Applies basic plural normalization (strips trailing 's') to improve matching
     for "Carrot" vs "Carrots", "Can" vs "Cans", etc."""
-    if not inv_name or not scraped_name:
-        return 0.0
-    stop = {
-        "woolworths", "coles", "soft", "drink", "drinks", "product",
-        "pack", "pk", "multipack", "bottle", "bottles", "can", "cans",
-        "tub", "tray", "bag", "bags", "punnet", "punnets", "approx",
-        "prepacked", "each",
-    }
-    def _stem(t):
-        # Strip trailing 's' for basic plural normalization (len > 3 to avoid "is" → "i")
-        if len(t) > 3 and t.endswith("s") and not t.endswith("ss"):
-            return t[:-1]
-        return t
-    def _tokens(text):
-        return {_stem(t) for t in re.findall(r"[a-z0-9]+", text.lower()) if t not in stop}
-    ta, tb = _tokens(inv_name), _tokens(scraped_name)
-    if not ta or not tb:
-        return 0.0
-    return len(ta & tb) / len(ta | tb)
+    return _shared_token_overlap_score(inv_name, scraped_name, plural_stem=True)
 
 
 def _extract_size_signals(text):
     """Extract numeric size signals from a label (mirrors chef_os._extract_size_signals)."""
-    if not text:
-        return {"packs": set(), "volumes_ml": set(), "weights_g": set()}
-    low = text.lower()
-    packs = {int(m.group(1)) for m in re.finditer(r"\b(\d+)\s*(?:pk|pack)\b", low)}
-    volumes_ml = set()
-    weights_g = set()
-    for m in re.finditer(r"\b(\d+)\s*[xX]\s*(\d+(?:\.\d+)?)\s*(ml|l|g|kg)\b", low):
-        count, qty, unit = int(m.group(1)), float(m.group(2)), m.group(3)
-        packs.add(count)
-        if unit == "ml":
-            volumes_ml.add(int(round(qty))); volumes_ml.add(int(round(count * qty)))
-        elif unit == "l":
-            volumes_ml.add(int(round(qty * 1000))); volumes_ml.add(int(round(count * qty * 1000)))
-        elif unit == "g":
-            weights_g.add(int(round(qty))); weights_g.add(int(round(count * qty)))
-        elif unit == "kg":
-            weights_g.add(int(round(qty * 1000))); weights_g.add(int(round(count * qty * 1000)))
-    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(ml|l)\b", low):
-        qty = float(m.group(1))
-        volumes_ml.add(int(round(qty if m.group(2) == "ml" else qty * 1000)))
-    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(g|kg)\b", low):
-        qty = float(m.group(1))
-        weights_g.add(int(round(qty if m.group(2) == "g" else qty * 1000)))
-    return {"packs": packs, "volumes_ml": volumes_ml, "weights_g": weights_g}
+    return _shared_extract_size_signals(text)
 
 
 def _size_signals_compatible(inventory_name, scraped_name):
     """Return False when inventory and scraped labels clearly disagree on size
     (mirrors chef_os._size_signals_compatible)."""
-    a = _extract_size_signals(inventory_name)
-    b = _extract_size_signals(scraped_name)
-    for key in ("packs", "volumes_ml", "weights_g"):
-        if a[key] and b[key] and not (a[key] & b[key]):
-            return False
-    return True
+    return _shared_size_signals_compatible(inventory_name, scraped_name)
 
 
 def _extract_ww_json_ld_name_price(html):
