@@ -81,9 +81,9 @@ jobs:
           path: logs/e2e_validate_links_full.json
 
       - name: Telegram failure notification
-        if: failure() && secrets.TELEGRAM_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != ''
+        if: failure()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python scripts/telegram_notify.py --text "🚨 *WooliesBot 4h scrape failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/telegram_notify.py --allow-missing-secrets --text "🚨 *WooliesBot 4h scrape failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

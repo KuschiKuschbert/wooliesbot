@@ -72,12 +72,12 @@ jobs:
           PY
 
       - name: Telegram failure notification
-        if: failure() && secrets.TELEGRAM_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != ''
+        if: failure()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python scripts/telegram_notify.py --text "🚨 *WooliesBot weekly run failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/telegram_notify.py --allow-missing-secrets --text "🚨 *WooliesBot weekly run failed*\nSee workflow logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   receipt-sync-after-weekly:
     name: Weekly receipt sync (self-hosted)
