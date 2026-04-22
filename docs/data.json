@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22 05:57 AM",
+  "last_updated": "2026-04-22 10:45 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2936,9 +2936,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 1.78,
-          "eff_price": 8.9,
+          "price": 8.0,
+          "unit_price": 1.6,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         },
@@ -3645,8 +3645,8 @@
       "coles": "https://www.coles.com.au/product/inghams-frozen-southern-style-chicken-tenders-400g-2726798",
       "stock": "medium",
       "last_purchased": null,
-      "price": 4.5,
-      "eff_price": 4.5,
+      "price": 5.5,
+      "eff_price": 5.5,
       "store": "woolworths",
       "brand": "Ingham",
       "subcategory": "other",
@@ -3723,13 +3723,13 @@
       "on_special": false,
       "local_image": "images/Chicken_Tenders_Ingham.jpg",
       "image_url": "images/chicken_tenders_ingham.jpg",
-      "unit_price": 11.25,
+      "unit_price": 13.75,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 4.5,
-          "unit_price": 11.25,
-          "eff_price": 4.5,
+          "price": 5.5,
+          "unit_price": 13.75,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -4406,13 +4406,13 @@
       "on_special": false,
       "local_image": "images/Liquid_Stock_Campbells.jpg",
       "image_url": "images/liquid_stock_campbells.jpg",
-      "unit_price": 0.23,
+      "unit_price": 0.45,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.25,
-          "unit_price": 0.23,
-          "eff_price": 2.25,
+          "price": 4.5,
+          "unit_price": 0.45,
+          "eff_price": 4.5,
           "was_price": null,
           "on_special": false
         },
@@ -5066,9 +5066,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.75,
-          "unit_price": 12.19,
-          "eff_price": 9.75,
+          "price": 8.0,
+          "unit_price": 10.0,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         },
@@ -5212,7 +5212,7 @@
       "last_purchased": null,
       "price": 2.6333333333333333,
       "eff_price": 2.6333333333333333,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Pepsi",
       "subcategory": "beverages",
       "size": "24pk",
@@ -5286,7 +5286,7 @@
           "matched_name": "Pepsi Max No Sugar Cola Soft Drink Cans Multipack 375mL x 24 pack"
         }
       ],
-      "was_price": null,
+      "was_price": 4.39,
       "on_special": false,
       "local_image": "images/Pepsi_Max_24pk.jpg",
       "image_url": "images/pepsi_max_24pk.jpg",
@@ -5294,9 +5294,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 23.7,
-          "unit_price": 2.63,
-          "eff_price": 2.6333333333333333,
+          "price": 39.5,
+          "unit_price": 4.39,
+          "eff_price": 4.388888888888889,
           "was_price": null,
           "on_special": false
         },
@@ -5312,7 +5312,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pepsi Max No Sugar Cola Soft Drink Cans Multipack 375mL x 24 pack"
+      "name_check": "Max No Sugar Cola Soft Drink Cans Multipack 375ml x 24 Pack"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -5405,13 +5405,13 @@
       "on_special": false,
       "local_image": "images/Coke_No_Sugar_24pk.jpg",
       "image_url": "images/coke_no_sugar_24pk.jpg",
-      "unit_price": 4.17,
+      "unit_price": 2.78,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 37.5,
-          "unit_price": 4.17,
-          "eff_price": 4.166666666666667,
+          "price": 25.0,
+          "unit_price": 2.78,
+          "eff_price": 2.7777777777777777,
           "was_price": null,
           "on_special": false
         },
@@ -5635,9 +5635,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 32.0,
-          "unit_price": 2.84,
-          "eff_price": 2.8444444444444446,
+          "price": 40.0,
+          "unit_price": 3.56,
+          "eff_price": 3.5555555555555554,
           "was_price": null,
           "on_special": false
         },
@@ -5659,13 +5659,13 @@
       "name": "Remedy/Juice Lab Shots",
       "type": "beverages",
       "price_mode": "each",
-      "target": 3.3,
+      "target": 2.5,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/227257/the-juice-lab-wellness-shot-calm",
       "coles": "https://www.coles.com.au/product/shots-immune-4x60ml-8882220",
       "stock": "medium",
       "last_purchased": null,
-      "price": 3.5,
-      "eff_price": 3.5,
+      "price": 2.5,
+      "eff_price": 2.5,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "beverages",
@@ -5742,13 +5742,13 @@
       "on_special": false,
       "local_image": "images/Remedy_Juice_Lab_Shots.jpg",
       "image_url": "images/remedyjuice_lab_shots.jpg",
-      "unit_price": 58.33,
+      "unit_price": 41.67,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 58.33,
-          "eff_price": 3.5,
+          "price": 2.5,
+          "unit_price": 41.67,
+          "eff_price": 2.5,
           "was_price": null,
           "on_special": false
         }
@@ -5874,7 +5874,7 @@
       "last_purchased": null,
       "price": 12.0,
       "eff_price": 12.0,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "other",
       "size": "3kg",
@@ -5946,7 +5946,7 @@
           "matched_name": "Pedigree Adult Dry Dog Food with Real Beef 3kg"
         }
       ],
-      "was_price": null,
+      "was_price": 15.0,
       "on_special": false,
       "local_image": "images/Pedigree_Dog_Food_3kg.jpg",
       "image_url": "images/pedigree_dog_food_3kg.jpg",
@@ -5954,9 +5954,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 0.4,
-          "eff_price": 12.0,
+          "price": 15.0,
+          "unit_price": 0.5,
+          "eff_price": 15.0,
           "was_price": null,
           "on_special": false
         },
@@ -5972,7 +5972,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pedigree Adult Dry Dog Food with Real Beef 3kg"
+      "name_check": "Adult Dry Dog Food With Real Beef"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -6096,7 +6096,7 @@
       "last_purchased": null,
       "price": 15.0,
       "eff_price": 15.0,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Omo",
       "subcategory": "other",
       "size": "Standard",
@@ -6168,7 +6168,7 @@
           "matched_name": "OMO Active Clean Laundry Powder Detergent 2kg"
         }
       ],
-      "was_price": null,
+      "was_price": 30.0,
       "on_special": false,
       "local_image": "images/Laundry_Powder_Omo.jpg",
       "image_url": "images/laundry_powder_omo.jpg",
@@ -6176,9 +6176,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.0,
-          "unit_price": 7.5,
-          "eff_price": 15.0,
+          "price": 30.0,
+          "unit_price": 15.0,
+          "eff_price": 30.0,
           "was_price": null,
           "on_special": false
         },
@@ -6194,7 +6194,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "OMO Active Clean Laundry Powder Detergent 2kg"
+      "name_check": "Laundry Powder Active Clean Front & Top"
     },
     {
       "name": "Dishmatic Refills",
@@ -6205,9 +6205,9 @@
       "coles": "https://www.coles.com.au/product/dishmatic-general-purpose-refill-3-pack-8923124",
       "stock": "medium",
       "last_purchased": null,
-      "price": 6.2,
-      "eff_price": 6.2,
-      "store": "woolworths",
+      "price": 6.3,
+      "eff_price": 6.3,
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -6283,13 +6283,13 @@
       "on_special": false,
       "local_image": "images/Dishmatic_Refills.jpg",
       "image_url": "images/dishmatic_refills.jpg",
-      "unit_price": 1.55,
+      "unit_price": 2.1,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 6.2,
-          "unit_price": 1.55,
-          "eff_price": 6.2,
+          "price": 6.95,
+          "unit_price": 1.74,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -6305,26 +6305,26 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Dishmatic General Purpose Refills 4 pack"
+      "name_check": "General Purpose Refill"
     },
     {
       "name": "Energizer Batteries AA",
       "type": "household",
       "price_mode": "each",
-      "target": 14.25,
+      "target": 20.3,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/23597/energizer-max-aa-alkaline-batteries",
       "coles": "https://www.coles.com.au/product/recharge-aa-rechargeable-batteries-1014598",
       "stock": "medium",
       "last_purchased": null,
-      "price": 14.25,
-      "eff_price": 14.25,
-      "store": "woolworths",
+      "price": 20.3,
+      "eff_price": 20.3,
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $29.00, now $14.25 (store special)",
+      "target_method": "was $29.00, now $20.30 (store special)",
       "target_data_points": 8,
       "target_updated": "2026-04-22",
       "scrape_history": [
@@ -6390,17 +6390,17 @@
           "matched_name": "Energizer Max AA Alkaline Batteries  16 pack"
         }
       ],
-      "was_price": null,
+      "was_price": 29.0,
       "on_special": false,
       "local_image": "images/Energizer_Batteries_AA.jpg",
       "image_url": "images/energizer_batteries_aa.jpg",
-      "unit_price": 0.89,
+      "unit_price": 5.08,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 14.25,
-          "unit_price": 0.89,
-          "eff_price": 14.25,
+          "price": 28.5,
+          "unit_price": 1.78,
+          "eff_price": 28.5,
           "was_price": null,
           "on_special": false
         },
@@ -6416,7 +6416,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Energizer Max AA Alkaline Batteries  16 pack"
+      "name_check": "Recharge AA Rechargeable Batteries"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -9341,7 +9341,7 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "compare_group": "cola",
-      "price": 20.0,
+      "price": 12.0,
       "brand": "Pepsi",
       "subcategory": "beverages",
       "size": "375Ml",
@@ -9416,13 +9416,13 @@
       ],
       "local_image": "images/Pepsi_Max_Cola_Cans_10X375Ml.jpg",
       "image_url": "images/pepsi_max_cola_cans_10x375ml.jpg",
-      "unit_price": 5.33,
+      "unit_price": 3.2,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 20.0,
-          "unit_price": 5.33,
-          "eff_price": 20.0,
+          "price": 12.0,
+          "unit_price": 3.2,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -9436,7 +9436,7 @@
       },
       "price_unavailable": false,
       "avg_price": 9.4,
-      "eff_price": 20.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -10131,14 +10131,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -10159,7 +10159,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream"
+      "name_check": "Woolworths Light Thickened Cream"
     },
     {
       "name": "Yopro Yoghurt Pot Vanilla 160G",
@@ -14556,7 +14556,7 @@
       "name": "Cadbury Strawberry Eggs 118G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 3.85,
+      "target": 3.35,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cadbury%20Strawberry%20Eggs%20118g",
       "coles": "https://www.coles.com.au/product/mini-eggs-gift-box-1477097",
       "price_history": [
@@ -14580,55 +14580,55 @@
         {
           "date": "2026-04-15",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-18",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-19",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-20",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-21",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-22",
           "price": 3.85,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         }
@@ -15016,7 +15016,7 @@
       "name": "D'Orsogna Champagne Leg Ham Shaved",
       "type": "meat",
       "price_mode": "each",
-      "target": 2.4,
+      "target": 2.3,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/127959/d-orsogna-champagne-leg-ham-sliced-from-the-deli",
       "coles": "https://www.coles.com.au/product/champagne-leg-ham-3055086",
       "price_history": [
@@ -15027,13 +15027,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 2.4,
+      "price": 2.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $3.95, now $2.40 (store special)",
+      "target_method": "was $3.95, now $2.30 (store special)",
       "target_data_points": 9,
       "target_updated": "2026-04-22",
       "scrape_history": [
@@ -15069,7 +15069,7 @@
         {
           "date": "2026-04-19",
           "price": 2.4,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "D'Orsogna Champagne Leg Ham Sliced From The Deli per 100g"
@@ -15077,7 +15077,7 @@
         {
           "date": "2026-04-20",
           "price": 2.4,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "D'Orsogna Champagne Leg Ham Sliced From The Deli per 100g"
@@ -15085,7 +15085,7 @@
         {
           "date": "2026-04-21",
           "price": 2.4,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "D'Orsogna Champagne Leg Ham Sliced From The Deli per 100g"
@@ -15093,7 +15093,7 @@
         {
           "date": "2026-04-22",
           "price": 2.4,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "D'Orsogna Champagne Leg Ham Sliced From The Deli per 100g"
@@ -15104,13 +15104,13 @@
       "local_image": "images/D'Orsogna_Champagne_Leg_Ham_Shaved.jpg",
       "image_url": "images/dorsogna_champagne_leg_ham_shaved.jpg",
       "store": "woolworths",
-      "unit_price": 2.4,
+      "unit_price": 2.3,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.4,
-          "unit_price": 2.4,
-          "eff_price": 2.4,
+          "price": 2.3,
+          "unit_price": 2.3,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -15124,7 +15124,7 @@
       },
       "price_unavailable": false,
       "avg_price": 5.81,
-      "eff_price": 2.4,
+      "eff_price": 2.3,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -15226,9 +15226,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -17976,6 +17976,13 @@
       "unit_price": 5.0,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.0,
           "unit_price": 5.0,
@@ -30401,9 +30408,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -30429,7 +30436,7 @@
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 1.59,
+      "target": 1.4,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Cat%20Food%20Tuna%20Mornay%20&%20Cheese%2085g",
       "coles": "https://www.coles.com.au/product/classic-collection-adult-wet-cat-food-saucy-morsels-with-tuna-cheese-tray-7599461",
       "price_history": [
@@ -30444,26 +30451,26 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 1.6,
+      "price": 1.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "85G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "p15 of 10 prices (few sales detected)",
+      "target_method": "was $1.60, now $1.40 (store special)",
       "target_data_points": 10,
       "target_updated": "2026-04-22",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 1.59,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 1.59,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
@@ -30516,20 +30523,20 @@
           "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
-      "was_price": null,
-      "on_special": false,
+      "was_price": 1.6,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
-      "unit_price": 1.88,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.65,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
-          "was_price": null,
-          "on_special": false
+          "price": 1.4,
+          "unit_price": 1.65,
+          "eff_price": 1.4,
+          "was_price": 1.6,
+          "on_special": true
         },
         "coles": {
           "price": 1.6,
@@ -30541,11 +30548,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.35,
-      "eff_price": 1.6,
+      "eff_price": 1.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -37942,7 +37949,7 @@
       "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
       "type": "snacks",
       "price_mode": "each",
-      "target": 4.9,
+      "target": 6.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Noshu%20Low%20Carb%20Pnut%20&%20Crml%20Bar%20160g%205Pk",
       "coles": "https://www.coles.com.au/product/low-carb-peanut-and-caramel-nougat-indulgence-bar-4256684",
       "price_history": [
@@ -37953,13 +37960,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 4.9,
+      "price": 6.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.90, now $4.90 (store special)",
+      "target_method": "was $8.90, now $6.90 (store special)",
       "target_data_points": 9,
       "target_updated": "2026-04-22",
       "scrape_history": [
@@ -38025,18 +38032,18 @@
           "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
         }
       ],
-      "was_price": null,
+      "was_price": 8.9,
       "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
-      "store": "woolworths",
-      "unit_price": 1.63,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 4.31,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 1.63,
-          "eff_price": 4.9,
+          "price": 8.9,
+          "unit_price": 5.93,
+          "eff_price": 8.9,
           "was_price": null,
           "on_special": false
         },
@@ -38050,11 +38057,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 4.9,
+      "eff_price": 6.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pancake Mix Buttermilk"
+      "name_check": "Low Carb Peanut And Caramel Nougat Indulgence Bar"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -39583,7 +39590,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
     },
     {
       "name": "Bsc Chupachups Proteinbarchocvan 55",
@@ -46810,14 +46817,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 13.5,
+          "unit_price": 3.6,
+          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         },
@@ -46899,7 +46906,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control"
+      "name_check": "Ant Rid Ant Bait"
     },
     {
       "name": "V Drink Energy Guarana 250Ml",
