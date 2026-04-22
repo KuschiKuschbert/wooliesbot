@@ -21,6 +21,7 @@ Checks:
   11  Master Tracklist renders as mobile card list (not desktop table)
   12  Analytics tab: narrative stack, advanced diagnostics collapsed on mobile, heatmap swaps list/grid across viewport changes, no horizontal overflow
   13  Tap-highlight disabled (WebkitTapHighlightColor transparent on buttons)
+  15  Sync merge keeps both-device cart edits (union + newest row wins per item)
 
 Usage:
   python scripts/e2e_mobile.py                     # run all checks
@@ -487,6 +488,12 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
                 };
             }""",
         )
+        body_lock = page.evaluate(
+            """() => ({
+                hasClass: document.body.classList.contains('drawer-scroll-lock'),
+                position: getComputedStyle(document.body).position
+            })"""
+        )
         page.screenshot(path=str(shot_dir / "03-drawer-open.png"), full_page=False)
         # Close the drawer the same way every nav away does: call the handler.
         # This avoids flaky clicks when the close button overlaps the list
@@ -504,6 +511,8 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             )
         if box["top"] < 40:
             return "FAIL", f"drawer covers full viewport (top={box['top']:.0f})"
+        if not body_lock["hasClass"] or body_lock["position"] != "fixed":
+            return "FAIL", f"body scroll lock missing ({body_lock})"
         return "PASS", f"bottom-sheet h={box['height']:.0f} / vh={box['vh']}"
 
     _try(results, "10", "drawer is bottom sheet", check_drawer)
@@ -768,6 +777,25 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         )
         if "left" not in status_text.lower():
             return "FAIL", f"trip status text not shown: {status_text!r}"
+        compact_status = page.eval_on_selector(
+            "#shopping-trip-compact", "el => el.hidden ? '' : (el.textContent || '').trim()"
+        )
+        if "left" not in compact_status.lower() or "total" not in compact_status.lower():
+            return "FAIL", f"compact trip status not shown: {compact_status!r}"
+        copy_meta = page.evaluate(
+            """() => {
+                const el = document.getElementById('copy-list-btn');
+                if (!el) return { exists: false };
+                const cs = getComputedStyle(el);
+                return {
+                    exists: true,
+                    display: cs.display,
+                    opacity: Number(cs.opacity || '1')
+                };
+            }"""
+        )
+        if not copy_meta.get("exists") or copy_meta.get("display") == "none":
+            return "FAIL", "copy button hidden in trip mode"
         total_before = page.eval_on_selector(
             "#list-total-price",
             "el => Number((el.textContent || '').replace(/[^0-9.]/g, ''))",
@@ -835,6 +863,81 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         return "PASS", "trip mode matrix, totals, status, and clear-completed behavior validated"
 
     _try(results, "14", "shopping trip mode tick flow", check_shopping_trip_mode)
+
+    # ------------------------------------------------------------------
+    # 15 — Sync merge: keep both device adds, newest edit wins by updated_at
+    # ------------------------------------------------------------------
+    def check_sync_merge_semantics():
+        local_rows = [
+            {
+                "item_id": "milk_1",
+                "name": "E2E Merge Milk",
+                "qty": 1,
+                "price": 3.1,
+                "store": "woolworths",
+                "picked": False,
+                "updated_at": "2026-01-01T00:00:00.000Z",
+            }
+        ]
+        page.evaluate(
+            """({ listJson }) => {
+                localStorage.setItem('shoppingList', listJson);
+                localStorage.removeItem('shoppingListCloudUpdatedAt');
+            }""",
+            {"listJson": json.dumps(local_rows)},
+        )
+        page.reload(wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+        merged = page.evaluate(
+            """() => {
+                const remoteStamp = "2026-01-01T00:00:03.000Z";
+                applyRemoteShoppingList(
+                    [
+                        {
+                            item_id: "milk_1",
+                            name: "E2E Merge Milk",
+                            qty: 3,
+                            price: 3.1,
+                            store: "woolworths",
+                            picked: true,
+                            updated_at: "2026-01-01T00:00:02.000Z",
+                        },
+                        {
+                            item_id: "bread_1",
+                            name: "E2E Merge Bread",
+                            qty: 2,
+                            price: 2.4,
+                            store: "coles",
+                            picked: false,
+                            updated_at: "2026-01-01T00:00:01.000Z",
+                        },
+                    ],
+                    { updated_at: remoteStamp, reason: "e2e_merge" },
+                );
+                const rows = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+                const milk = rows.find(r => (r.item_id || '') === 'milk_1');
+                const bread = rows.find(r => (r.item_id || '') === 'bread_1');
+                const milkRows = rows.filter(r => (r.item_id || '') === 'milk_1').length;
+                return {
+                    count: rows.length,
+                    milkRows,
+                    milkQty: milk?.qty || 0,
+                    milkPicked: Boolean(milk?.picked),
+                    hasBread: Boolean(bread),
+                };
+            }"""
+        )
+        if not merged["hasBread"]:
+            return "FAIL", "remote add not preserved"
+        if merged["milkRows"] != 1:
+            return "FAIL", f"duplicate merge key rows found ({merged['milkRows']})"
+        if merged["milkQty"] != 3 or not merged["milkPicked"]:
+            return "FAIL", f"newest row did not win for duplicate item ({merged})"
+        if merged["count"] < 2:
+            return "FAIL", f"merged list missing expected rows ({merged['count']})"
+        return "PASS", f"rows={merged['count']} with union + latest-row semantics"
+
+    _try(results, "15", "sync merge semantics", check_sync_merge_semantics)
 
     # ------------------------------------------------------------------
     # 16 — Trip timeout marker and next-trip reminder

@@ -64,6 +64,53 @@ function normalizeShoppingListRows(rows) {
 	});
 }
 
+function shoppingListRowKey(row, fallbackIdx = -1) {
+	const byId = String(row?.item_id || "").trim().toLowerCase();
+	if (byId) return `id:${byId}`;
+	const byName = String(row?.name || "").trim().toLowerCase();
+	if (byName) return `name:${byName}`;
+	return `anon:${fallbackIdx}:${String(row?.updated_at || "").trim()}`;
+}
+
+function shoppingListRowUpdatedMs(row) {
+	const t = Date.parse(String(row?.updated_at || ""));
+	return Number.isFinite(t) ? t : 0;
+}
+
+function choosePreferredShoppingListRow(currentRow, incomingRow, preferIncomingOnTie = false) {
+	if (!currentRow) return { ...incomingRow };
+	if (!incomingRow) return { ...currentRow };
+	const currMs = shoppingListRowUpdatedMs(currentRow);
+	const nextMs = shoppingListRowUpdatedMs(incomingRow);
+	if (nextMs > currMs) return { ...incomingRow };
+	if (nextMs < currMs) return { ...currentRow };
+	if (preferIncomingOnTie) return { ...incomingRow };
+	const currSig = JSON.stringify(currentRow);
+	const nextSig = JSON.stringify(incomingRow);
+	return nextSig > currSig ? { ...incomingRow } : { ...currentRow };
+}
+
+function mergeShoppingListRows(existingRows, incomingRows) {
+	const current = normalizeShoppingListRows(existingRows);
+	const incoming = normalizeShoppingListRows(incomingRows);
+	const merged = new Map();
+	const orderedKeys = [];
+
+	current.forEach((row, idx) => {
+		const key = shoppingListRowKey(row, idx);
+		if (!merged.has(key)) orderedKeys.push(key);
+		merged.set(key, choosePreferredShoppingListRow(merged.get(key), row));
+	});
+
+	incoming.forEach((row, idx) => {
+		const key = shoppingListRowKey(row, current.length + idx);
+		if (!merged.has(key)) orderedKeys.push(key);
+		merged.set(key, choosePreferredShoppingListRow(merged.get(key), row, true));
+	});
+
+	return orderedKeys.map((key) => merged.get(key)).filter(Boolean);
+}
+
 function corsHeaders(env, requestOrigin) {
 	const allowed = parseAllowedOrigins(env);
 	let origin = "*";
@@ -422,15 +469,8 @@ async function handleUpsertShoppingList(request, env) {
 		return jsonResponse({ error: "invalid_json" }, 400, env, request.headers.get("Origin"));
 	}
 
-	const items = normalizeShoppingListRows(body?.items || []);
+	const incomingItems = normalizeShoppingListRows(body?.items || []);
 	const deviceId = String(body?.device_id || "").trim() || "unknown";
-	const updatedAt = new Date().toISOString();
-	const payload = {
-		schema: 1,
-		updated_at: updatedAt,
-		updated_by: deviceId,
-		items,
-	};
 
 	let attempt = 0;
 	const maxAttempts = 6;
@@ -438,6 +478,7 @@ async function handleUpsertShoppingList(request, env) {
 		attempt++;
 		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
 		let sha = null;
+		let existingItems = [];
 		if (getRes.status === 404) {
 			sha = null;
 		} else if (!getRes.ok) {
@@ -449,8 +490,22 @@ async function handleUpsertShoppingList(request, env) {
 			);
 		} else {
 			sha = fileMeta.sha || null;
+			try {
+				const decoded = JSON.parse(base64ToUtf8(String(fileMeta.content || "").replace(/\n/g, "")));
+				existingItems = normalizeShoppingListRows(decoded?.items || []);
+			} catch {
+				existingItems = [];
+			}
 		}
 
+		const mergedItems = mergeShoppingListRows(existingItems, incomingItems);
+		const updatedAt = new Date().toISOString();
+		const payload = {
+			schema: 1,
+			updated_at: updatedAt,
+			updated_by: deviceId,
+			items: mergedItems,
+		};
 		const outStr = `${JSON.stringify(payload, null, 2)}\n`;
 		const contentB64 = utf8ToBase64(outStr);
 		const putRes = await githubPutFile(
@@ -474,7 +529,18 @@ async function handleUpsertShoppingList(request, env) {
 				request.headers.get("Origin"),
 			);
 		}
-		return jsonResponse({ status: "success", updated_at: updatedAt, item_count: items.length }, 200, env, request.headers.get("Origin"));
+		return jsonResponse(
+			{
+				status: "success",
+				merge_mode: "item_level_latest_updated_at",
+				updated_at: updatedAt,
+				item_count: mergedItems.length,
+				received_item_count: incomingItems.length,
+			},
+			200,
+			env,
+			request.headers.get("Origin"),
+		);
 	}
 
 	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
