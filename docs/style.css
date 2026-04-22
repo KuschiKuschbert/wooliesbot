@@ -1,11 +1,11 @@
 :root {
     color-scheme: dark;
-    --bg-base: #030308;
-    --bg-dark: #0a0a14;
-    --bg-card: rgba(16, 18, 28, 0.72);
-    --bg-card-hover: rgba(28, 30, 44, 0.9);
+    --bg-base: #05040a;
+    --bg-dark: #12101c;
+    --bg-card: rgba(25, 24, 38, 0.72);
+    --bg-card-hover: rgba(36, 33, 52, 0.9);
     --text-main: #f1f5f9;
-    --text-muted: #8b9cb3;
+    --text-muted: #a1a2bc;
     --woolies-green: #10b981;
     --woolies-glow: rgba(16, 185, 129, 0.45);
     --coles-red: #ef4444;
@@ -13,10 +13,10 @@
     --border-color: rgba(255, 255, 255, 0.07);
     --border-strong: rgba(255, 255, 255, 0.14);
     --accent-glow: rgba(99, 102, 241, 0.22);
-    --primary: #818cf8;
-    --primary-glow: rgba(129, 140, 248, 0.55);
-    --accent-purple: #c4b5fd;
-    --accent-cyan: #22d3ee;
+    --primary: #9f8bff;
+    --primary-glow: rgba(159, 139, 255, 0.5);
+    --accent-purple: #d3b7ff;
+    --accent-cyan: #67e8f9;
     --font-heading: 'Outfit', sans-serif;
     --font-display: 'Space Grotesk', 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -132,8 +132,8 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     background-image:
-        radial-gradient(ellipse 110% 75% at 50% -28%, rgba(99, 102, 241, 0.22), transparent 56%),
-        radial-gradient(ellipse at 94% 6%, rgba(192, 132, 252, 0.14), transparent 44%),
+        radial-gradient(ellipse 110% 75% at 50% -28%, rgba(159, 139, 255, 0.26), transparent 56%),
+        radial-gradient(ellipse at 94% 6%, rgba(236, 72, 153, 0.14), transparent 44%),
         radial-gradient(ellipse at 6% 94%, rgba(16, 185, 129, 0.08), transparent 46%),
         radial-gradient(ellipse at 88% 100%, rgba(139, 92, 246, 0.1), transparent 52%),
         radial-gradient(ellipse at 12% 0%, rgba(34, 211, 238, 0.06), transparent 42%);
@@ -1014,6 +1014,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.stats-sidebar #top5-card,
+.stats-sidebar #buy-now-card {
+    display: none;
 }
 
 .main-feed {
@@ -2121,8 +2126,7 @@ body.drawer-open {
     }
 
     .header-review-link {
-        padding: 0.38rem 0.72rem;
-        font-size: 11px;
+        display: none;
     }
 
     .subtitle, .live-status, .api-indicator {
@@ -3112,6 +3116,8 @@ body.drawer-open {
     text-overflow: ellipsis;
 }
 .top5-price { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+.top5-price-woolies { color: #34d399; }
+.top5-price-coles { color: #f87171; }
 
 .top5-save {
     font-size: 11px;
@@ -3122,6 +3128,105 @@ body.drawer-open {
     border-radius: 4px;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.item-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-store-link {
+    text-decoration: none;
+}
+
+.item-card-badges {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.item-title-spaced {
+    margin-top: 8px;
+}
+
+.item-target-empty {
+    opacity: 0.5;
+}
+
+.weekly-empty {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.action-plan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.action-plan-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.55rem 0.7rem;
+    color: var(--text-main);
+    cursor: pointer;
+    text-align: left;
+}
+
+.action-plan-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-strong);
+}
+
+.action-plan-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(159, 139, 255, 0.2);
+    color: #d9ceff;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.action-plan-main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.action-plan-name {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.action-plan-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.action-plan-save {
+    font-size: 11px;
+    font-weight: 700;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.14);
+    border-radius: 999px;
+    padding: 3px 8px;
+    white-space: nowrap;
 }
 
 /* Price drop toast */
@@ -4884,9 +4989,35 @@ button, a, label, [role="button"] {
 .skeleton-line.full  { width: 100%; }
 .skeleton-btn  { height: 32px; margin: 10px 12px 12px; border-radius: 8px; }
 
-/* ── Mobile priority rail ───────────────────────────────────── */
+/* ── Priority rail ──────────────────────────────────────────── */
 .priority-rail {
-    display: none; /* hidden on desktop */
+    display: block;
+    margin: 0.45rem 0 0.9rem;
+}
+
+.priority-rail:empty {
+    display: none;
+}
+
+.priority-rail.desktop-priority-rail .priority-rail-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.priority-rail.desktop-priority-rail .priority-rail-section {
+    min-width: 0;
+    max-width: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+@media (max-width: 1100px) {
+    .priority-rail.desktop-priority-rail .priority-rail-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* ── Mobile Master Tracklist cards ─────────────────────────── */
@@ -5095,30 +5226,31 @@ button, a, label, [role="button"] {
 
     .feed-header {
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.4rem;
+        flex-wrap: nowrap;
+        gap: 0.35rem;
         padding: 0;
         margin-bottom: 0 !important;
     }
 
     .search-wrap {
-        flex: 1 1 100%;
-        padding: 0 0.65rem;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 0 0.55rem;
     }
 
     .search-wrap input {
-        padding: 0.55rem 0;
+        padding: 0.48rem 0;
     }
 
     .filter-controls {
-        flex: 1 1 100%;
+        flex: 0 0 auto;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-        justify-content: space-between;
-        gap: 0.35rem;
-        min-width: 0;
+        justify-content: flex-end;
+        gap: 0.25rem;
+        min-width: 180px;
     }
 
     .store-filter {
@@ -5135,6 +5267,12 @@ button, a, label, [role="button"] {
         padding: 0 12px;
         font-size: 13px;
         border-radius: 12px;
+    }
+
+    .category-scroll {
+        gap: 0.5rem;
+        padding-bottom: 0.55rem;
+        margin-bottom: 0.55rem;
     }
 
     .sort-pills {
@@ -6112,8 +6250,6 @@ table.dr-table {
     .essential-cb {
         width: 44px;
         height: 44px;
-        transform: scale(0.52);
-        transform-origin: center;
     }
 
     .essential-add-btn {

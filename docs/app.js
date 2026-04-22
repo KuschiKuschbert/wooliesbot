@@ -1624,23 +1624,9 @@ function renderStats() {
     
     if (totalItemsEl) totalItemsEl.textContent = _data.length;
     
-    let specialsCount = 0;
-    let savingsToday = 0;
-    
-    _data.forEach(item => {
-        const effPrice = item.eff_price || item.price;
-        const shelf = item.price || effPrice;
-        const isSpecial = item.on_special || (item.target > 0 && effPrice <= item.target && !item.price_unavailable);
-        if (isSpecial) {
-            specialsCount++;
-            // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
-            const ref = item.was_price ? Math.max(0, item.was_price - shelf) : Math.max(0, (item.target || 0) - effPrice);
-            savingsToday += ref;
-        }
-    });
-
-    if (totalSpecialsEl) totalSpecialsEl.textContent = specialsCount;
-    if (cartTotalEl) cartTotalEl.textContent = `$${savingsToday.toFixed(2)}`;
+    const savingsSummary = getSavingsOverview(_data);
+    if (totalSpecialsEl) totalSpecialsEl.textContent = savingsSummary.activeDeals;
+    if (cartTotalEl) cartTotalEl.textContent = `$${savingsSummary.currentSavings.toFixed(2)}`;
 
     // Monthly Budget Tracker
     let monthlySpent = 0;
@@ -2011,6 +1997,87 @@ function getStaleBadge(item, compact = false) {
     return `<span class="stale-badge${compact ? ' compact' : ''}" title="${title}">${label}</span>`;
 }
 
+function getEffectivePrice(item) {
+    if (!item || typeof item !== 'object') return 0;
+    const ep = item.eff_price || item.price || 0;
+    return Number.isFinite(ep) ? ep : 0;
+}
+
+function isItemAtDealPrice(item) {
+    if (!item || item.price_unavailable) return false;
+    const ep = getEffectivePrice(item);
+    return Boolean(item.on_special || ((item.target || 0) > 0 && ep <= item.target));
+}
+
+function computeItemSavingsSnapshot(item) {
+    const eff = getEffectivePrice(item);
+    const shelf = item.price || eff;
+    const reference = item.was_price && item.was_price > shelf ? item.was_price : (item.target || shelf);
+    const savedDollar = Math.max(0, reference - shelf);
+    const savePct = reference > 0 ? Math.round((savedDollar / reference) * 100) : 0;
+    return {
+        eff,
+        shelf,
+        reference,
+        savedDollar,
+        savePct,
+        isDeal: isItemAtDealPrice(item),
+    };
+}
+
+function getPriorityItems(items = _data, limit = 8) {
+    return (items || [])
+        .filter(item => item?.stock === 'low')
+        .map(item => ({ ...item, _snap: computeItemSavingsSnapshot(item) }))
+        .filter(item => item._snap.isDeal)
+        .sort((a, b) => b._snap.savePct - a._snap.savePct)
+        .slice(0, limit);
+}
+
+function getTopDeals(items = _data, limit = 5) {
+    return (items || [])
+        .map(item => ({ ...item, _snap: computeItemSavingsSnapshot(item) }))
+        .filter(item => item._snap.isDeal && item._snap.savePct > 0 && !item.price_unavailable)
+        .sort((a, b) => b._snap.savePct - a._snap.savePct)
+        .slice(0, limit);
+}
+
+function getSavingsOverview(items = _data) {
+    const summary = {
+        currentSavings: 0,
+        potentialSavings: 0,
+        activeDeals: 0,
+    };
+    for (const item of (items || [])) {
+        if (!item || item.price_unavailable) continue;
+        const snap = computeItemSavingsSnapshot(item);
+        if (snap.isDeal) {
+            summary.currentSavings += snap.savedDollar;
+            summary.activeDeals += 1;
+        }
+        if ((item.target || 0) > 0) {
+            summary.potentialSavings += Math.max(0, getEffectivePrice(item) - item.target);
+        }
+        if (item.on_special && item.was_price && item.was_price > snap.shelf) {
+            summary.potentialSavings += Math.max(0, item.was_price - snap.shelf);
+        }
+    }
+    return summary;
+}
+
+function buildWeeklyActionPlan(limit = 5) {
+    return (_data || [])
+        .map(item => {
+            const snap = computeItemSavingsSnapshot(item);
+            const urgency = item.stock === 'low' ? 2 : item.stock === 'medium' ? 1 : 0;
+            const score = (snap.savePct * 2.2) + (snap.savedDollar * 7) + (urgency * 12);
+            return { item, snap, urgency, score };
+        })
+        .filter(row => row.snap.isDeal && row.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit);
+}
+
 function createItemCard(item, index, type = 'special') {
     const effPrice = item.eff_price || item.price;
     const isSpecial = type === 'special' && effPrice <= item.target && !item.price_unavailable;
@@ -2087,20 +2154,20 @@ function createItemCard(item, index, type = 'special') {
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <a href="${productUrl}" target="_blank" rel="noopener" style="text-decoration:none;">
+            <div class="item-card-head">
+                <a href="${productUrl}" target="_blank" rel="noopener" class="item-store-link">
                     <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
                 </a>
-                <div style="display:flex; gap:4px; align-items:center;">
+                <div class="item-card-badges">
                     ${staleBadge}
                     ${confidenceBadge}
                     <div class="stock-dot ${stockColor}" title="Stock: ${item.stock}"></div>
                 </div>
             </div>
-            <h3 class="item-title" style="margin-top: 8px;">${displayName(item.name)}</h3>
+            <h3 class="item-title item-title-spaced">${displayName(item.name)}</h3>
             <div class="item-price-row">
                 ${priceHtml}
-                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Good deal: $' + item.target.toFixed(2) : '<span style="opacity:0.4">No deal price yet</span>'}</span>
+                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Good deal: $' + item.target.toFixed(2) : '<span class="item-target-empty">No deal price yet</span>'}</span>
             </div>
             ${storeCompareHtml}
             ${groupBestHtml}
@@ -2784,35 +2851,16 @@ function toggleMasterTable() {
 // ── Mobile Priority Rail ──────────────────────────────────────────────────────
 function renderMobilePriorityRail() {
     const rail = document.getElementById('mobile-priority-rail');
-    if (!rail || !window.matchMedia('(max-width: 768px)').matches) return;
+    if (!rail) return;
+    const isMobile = isMobileViewport();
+    rail.classList.toggle('desktop-priority-rail', !isMobile);
 
-    // Buy Now items (low stock + on special)
-    const priorityItems = _data.filter(item =>
-        item.stock === 'low' && (item.on_special || (item.target && item.price && item.price <= item.target))
-    ).sort((a, b) => {
-        const savA = a.was_price ? (a.was_price - a.price) / a.was_price : 0;
-        const savB = b.was_price ? (b.was_price - b.price) / b.was_price : 0;
-        return savB - savA;
-    }).slice(0, 6);
-
-    // Top 5 deals
-    const topDeals = _data
-        .filter(item => {
-            const ep = item.eff_price || item.price || 0;
-            return ep > 0 && !item.price_unavailable && (
-                item.on_special || ((item.target || 0) > 0 && ep <= item.target)
-            );
-        })
-        .map(item => {
-            const ep = item.eff_price || item.price;
-            const shelf = item.price || ep;
-            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || ep);
-            const savePct = ref > shelf ? Math.round((1 - shelf / ref) * 100) : 0;
-            return { ...item, _ep: ep, _savePct: savePct };
-        })
-        .filter(i => i._savePct > 0)
-        .sort((a, b) => b._savePct - a._savePct)
-        .slice(0, 5);
+    const priorityItems = getPriorityItems(_data, 6);
+    const topDeals = getTopDeals(_data, 5);
+    if (priorityItems.length === 0 && topDeals.length === 0) {
+        rail.innerHTML = '';
+        return;
+    }
 
     let html = '<div class="priority-rail-inner">';
 
@@ -2820,9 +2868,8 @@ function renderMobilePriorityRail() {
         html += `<div class="priority-rail-section">
             <div class="priority-rail-title">🔥 Buy Now <span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 7px;border-radius:100px;">${priorityItems.length}</span></div>
             ${priorityItems.map(item => {
-                const price = item.eff_price || item.price || 0;
-                const saveStr = item.was_price && item.was_price > item.price
-                    ? `-${Math.round((item.was_price - item.price) / item.was_price * 100)}%` : '🎯';
+                const price = item._snap.eff;
+                const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
                 return `<div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="buy-now-stock-dot"></div>
                     <div class="buy-now-info">
@@ -2840,15 +2887,14 @@ function renderMobilePriorityRail() {
         html += `<div class="priority-rail-section">
             <div class="priority-rail-title">🏆 Top Deals</div>
             ${topDeals.map((item, i) => {
-                const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
                 const name = displayName(item.name);
                 return `<div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${name}">
                     <span class="top5-medal">${medals[i]}</span>
                     <div class="top5-info">
                         <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
-                        <div class="top5-price" style="color:${storeColor};">$${item._ep.toFixed(2)}</div>
+                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
                     </div>
-                    <span class="top5-save">-${item._savePct}%</span>
+                    <span class="top5-save">-${item._snap.savePct}%</span>
                 </div>`;
             }).join('')}
         </div>`;
@@ -2865,17 +2911,7 @@ function renderBuyNow() {
     const badge = document.getElementById('buy-now-count');
     if (!card || !list) return;
 
-    const priorityItems = _data.filter(item => {
-        const isLow = item.stock === 'low';
-        const isOnSpecial = item.on_special === true;
-        const atTarget = item.target && item.price && item.price <= item.target;
-        return isLow && (isOnSpecial || atTarget);
-    }).sort((a, b) => {
-        // Sort by savings % descending
-        const savA = a.was_price ? (a.was_price - a.price) / a.was_price : 0;
-        const savB = b.was_price ? (b.was_price - b.price) / b.was_price : 0;
-        return savB - savA;
-    }).slice(0, 8);
+    const priorityItems = getPriorityItems(_data, 8);
 
     if (priorityItems.length === 0) {
         card.style.display = 'none';
@@ -2885,10 +2921,10 @@ function renderBuyNow() {
     card.style.display = 'block';
     badge.textContent = priorityItems.length;
     list.innerHTML = priorityItems.map(item => {
-        const price = item.eff_price || item.price || 0;
+        const price = item._snap.eff;
         const wasPr = item.was_price;
-        const shelf = item.price || price;
-        const saveStr = wasPr && wasPr > shelf ? `-${Math.round((wasPr - shelf) / wasPr * 100)}%` : '🎯';
+        const shelf = item._snap.shelf;
+        const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
         const priceStr = price ? `$${price.toFixed(2)}` : '—';
         return `
                 <div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
@@ -3345,6 +3381,7 @@ function renderAnalytics() {
     // ── New Analytics Widgets ──────────────────────────────────────────────
     renderSavingsGauge();
     renderWeeklySavings();
+    renderWeeklyActionPlan();
     renderShoppingTimeInsights();
     renderCategoryInflation();
     renderDealHeatmap();
@@ -3618,23 +3655,7 @@ function renderTop5Deals() {
     if (!container) return;
 
     // Rank by savings % — store specials first, then target-based
-    const deals = _data
-        .filter(item => {
-            const ep = item.eff_price || item.price || 0;
-            return ep > 0 && !item.price_unavailable && (
-                item.on_special || ((item.target || 0) > 0 && ep <= item.target)
-            );
-        })
-        .map(item => {
-            const ep = item.eff_price || item.price;
-            const shelf = item.price || ep;
-            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || ep);
-            const savePct = ref > shelf ? Math.round((1 - shelf / ref) * 100) : 0;
-            return { ...item, _ep: ep, _savePct: savePct };
-        })
-        .filter(i => i._savePct > 0)
-        .sort((a, b) => b._savePct - a._savePct)
-        .slice(0, 5);
+    const deals = getTopDeals(_data, 5);
 
     if (deals.length === 0) {
         container.innerHTML = '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:8px 0;">No standout deals yet — prices update through the week.</p>';
@@ -3643,15 +3664,14 @@ function renderTop5Deals() {
 
     container.innerHTML = deals.map((item, i) => {
         const medal = ['🥇','🥈','🥉','4️⃣','5️⃣'][i];
-        const storeColor = item.store === 'coles' ? '#e2231a' : '#00b14f';
         return `
             <div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${displayName(item.name)}">
                 <span class="top5-medal">${medal}</span>
                 <div class="top5-info">
                     <div class="top5-name">${(() => { const dn = displayName(item.name); return dn.length > 28 ? dn.substring(0,28)+'…' : dn; })()}</div>
-                    <div class="top5-price" style="color:${storeColor};">$${item._ep.toFixed(2)}</div>
+                    <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
                 </div>
-                <span class="top5-save">-${item._savePct}%</span>
+                <span class="top5-save">-${item._snap.savePct}%</span>
             </div>
         `;
     }).join('');
@@ -3759,34 +3779,10 @@ function renderSavingsGauge() {
     const container = document.getElementById('savings-gauge-container');
     if (!container) return;
 
-    // Current savings from active specials (was_price - eff_price)
-    let currentSavings = 0;
-    let potentialSavings = 0;
-    let specialCount = 0;
-
-    _data.forEach(item => {
-        const ep = item.eff_price || item.price || 0;
-        const shelf = item.price || ep;
-        if (ep <= 0 || item.price_unavailable) return;
-
-        // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
-        if (item.on_special && item.was_price && item.was_price > shelf) {
-            currentSavings += (item.was_price - shelf);
-            potentialSavings += (item.was_price - shelf);
-            specialCount++;
-        } else if (item.target > 0 && ep <= item.target) {
-            // Target-based saving
-            const saving = item.target - ep;
-            currentSavings += saving;
-            potentialSavings += saving;
-            specialCount++;
-        }
-
-        // Add non-special items' potential (estimated 15% saving if they go on special)
-        if (!item.on_special && item.target > 0) {
-            potentialSavings += Math.max(0, ep - item.target);
-        }
-    });
+    const savingsSummary = getSavingsOverview(_data);
+    const currentSavings = savingsSummary.currentSavings;
+    const potentialSavings = savingsSummary.currentSavings + savingsSummary.potentialSavings;
+    const specialCount = savingsSummary.activeDeals;
 
     const pct = potentialSavings > 0 ? Math.min((currentSavings / Math.max(potentialSavings, currentSavings)) * 100, 100) : 0;
     const radius = 54;
@@ -3839,9 +3835,9 @@ function renderWeeklySavings() {
     const dealItems = [];
 
     _data.forEach(item => {
-        const shelf = item.price || 0;
-        if (item.on_special && item.was_price && item.was_price > shelf && shelf > 0) {
-            const saved = item.was_price - shelf;
+        const snap = computeItemSavingsSnapshot(item);
+        if (item.on_special && item.was_price && item.was_price > snap.shelf && snap.shelf > 0) {
+            const saved = item.was_price - snap.shelf;
             totalSaved += saved;
             totalWouldCost += item.was_price;
             dealItems.push({ name: item.name, saved, savePct: Math.round((saved / item.was_price) * 100), store: item.store });
@@ -3861,9 +3857,34 @@ function renderWeeklySavings() {
                     <span class="wdr-save">-${d.savePct}% ($${d.saved.toFixed(2)})</span>
                 </div>
             `).join('')}
-            ${topDeals.length === 0 ? '<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:1rem 0;">No store-confirmed specials with was_price data yet.</p>' : ''}
+            ${topDeals.length === 0 ? '<p class="weekly-empty">No store-confirmed specials with was_price data yet.</p>' : ''}
         </div>
     `;
+}
+
+function renderWeeklyActionPlan() {
+    const container = document.getElementById('weekly-action-plan-container');
+    if (!container) return;
+    const actions = buildWeeklyActionPlan(5);
+    if (!actions.length) {
+        container.innerHTML = '<p class="weekly-empty">No high-confidence savings actions yet. Add more target prices to improve recommendations.</p>';
+        return;
+    }
+    container.innerHTML = actions.map((row, i) => {
+        const item = row.item;
+        const level = row.urgency === 2 ? 'Urgent' : row.urgency === 1 ? 'Soon' : 'Optional';
+        const storeLabel = item.store === 'coles' ? 'Coles' : 'Woolies';
+        return `
+            <button type="button" class="action-plan-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+                <span class="action-plan-rank">${i + 1}</span>
+                <span class="action-plan-main">
+                    <span class="action-plan-name">${displayName(item.name)}</span>
+                    <span class="action-plan-meta">${storeLabel} · ${level}</span>
+                </span>
+                <span class="action-plan-save">Save ${row.snap.savePct}%</span>
+            </button>
+        `;
+    }).join('');
 }
 
 function renderShoppingTimeInsights() {
