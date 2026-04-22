@@ -225,13 +225,16 @@ let _currentTab = 'deals';
 let _shopMode = localStorage.getItem('shopMode') || 'weekly';
 let _shoppingList = normalizeShoppingListShape(loadShoppingListFromStorage());
 let _shoppingTripMode = localStorage.getItem('shoppingTripMode') === '1';
+let _shoppingTripStartedAt = localStorage.getItem('shoppingTripStartedAt') || '';
+let _shoppingTripStartCount = Number.parseInt(localStorage.getItem('shoppingTripStartCount') || '', 10);
+if (!Number.isFinite(_shoppingTripStartCount) || _shoppingTripStartCount < 0) _shoppingTripStartCount = null;
+let _shoppingTripTimeoutAt = Number.parseInt(localStorage.getItem('shoppingTripTimeoutAt') || '', 10);
+if (!Number.isFinite(_shoppingTripTimeoutAt) || _shoppingTripTimeoutAt <= 0) _shoppingTripTimeoutAt = 0;
 let _selectedItemForModal = null;
 let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
-let _apiUrl = localStorage.getItem('bridge_url') || 'http://localhost:5001';
-let _keepNoteUrl = localStorage.getItem('google_keep_note_url') || '';
-/** Cloudflare Worker base URL for POST /update_stock (optional; overrides bridge for writes). */
+/** Cloudflare Worker base URL for POST /update_stock. */
 let _writeApiUrl = localStorage.getItem('write_api_url') || '';
 /** Shared secret header for the Worker — stored only in localStorage in the browser. */
 let _writeApiSecret = localStorage.getItem('write_api_secret') || '';
@@ -240,6 +243,10 @@ const MONTHLY_BUDGET = 800;
 
 /** Mirrors chef_os._PRICE_UNRELIABLE — eff_price at or above is not comparable */
 const PRICE_UNRELIABLE = 99999;
+const SHOPPING_TRIP_SESSIONS_KEY = 'shoppingTripSessions';
+const SHOPPING_TRIP_SESSIONS_MAX = 200;
+const SHOPPING_TRIP_TIMEOUT_MS = 2 * 60 * 60 * 1000; // 2h idle timeout failsafe
+const SHOPPING_TRIP_TIMEOUT_REMINDER_KEY = 'shoppingTripTimeoutReminderPending';
 
 /** Populated by rebuildCompareGroupMeta() after each data load */
 let _compareGroupMeta = new Map();
@@ -275,31 +282,116 @@ function persistShoppingList() {
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
 }
 
+function loadShoppingTripSessions() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem(SHOPPING_TRIP_SESSIONS_KEY) || '[]');
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
+
+function persistShoppingTripSessions(sessions) {
+    localStorage.setItem(SHOPPING_TRIP_SESSIONS_KEY, JSON.stringify(sessions));
+}
+
+function markShoppingTripActivity() {
+    if (!_shoppingTripMode) return;
+    _shoppingTripTimeoutAt = Date.now() + SHOPPING_TRIP_TIMEOUT_MS;
+    localStorage.setItem('shoppingTripTimeoutAt', String(_shoppingTripTimeoutAt));
+}
+
+function beginShoppingTripSession() {
+    if (_shoppingTripStartedAt) return;
+    _shoppingTripStartedAt = new Date().toISOString();
+    _shoppingTripStartCount = _shoppingList.length;
+    localStorage.setItem('shoppingTripStartedAt', _shoppingTripStartedAt);
+    localStorage.setItem('shoppingTripStartCount', String(_shoppingTripStartCount));
+    markShoppingTripActivity();
+}
+
+function finalizeShoppingTripSession(reason = 'manual_end') {
+    if (!_shoppingTripStartedAt) return;
+    const startMs = Date.parse(_shoppingTripStartedAt);
+    const endIso = new Date().toISOString();
+    if (!Number.isFinite(startMs)) {
+        _shoppingTripStartedAt = '';
+        _shoppingTripStartCount = null;
+        localStorage.removeItem('shoppingTripStartedAt');
+        localStorage.removeItem('shoppingTripStartCount');
+        return;
+    }
+    const sessions = loadShoppingTripSessions();
+    const pickedCount = _shoppingList.filter(item => item?.picked).length;
+    sessions.push({
+        started_at: _shoppingTripStartedAt,
+        ended_at: endIso,
+        duration_seconds: Math.max(0, Math.round((Date.now() - startMs) / 1000)),
+        reason,
+        start_count: Number.isFinite(_shoppingTripStartCount) ? _shoppingTripStartCount : _shoppingList.length,
+        end_count: _shoppingList.length,
+        picked_count: pickedCount,
+    });
+    const trimmed = sessions.length > SHOPPING_TRIP_SESSIONS_MAX
+        ? sessions.slice(-SHOPPING_TRIP_SESSIONS_MAX)
+        : sessions;
+    persistShoppingTripSessions(trimmed);
+    _shoppingTripStartedAt = '';
+    _shoppingTripStartCount = null;
+    localStorage.removeItem('shoppingTripStartedAt');
+    localStorage.removeItem('shoppingTripStartCount');
+    _shoppingTripTimeoutAt = 0;
+    localStorage.removeItem('shoppingTripTimeoutAt');
+}
+
 function isShoppingTripMode() {
     return _shoppingTripMode;
 }
 
-function setShoppingTripMode(on) {
-    _shoppingTripMode = Boolean(on);
+function setShoppingTripMode(on, reason = 'manual') {
+    const next = Boolean(on);
+    const prev = _shoppingTripMode;
+    if (next && !prev) beginShoppingTripSession();
+    if (!next && prev) finalizeShoppingTripSession(reason);
+    _shoppingTripMode = next;
     localStorage.setItem('shoppingTripMode', _shoppingTripMode ? '1' : '0');
+    if (next) {
+        markShoppingTripActivity();
+        if (localStorage.getItem(SHOPPING_TRIP_TIMEOUT_REMINDER_KEY) === '1') {
+            showUiToast('Last trip timed out. Please end your trip with Done shopping when finished.', 5200);
+            localStorage.removeItem(SHOPPING_TRIP_TIMEOUT_REMINDER_KEY);
+        }
+    } else {
+        _shoppingTripTimeoutAt = 0;
+        localStorage.removeItem('shoppingTripTimeoutAt');
+    }
     updateListCount();
     renderShoppingList();
+}
+
+if (_shoppingTripMode && !_shoppingTripStartedAt) beginShoppingTripSession();
+
+function checkShoppingTripTimeout() {
+    if (!_shoppingTripMode) return;
+    if (!_shoppingTripTimeoutAt) markShoppingTripActivity();
+    if (_shoppingTripTimeoutAt && Date.now() >= _shoppingTripTimeoutAt) {
+        localStorage.setItem(SHOPPING_TRIP_TIMEOUT_REMINDER_KEY, '1');
+        setShoppingTripMode(false, 'idle_timeout');
+    }
 }
 
 function toggleListItemPicked(index) {
     const row = _shoppingList[index];
     if (!row) return;
     row.picked = !row.picked;
+    markShoppingTripActivity();
     persistShoppingList();
     renderShoppingList();
 }
 
 function clearPickedListItems() {
     _shoppingList = _shoppingList.filter(row => !row?.picked);
-    if (_shoppingList.length === 0 && _shoppingTripMode) {
-        _shoppingTripMode = false;
-        localStorage.setItem('shoppingTripMode', '0');
-    }
+    if (_shoppingList.length === 0 && _shoppingTripMode) setShoppingTripMode(false, 'clear_completed_empty');
     persistShoppingList();
     updateListCount();
     renderShoppingList();
@@ -313,21 +405,13 @@ function escapeHtml(s) {
         .replace(/"/g, '&quot;');
 }
 
-/** Base URL for pantry/stock writes: Worker if configured, else LAN bridge (`_apiUrl`). */
+/** Base URL for pantry/stock writes (cloud Worker only). */
 function getStockWriteBase() {
-    const w = (_writeApiUrl || '').trim();
-    if (w) return w.replace(/\/$/, '');
-    return (_apiUrl || '').trim().replace(/\/$/, '');
+    return (_writeApiUrl || '').trim().replace(/\/$/, '');
 }
 
 function usesCloudWrite() {
     return Boolean((_writeApiUrl || '').trim());
-}
-
-function isInsecureLocalBridgeBlockedByHttpsPage(bridgeBase) {
-    if (window.location.protocol !== 'https:') return false;
-    const base = String(bridgeBase || '').toLowerCase();
-    return base.startsWith('http://localhost') || base.startsWith('http://127.0.0.1');
 }
 
 /** Matches chef_os merge keys: prefer item_id, then display name */
@@ -724,6 +808,7 @@ async function initDashboard() {
             const tick = () => {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
                 monitorApi();
+                checkShoppingTripTimeout();
             };
             const tickCloud = () => {
                 if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
@@ -735,10 +820,12 @@ async function initDashboard() {
                 if (document.visibilityState === 'visible') {
                     monitorApi();
                     monitorCloudHealth();
+                    checkShoppingTripTimeout();
                 }
             });
             monitorApi();
             monitorCloudHealth();
+            checkShoppingTripTimeout();
         }
 
         // Build _history from inline scrape_history (single source of truth)
@@ -889,19 +976,16 @@ function setupFilters() {
     // Clear List
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
+            if (_shoppingTripMode) setShoppingTripMode(false, 'clear_all');
             _shoppingList = [];
             persistShoppingList();
-            _shoppingTripMode = false;
-            localStorage.setItem('shoppingTripMode', '0');
             renderShoppingList();
             updateListCount();
         }
     });
 
-    document.getElementById('open-keep-btn')?.addEventListener('click', openShoppingListInKeep);
-    document.getElementById('sync-keep-btn')?.addEventListener('click', syncShoppingListToKeep);
     document.getElementById('go-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(true));
-    document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false));
+    document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false, 'done_button'));
     document.getElementById('clear-completed-btn')?.addEventListener('click', clearPickedListItems);
     
     // Settings Logic
@@ -914,8 +998,6 @@ function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('write-api-url-input').value = _writeApiUrl;
     document.getElementById('write-api-secret-input').value = _writeApiSecret;
-    document.getElementById('bridge-url-input').value = _apiUrl;
-    document.getElementById('keep-url-input').value = _keepNoteUrl;
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
@@ -932,14 +1014,6 @@ function saveSettings() {
     _writeApiSecret = document.getElementById('write-api-secret-input').value;
     localStorage.setItem('write_api_url', _writeApiUrl);
     localStorage.setItem('write_api_secret', _writeApiSecret);
-    _keepNoteUrl = document.getElementById('keep-url-input').value.trim();
-    localStorage.setItem('google_keep_note_url', _keepNoteUrl);
-
-    const val = document.getElementById('bridge-url-input').value.trim();
-    if (val) {
-        _apiUrl = val;
-        localStorage.setItem('bridge_url', _apiUrl);
-    }
     closeSettings();
     updateListCount();
     monitorApi();
@@ -958,6 +1032,7 @@ function toggleDrawer() {
     drawer.classList.toggle('open');
     overlay.classList.toggle('open');
     const isOpen = drawer.classList.contains('open');
+    document.body.classList.toggle('drawer-open', isOpen);
     toggleBtns.forEach(btn => btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'));
     if (isOpen) {
         haptic(8);
@@ -1648,16 +1723,6 @@ function updateListCount() {
     // Enable copy button
     const copyBtn = document.getElementById('copy-list-btn');
     if (copyBtn) copyBtn.disabled = _shoppingList.length === 0;
-    const syncBtn = document.getElementById('sync-keep-btn');
-    if (syncBtn) {
-        const blockedByHttps = isInsecureLocalBridgeBlockedByHttpsPage((_apiUrl || '').trim().replace(/\/$/, ''));
-        syncBtn.disabled = _shoppingList.length === 0 || blockedByHttps;
-        syncBtn.title = blockedByHttps
-            ? 'On HTTPS, switch Bridge URL to your Mac Wi-Fi address (not localhost).'
-            : '';
-    }
-    const openKeepBtn = document.getElementById('open-keep-btn');
-    if (openKeepBtn) openKeepBtn.disabled = !_keepNoteUrl;
 
     const goShoppingBtn = document.getElementById('go-shopping-btn');
     if (goShoppingBtn) {
@@ -1674,78 +1739,6 @@ function updateListCount() {
         const pickedCount = _shoppingList.filter(item => item?.picked).length;
         clearCompletedBtn.hidden = !isShoppingTripMode();
         clearCompletedBtn.disabled = pickedCount === 0;
-    }
-}
-
-function openShoppingListInKeep() {
-    if (!_keepNoteUrl) {
-        alert('Add your Google Keep note URL in Settings first.');
-        return;
-    }
-    window.open(_keepNoteUrl, '_blank', 'noopener,noreferrer');
-}
-
-async function syncShoppingListToKeep() {
-    if (_shoppingList.length === 0) {
-        alert('Your shopping list is empty.');
-        return;
-    }
-    const base = (_apiUrl || '').trim().replace(/\/$/, '');
-    if (!base) {
-        alert('Set your local bridge URL in Settings first.');
-        return;
-    }
-    if (isInsecureLocalBridgeBlockedByHttpsPage(base)) {
-        alert('Keep sync is blocked on HTTPS with localhost. In Settings, set Bridge URL to your Mac Wi-Fi address (for example http://192.168.x.x:5001), or open the dashboard over file:// or HTTP.');
-        return;
-    }
-
-    const btn = document.getElementById('sync-keep-btn');
-    const original = btn ? btn.innerHTML : '';
-    if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = '<i data-feather="loader"></i> Starting...';
-        if (typeof feather !== 'undefined') feather.replace();
-    }
-
-    const payload = _shoppingList.map(item => ({
-        item_id: item.item_id || null,
-        name: item.name || '',
-        qty: item.qty || 1,
-        price: item.price || null,
-        store: item.store || null,
-        on_special: Boolean(item.on_special),
-    }));
-
-    try {
-        const res = await fetch(`${base}/sync`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ shoppingList: payload }),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || data.status !== 'success') {
-            throw new Error(data.message || `Sync request failed (${res.status})`);
-        }
-        if (btn) {
-            btn.innerHTML = '<i data-feather="check"></i> Sync started';
-            btn.style.background = 'var(--woolies-green)';
-            if (typeof feather !== 'undefined') feather.replace();
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.background = '';
-                updateListCount();
-                if (typeof feather !== 'undefined') feather.replace();
-            }, 2200);
-        }
-    } catch (err) {
-        if (btn) {
-            btn.innerHTML = original;
-            btn.style.background = '';
-            updateListCount();
-            if (typeof feather !== 'undefined') feather.replace();
-        }
-        alert(`Keep sync failed: ${err.message || err}`);
     }
 }
 
@@ -1817,6 +1810,7 @@ function renderShoppingList() {
     const container = document.getElementById('shopping-list-items');
     const totalEl = document.getElementById('list-total-price');
     const totalLabelEl = document.getElementById('list-total-label');
+    const tripStatusEl = document.getElementById('shopping-trip-status');
     const drawer = document.getElementById('list-drawer');
     if (!container) return;
     
@@ -1825,9 +1819,11 @@ function renderShoppingList() {
     if (drawer) drawer.classList.toggle('shopping-trip-mode', shoppingMode);
     if (totalLabelEl) totalLabelEl.textContent = shoppingMode ? 'Left to buy' : 'About';
     let total = 0;
+    let pickedCount = 0;
     
     _shoppingList.forEach((item, index) => {
         const isPicked = Boolean(item.picked);
+        if (isPicked) pickedCount += 1;
         const itemTotal = (item.price || 0) * item.qty;
         if (!shoppingMode || !isPicked) total += itemTotal;
         
@@ -1845,7 +1841,7 @@ function renderShoppingList() {
                 <div class="shopping-item-name">${item.qty}× ${displayName(item.name)} ${specialBadge}</div>
                 <div class="shopping-item-price">${item.store === 'woolworths' ? '🟢 Woolies' : '🔴 Coles'} — $${itemTotal.toFixed(2)}</div>
             </div>
-            <button class="icon-btn" onclick="removeFromList(${index})"><i data-feather="trash-2"></i></button>
+            <button class="icon-btn shopping-item-remove" type="button" onclick="removeFromList(${index})" aria-label="Remove ${displayName(item.name)} from shopping list"><i data-feather="trash-2"></i></button>
         `;
         container.appendChild(div);
     });
@@ -1862,6 +1858,17 @@ function renderShoppingList() {
                 toggleListItemPicked(idx);
             });
         });
+    }
+
+    if (tripStatusEl) {
+        if (!shoppingMode || _shoppingList.length === 0) {
+            tripStatusEl.hidden = true;
+            tripStatusEl.textContent = '';
+        } else {
+            const leftCount = Math.max(0, _shoppingList.length - pickedCount);
+            tripStatusEl.hidden = false;
+            tripStatusEl.textContent = `${leftCount} left · ${pickedCount} done`;
+        }
     }
     
     totalEl.textContent = `$${total.toFixed(2)}`;
@@ -1918,55 +1925,37 @@ async function monitorApi() {
     const text = document.getElementById('api-status-text');
     if (!dot || !text) return;
 
-    const cloudBase = (_writeApiUrl || '').trim().replace(/\/$/, '');
-    if (cloudBase) {
-        try {
-            const res = await fetch(`${cloudBase}/health?t=${Date.now()}`, { method: 'GET', cache: 'no-store' }).catch(() => null);
-            if (res && res.ok) {
-                const data = await res.json().catch(() => ({}));
-                const ok = data.ok !== false && data.configured !== false;
-                if (ok) {
-                    dot.className = 'status-dot online';
-                    text.textContent = 'Pantry writes: cloud ready';
-                    text.title = '';
-                    return;
-                }
+    try {
+        const cloudBase = getStockWriteBase();
+        if (!cloudBase) {
+            dot.className = 'status-dot offline';
+            text.textContent = 'Pantry writes: set cloud Worker URL';
+            text.title = 'Open Settings and set Cloud write API + write secret.';
+            return;
+        }
+
+        const res = await fetch(`${cloudBase}/health?t=${Date.now()}`, { method: 'GET', cache: 'no-store' }).catch(() => null);
+        if (res && res.ok) {
+            const data = await res.json().catch(() => ({}));
+            const ok = data.ok !== false && data.configured !== false;
+            if (!ok) {
+                dot.className = 'status-dot offline';
+                text.textContent = 'Pantry writes: cloud unavailable';
+                text.title = 'Check Worker URL and secrets (GitHub token + write secret).';
+                return;
             }
+            dot.className = 'status-dot online';
+            text.textContent = 'Pantry writes: cloud ready';
+            text.title = '';
+        } else {
             dot.className = 'status-dot offline';
             text.textContent = 'Pantry writes: cloud unavailable';
             text.title = 'Check Worker URL and secrets (GitHub token + write secret).';
-            return;
-        } catch {
-            dot.className = 'status-dot offline';
-            text.textContent = 'Pantry writes: cloud offline';
-            text.title = '';
-            return;
-        }
-    }
-
-    try {
-        // HTTPS (e.g. GitHub Pages) cannot call http://localhost — browser mixed-content block (expected).
-        const onGithubPages = /\.github\.io$/i.test(window.location.hostname || '');
-        if (window.location.protocol === 'https:' && _apiUrl.startsWith('http://localhost')) {
-            dot.className = 'status-dot offline';
-            text.textContent = onGithubPages
-                ? 'Pantry writes: set cloud Worker URL'
-                : 'Pantry writes: add computer address';
-            text.title = 'On HTTPS from your phone, use Settings → Cloud write API, or your Mac’s Wi‑Fi address for the bridge.';
-            return;
-        }
-
-        const res = await fetch(`${_apiUrl}/status`).catch(() => null);
-        if (res && res.ok) {
-            dot.className = 'status-dot online';
-            text.textContent = 'Pantry writes: bridge on';
-        } else {
-            dot.className = 'status-dot offline';
-            text.textContent = 'Pantry writes: bridge off';
         }
     } catch {
         dot.className = 'status-dot offline';
-        text.textContent = 'Pantry writes: offline';
+        text.textContent = 'Pantry writes: cloud offline';
+        text.title = '';
     }
 }
 
@@ -2513,6 +2502,10 @@ async function saveItemChanges() {
     
     try {
         const base = getStockWriteBase();
+        if (!base) {
+            alert('Set your Cloud write API in Settings first.');
+            return;
+        }
         const headers = { 'Content-Type': 'application/json' };
         if (usesCloudWrite() && _writeApiSecret) {
             headers['X-WooliesBot-Secret'] = _writeApiSecret;
@@ -2541,11 +2534,7 @@ async function saveItemChanges() {
             alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
         }
     } catch (e) {
-        alert(
-            usesCloudWrite()
-                ? 'Could not reach the cloud write API. Check the Worker URL and your connection.'
-                : 'Could not reach your computer. Check the address in Settings and that api.py is running.'
-        );
+        alert('Could not reach the cloud write API. Check the Worker URL and your connection.');
     }
 }
 

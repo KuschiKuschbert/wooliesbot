@@ -10,7 +10,7 @@ introduced. Prints a PASS/FAIL summary and saves annotated screenshots to
 Checks:
   01  Page loads, no console errors, service worker registers
   02  PWA manifest is linked and reachable
-  03  Desktop sidebar is hidden on mobile; bottom nav is visible
+  03  Mobile: bottom nav visible; stats-sidebar column visible; #buy-now-card / #top5-card hidden in sidebar
   04  Mobile priority rail renders with Buy Now + Top 5 content
   05  Stats strip scrolls horizontally (overflow-x)
   06  Sticky filter bar stays visible after vertical scroll
@@ -38,6 +38,7 @@ from __future__ import annotations
 import argparse
 import contextlib
 import http.server
+import json
 import socket
 import socketserver
 import sys
@@ -232,22 +233,38 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
     _try(results, "02", "PWA manifest served", check_manifest)
 
     # ------------------------------------------------------------------
-    # 03 — Desktop sidebar hidden, mobile bottom nav visible
+    # 03 — Mobile chrome: bottom nav + sidebar column; rail dupes hidden
     # ------------------------------------------------------------------
     def check_chrome():
-        sidebar_visible = page.eval_on_selector(
-            ".stats-sidebar",
-            "el => getComputedStyle(el).display !== 'none'",
-        )
         nav_visible = page.eval_on_selector(
             ".mobile-bottom-nav",
             "el => { const s = getComputedStyle(el); return s.display !== 'none' && s.visibility !== 'hidden'; }",
         )
-        if sidebar_visible:
-            return "FAIL", ".stats-sidebar is visible on mobile"
         if not nav_visible:
             return "FAIL", ".mobile-bottom-nav hidden"
-        return "PASS", "sidebar hidden, bottom nav visible"
+        sidebar_display = page.eval_on_selector(
+            ".stats-sidebar",
+            "el => getComputedStyle(el).display",
+        )
+        if sidebar_display == "none":
+            return "FAIL", ".stats-sidebar hidden (Essentials / Cola column missing)"
+        buy_hidden = page.evaluate(
+            """() => {
+                const el = document.querySelector('.stats-sidebar #buy-now-card');
+                if (!el) return true;
+                return getComputedStyle(el).display === 'none';
+            }"""
+        )
+        top5_hidden = page.evaluate(
+            """() => {
+                const el = document.querySelector('.stats-sidebar #top5-card');
+                if (!el) return true;
+                return getComputedStyle(el).display === 'none';
+            }"""
+        )
+        if not buy_hidden or not top5_hidden:
+            return "FAIL", "Buy Now / Top 5 in sidebar should stay hidden (see mobile CSS)"
+        return "PASS", "bottom nav + sidebar; rail cards suppressed"
 
     _try(results, "03", "mobile chrome swap", check_chrome)
 
@@ -582,6 +599,328 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         return "WARN", f"tap highlight={val}"
 
     _try(results, "13", "tap-highlight transparent", check_tap_highlight)
+
+    # ------------------------------------------------------------------
+    # 14 — Google Keep sync: drawer POST /sync (bridge responses mocked)
+    # ------------------------------------------------------------------
+    def check_keep_sync_ui():
+        """Exercises syncShoppingListToKeep() without api.py or real Keep."""
+        has_sync_ui = page.evaluate("() => !!document.getElementById('sync-keep-btn')")
+        if not has_sync_ui:
+            return "SKIP", "sync-keep-btn not present in this UI build"
+        bridge = "http://127.0.0.1:5001"
+
+        def bridge_route(route):
+            req = route.request
+            if not req.url.startswith(bridge):
+                return route.continue_()
+            if req.method == "GET" and "/status" in req.url:
+                route.fulfill(
+                    status=200,
+                    body=json.dumps({"status": "ok", "service": "e2e-mock-bridge"}),
+                    headers={"Content-Type": "application/json"},
+                )
+                return
+            if req.method == "POST" and "/sync" in req.url:
+                route.fulfill(
+                    status=200,
+                    body=json.dumps(
+                        {
+                            "status": "success",
+                            "message": "mock",
+                            "items": 1,
+                        }
+                    ),
+                    headers={"Content-Type": "application/json"},
+                )
+                return
+            return route.continue_()
+
+        page.route(f"{bridge}/**", bridge_route)
+        dialogs: list[str] = []
+
+        def on_dialog(d):
+            dialogs.append(d.message)
+            d.dismiss()
+
+        page.on("dialog", on_dialog)
+        try:
+            page.evaluate(
+                """({ bridge, keepUrl, listJson, mode }) => {
+                    localStorage.setItem('bridge_url', bridge);
+                    localStorage.setItem('google_keep_note_url', keepUrl);
+                    localStorage.setItem('shoppingList', listJson);
+                    localStorage.setItem('shoppingTripMode', mode);
+                }""",
+                {
+                    "bridge": bridge,
+                    "keepUrl": "https://keep.google.com/u/0/#NOTE/e2e_test_note",
+                    "listJson": json.dumps(
+                        [
+                            {
+                                "name": "E2E Milk",
+                                "qty": 2,
+                                "price": 3.5,
+                                "store": "woolworths",
+                            }
+                        ]
+                    ),
+                    "mode": "0",
+                },
+            )
+            page.reload(wait_until="domcontentloaded")
+            _wait_for_app_ready(page)
+            page.click(".mobile-bottom-nav button[data-tab='deals']")
+            page.wait_for_selector("#tab-deals.tab-content.active", timeout=8000)
+            page.click("#mobile-toggle-list")
+            page.wait_for_selector("#list-drawer.open", timeout=5000)
+            sync_btn = page.locator("#sync-keep-btn")
+            sync_btn.scroll_into_view_if_needed()
+            sync_btn.wait_for(state="visible", timeout=5000)
+            if sync_btn.is_disabled():
+                return "FAIL", "sync-keep-btn stayed disabled"
+            sync_btn.click()
+            page.wait_for_function(
+                """() => {
+                    const b = document.getElementById('sync-keep-btn');
+                    return b && b.textContent && b.textContent.includes('Sync started');
+                }""",
+                timeout=8000,
+            )
+            if dialogs:
+                return "FAIL", f"unexpected alert: {dialogs!r}"
+            return "PASS", "POST /sync from drawer + success UI"
+        finally:
+            try:
+                page.remove_listener("dialog", on_dialog)
+            except Exception:
+                pass
+            page.unroute(f"{bridge}/**")
+
+    _try(results, "14", "google keep sync UI (mock bridge)", check_keep_sync_ui)
+
+    # ------------------------------------------------------------------
+    # 15 — Shopping trip mode: toggle + picked persistence
+    # ------------------------------------------------------------------
+    def check_shopping_trip_mode():
+        page.evaluate(
+            """({ listJson, mode }) => {
+                localStorage.setItem('shoppingList', listJson);
+                localStorage.setItem('shoppingTripMode', mode);
+                localStorage.removeItem('shoppingTripStartedAt');
+                localStorage.removeItem('shoppingTripStartCount');
+                localStorage.setItem('shoppingTripSessions', '[]');
+            }""",
+            {
+                "listJson": json.dumps(
+                    [
+                        {
+                            "name": "E2E Bread",
+                            "qty": 1,
+                            "price": 3.2,
+                            "store": "woolworths",
+                            "picked": False,
+                        },
+                        {
+                            "name": "E2E Eggs",
+                            "qty": 1,
+                            "price": 4.5,
+                            "store": "woolworths",
+                            "picked": False,
+                        },
+                    ]
+                ),
+                "mode": "0",
+            },
+        )
+        page.reload(wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+        page.click(".mobile-bottom-nav button[data-tab='deals']")
+        page.wait_for_selector("#tab-deals.tab-content.active", timeout=8000)
+        page.evaluate("toggleDrawer()")
+        page.wait_for_selector("#list-drawer.open", timeout=5000)
+
+        go_btn = page.locator("#go-shopping-btn")
+        go_btn.wait_for(state="visible", timeout=5000)
+        if go_btn.is_disabled():
+            return "FAIL", "go-shopping-btn stayed disabled"
+        done_hidden = page.evaluate(
+            "() => document.getElementById('done-shopping-btn')?.hidden === true"
+        )
+        clear_hidden = page.evaluate(
+            "() => document.getElementById('clear-completed-btn')?.hidden === true"
+        )
+        label_before = page.eval_on_selector("#list-total-label", "el => el.textContent?.trim()")
+        if not done_hidden or not clear_hidden:
+            return "FAIL", "done/clear should be hidden before trip mode"
+        if label_before != "About":
+            return "FAIL", f"expected About label before trip mode, got {label_before!r}"
+
+        go_btn.click()
+        page.wait_for_selector(".shopping-item-picked", timeout=5000)
+        mode_on = page.evaluate("() => localStorage.getItem('shoppingTripMode') === '1'")
+        if not mode_on:
+            return "FAIL", "shoppingTripMode not enabled"
+        drawer_trip_class = page.evaluate(
+            "() => document.getElementById('list-drawer')?.classList.contains('shopping-trip-mode')"
+        )
+        if not drawer_trip_class:
+            return "FAIL", "shopping-trip-mode class missing on drawer"
+        label_trip = page.eval_on_selector("#list-total-label", "el => el.textContent?.trim()")
+        if label_trip != "Left to buy":
+            return "FAIL", f"expected Left to buy label in trip mode, got {label_trip!r}"
+        done_visible = page.evaluate(
+            "() => document.getElementById('done-shopping-btn')?.hidden === false"
+        )
+        go_hidden = page.evaluate(
+            "() => document.getElementById('go-shopping-btn')?.hidden === true"
+        )
+        clear_visible = page.evaluate(
+            "() => document.getElementById('clear-completed-btn')?.hidden === false"
+        )
+        clear_disabled = page.eval_on_selector("#clear-completed-btn", "el => el.disabled")
+        if not done_visible or not go_hidden or not clear_visible or not clear_disabled:
+            return "FAIL", "trip-mode button state matrix failed"
+        status_text = page.eval_on_selector(
+            "#shopping-trip-status", "el => el.hidden ? '' : (el.textContent || '').trim()"
+        )
+        if "left" not in status_text.lower():
+            return "FAIL", f"trip status text not shown: {status_text!r}"
+        total_before = page.eval_on_selector(
+            "#list-total-price",
+            "el => Number((el.textContent || '').replace(/[^0-9.]/g, ''))",
+        )
+
+        picked_box = page.locator(".shopping-item-picked").first
+        picked_box.check()
+        page.wait_for_function(
+            """() => {
+                const rows = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+                return Array.isArray(rows) && rows.length > 0 && rows[0].picked === true;
+            }""",
+            timeout=5000,
+        )
+        total_after_pick = page.eval_on_selector(
+            "#list-total-price",
+            "el => Number((el.textContent || '').replace(/[^0-9.]/g, ''))",
+        )
+        if not (total_after_pick < total_before):
+            return "FAIL", f"left-to-buy total did not drop ({total_before} -> {total_after_pick})"
+        clear_enabled = page.eval_on_selector("#clear-completed-btn", "el => !el.disabled")
+        if not clear_enabled:
+            return "FAIL", "clear completed stayed disabled after ticking an item"
+
+        page.click("#clear-completed-btn")
+        page.wait_for_function(
+            """() => {
+                const rows = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+                return Array.isArray(rows) && rows.length === 1 && rows[0].picked === false;
+            }""",
+            timeout=5000,
+        )
+
+        remaining_box = page.locator(".shopping-item-picked").first
+        remaining_box.check()
+        page.click("#clear-completed-btn")
+        page.wait_for_function(
+            """() => {
+                const rows = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+                return Array.isArray(rows) && rows.length === 0;
+            }""",
+            timeout=5000,
+        )
+        mode_auto_off = page.evaluate("() => localStorage.getItem('shoppingTripMode') === '0'")
+        if not mode_auto_off:
+            done_btn = page.locator("#done-shopping-btn")
+            done_btn.wait_for(state="visible", timeout=5000)
+            done_btn.click()
+            mode_auto_off = page.evaluate("() => localStorage.getItem('shoppingTripMode') === '0'")
+            if not mode_auto_off:
+                return "FAIL", "shoppingTripMode not disabled after Done shopping"
+        session_ok = page.evaluate(
+            """() => {
+                const sessions = JSON.parse(localStorage.getItem('shoppingTripSessions') || '[]');
+                if (!Array.isArray(sessions) || sessions.length === 0) return false;
+                const last = sessions[sessions.length - 1] || {};
+                return Boolean(last.started_at)
+                    && Boolean(last.ended_at)
+                    && Number.isFinite(last.duration_seconds)
+                    && last.duration_seconds >= 0;
+            }"""
+        )
+        if not session_ok:
+            return "FAIL", "shopping trip session timing was not recorded"
+        return "PASS", "trip mode matrix, totals, status, and clear-completed behavior validated"
+
+    _try(results, "15", "shopping trip mode tick flow", check_shopping_trip_mode)
+
+    # ------------------------------------------------------------------
+    # 16 — Trip timeout marker and next-trip reminder
+    # ------------------------------------------------------------------
+    def check_trip_timeout_reminder():
+        stale_start = "2026-01-01T00:00:00.000Z"
+        stale_timeout_at = 1  # always expired
+        page.evaluate(
+            """({ listJson, staleStart, staleTimeoutAt }) => {
+                localStorage.setItem('shoppingList', listJson);
+                localStorage.setItem('shoppingTripMode', '1');
+                localStorage.setItem('shoppingTripStartedAt', staleStart);
+                localStorage.setItem('shoppingTripStartCount', '1');
+                localStorage.setItem('shoppingTripTimeoutAt', String(staleTimeoutAt));
+                localStorage.setItem('shoppingTripSessions', '[]');
+                localStorage.removeItem('shoppingTripTimeoutReminderPending');
+            }""",
+            {
+                "listJson": json.dumps(
+                    [{"name": "E2E Timeout Milk", "qty": 1, "price": 4.2, "store": "woolworths", "picked": False}]
+                ),
+                "staleStart": stale_start,
+                "staleTimeoutAt": stale_timeout_at,
+            },
+        )
+        page.reload(wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+
+        timed_out = page.evaluate(
+            """() => {
+                const modeOff = localStorage.getItem('shoppingTripMode') === '0';
+                const remind = localStorage.getItem('shoppingTripTimeoutReminderPending') === '1';
+                const sessions = JSON.parse(localStorage.getItem('shoppingTripSessions') || '[]');
+                const last = sessions.length ? sessions[sessions.length - 1] : null;
+                return modeOff && remind && !!last && last.reason === 'idle_timeout';
+            }"""
+        )
+        if not timed_out:
+            return "FAIL", "stale trip did not auto-timeout with reminder marker"
+
+        page.click(".mobile-bottom-nav button[data-tab='deals']")
+        page.wait_for_selector("#tab-deals.tab-content.active", timeout=8000)
+        page.evaluate("toggleDrawer()")
+        page.wait_for_selector("#list-drawer.open", timeout=5000)
+        go_btn = page.locator("#go-shopping-btn")
+        go_btn.wait_for(state="visible", timeout=5000)
+        go_btn.click()
+
+        reminder_seen = page.wait_for_function(
+            """() => {
+                const t = document.getElementById('ui-toast');
+                if (!t) return false;
+                const msg = (t.textContent || '').toLowerCase();
+                return msg.includes('timed out') && msg.includes('done shopping');
+            }""",
+            timeout=5000,
+        )
+        if not reminder_seen:
+            return "FAIL", "next-trip timeout reminder toast not shown"
+
+        reminder_cleared = page.evaluate(
+            "() => localStorage.getItem('shoppingTripTimeoutReminderPending') !== '1'"
+        )
+        if not reminder_cleared:
+            return "FAIL", "timeout reminder marker was not cleared after showing reminder"
+        return "PASS", "idle timeout marker and next-trip reminder validated"
+
+    _try(results, "16", "trip timeout reminder flow", check_trip_timeout_reminder)
 
 
 # --------------------------------------------------------------------------

@@ -429,7 +429,10 @@
     <div id="list-drawer" class="list-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
         <div class="drawer-grabber" id="drawer-grabber" aria-hidden="true"></div>
         <div class="drawer-header">
-            <h3 id="drawer-title">🛒 Shopping List</h3>
+            <div class="drawer-title-wrap">
+                <h3 id="drawer-title">🛒 Shopping List</h3>
+                <p id="shopping-trip-status" class="shopping-trip-status" hidden aria-live="polite"></p>
+            </div>
             <div class="drawer-header-actions">
                 <button id="clear-list-btn" class="clear-list-btn" type="button">Clear All</button>
                 <button id="close-drawer" class="icon-btn" type="button" aria-label="Close shopping list"><i data-feather="x"></i></button>
@@ -450,12 +453,6 @@
             <button type="button" id="clear-completed-btn" class="sync-btn" hidden disabled>
                 <i data-feather="check-circle"></i> Clear completed
             </button>
-            <button type="button" id="open-keep-btn" class="sync-btn" disabled>
-                <i data-feather="external-link"></i> Open in Google Keep
-            </button>
-            <button type="button" id="sync-keep-btn" class="sync-btn" disabled>
-                <i data-feather="refresh-cw"></i> Sync to Google Keep
-            </button>
             <button type="button" id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
                 <i data-feather="copy"></i> Copy for messages
             </button>
@@ -463,12 +460,12 @@
     </div>
     <div id="drawer-overlay" class="drawer-overlay"></div>
 
-    <!-- Settings Modal (cloud write + optional LAN bridge) -->
+    <!-- Settings Modal (cloud write only) -->
     <div id="settings-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
         <div class="modal">
             <div class="modal-header">
                 <h3 id="settings-modal-title">⚙️ Sync &amp; pantry writes</h3>
-                <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Save stock changes from this dashboard: use your cloud Worker on GitHub Pages, or the local bridge at home.</p>
+                <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Save stock changes from this dashboard with your cloud Worker (no local bridge required).</p>
             </div>
             <div class="modal-body">
                 <label for="write-api-url-input">Cloud write API (Worker URL)</label>
@@ -479,16 +476,6 @@
                 <input type="password" id="write-api-secret-input" placeholder="Same as WOOLIESBOT_WRITE_SECRET on the Worker" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
                 <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Stored only in this browser’s local storage — never committed to the repo.</p>
 
-                <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 18px 0;">
-                <p style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">Local bridge (optional)</p>
-                <div class="alert warn" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 10px; margin-bottom: 15px; font-size: 13px;">
-                    <strong>At home only:</strong> with <code style="font-size:11px;">api.py</code> running, use your computer’s LAN address on Wi‑Fi (example: <code style="font-size:11px;">http://192.168.1.5:5001</code>). Ignore this if you use the cloud URL above.
-                </div>
-                <label for="bridge-url-input">Computer address</label>
-                <input type="text" id="bridge-url-input" placeholder="http://192.168.1.x:5001" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
-                <label for="keep-url-input" style="margin-top: 14px; display:block;">Google Keep note URL</label>
-                <input type="url" id="keep-url-input" placeholder="https://keep.google.com/u/0/#NOTE/your_note_id" autocomplete="off" style="margin-top: 8px; font-family: monospace;">
-                <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Use the same note URL configured in your Mac's <code style="font-size:11px;">GOOGLE_KEEP_URL</code>.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" id="settings-cancel">Cancel</button>

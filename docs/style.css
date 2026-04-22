@@ -1727,6 +1727,18 @@ footer {
     align-items: center;
 }
 
+.drawer-title-wrap {
+    min-width: 0;
+}
+
+.shopping-trip-status {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
 .drawer-content {
     flex: 1;
     overflow-y: auto;
@@ -1811,7 +1823,9 @@ footer {
 }
 
 .shopping-item--picked {
-    opacity: 0.58;
+    opacity: 0.68;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.04);
 }
 
 .shopping-item--picked .shopping-item-name {
@@ -1860,10 +1874,18 @@ footer {
     cursor: pointer;
 }
 
-.shopping-trip-mode #open-keep-btn,
-.shopping-trip-mode #sync-keep-btn,
+.shopping-item-remove {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
 .shopping-trip-mode #copy-list-btn {
     opacity: 0.75;
+    filter: saturate(0.6);
 }
 
 /* Card Add Button */
@@ -1903,6 +1925,10 @@ footer {
 .icon-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white;
+}
+
+body.drawer-open {
+    overflow: hidden;
 }
 
 /* --- RESPONSIVE DESIGN --- */
@@ -5058,6 +5084,16 @@ button, a, label, [role="button"] {
         padding-top: 0;
     }
 
+    .drawer-title-wrap h3 {
+        font-size: 20px;
+        line-height: 1.15;
+    }
+
+    .shopping-trip-status {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
     #close-drawer.icon-btn {
         min-width: 44px;
         min-height: 44px;
@@ -5077,6 +5113,39 @@ button, a, label, [role="button"] {
         flex: 1;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        padding: 18px;
+    }
+
+    .drawer-footer {
+        padding: 16px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .list-total-row {
+        margin-bottom: 6px;
+        font-size: 16px;
+    }
+
+    #go-shopping-btn,
+    #done-shopping-btn,
+    #clear-completed-btn {
+        min-height: 48px;
+    }
+
+    .shopping-trip-mode #done-shopping-btn,
+    .shopping-trip-mode #clear-completed-btn {
+        box-shadow: 0 8px 22px rgba(129, 140, 248, 0.35);
+    }
+
+    .shopping-trip-mode #copy-list-btn {
+        transform: scale(0.98);
+    }
+
+    .shopping-item {
+        padding: 11px;
+        gap: 10px;
     }
 
     /* ── Master Tracklist: hide table, show cards ─ */
