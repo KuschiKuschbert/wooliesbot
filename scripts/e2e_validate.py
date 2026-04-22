@@ -978,11 +978,37 @@ def run_layer_b(items, filter_name=None):
             item_store = item.get("store")
             canonical = _layer_b_canonical_snapshot_price(item)
             if hist_price is not None and canonical is not None:
-                delta = abs(float(hist_price) - float(canonical))
+                hist_compare = float(hist_price)
+                # Litre rows can carry historical shelf snapshots while canonical is $/L.
+                # Accept whichever interpretation is closer to canonical.
+                if item.get("price_mode") == "litre":
+                    pack_l = item.get("pack_litres")
+                    if isinstance(pack_l, (int, float)) and float(pack_l) > 0:
+                        shelf_norm = float(hist_price) / float(pack_l)
+                        if abs(shelf_norm - float(canonical)) < abs(hist_compare - float(canonical)):
+                            hist_compare = shelf_norm
+
+                delta = abs(hist_compare - float(canonical))
                 if hist_store == item_store:
                     if delta > 1.00:
+                        # For litre rows, compare shelf-equivalent delta as well.
+                        litre_same_store_warn = False
+                        if item.get("price_mode") == "litre":
+                            pack_l = item.get("pack_litres")
+                            if isinstance(pack_l, (int, float)) and float(pack_l) > 0:
+                                shelf_snapshot = float(hist_price)
+                                shelf_canonical = float(canonical) * float(pack_l)
+                                if abs(shelf_snapshot - shelf_canonical) <= 1.00:
+                                    litre_same_store_warn = True
+
+                        if litre_same_store_warn:
+                            notes_list.append("mid-day price change (litre-normalized snapshot)")
+                            if match == "OK":
+                                match = "WARN"
+                            continue
+
                         notes_list.append(
-                            f"scrape_history[-1]={_fmt_price(hist_price)} Δ{delta:+.2f} "
+                            f"scrape_history[-1]={_fmt_price(hist_compare)} Δ{delta:+.2f} "
                             f"vs snapshot={_fmt_price(canonical)} (same store={item_store})"
                         )
                         match = "DIFF"
