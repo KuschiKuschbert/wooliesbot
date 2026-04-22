@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23 12:52 AM",
+  "last_updated": "2026-04-23 05:32 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -22577,9 +22577,9 @@
       "avg_price": 5.5,
       "eff_price": 8.8,
       "on_special": true,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
-      "stale_as_of": "2026-04-22",
+      "stale_as_of": "2026-04-23",
       "was_price": 11.0,
       "name_check": "Twisted Healthy Treats Protein Pint Butter Caramel Cookie Frozen Dessert",
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3"
@@ -24755,6 +24755,13 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 5.99,
+          "unit_price": 27.200000000000003,
+          "eff_price": 5.99,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -24996,13 +25003,13 @@
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.0,
+      "unit_price": 3.3000000000000003,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 4.0,
-          "eff_price": 1.0,
+          "price": 1.65,
+          "unit_price": 3.3000000000000003,
+          "eff_price": 1.65,
           "was_price": null,
           "on_special": false
         },
@@ -25023,7 +25030,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Lemon Juice Bottle",
+      "name_check": "Woolworths Lemon Juice",
       "item_id": "6c63926d-45df-4ce9-ac45-3d596fafca5d"
     },
     {
@@ -25810,14 +25817,14 @@
       "on_special": false,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
-      "store": "woolworths",
-      "unit_price": 12.0,
+      "store": "coles",
+      "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
           "was_price": null,
           "on_special": false
         },
@@ -25835,7 +25842,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet",
+      "name_check": "Free Range Chicken Breast Fillets Bulk",
       "item_id": "7d18f47b-14de-443c-9c79-e10d7c31bc2c"
     },
     {
@@ -32829,9 +32836,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -50488,14 +50495,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 2.25,
-      "unit": "each",
-      "store": "coles",
+      "unit_price": 37.5,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 13.5,
-          "unit_price": 3.6,
-          "eff_price": 13.5,
+          "price": 9.0,
+          "unit_price": 37.5,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -50585,7 +50592,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Ant Rid Ant Bait",
+      "name_check": "Combat Ant-Rid Bait Pest Control",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b"
     },
     {

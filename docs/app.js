@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPullToRefresh();
     setupBottomSheetDrag();
     // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasRuntimeSecret:Boolean(_runtimeWriteConfig?.secret),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),hasLocalSecret:Boolean(localStorage.getItem('write_api_secret')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})(),hasActiveSecret:Boolean((_writeApiSecret||'').trim())},timestamp:Date.now()})}).catch(()=>{});
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
     // #region agent log
     fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H1',location:'docs/app.js:1',message:'dom ready viewport + breakpoint snapshot',data:{innerWidth:window.innerWidth,innerHeight:window.innerHeight,isMobile:isMobileViewport(),isCompact:isCompactViewport(),activeTab:document.body?.dataset?.activeTab||'unknown'},timestamp:Date.now()})}).catch(()=>{});
@@ -292,20 +292,17 @@ let _currentSort = 'discount';
 function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
     const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
-    const secret = typeof cfg.writeApiSecret === 'string' ? cfg.writeApiSecret : '';
     // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url)},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
-    return { url, secret };
+    return { url };
 }
 
 const _runtimeWriteConfig = getRuntimeWriteConfig();
 /** Cloudflare Worker base URL for POST /update_stock. */
 let _writeApiUrl = localStorage.getItem('write_api_url') || _runtimeWriteConfig.url || '';
-/** Shared secret header for the Worker — stored only in localStorage in the browser. */
-let _writeApiSecret = localStorage.getItem('write_api_secret') || _runtimeWriteConfig.secret || '';
 if (_writeApiUrl && !localStorage.getItem('write_api_url')) localStorage.setItem('write_api_url', _writeApiUrl);
-if (_writeApiSecret && !localStorage.getItem('write_api_secret')) localStorage.setItem('write_api_secret', _writeApiSecret);
+localStorage.removeItem('write_api_secret');
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 const SHOPPING_LIST_SYNC_STAMP_KEY = 'shoppingListCloudUpdatedAt';
@@ -723,10 +720,9 @@ async function pushShoppingListToCloud(reason = 'manual') {
         return;
     }
     const base = getStockWriteBase();
-    const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) {
+    if (!base) {
         // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
         // #endregion
         return;
     }
@@ -748,8 +744,8 @@ async function pushShoppingListToCloud(reason = 'manual') {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-WooliesBot-Secret': secret,
             },
+            credentials: 'include',
             body: JSON.stringify(payload),
         });
         if (!res.ok) {
@@ -794,10 +790,9 @@ function scheduleShoppingListCloudPush(reason = 'local_edit') {
 async function pullShoppingListFromCloud(reason = 'poll') {
     if (_shoppingListSyncPullInFlight) return;
     const base = getStockWriteBase();
-    const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) {
+    if (!base) {
         // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base)},timestamp:Date.now()})}).catch(()=>{});
         // #endregion
         return;
     }
@@ -811,9 +806,9 @@ async function pullShoppingListFromCloud(reason = 'poll') {
             method: 'GET',
             cache: 'no-store',
             headers: {
-                'X-WooliesBot-Secret': secret,
                 'X-WooliesBot-Device': getShoppingDeviceId(),
             },
+            credentials: 'include',
         });
         if (!res.ok) {
             // #region agent log
@@ -1472,7 +1467,6 @@ function setupMobileChromeCompaction() {
 function openSettings() {
     _focusBeforeSettings = document.activeElement;
     document.getElementById('write-api-url-input').value = _writeApiUrl;
-    document.getElementById('write-api-secret-input').value = _writeApiSecret;
     document.getElementById('settings-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
 }
@@ -1486,12 +1480,10 @@ function closeSettings() {
 
 function saveSettings() {
     _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
-    _writeApiSecret = document.getElementById('write-api-secret-input').value;
     // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H5',location:'docs/app.js:saveSettings',message:'settings saved for cloud sync',data:{hasUrl:Boolean(_writeApiUrl),hasSecret:Boolean(_writeApiSecret),urlHost:(()=>{try{return new URL(_writeApiUrl).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H5',location:'docs/app.js:saveSettings',message:'settings saved for cloud sync',data:{hasUrl:Boolean(_writeApiUrl),urlHost:(()=>{try{return new URL(_writeApiUrl).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
     localStorage.setItem('write_api_url', _writeApiUrl);
-    localStorage.setItem('write_api_secret', _writeApiSecret);
     closeSettings();
     monitorCloudHealth();
     startShoppingListCloudSyncMonitors();
@@ -3134,12 +3126,10 @@ async function saveItemChanges() {
             return;
         }
         const headers = { 'Content-Type': 'application/json' };
-        if (usesCloudWrite() && _writeApiSecret) {
-            headers['X-WooliesBot-Secret'] = _writeApiSecret;
-        }
         const response = await fetch(`${base}/update_stock`, {
             method: 'POST',
             headers,
+            credentials: 'include',
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
                 item_id: _selectedItemForModal.item_id || null,
@@ -3155,7 +3145,7 @@ async function saveItemChanges() {
             renderDashboard();
             closeModal();
         } else if (response.status === 401 || response.status === 403) {
-            alert('Write rejected — check the write secret in Settings (must match the Worker).');
+            alert('Write rejected — sign in to the protected write service with an allowed account.');
         } else if (!response.ok) {
             const errText = await response.text().catch(() => '');
             alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
