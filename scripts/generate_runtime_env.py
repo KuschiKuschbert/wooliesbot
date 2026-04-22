@@ -8,10 +8,14 @@ Primary output (tracked/deployed):
 Compatibility mirror (local-only, gitignored):
   docs/env.local.js
 
-Resolution order for each field:
-1) Process env vars (WOOLIESBOT_WRITE_API_URL / WOOLIESBOT_WRITE_API_SECRET)
-2) .env.local file values
+Resolution order for write URL:
+1) Process env var (WOOLIESBOT_WRITE_API_URL)
+2) .env.local value
 3) Existing docs/env.js value (prevents accidental blanking in CI)
+
+Secret handling:
+- Tracked output `docs/env.js` is always written with an empty secret.
+- Secret is only written to local mirror `docs/env.local.js`.
 """
 
 from __future__ import annotations
@@ -57,7 +61,7 @@ def parse_existing_runtime(path: Path) -> dict[str, str]:
     return out
 
 
-def build_payload() -> dict[str, str]:
+def build_payloads() -> tuple[dict[str, str], dict[str, str]]:
     env_file = parse_env(ENV_PATH)
     existing = parse_existing_runtime(OUT_PATH)
     url = (
@@ -68,12 +72,10 @@ def build_payload() -> dict[str, str]:
     secret = (
         os.environ.get("WOOLIESBOT_WRITE_API_SECRET", "")
         or env_file.get("WOOLIESBOT_WRITE_API_SECRET", "")
-        or existing.get("writeApiSecret", "")
     )
-    return {
-        "writeApiUrl": url,
-        "writeApiSecret": secret,
-    }
+    tracked_payload = {"writeApiUrl": url, "writeApiSecret": ""}
+    local_payload = {"writeApiUrl": url, "writeApiSecret": secret}
+    return tracked_payload, local_payload
 
 
 def render_payload(payload: dict[str, str]) -> str:
@@ -85,10 +87,9 @@ def render_payload(payload: dict[str, str]) -> str:
 
 
 def main() -> None:
-    payload = build_payload()
-    out = render_payload(payload)
-    OUT_PATH.write_text(out, encoding="utf-8")
-    LOCAL_MIRROR_PATH.write_text(out, encoding="utf-8")
+    tracked_payload, local_payload = build_payloads()
+    OUT_PATH.write_text(render_payload(tracked_payload), encoding="utf-8")
+    LOCAL_MIRROR_PATH.write_text(render_payload(local_payload), encoding="utf-8")
     print(f"Wrote {OUT_PATH}")
     print(f"Wrote {LOCAL_MIRROR_PATH}")
 
