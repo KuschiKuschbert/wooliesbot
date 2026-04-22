@@ -2059,8 +2059,8 @@ body.drawer-open {
     }
 
     .header {
-        padding-top: calc(0.42rem + env(safe-area-inset-top, 0px));
-        padding-bottom: 0.42rem;
+        padding-top: calc(0.24rem + env(safe-area-inset-top, 0px));
+        padding-bottom: 0.24rem;
     }
 
     .header-content {
@@ -2087,14 +2087,14 @@ body.drawer-open {
     }
 
     .logo h1 {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
         letter-spacing: -0.04em;
     }
 
     .logo i,
     .logo svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 
     #settings-btn.icon-btn,
@@ -2144,6 +2144,7 @@ body.drawer-open {
     .dashboard-grid {
         display: flex;
         flex-direction: column;
+        margin-top: 0.75rem;
     }
 
     /* Column order (priority rail → sidebar strip → main feed) is defined only in the
@@ -5213,8 +5214,8 @@ button, a, label, [role="button"] {
 
     /* ── Sticky filter bar (below header + notch safe area) ───────────────── */
     .sticky-filter-bar {
-        position: sticky;
-        top: calc(env(safe-area-inset-top, 0px) + 54px);
+        position: relative;
+        top: auto;
         z-index: 900;
         background: rgba(5, 5, 5, 0.88);
         backdrop-filter: blur(16px);
@@ -6107,6 +6108,8 @@ table.dr-table {
     }
 
     body.mobile-scrolled .sticky-filter-bar {
+        position: sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 42px);
         padding-top: 0.2rem;
         padding-bottom: 0.2rem;
         background: rgba(5, 5, 5, 0.93);

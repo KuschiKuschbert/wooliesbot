@@ -2127,22 +2127,24 @@ function createItemCard(item, index, type = 'special') {
     if (wooliesData && colesData) {
         const wp = wooliesData.eff_price || wooliesData.price;
         const cp = colesData.eff_price || colesData.price;
-        const wooliesWinner = wp <= cp;
-        const saving = Math.abs(wp - cp).toFixed(2);
-        storeCompareHtml = `
-            <div class="store-compare">
-                <div class="store-compare-row ${wooliesWinner ? 'winner' : ''}">
-                    <span class="store-compare-label">🟢 Woolies</span>
-                    <span class="store-compare-price">$${wp.toFixed(2)}</span>
-                    ${wooliesWinner ? '<span class="winner-badge">✓ Best</span>' : ''}
+        if (Number.isFinite(wp) && Number.isFinite(cp)) {
+            const wooliesWinner = wp <= cp;
+            const saving = Math.abs(wp - cp).toFixed(2);
+            storeCompareHtml = `
+                <div class="store-compare">
+                    <div class="store-compare-row ${wooliesWinner ? 'winner' : ''}">
+                        <span class="store-compare-label">🟢 Woolies</span>
+                        <span class="store-compare-price">$${wp.toFixed(2)}</span>
+                        ${wooliesWinner ? '<span class="winner-badge">✓ Best</span>' : ''}
+                    </div>
+                    <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
+                        <span class="store-compare-label">🔴 Coles</span>
+                        <span class="store-compare-price">$${cp.toFixed(2)}</span>
+                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving}</span>` : ''}
+                    </div>
                 </div>
-                <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
-                    <span class="store-compare-label">🔴 Coles</span>
-                    <span class="store-compare-price">$${cp.toFixed(2)}</span>
-                    ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving}</span>` : ''}
-                </div>
-            </div>
-        `;
+            `;
+        }
     }
 
     // Resolve all store links through one helper so fallback behavior stays consistent.
