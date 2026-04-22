@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
     registerSW();
     ensureShoppingDeviceId();
+    setupShoppingListSessionSync();
     showSkeletons();
     setupOverlayEscapeHandler();
     setupAnalyticsMobileBehaviors();
@@ -283,12 +284,31 @@ let _selectedItemForModal = null;
 let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
+
+function getRuntimeWriteConfig() {
+    const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
+    const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
+    const secret = typeof cfg.writeApiSecret === 'string' ? cfg.writeApiSecret : '';
+    return { url, secret };
+}
+
+const _runtimeWriteConfig = getRuntimeWriteConfig();
 /** Cloudflare Worker base URL for POST /update_stock. */
-let _writeApiUrl = localStorage.getItem('write_api_url') || '';
+let _writeApiUrl = localStorage.getItem('write_api_url') || _runtimeWriteConfig.url || '';
 /** Shared secret header for the Worker — stored only in localStorage in the browser. */
-let _writeApiSecret = localStorage.getItem('write_api_secret') || '';
+let _writeApiSecret = localStorage.getItem('write_api_secret') || _runtimeWriteConfig.secret || '';
+if (_writeApiUrl && !localStorage.getItem('write_api_url')) localStorage.setItem('write_api_url', _writeApiUrl);
+if (_writeApiSecret && !localStorage.getItem('write_api_secret')) localStorage.setItem('write_api_secret', _writeApiSecret);
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
+const SHOPPING_LIST_SYNC_STAMP_KEY = 'shoppingListCloudUpdatedAt';
+const SHOPPING_LIST_SYNC_POLL_MS = 25000;
+const SHOPPING_LIST_SYNC_PUSH_DEBOUNCE_MS = 900;
+let _shoppingListCloudUpdatedAt = localStorage.getItem(SHOPPING_LIST_SYNC_STAMP_KEY) || '';
+let _shoppingListSyncPollTimer = null;
+let _shoppingListSyncPushTimer = null;
+let _shoppingListSyncPushInFlight = false;
+let _shoppingListSyncPullInFlight = false;
 
 /** Mirrors chef_os._PRICE_UNRELIABLE — eff_price at or above is not comparable */
 const PRICE_UNRELIABLE = 99999;
@@ -335,8 +355,23 @@ function normalizeShoppingListShape(rows) {
     });
 }
 
-function persistShoppingList() {
+function persistShoppingList(opts = {}) {
+    const skipCloud = Boolean(opts?.skipCloud);
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
+    if (!skipCloud) scheduleShoppingListCloudPush('local_edit');
+}
+
+function setupShoppingListSessionSync() {
+    window.addEventListener('storage', (event) => {
+        if (event.key !== 'shoppingList') return;
+        const incoming = normalizeShoppingListShape(loadShoppingListFromStorage());
+        const currSig = JSON.stringify(_shoppingList);
+        const nextSig = JSON.stringify(incoming);
+        if (currSig === nextSig) return;
+        _shoppingList = incoming;
+        updateListCount();
+        renderShoppingList();
+    });
 }
 
 function touchShoppingListRow(row, atIso = '') {
@@ -561,6 +596,127 @@ function getStockWriteBase() {
 
 function usesCloudWrite() {
     return Boolean((_writeApiUrl || '').trim());
+}
+
+function getShoppingDeviceId() {
+    try {
+        return localStorage.getItem('shoppingDeviceId') || 'unknown';
+    } catch {
+        return 'unknown';
+    }
+}
+
+function getShoppingListCloudStampMs() {
+    const ts = Date.parse(String(_shoppingListCloudUpdatedAt || ''));
+    return Number.isFinite(ts) ? ts : 0;
+}
+
+function setShoppingListCloudStamp(iso) {
+    const t = Date.parse(String(iso || ''));
+    if (!Number.isFinite(t)) return;
+    _shoppingListCloudUpdatedAt = new Date(t).toISOString();
+    localStorage.setItem(SHOPPING_LIST_SYNC_STAMP_KEY, _shoppingListCloudUpdatedAt);
+}
+
+function getShoppingListMaxUpdatedMs(rows = _shoppingList) {
+    if (!Array.isArray(rows) || rows.length === 0) return 0;
+    let latest = 0;
+    rows.forEach((row) => {
+        const t = Date.parse(String(row?.updated_at || ''));
+        if (Number.isFinite(t) && t > latest) latest = t;
+    });
+    return latest;
+}
+
+function applyRemoteShoppingList(remoteRows, meta = {}) {
+    const normalized = normalizeShoppingListShape(remoteRows);
+    _shoppingList = normalized;
+    persistShoppingList({ skipCloud: true });
+    if (meta.updated_at) setShoppingListCloudStamp(meta.updated_at);
+    updateListCount();
+    renderShoppingList();
+}
+
+async function pushShoppingListToCloud(reason = 'manual') {
+    if (_shoppingListSyncPushInFlight) return;
+    const base = getStockWriteBase();
+    const secret = (_writeApiSecret || '').trim();
+    if (!base || !secret) return;
+    _shoppingListSyncPushInFlight = true;
+    const deviceId = getShoppingDeviceId();
+    try {
+        const nowIso = new Date().toISOString();
+        const payload = {
+            device_id: deviceId,
+            reason,
+            updated_at: nowIso,
+            items: normalizeShoppingListShape(_shoppingList),
+        };
+        const res = await fetch(`${base}/shopping_list`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-WooliesBot-Secret': secret,
+            },
+            body: JSON.stringify(payload),
+        });
+        if (!res.ok) return;
+        const body = await res.json().catch(() => ({}));
+        if (body?.updated_at) setShoppingListCloudStamp(body.updated_at);
+    } catch {}
+    finally {
+        _shoppingListSyncPushInFlight = false;
+    }
+}
+
+function scheduleShoppingListCloudPush(reason = 'local_edit') {
+    if (_shoppingListSyncPushTimer) clearTimeout(_shoppingListSyncPushTimer);
+    _shoppingListSyncPushTimer = setTimeout(() => {
+        _shoppingListSyncPushTimer = null;
+        pushShoppingListToCloud(reason);
+    }, SHOPPING_LIST_SYNC_PUSH_DEBOUNCE_MS);
+}
+
+async function pullShoppingListFromCloud(reason = 'poll') {
+    if (_shoppingListSyncPullInFlight) return;
+    const base = getStockWriteBase();
+    const secret = (_writeApiSecret || '').trim();
+    if (!base || !secret) return;
+    _shoppingListSyncPullInFlight = true;
+    try {
+        const res = await fetch(`${base}/shopping_list`, {
+            method: 'GET',
+            headers: {
+                'X-WooliesBot-Secret': secret,
+                'X-WooliesBot-Device': getShoppingDeviceId(),
+            },
+        });
+        if (!res.ok) return;
+        const body = await res.json().catch(() => null);
+        if (!body || !Array.isArray(body.items)) return;
+        const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
+        const localCloudMs = getShoppingListCloudStampMs();
+        const localRowsMs = getShoppingListMaxUpdatedMs(_shoppingList);
+        if (remoteMs <= Math.max(localCloudMs, localRowsMs)) return;
+        applyRemoteShoppingList(body.items, { updated_at: body.updated_at, reason });
+    } catch {}
+    finally {
+        _shoppingListSyncPullInFlight = false;
+    }
+}
+
+function startShoppingListCloudSyncMonitors() {
+    if (_shoppingListSyncPollTimer) return;
+    _shoppingListSyncPollTimer = setInterval(() => {
+        if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+        pullShoppingListFromCloud('interval');
+    }, SHOPPING_LIST_SYNC_POLL_MS);
+
+    window.addEventListener('online', () => pullShoppingListFromCloud('online'));
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') pullShoppingListFromCloud('visible');
+    });
+    pullShoppingListFromCloud('startup');
 }
 
 /** Matches chef_os merge keys: prefer item_id, then display name */
@@ -1050,6 +1206,7 @@ async function initDashboard() {
             });
             monitorCloudHealth();
             checkShoppingTripTimeout();
+            startShoppingListCloudSyncMonitors();
         }
 
         // Build _history from inline scrape_history (single source of truth)
@@ -1308,6 +1465,9 @@ function saveSettings() {
     localStorage.setItem('write_api_secret', _writeApiSecret);
     closeSettings();
     monitorCloudHealth();
+    startShoppingListCloudSyncMonitors();
+    pullShoppingListFromCloud('settings_saved');
+    scheduleShoppingListCloudPush('settings_saved');
 }
 
 function toggleDrawer() {

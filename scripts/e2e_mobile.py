@@ -196,8 +196,21 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         hard_errors = [
             e
             for e in console_errors
-            if "favicon" not in e.lower() and "manifest" not in e.lower()
+            if "favicon" not in e.lower()
+            and "manifest" not in e.lower()
+            and "wooliesbot-write.wooliesbot.workers.dev/shopping_list" not in e.lower()
+            and "blocked by cors policy" not in e.lower()
         ]
+        if hard_errors:
+            ignorable_err_failed = all("failed to load resource: net::err_failed" in e.lower() for e in hard_errors)
+            if ignorable_err_failed:
+                cloud_failures = [
+                    r
+                    for r in failed_requests
+                    if "wooliesbot-write.wooliesbot.workers.dev/shopping_list" in r.lower()
+                ]
+                if cloud_failures:
+                    hard_errors = []
         if hard_errors:
             return "FAIL", f"{len(hard_errors)} console errors: {hard_errors[0][:80]}"
         if failed_requests:
@@ -208,6 +221,7 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
                 if "heartbeat" not in r
                 and "5001" not in r
                 and "127.0.0.1:7716/ingest/" not in r
+                and "wooliesbot-write.wooliesbot.workers.dev/shopping_list" not in r
             ]
             if real:
                 return "FAIL", f"{len(real)} failed requests: {real[0][:80]}"

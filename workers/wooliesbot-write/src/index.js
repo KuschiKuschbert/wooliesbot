@@ -7,6 +7,7 @@
  */
 
 const DATA_PATH = "docs/data.json";
+const SHOPPING_LIST_PATH = "docs/shopping_list_sync.json";
 const MAX_BODY_BYTES = 32768;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 45;
@@ -41,6 +42,26 @@ function base64ToUtf8(b64) {
 	const bytes = new Uint8Array(bin.length);
 	for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
 	return new TextDecoder().decode(bytes);
+}
+
+function normalizeShoppingListRows(rows) {
+	if (!Array.isArray(rows)) return [];
+	return rows.map((row) => {
+		const safe = row && typeof row === "object" ? { ...row } : {};
+		const t = Date.parse(String(safe.updated_at || ""));
+		return {
+			item_id: safe.item_id || null,
+			name: String(safe.name || ""),
+			price: Number.isFinite(Number(safe.price)) ? Number(safe.price) : 0,
+			qty: Number.isFinite(Number(safe.qty)) && Number(safe.qty) > 0 ? Number(safe.qty) : 1,
+			store: String(safe.store || "woolworths"),
+			image: safe.image || null,
+			on_special: Boolean(safe.on_special),
+			was_price: Number.isFinite(Number(safe.was_price)) ? Number(safe.was_price) : null,
+			picked: Boolean(safe.picked),
+			updated_at: Number.isFinite(t) ? new Date(t).toISOString() : new Date().toISOString(),
+		};
+	});
 }
 
 function corsHeaders(env, requestOrigin) {
@@ -341,6 +362,124 @@ async function handleUpdateStock(request, env) {
 	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
 }
 
+async function handleGetShoppingList(request, env) {
+	const cfg = requireConfig(env);
+	if (cfg.missing.length) {
+		return jsonResponse({ error: "server_misconfigured", missing: cfg.missing }, 500, env, request.headers.get("Origin"));
+	}
+	const authErr = ensureAuthorizedRequest(request, cfg, env, request.headers.get("Origin"));
+	if (authErr) return authErr;
+
+	const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
+	if (getRes.status === 404) {
+		return jsonResponse({ schema: 1, updated_at: "", updated_by: "", items: [] }, 200, env, request.headers.get("Origin"));
+	}
+	if (!getRes.ok) {
+		return jsonResponse(
+			{ error: "github_get_failed", status: getRes.status, message: fileMeta.message || fileMeta },
+			502,
+			env,
+			request.headers.get("Origin"),
+		);
+	}
+
+	try {
+		const decoded = JSON.parse(base64ToUtf8(String(fileMeta.content || "").replace(/\n/g, "")));
+		const items = normalizeShoppingListRows(decoded?.items || []);
+		return jsonResponse(
+			{
+				schema: 1,
+				updated_at: decoded?.updated_at || "",
+				updated_by: decoded?.updated_by || "",
+				items,
+			},
+			200,
+			env,
+			request.headers.get("Origin"),
+		);
+	} catch {
+		return jsonResponse({ error: "shopping_list_parse_failed" }, 500, env, request.headers.get("Origin"));
+	}
+}
+
+async function handleUpsertShoppingList(request, env) {
+	const cfg = requireConfig(env);
+	if (cfg.missing.length) {
+		return jsonResponse({ error: "server_misconfigured", missing: cfg.missing }, 500, env, request.headers.get("Origin"));
+	}
+	const authErr = ensureAuthorizedRequest(request, cfg, env, request.headers.get("Origin"));
+	if (authErr) return authErr;
+
+	const cl = request.headers.get("Content-Length");
+	if (cl && Number(cl) > MAX_BODY_BYTES) {
+		return jsonResponse({ error: "payload_too_large" }, 413, env, request.headers.get("Origin"));
+	}
+
+	let body;
+	try {
+		body = await request.json();
+	} catch {
+		return jsonResponse({ error: "invalid_json" }, 400, env, request.headers.get("Origin"));
+	}
+
+	const items = normalizeShoppingListRows(body?.items || []);
+	const deviceId = String(body?.device_id || "").trim() || "unknown";
+	const updatedAt = new Date().toISOString();
+	const payload = {
+		schema: 1,
+		updated_at: updatedAt,
+		updated_by: deviceId,
+		items,
+	};
+
+	let attempt = 0;
+	const maxAttempts = 6;
+	while (attempt < maxAttempts) {
+		attempt++;
+		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
+		let sha = null;
+		if (getRes.status === 404) {
+			sha = null;
+		} else if (!getRes.ok) {
+			return jsonResponse(
+				{ error: "github_get_failed", status: getRes.status, message: fileMeta.message || fileMeta },
+				502,
+				env,
+				request.headers.get("Origin"),
+			);
+		} else {
+			sha = fileMeta.sha || null;
+		}
+
+		const outStr = `${JSON.stringify(payload, null, 2)}\n`;
+		const contentB64 = utf8ToBase64(outStr);
+		const putRes = await githubPutFile(
+			cfg.owner,
+			cfg.repo,
+			cfg.token,
+			SHOPPING_LIST_PATH,
+			"Sync shopping list via WooliesBot write API",
+			contentB64,
+			sha,
+		);
+
+		if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
+			continue;
+		}
+		if (!putRes.res.ok) {
+			return jsonResponse(
+				{ error: "github_put_failed", status: putRes.res.status, message: putRes.data.message || putRes.data },
+				502,
+				env,
+				request.headers.get("Origin"),
+			);
+		}
+		return jsonResponse({ status: "success", updated_at: updatedAt, item_count: items.length }, 200, env, request.headers.get("Origin"));
+	}
+
+	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
+}
+
 export default {
 	async fetch(request, env) {
 		const origin = request.headers.get("Origin");
@@ -358,6 +497,14 @@ export default {
 
 		if (url.pathname === "/update_stock" && request.method === "POST") {
 			return handleUpdateStock(request, env);
+		}
+
+		if (url.pathname === "/shopping_list" && request.method === "GET") {
+			return handleGetShoppingList(request, env);
+		}
+
+		if (url.pathname === "/shopping_list" && request.method === "POST") {
+			return handleUpsertShoppingList(request, env);
 		}
 
 		return new Response("Not found", { status: 404, headers: corsHeaders(env, origin) });

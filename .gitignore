@@ -4,6 +4,8 @@ chrome_profile/
 error_*.png
 logs/
 .env
+.env.local
+docs/env.local.js
 __pycache__/
 .DS_Store
 scratch/
