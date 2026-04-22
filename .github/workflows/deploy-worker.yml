@@ -58,7 +58,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           WORKER_GH_TOKEN: ${{ secrets.WORKER_GH_TOKEN }}
           WOOLIESBOT_WRITE_SECRET: ${{ secrets.WOOLIESBOT_WRITE_SECRET }}
-          WOOLIESBOT_WRITE_SECRET_PREVIOUS: ${{ secrets.WOOLIESBOT_WRITE_SECRET_PREVIOUS }}
+          WOOLIESBOT_WRITE_SECRET_PREVIOUS: ${{ secrets.WOOLIESBOT_WRITE_SECRET_PREVIOUS || '' }}
         run: |
           set -e
           if [ -z "$WORKER_GH_TOKEN" ] || [ -z "$WOOLIESBOT_WRITE_SECRET" ]; then
