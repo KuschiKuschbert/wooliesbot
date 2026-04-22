@@ -167,7 +167,7 @@ The `.env` is gitignored. chef_os.py loads it automatically via `_load_dotenv()`
 |---|---|
 | Coles API returns 404 | buildId expired — `_refresh_coles_metadata()` auto-fixes on next run |
 | Product shows $99999 price | Scraper couldn't determine unit price — check `price_mode` and `pack_litres` |
-| Dashboard shows "Pantry writes: cloud unavailable" | Verify Worker URL + secret in Settings and check Worker logs |
+| Dashboard shows "Scrape status: unavailable" | Verify `docs/heartbeat.json` is updating and the latest scrape workflow succeeded |
 | Chart.js blank canvas | Old chart not destroyed — call `chart.destroy()` first |
 | Telegram message truncated | Over 4000 chars — `send_telegram()` auto-splits at newlines |
 | Images not loading | `docs/images/` cache miss — run scraper to refresh |
