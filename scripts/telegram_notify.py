@@ -15,11 +15,19 @@ def main():
         choices=("Markdown", "HTML", ""),
         help="Telegram parse_mode value.",
     )
+    parser.add_argument(
+        "--allow-missing-secrets",
+        action="store_true",
+        help="Exit successfully when TELEGRAM secrets are not configured.",
+    )
     args = parser.parse_args()
 
     token = (os.environ.get("TELEGRAM_TOKEN") or "").strip()
     chat_id = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
     if not token or not chat_id:
+        if args.allow_missing_secrets:
+            print("Telegram secrets missing; skipping notification.")
+            return
         raise RuntimeError("Missing TELEGRAM_TOKEN or TELEGRAM_CHAT_ID.")
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"

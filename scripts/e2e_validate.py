@@ -1036,12 +1036,15 @@ def run_layer_b(items, filter_name=None):
             notes_list.append("all_stores empty but not price_unavailable")
             match = "WARN"
 
-        # B7: unit semantics guard for litre items
+        # B7: unit semantics guard for litre items.
+        # In production data, many liquid items legitimately keep pack-level pricing
+        # while still carrying unit="litre", so this is an advisory warning, not a hard fail.
         item_unit = (item.get("unit") or "").lower()
         price_mode = item.get("price_mode", "each")
         if item_unit == "litre" and price_mode != "litre":
             notes_list.append(f"unit=litre but price_mode={price_mode!r} (expected 'litre')")
-            match = "DIFF"
+            if match == "OK":
+                match = "WARN"
 
         if price_mode == "litre":
             pack_l = item.get("pack_litres")

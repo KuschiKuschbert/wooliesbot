@@ -81,7 +81,7 @@ jobs:
           path: logs/e2e_validate_links_full.json
 
       - name: Telegram failure notification
-        if: failure()
+        if: failure() && secrets.TELEGRAM_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != ''
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
