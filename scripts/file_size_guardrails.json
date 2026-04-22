@@ -1,0 +1,41 @@
+{
+  "include_extensions": [".py", ".js", ".ts", ".tsx"],
+  "exclude_globs": [
+    "chrome_profile/**",
+    "**/node_modules/**",
+    "**/*.min.js",
+    "docs/env.local.js",
+    "docs/data.json"
+  ],
+  "default_max_lines": {
+    ".py": 600,
+    ".js": 500,
+    ".ts": 500,
+    ".tsx": 500
+  },
+  "new_file_hard_max_lines": {
+    ".py": 700,
+    ".js": 650,
+    ".ts": 650,
+    ".tsx": 650
+  },
+  "legacy_growth_allowance_lines": 40,
+  "baseline_max_lines": {
+    "chef_os.py": 3841,
+    "receipt_sync.py": 654,
+    "docs/app.js": 4661,
+    "workers/wooliesbot-write/src/index.js": 578,
+    "scripts/e2e_validate.py": 1599,
+    "scripts/e2e_mobile.py": 1083,
+    "scripts/audit_mobile.py": 481,
+    "scripts/discover_variants.py": 422
+  },
+  "exceptions": [
+    {
+      "path": "docs/app.js",
+      "reason": "Wave A module extraction is in progress",
+      "owner": "wooliesbot-maintainers",
+      "expires": "2026-09-01"
+    }
+  ]
+}

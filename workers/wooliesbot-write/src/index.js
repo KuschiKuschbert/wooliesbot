@@ -3,6 +3,7 @@
  * Persists /update_stock writes via GitHub Contents API (docs/data.json).
  *
  * Secrets: GH_TOKEN (or GITHUB_TOKEN), WOOLIESBOT_WRITE_SECRET
+ * Optional during secret rotation: WOOLIESBOT_WRITE_SECRET_PREVIOUS
  * Vars: GITHUB_REPO_OWNER, GITHUB_REPO_NAME, ALLOWED_ORIGINS (comma-separated)
  */
 
@@ -173,12 +174,13 @@ function requireConfig(env) {
 	const repo = (env.GITHUB_REPO_NAME || "").trim();
 	const token = githubToken(env);
 	const secret = (env.WOOLIESBOT_WRITE_SECRET || "").trim();
+	const previousSecret = (env.WOOLIESBOT_WRITE_SECRET_PREVIOUS || "").trim();
 	const missing = [];
 	if (!owner) missing.push("GITHUB_REPO_OWNER");
 	if (!repo) missing.push("GITHUB_REPO_NAME");
 	if (!token) missing.push("GH_TOKEN");
 	if (!secret) missing.push("WOOLIESBOT_WRITE_SECRET");
-	return { owner, repo, token, secret, missing };
+	return { owner, repo, token, secret, previousSecret, missing };
 }
 
 /**
@@ -281,10 +283,31 @@ async function githubPutFile(owner, repo, token, path, message, contentB64, sha)
 	return { res, data };
 }
 
+async function decodeGithubJsonFile(fileMeta) {
+	const sha = fileMeta?.sha;
+	const b64 = fileMeta?.content;
+	if (sha && b64) {
+		return { sha, raw: JSON.parse(base64ToUtf8(String(b64).replace(/\n/g, ""))) };
+	}
+	const downloadUrl = String(fileMeta?.download_url || "").trim();
+	if (!sha || !downloadUrl) throw new Error("unexpected_github_payload");
+	const res = await fetch(downloadUrl, {
+		headers: {
+			Accept: "application/json",
+			"User-Agent": "wooliesbot-write-worker",
+		},
+	});
+	if (!res.ok) throw new Error("github_download_failed");
+	const text = await res.text();
+	return { sha, raw: JSON.parse(text) };
+}
+
 
 function ensureAuthorizedRequest(request, cfg, env, origin) {
 	const hdr = (request.headers.get("X-WooliesBot-Secret") || "").trim();
-	if (hdr !== cfg.secret) {
+	const allowedSecrets = [cfg.secret];
+	if (cfg.previousSecret) allowedSecrets.push(cfg.previousSecret);
+	if (!allowedSecrets.includes(hdr)) {
 		return jsonResponse({ error: "unauthorized" }, 401, env, origin);
 	}
 	const ip = clientIp(request);
@@ -348,62 +371,45 @@ async function handleUpdateStock(request, env) {
 			);
 		}
 
-		const sha = fileMeta.sha;
-		const b64 = fileMeta.content;
-		if (!sha || !b64) {
-			return jsonResponse({ error: "unexpected_github_payload" }, 502, env, request.headers.get("Origin"));
-		}
-
-		let rawDecoded;
 		try {
-			rawDecoded = JSON.parse(base64ToUtf8(b64.replace(/\n/g, "")));
+			const decoded = await decodeGithubJsonFile(fileMeta);
+			const merge = mergeStockChange(decoded.raw, params);
+			if (!merge.updated) {
+				return jsonResponse({ status: "not_found" }, 404, env, request.headers.get("Origin"));
+			}
+			const outStr = `${JSON.stringify(merge.payload, null, 2)}\n`;
+			const contentB64 = utf8ToBase64(outStr);
+			const putRes = await githubPutFile(
+				cfg.owner,
+				cfg.repo,
+				cfg.token,
+				DATA_PATH,
+				"Update stock via WooliesBot write API",
+				contentB64,
+				decoded.sha,
+			);
+
+			if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
+				continue;
+			}
+
+			if (!putRes.res.ok) {
+				return jsonResponse(
+					{
+						error: "github_put_failed",
+						status: putRes.res.status,
+						message: putRes.data.message || putRes.data,
+					},
+					502,
+					env,
+					request.headers.get("Origin"),
+				);
+			}
+
+			return jsonResponse({ status: "success" }, 200, env, request.headers.get("Origin"));
 		} catch {
 			return jsonResponse({ error: "data_json_parse_failed" }, 500, env, request.headers.get("Origin"));
 		}
-
-		let merge;
-		try {
-			merge = mergeStockChange(rawDecoded, params);
-		} catch (e) {
-			const msg = e && e.message === "invalid_json_shape" ? "invalid_json_shape" : "merge_failed";
-			return jsonResponse({ error: msg }, 500, env, request.headers.get("Origin"));
-		}
-
-		if (!merge.updated) {
-			return jsonResponse({ status: "not_found" }, 404, env, request.headers.get("Origin"));
-		}
-
-		const outStr = `${JSON.stringify(merge.payload, null, 2)}\n`;
-		const contentB64 = utf8ToBase64(outStr);
-
-		const putRes = await githubPutFile(
-			cfg.owner,
-			cfg.repo,
-			cfg.token,
-			DATA_PATH,
-			"Update stock via WooliesBot write API",
-			contentB64,
-			sha,
-		);
-
-		if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
-			continue;
-		}
-
-		if (!putRes.res.ok) {
-			return jsonResponse(
-				{
-					error: "github_put_failed",
-					status: putRes.res.status,
-					message: putRes.data.message || putRes.data,
-				},
-				502,
-				env,
-				request.headers.get("Origin"),
-			);
-		}
-
-		return jsonResponse({ status: "success" }, 200, env, request.headers.get("Origin"));
 	}
 
 	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));

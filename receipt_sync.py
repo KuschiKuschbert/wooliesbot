@@ -10,6 +10,8 @@ from curl_cffi import requests as cffi_requests
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import SessionNotCreatedException
+from receipt_sync_lib import io as _receipt_io
+from receipt_sync_lib import matching as _receipt_matching
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -43,26 +45,20 @@ LOGIN_TEXT_HINTS = (
 def load_inventory():
     """Returns the items list from data.json."""
     try:
-        with open(INV_FILE, "r") as f:
-            raw = json.load(f)
-        return raw if isinstance(raw, list) else raw.get("items", [])
+        return _receipt_io.load_inventory()
     except:
         return []
 
 def load_inventory_raw():
     """Returns the full data.json dict (preserves metadata like last_updated)."""
     try:
-        with open(INV_FILE, "r") as f:
-            return json.load(f)
+        return _receipt_io.load_inventory_raw()[0]
     except:
         return {"items": []}
 
 def save_inventory(items):
     """Writes items list back to data.json, preserving existing metadata."""
-    raw = load_inventory_raw()
-    raw["items"] = items
-    with open(INV_FILE, "w") as f:
-        json.dump(raw, f, indent=4)
+    _receipt_io.save_inventory(items)
 
 # ── Fuzzy receipt-to-inventory matching ──────────────────────────────────────
 # Woolworths receipt names differ from inventory names in many ways:
@@ -70,17 +66,9 @@ def save_inventory(items):
 #   Inventory: "Ww Natural Greek Style Yoghurt 2Kg"
 # We use a token-overlap score (Jaccard + coverage) that's robust to this.
 
-# Words that carry no useful signal for matching
-_STOP = {
-    'ww', 'woolworths', 'coles', 'pk', 'pack', 'ea', 'pp', 'fc',
-    'the', 'and', 'with', 'wth', 'rspca', 'ml', 'kg', 'gm', 'lt',
-    'g', 'l', 'x',
-}
-
 def _tokens(name):
     """Extract meaningful tokens from a product name."""
-    raw = re.findall(r'[a-z0-9]+', name.lower())
-    return [t for t in raw if t not in _STOP and len(t) > 1]
+    return _receipt_matching.tokens(name)
 
 def _match_score(receipt_name, inv_name):
     """
@@ -88,17 +76,11 @@ def _match_score(receipt_name, inv_name):
     score = average of Jaccard similarity and coverage-of-shorter-name.
     Requires at least 2 tokens in common.
     """
-    rt = set(_tokens(receipt_name))
-    it = set(_tokens(inv_name))
-    if not rt or not it:
-        return 0.0, 0
-    common = rt & it
-    n = len(common)
-    if n < 2:  # Hard minimum: must share at least 2 meaningful tokens
+    score = _receipt_matching.match_score(receipt_name, inv_name)
+    n = len(set(_tokens(receipt_name)) & set(_tokens(inv_name)))
+    if n < 2:
         return 0.0, n
-    jaccard  = n / len(rt | it)
-    coverage = n / min(len(rt), len(it))
-    return (jaccard + coverage) / 2.0, n
+    return score, n
 
 def find_best_inv_match(receipt_name, inventory, threshold=0.45):
     """
@@ -107,31 +89,7 @@ def find_best_inv_match(receipt_name, inventory, threshold=0.45):
     Picks the highest-scoring item; on a tie, takes the one with more
     price_history entries (most-tracked = most likely to be the right one).
     """
-    best_score, best_n, best_item = 0.0, 0, None
-    for item in inventory:
-        score, n = _match_score(receipt_name, item['name'])
-        if score > best_score or (score == best_score and n > best_n):
-            best_score, best_n, best_item = score, n, item
-    if best_score >= threshold:
-        return best_item, best_score
-    return None, 0.0
-
-# Keep old normalize_name for any legacy callers
-def normalize_name(name):
-    return name.lower().replace(' ', '').replace('-', '')
-
-import datetime
-
-def parse_date(date_str):
-    try:
-        # Expected format from receipt text: "12/04/2026 14:30"
-        return datetime.datetime.strptime(date_str.split(' ')[0], "%d/%m/%p").replace(year=2026) # Heuristic for current year
-    except:
-        # Fallback if year isn't present or format differs
-        try:
-            return datetime.datetime.strptime(date_str.split(' ')[0], "%d/%m/%Y")
-        except:
-            return None
+    return _receipt_matching.find_best_inv_match(receipt_name, inventory, threshold)
 
 
 def _find_receipt_cards(driver):
