@@ -1,6 +1,6 @@
 /**
  * WooliesBot write API — Cloudflare Worker.
- * Mirrors api.py POST /update_stock via GitHub Contents API (docs/data.json).
+ * Persists /update_stock writes via GitHub Contents API (docs/data.json).
  *
  * Secrets: GH_TOKEN (or GITHUB_TOKEN), WOOLIESBOT_WRITE_SECRET
  * Vars: GITHUB_REPO_OWNER, GITHUB_REPO_NAME, ALLOWED_ORIGINS (comma-separated)
@@ -114,7 +114,7 @@ function requireConfig(env) {
 }
 
 /**
- * Apply update_stock semantics (matches api.py).
+ * Apply update_stock semantics for dashboard writes.
  * @returns {{ updated: boolean, payload: object|array }}
  */
 function mergeStockChange(rawDecoded, params) {

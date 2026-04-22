@@ -20,7 +20,7 @@ jobs:
 
       - name: Compile Python modules
         run: |
-          python3 -m py_compile chef_os.py api.py receipt_sync.py keep_sync.py
+          python3 -m py_compile chef_os.py receipt_sync.py
           python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py
 
       - name: Inventory identity (duplicate item_id / names)

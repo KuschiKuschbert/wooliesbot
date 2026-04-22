@@ -54,32 +54,8 @@ To test a single item without full scrape, use scratch files in `scratch/`.
 
 ```bash
 cd ~/Woolies\ Script
-bash manage_services.sh restart   # restart all three services
+bash manage_services.sh restart   # restart automation service
 bash manage_services.sh stop
-bash manage_services.sh start
-```
-
-Or use launchctl directly:
-```bash
-launchctl unload ~/Library/LaunchAgents/com.wooliesbot.api.plist
-launchctl load   ~/Library/LaunchAgents/com.wooliesbot.api.plist
-```
-
----
-
-## 🌐 Checking the API
-
-```bash
-curl http://localhost:5001/status    # should return {"status":"ok","service":"WooliesBot Bridge"}
-curl http://localhost:5001/ping
-curl http://localhost:5001/sync      # trigger Google Keep sync
-```
-
-Update a stock level:
-```bash
-curl -X POST http://localhost:5001/update_stock \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Milk (Full Cream 2L)", "stock": "low"}'
 ```
 
 ---
@@ -107,7 +83,7 @@ Key files:
 - Never add npm/node/bundlers.
 - Always read data as `data.items` (handle both array and `{items:[]}` formats).
 - Destroy Chart.js instances before re-creating: `myChart?.destroy()`.
-- API calls go to `http://localhost:5001` — never another port.
+- Pantry writes use the configured cloud Worker URL (`write_api_url`).
 
 ---
 
@@ -191,7 +167,7 @@ The `.env` is gitignored. chef_os.py loads it automatically via `_load_dotenv()`
 |---|---|
 | Coles API returns 404 | buildId expired — `_refresh_coles_metadata()` auto-fixes on next run |
 | Product shows $99999 price | Scraper couldn't determine unit price — check `price_mode` and `pack_litres` |
-| Dashboard shows "Bridge Offline" | api.py not running — `bash manage_services.sh start` |
+| Dashboard shows "Pantry writes: cloud unavailable" | Verify Worker URL + secret in Settings and check Worker logs |
 | Chart.js blank canvas | Old chart not destroyed — call `chart.destroy()` first |
 | Telegram message truncated | Over 4000 chars — `send_telegram()` auto-splits at newlines |
 | Images not loading | `docs/images/` cache miss — run scraper to refresh |

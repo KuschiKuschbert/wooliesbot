@@ -601,106 +601,7 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
     _try(results, "13", "tap-highlight transparent", check_tap_highlight)
 
     # ------------------------------------------------------------------
-    # 14 — Google Keep sync: drawer POST /sync (bridge responses mocked)
-    # ------------------------------------------------------------------
-    def check_keep_sync_ui():
-        """Exercises syncShoppingListToKeep() without api.py or real Keep."""
-        has_sync_ui = page.evaluate("() => !!document.getElementById('sync-keep-btn')")
-        if not has_sync_ui:
-            return "SKIP", "sync-keep-btn not present in this UI build"
-        bridge = "http://127.0.0.1:5001"
-
-        def bridge_route(route):
-            req = route.request
-            if not req.url.startswith(bridge):
-                return route.continue_()
-            if req.method == "GET" and "/status" in req.url:
-                route.fulfill(
-                    status=200,
-                    body=json.dumps({"status": "ok", "service": "e2e-mock-bridge"}),
-                    headers={"Content-Type": "application/json"},
-                )
-                return
-            if req.method == "POST" and "/sync" in req.url:
-                route.fulfill(
-                    status=200,
-                    body=json.dumps(
-                        {
-                            "status": "success",
-                            "message": "mock",
-                            "items": 1,
-                        }
-                    ),
-                    headers={"Content-Type": "application/json"},
-                )
-                return
-            return route.continue_()
-
-        page.route(f"{bridge}/**", bridge_route)
-        dialogs: list[str] = []
-
-        def on_dialog(d):
-            dialogs.append(d.message)
-            d.dismiss()
-
-        page.on("dialog", on_dialog)
-        try:
-            page.evaluate(
-                """({ bridge, keepUrl, listJson, mode }) => {
-                    localStorage.setItem('bridge_url', bridge);
-                    localStorage.setItem('google_keep_note_url', keepUrl);
-                    localStorage.setItem('shoppingList', listJson);
-                    localStorage.setItem('shoppingTripMode', mode);
-                }""",
-                {
-                    "bridge": bridge,
-                    "keepUrl": "https://keep.google.com/u/0/#NOTE/e2e_test_note",
-                    "listJson": json.dumps(
-                        [
-                            {
-                                "name": "E2E Milk",
-                                "qty": 2,
-                                "price": 3.5,
-                                "store": "woolworths",
-                            }
-                        ]
-                    ),
-                    "mode": "0",
-                },
-            )
-            page.reload(wait_until="domcontentloaded")
-            _wait_for_app_ready(page)
-            page.click(".mobile-bottom-nav button[data-tab='deals']")
-            page.wait_for_selector("#tab-deals.tab-content.active", timeout=8000)
-            page.click("#mobile-toggle-list")
-            page.wait_for_selector("#list-drawer.open", timeout=5000)
-            sync_btn = page.locator("#sync-keep-btn")
-            sync_btn.scroll_into_view_if_needed()
-            sync_btn.wait_for(state="visible", timeout=5000)
-            if sync_btn.is_disabled():
-                return "FAIL", "sync-keep-btn stayed disabled"
-            sync_btn.click()
-            page.wait_for_function(
-                """() => {
-                    const b = document.getElementById('sync-keep-btn');
-                    return b && b.textContent && b.textContent.includes('Sync started');
-                }""",
-                timeout=8000,
-            )
-            if dialogs:
-                return "FAIL", f"unexpected alert: {dialogs!r}"
-            return "PASS", "POST /sync from drawer + success UI"
-        finally:
-            try:
-                page.remove_listener("dialog", on_dialog)
-            except Exception:
-                pass
-            page.unroute(f"{bridge}/**")
-
-    _try(results, "14", "google keep sync UI (mock bridge)", check_keep_sync_ui)
-
-    # ------------------------------------------------------------------
-    # 15 — Shopping trip mode: toggle + picked persistence
+    # 14 — Shopping trip mode: toggle + picked persistence
     # ------------------------------------------------------------------
     def check_shopping_trip_mode():
         page.evaluate(
@@ -852,7 +753,7 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             return "FAIL", "shopping trip session timing was not recorded"
         return "PASS", "trip mode matrix, totals, status, and clear-completed behavior validated"
 
-    _try(results, "15", "shopping trip mode tick flow", check_shopping_trip_mode)
+    _try(results, "14", "shopping trip mode tick flow", check_shopping_trip_mode)
 
     # ------------------------------------------------------------------
     # 16 — Trip timeout marker and next-trip reminder
