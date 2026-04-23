@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23 05:32 AM",
+  "last_updated": "2026-04-23 11:42 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -14395,7 +14395,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 5.5,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -14480,13 +14480,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -14500,7 +14500,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 5.5,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -16512,9 +16512,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -17157,14 +17157,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -17185,7 +17185,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b"
     },
     {
@@ -21720,7 +21720,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 1.9,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "1L",
@@ -21805,13 +21805,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 1.9,
+      "unit_price": 2.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.9,
-          "unit_price": 1.9,
-          "eff_price": 1.9,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         },
@@ -21825,11 +21825,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.9,
-      "eff_price": 1.9,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Chicken Liquid Stock",
+      "name_check": "Unox Real Chicken Liquid Stock",
       "item_id": "69003d24-5705-4435-953f-9ff830a2e577"
     },
     {
@@ -22577,7 +22577,7 @@
       "avg_price": 5.5,
       "eff_price": 8.8,
       "on_special": true,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-23",
       "was_price": 11.0,
@@ -24755,13 +24755,6 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 5.99,
-          "unit_price": 27.200000000000003,
-          "eff_price": 5.99,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -30482,7 +30475,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 8.6,
+      "price": 11.0,
       "brand": "Quilton",
       "subcategory": "other",
       "size": "8Pk",
@@ -30566,17 +30559,10 @@
       "on_special": false,
       "local_image": "images/Quilton_Classic_3Ply_T_Tissue_8Pk.jpg",
       "image_url": "images/quilton_classic_3ply_ttissue_8pk.jpg",
-      "store": "woolworths",
-      "unit_price": 0.6,
+      "store": "coles",
+      "unit_price": 0.31,
       "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 8.6,
-          "unit_price": 0.6,
-          "eff_price": 8.6,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 11.0,
           "unit_price": 0.31,
@@ -30587,11 +30573,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.3,
-      "eff_price": 8.6,
+      "eff_price": 11.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quilton Classic 3 Ply Toilet Paper",
+      "name_check": "3 Ply Classic White Toilet Paper",
       "item_id": "f754a243-8805-4ef4-9651-aa573fa7c88b"
     },
     {
@@ -32836,9 +32822,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -32865,7 +32851,7 @@
       "name": "Dine Cat Food Tuna Mornay & Cheese 85G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 1.4,
+      "target": 1.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dine%20Cat%20Food%20Tuna%20Mornay%20&%20Cheese%2085g",
       "coles": "https://www.coles.com.au/product/classic-collection-adult-wet-cat-food-saucy-morsels-with-tuna-cheese-tray-7599461",
       "price_history": [
@@ -32880,13 +32866,13 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 1.4,
+      "price": 1.6,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "85G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $1.60, now $1.40 (store special)",
+      "target_method": "p15 of 11 prices (few sales detected)",
       "target_data_points": 11,
       "target_updated": "2026-04-23",
       "scrape_history": [
@@ -32961,19 +32947,19 @@
         }
       ],
       "was_price": 1.6,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
-      "unit_price": 1.65,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.88,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.4,
-          "unit_price": 1.65,
-          "eff_price": 1.4,
-          "was_price": 1.6,
-          "on_special": true
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.6,
@@ -32985,11 +32971,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.35,
-      "eff_price": 1.4,
+      "eff_price": 1.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893"
     },
     {
@@ -51182,16 +51168,9 @@
       "last_purchased": "2025-10-20",
       "price": 5.5,
       "unit_price": 1.69,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit": "kg",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.69,
-          "eff_price": 5.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.5,
           "unit_price": 1.69,
@@ -51278,7 +51257,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Easy-Off Bam Oven & BBQ Heavy Duty Cleaner Spray",
+      "name_check": "Power Oven Heavy Duty Cleaner",
       "item_id": "4bc3bdaa-773c-4a64-b46a-2303ed4f8b92"
     },
     {

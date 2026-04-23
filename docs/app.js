@@ -3145,7 +3145,7 @@ async function saveItemChanges() {
             renderDashboard();
             closeModal();
         } else if (response.status === 401 || response.status === 403) {
-            alert('Write rejected — sign in to the protected write service with an allowed account.');
+            alert("Write rejected (401/403). Check the Worker is deployed with open access or an allowlist, GitHub token is set, and this site's origin is in ALLOWED_ORIGINS.");
         } else if (!response.ok) {
             const errText = await response.text().catch(() => '');
             alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
