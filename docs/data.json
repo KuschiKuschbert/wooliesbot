@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23 04:23 PM",
+  "last_updated": "2026-04-23 09:04 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -9286,9 +9286,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -14388,7 +14388,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -14473,13 +14473,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -14493,7 +14493,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -24748,6 +24748,13 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 35.7,
+          "unit_price": 27.0,
+          "eff_price": 35.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -24989,13 +24996,13 @@
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.0,
+      "unit_price": 3.3000000000000003,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 4.0,
-          "eff_price": 1.0,
+          "price": 1.65,
+          "unit_price": 3.3000000000000003,
+          "eff_price": 1.65,
           "was_price": null,
           "on_special": false
         },
@@ -25016,7 +25023,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Lemon Juice Bottle",
+      "name_check": "Woolworths Lemon Juice",
       "item_id": "6c63926d-45df-4ce9-ac45-3d596fafca5d"
     },
     {
@@ -32590,7 +32597,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,",
+      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6"
     },
     {
@@ -32822,9 +32829,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -35507,14 +35514,14 @@
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.97,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
           "was_price": null,
           "on_special": false
         },
@@ -35532,7 +35539,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e"
     },
     {
@@ -36668,7 +36675,7 @@
       "price_history": [],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 15.4,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -36752,14 +36759,14 @@
       "on_special": false,
       "local_image": "images/Chicken_Breast_Fillets_Rspca_Apprvd.jpg",
       "image_url": "images/chicken_breast_fillets_rspca_apprvd.jpg",
-      "store": "coles",
-      "unit_price": 11.0,
+      "store": "woolworths",
+      "unit_price": 12.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -36776,8 +36783,8 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "eff_price": 15.4,
-      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack",
+      "eff_price": 12.0,
+      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet",
       "item_id": "a9a981a1-0b5d-4991-bb13-da6ac3b85bc1"
     },
     {
