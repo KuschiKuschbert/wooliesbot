@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-24 12:30 PM",
+  "last_updated": "2026-04-24 05:10 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1398,13 +1398,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 22.5,
+      "unit_price": 17.86,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 22.5,
-          "eff_price": 2.7,
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -1420,7 +1420,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -11711,14 +11711,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -11739,7 +11739,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54"
     },
     {
@@ -12403,7 +12403,7 @@
       "all_stores": {
         "woolworths": {
           "price": 9.3,
-          "unit_price": 9.3,
+          "unit_price": 13.29,
           "eff_price": 9.3,
           "was_price": null,
           "on_special": false
@@ -15303,7 +15303,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 5.5,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -15396,13 +15396,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -15416,7 +15416,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 5.5,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -17825,13 +17825,6 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 35.0,
-          "unit_price": 17.5,
-          "eff_price": 35.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -26308,13 +26301,6 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 35.7,
-          "unit_price": 27.0,
-          "eff_price": 35.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -34375,7 +34361,7 @@
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
       "type": "pantry",
       "price_mode": "each",
-      "target": 2.7,
+      "target": 1.8,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Kirks%20Sugar%20Free%20Orange%20375ml%2010%20Pack",
       "coles": "https://www.coles.com.au/product/sugar-free-orange-soft-drink-bottle-6421362",
       "price_history": [
@@ -34392,7 +34378,7 @@
       "size": "375Ml",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $15.50, now $3.00 (store special)",
+      "target_method": "sale median (5/11 obs, 45% on sale)",
       "target_data_points": 11,
       "target_updated": "2026-04-24",
       "scrape_history": [
@@ -34482,13 +34468,6 @@
       "unit_price": 2.4,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 7.75,
-          "unit_price": 2.07,
-          "eff_price": 7.75,
-          "was_price": 15.5,
-          "on_special": true
-        },
         "coles": {
           "price": 3.0,
           "unit_price": 2.4,
@@ -34886,9 +34865,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -35739,7 +35718,7 @@
       "name": "Ww Free Range Lge Eggs 18Pk 900G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 11.0,
+      "target": 8.72,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Free%20Range%20Lge%20Eggs%2018pk%20900g",
       "coles": "https://www.coles.com.au/search?q=Coles+Free+Range+Pork+Leg+Roast+Boneless+approx.+1.8kg",
       "price_history": [
@@ -35754,13 +35733,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 11.0,
+      "price": 14.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $12.70, now $11.00 (store special)",
+      "target_method": "sale median (4/12 obs, 33% on sale)",
       "target_data_points": 12,
       "target_updated": "2026-04-24",
       "scrape_history": [
@@ -35843,28 +35822,28 @@
         }
       ],
       "was_price": 12.7,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
       "image_url": "images/ww_free_range_lge_eggs_18pk_900g.jpg",
       "store": "woolworths",
-      "unit_price": 1.22,
+      "unit_price": 1.56,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 1.22,
-          "eff_price": 11.0,
-          "was_price": 12.7,
-          "on_special": true
+          "price": 14.0,
+          "unit_price": 1.56,
+          "eff_price": 14.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 11.0,
+      "eff_price": 14.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Lake Macquarie 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a"
     },
     {
