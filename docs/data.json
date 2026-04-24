@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25 02:27 AM",
+  "last_updated": "2026-04-25 07:06 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1383,8 +1383,8 @@
       "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.0,
-      "eff_price": 5.0,
+      "price": 2.7,
+      "eff_price": 2.7,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "leafy_greens",
@@ -1485,13 +1485,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 17.86,
+      "unit_price": 22.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 17.86,
-          "eff_price": 5.0,
+          "price": 2.7,
+          "unit_price": 22.5,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         },
@@ -1507,7 +1507,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -7213,7 +7213,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch",
+      "name_check": "Kitten 2-12 Months Wet Cat Food With Mixed Favourites In Jelly 12x85g Pouch",
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0"
     },
     {
@@ -21239,7 +21239,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 13.0,
-      "name_check": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch",
+      "name_check": "Kitten 2-12 Months Wet Cat Food With Mixed Favourites In Jelly 12x85g Pouch",
       "item_id": "41a36403-7746-4acc-a54f-ae6e5c0be63f"
     },
     {
@@ -36950,9 +36950,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -39971,14 +39971,14 @@
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.97,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
           "was_price": null,
           "on_special": false
         },
@@ -39996,7 +39996,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e"
     },
     {
@@ -41950,14 +41950,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -41978,7 +41978,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
@@ -48076,7 +48076,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77"
     },
     {
