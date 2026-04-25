@@ -2810,8 +2810,7 @@ body.drawer-scroll-lock {
     flex-wrap: wrap;
 }
 
-.fighter-add-btn,
-.fighter-link-btn {
+.fighter-add-btn {
     border: 1px solid rgba(255,255,255,0.16);
     border-radius: 999px;
     padding: 5px 10px;
@@ -2827,10 +2826,19 @@ body.drawer-scroll-lock {
     cursor: pointer;
 }
 
-.fighter-add-btn:hover,
-.fighter-link-btn:hover {
+.fighter-add-btn:hover {
     background: rgba(255,255,255,0.12);
     border-color: rgba(255,255,255,0.3);
+}
+
+.fighter-actions .store-pdp-link {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+}
+.fighter-actions .store-pdp-link:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .fighter-add-btn i {
@@ -3112,8 +3120,86 @@ body.drawer-scroll-lock {
     align-items: center;
 }
 
-.item-store-link {
+.item-card-store-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Unified “open store site” control (icon + new tab) */
+.store-pdp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    color: var(--text-muted);
+    opacity: 0.55;
+    min-width: 28px;
+    min-height: 28px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+.store-pdp-link:hover {
+    opacity: 1;
+    color: var(--text-main);
+}
+.store-pdp-link:focus {
+    outline: none;
+}
+.store-pdp-link:focus-visible {
+    opacity: 1;
+    outline: 2px solid var(--primary, #818cf8);
+    outline-offset: 2px;
+}
+.store-pdp-link-icon {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.25;
+}
+.store-pdp-link--inline {
+    margin-left: 4px;
+    vertical-align: middle;
+    min-width: 24px;
+    min-height: 24px;
+}
+.store-pdp-link--card {
+    margin-top: 0;
+}
+.store-pdp-link--fighter {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0 4px;
+}
+.cg-col-price .store-pdp-link--inline {
+    margin-left: 6px;
+}
+
+.all-items-store-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.modal-store-links {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+.modal-store-links-label {
+    margin-right: 2px;
+}
+.modal-store-links-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .item-card-badges {
@@ -4115,16 +4201,7 @@ body.drawer-scroll-lock {
     color: var(--text-main);
 }
 
-.cg-pdp-link {
-    margin-left: 6px;
-    opacity: 0.55;
-    text-decoration: none;
-    font-size: 11px;
-}
-
-.cg-pdp-link:hover {
-    opacity: 1;
-}
+/* compare modal: use .store-pdp-link--inline (see .store-pdp-link) */
 
 .cg-modal-footer {
     padding: 10px 1.25rem 14px;
@@ -5318,6 +5395,11 @@ button, a, label, [role="button"] {
         align-items: center;
     }
 
+    .item-card .item-card-store-row .store-pdp-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
     .add-to-list-btn {
         width: 100%;
         justify-content: center;
@@ -5525,10 +5607,14 @@ button, a, label, [role="button"] {
         gap: 5px;
     }
 
-    .stats-sidebar .cola-card .fighter-add-btn,
-    .stats-sidebar .cola-card .fighter-link-btn {
+    .stats-sidebar .cola-card .fighter-add-btn {
         padding: 6px 9px;
         font-size: 10px;
+    }
+
+    .stats-sidebar .cola-card .fighter-actions .store-pdp-link {
+        min-width: 36px;
+        min-height: 36px;
     }
 
     .stats-sidebar .fighter-product {
@@ -6252,7 +6338,7 @@ table.dr-table {
     .icon-btn,
     .mobile-nav-link,
     .fighter-add-btn,
-    .fighter-link-btn {
+    .fighter-actions .store-pdp-link {
         min-height: 44px;
     }
 

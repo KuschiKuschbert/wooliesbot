@@ -8,6 +8,9 @@
     <title>WooliesBot — Discovery review</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/compare_helpers.js"></script>
+    <script src="js/store_pdp_link.js"></script>
 </head>
 <body>
     <header class="header">
@@ -152,20 +155,21 @@
             const r = rows[idx];
             const it = r.item;
             const tr = document.createElement('tr');
-            const w = it.woolworths || '';
-            const c = it.coles || '';
             const cg = it.compare_group || '—';
             const pm = it.price_mode || '—';
+            const wCell = window.WBStorePdp.storePdpLinkForItem(it, 'woolworths', {}, { className: 'store-pdp-link--inline' }) || '—';
+            const cCell = window.WBStorePdp.storePdpLinkForItem(it, 'coles', {}, { className: 'store-pdp-link--inline' }) || '—';
             tr.innerHTML = `
                 <td><input type="checkbox" class="dr-checkbox dr-row-chk" data-idx="${idx}" ${r.selected ? 'checked' : ''}></td>
                 <td>${escapeHtml(it.name || '')}</td>
-                <td>${w ? `<a href="${escapeAttr(w)}" target="_blank" rel="noopener">Open</a>` : '—'}</td>
-                <td>${c ? `<a href="${escapeAttr(c)}" target="_blank" rel="noopener" class="coles">Open</a>` : '—'}</td>
+                <td>${wCell}</td>
+                <td>${cCell}</td>
                 <td>${escapeHtml(String(cg))}</td>
                 <td>${escapeHtml(String(pm))}</td>
             `;
             tbody.appendChild(tr);
         }
+        if (typeof feather !== 'undefined') feather.replace();
 
         tbody.querySelectorAll('.dr-row-chk').forEach((cb) => {
             cb.addEventListener('change', () => {
@@ -180,9 +184,6 @@
         const d = document.createElement('div');
         d.textContent = s;
         return d.innerHTML;
-    }
-    function escapeAttr(s) {
-        return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
     }
 
     function updateExport() {

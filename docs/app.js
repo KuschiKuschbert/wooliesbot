@@ -1093,18 +1093,18 @@ function openCompareGroupModal(groupKey) {
             && isReliableEffPrice(rowMin) && Math.abs(rowMin - globalBest) <= eps;
         const trClass = isWinner ? 'cg-row cg-row-best' : 'cg-row';
 
-        const wUrl = escapeHtml(getStoreUrlForStore(item, 'woolworths'));
-        const cUrl = escapeHtml(getStoreUrlForStore(item, 'coles'));
+        const wLink = storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' });
+        const cLink = storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' });
 
         return `<tr class="${trClass}">
             <td class="cg-col-name">${escapeHtml(displayName(item.name))}</td>
             <td class="cg-col-price">
                 ${wStr}
-                <a class="cg-pdp-link" href="${wUrl}" target="_blank" rel="noopener" title="Open at Woolworths">↗</a>
+                ${wLink}
             </td>
             <td class="cg-col-price">
                 ${cStr}
-                <a class="cg-pdp-link" href="${cUrl}" target="_blank" rel="noopener" title="Open at Coles">↗</a>
+                ${cLink}
             </td>
             <td class="cg-col-unit">${bestUnit}</td>
         </tr>`;
@@ -1174,6 +1174,14 @@ function buildStoreSearchTerm(item, storeKey) {
 
 function getStoreUrlForStore(item, storeKey, opts = {}) {
     return WooliesCompareHelpers.getStoreUrlForStore(item, storeKey, opts);
+}
+
+function storePdpAnchorHtml(href, storeKey, opts) {
+    return window.WBStorePdp.storePdpAnchorHtml(href, storeKey, opts);
+}
+
+function storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts) {
+    return window.WBStorePdp.storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts);
 }
 
 function classifyColaCandidate(item) {
@@ -2207,7 +2215,7 @@ function createItemCard(item, index, type = 'special') {
 
     // Resolve all store links through one helper so fallback behavior stays consistent.
     const itemStore = item.store === 'coles' ? 'coles' : 'woolworths';
-    const productUrl = escapeHtml(getStoreUrlForStore(item, itemStore));
+    const storePdpLink = storePdpLinkForItem(item, itemStore, {}, { className: 'store-pdp-link--card' });
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
@@ -2215,9 +2223,10 @@ function createItemCard(item, index, type = 'special') {
         ${imgHtml}
         <div class="item-content">
             <div class="item-card-head">
-                <a href="${productUrl}" target="_blank" rel="noopener" class="item-store-link">
-                    <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                </a>
+                <div class="item-card-store-row">
+                    <span class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</span>
+                    ${storePdpLink}
+                </div>
                 <div class="item-card-badges">
                     ${staleBadge}
                     ${confidenceBadge}
@@ -2664,11 +2673,6 @@ function renderColaBattle() {
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
-        const getStoreUrl = win => {
-            if (!win) return null;
-            return getStoreUrlForStore(win.item, win.store, { preferSearchForWoolworthsPdp: true });
-        };
-
         const getStoreBadge = win => {
             if (!win) return '';
             return win.store === 'woolworths'
@@ -2686,7 +2690,6 @@ function renderColaBattle() {
 
         const renderFighter = (brand, win, isWinner) => {
             const item = win ? win.item : null;
-            const url = getStoreUrl(win);
             const priceLabel = win ? `$${win.per_litre.toFixed(2)}/L` : '—';
             const storeBadge = getStoreBadge(win);
             const special = isOnSpecialWin(win) ? '<span class="fighter-on-special">🔥 On Special</span>' : '';
@@ -2695,8 +2698,8 @@ function renderColaBattle() {
             const addBtn = item
                 ? `<button type="button" class="fighter-add-btn" data-item-name="${encodeURIComponent(item.name || '')}" data-item-id="${encodeURIComponent(item.item_id || '')}"><i data-feather="plus"></i> Add</button>`
                 : '';
-            const viewBtn = url
-                ? `<a class="fighter-link-btn" href="${url}" target="_blank" rel="noopener">View</a>`
+            const viewBtn = win
+                ? storePdpLinkForItem(win.item, win.store, { preferSearchForWoolworthsPdp: true }, { className: 'store-pdp-link--fighter' })
                 : '';
             return `
                 <div class="fighter ${winnerClass}">
@@ -3088,7 +3091,10 @@ function renderAllItems() {
                 <span style="font-weight:600;">${displayName(item.name)}</span>
                 ${isSpecial ? ' 🔥' : ''}
             </td>
-            <td><span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span></td>
+            <td class="all-items-store-cell">
+                <span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span>
+                ${storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' })}
+            </td>
             <td>
                 <div class="stock-clickable" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="stock-dot ${stockColor}"></div> ${item.stock}
@@ -3123,8 +3129,20 @@ function openStockModal(itemName, itemId) {
         btn.classList.toggle('active', btn.dataset.level === item.stock);
     });
     
+    const linksEl = document.getElementById('modal-store-links');
+    if (linksEl) {
+        const as = item.all_stores || {};
+        const hasBoth = as.woolworths && as.coles;
+        const row = hasBoth
+            ? `${storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' })}${storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' })}`
+            : storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' });
+        linksEl.innerHTML = `<span class="modal-store-links-label">Open in browser</span><span class="modal-store-links-row">${row}</span>`;
+        linksEl.style.display = 'flex';
+    }
+
     document.getElementById('overlay-modal').style.display = 'flex';
     setTimeout(() => {
+        if (typeof feather !== 'undefined') feather.replace();
         document.querySelector('#overlay-modal .stock-btn.active')?.focus()
             || document.getElementById('target-input-modal')?.focus()
             || document.getElementById('modal-cancel')?.focus();
@@ -3133,6 +3151,11 @@ function openStockModal(itemName, itemId) {
 
 function closeModal() {
     document.getElementById('overlay-modal').style.display = 'none';
+    const linksEl = document.getElementById('modal-store-links');
+    if (linksEl) {
+        linksEl.innerHTML = '';
+        linksEl.style.display = 'none';
+    }
     const prev = _focusBeforeStockModal;
     _focusBeforeStockModal = null;
     prev?.focus?.();
@@ -4441,6 +4464,10 @@ function openItemDeepdive(itemName) {
     const ep = item.eff_price || item.price || 0;
     const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
     const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
+    const as = item.all_stores || {};
+    const deepDiveStoreLinks = as.woolworths && as.coles
+        ? `${storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' })}${storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' })}`
+        : storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' });
 
     const modal = document.createElement('div');
     modal.id = 'deepdive-modal';
@@ -4454,6 +4481,7 @@ function openItemDeepdive(itemName) {
                     <h3 class="deepdive-title">${displayName(item.name)}</h3>
                     <div class="deepdive-meta">
                         <span class="store-badge ${item.store}" style="margin-top:0;">${item.store === 'woolworths' ? 'Woolies' : 'Coles'}</span>
+                        ${deepDiveStoreLinks}
                         ${isOnSpecial ? '<span class="save-badge">ON SPECIAL</span>' : ''}
                         ${item.target_confidence ? `<span class="confidence-badge ${item.target_confidence}">
                             ${item.target_confidence === 'high' ? '🟢 Solid estimate' : item.target_confidence === 'medium' ? '🟡 Fair estimate' : '🔴 Rough estimate'}
