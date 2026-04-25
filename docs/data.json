@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25 07:06 AM",
+  "last_updated": "2026-04-25 11:48 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1383,8 +1383,8 @@
       "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.7,
-      "eff_price": 2.7,
+      "price": 5.0,
+      "eff_price": 5.0,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "leafy_greens",
@@ -1485,13 +1485,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 22.5,
+      "unit_price": 17.86,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 22.5,
-          "eff_price": 2.7,
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -1507,7 +1507,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -16319,13 +16319,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -36950,9 +36950,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -41950,14 +41950,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -41978,7 +41978,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Pump Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
