@@ -3,11 +3,11 @@
 #   CLOUDFLARE_API_TOKEN      — API token with Workers Scripts: Edit
 #   CLOUDFLARE_ACCOUNT_ID     — Optional; set if wrangler cannot infer the account
 #   WORKER_GH_TOKEN           — GitHub PAT with repo contents read/write (docs/data.json)
-#   WOOLIESBOT_WRITE_SECRET   — Same value as the dashboard X-WooliesBot-Secret header
-#   WOOLIESBOT_WRITE_SECRET_PREVIOUS — Optional overlap secret during rotation
 #
-# If WORKER_GH_TOKEN or WOOLIESBOT_WRITE_SECRET is missing, deploy still runs; the
-# "Upload Worker secrets" step logs a notice and exits 0.
+# If WORKER_GH_TOKEN is missing, deploy still runs; the "Upload Worker secrets"
+# step logs a notice and exits 0.
+# For household use, wrangler.toml uses ALLOW_INSECURE_PUBLIC_WRITES=1 (no
+# client login). GitHub writes still use GH_TOKEN in the Worker only.
 
 name: Deploy Worker (write API)
 
@@ -57,16 +57,10 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           WORKER_GH_TOKEN: ${{ secrets.WORKER_GH_TOKEN }}
-          WOOLIESBOT_WRITE_SECRET: ${{ secrets.WOOLIESBOT_WRITE_SECRET }}
-          WOOLIESBOT_WRITE_SECRET_PREVIOUS: ${{ secrets.WOOLIESBOT_WRITE_SECRET_PREVIOUS || '' }}
         run: |
           set -e
-          if [ -z "$WORKER_GH_TOKEN" ] || [ -z "$WOOLIESBOT_WRITE_SECRET" ]; then
-            echo "::notice::Skipping Worker secrets — add WORKER_GH_TOKEN and WOOLIESBOT_WRITE_SECRET to repository secrets, then re-run this workflow."
+          if [ -z "$WORKER_GH_TOKEN" ]; then
+            echo "::notice::Skipping Worker GH token secret upload — add WORKER_GH_TOKEN to repository secrets, then re-run this workflow."
             exit 0
           fi
           printf '%s' "$WORKER_GH_TOKEN" | npx wrangler secret put GH_TOKEN
-          printf '%s' "$WOOLIESBOT_WRITE_SECRET" | npx wrangler secret put WOOLIESBOT_WRITE_SECRET
-          if [ -n "$WOOLIESBOT_WRITE_SECRET_PREVIOUS" ]; then
-            printf '%s' "$WOOLIESBOT_WRITE_SECRET_PREVIOUS" | npx wrangler secret put WOOLIESBOT_WRITE_SECRET_PREVIOUS
-          fi

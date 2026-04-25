@@ -9,6 +9,15 @@ This runbook verifies that GitHub Actions fully replaces daemon-style automation
 - Link audit artifact generation (`logs/e2e_validate_links_full.json`)
 - Telegram output-only notifications (success/failure)
 - No dependency on launchd + Telegram listener commands
+- Dashboard (GitHub Pages) status: **Last published** is the last successful `heartbeat.json` / data commit, not the last time the schedule fired. Failed or skipped runs do not advance it. **Next scheduled** in the UI comes from `next_run` in `heartbeat.json` (for Actions, the next 4h UTC slot matching `.github/workflows/scrape.yml`).
+
+## Verify recent workflow health
+
+From a machine with `gh` and access to the repo:
+
+`gh run list --workflow "Scrape & push data" --limit 20`
+
+Use this when the site shows a stale “Last published” to see whether recent runs **failed** (red) or succeeded (green).
 
 ## Workflows under test
 

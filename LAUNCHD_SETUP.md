@@ -42,8 +42,8 @@ Optional **scraper / anti-bot tuning** (`WOOLIESBOT_*`) is documented in `.env.e
 The dashboard now keeps shopping list state local to each browser/device.
 
 - Worker endpoint kept for stock updates: `POST /update_stock`
-- Dashboard status signal is scrape freshness from `docs/heartbeat.json` (Last/Next + status badge)
-- Cloud write credentials are entered in dashboard settings and stored only in browser local storage
+- Dashboard status signal is scrape freshness from `docs/heartbeat.json` (Last published / Next scheduled + status badge)
+- The Cloud write Worker URL is set at build time in `docs/env.js` (via `scripts/generate_runtime_env.py` / `WOOLIESBOT_WRITE_API_URL`) and cached in browser `localStorage` as `write_api_url` on first load
 
 ## Optional: scheduled variant discovery (snippet only — Phase 3)
 

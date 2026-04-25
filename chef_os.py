@@ -1967,7 +1967,12 @@ def export_data_to_json(results):
         os.makedirs("docs", exist_ok=True)
         data_path = "docs/data.json"
         now = datetime.datetime.now()
-        now_str = now.strftime("%Y-%m-%d %I:%M %p")
+        # ISO-8601 UTC with Z so browsers parse one correct instant (avoids 12h strftime ambiguity).
+        now_str = (
+            datetime.datetime.now(datetime.timezone.utc)
+            .isoformat()
+            .replace("+00:00", "Z")
+        )
         today_str = now.strftime("%Y-%m-%d")
 
         # Load existing data to preserve scrape_history and other accumulated fields
@@ -2134,6 +2139,25 @@ def export_data_to_json(results):
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
 
+
+def _next_github_actions_scrape_utc(after=None):
+    """Next time matching `.github/workflows/scrape.yml` schedule: ``0 */4 * * *`` (UTC)."""
+    if after is None:
+        after = datetime.datetime.now(datetime.timezone.utc)
+    elif after.tzinfo is None:
+        after = after.replace(tzinfo=datetime.timezone.utc)
+    else:
+        after = after.astimezone(datetime.timezone.utc)
+    slots = (0, 4, 8, 12, 16, 20)
+    for d in range(0, 2):
+        day = after.date() + datetime.timedelta(days=d)
+        for h in slots:
+            cand = datetime.datetime.combine(day, datetime.time(h, 0, 0, tzinfo=datetime.timezone.utc))
+            if cand > after:
+                return cand
+    return after + datetime.timedelta(hours=4)
+
+
 def sync_to_github(next_scheduled=None):
     """Commits and pushes the docs/ folder and updated JSON data to GitHub.
 
@@ -2178,11 +2202,17 @@ def sync_to_github(next_scheduled=None):
                 nr = None
         if nr is None:
             nr = NEXT_SCHEDULED_RUN
+        if nr is None and os.environ.get("GITHUB_ACTIONS") == "true":
+            nr = _next_github_actions_scrape_utc()
         next_run_str = nr.isoformat() if nr else None
 
         with open(heartbeat_path, "w", encoding="utf-8") as f:
             json.dump({
-                "last_heartbeat": datetime.datetime.now().isoformat(),
+                "last_heartbeat": (
+                    datetime.datetime.now(datetime.timezone.utc)
+                    .isoformat()
+                    .replace("+00:00", "Z")
+                ),
                 "next_run": next_run_str,
                 "status": "active"
             }, f)

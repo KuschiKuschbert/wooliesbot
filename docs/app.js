@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPullToRefresh();
     setupBottomSheetDrag();
     // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasRuntimeSecret:Boolean(_runtimeWriteConfig?.secret),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),hasLocalSecret:Boolean(localStorage.getItem('write_api_secret')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})(),hasActiveSecret:Boolean((_writeApiSecret||'').trim())},timestamp:Date.now()})}).catch(()=>{});
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
     // #region agent log
     fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H1',location:'docs/app.js:1',message:'dom ready viewport + breakpoint snapshot',data:{innerWidth:window.innerWidth,innerHeight:window.innerHeight,isMobile:isMobileViewport(),isCompact:isCompactViewport(),activeTab:document.body?.dataset?.activeTab||'unknown'},timestamp:Date.now()})}).catch(()=>{});
@@ -78,8 +78,67 @@ function isCompactViewport() {
     }
 }
 
+/** Next UTC slot for GitHub Actions cron `0 */4 * * *` (must match chef_os._next_github_actions_scrape_utc). */
+function nextGithubActionsScrapeUtc(after) {
+    const t = new Date(after);
+    if (isNaN(t.getTime())) return new Date();
+    const slots = [0, 4, 8, 12, 16, 20];
+    for (let d = 0; d < 2; d++) {
+        const cur = new Date(t);
+        cur.setUTCDate(cur.getUTCDate() + d);
+        const y = cur.getUTCFullYear();
+        const m = cur.getUTCMonth();
+        const day = cur.getUTCDate();
+        for (let i = 0; i < slots.length; i++) {
+            const h = slots[i];
+            const c = Date.UTC(y, m, day, h, 0, 0, 0);
+            if (c > t.getTime()) return new Date(c);
+        }
+    }
+    return new Date(t.getTime() + 4 * 60 * 60 * 1000);
+}
+
+/** data.json `last_updated` is ISO-8601 UTC; legacy rows used Python 12h strftime (ambiguous in JS). */
+function parseDashboardTimestamp(s) {
+    if (s == null || s === "") return new Date(NaN);
+    const t = new Date(s);
+    if (!isNaN(t.getTime())) return t;
+    const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (m) {
+        let h = parseInt(m[4], 10);
+        const min = parseInt(m[5], 10);
+        const ap = m[6].toUpperCase();
+        if (ap === "PM" && h < 12) h += 12;
+        if (ap === "AM" && h === 12) h = 0;
+        return new Date(
+            parseInt(m[1], 10),
+            parseInt(m[2], 10) - 1,
+            parseInt(m[3], 10),
+            h,
+            min,
+            0,
+            0
+        );
+    }
+    return new Date(NaN);
+}
+
+/** Prefer heartbeat for header times so we do not show stale data.json if heartbeat fetch failed earlier. */
+async function tryLoadHeartbeatForHeader() {
+    try {
+        const res = await fetch("heartbeat.json?t=" + Date.now());
+        if (!res || !res.ok) return false;
+        const data = await res.json();
+        if (!data || !data.last_heartbeat) return false;
+        _lastChecked = data.last_heartbeat;
+        _nextRun = data.next_run;
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 let _focusBeforeDrawer = null;
-let _focusBeforeSettings = null;
 let _focusBeforeStockModal = null;
 let _drawerScrollLockY = 0;
 let _debugChromeSnapshotLogged = false;
@@ -292,20 +351,17 @@ let _currentSort = 'discount';
 function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
     const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
-    const secret = typeof cfg.writeApiSecret === 'string' ? cfg.writeApiSecret : '';
     // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url)},timestamp:Date.now()})}).catch(()=>{});
     // #endregion
-    return { url, secret };
+    return { url };
 }
 
 const _runtimeWriteConfig = getRuntimeWriteConfig();
 /** Cloudflare Worker base URL for POST /update_stock. */
 let _writeApiUrl = localStorage.getItem('write_api_url') || _runtimeWriteConfig.url || '';
-/** Shared secret header for the Worker — stored only in localStorage in the browser. */
-let _writeApiSecret = localStorage.getItem('write_api_secret') || _runtimeWriteConfig.secret || '';
 if (_writeApiUrl && !localStorage.getItem('write_api_url')) localStorage.setItem('write_api_url', _writeApiUrl);
-if (_writeApiSecret && !localStorage.getItem('write_api_secret')) localStorage.setItem('write_api_secret', _writeApiSecret);
+localStorage.removeItem('write_api_secret');
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
 const SHOPPING_LIST_SYNC_STAMP_KEY = 'shoppingListCloudUpdatedAt';
@@ -723,10 +779,9 @@ async function pushShoppingListToCloud(reason = 'manual') {
         return;
     }
     const base = getStockWriteBase();
-    const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) {
+    if (!base) {
         // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
         // #endregion
         return;
     }
@@ -748,8 +803,8 @@ async function pushShoppingListToCloud(reason = 'manual') {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-WooliesBot-Secret': secret,
             },
+            credentials: 'include',
             body: JSON.stringify(payload),
         });
         if (!res.ok) {
@@ -794,10 +849,9 @@ function scheduleShoppingListCloudPush(reason = 'local_edit') {
 async function pullShoppingListFromCloud(reason = 'poll') {
     if (_shoppingListSyncPullInFlight) return;
     const base = getStockWriteBase();
-    const secret = (_writeApiSecret || '').trim();
-    if (!base || !secret) {
+    if (!base) {
         // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base),hasSecret:Boolean(secret)},timestamp:Date.now()})}).catch(()=>{});
+        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base)},timestamp:Date.now()})}).catch(()=>{});
         // #endregion
         return;
     }
@@ -811,9 +865,9 @@ async function pullShoppingListFromCloud(reason = 'poll') {
             method: 'GET',
             cache: 'no-store',
             headers: {
-                'X-WooliesBot-Secret': secret,
                 'X-WooliesBot-Device': getShoppingDeviceId(),
             },
+            credentials: 'include',
         });
         if (!res.ok) {
             // #region agent log
@@ -1039,18 +1093,18 @@ function openCompareGroupModal(groupKey) {
             && isReliableEffPrice(rowMin) && Math.abs(rowMin - globalBest) <= eps;
         const trClass = isWinner ? 'cg-row cg-row-best' : 'cg-row';
 
-        const wUrl = escapeHtml(getStoreUrlForStore(item, 'woolworths'));
-        const cUrl = escapeHtml(getStoreUrlForStore(item, 'coles'));
+        const wLink = storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' });
+        const cLink = storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' });
 
         return `<tr class="${trClass}">
             <td class="cg-col-name">${escapeHtml(displayName(item.name))}</td>
             <td class="cg-col-price">
                 ${wStr}
-                <a class="cg-pdp-link" href="${wUrl}" target="_blank" rel="noopener" title="Open at Woolworths">↗</a>
+                ${wLink}
             </td>
             <td class="cg-col-price">
                 ${cStr}
-                <a class="cg-pdp-link" href="${cUrl}" target="_blank" rel="noopener" title="Open at Coles">↗</a>
+                ${cLink}
             </td>
             <td class="cg-col-unit">${bestUnit}</td>
         </tr>`;
@@ -1120,6 +1174,14 @@ function buildStoreSearchTerm(item, storeKey) {
 
 function getStoreUrlForStore(item, storeKey, opts = {}) {
     return WooliesCompareHelpers.getStoreUrlForStore(item, storeKey, opts);
+}
+
+function storePdpAnchorHtml(href, storeKey, opts) {
+    return window.WBStorePdp.storePdpAnchorHtml(href, storeKey, opts);
+}
+
+function storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts) {
+    return window.WBStorePdp.storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts);
 }
 
 function classifyColaCandidate(item) {
@@ -1196,7 +1258,8 @@ let _monitorsStarted = false;
 
 async function initDashboard() {
     try {
-        const dataRes = await fetch('data.json').catch(() => null);
+        const gotHb = await tryLoadHeartbeatForHeader();
+        const dataRes = await fetch("data.json?t=" + Date.now()).catch(() => null);
 
         if (dataRes && dataRes.ok) {
             const parsed = await dataRes.json();
@@ -1204,13 +1267,12 @@ async function initDashboard() {
                 _data = parsed;
             } else {
                 _data = parsed.items || [];
-                const luEl = document.getElementById('last-updated');
-                if (luEl && parsed.last_updated) {
+                if (parsed.last_updated && !gotHb) {
                     _lastChecked = parsed.last_updated;
-                    updateLastCheckedDisplay();
                 }
             }
         }
+        if (_lastChecked) updateLastCheckedDisplay();
 
         if (!_monitorsStarted) {
             _monitorsStarted = true;
@@ -1399,11 +1461,6 @@ function setupFilters() {
     document.getElementById('go-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(true));
     document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false, 'done_button'));
     document.getElementById('clear-completed-btn')?.addEventListener('click', clearPickedListItems);
-    
-    // Settings Logic
-    document.getElementById('settings-btn')?.addEventListener('click', openSettings);
-    document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
-    document.getElementById('settings-save')?.addEventListener('click', saveSettings);
 }
 
 function syncCompareGroupDetailsState() {
@@ -1469,36 +1526,6 @@ function setupMobileChromeCompaction() {
     updateMobileChrome();
 }
 
-function openSettings() {
-    _focusBeforeSettings = document.activeElement;
-    document.getElementById('write-api-url-input').value = _writeApiUrl;
-    document.getElementById('write-api-secret-input').value = _writeApiSecret;
-    document.getElementById('settings-modal').style.display = 'flex';
-    setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
-}
-
-function closeSettings() {
-    document.getElementById('settings-modal').style.display = 'none';
-    const prev = _focusBeforeSettings;
-    _focusBeforeSettings = null;
-    prev?.focus?.();
-}
-
-function saveSettings() {
-    _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
-    _writeApiSecret = document.getElementById('write-api-secret-input').value;
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H5',location:'docs/app.js:saveSettings',message:'settings saved for cloud sync',data:{hasUrl:Boolean(_writeApiUrl),hasSecret:Boolean(_writeApiSecret),urlHost:(()=>{try{return new URL(_writeApiUrl).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    localStorage.setItem('write_api_url', _writeApiUrl);
-    localStorage.setItem('write_api_secret', _writeApiSecret);
-    closeSettings();
-    monitorCloudHealth();
-    startShoppingListCloudSyncMonitors();
-    pullShoppingListFromCloud('settings_saved');
-    scheduleShoppingListCloudPush('settings_saved');
-}
-
 function toggleDrawer() {
     const drawer = document.getElementById('list-drawer');
     const overlay = document.getElementById('drawer-overlay');
@@ -1561,12 +1588,6 @@ function setupOverlayEscapeHandler() {
         if (stockModal && stockModal.style.display === 'flex') {
             e.preventDefault();
             closeModal();
-            return;
-        }
-        const settingsModal = document.getElementById('settings-modal');
-        if (settingsModal && settingsModal.style.display === 'flex') {
-            e.preventDefault();
-            closeSettings();
             return;
         }
         const drawer = document.getElementById('list-drawer');
@@ -2194,7 +2215,7 @@ function createItemCard(item, index, type = 'special') {
 
     // Resolve all store links through one helper so fallback behavior stays consistent.
     const itemStore = item.store === 'coles' ? 'coles' : 'woolworths';
-    const productUrl = escapeHtml(getStoreUrlForStore(item, itemStore));
+    const storePdpLink = storePdpLinkForItem(item, itemStore, {}, { className: 'store-pdp-link--card' });
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
@@ -2202,9 +2223,10 @@ function createItemCard(item, index, type = 'special') {
         ${imgHtml}
         <div class="item-content">
             <div class="item-card-head">
-                <a href="${productUrl}" target="_blank" rel="noopener" class="item-store-link">
-                    <div class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</div>
-                </a>
+                <div class="item-card-store-row">
+                    <span class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</span>
+                    ${storePdpLink}
+                </div>
                 <div class="item-card-badges">
                     ${staleBadge}
                     ${confidenceBadge}
@@ -2535,7 +2557,7 @@ function updateLastCheckedDisplay() {
     const nextEl = document.getElementById('next-update');
     if (!el || !_lastChecked) return;
     
-    const lastDate = new Date(_lastChecked);
+    const lastDate = parseDashboardTimestamp(_lastChecked);
     if (isNaN(lastDate.getTime())) {
         el.textContent = _lastChecked;
         return;
@@ -2552,14 +2574,13 @@ function updateLastCheckedDisplay() {
         el.textContent = `${hours}h ${diffMins % 60}m ago`;
     }
 
-    // 2. Update Local Time "Next Check"
+    // 2. "Next scheduled" in local time (from heartbeat, or 4h UTC-cron alignment if missing)
     if (nextEl) {
         let nextDate;
         if (_nextRun) {
             nextDate = new Date(_nextRun);
         } else {
-            // Fallback: Assume 60 min interval from last success
-            nextDate = new Date(lastDate.getTime() + (60 * 60 * 1000));
+            nextDate = nextGithubActionsScrapeUtc(lastDate.getTime());
         }
         
         if (!isNaN(nextDate.getTime())) {
@@ -2584,11 +2605,16 @@ async function monitorCloudHealth() {
         const res = await fetch('heartbeat.json?t=' + Date.now()).catch(() => null);
         if (res && res.ok) {
             const data = await res.json();
-            const lastBeat = new Date(data.last_heartbeat);
+            const lastBeat = parseDashboardTimestamp(data.last_heartbeat);
             const now = new Date();
             const minsAgo = (now - lastBeat) / (1000 * 60);
-
-            if (minsAgo < 35) {
+            // 4h GitHub schedule + long runs (~1h); below ~5.5h counts as healthy (old 35m assumed hourly runs).
+            if (!Number.isFinite(minsAgo)) {
+                dot.className = 'status-dot offline';
+                text.textContent = 'Scrape status: unavailable';
+                return;
+            }
+            if (minsAgo < 5.5 * 60) {
                 dot.className = 'status-dot online';
                 text.textContent = `Scrape status: healthy (${Math.round(minsAgo)}m ago)`;
             } else {
@@ -2596,7 +2622,7 @@ async function monitorCloudHealth() {
                 text.textContent = `Scrape status: stale (${Math.round(minsAgo)}m ago)`;
             }
 
-            // Sync the 'Last Checked' header display with the cloud heartbeat
+            // Sync Last published / Next scheduled with cloud heartbeat
             _lastChecked = data.last_heartbeat;
             _nextRun = data.next_run;
             updateLastCheckedDisplay();
@@ -2647,11 +2673,6 @@ function renderColaBattle() {
         const pWinner = pP < cP;
         const cWinner = cP < pP;
 
-        const getStoreUrl = win => {
-            if (!win) return null;
-            return getStoreUrlForStore(win.item, win.store, { preferSearchForWoolworthsPdp: true });
-        };
-
         const getStoreBadge = win => {
             if (!win) return '';
             return win.store === 'woolworths'
@@ -2669,7 +2690,6 @@ function renderColaBattle() {
 
         const renderFighter = (brand, win, isWinner) => {
             const item = win ? win.item : null;
-            const url = getStoreUrl(win);
             const priceLabel = win ? `$${win.per_litre.toFixed(2)}/L` : '—';
             const storeBadge = getStoreBadge(win);
             const special = isOnSpecialWin(win) ? '<span class="fighter-on-special">🔥 On Special</span>' : '';
@@ -2678,8 +2698,8 @@ function renderColaBattle() {
             const addBtn = item
                 ? `<button type="button" class="fighter-add-btn" data-item-name="${encodeURIComponent(item.name || '')}" data-item-id="${encodeURIComponent(item.item_id || '')}"><i data-feather="plus"></i> Add</button>`
                 : '';
-            const viewBtn = url
-                ? `<a class="fighter-link-btn" href="${url}" target="_blank" rel="noopener">View</a>`
+            const viewBtn = win
+                ? storePdpLinkForItem(win.item, win.store, { preferSearchForWoolworthsPdp: true }, { className: 'store-pdp-link--fighter' })
                 : '';
             return `
                 <div class="fighter ${winnerClass}">
@@ -3071,7 +3091,10 @@ function renderAllItems() {
                 <span style="font-weight:600;">${displayName(item.name)}</span>
                 ${isSpecial ? ' 🔥' : ''}
             </td>
-            <td><span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span></td>
+            <td class="all-items-store-cell">
+                <span class="store-badge ${item.store}">${item.store === 'woolworths' ? 'W' : 'C'}</span>
+                ${storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' })}
+            </td>
             <td>
                 <div class="stock-clickable" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="stock-dot ${stockColor}"></div> ${item.stock}
@@ -3106,8 +3129,20 @@ function openStockModal(itemName, itemId) {
         btn.classList.toggle('active', btn.dataset.level === item.stock);
     });
     
+    const linksEl = document.getElementById('modal-store-links');
+    if (linksEl) {
+        const as = item.all_stores || {};
+        const hasBoth = as.woolworths && as.coles;
+        const row = hasBoth
+            ? `${storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' })}${storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' })}`
+            : storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' });
+        linksEl.innerHTML = `<span class="modal-store-links-label">Open in browser</span><span class="modal-store-links-row">${row}</span>`;
+        linksEl.style.display = 'flex';
+    }
+
     document.getElementById('overlay-modal').style.display = 'flex';
     setTimeout(() => {
+        if (typeof feather !== 'undefined') feather.replace();
         document.querySelector('#overlay-modal .stock-btn.active')?.focus()
             || document.getElementById('target-input-modal')?.focus()
             || document.getElementById('modal-cancel')?.focus();
@@ -3116,6 +3151,11 @@ function openStockModal(itemName, itemId) {
 
 function closeModal() {
     document.getElementById('overlay-modal').style.display = 'none';
+    const linksEl = document.getElementById('modal-store-links');
+    if (linksEl) {
+        linksEl.innerHTML = '';
+        linksEl.style.display = 'none';
+    }
     const prev = _focusBeforeStockModal;
     _focusBeforeStockModal = null;
     prev?.focus?.();
@@ -3130,16 +3170,14 @@ async function saveItemChanges() {
     try {
         const base = getStockWriteBase();
         if (!base) {
-            alert('Set your Cloud write API in Settings first.');
+            alert('Cloud write API URL is not configured. Set WOOLIESBOT_WRITE_API_URL when building (see scripts/generate_runtime_env.py → docs/env.js), or set localStorage key write_api_url to your Worker base URL.');
             return;
         }
         const headers = { 'Content-Type': 'application/json' };
-        if (usesCloudWrite() && _writeApiSecret) {
-            headers['X-WooliesBot-Secret'] = _writeApiSecret;
-        }
         const response = await fetch(`${base}/update_stock`, {
             method: 'POST',
             headers,
+            credentials: 'include',
             body: JSON.stringify({
                 name: _selectedItemForModal.name,
                 item_id: _selectedItemForModal.item_id || null,
@@ -3155,7 +3193,7 @@ async function saveItemChanges() {
             renderDashboard();
             closeModal();
         } else if (response.status === 401 || response.status === 403) {
-            alert('Write rejected — check the write secret in Settings (must match the Worker).');
+            alert("Write rejected (401/403). Check the Worker is deployed with open access or an allowlist, GitHub token is set, and this site's origin is in ALLOWED_ORIGINS.");
         } else if (!response.ok) {
             const errText = await response.text().catch(() => '');
             alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
@@ -4426,6 +4464,10 @@ function openItemDeepdive(itemName) {
     const ep = item.eff_price || item.price || 0;
     const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
     const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
+    const as = item.all_stores || {};
+    const deepDiveStoreLinks = as.woolworths && as.coles
+        ? `${storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' })}${storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' })}`
+        : storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' });
 
     const modal = document.createElement('div');
     modal.id = 'deepdive-modal';
@@ -4439,6 +4481,7 @@ function openItemDeepdive(itemName) {
                     <h3 class="deepdive-title">${displayName(item.name)}</h3>
                     <div class="deepdive-meta">
                         <span class="store-badge ${item.store}" style="margin-top:0;">${item.store === 'woolworths' ? 'Woolies' : 'Coles'}</span>
+                        ${deepDiveStoreLinks}
                         ${isOnSpecial ? '<span class="save-badge">ON SPECIAL</span>' : ''}
                         ${item.target_confidence ? `<span class="confidence-badge ${item.target_confidence}">
                             ${item.target_confidence === 'high' ? '🟢 Solid estimate' : item.target_confidence === 'medium' ? '🟡 Fair estimate' : '🔴 Rough estimate'}
