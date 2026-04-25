@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26 01:45 AM",
+  "last_updated": "2026-04-26 06:23 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -11101,9 +11101,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -16221,7 +16221,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -16330,13 +16330,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -16350,7 +16350,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -17133,7 +17133,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 5.5,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -17242,13 +17242,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -17262,7 +17262,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 5.5,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -29421,13 +29421,6 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 35.7,
-          "unit_price": 27.0,
-          "eff_price": 35.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -30375,7 +30368,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -30386,33 +30379,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (3/13 obs, 23% on sale)",
+      "target_method": "was $9.80, now $7.70 (store special)",
       "target_data_points": 13,
       "target_updated": "2026-04-26",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -30420,7 +30413,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -30491,19 +30484,19 @@
         }
       ],
       "was_price": 9.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.28,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.7,
+          "unit_price": 1.28,
+          "eff_price": 7.7,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -30515,18 +30508,18 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 17.0,
+      "target": 12.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -30565,7 +30558,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 17.0,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -30573,20 +30566,20 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "was $18.70, now $17.00 (store special)",
+      "target_method": "sale median (7/20 obs, 35% on sale)",
       "target_data_points": 20,
       "target_updated": "2026-04-26",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 14.5,
-          "is_special": true,
+          "is_special": false,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 14.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "coles"
         },
@@ -30657,7 +30650,7 @@
         {
           "date": "2026-04-25",
           "price": 17.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 18.7,
           "store": "woolworths",
           "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet"
@@ -30665,26 +30658,26 @@
         {
           "date": "2026-04-26",
           "price": 17.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 18.7,
           "store": "woolworths",
           "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet"
         }
       ],
       "was_price": 18.7,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
       "store": "woolworths",
-      "unit_price": 10.0,
+      "unit_price": 12.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 17.0,
-          "unit_price": 10.0,
-          "eff_price": 17.0,
-          "was_price": 18.7,
-          "on_special": true
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 17.5,
@@ -30696,7 +30689,7 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 17.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -38734,7 +38727,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
+      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6"
     },
     {
@@ -43584,13 +43577,13 @@
       "price_history": [],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 12.0,
+      "price": 15.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (4/12 obs, 33% on sale)",
+      "target_method": "was $18.70, now $15.40 (store special)",
       "target_data_points": 12,
       "target_updated": "2026-04-26",
       "scrape_history": [
@@ -43692,16 +43685,16 @@
       "on_special": false,
       "local_image": "images/Chicken_Breast_Fillets_Rspca_Apprvd.jpg",
       "image_url": "images/chicken_breast_fillets_rspca_apprvd.jpg",
-      "store": "woolworths",
-      "unit_price": 12.0,
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
+          "price": 17.0,
+          "unit_price": 10.0,
+          "eff_price": 17.0,
+          "was_price": 18.7,
+          "on_special": true
         },
         "coles": {
           "price": 15.4,
@@ -43716,8 +43709,8 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "eff_price": 12.0,
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet",
+      "eff_price": 15.4,
+      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack",
       "item_id": "a9a981a1-0b5d-4991-bb13-da6ac3b85bc1"
     },
     {
@@ -59241,9 +59234,9 @@
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -59350,7 +59343,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff"
     },
     {
