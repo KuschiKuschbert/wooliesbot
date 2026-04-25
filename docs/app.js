@@ -1177,11 +1177,15 @@ function getStoreUrlForStore(item, storeKey, opts = {}) {
 }
 
 function storePdpAnchorHtml(href, storeKey, opts) {
-    return window.WBStorePdp.storePdpAnchorHtml(href, storeKey, opts);
+    const m = window.WBStorePdp;
+    if (!m || typeof m.storePdpAnchorHtml !== 'function') return '';
+    return m.storePdpAnchorHtml(href, storeKey, opts);
 }
 
 function storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts) {
-    return window.WBStorePdp.storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts);
+    const m = window.WBStorePdp;
+    if (!m || typeof m.storePdpLinkForItem !== 'function') return '';
+    return m.storePdpLinkForItem(item, storeKey, urlOpts, anchorOpts);
 }
 
 function classifyColaCandidate(item) {
