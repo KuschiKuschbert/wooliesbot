@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26 06:23 AM",
+  "last_updated": "2026-04-26 09:41 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1572,13 +1572,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 22.5,
+      "unit_price": 17.86,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 22.5,
-          "eff_price": 2.7,
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -1594,7 +1594,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -11101,9 +11101,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -16221,7 +16221,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -16330,13 +16330,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -16350,7 +16350,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -19652,9 +19652,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -30519,7 +30519,7 @@
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
       "type": "meat",
       "price_mode": "each",
-      "target": 12.0,
+      "target": 17.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Chicken%20Breast%20Fillets%20Bulk%20RSPCA",
       "coles": "https://www.coles.com.au/product/free-range-chicken-breast-fillets-bulk-2303750",
       "price_history": [
@@ -30558,7 +30558,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 12.0,
+      "price": 17.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -30566,20 +30566,20 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "sale median (7/20 obs, 35% on sale)",
+      "target_method": "was $18.70, now $17.00 (store special)",
       "target_data_points": 20,
       "target_updated": "2026-04-26",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 14.5,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
@@ -30650,7 +30650,7 @@
         {
           "date": "2026-04-25",
           "price": 17.0,
-          "is_special": false,
+          "is_special": true,
           "was_price": 18.7,
           "store": "woolworths",
           "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet"
@@ -30658,26 +30658,26 @@
         {
           "date": "2026-04-26",
           "price": 17.0,
-          "is_special": false,
+          "is_special": true,
           "was_price": 18.7,
           "store": "woolworths",
           "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet"
         }
       ],
       "was_price": 18.7,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
       "image_url": "images/ww_chicken_breast_fillets_bulk_rspca.jpg",
       "store": "woolworths",
-      "unit_price": 12.0,
+      "unit_price": 10.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
+          "price": 17.0,
+          "unit_price": 10.0,
+          "eff_price": 17.0,
+          "was_price": 18.7,
+          "on_special": true
         },
         "coles": {
           "price": 17.5,
@@ -30689,7 +30689,7 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 12.0,
+      "eff_price": 17.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -38727,7 +38727,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,",
+      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6"
     },
     {
@@ -44286,14 +44286,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -44314,7 +44314,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
@@ -57734,7 +57734,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest White Chocolate Raspberry",
+      "name_check": "Quest Protein Bar Choc Brownie",
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3"
     },
     {
@@ -60048,14 +60048,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 13.5,
+          "unit_price": 3.6,
+          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         },
@@ -60169,7 +60169,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control",
+      "name_check": "Ant Rid Ant Bait",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b"
     },
     {
@@ -61716,9 +61716,9 @@
       "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 6.5,
-          "eff_price": 6.5,
+          "price": 4.6,
+          "unit_price": 4.6,
+          "eff_price": 4.6,
           "was_price": null,
           "on_special": false
         },
