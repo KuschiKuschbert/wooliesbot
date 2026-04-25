@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25 11:48 AM",
+  "last_updated": "2026-04-25 04:28 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1383,8 +1383,8 @@
       "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.0,
-      "eff_price": 5.0,
+      "price": 2.7,
+      "eff_price": 2.7,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "leafy_greens",
@@ -1485,13 +1485,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 17.86,
+      "unit_price": 22.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 17.86,
-          "eff_price": 5.0,
+          "price": 2.7,
+          "unit_price": 22.5,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         },
@@ -1507,7 +1507,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -6268,20 +6268,20 @@
       "name": "Quest/BSC Protein Bars",
       "type": "snacks",
       "price_mode": "each",
-      "target": 4.3,
+      "target": 3.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Tofutti",
       "coles": "https://www.coles.com.au/product/quest-protein-bar-cookies-and-cream-60g-2477671",
       "stock": "medium",
       "last_purchased": null,
-      "price": 4.3,
-      "eff_price": 4.3,
-      "store": "coles",
+      "price": 3.75,
+      "eff_price": 3.75,
+      "store": "woolworths",
       "brand": "Quest",
       "subcategory": "snacks",
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $5.40, now $4.30 (store special)",
+      "target_method": "was $5.40, now $3.75 (store special)",
       "target_data_points": 11,
       "target_updated": "2026-04-25",
       "scrape_history": [
@@ -6341,7 +6341,7 @@
         {
           "date": "2026-04-22",
           "price": 4.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.4,
           "store": "coles",
           "matched_name": "Protein Bar Cookies & Cream"
@@ -6349,7 +6349,7 @@
         {
           "date": "2026-04-23",
           "price": 4.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.4,
           "store": "coles",
           "matched_name": "Protein Bar Cookies & Cream"
@@ -6357,7 +6357,7 @@
         {
           "date": "2026-04-24",
           "price": 4.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.4,
           "store": "coles",
           "matched_name": "Protein Bar Cookies & Cream"
@@ -6365,25 +6365,25 @@
         {
           "date": "2026-04-25",
           "price": 4.3,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.4,
           "store": "coles",
           "matched_name": "Protein Bar Cookies & Cream"
         }
       ],
       "was_price": 5.4,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Quest_BSC_Protein_Bars.jpg",
-      "image_url": "https://productimages.coles.com.au/2/2477671.jpg",
-      "unit_price": 7.17,
-      "unit": "kg",
+      "image_url": "images/questbsc_protein_bars.jpg",
+      "unit_price": 6.25,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 7.92,
-          "eff_price": 19.0,
-          "was_price": null,
-          "on_special": false
+          "price": 3.75,
+          "unit_price": 6.25,
+          "eff_price": 3.75,
+          "was_price": 5.4,
+          "on_special": true
         },
         "coles": {
           "price": 4.3,
@@ -6399,7 +6399,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Protein Bar Cookies & Cream",
+      "name_check": "Quest Protein Bar Smores",
       "item_id": "ab791734-344e-4514-a3ab-342db74a659b"
     },
     {
@@ -16319,13 +16319,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -18603,9 +18603,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -27861,13 +27861,6 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 35.7,
-          "unit_price": 27.0,
-          "eff_price": 35.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -28028,7 +28021,7 @@
       "name": "Ww Juice Lemon 500Ml",
       "type": "produce",
       "price_mode": "each",
-      "target": 1.5,
+      "target": 1.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Juice%20Lemon%20500ml",
       "coles": "https://www.coles.com.au/product/lemon-juice-9069356",
       "price_history": [
@@ -28043,7 +28036,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 1.65,
+      "price": 1.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "500Ml",
@@ -28141,13 +28134,13 @@
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 3.3000000000000003,
+      "unit_price": 4.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.65,
-          "unit_price": 3.3000000000000003,
-          "eff_price": 1.65,
+          "price": 1.0,
+          "unit_price": 4.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -28162,13 +28155,13 @@
       "price_unavailable": false,
       "image_url": "images/ww_juice_lemon_500ml.jpg",
       "avg_price": 1.65,
-      "eff_price": 1.65,
+      "eff_price": 1.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Lemon Juice",
+      "name_check": "Woolworths Lemon Juice Bottle",
       "item_id": "6c63926d-45df-4ce9-ac45-3d596fafca5d"
     },
     {
@@ -39971,14 +39964,14 @@
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.97,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -39996,7 +39989,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e"
     },
     {
@@ -41950,14 +41943,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -41978,7 +41971,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
