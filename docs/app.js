@@ -1,11 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof feather !== 'undefined' && typeof feather.replace === 'function') {
-        try {
-            feather.replace();
-        } catch (e) {
-            console.warn('feather.replace failed', e);
-        }
-    }
+    safeFeatherReplace();
     registerSW();
     ensureShoppingDeviceId();
     setupShoppingListSessionSync();
@@ -16,15 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initDashboard().then(() => hideSkeletons());
     setupPullToRefresh();
     setupBottomSheetDrag();
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:DOMContentLoaded',message:'sync config bootstrap snapshot',data:{hasRuntimeUrl:Boolean(_runtimeWriteConfig?.url),hasLocalUrl:Boolean(localStorage.getItem('write_api_url')),activeUrlHost:(()=>{try{return new URL((_writeApiUrl||'').trim()).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H1',location:'docs/app.js:1',message:'dom ready viewport + breakpoint snapshot',data:{innerWidth:window.innerWidth,innerHeight:window.innerHeight,isMobile:isMobileViewport(),isCompact:isCompactViewport(),activeTab:document.body?.dataset?.activeTab||'unknown'},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H5',location:'docs/app.js:1',message:'visual token intensity snapshot',data:{primary:getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),accentPurple:getComputedStyle(document.documentElement).getPropertyValue('--accent-purple').trim(),bgImage:(getComputedStyle(document.body).backgroundImage||'').slice(0,220)},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 });
 
 // ── PWA Service Worker ────────────────────────────────────────────────────────
@@ -34,7 +19,7 @@ function getDocsBundleBaseUrl() {
     if (byId && byId.src) {
         return new URL('./', byId.src);
     }
-    const el = document.querySelector('script[src$="app.js"]');
+    const el = document.querySelector('script[src$="app.js"]') || document.querySelector('script[src*="app.js"]');
     if (el && el.src) {
         return new URL('./', el.src);
     }
@@ -48,6 +33,15 @@ async function fetchWithTimeout(resource, options = {}, timeoutMs = 20000) {
         return await fetch(resource, { ...options, signal: c.signal });
     } finally {
         clearTimeout(t);
+    }
+}
+
+function safeFeatherReplace() {
+    if (typeof feather === 'undefined' || typeof feather.replace !== 'function') return;
+    try {
+        feather.replace();
+    } catch (e) {
+        console.warn('feather.replace failed', e);
     }
 }
 
@@ -77,9 +71,6 @@ function ensureShoppingDeviceId() {
             localStorage.setItem(key, id);
         } catch {}
     }
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'post-fix',hypothesisId:'H9',location:'docs/app.js:ensureShoppingDeviceId',message:'shopping device id ensured',data:{hasId:Boolean(id),idPrefix:id?String(id).slice(0,3):''},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 }
 
 // ── Haptics helper ────────────────────────────────────────────────────────────
@@ -216,10 +207,32 @@ function showUiToast(message, duration = 3400) {
     }, duration);
 }
 
-/** Deals hero pill — mirrors header “last updated” when available */
+/** Set when data.json fetch/parse failed — drives banner + a11y status. */
+function setDataJsonLoadState(message) {
+    const text = message != null && message !== '' ? String(message) : '';
+    _dataJsonLoadError = text || null;
+    const banner = document.getElementById('data-json-banner');
+    if (banner) {
+        if (text) {
+            banner.textContent = text;
+            banner.classList.remove('hidden');
+        } else {
+            banner.textContent = '';
+            banner.classList.add('hidden');
+        }
+    }
+    const s = document.getElementById('app-status');
+    if (s) s.textContent = text;
+}
+
+/** Deals hero pill — mirrors header times / product count */
 function syncDealsHeroStatus() {
     const live = document.getElementById('deals-hero-live');
     if (!live) return;
+    if (_dataJsonLoadError) {
+        live.textContent = 'Price list unavailable';
+        return;
+    }
     const src = document.getElementById('last-updated');
     const t = src && src.textContent ? src.textContent.trim() : '';
     if (t && t !== 'Checking...') {
@@ -361,6 +374,7 @@ function setupBottomSheetDrag() {
 }
 
 let _data = [];
+let _dataJsonLoadError = null;
 let _history = {};
 let _volatility = {}; // item -> score
 let _lastChecked = null;
@@ -386,9 +400,6 @@ let _currentSort = 'discount';
 function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
     const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:getRuntimeWriteConfig',message:'runtime env read for sync config',data:{hasWindowEnv:Boolean(cfg&&typeof cfg==='object'),hasUrl:Boolean(url)},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     return { url };
 }
 
@@ -794,9 +805,6 @@ function applyRemoteShoppingList(remoteRows, meta = {}) {
     const merged = mergeShoppingListRows(_shoppingList, remoteRows);
     const prevSig = JSON.stringify(normalizeShoppingListShape(_shoppingList));
     const nextSig = JSON.stringify(merged);
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H4',location:'docs/app.js:applyRemoteShoppingList',message:'apply remote merge summary',data:{reason:meta?.reason||'',prevCount:Array.isArray(_shoppingList)?_shoppingList.length:0,remoteCount:Array.isArray(remoteRows)?remoteRows.length:0,mergedCount:Array.isArray(merged)?merged.length:0,changed:prevSig!==nextSig,remoteUpdatedAt:meta?.updated_at||''},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     _shoppingList = merged;
     if (prevSig !== nextSig) persistShoppingList({ skipCloud: true });
     if (meta.updated_at) setShoppingListCloudStamp(meta.updated_at);
@@ -806,26 +814,17 @@ function applyRemoteShoppingList(remoteRows, meta = {}) {
 
 async function pushShoppingListToCloud(reason = 'manual') {
     if (_shoppingListSyncPushInFlight) {
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push in-flight, queueing retry',data:{reason,queueReason:_shoppingListSyncQueuedReason,listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         _shoppingListSyncPushQueued = true;
         _shoppingListSyncQueuedReason = reason || _shoppingListSyncQueuedReason;
         return;
     }
     const base = getStockWriteBase();
     if (!base) {
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pushShoppingListToCloud',message:'push aborted due missing config',data:{reason,hasBase:Boolean(base),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         return;
     }
     _shoppingListSyncPushInFlight = true;
     const dispatchedReason = reason || 'manual';
     const deviceId = getShoppingDeviceId();
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push start',data:{reason:dispatchedReason,deviceIdPrefix:String(deviceId||'').slice(0,10),listCount:Array.isArray(_shoppingList)?_shoppingList.length:0,baseHost:(()=>{try{return new URL(base).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     try {
         const nowIso = new Date().toISOString();
         const payload = {
@@ -843,23 +842,14 @@ async function pushShoppingListToCloud(reason = 'manual') {
             body: JSON.stringify(payload),
         });
         if (!res.ok) {
-            // #region agent log
-            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push response not ok',data:{reason:dispatchedReason,status:res.status,listCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
-            // #endregion
             noteShoppingListSyncFailure('push', dispatchedReason, res.status);
             return;
         }
         const body = await res.json().catch(() => ({}));
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push success response',data:{reason:dispatchedReason,updatedAt:body?.updated_at||'',itemCount:body?.item_count??null,receivedItemCount:body?.received_item_count??null,mergeMode:body?.merge_mode||''},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         if (body?.updated_at) setShoppingListCloudStamp(body.updated_at);
         noteShoppingListSyncSuccess();
         pullShoppingListFromCloud('post_push');
     } catch {
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H2',location:'docs/app.js:pushShoppingListToCloud',message:'push threw exception',data:{reason:dispatchedReason},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         noteShoppingListSyncFailure('push', dispatchedReason);
     }
     finally {
@@ -885,16 +875,10 @@ async function pullShoppingListFromCloud(reason = 'poll') {
     if (_shoppingListSyncPullInFlight) return;
     const base = getStockWriteBase();
     if (!base) {
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H1',location:'docs/app.js:pullShoppingListFromCloud',message:'pull aborted due missing config',data:{reason,hasBase:Boolean(base)},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         return;
     }
     _shoppingListSyncPullInFlight = true;
     try {
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull start',data:{reason,localCloudStamp:_shoppingListCloudUpdatedAt||'',localCount:Array.isArray(_shoppingList)?_shoppingList.length:0},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         const pullUrl = `${base}/shopping_list?t=${Date.now()}`;
         const res = await fetch(pullUrl, {
             method: 'GET',
@@ -905,9 +889,6 @@ async function pullShoppingListFromCloud(reason = 'poll') {
             credentials: 'include',
         });
         if (!res.ok) {
-            // #region agent log
-            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull response not ok',data:{reason,status:res.status},timestamp:Date.now()})}).catch(()=>{});
-            // #endregion
             noteShoppingListSyncFailure('pull', reason, res.status);
             return;
         }
@@ -915,9 +896,6 @@ async function pullShoppingListFromCloud(reason = 'poll') {
         if (!body || !Array.isArray(body.items)) return;
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
-        // #region agent log
-        fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H3',location:'docs/app.js:pullShoppingListFromCloud',message:'pull payload received',data:{reason,remoteUpdatedAt:body?.updated_at||'',remoteUpdatedBy:body?.updated_by||'',remoteCount:Array.isArray(body?.items)?body.items.length:0,localCloudMs,remoteMs,willSkip:remoteMs<=localCloudMs},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         if (remoteMs <= localCloudMs) return;
         applyRemoteShoppingList(body.items, { updated_at: body.updated_at, reason });
         noteShoppingListSyncSuccess();
@@ -1184,7 +1162,7 @@ function openCompareGroupModal(groupKey) {
         </div>`;
 
     document.body.appendChild(modal);
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 let _compareGroupUiReady = false;
@@ -1300,7 +1278,9 @@ let _monitorsStarted = false;
 
 async function initDashboard() {
     try {
+        setDataJsonLoadState(null);
         const dataUrl = docsBundleAssetUrl('data.json');
+        const dataUrlStr = dataUrl.href;
         dataUrl.searchParams.set('t', String(Date.now()));
         const [gotHb, dataRes] = await Promise.all([
             tryLoadHeartbeatForHeader(),
@@ -1312,15 +1292,36 @@ async function initDashboard() {
         ]);
 
         if (dataRes && dataRes.ok) {
-            const parsed = await dataRes.json();
-            if (Array.isArray(parsed)) {
-                _data = parsed;
-            } else {
-                _data = parsed.items || [];
-                if (parsed.last_updated && !gotHb) {
-                    _lastChecked = parsed.last_updated;
+            let parsed = null;
+            try {
+                parsed = await dataRes.json();
+            } catch (e) {
+                const msg = `data.json: response was not valid JSON — ${String(e && e.message ? e.message : e)} · ${dataUrlStr}`;
+                console.error(msg, e);
+                setDataJsonLoadState(msg);
+                _data = [];
+            }
+            if (parsed != null) {
+                if (Array.isArray(parsed)) {
+                    _data = parsed;
+                } else {
+                    _data = parsed.items || [];
+                    if (parsed.last_updated && !gotHb) {
+                        _lastChecked = parsed.last_updated;
+                    }
                 }
             }
+        } else {
+            if (!dataRes) {
+                const msg = `data.json: fetch failed (timeout, offline, or blocked) — ${dataUrlStr}`;
+                console.error(msg);
+                setDataJsonLoadState(msg);
+            } else {
+                const msg = `data.json: ${dataRes.status} ${dataRes.statusText} — ${dataUrlStr}`;
+                console.error(msg);
+                setDataJsonLoadState(msg);
+            }
+            _data = [];
         }
         if (_lastChecked) updateLastCheckedDisplay();
 
@@ -1359,16 +1360,17 @@ async function initDashboard() {
         setupCompareGroupInteractions();
 
         setupFilters();
-        const statusOk = document.getElementById('app-status');
-        if (statusOk) statusOk.textContent = '';
         renderDashboard();
         syncDealsHeroStatus();
         return true;
     } catch (e) {
         console.error("Failed to initialize dashboard:", e);
-        const statusEl = document.getElementById('app-status');
-        if (statusEl) statusEl.textContent = 'Could not load prices. Pull down to refresh or try again.';
-        document.getElementById('specials-grid').innerHTML = '<p style="color: #ef4444;">Could not load prices. Check your connection and refresh.</p>';
+        const detail = e && e.message ? String(e.message) : String(e);
+        setDataJsonLoadState(`Dashboard error: ${detail}. Pull to refresh.`);
+        const grid = document.getElementById('specials-grid');
+        if (grid) {
+            grid.innerHTML = '<p style="color: #ef4444;">Could not load prices. Check your connection and refresh.</p>';
+        }
         syncDealsHeroStatus();
         return false;
     }
@@ -1565,9 +1567,6 @@ function setupMobileChromeCompaction() {
             const headerH = document.querySelector('.header')?.getBoundingClientRect?.().height || 0;
             const stickyH = document.querySelector('.sticky-filter-bar')?.getBoundingClientRect?.().height || 0;
             const navH = document.querySelector('.mobile-bottom-nav')?.getBoundingClientRect?.().height || 0;
-            // #region agent log
-            fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H2',location:'docs/app.js:setupMobileChromeCompaction',message:'mobile chrome footprint snapshot',data:{isMobile,scrolled,headerH,stickyH,navH,totalFixedChrome:headerH+stickyH+navH,viewportH:window.innerHeight},timestamp:Date.now()})}).catch(()=>{});
-            // #endregion
         }
     };
     window.addEventListener('scroll', updateMobileChrome, { passive: true });
@@ -1670,9 +1669,6 @@ function renderDashboard() {
     const railSections = document.querySelectorAll('#mobile-priority-rail .priority-rail-section').length;
     const isPredictionsHidden = document.getElementById('predictions-section')?.classList.contains('hidden');
     const isNearMissHidden = document.getElementById('near-misses-section')?.classList.contains('hidden');
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'initial',hypothesisId:'H4',location:'docs/app.js:renderDashboard',message:'dashboard signal density snapshot',data:{isMobile,totalItems:_data.length,railSections,isPredictionsHidden,isNearMissHidden,specialGridCards:document.querySelectorAll('#specials-grid .item-card').length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     const top5Card = document.getElementById('top5-card');
     const buyNowCard = document.getElementById('buy-now-card');
     const rail = document.getElementById('mobile-priority-rail');
@@ -1683,9 +1679,6 @@ function renderDashboard() {
     const railDisplay = rail ? getComputedStyle(rail).display : 'missing';
     const top5ListCount = document.querySelectorAll('#top5-list .top5-row').length;
     const buyNowListCount = document.querySelectorAll('#buy-now-list .buy-now-row').length;
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round2',hypothesisId:'H6',location:'docs/app.js:renderDashboard',message:'desktop composition visibility snapshot',data:{isMobile,top5Display,buyNowDisplay,railDisplay,top5ListCount,buyNowListCount,railSections},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     const stickyBar = document.querySelector('.sticky-filter-bar');
     const stickyH = stickyBar?.getBoundingClientRect?.().height || 0;
     const statsH = statsStrip?.getBoundingClientRect?.().height || 0;
@@ -1694,12 +1687,6 @@ function renderDashboard() {
     const heroTitle = hero?.querySelector('.deals-hero-title');
     const heroSub = hero?.querySelector('.deals-hero-sub');
     const heroEyebrow = hero?.querySelector('.deals-hero-eyebrow');
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round3',hypothesisId:'H8',location:'docs/app.js:renderDashboard',message:'hero composition breakdown snapshot',data:{isMobile,heroH,heroMainH:heroMain?.getBoundingClientRect?.().height||0,heroTitleH:heroTitle?.getBoundingClientRect?.().height||0,heroSubH:heroSub?.getBoundingClientRect?.().height||0,heroEyebrowH:heroEyebrow?.getBoundingClientRect?.().height||0,heroSubDisplay:heroSub?getComputedStyle(heroSub).display:'missing',heroEyebrowDisplay:heroEyebrow?getComputedStyle(heroEyebrow).display:'missing',heroTitleSize:heroTitle?getComputedStyle(heroTitle).fontSize:'missing',heroTitleLine:heroTitle?getComputedStyle(heroTitle).lineHeight:'missing'},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'round2',hypothesisId:'H7',location:'docs/app.js:renderDashboard',message:'vertical stack footprint snapshot',data:{isMobile,heroH,statsH,stickyH,sum:heroH+statsH+stickyH,viewportH:window.innerHeight},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 }
 
 
@@ -1983,7 +1970,7 @@ function renderEssentials() {
         if (editBtn) editBtn.textContent = '✓';
     }
 
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 function resetEssentialsChecked() {
@@ -2308,7 +2295,7 @@ function createItemCard(item, index, type = 'special') {
         if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
             renderSparkline(`chart-${type}-${index}`, _history[itemKey(item)].history, storeClass);
         }
-        feather.replace();
+        safeFeatherReplace();
     }, 0);
 
     return card;
@@ -2432,8 +2419,8 @@ function addToList(itemName, callerBtn, itemId) {
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i data-feather="check"></i> In list!';
             btn.style.background = 'rgba(99,102,241,0.5)';
-            feather.replace();
-            setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; feather.replace(); }, 1500);
+            safeFeatherReplace();
+            setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; safeFeatherReplace(); }, 1500);
         }
         return;
     }
@@ -2468,11 +2455,11 @@ function addToList(itemName, callerBtn, itemId) {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i data-feather="check"></i> Added!';
         btn.style.background = 'var(--woolies-green)';
-        feather.replace();
+        safeFeatherReplace();
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.style.background = '';
-            feather.replace();
+            safeFeatherReplace();
         }, 1500);
     }
 }
@@ -2599,7 +2586,7 @@ function renderShoppingList() {
     
     totalEl.textContent = `$${total.toFixed(2)}`;
     updateListCount();
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 function updateLastCheckedDisplay() {
@@ -2640,7 +2627,7 @@ function updateLastCheckedDisplay() {
     }
 
     // 3. Refresh feather icons for the new structure
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 
     syncDealsHeroStatus();
 }
@@ -2795,12 +2782,19 @@ function renderColaBattle() {
             addToList(name, btn, id || null);
         });
     });
-    feather.replace();
+    safeFeatherReplace();
 }
 
 function renderSpecials() {
     const grid = document.getElementById('specials-grid');
     grid.innerHTML = '';
+
+    if (_dataJsonLoadError) {
+        grid.innerHTML =
+            '<p class="data-json-grid-fallback" style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align: center;">The catalog did not load. See the notice above, or pull down to refresh.</p>';
+        if (typeof renderPagination === 'function') renderPagination(0);
+        return;
+    }
 
     const displayItems = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
@@ -2876,7 +2870,7 @@ function renderSpecials() {
 
     renderPagination(totalItems);
 
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 function renderPagination(totalItems) {
@@ -2917,7 +2911,7 @@ function renderPagination(totalItems) {
     };
     container.appendChild(nextBtn);
 
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 
@@ -2941,7 +2935,7 @@ function toggleMasterTable() {
             ? (mobileList && mobileList.children.length === 0)
             : (tbody && tbody.children.length === 0);
         if (needsRender) renderAllItems();
-        if (typeof feather !== 'undefined') feather.replace();
+        safeFeatherReplace();
     }
 }
 
@@ -3023,9 +3017,6 @@ function renderMobilePriorityRail() {
 
     html += '</div>';
     rail.innerHTML = html;
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'0b485d'},body:JSON.stringify({sessionId:'0b485d',runId:'post-fix',hypothesisId:'H3',location:'docs/app.js:renderMobilePriorityRail',message:'priority rail render result',data:{isMobile:isMobileViewport(),railHasDesktopClass:rail.classList.contains('desktop-priority-rail'),priorityItems:priorityItems.length,topDeals:topDeals.length,fallbackDeals:fallbackDeals.length,renderedSections:rail.querySelectorAll('.priority-rail-section').length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 }
 
 // ── F: Buy Now Priority View ──────────────────────────────────────────────
@@ -3194,7 +3185,7 @@ function openStockModal(itemName, itemId) {
 
     document.getElementById('overlay-modal').style.display = 'flex';
     setTimeout(() => {
-        if (typeof feather !== 'undefined') feather.replace();
+        safeFeatherReplace();
         document.querySelector('#overlay-modal .stock-btn.active')?.focus()
             || document.getElementById('target-input-modal')?.focus()
             || document.getElementById('modal-cancel')?.focus();
@@ -3532,7 +3523,7 @@ function renderAnalytics() {
     renderPantryHealthScore();
     renderCompareGroupDiagnostics();
 
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
     resizeInsightsCharts();
 }
 
@@ -3624,7 +3615,7 @@ function renderTargetIntelligence() {
         </div>` : '<div class="ti-tip success"><i data-feather="check-circle"></i><span>All items have price observations — great coverage!</span></div>'}
     `;
 
-    if (typeof feather !== 'undefined') feather.replace();
+    safeFeatherReplace();
 }
 
 function renderDeeperInsights(brandPrices) {
@@ -3858,8 +3849,8 @@ function copyShoppingList() {
             const orig = btn.innerHTML;
             btn.innerHTML = '<i data-feather="check"></i> Copied!';
             btn.style.background = 'var(--woolies-green)';
-            feather.replace();
-            setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; feather.replace(); }, 2000);
+            safeFeatherReplace();
+            setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; safeFeatherReplace(); }, 2000);
         }
     }).catch(() => alert('Copy failed — use a secure (HTTPS) connection.'));
 }
@@ -4595,7 +4586,7 @@ function openItemDeepdive(itemName) {
             closeItemDeepdive();
         });
     }
-    feather.replace();
+    safeFeatherReplace();
 
     if (sorted.length > 1) {
         const canvas = document.getElementById('deepdive-canvas');

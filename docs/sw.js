@@ -1,12 +1,15 @@
-// WooliesBot Service Worker — stale-while-revalidate cache.
+// WooliesBot Service Worker — data + app shell are network-first; other assets stale-while-revalidate.
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
-const CACHE = 'wooliesbot-v7-boot-hardening';
+
+const CACHE = 'wooliesbot-v8-data-diagnostics';
+
 const PRECACHE = [
     './',
     './index.html',
     './discovery-review.html',
     './style.css',
+    './env.js',
     './app.js',
     './js/compare_helpers.js',
     './js/store_pdp_link.js',
@@ -15,6 +18,31 @@ const PRECACHE = [
     'https://cdn.jsdelivr.net/npm/chart.js',
     'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
 ];
+
+function isAppShellRequest(url) {
+    try {
+        if (!url.startsWith('http')) return false;
+        const u = new URL(url);
+        if (u.origin !== self.location.origin) return false;
+        const p = u.pathname;
+        if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json')) return false;
+        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$/.test(
+            p
+        );
+    } catch {
+        return false;
+    }
+}
+
+function networkFirstWithCacheUpdate(request) {
+    return fetch(request)
+        .then(res => {
+            const clone = res.clone();
+            caches.open(CACHE).then(c => c.put(request, clone));
+            return res;
+        })
+        .catch(() => caches.match(request));
+}
 
 self.addEventListener('install', event => {
     self.skipWaiting();
@@ -25,46 +53,37 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-        ).then(() => self.clients.claim())
+        caches
+            .keys()
+            .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+            .then(() => self.clients.claim())
     );
 });
 
 self.addEventListener('fetch', event => {
     const { request } = event;
-    // Only handle GET requests
     if (request.method !== 'GET') return;
     const url = request.url || '';
 
-    // Always bypass cache for cross-device shopping list sync.
     if (url.includes('/shopping_list')) {
         event.respondWith(fetch(request).catch(() => caches.match(request)));
         return;
     }
 
-    // Network-first for data.json (always fresh)
-    if (url.includes('data.json') || url.includes('heartbeat.json')) {
-        event.respondWith(
-            fetch(request)
-                .then(res => {
-                    const clone = res.clone();
-                    caches.open(CACHE).then(c => c.put(request, clone));
-                    return res;
-                })
-                .catch(() => caches.match(request))
-        );
+    if (url.includes('data.json') || url.includes('heartbeat.json') || isAppShellRequest(url)) {
+        event.respondWith(networkFirstWithCacheUpdate(request));
         return;
     }
 
-    // Stale-while-revalidate for everything else
     event.respondWith(
         caches.open(CACHE).then(cache =>
             cache.match(request).then(cached => {
-                const network = fetch(request).then(res => {
-                    if (res.ok) cache.put(request, res.clone());
-                    return res;
-                }).catch(() => cached);
+                const network = fetch(request)
+                    .then(res => {
+                        if (res.ok) cache.put(request, res.clone());
+                        return res;
+                    })
+                    .catch(() => cached);
                 return cached || network;
             })
         )

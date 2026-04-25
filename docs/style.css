@@ -1527,6 +1527,18 @@ footer {
     }
 }
 
+/* data.json load failure (initDashboard) */
+.data-json-banner {
+    margin: 0 0 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #fecaca;
+    background: rgba(127, 29, 29, 0.35);
+    border: 1px solid rgba(248, 113, 113, 0.45);
+}
+
 /* Dynamic Animation Triggers */
 .hidden {
     display: none !important;
