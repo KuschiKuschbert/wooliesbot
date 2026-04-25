@@ -22,9 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── PWA Service Worker ────────────────────────────────────────────────────────
+/** Directory containing app.js — use for static JSON so fetches work when the page URL is e.g. /repo (no slash) on GitHub Pages. */
+function getDocsBundleBaseUrl() {
+    const el = document.querySelector('script[src$="app.js"]');
+    if (el && el.src) {
+        return new URL('./', el.src);
+    }
+    return new URL('./', window.location.href);
+}
+
+function docsBundleAssetUrl(filename) {
+    return new URL(filename, getDocsBundleBaseUrl());
+}
+
 function registerSW() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
+        navigator.serviceWorker.register(docsBundleAssetUrl('sw.js').href).catch(() => {});
     }
 }
 
@@ -126,7 +139,9 @@ function parseDashboardTimestamp(s) {
 /** Prefer heartbeat for header times so we do not show stale data.json if heartbeat fetch failed earlier. */
 async function tryLoadHeartbeatForHeader() {
     try {
-        const res = await fetch("heartbeat.json?t=" + Date.now());
+        const hb = docsBundleAssetUrl('heartbeat.json');
+        hb.searchParams.set('t', String(Date.now()));
+        const res = await fetch(hb.href);
         if (!res || !res.ok) return false;
         const data = await res.json();
         if (!data || !data.last_heartbeat) return false;
@@ -1263,7 +1278,9 @@ let _monitorsStarted = false;
 async function initDashboard() {
     try {
         const gotHb = await tryLoadHeartbeatForHeader();
-        const dataRes = await fetch("data.json?t=" + Date.now()).catch(() => null);
+        const dataUrl = docsBundleAssetUrl('data.json');
+        dataUrl.searchParams.set('t', String(Date.now()));
+        const dataRes = await fetch(dataUrl.href).catch(() => null);
 
         if (dataRes && dataRes.ok) {
             const parsed = await dataRes.json();
@@ -2606,7 +2623,9 @@ async function monitorCloudHealth() {
 
     try {
         // Fetch heartbeat from the same origin (GitHub Pages)
-        const res = await fetch('heartbeat.json?t=' + Date.now()).catch(() => null);
+        const hb = docsBundleAssetUrl('heartbeat.json');
+        hb.searchParams.set('t', String(Date.now()));
+        const res = await fetch(hb.href).catch(() => null);
         if (res && res.ok) {
             const data = await res.json();
             const lastBeat = parseDashboardTimestamp(data.last_heartbeat);
