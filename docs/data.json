@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25 04:28 PM",
+  "last_updated": "2026-04-25 09:07 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1383,8 +1383,8 @@
       "coles": "https://www.coles.com.au/product/coles-kitchen-kaleslaw-salad-kit-350g-2790390",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.7,
-      "eff_price": 2.7,
+      "price": 5.0,
+      "eff_price": 5.0,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "leafy_greens",
@@ -1485,13 +1485,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 22.5,
+      "unit_price": 17.86,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 22.5,
-          "eff_price": 2.7,
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -1507,7 +1507,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -16319,13 +16319,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -18603,9 +18603,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -27861,6 +27861,13 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 35.7,
+          "unit_price": 27.0,
+          "eff_price": 35.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -28021,7 +28028,7 @@
       "name": "Ww Juice Lemon 500Ml",
       "type": "produce",
       "price_mode": "each",
-      "target": 1.0,
+      "target": 1.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Juice%20Lemon%20500ml",
       "coles": "https://www.coles.com.au/product/lemon-juice-9069356",
       "price_history": [
@@ -28036,7 +28043,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 1.0,
+      "price": 1.65,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "500Ml",
@@ -28134,13 +28141,13 @@
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.0,
+      "unit_price": 3.3000000000000003,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 4.0,
-          "eff_price": 1.0,
+          "price": 1.65,
+          "unit_price": 3.3000000000000003,
+          "eff_price": 1.65,
           "was_price": null,
           "on_special": false
         },
@@ -28155,13 +28162,13 @@
       "price_unavailable": false,
       "image_url": "images/ww_juice_lemon_500ml.jpg",
       "avg_price": 1.65,
-      "eff_price": 1.0,
+      "eff_price": 1.65,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Lemon Juice Bottle",
+      "name_check": "Woolworths Lemon Juice",
       "item_id": "6c63926d-45df-4ce9-ac45-3d596fafca5d"
     },
     {
@@ -28760,7 +28767,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -28771,33 +28778,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (3/12 obs, 25% on sale)",
+      "target_method": "was $9.80, now $7.70 (store special)",
       "target_data_points": 12,
       "target_updated": "2026-04-25",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -28805,7 +28812,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -28868,19 +28875,19 @@
         }
       ],
       "was_price": 9.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.28,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.7,
+          "unit_price": 1.28,
+          "eff_price": 7.7,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -28892,11 +28899,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee"
     },
     {
@@ -36943,9 +36950,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -41943,14 +41950,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -41971,7 +41978,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Pump Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
