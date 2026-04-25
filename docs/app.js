@@ -78,8 +78,27 @@ function isCompactViewport() {
     }
 }
 
+/** Next UTC slot for GitHub Actions cron `0 */4 * * *` (must match chef_os._next_github_actions_scrape_utc). */
+function nextGithubActionsScrapeUtc(after) {
+    const t = new Date(after);
+    if (isNaN(t.getTime())) return new Date();
+    const slots = [0, 4, 8, 12, 16, 20];
+    for (let d = 0; d < 2; d++) {
+        const cur = new Date(t);
+        cur.setUTCDate(cur.getUTCDate() + d);
+        const y = cur.getUTCFullYear();
+        const m = cur.getUTCMonth();
+        const day = cur.getUTCDate();
+        for (let i = 0; i < slots.length; i++) {
+            const h = slots[i];
+            const c = Date.UTC(y, m, day, h, 0, 0, 0);
+            if (c > t.getTime()) return new Date(c);
+        }
+    }
+    return new Date(t.getTime() + 4 * 60 * 60 * 1000);
+}
+
 let _focusBeforeDrawer = null;
-let _focusBeforeSettings = null;
 let _focusBeforeStockModal = null;
 let _drawerScrollLockY = 0;
 let _debugChromeSnapshotLogged = false;
@@ -1394,11 +1413,6 @@ function setupFilters() {
     document.getElementById('go-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(true));
     document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false, 'done_button'));
     document.getElementById('clear-completed-btn')?.addEventListener('click', clearPickedListItems);
-    
-    // Settings Logic
-    document.getElementById('settings-btn')?.addEventListener('click', openSettings);
-    document.getElementById('settings-cancel')?.addEventListener('click', closeSettings);
-    document.getElementById('settings-save')?.addEventListener('click', saveSettings);
 }
 
 function syncCompareGroupDetailsState() {
@@ -1464,33 +1478,6 @@ function setupMobileChromeCompaction() {
     updateMobileChrome();
 }
 
-function openSettings() {
-    _focusBeforeSettings = document.activeElement;
-    document.getElementById('write-api-url-input').value = _writeApiUrl;
-    document.getElementById('settings-modal').style.display = 'flex';
-    setTimeout(() => document.getElementById('write-api-url-input')?.focus(), 0);
-}
-
-function closeSettings() {
-    document.getElementById('settings-modal').style.display = 'none';
-    const prev = _focusBeforeSettings;
-    _focusBeforeSettings = null;
-    prev?.focus?.();
-}
-
-function saveSettings() {
-    _writeApiUrl = document.getElementById('write-api-url-input').value.trim();
-    // #region agent log
-    fetch('http://127.0.0.1:7716/ingest/1692efee-81d9-413c-bd30-574d3de06991',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'fbeffc'},body:JSON.stringify({sessionId:'fbeffc',runId:'baseline',hypothesisId:'H5',location:'docs/app.js:saveSettings',message:'settings saved for cloud sync',data:{hasUrl:Boolean(_writeApiUrl),urlHost:(()=>{try{return new URL(_writeApiUrl).host;}catch{return '';}})()},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    localStorage.setItem('write_api_url', _writeApiUrl);
-    closeSettings();
-    monitorCloudHealth();
-    startShoppingListCloudSyncMonitors();
-    pullShoppingListFromCloud('settings_saved');
-    scheduleShoppingListCloudPush('settings_saved');
-}
-
 function toggleDrawer() {
     const drawer = document.getElementById('list-drawer');
     const overlay = document.getElementById('drawer-overlay');
@@ -1553,12 +1540,6 @@ function setupOverlayEscapeHandler() {
         if (stockModal && stockModal.style.display === 'flex') {
             e.preventDefault();
             closeModal();
-            return;
-        }
-        const settingsModal = document.getElementById('settings-modal');
-        if (settingsModal && settingsModal.style.display === 'flex') {
-            e.preventDefault();
-            closeSettings();
             return;
         }
         const drawer = document.getElementById('list-drawer');
@@ -2544,14 +2525,13 @@ function updateLastCheckedDisplay() {
         el.textContent = `${hours}h ${diffMins % 60}m ago`;
     }
 
-    // 2. Update Local Time "Next Check"
+    // 2. "Next scheduled" in local time (from heartbeat, or 4h UTC-cron alignment if missing)
     if (nextEl) {
         let nextDate;
         if (_nextRun) {
             nextDate = new Date(_nextRun);
         } else {
-            // Fallback: Assume 60 min interval from last success
-            nextDate = new Date(lastDate.getTime() + (60 * 60 * 1000));
+            nextDate = nextGithubActionsScrapeUtc(lastDate.getTime());
         }
         
         if (!isNaN(nextDate.getTime())) {
@@ -2588,7 +2568,7 @@ async function monitorCloudHealth() {
                 text.textContent = `Scrape status: stale (${Math.round(minsAgo)}m ago)`;
             }
 
-            // Sync the 'Last Checked' header display with the cloud heartbeat
+            // Sync Last published / Next scheduled with cloud heartbeat
             _lastChecked = data.last_heartbeat;
             _nextRun = data.next_run;
             updateLastCheckedDisplay();
@@ -3122,7 +3102,7 @@ async function saveItemChanges() {
     try {
         const base = getStockWriteBase();
         if (!base) {
-            alert('Set your Cloud write API in Settings first.');
+            alert('Cloud write API URL is not configured. Set WOOLIESBOT_WRITE_API_URL when building (see scripts/generate_runtime_env.py → docs/env.js), or set localStorage key write_api_url to your Worker base URL.');
             return;
         }
         const headers = { 'Content-Type': 'application/json' };
