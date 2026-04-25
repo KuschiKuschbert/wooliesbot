@@ -102,7 +102,7 @@ function isCompactViewport() {
     }
 }
 
-/** Next UTC slot for GitHub Actions cron `0 */4 * * *` (must match chef_os._next_github_actions_scrape_utc). */
+/** Next UTC slot for GitHub Actions cron every 4 hours (must match chef_os._next_github_actions_scrape_utc). */
 function nextGithubActionsScrapeUtc(after) {
     const t = new Date(after);
     if (isNaN(t.getTime())) return new Date();
