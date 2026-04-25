@@ -2,9 +2,10 @@
  * WooliesBot write API — Cloudflare Worker.
  * Persists /update_stock writes via GitHub Contents API (docs/data.json).
  *
- * Secrets: GH_TOKEN (or GITHUB_TOKEN), WOOLIESBOT_WRITE_SECRET
- * Optional during secret rotation: WOOLIESBOT_WRITE_SECRET_PREVIOUS
- * Vars: GITHUB_REPO_OWNER, GITHUB_REPO_NAME, ALLOWED_ORIGINS (comma-separated)
+ * Secrets: GH_TOKEN (or GITHUB_TOKEN)
+ * Vars: GITHUB_REPO_OWNER, GITHUB_REPO_NAME, ALLOWED_ORIGINS, ALLOWED_USER_EMAILS
+ * Optional dev (insecure): ALLOW_INSECURE_PUBLIC_WRITES=1 skips identity/secret auth (rate limit only).
+ * Optional rollback: ALLOW_LEGACY_SECRET_AUTH + legacy WOOLIESBOT_WRITE_SECRET*
  */
 
 const DATA_PATH = "docs/data.json";
@@ -123,7 +124,7 @@ function corsHeaders(env, requestOrigin) {
 	return {
 		"Access-Control-Allow-Origin": origin,
 		"Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-		"Access-Control-Allow-Headers": "Content-Type, X-WooliesBot-Secret, X-Requested-With",
+		"Access-Control-Allow-Headers": "Content-Type, X-Requested-With, X-WooliesBot-Device",
 		"Access-Control-Max-Age": "86400",
 	};
 }
@@ -169,18 +170,53 @@ function githubToken(env) {
 	return (env.GH_TOKEN || env.GITHUB_TOKEN || "").trim();
 }
 
+function envTruthy(v) {
+	return String(v || "").trim().toLowerCase() === "1" || String(v || "").trim().toLowerCase() === "true";
+}
+
+function parseAllowedEmails(env) {
+	return String(env.ALLOWED_USER_EMAILS || "")
+		.split(",")
+		.map((s) => s.trim().toLowerCase())
+		.filter(Boolean);
+}
+
+function accessIdentityEmail(request) {
+	return (
+		request.headers.get("CF-Access-Authenticated-User-Email")
+		|| request.headers.get("X-Auth-Request-Email")
+		|| ""
+	).trim().toLowerCase();
+}
+
 function requireConfig(env) {
 	const owner = (env.GITHUB_REPO_OWNER || "").trim();
 	const repo = (env.GITHUB_REPO_NAME || "").trim();
 	const token = githubToken(env);
-	const secret = (env.WOOLIESBOT_WRITE_SECRET || "").trim();
-	const previousSecret = (env.WOOLIESBOT_WRITE_SECRET_PREVIOUS || "").trim();
+	const allowedEmails = parseAllowedEmails(env);
+	const allowInsecurePublicWrites = envTruthy(env.ALLOW_INSECURE_PUBLIC_WRITES);
+	const allowLegacySecretAuth = envTruthy(env.ALLOW_LEGACY_SECRET_AUTH);
+	const legacySecret = (env.WOOLIESBOT_WRITE_SECRET || "").trim();
+	const legacyPreviousSecret = (env.WOOLIESBOT_WRITE_SECRET_PREVIOUS || "").trim();
 	const missing = [];
 	if (!owner) missing.push("GITHUB_REPO_OWNER");
 	if (!repo) missing.push("GITHUB_REPO_NAME");
 	if (!token) missing.push("GH_TOKEN");
-	if (!secret) missing.push("WOOLIESBOT_WRITE_SECRET");
-	return { owner, repo, token, secret, previousSecret, missing };
+	if (!allowedEmails.length && !allowLegacySecretAuth && !allowInsecurePublicWrites) {
+		missing.push("ALLOWED_USER_EMAILS");
+	}
+	if (allowLegacySecretAuth && !legacySecret) missing.push("WOOLIESBOT_WRITE_SECRET");
+	return {
+		owner,
+		repo,
+		token,
+		allowedEmails,
+		allowInsecurePublicWrites,
+		allowLegacySecretAuth,
+		legacySecret,
+		legacyPreviousSecret,
+		missing,
+	};
 }
 
 /**
@@ -304,17 +340,36 @@ async function decodeGithubJsonFile(fileMeta) {
 
 
 function ensureAuthorizedRequest(request, cfg, env, origin) {
-	const hdr = (request.headers.get("X-WooliesBot-Secret") || "").trim();
-	const allowedSecrets = [cfg.secret];
-	if (cfg.previousSecret) allowedSecrets.push(cfg.previousSecret);
-	if (!allowedSecrets.includes(hdr)) {
-		return jsonResponse({ error: "unauthorized" }, 401, env, origin);
+	if (cfg.allowInsecurePublicWrites) {
+		const ip = clientIp(request);
+		if (!rateLimitOk(`open:${ip}`)) {
+			return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+		}
+		return null;
 	}
-	const ip = clientIp(request);
-	if (!rateLimitOk(ip)) {
-		return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+
+	const email = accessIdentityEmail(request);
+	if (email && cfg.allowedEmails.includes(email)) {
+		const ipByIdentity = `id:${email}`;
+		if (!rateLimitOk(ipByIdentity)) {
+			return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+		}
+		return null;
 	}
-	return null;
+
+	if (cfg.allowLegacySecretAuth) {
+		const hdr = (request.headers.get("X-WooliesBot-Secret") || "").trim();
+		const allowedSecrets = [cfg.legacySecret];
+		if (cfg.legacyPreviousSecret) allowedSecrets.push(cfg.legacyPreviousSecret);
+		if (allowedSecrets.includes(hdr)) {
+			const ip = clientIp(request);
+			if (!rateLimitOk(ip)) {
+				return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+			}
+			return null;
+		}
+	}
+	return jsonResponse({ error: "unauthorized" }, 401, env, origin);
 }
 
 async function handleUpdateStock(request, env) {
@@ -564,7 +619,23 @@ export default {
 		if (url.pathname === "/health" && request.method === "GET") {
 			const cfg = requireConfig(env);
 			const ok = !cfg.missing.length;
-			return jsonResponse({ ok, service: "wooliesbot-write", configured: ok }, ok ? 200 : 503, env, origin);
+			const authMode = cfg.allowInsecurePublicWrites
+				? "insecure_public"
+				: "identity_allowlist";
+			return jsonResponse(
+				{
+					ok,
+					service: "wooliesbot-write",
+					configured: ok,
+					auth_mode: authMode,
+					allowed_user_count: cfg.allowedEmails.length,
+					legacy_secret_fallback_enabled: cfg.allowLegacySecretAuth,
+					insecure_public_writes: cfg.allowInsecurePublicWrites,
+				},
+				ok ? 200 : 503,
+				env,
+				origin,
+			);
 		}
 
 		if (url.pathname === "/update_stock" && request.method === "POST") {

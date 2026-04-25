@@ -233,16 +233,17 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
         info = page.evaluate(
             """() => ({
                 runtimeUrl: Boolean(window.__WOOLIESBOT_ENV__?.writeApiUrl),
-                runtimeSecret: Boolean(window.__WOOLIESBOT_ENV__?.writeApiSecret),
                 storedUrl: Boolean(localStorage.getItem('write_api_url')),
                 storedSecret: Boolean(localStorage.getItem('write_api_secret')),
             })"""
         )
-        if not info["runtimeUrl"] or not info["runtimeSecret"]:
+        if not info["runtimeUrl"]:
             return "FAIL", f"runtime env missing sync config ({info})"
-        if not info["storedUrl"] or not info["storedSecret"]:
-            return "FAIL", f"local storage not bootstrapped from runtime env ({info})"
-        return "PASS", "runtime sync config prefilled on fresh storage"
+        if not info["storedUrl"]:
+            return "FAIL", f"local storage URL not bootstrapped from runtime env ({info})"
+        if info["storedSecret"]:
+            return "FAIL", f"legacy secret unexpectedly persisted in local storage ({info})"
+        return "PASS", "runtime sync config prefilled without browser secret"
 
     _try(results, "02b", "runtime sync bootstrap", check_runtime_sync_bootstrap)
 

@@ -1,6 +1,6 @@
 # Deploy locally: npm install && npx wrangler deploy
 # Or use GitHub Actions workflow: .github/workflows/deploy-worker.yml (CLOUDFLARE_API_TOKEN + …)
-# Secrets for runtime: GH_TOKEN + WOOLIESBOT_WRITE_SECRET (via wrangler secret put or CI job)
+# Secrets for runtime: GH_TOKEN (via wrangler secret put or CI job)
 #
 # Fill repo owner/name to match your GitHub repository (Pages source for docs/data.json).
 
@@ -13,3 +13,9 @@ GITHUB_REPO_OWNER = "KuschiKuschbert"
 GITHUB_REPO_NAME = "wooliesbot"
 # Browser Origin is scheme + host only (no /wooliesbot path).
 ALLOWED_ORIGINS = "https://kuschikuschbert.github.io"
+# Identity allowlist — only when ALLOW_INSECURE_PUBLIC_WRITES = "0" (optional Cloudflare Access / headers).
+ALLOWED_USER_EMAILS = "derkusch@gmail.com,mikkogram@gmail.com"
+# "1" = any client can call the write API (no login); GitHub token remains server-only. Per-IP rate limit still applies. Set "0" to require allowlist/secret.
+ALLOW_INSECURE_PUBLIC_WRITES = "1"
+# Emergency rollback path: set to "1" to temporarily allow legacy X-WooliesBot-Secret auth.
+ALLOW_LEGACY_SECRET_AUTH = "0"

@@ -12,10 +12,6 @@ Resolution order for write URL:
 1) Process env var (WOOLIESBOT_WRITE_API_URL)
 2) .env.local value
 3) Existing docs/env.js value (prevents accidental blanking in CI)
-
-Secret handling:
-- Tracked output `docs/env.js` is always written with an empty secret.
-- Secret is only written to local mirror `docs/env.local.js`.
 """
 
 from __future__ import annotations
@@ -54,14 +50,13 @@ def parse_existing_runtime(path: Path) -> dict[str, str]:
         return {}
     text = path.read_text(encoding="utf-8")
     out: dict[str, str] = {}
-    for key in ("writeApiUrl", "writeApiSecret"):
-        m = re.search(rf'"?{re.escape(key)}"?\s*:\s*"([^"]*)"', text)
-        if m:
-            out[key] = m.group(1)
+    m = re.search(r'"?writeApiUrl"?\s*:\s*"([^"]*)"', text)
+    if m:
+        out["writeApiUrl"] = m.group(1)
     return out
 
 
-def build_payloads() -> tuple[dict[str, str], dict[str, str]]:
+def build_payload() -> dict[str, str]:
     env_file = parse_env(ENV_PATH)
     existing = parse_existing_runtime(OUT_PATH)
     url = (
@@ -69,13 +64,7 @@ def build_payloads() -> tuple[dict[str, str], dict[str, str]]:
         or env_file.get("WOOLIESBOT_WRITE_API_URL", "").strip()
         or existing.get("writeApiUrl", "").strip()
     )
-    secret = (
-        os.environ.get("WOOLIESBOT_WRITE_API_SECRET", "")
-        or env_file.get("WOOLIESBOT_WRITE_API_SECRET", "")
-    )
-    tracked_payload = {"writeApiUrl": url, "writeApiSecret": ""}
-    local_payload = {"writeApiUrl": url, "writeApiSecret": secret}
-    return tracked_payload, local_payload
+    return {"writeApiUrl": url}
 
 
 def render_payload(payload: dict[str, str]) -> str:
@@ -87,9 +76,9 @@ def render_payload(payload: dict[str, str]) -> str:
 
 
 def main() -> None:
-    tracked_payload, local_payload = build_payloads()
-    OUT_PATH.write_text(render_payload(tracked_payload), encoding="utf-8")
-    LOCAL_MIRROR_PATH.write_text(render_payload(local_payload), encoding="utf-8")
+    payload = build_payload()
+    OUT_PATH.write_text(render_payload(payload), encoding="utf-8")
+    LOCAL_MIRROR_PATH.write_text(render_payload(payload), encoding="utf-8")
     print(f"Wrote {OUT_PATH}")
     print(f"Wrote {LOCAL_MIRROR_PATH}")
 

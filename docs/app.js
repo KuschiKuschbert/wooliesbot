@@ -98,6 +98,46 @@ function nextGithubActionsScrapeUtc(after) {
     return new Date(t.getTime() + 4 * 60 * 60 * 1000);
 }
 
+/** data.json `last_updated` is ISO-8601 UTC; legacy rows used Python 12h strftime (ambiguous in JS). */
+function parseDashboardTimestamp(s) {
+    if (s == null || s === "") return new Date(NaN);
+    const t = new Date(s);
+    if (!isNaN(t.getTime())) return t;
+    const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (m) {
+        let h = parseInt(m[4], 10);
+        const min = parseInt(m[5], 10);
+        const ap = m[6].toUpperCase();
+        if (ap === "PM" && h < 12) h += 12;
+        if (ap === "AM" && h === 12) h = 0;
+        return new Date(
+            parseInt(m[1], 10),
+            parseInt(m[2], 10) - 1,
+            parseInt(m[3], 10),
+            h,
+            min,
+            0,
+            0
+        );
+    }
+    return new Date(NaN);
+}
+
+/** Prefer heartbeat for header times so we do not show stale data.json if heartbeat fetch failed earlier. */
+async function tryLoadHeartbeatForHeader() {
+    try {
+        const res = await fetch("heartbeat.json?t=" + Date.now());
+        if (!res || !res.ok) return false;
+        const data = await res.json();
+        if (!data || !data.last_heartbeat) return false;
+        _lastChecked = data.last_heartbeat;
+        _nextRun = data.next_run;
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 let _focusBeforeDrawer = null;
 let _focusBeforeStockModal = null;
 let _drawerScrollLockY = 0;
@@ -1210,7 +1250,8 @@ let _monitorsStarted = false;
 
 async function initDashboard() {
     try {
-        const dataRes = await fetch('data.json').catch(() => null);
+        const gotHb = await tryLoadHeartbeatForHeader();
+        const dataRes = await fetch("data.json?t=" + Date.now()).catch(() => null);
 
         if (dataRes && dataRes.ok) {
             const parsed = await dataRes.json();
@@ -1218,13 +1259,12 @@ async function initDashboard() {
                 _data = parsed;
             } else {
                 _data = parsed.items || [];
-                const luEl = document.getElementById('last-updated');
-                if (luEl && parsed.last_updated) {
+                if (parsed.last_updated && !gotHb) {
                     _lastChecked = parsed.last_updated;
-                    updateLastCheckedDisplay();
                 }
             }
         }
+        if (_lastChecked) updateLastCheckedDisplay();
 
         if (!_monitorsStarted) {
             _monitorsStarted = true;
@@ -2508,7 +2548,7 @@ function updateLastCheckedDisplay() {
     const nextEl = document.getElementById('next-update');
     if (!el || !_lastChecked) return;
     
-    const lastDate = new Date(_lastChecked);
+    const lastDate = parseDashboardTimestamp(_lastChecked);
     if (isNaN(lastDate.getTime())) {
         el.textContent = _lastChecked;
         return;
@@ -2556,11 +2596,16 @@ async function monitorCloudHealth() {
         const res = await fetch('heartbeat.json?t=' + Date.now()).catch(() => null);
         if (res && res.ok) {
             const data = await res.json();
-            const lastBeat = new Date(data.last_heartbeat);
+            const lastBeat = parseDashboardTimestamp(data.last_heartbeat);
             const now = new Date();
             const minsAgo = (now - lastBeat) / (1000 * 60);
-
-            if (minsAgo < 35) {
+            // 4h GitHub schedule + long runs (~1h); below ~5.5h counts as healthy (old 35m assumed hourly runs).
+            if (!Number.isFinite(minsAgo)) {
+                dot.className = 'status-dot offline';
+                text.textContent = 'Scrape status: unavailable';
+                return;
+            }
+            if (minsAgo < 5.5 * 60) {
                 dot.className = 'status-dot online';
                 text.textContent = `Scrape status: healthy (${Math.round(minsAgo)}m ago)`;
             } else {
