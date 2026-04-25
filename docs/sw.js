@@ -1,7 +1,7 @@
 // WooliesBot Service Worker — stale-while-revalidate cache.
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
-const CACHE = 'wooliesbot-v6-store-pdp-precache';
+const CACHE = 'wooliesbot-v7-boot-hardening';
 const PRECACHE = [
     './',
     './index.html',

@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    feather.replace();
+    if (typeof feather !== 'undefined' && typeof feather.replace === 'function') {
+        try {
+            feather.replace();
+        } catch (e) {
+            console.warn('feather.replace failed', e);
+        }
+    }
     registerSW();
     ensureShoppingDeviceId();
     setupShoppingListSessionSync();
@@ -24,11 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── PWA Service Worker ────────────────────────────────────────────────────────
 /** Directory containing app.js — use for static JSON so fetches work when the page URL is e.g. /repo (no slash) on GitHub Pages. */
 function getDocsBundleBaseUrl() {
+    const byId = document.getElementById('wooliesbot-app-js');
+    if (byId && byId.src) {
+        return new URL('./', byId.src);
+    }
     const el = document.querySelector('script[src$="app.js"]');
     if (el && el.src) {
         return new URL('./', el.src);
     }
     return new URL('./', window.location.href);
+}
+
+async function fetchWithTimeout(resource, options = {}, timeoutMs = 20000) {
+    const c = new AbortController();
+    const t = setTimeout(() => c.abort(), timeoutMs);
+    try {
+        return await fetch(resource, { ...options, signal: c.signal });
+    } finally {
+        clearTimeout(t);
+    }
 }
 
 function docsBundleAssetUrl(filename) {
@@ -141,7 +161,7 @@ async function tryLoadHeartbeatForHeader() {
     try {
         const hb = docsBundleAssetUrl('heartbeat.json');
         hb.searchParams.set('t', String(Date.now()));
-        const res = await fetch(hb.href);
+        const res = await fetchWithTimeout(hb.href, { cache: 'no-store' }, 12000);
         if (!res || !res.ok) return false;
         const data = await res.json();
         if (!data || !data.last_heartbeat) return false;
@@ -1269,6 +1289,9 @@ const _DISPLAY_ABBREVS = [
     [/\b35Hr\b/gi, '35 Hour'], [/\bCb\b/gi, 'Carb'],
 ];
 function displayName(name) {
+    if (typeof WooliesCompareHelpers === 'undefined') {
+        return String(name || '');
+    }
     return WooliesCompareHelpers.displayName(name, _DISPLAY_ABBREVS);
 }
 
@@ -1277,10 +1300,16 @@ let _monitorsStarted = false;
 
 async function initDashboard() {
     try {
-        const gotHb = await tryLoadHeartbeatForHeader();
         const dataUrl = docsBundleAssetUrl('data.json');
         dataUrl.searchParams.set('t', String(Date.now()));
-        const dataRes = await fetch(dataUrl.href).catch(() => null);
+        const [gotHb, dataRes] = await Promise.all([
+            tryLoadHeartbeatForHeader(),
+            fetchWithTimeout(dataUrl.href, { cache: 'no-store' }, 120000)
+                .catch((e) => {
+                    console.warn('data.json fetch failed', e);
+                    return null;
+                }),
+        ]);
 
         if (dataRes && dataRes.ok) {
             const parsed = await dataRes.json();
@@ -2625,7 +2654,7 @@ async function monitorCloudHealth() {
         // Fetch heartbeat from the same origin (GitHub Pages)
         const hb = docsBundleAssetUrl('heartbeat.json');
         hb.searchParams.set('t', String(Date.now()));
-        const res = await fetch(hb.href).catch(() => null);
+        const res = await fetchWithTimeout(hb.href, { cache: 'no-store' }, 12000).catch(() => null);
         if (res && res.ok) {
             const data = await res.json();
             const lastBeat = parseDashboardTimestamp(data.last_heartbeat);
