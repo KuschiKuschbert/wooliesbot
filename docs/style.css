@@ -1652,8 +1652,13 @@ footer {
 .essentials-checklist {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin-top: 12px;
+    max-height: min(42vh, 360px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 4px;
+    scrollbar-width: thin;
 }
 
 .essential-item {
