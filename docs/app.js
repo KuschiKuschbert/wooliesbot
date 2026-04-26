@@ -1302,7 +1302,6 @@ function displayName(name) {
     return WooliesCompareHelpers.displayName(name, _DISPLAY_ABBREVS);
 }
 
-
 let _monitorsStarted = false;
 
 async function initDashboard() {
@@ -1409,7 +1408,7 @@ function setupFilters() {
     // Tab switching
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-tab]');
-    
+
     const switchTab = (target) => {
         _currentTab = target;
         document.body.dataset.activeTab = target;
@@ -1418,20 +1417,20 @@ function setupFilters() {
 
         // Sync desktop buttons
         navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
-        
+
         // Sync mobile buttons
         mobileNavLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === target));
 
         syncTabAriaCurrent(target);
-        
+
         // Switch content
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.classList.toggle('active', tab.id === `tab-${target}`);
         });
-        
+
         if (prefersReducedMotion()) window.scrollTo(0, 0);
         else window.scrollTo({ top: 0, behavior: 'smooth' });
-        
+
         if (target === 'analytics') {
             syncCompareGroupDetailsState();
             syncAnalyticsViewportState();
@@ -1508,7 +1507,7 @@ function setupFilters() {
     // Modals
     document.getElementById('modal-cancel')?.addEventListener('click', closeModal);
     document.getElementById('modal-save')?.addEventListener('click', saveItemChanges);
-    
+
     const stockBtns = document.querySelectorAll('.stock-btn');
     stockBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1676,7 +1675,6 @@ function setupOverlayEscapeHandler() {
     });
 }
 
-
 function renderDashboard() {
     renderCountdown();
     renderWednesdayBanner();
@@ -1718,7 +1716,6 @@ function renderDashboard() {
     const heroEyebrow = hero?.querySelector('.deals-hero-eyebrow');
 }
 
-
 function formatPrice(item) {
     const effPrice = item.eff_price || item.price;
     if (item.price_mode === 'kg') return `$${effPrice.toFixed(2)}/kg`;
@@ -1729,15 +1726,15 @@ function formatPrice(item) {
 function renderCountdown() {
     const textEl = document.getElementById('countdown-text');
     const pill = document.getElementById('specials-countdown');
-    
+
     // Specials reset every Wed (Woolies/Coles updates on Wed morning).
     // Tuesday is the last day.
     const now = new Date();
     const day = now.getDay(); // 0=Sun, 2=Tue, 3=Wed
-    
+
     // Days until next Wednesday — 0 means Wednesday IS today (just refreshed)
     let daysLeft = (3 - day + 7) % 7;
-    
+
     if (daysLeft === 0) {
         // It's Wednesday — new specials just dropped
         pill.classList.remove('urgent');
@@ -1755,9 +1752,9 @@ function renderStats() {
     const totalItemsEl = document.getElementById('total-items');
     const totalSpecialsEl = document.getElementById('total-specials');
     const cartTotalEl = document.getElementById('cart-total');
-    
+
     if (totalItemsEl) totalItemsEl.textContent = _data.length;
-    
+
     const savingsSummary = getSavingsOverview(_data);
     if (totalSpecialsEl) totalSpecialsEl.textContent = savingsSummary.activeDeals;
     if (cartTotalEl) cartTotalEl.textContent = `$${savingsSummary.currentSavings.toFixed(2)}`;
@@ -1767,7 +1764,7 @@ function renderStats() {
     const now = new Date();
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
-    
+
     _data.forEach(item => {
         // Preference 1: Detailed price history (captures multiple purchases)
         if (item.price_history && item.price_history.length > 0) {
@@ -1790,15 +1787,13 @@ function renderStats() {
     const budgetProgress = document.getElementById('budget-progress');
     const budgetText = document.getElementById('budget-spent-text');
     const percent = Math.min((monthlySpent / MONTHLY_BUDGET) * 100, 100);
-    
+
     budgetText.textContent = `$${monthlySpent.toFixed(0)} / $${MONTHLY_BUDGET}`;
     budgetProgress.style.width = `${percent}%`;
     budgetProgress.style.background = monthlySpent > MONTHLY_BUDGET ? 'var(--coles-red)' : 'var(--woolies-green)';
 
     renderColaBattle();
 }
-
-
 
 // ── Essentials: editable, persisted in localStorage ───────────────────────
 const DEFAULT_ESSENTIALS = [
@@ -1818,8 +1813,6 @@ const DEFAULT_ESSENTIALS = [
     // Treats & Pets
     "Lindt 95%", "Whiskas",
 ];
-
-
 
 function getEssentials() {
     const stored = localStorage.getItem('essentialsList');
@@ -1885,7 +1878,6 @@ function findDataItem(name) {
     return null;
 }
 
-
 function renderEssentials() {
     maybeResetEssentials();
     const list = document.getElementById('essentials-list');
@@ -1897,7 +1889,6 @@ function renderEssentials() {
     const doneExpanded = localStorage.getItem('essentialsDoneExpanded') === 'true';
 
     // ── Fuzzy price lookup (delegates to module-level findDataItem) ─────────
-
 
     // ── Header row with edit toggle ──────────────────────────────────────
     const header = document.createElement('div');
@@ -2108,12 +2099,11 @@ function addEssentialToList(itemName) {
     renderEssentials();
 }
 
-
 function renderNearMisses() {
     const section = document.getElementById('near-misses-section');
     const grid = document.getElementById('near-misses-grid');
     grid.innerHTML = '';
-    
+
     const nearMisses = _data.filter(item => {
         const effPrice = item.eff_price || item.price;
         const target = item.target || 0;
@@ -2126,7 +2116,7 @@ function renderNearMisses() {
         const rb = (b.eff_price || b.price) / b.target;
         return ra - rb;
     });
-    
+
     if (nearMisses.length > 0) {
         section.classList.remove('hidden');
         nearMisses.slice(0, 6).forEach((item, index) => {
@@ -2249,12 +2239,12 @@ function createItemCard(item, index, type = 'special') {
     const isSpecial = type === 'special' && effPrice <= item.target && !item.price_unavailable;
     const isNearMiss = type === 'near';
     const isPredicted = type === 'predicted';
-    
+
     const card = document.createElement('div');
     const storeClass = item.store || 'woolworths';
-    
+
     card.className = `item-card store-${storeClass} ${isNearMiss ? 'near-miss-card' : ''} ${isPredicted ? 'predicted-card' : ''}`;
-    
+
     let imgSrc = item.local_image || item.image_url;
     let imgHtml = imgSrc 
         ? `<img src="${imgSrc}" class="item-image" loading="lazy" onerror="this.style.display='none'">`
@@ -2284,7 +2274,7 @@ function createItemCard(item, index, type = 'special') {
     } else {
         priceHtml = `<span class="item-price">$${effPrice.toFixed(2)}</span>`;
     }
-    
+
     // Build store comparison row if both stores available
     const allStores = item.all_stores || {};
     const wooliesData = allStores.woolworths;
@@ -2369,24 +2359,24 @@ function renderPredictions() {
     const grid = document.getElementById('predictions-grid');
     if (!grid) return;
     grid.innerHTML = '';
-    
+
     const now = new Date();
 
     const predicted = _data.filter(item => {
         // Condition 1: Explicitly low stock (Highest priority)
         if (item.stock === 'low') return true;
-        
+
         // Condition 2: Buy frequency prediction based on category
         if (item.last_purchased) {
             const last = new Date(item.last_purchased);
             const diffDays = (now - last) / (1000 * 60 * 60 * 24);
-            
+
             // Per-category heuristics
             let threshold = 10; // Default
             if (item.type === 'fresh_protein' || item.type === 'fresh_veg') threshold = 4;
             else if (item.type === 'fresh_fridge') threshold = 6;
             else if (item.type === 'pet' || item.type === 'household') threshold = 14;
-            
+
             if (diffDays >= threshold) return true;
         }
 
@@ -2402,15 +2392,15 @@ function renderPredictions() {
     predicted.sort((a, b) => {
         if (a.stock === 'low' && b.stock !== 'low') return -1;
         if (b.stock === 'low' && a.stock !== 'low') return 1;
-        
+
         const priceA = a.eff_price || a.price;
         const priceB = b.eff_price || b.price;
         const discountA = (a.target - priceA) / a.target;
         const discountB = (b.target - priceB) / b.target;
-        
+
         if (discountA > discountB) return -1;
         if (discountB > discountA) return 1;
-        
+
         return 0;
     });
 
@@ -2424,7 +2414,6 @@ function renderPredictions() {
         section.classList.add('hidden');
     }
 }
-
 
 function updateListCount() {
     const el = document.getElementById('list-count');
@@ -2487,7 +2476,7 @@ function addToList(itemName, callerBtn, itemId) {
         }
         return;
     }
-    
+
     // Factor in quantities
     let qty = 1;
     if (_shopMode === 'big') {
@@ -2507,7 +2496,7 @@ function addToList(itemName, callerBtn, itemId) {
         picked: false,
         updated_at: new Date().toISOString(),
     };
-    
+
     _shoppingList.push(listItem);
     persistShoppingList();
     updateListCount();
@@ -2544,20 +2533,20 @@ function renderShoppingList() {
     const tripProgressBarEl = document.getElementById('shopping-trip-progress-bar');
     const drawer = document.getElementById('list-drawer');
     if (!container) return;
-    
+
     container.innerHTML = '';
     const shoppingMode = isShoppingTripMode();
     if (drawer) drawer.classList.toggle('shopping-trip-mode', shoppingMode);
     if (totalLabelEl) totalLabelEl.textContent = shoppingMode ? 'Left to buy' : 'About';
     let total = 0;
     let pickedCount = 0;
-    
+
     _shoppingList.forEach((item, index) => {
         const isPicked = Boolean(item.picked);
         if (isPicked) pickedCount += 1;
         const itemTotal = (item.price || 0) * item.qty;
         if (!shoppingMode || !isPicked) total += itemTotal;
-        
+
         const div = document.createElement('div');
         div.className = `shopping-item${shoppingMode ? ' shopping-item--trip' : ''}${isPicked ? ' shopping-item--picked' : ''}${shoppingMode && !isPicked ? ' shopping-item--unpicked' : ''}`;
         const specialBadge = item.on_special && item.was_price
@@ -2576,7 +2565,7 @@ function renderShoppingList() {
         `;
         container.appendChild(div);
     });
-    
+
     if (_shoppingList.length === 0) {
         container.innerHTML = '<p style="color:var(--text-muted);text-align:center;margin-top:40px;">Your list is empty.</p>';
     }
@@ -2646,7 +2635,7 @@ function renderShoppingList() {
         copyBtn.style.opacity = shoppingMode ? '0.72' : '';
         copyBtn.style.filter = shoppingMode ? 'saturate(0.65)' : '';
     }
-    
+
     totalEl.textContent = `$${total.toFixed(2)}`;
     updateListCount();
     safeFeatherReplace();
@@ -2656,17 +2645,17 @@ function updateLastCheckedDisplay() {
     const el = document.getElementById('last-updated');
     const nextEl = document.getElementById('next-update');
     if (!el || !_lastChecked) return;
-    
+
     const lastDate = parseDashboardTimestamp(_lastChecked);
     if (isNaN(lastDate.getTime())) {
         el.textContent = _lastChecked;
         return;
     }
-    
+
     // 1. Update Relative "Last Checked"
     const now = new Date();
     const diffMins = Math.floor((now - lastDate) / 60000);
-    
+
     if (diffMins < 1) el.textContent = "Just now";
     else if (diffMins < 60) el.textContent = `${diffMins}m ago`;
     else {
@@ -2682,7 +2671,7 @@ function updateLastCheckedDisplay() {
         } else {
             nextDate = nextGithubActionsScrapeUtc(lastDate.getTime());
         }
-        
+
         if (!isNaN(nextDate.getTime())) {
             const options = { hour: 'numeric', minute: '2-digit', hour12: true };
             nextEl.textContent = nextDate.toLocaleTimeString(undefined, options);
@@ -2872,12 +2861,12 @@ function renderSpecials() {
     // Sorting Logic
     displayItems.sort((a, b) => {
         if (_currentSort === 'name') return a.name.localeCompare(b.name);
-        
+
         const priceA = a.eff_price || a.price;
         const priceB = b.eff_price || b.price;
-        
+
         if (_currentSort === 'price') return priceA - priceB;
-        
+
         if (_currentSort === 'discount') {
             // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
             const shelfA = a.price || priceA;
@@ -2976,7 +2965,6 @@ function renderPagination(totalItems) {
 
     safeFeatherReplace();
 }
-
 
 // ── D: Collapsible Master Tracklist ──────────────────────────────────────
 function toggleMasterTable() {
@@ -3182,7 +3170,7 @@ function renderAllItems() {
         const effPrice = item.eff_price || item.price;
         const isSpecial = item.on_special || ((item.target || 0) > 0 && effPrice <= item.target && !item.price_unavailable);
         const stockColor = item.stock === 'low' ? 'low' : (item.stock === 'medium' ? 'medium' : 'full');
-        
+
         let priceCell;
         const itemShelf = item.price || effPrice;
         if (item.on_special && item.was_price && item.was_price > itemShelf) {
@@ -3230,11 +3218,11 @@ function openStockModal(itemName, itemId) {
     _selectedItemForModal = item;
     document.getElementById('modal-title').textContent = displayName(item.name);
     document.getElementById('target-input-modal').value = item.target;
-    
+
     document.querySelectorAll('.stock-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.level === item.stock);
     });
-    
+
     const linksEl = document.getElementById('modal-store-links');
     if (linksEl) {
         const as = item.all_stores || {};
@@ -3270,9 +3258,9 @@ function closeModal() {
 async function saveItemChanges() {
     const activeStock = document.querySelector('.stock-btn.active')?.dataset.level;
     const newTarget = parseFloat(document.getElementById('target-input-modal').value);
-    
+
     if (!_selectedItemForModal || !activeStock) return;
-    
+
     try {
         const base = getStockWriteBase();
         if (!base) {
@@ -3454,7 +3442,7 @@ function renderAnalytics() {
 
         // Destroy existing chart if any
         if (window.mySpendingChart) window.mySpendingChart.destroy();
-        
+
         window.mySpendingChart = new Chart(spendingCtx, {
             type: 'line',
             data: {
@@ -3542,7 +3530,7 @@ function renderAnalytics() {
                 window.myCategoryChart = null;
             }
         } else {
-        
+
         if (window.myCategoryChart) window.myCategoryChart.destroy();
 
         window.myCategoryChart = new Chart(categoryCtx, {
@@ -3702,7 +3690,7 @@ function renderDeeperInsights(brandPrices) {
         // Fallback: if all_stores is missing, use the current best store
         const w = item.all_stores?.woolworths?.eff_price || (item.store === 'woolworths' ? item.eff_price : null);
         const c = item.all_stores?.coles?.eff_price || (item.store === 'coles' ? item.eff_price : null);
-        
+
         if (w && c) {
             if (w < c) wooliesCheaper++;
             else if (c < w) colesCheaper++;
@@ -3771,11 +3759,10 @@ function renderDeeperInsights(brandPrices) {
     container.innerHTML = html;
 }
 
-
 function renderSparkline(containerId, historyData, storeClass) {
     const container = document.getElementById(containerId);
     if (!container) return;
-    
+
     const canvas = container.querySelector('canvas');
     if (!canvas) return;
 
@@ -3787,13 +3774,13 @@ function renderSparkline(containerId, historyData, storeClass) {
     }
 
     const color = storeClass === 'woolworths' ? '#10b981' : '#ef4444';
-    
+
     // Sort history by date just in case
     const sorted = [...historyData].sort((a, b) => new Date(a.date) - new Date(b.date));
-    
+
     // Take up to last 14 data points
     const recent = sorted.slice(-14);
-    
+
     const labels = recent.map(h => h.date);
     const data = recent.map(h => h.price);
 
