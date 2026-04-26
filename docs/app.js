@@ -53,39 +53,30 @@ function docsBundleAssetUrl(filename) {
 function getExpectedShellVersion() {
     return document.querySelector('meta[name="wooliesbot-shell-version"]')?.content?.trim() || '';
 }
-
 function extractShellVersionFromHtml(html) {
-    if (!html || typeof html !== 'string') return '';
-    const m = html.match(/<meta\s+name=["']wooliesbot-shell-version["']\s+content=["']([^"']+)["']/i);
-    return m && m[1] ? String(m[1]).trim() : '';
+    return typeof html === 'string'
+        ? (html.match(/<meta\s+name=["']wooliesbot-shell-version["']\s+content=["']([^"']+)["']/i)?.[1] || '').trim()
+        : '';
 }
 
 async function checkForStaleShellVersion() {
     const expected = getExpectedShellVersion();
     if (!expected) return;
     const guardKey = 'wooliesbotShellReloadedForVersion';
-    try {
-        if (sessionStorage.getItem(guardKey) === expected) return;
-    } catch {}
+    try { if (sessionStorage.getItem(guardKey) === expected) return; } catch {}
     try {
         const res = await fetch(docsBundleAssetUrl('index.html').href, { cache: 'no-store' });
         if (!res.ok) return;
-        const html = await res.text();
-        const remote = extractShellVersionFromHtml(html);
+        const remote = extractShellVersionFromHtml(await res.text());
         if (remote && remote !== expected) {
             try { sessionStorage.setItem(guardKey, remote); } catch {}
             window.location.reload();
         }
-    } catch {
-        // Non-fatal: stale-shell check must never block dashboard boot.
-    }
+    } catch {}
 }
-
 function registerSW() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(docsBundleAssetUrl('sw.js').href).then(reg => {
-            reg.update().catch(() => {});
-        }).catch(() => {});
+        navigator.serviceWorker.register(docsBundleAssetUrl('sw.js').href).then(reg => reg.update().catch(() => {})).catch(() => {});
     }
 }
 
@@ -111,31 +102,17 @@ function ensureShoppingDeviceId() {
 function haptic(ms = 10) {
     try { navigator.vibrate?.(ms); } catch {}
 }
-
 function prefersReducedMotion() {
-    try {
-        return typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    } catch {
-        return false;
-    }
+    try { return typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; }
 }
 
 function isMobileViewport() {
-    try {
-        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches;
-    } catch {
-        return false;
-    }
+    try { return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 768px)').matches; } catch { return false; }
 }
 
 function isCompactViewport() {
-    try {
-        return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 430px)').matches;
-    } catch {
-        return false;
-    }
+    try { return typeof matchMedia !== 'undefined' && matchMedia('(max-width: 430px)').matches; } catch { return false; }
 }
-
 /** Next UTC slot for GitHub Actions cron every 4 hours (must match chef_os._next_github_actions_scrape_utc). */
 function nextGithubActionsScrapeUtc(after) {
     const t = new Date(after);
@@ -2098,7 +2075,6 @@ function addToEssentials() {
         saveEssentials(essentials);
     }
     input.value = '';
-    renderEssentials();
     // Keep edit mode open
     const list = document.getElementById('essentials-list');
     if (list) list.dataset.editMode = 'true';
@@ -2109,8 +2085,6 @@ function removeFromEssentials(itemName) {
     const essentials = getEssentials().filter(e => e.toLowerCase() !== itemName.toLowerCase());
     saveEssentials(essentials);
     const list = document.getElementById('essentials-list');
-    if (list) list.dataset.editMode = 'true';
-    renderEssentials();
     if (list) list.dataset.editMode = 'true';
     renderEssentials();
 }
