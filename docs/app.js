@@ -1898,10 +1898,8 @@ function renderEssentials() {
     const essentials = getEssentials();
     const checkedItems = JSON.parse(localStorage.getItem('essentialsChecked') || '[]');
     const doneExpanded = localStorage.getItem('essentialsDoneExpanded') === 'true';
+    const remainingExpanded = localStorage.getItem('essentialsRemainingExpanded') === 'true';
 
-    // ── Fuzzy price lookup (delegates to module-level findDataItem) ─────────
-
-    // ── Header row with edit toggle ──────────────────────────────────────
     const header = document.createElement('div');
     header.className = 'essentials-header';
     const doneCount = checkedItems.length;
@@ -1914,7 +1912,6 @@ function renderEssentials() {
         </div>`;
     list.appendChild(header);
 
-    // ── Progress bar ─────────────────────────────────────────────────────
     const progressWrap = document.createElement('div');
     progressWrap.className = 'essentials-progress-bar-bg';
     progressWrap.innerHTML = `<div class="essentials-progress-fill" style="width:${totalCount ? (doneCount/totalCount*100) : 0}%"></div>`;
@@ -1922,7 +1919,6 @@ function renderEssentials() {
 
     const remainingItems = essentials.filter(itemName => !checkedItems.includes(itemName));
     const doneItems = essentials.filter(itemName => checkedItems.includes(itemName));
-
     const renderRow = (itemName, opts = {}) => {
         const { isDoneSection = false } = opts;
         const isChecked = checkedItems.includes(itemName);
@@ -1933,11 +1929,8 @@ function renderEssentials() {
         const staleBadge = dataItem?.stale ? getStaleBadge(dataItem, true) : '';
         const stock = dataItem?.stock;
 
-        // Stock dot colour
         const dotClass = stock === 'low' ? 'low' : stock === 'medium' ? 'medium' : stock === 'full' ? 'full' : '';
         const stockDot = dotClass ? `<span class="stock-dot ${dotClass}" title="${stock} stock"></span>` : '';
-
-        // Price badge
         const priceBadge = price
             ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}$${price.toFixed(2)}</span>${staleBadge}`
             : '';
@@ -1971,12 +1964,22 @@ function renderEssentials() {
         return row;
     };
 
-    // ── Remaining rows (always visible) ───────────────────────────────────
-    remainingItems.forEach(itemName => {
+    const remainingCap = 6;
+    const visibleRemaining = remainingExpanded ? remainingItems.length : Math.min(remainingCap, remainingItems.length);
+    remainingItems.slice(0, visibleRemaining).forEach(itemName => {
         list.appendChild(renderRow(itemName));
     });
+    if (remainingItems.length > remainingCap) {
+        const remainingToggle = document.createElement('button');
+        remainingToggle.className = 'essentials-done-toggle';
+        remainingToggle.type = 'button';
+        remainingToggle.innerHTML = `<span class="essentials-done-label">${remainingExpanded ? 'Show less' : `Show ${remainingItems.length - remainingCap} more`}</span><span class="essentials-done-caret">${remainingExpanded ? '▴' : '▾'}</span>`;
+        remainingToggle.addEventListener('click', () => {
+            localStorage.setItem('essentialsRemainingExpanded', remainingExpanded ? 'false' : 'true');
+            renderEssentials();
+        }); list.appendChild(remainingToggle);
+    }
 
-    // ── Completed rows (collapsible) ───────────────────────────────────────
     if (doneItems.length) {
         const doneSection = document.createElement('div');
         doneSection.className = 'essentials-done-section';
@@ -2009,7 +2012,6 @@ function renderEssentials() {
         list.appendChild(doneSection);
     }
 
-    // ── Edit mode: add new item input ─────────────────────────────────────
     const editMode = list.dataset.editMode === 'true';
     const addRow = document.createElement('div');
     addRow.className = 'essential-add-row' + (editMode ? '' : ' hidden');
@@ -2019,7 +2021,6 @@ function renderEssentials() {
         <button class="essential-add-confirm-btn" onclick="addToEssentials()">Add</button>`;
     list.appendChild(addRow);
 
-    // ── Edit mode: reset to defaults button ───────────────────────────────
     const resetRow = document.createElement('div');
     resetRow.className = 'essential-reset-defaults-row' + (editMode ? '' : ' hidden');
     resetRow.innerHTML = `
@@ -2028,7 +2029,6 @@ function renderEssentials() {
         </button>`;
     list.appendChild(resetRow);
 
-    // Restore edit mode visual state
     if (editMode) {
         list.querySelectorAll('[data-remove]').forEach(btn => btn.classList.remove('hidden'));
         const editBtn = document.getElementById('essentials-edit-btn');
