@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-27 01:06 AM",
+  "last_updated": "2026-04-27 05:44 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1659,13 +1659,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 22.5,
+      "unit_price": 17.86,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 22.5,
-          "eff_price": 2.7,
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -1681,7 +1681,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -9306,7 +9306,7 @@
       "name": "Ww Lean Beef Mince 1Kg",
       "type": "meat",
       "price_mode": "each",
-      "target": 18.75,
+      "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%201kg",
       "coles": "https://www.coles.com.au/search?q=Woolworths+Lean+Beef+Mince",
       "price_history": [
@@ -9337,7 +9337,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 18.75,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -9352,20 +9352,20 @@
         {
           "date": "2026-04-15",
           "price": 12.69,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 12.69,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
         {
           "date": "2026-04-17",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9373,7 +9373,7 @@
         {
           "date": "2026-04-18",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9381,7 +9381,7 @@
         {
           "date": "2026-04-19",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9389,7 +9389,7 @@
         {
           "date": "2026-04-20",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9397,7 +9397,7 @@
         {
           "date": "2026-04-21",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9405,7 +9405,7 @@
         {
           "date": "2026-04-22",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9413,7 +9413,7 @@
         {
           "date": "2026-04-23",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9421,7 +9421,7 @@
         {
           "date": "2026-04-24",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9429,7 +9429,7 @@
         {
           "date": "2026-04-25",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9437,7 +9437,7 @@
         {
           "date": "2026-04-26",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9445,7 +9445,7 @@
         {
           "date": "2026-04-27",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -9453,13 +9453,13 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 18.75,
+      "unit_price": 21.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.75,
-          "unit_price": 18.75,
-          "eff_price": 18.75,
+          "price": 10.5,
+          "unit_price": 21.0,
+          "eff_price": 10.5,
           "was_price": null,
           "on_special": false
         }
@@ -9467,7 +9467,7 @@
       "price_unavailable": false,
       "image_url": "images/ww_lean_beef_mince_1kg.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 18.75,
+      "eff_price": 10.5,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -31991,7 +31991,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -32002,33 +32002,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (3/14 obs, 21% on sale)",
+      "target_method": "was $9.80, now $7.70 (store special)",
       "target_data_points": 14,
       "target_updated": "2026-04-27",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -32036,7 +32036,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -32115,19 +32115,19 @@
         }
       ],
       "was_price": 9.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.28,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.7,
+          "unit_price": 1.28,
+          "eff_price": 7.7,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -32139,11 +32139,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee"
     },
     {
@@ -44450,14 +44450,14 @@
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.97,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -44475,7 +44475,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e"
     },
     {
