@@ -17,5 +17,7 @@ ALLOWED_ORIGINS = "https://kuschikuschbert.github.io"
 ALLOWED_USER_EMAILS = "derkusch@gmail.com,mikkogram@gmail.com"
 # "1" = any client can call the write API (no login); GitHub token remains server-only. Per-IP rate limit still applies. Set "0" to require allowlist/secret.
 ALLOW_INSECURE_PUBLIC_WRITES = "1"
+# Optional hybrid auth token(s), comma-separated. Keep empty to disable token auth.
+# WRITE_API_TOKENS = ""
 # Emergency rollback path: set to "1" to temporarily allow legacy X-WooliesBot-Secret auth.
 ALLOW_LEGACY_SECRET_AUTH = "0"
