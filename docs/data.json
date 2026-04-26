@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26 03:49 PM",
+  "last_updated": "2026-04-26 08:28 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8820,7 +8820,7 @@
       "name": "Ww Lean Beef Mince 1Kg",
       "type": "meat",
       "price_mode": "each",
-      "target": 10.5,
+      "target": 18.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%201kg",
       "coles": "https://www.coles.com.au/search?q=Woolworths+Lean+Beef+Mince",
       "price_history": [
@@ -8851,7 +8851,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 10.5,
+      "price": 18.75,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -8866,20 +8866,20 @@
         {
           "date": "2026-04-15",
           "price": 12.69,
-          "is_special": false,
+          "is_special": true,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 12.69,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths"
         },
         {
           "date": "2026-04-17",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8887,7 +8887,7 @@
         {
           "date": "2026-04-18",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8895,7 +8895,7 @@
         {
           "date": "2026-04-19",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8903,7 +8903,7 @@
         {
           "date": "2026-04-20",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8911,7 +8911,7 @@
         {
           "date": "2026-04-21",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8919,7 +8919,7 @@
         {
           "date": "2026-04-22",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8927,7 +8927,7 @@
         {
           "date": "2026-04-23",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8935,7 +8935,7 @@
         {
           "date": "2026-04-24",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8943,7 +8943,7 @@
         {
           "date": "2026-04-25",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8951,7 +8951,7 @@
         {
           "date": "2026-04-26",
           "price": 18.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8959,13 +8959,13 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 21.0,
+      "unit_price": 18.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 10.5,
-          "unit_price": 21.0,
-          "eff_price": 10.5,
+          "price": 18.75,
+          "unit_price": 18.75,
+          "eff_price": 18.75,
           "was_price": null,
           "on_special": false
         }
@@ -8973,7 +8973,7 @@
       "price_unavailable": false,
       "image_url": "images/ww_lean_beef_mince_1kg.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 10.5,
+      "eff_price": 18.75,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -11101,9 +11101,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -17140,7 +17140,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -17249,13 +17249,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -17269,7 +17269,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -36820,7 +36820,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 4.9,
+      "price": 4.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -36928,10 +36928,17 @@
       "on_special": false,
       "local_image": "images/Asparagus_Green_Bnch.jpg",
       "image_url": "images/asparagus_green_bnch.jpg",
-      "store": "coles",
-      "unit_price": 4.9,
+      "store": "woolworths",
+      "unit_price": 4.5,
       "unit": "each",
       "all_stores": {
+        "woolworths": {
+          "price": 4.5,
+          "unit_price": 4.5,
+          "eff_price": 4.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.9,
           "unit_price": 4.9,
@@ -36942,11 +36949,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.55,
-      "eff_price": 4.9,
+      "eff_price": 4.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Green Asparagus",
+      "name_check": "Woolworths Green Asparagus Bunch Green",
       "item_id": "f54c233c-5595-4827-ac60-45db1645eac6"
     },
     {
@@ -60063,14 +60070,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 13.5,
+          "unit_price": 3.6,
+          "eff_price": 13.5,
           "was_price": null,
           "on_special": false
         },
@@ -60184,7 +60191,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control",
+      "name_check": "Ant Rid Ant Bait",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b"
     },
     {
