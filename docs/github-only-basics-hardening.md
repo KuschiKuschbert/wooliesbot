@@ -7,7 +7,7 @@ This is the minimal hardening baseline for WooliesBot now that scheduled automat
 Use repository branch protection/rulesets for `main` with:
 
 - Require pull requests for normal code changes.
-- Require CI status checks (at least the `CI` workflow).
+- Require CI status checks (at least the `CI` workflow’s `validate` job, which runs `e2e_validate` layers B and C on `docs/data.json`).
 - Block force push and branch deletion.
 
 Compatibility note for scheduled data commits:
