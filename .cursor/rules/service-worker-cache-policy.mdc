@@ -1,0 +1,23 @@
+---
+description: Define safe cache policy for dashboard shell vs data freshness
+globs: docs/{sw,index}.*
+alwaysApply: false
+---
+
+# Service Worker Cache Policy
+
+- `data.json` and `heartbeat.json` must prioritize freshness (network-first).
+- App shell files (`index.html`, `app.js`, helper JS, styles) must use a documented strategy and cache-bust plan.
+- Any shell cache strategy change requires cache version bump in `docs/sw.js`.
+
+## Deployment Safety
+
+- Keep script/style cache-bust values (`?v=` or equivalent) coherent across pages.
+- Preserve a clear stale-client recovery path (hard refresh/SW unregister guidance).
+- Do not introduce cache behavior that can strand users on stale `app.js`.
+
+## Verification
+
+- Validate first-load and repeat-load behavior.
+- Verify updated shell assets are fetched after deploy.
+- Confirm `docs/sw.js` and HTML asset URLs are aligned.

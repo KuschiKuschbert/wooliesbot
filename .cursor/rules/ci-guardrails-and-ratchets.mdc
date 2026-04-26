@@ -1,0 +1,23 @@
+---
+description: Respect CI ratchets and workflow safety gates
+globs: "{.github/workflows/**/*.yml,scripts/check_file_sizes.py,scripts/file_size_guardrails.json,workers/wooliesbot-write/src/**/*.js,docs/app.js}"
+alwaysApply: false
+---
+
+# CI Guardrails and Ratchets
+
+- Treat file-size guardrail failures as refactor triggers, not bypass prompts.
+- Keep workflow trigger paths minimal and intentional.
+- Update validation scripts when behavior changes introduce new invariants.
+
+## Ratchet Discipline
+
+- If hot files exceed cap, extract modules before merging.
+- Prefer small, behavior-preserving refactors to keep CI green.
+- Any exception entry should include rationale and expiry.
+
+## Verification
+
+- Run `python3 scripts/check_file_sizes.py`.
+- Confirm relevant workflow still triggers for changed paths.
+- Re-run targeted validators tied to changed subsystem(s).

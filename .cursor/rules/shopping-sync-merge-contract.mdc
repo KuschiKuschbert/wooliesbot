@@ -1,0 +1,23 @@
+---
+description: Protect multi-device shopping-list merge correctness
+globs: "{docs/app.js,workers/wooliesbot-write/src/**/*.js,scripts/simulate_shopping_list_dual_device.py}"
+alwaysApply: false
+---
+
+# Shopping Sync Merge Contract
+
+- Merge semantics must remain deterministic across client and Worker.
+- Keying preference and tie-break behavior must be consistent with current item-level merge strategy.
+- Sync failures must not discard local list state.
+
+## Behavioral Invariants
+
+- `updated_at` drives last-write preference unless tie policy says otherwise.
+- Merge preserves stable row shape and required fields.
+- Pull/push retries must remain bounded and observable in logs/toasts.
+
+## Verification
+
+- Run dual-device simulation script in read-only and write mode as needed.
+- Confirm no duplicate-key explosion or oscillating row resolution.
+- Validate client still renders merged list and updates cloud stamp safely.

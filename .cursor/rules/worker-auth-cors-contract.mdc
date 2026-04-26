@@ -1,0 +1,25 @@
+---
+description: Enforce stable CORS/auth contract between dashboard and write Worker
+globs: workers/wooliesbot-write/**/*.{js,toml}
+alwaysApply: false
+---
+
+# Worker Auth + CORS Contract
+
+- Keep browser CORS behavior explicit and testable for `OPTIONS`, `GET`, and `POST`.
+- If frontend uses `credentials: include`, Worker responses must include:
+  - explicit `Access-Control-Allow-Origin` (not wildcard)
+  - `Access-Control-Allow-Credentials: true`
+- Keep `Vary: Origin` when allowlist-based origin handling is used.
+
+## Hybrid Auth Rule
+
+- Support token-auth path and credential path without breaking existing clients.
+- Auth mode changes must preserve non-destructive error handling client-side.
+- Never log raw secrets/tokens.
+
+## Verification
+
+- Run `scripts/simulate_shopping_list_dual_device.py`.
+- Validate live preflight headers with explicit `OPTIONS` request.
+- Confirm `/health` reflects auth/cors capability metadata.

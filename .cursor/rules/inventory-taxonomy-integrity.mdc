@@ -1,0 +1,23 @@
+---
+description: Keep compare_group taxonomy consistent and validator-enforced
+globs: "{docs/data.json,scripts/e2e_validate.py}"
+alwaysApply: false
+---
+
+# Inventory Taxonomy Integrity
+
+- `compare_group` members must share a single compatible `price_mode`.
+- Mixed unit domains in one group are a hard validation failure, not a warning.
+- Data fixes should preserve intended compare semantics (e.g., drinks usually `litre`).
+
+## Data Hygiene
+
+- Avoid duplicate semantic group names for the same product family.
+- Keep `pack_litres` valid when `price_mode` is `litre`.
+- When editing grouped items, check neighboring group members for consistency.
+
+## Verification
+
+- Run `scripts/e2e_validate.py --layer B` after taxonomy edits.
+- Spot-check affected groups with `--item <group keyword>`.
+- Ensure dashboard compare warnings for corrected groups disappear.

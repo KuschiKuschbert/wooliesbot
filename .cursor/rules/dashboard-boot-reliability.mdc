@@ -1,0 +1,26 @@
+---
+description: Keep dashboard boot/data-loading resilient and diagnosable
+globs: docs/{app,index,style}.*
+alwaysApply: false
+---
+
+# Dashboard Boot Reliability
+
+- Treat `initDashboard` and first-render flow as critical-path code.
+- Never allow silent catalog failure states; always update user-visible diagnostics.
+- Keep boot error paths explicit for fetch failure, non-OK HTTP, and JSON parse failure.
+- Preserve hero/status messaging semantics so "no data" and "loading" are distinguishable.
+
+## Required Patterns
+
+- Use guarded icon refresh (`safeFeatherReplace`) for all dynamic icon replacement.
+- Keep `#app-status` and any visible banner in sync with data-load failure state.
+- Ensure empty-state rendering differs between:
+  - truly empty filtered results
+  - failed catalog load
+
+## Verification
+
+- `node --check docs/app.js`
+- Manual smoke: load site with normal network and with blocked `data.json`.
+- Confirm no uncaught boot exceptions in console on first load.
