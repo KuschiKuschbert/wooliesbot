@@ -2,7 +2,7 @@
  * WooliesBot write API — Cloudflare Worker.
  * Persists /update_stock writes via GitHub Contents API (docs/data.json).
  *
- * Secrets: GH_TOKEN (or GITHUB_TOKEN)
+ * Secrets: GH_TOKEN (or GITHUB_TOKEN), optional WRITE_API_TOKEN(S)
  * Vars: GITHUB_REPO_OWNER, GITHUB_REPO_NAME, ALLOWED_ORIGINS, ALLOWED_USER_EMAILS
  * Optional dev (insecure): ALLOW_INSECURE_PUBLIC_WRITES=1 skips identity/secret auth (rate limit only).
  * Optional rollback: ALLOW_LEGACY_SECRET_AUTH + legacy WOOLIESBOT_WRITE_SECRET*
@@ -200,6 +200,28 @@ function parseAllowedEmails(env) {
 		.filter(Boolean);
 }
 
+function parseWriteApiTokens(env) {
+	const combined = [
+		String(env.WRITE_API_TOKEN || "").trim(),
+		String(env.WRITE_API_TOKENS || "").trim(),
+	]
+		.filter(Boolean)
+		.join(",");
+	if (!combined) return [];
+	return combined
+		.split(",")
+		.map((s) => s.trim())
+		.filter(Boolean);
+}
+
+function accessApiToken(request) {
+	const auth = String(request.headers.get("Authorization") || "").trim();
+	if (auth.toLowerCase().startsWith("bearer ")) {
+		return auth.slice(7).trim();
+	}
+	return String(request.headers.get("X-WooliesBot-Token") || "").trim();
+}
+
 function accessIdentityEmail(request) {
 	return (
 		request.headers.get("CF-Access-Authenticated-User-Email")
@@ -213,6 +235,7 @@ function requireConfig(env) {
 	const repo = (env.GITHUB_REPO_NAME || "").trim();
 	const token = githubToken(env);
 	const allowedEmails = parseAllowedEmails(env);
+	const writeApiTokens = parseWriteApiTokens(env);
 	const allowInsecurePublicWrites = envTruthy(env.ALLOW_INSECURE_PUBLIC_WRITES);
 	const allowLegacySecretAuth = envTruthy(env.ALLOW_LEGACY_SECRET_AUTH);
 	const legacySecret = (env.WOOLIESBOT_WRITE_SECRET || "").trim();
@@ -230,6 +253,7 @@ function requireConfig(env) {
 		repo,
 		token,
 		allowedEmails,
+		writeApiTokens,
 		allowInsecurePublicWrites,
 		allowLegacySecretAuth,
 		legacySecret,
@@ -359,6 +383,15 @@ async function decodeGithubJsonFile(fileMeta) {
 
 
 function ensureAuthorizedRequest(request, cfg, env, origin) {
+	const apiToken = accessApiToken(request);
+	if (apiToken && cfg.writeApiTokens.includes(apiToken)) {
+		const suffix = apiToken.slice(-6) || "token";
+		if (!rateLimitOk(`token:${suffix}`)) {
+			return jsonResponse({ error: "rate_limited" }, 429, env, origin);
+		}
+		return null;
+	}
+
 	if (cfg.allowInsecurePublicWrites) {
 		const ip = clientIp(request);
 		if (!rateLimitOk(`open:${ip}`)) {
@@ -649,6 +682,8 @@ export default {
 					configured: ok,
 					auth_mode: authMode,
 					allowed_user_count: cfg.allowedEmails.length,
+					token_auth_enabled: cfg.writeApiTokens.length > 0,
+					token_auth_count: cfg.writeApiTokens.length,
 					legacy_secret_fallback_enabled: cfg.allowLegacySecretAuth,
 					insecure_public_writes: cfg.allowInsecurePublicWrites,
 					cors: {

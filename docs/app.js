@@ -400,13 +400,16 @@ let _currentSort = 'discount';
 function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
     const url = typeof cfg.writeApiUrl === 'string' ? cfg.writeApiUrl.trim() : '';
-    return { url };
+    const token = typeof cfg.writeApiToken === 'string' ? cfg.writeApiToken.trim() : '';
+    return { url, token };
 }
 
 const _runtimeWriteConfig = getRuntimeWriteConfig();
 /** Cloudflare Worker base URL for POST /update_stock. */
 let _writeApiUrl = localStorage.getItem('write_api_url') || _runtimeWriteConfig.url || '';
 if (_writeApiUrl && !localStorage.getItem('write_api_url')) localStorage.setItem('write_api_url', _writeApiUrl);
+let _writeApiToken = localStorage.getItem('write_api_token') || _runtimeWriteConfig.token || '';
+if (_writeApiToken && !localStorage.getItem('write_api_token')) localStorage.setItem('write_api_token', _writeApiToken);
 localStorage.removeItem('write_api_secret');
 let _nextRun = null;
 const MONTHLY_BUDGET = 800;
@@ -710,6 +713,29 @@ function usesCloudWrite() {
     return Boolean((_writeApiUrl || '').trim());
 }
 
+function getWriteApiToken() {
+    return (_writeApiToken || '').trim();
+}
+
+function getWriteApiAuthMode() {
+    return getWriteApiToken() ? 'token' : 'credentials';
+}
+
+function buildWriteApiRequestInit(method, extra = {}) {
+    const token = getWriteApiToken();
+    const headers = { ...(extra.headers || {}) };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`;
+    }
+    const init = {
+        ...extra,
+        method,
+        headers,
+        credentials: token ? 'omit' : 'include',
+    };
+    return init;
+}
+
 function getShoppingDeviceId() {
     try {
         return localStorage.getItem('shoppingDeviceId') || 'unknown';
@@ -791,7 +817,10 @@ function mergeShoppingListRows(localRows, remoteRows) {
 
 function noteShoppingListSyncFailure(kind, reason, status = 0) {
     _shoppingListSyncFailureStreak += 1;
-    console.warn(`[shopping-sync] ${kind} failed (${reason})`, status ? { status } : {});
+    console.warn(
+        `[shopping-sync] ${kind} failed (${reason})`,
+        status ? { status, authMode: getWriteApiAuthMode() } : { authMode: getWriteApiAuthMode() }
+    );
     if (_shoppingListSyncFailureStreak === 3 || _shoppingListSyncFailureStreak % 5 === 0) {
         showUiToast('Cart sync is retrying. Your local changes are still saved on this device.', 3200);
     }
@@ -834,12 +863,12 @@ async function pushShoppingListToCloud(reason = 'manual') {
             items: normalizeShoppingListShape(_shoppingList),
         };
         const res = await fetch(`${base}/shopping_list`, {
-            method: 'POST',
-            headers: {
+            ...buildWriteApiRequestInit('POST', {
+                headers: {
                 'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify(payload),
+                },
+                body: JSON.stringify(payload),
+            }),
         });
         if (!res.ok) {
             noteShoppingListSyncFailure('push', dispatchedReason, res.status);
@@ -881,12 +910,12 @@ async function pullShoppingListFromCloud(reason = 'poll') {
     try {
         const pullUrl = `${base}/shopping_list?t=${Date.now()}`;
         const res = await fetch(pullUrl, {
-            method: 'GET',
-            cache: 'no-store',
-            headers: {
-                'X-WooliesBot-Device': getShoppingDeviceId(),
-            },
-            credentials: 'include',
+            ...buildWriteApiRequestInit('GET', {
+                cache: 'no-store',
+                headers: {
+                    'X-WooliesBot-Device': getShoppingDeviceId(),
+                },
+            }),
         });
         if (!res.ok) {
             noteShoppingListSyncFailure('pull', reason, res.status);
@@ -3218,15 +3247,15 @@ async function saveItemChanges() {
         }
         const headers = { 'Content-Type': 'application/json' };
         const response = await fetch(`${base}/update_stock`, {
-            method: 'POST',
-            headers,
-            credentials: 'include',
-            body: JSON.stringify({
-                name: _selectedItemForModal.name,
-                item_id: _selectedItemForModal.item_id || null,
-                stock: activeStock,
-                target: Number.isFinite(newTarget) ? newTarget : undefined,
-            })
+            ...buildWriteApiRequestInit('POST', {
+                headers,
+                body: JSON.stringify({
+                    name: _selectedItemForModal.name,
+                    item_id: _selectedItemForModal.item_id || null,
+                    stock: activeStock,
+                    target: Number.isFinite(newTarget) ? newTarget : undefined,
+                }),
+            }),
         });
 
         if (response.ok) {

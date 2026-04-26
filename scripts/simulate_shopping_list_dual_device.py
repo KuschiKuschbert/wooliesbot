@@ -60,6 +60,9 @@ def http_json(method: str, url: str, body: object | None = None) -> tuple[int, o
     headers = {
         "User-Agent": "WooliesBot-simulate-shopping-list/1.0 (python-urllib; +https://github.com/KuschiKuschbert/wooliesbot)",
     }
+    write_token = os.environ.get("WOOLIESBOT_WRITE_API_TOKEN", "").strip()
+    if write_token:
+        headers["Authorization"] = f"Bearer {write_token}"
     if sim_email:
         # Same header name the Worker reads; real Access overwrites on edge. For CLI/IDE sim only.
         headers["CF-Access-Authenticated-User-Email"] = sim_email
@@ -84,7 +87,9 @@ def options_preflight(base: str, origin: str) -> tuple[int, dict]:
     req = urllib.request.Request(url, method="OPTIONS")
     req.add_header("Origin", origin)
     req.add_header("Access-Control-Request-Method", "GET")
-    req.add_header("Access-Control-Request-Headers", "x-wooliesbot-device")
+    write_token = os.environ.get("WOOLIESBOT_WRITE_API_TOKEN", "").strip()
+    requested_headers = "authorization, x-wooliesbot-device" if write_token else "x-wooliesbot-device"
+    req.add_header("Access-Control-Request-Headers", requested_headers)
     try:
         with urllib.request.urlopen(req, timeout=30) as res:
             status = res.getcode()
@@ -179,6 +184,8 @@ def main() -> int:
 
     print("Base:", base)
     app_origin = os.environ.get("WOOLIESBOT_APP_ORIGIN", "https://kuschikuschbert.github.io").strip()
+    token_mode = bool(os.environ.get("WOOLIESBOT_WRITE_API_TOKEN", "").strip())
+    print("Auth mode:", "token" if token_mode else "credentials")
     pf_status, pf_headers = options_preflight(base, app_origin)
     print(
         "OPTIONS /shopping_list ->",
@@ -192,7 +199,7 @@ def main() -> int:
         print("  preflight failed; CORS policy likely misconfigured.")
     if pf_headers.get("access-control-allow-origin") not in (app_origin, "*"):
         print("  warning: preflight allow-origin does not match app origin.")
-    if pf_headers.get("access-control-allow-credentials", "").lower() != "true":
+    if (not token_mode) and pf_headers.get("access-control-allow-credentials", "").lower() != "true":
         print("  warning: allow-credentials is not true (required for credentials mode).")
 
     try:
