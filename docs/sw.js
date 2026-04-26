@@ -2,7 +2,8 @@
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
-const CACHE = 'wooliesbot-v8-data-diagnostics';
+const SHELL_VERSION = '2037-stale-shell-fix';
+const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const PRECACHE = [
     './',
@@ -45,9 +46,8 @@ function networkFirstWithCacheUpdate(request) {
 }
 
 self.addEventListener('install', event => {
-    self.skipWaiting();
     event.waitUntil(
-        caches.open(CACHE).then(cache => cache.addAll(PRECACHE).catch(() => {}))
+        caches.open(CACHE).then(cache => cache.addAll(PRECACHE).catch(() => {})).then(() => self.skipWaiting())
     );
 });
 

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     safeFeatherReplace();
     registerSW();
+    checkForStaleShellVersion();
     ensureShoppingDeviceId();
     setupShoppingListSessionSync();
     showSkeletons();
@@ -49,9 +50,42 @@ function docsBundleAssetUrl(filename) {
     return new URL(filename, getDocsBundleBaseUrl());
 }
 
+function getExpectedShellVersion() {
+    return document.querySelector('meta[name="wooliesbot-shell-version"]')?.content?.trim() || '';
+}
+
+function extractShellVersionFromHtml(html) {
+    if (!html || typeof html !== 'string') return '';
+    const m = html.match(/<meta\s+name=["']wooliesbot-shell-version["']\s+content=["']([^"']+)["']/i);
+    return m && m[1] ? String(m[1]).trim() : '';
+}
+
+async function checkForStaleShellVersion() {
+    const expected = getExpectedShellVersion();
+    if (!expected) return;
+    const guardKey = 'wooliesbotShellReloadedForVersion';
+    try {
+        if (sessionStorage.getItem(guardKey) === expected) return;
+    } catch {}
+    try {
+        const res = await fetch(docsBundleAssetUrl('index.html').href, { cache: 'no-store' });
+        if (!res.ok) return;
+        const html = await res.text();
+        const remote = extractShellVersionFromHtml(html);
+        if (remote && remote !== expected) {
+            try { sessionStorage.setItem(guardKey, remote); } catch {}
+            window.location.reload();
+        }
+    } catch {
+        // Non-fatal: stale-shell check must never block dashboard boot.
+    }
+}
+
 function registerSW() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(docsBundleAssetUrl('sw.js').href).catch(() => {});
+        navigator.serviceWorker.register(docsBundleAssetUrl('sw.js').href).then(reg => {
+            reg.update().catch(() => {});
+        }).catch(() => {});
     }
 }
 
