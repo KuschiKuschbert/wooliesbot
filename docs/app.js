@@ -1894,6 +1894,7 @@ function renderEssentials() {
 
     const essentials = getEssentials();
     const checkedItems = JSON.parse(localStorage.getItem('essentialsChecked') || '[]');
+    const doneExpanded = localStorage.getItem('essentialsDoneExpanded') === 'true';
 
     // ── Fuzzy price lookup (delegates to module-level findDataItem) ─────────
 
@@ -1917,15 +1918,11 @@ function renderEssentials() {
     progressWrap.innerHTML = `<div class="essentials-progress-fill" style="width:${totalCount ? (doneCount/totalCount*100) : 0}%"></div>`;
     list.appendChild(progressWrap);
 
-    // ── Item rows ─────────────────────────────────────────────────────────
-    // Unchecked first, then checked (greyed)
-    const sorted = [...essentials].sort((a, b) => {
-        const aChecked = checkedItems.includes(a);
-        const bChecked = checkedItems.includes(b);
-        return aChecked - bChecked;
-    });
+    const remainingItems = essentials.filter(itemName => !checkedItems.includes(itemName));
+    const doneItems = essentials.filter(itemName => checkedItems.includes(itemName));
 
-    sorted.forEach(itemName => {
+    const renderRow = (itemName, opts = {}) => {
+        const { isDoneSection = false } = opts;
         const isChecked = checkedItems.includes(itemName);
         const dataItem = findDataItem(itemName);
 
@@ -1944,7 +1941,7 @@ function renderEssentials() {
             : '';
 
         const row = document.createElement('div');
-        row.className = `essential-row${isChecked ? ' checked' : ''}`;
+        row.className = `essential-row${isChecked ? ' checked' : ''}${isDoneSection ? ' done-row' : ''}`;
         row.innerHTML = `
             <label class="essential-checkbox-area">
                 <input type="checkbox" class="essential-cb" ${isChecked ? 'checked' : ''} data-item="${itemName}">
@@ -1952,9 +1949,8 @@ function renderEssentials() {
             </label>
             <div class="essential-meta">
                 ${priceBadge}
-                <button class="essential-add-btn" title="Add to shopping list"
-                    onclick="addEssentialToList('${itemName.replace(/'/g, "\\'")}')"
-                    style="${isChecked ? 'opacity:0.4;' : ''}">+</button>
+                ${!isChecked ? `<button class="essential-add-btn" title="Add to shopping list"
+                    onclick="addEssentialToList('${itemName.replace(/'/g, "\\'")}')">+</button>` : ''}
                 <button class="essential-remove-btn hidden" title="Remove from essentials"
                     onclick="removeFromEssentials('${itemName.replace(/'/g, "\\'")}')" data-remove>🗑</button>
             </div>`;
@@ -1970,8 +1966,46 @@ function renderEssentials() {
             renderEssentials();
         });
 
-        list.appendChild(row);
+        return row;
+    };
+
+    // ── Remaining rows (always visible) ───────────────────────────────────
+    remainingItems.forEach(itemName => {
+        list.appendChild(renderRow(itemName));
     });
+
+    // ── Completed rows (collapsible) ───────────────────────────────────────
+    if (doneItems.length) {
+        const doneSection = document.createElement('div');
+        doneSection.className = 'essentials-done-section';
+
+        const doneToggle = document.createElement('button');
+        doneToggle.className = 'essentials-done-toggle';
+        doneToggle.type = 'button';
+        doneToggle.setAttribute('aria-expanded', doneExpanded ? 'true' : 'false');
+        doneToggle.innerHTML = `
+            <span class="essentials-done-label">Done today (${doneItems.length})</span>
+            <span class="essentials-done-caret">${doneExpanded ? '▾' : '▸'}</span>
+        `;
+        doneSection.appendChild(doneToggle);
+
+        const doneList = document.createElement('div');
+        doneList.className = `essentials-done-list${doneExpanded ? '' : ' hidden'}`;
+        doneItems.forEach(itemName => {
+            doneList.appendChild(renderRow(itemName, { isDoneSection: true }));
+        });
+        doneSection.appendChild(doneList);
+
+        doneToggle.addEventListener('click', () => {
+            const nextExpanded = doneList.classList.contains('hidden');
+            doneList.classList.toggle('hidden', !nextExpanded);
+            doneToggle.setAttribute('aria-expanded', nextExpanded ? 'true' : 'false');
+            doneToggle.querySelector('.essentials-done-caret').textContent = nextExpanded ? '▾' : '▸';
+            localStorage.setItem('essentialsDoneExpanded', nextExpanded ? 'true' : 'false');
+        });
+
+        list.appendChild(doneSection);
+    }
 
     // ── Edit mode: add new item input ─────────────────────────────────────
     const editMode = list.dataset.editMode === 'true';

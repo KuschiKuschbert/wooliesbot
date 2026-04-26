@@ -4748,6 +4748,10 @@ body.drawer-scroll-lock {
     opacity: 0.45;
 }
 
+.essential-row.done-row {
+    opacity: 0.42;
+}
+
 .essential-checkbox-area {
     display: flex;
     align-items: center;
@@ -4845,6 +4849,50 @@ body.drawer-scroll-lock {
 
 .essential-remove-btn:hover { opacity: 1; }
 .essential-remove-btn.hidden { display: none; }
+
+/* Completed subsection */
+.essentials-done-section {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+}
+
+.essentials-done-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 2px 0 4px;
+    cursor: pointer;
+}
+
+.essentials-done-toggle:hover {
+    color: var(--text-main);
+}
+
+.essentials-done-label {
+    white-space: nowrap;
+}
+
+.essentials-done-caret {
+    font-size: 11px;
+    line-height: 1;
+}
+
+.essentials-done-list.hidden {
+    display: none;
+}
+
+.essentials-done-list .essential-meta {
+    opacity: 0.7;
+}
 
 /* Add item input row */
 .essential-add-row {
