@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26 11:08 AM",
+  "last_updated": "2026-04-26 03:49 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1572,13 +1572,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 17.86,
+      "unit_price": 22.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 17.86,
-          "eff_price": 5.0,
+          "price": 2.7,
+          "unit_price": 22.5,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         },
@@ -1594,7 +1594,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -8820,7 +8820,7 @@
       "name": "Ww Lean Beef Mince 1Kg",
       "type": "meat",
       "price_mode": "each",
-      "target": 18.75,
+      "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%201kg",
       "coles": "https://www.coles.com.au/search?q=Woolworths+Lean+Beef+Mince",
       "price_history": [
@@ -8851,7 +8851,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 18.75,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -8866,20 +8866,20 @@
         {
           "date": "2026-04-15",
           "price": 12.69,
-          "is_special": true,
+          "is_special": false,
           "store": "woolworths"
         },
         {
           "date": "2026-04-16",
           "price": 12.69,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths"
         },
         {
           "date": "2026-04-17",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8887,7 +8887,7 @@
         {
           "date": "2026-04-18",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8895,7 +8895,7 @@
         {
           "date": "2026-04-19",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8903,7 +8903,7 @@
         {
           "date": "2026-04-20",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8911,7 +8911,7 @@
         {
           "date": "2026-04-21",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8919,7 +8919,7 @@
         {
           "date": "2026-04-22",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8927,7 +8927,7 @@
         {
           "date": "2026-04-23",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8935,7 +8935,7 @@
         {
           "date": "2026-04-24",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8943,7 +8943,7 @@
         {
           "date": "2026-04-25",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8951,7 +8951,7 @@
         {
           "date": "2026-04-26",
           "price": 18.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -8959,13 +8959,13 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 18.75,
+      "unit_price": 21.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 18.75,
-          "unit_price": 18.75,
-          "eff_price": 18.75,
+          "price": 10.5,
+          "unit_price": 21.0,
+          "eff_price": 10.5,
           "was_price": null,
           "on_special": false
         }
@@ -8973,7 +8973,7 @@
       "price_unavailable": false,
       "image_url": "images/ww_lean_beef_mince_1kg.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 18.75,
+      "eff_price": 10.5,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -11101,9 +11101,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -12970,6 +12970,13 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.9,
+          "unit_price": 15.8,
+          "eff_price": 7.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -19653,9 +19660,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -19956,6 +19963,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 35.0,
+          "unit_price": 17.5,
+          "eff_price": 35.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -29422,13 +29436,6 @@
       "unit_price": 2.39,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 35.7,
-          "unit_price": 27.0,
-          "eff_price": 35.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.25,
           "unit_price": 2.39,
@@ -30173,14 +30180,14 @@
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
       "image_url": "images/pak_choy_baby.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 4.9,
+          "unit_price": 4.9,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -30198,7 +30205,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d"
     },
     {
@@ -56686,13 +56693,20 @@
         }
       ],
       "was_price": 12.7,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Sunny_Queen_Fms_Cge_Free_Eggs_12Pk_700G.jpg",
       "image_url": "images/sunny_queen_fms_cge_free_eggs_12pk_700g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.22,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 11.0,
+          "unit_price": 1.22,
+          "eff_price": 11.0,
+          "was_price": 12.7,
+          "on_special": true
+        },
         "coles": {
           "price": 11.0,
           "unit_price": 1.22,
@@ -56707,7 +56721,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Free Range Large Eggs 18 Pack",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "41a17706-fed1-4e47-8d2e-949e30ae1738"
     },
     {
