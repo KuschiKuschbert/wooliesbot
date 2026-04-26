@@ -79,6 +79,23 @@ def http_json(method: str, url: str, body: object | None = None) -> tuple[int, o
         return status, {"_raw": raw}
 
 
+def options_preflight(base: str, origin: str) -> tuple[int, dict]:
+    url = f"{base}/shopping_list"
+    req = urllib.request.Request(url, method="OPTIONS")
+    req.add_header("Origin", origin)
+    req.add_header("Access-Control-Request-Method", "GET")
+    req.add_header("Access-Control-Request-Headers", "x-wooliesbot-device")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as res:
+            status = res.getcode()
+            headers = dict(res.headers.items())
+    except urllib.error.HTTPError as e:
+        status = e.code
+        headers = dict(e.headers.items()) if e.headers else {}
+    normalized = {str(k).lower(): str(v) for k, v in headers.items()}
+    return status, normalized
+
+
 def one_item(device: str, token: str) -> dict:
     now = f"2026-01-01T00:00:00.000Z"  # fixed for stable keys in logs; merge uses row updated_at
     t = f"2026-01-15T12:{30 + int(device)}:00.000Z"
@@ -161,6 +178,23 @@ def main() -> int:
         return 1
 
     print("Base:", base)
+    app_origin = os.environ.get("WOOLIESBOT_APP_ORIGIN", "https://kuschikuschbert.github.io").strip()
+    pf_status, pf_headers = options_preflight(base, app_origin)
+    print(
+        "OPTIONS /shopping_list ->",
+        pf_status,
+        "| allow-origin:",
+        pf_headers.get("access-control-allow-origin", ""),
+        "| allow-credentials:",
+        pf_headers.get("access-control-allow-credentials", ""),
+    )
+    if pf_status >= 400:
+        print("  preflight failed; CORS policy likely misconfigured.")
+    if pf_headers.get("access-control-allow-origin") not in (app_origin, "*"):
+        print("  warning: preflight allow-origin does not match app origin.")
+    if pf_headers.get("access-control-allow-credentials", "").lower() != "true":
+        print("  warning: allow-credentials is not true (required for credentials mode).")
+
     try:
         st, health = http_json("GET", f"{base}/health")
     except urllib.error.HTTPError as e:

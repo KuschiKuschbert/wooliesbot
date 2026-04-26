@@ -113,20 +113,39 @@ function mergeShoppingListRows(existingRows, incomingRows) {
 	return orderedKeys.map((key) => merged.get(key)).filter(Boolean);
 }
 
-function corsHeaders(env, requestOrigin) {
+function corsPolicy(env, requestOrigin) {
 	const allowed = parseAllowedOrigins(env);
 	let origin = "*";
+	let allowCredentials = "false";
 	if (allowed.length) {
-		if (requestOrigin && allowed.includes(requestOrigin)) origin = requestOrigin;
-		else if (allowed.length === 1) origin = allowed[0];
-		else origin = "null";
+		if (requestOrigin && allowed.includes(requestOrigin)) {
+			origin = requestOrigin;
+			allowCredentials = "true";
+		} else if (allowed.length === 1) {
+			origin = allowed[0];
+			allowCredentials = "true";
+		} else {
+			origin = "null";
+		}
 	}
-	return {
+	const headers = {
 		"Access-Control-Allow-Origin": origin,
 		"Access-Control-Allow-Methods": "GET, POST, OPTIONS",
 		"Access-Control-Allow-Headers": "Content-Type, X-Requested-With, X-WooliesBot-Device",
+		"Access-Control-Allow-Credentials": allowCredentials,
 		"Access-Control-Max-Age": "86400",
 	};
+	if (allowed.length) headers.Vary = "Origin";
+	return {
+		headers,
+		allowOrigin: origin,
+		allowCredentials: allowCredentials === "true",
+		allowedOrigins: allowed,
+	};
+}
+
+function corsHeaders(env, requestOrigin) {
+	return corsPolicy(env, requestOrigin).headers;
 }
 
 function parseAllowedOrigins(env) {
@@ -622,6 +641,7 @@ export default {
 			const authMode = cfg.allowInsecurePublicWrites
 				? "insecure_public"
 				: "identity_allowlist";
+			const cors = corsPolicy(env, origin);
 			return jsonResponse(
 				{
 					ok,
@@ -631,6 +651,12 @@ export default {
 					allowed_user_count: cfg.allowedEmails.length,
 					legacy_secret_fallback_enabled: cfg.allowLegacySecretAuth,
 					insecure_public_writes: cfg.allowInsecurePublicWrites,
+					cors: {
+						request_origin: origin || "",
+						allow_origin: cors.allowOrigin,
+						allow_credentials: cors.allowCredentials,
+						allowed_origin_count: cors.allowedOrigins.length,
+					},
 				},
 				ok ? 200 : 503,
 				env,
