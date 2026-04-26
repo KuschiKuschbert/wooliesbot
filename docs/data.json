@@ -18335,7 +18335,7 @@
     {
       "name": "Pepsi Max Cola Mango 1.25L",
       "type": "produce",
-      "price_mode": "each",
+      "price_mode": "litre",
       "target": 1.84,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pepsi%20Max%20Cola%20Mango%201.25L",
       "coles": "https://www.coles.com.au/search?q=Pepsi+Max+Mango+1.25L",
@@ -18470,7 +18470,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-26",
       "was_price": null,
-      "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4"
+      "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
+      "pack_litres": 1.25
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",

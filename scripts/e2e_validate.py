@@ -694,6 +694,22 @@ def run_layer_b(items, filter_name=None):
     if missing_id:
         print(f"  IDENTITY WARN: {missing_id} items missing item_id")
 
+    # compare_group contract: all members of a group must share one price_mode.
+    # This is a hard fail because mixed modes break app-side apples-to-apples ranking.
+    from collections import defaultdict
+    group_modes = defaultdict(set)
+    group_examples = defaultdict(list)
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        group = str(item.get("compare_group") or "").strip()
+        if not group:
+            continue
+        mode = str(item.get("price_mode") or "each").strip() or "each"
+        group_modes[group].add(mode)
+        if len(group_examples[group]) < 4:
+            group_examples[group].append(f"{item.get('name', '?')}[{mode}]")
+
     import datetime
     today = datetime.date.today().isoformat()
     results = []
@@ -881,6 +897,19 @@ def run_layer_b(items, filter_name=None):
                 "notes": f"duplicate name rows={len(name_dup)}",
             }
         )
+    for group, modes in sorted(group_modes.items()):
+        if len(modes) <= 1:
+            continue
+        mode_list = ", ".join(sorted(modes))
+        sample = "; ".join(group_examples.get(group, []))
+        results.append(
+            {
+                "item": f"__compare_group__:{group}",
+                "match": "DIFF",
+                "notes": f"mixed price_mode ({mode_list}) | samples: {sample}",
+            }
+        )
+        print(f"  COMPARE_GROUP DIFF: {group} mixed price_mode ({mode_list})")
 
     ok = sum(1 for r in results if r["match"] == "OK")
     warn = sum(1 for r in results if r["match"] == "WARN")
