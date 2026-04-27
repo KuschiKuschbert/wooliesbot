@@ -1,0 +1,58 @@
+---
+description: >-
+  Enforce a stop-at-stable shipping decision for WooliesBot work so agents stop
+  circular polish once release gates are green and defer extra ideas to backlog.
+alwaysApply: true
+---
+
+# WooliesBot — Stop at stable (always)
+
+Use this rule to prevent endless improvement loops after a change is already functional and safe.
+
+## Ship Gate Checklist
+
+Declare release-ready only when all are true for the active scope and backed by concrete evidence:
+
+- Scope complete: requested outcomes are done with no unapproved feature expansion.
+- Functional flows pass for changed area(s) (for example scrape path, dashboard load path, shopping sync write path).
+- Required checks pass for changed area(s), including any mandatory validation layers and CI guards.
+- No known Sev-1/Sev-2 defects, data-loss risks, or security regressions remain.
+- Medium/low issues are documented and explicitly deferred.
+
+## Required Evidence by Change Type
+
+Treat these as blocking expectations for `SHIP`:
+
+- Data, URL mapping, compare logic, or inventory shape changes: evidence of `scripts/e2e_validate.py` layers B and C (and layer D sample when URL behavior changed).
+- `docs/data.json` touching changes: evidence that data-safety checks were respected (no destructive bulk replace without backup/checkpoint, duplicate/taxonomy sanity checks completed).
+- Dashboard boot/loading/data-pipeline changes: evidence that affected dashboard flows load correctly with current data.
+- Worker sync or merge behavior changes: evidence that write/sync semantics are validated for changed path.
+
+If required evidence is missing for the touched type, status must be `HOLD`.
+
+## Stop Trigger
+
+When every Ship Gate item is green:
+
+- Return `SHIP` and a one-line rationale.
+- Mark work as `DONE` for this cycle.
+- Stop iterative "nice-to-have" changes by default.
+- Move additional ideas to explicit backlog items.
+
+## Limited Improvement Budget
+
+After gates are green, allow at most:
+
+- 1-2 low-risk polish items total, only if they are quick and non-architectural.
+- 45 minutes of post-green polish time, whichever limit is reached first.
+- No new features, broad refactors, or schema/contract changes unless the user explicitly requests a new cycle.
+
+When the budget is exhausted, stop and defer all other improvements.
+
+## Decision Output Contract
+
+Every signoff response must end with exactly one status and one-line reason:
+
+- `SHIP`: all gates green and no blocking risk.
+- `HOLD`: one or more ship gates failed; include the blocker.
+- `BACKLOG`: non-blocking improvement intentionally deferred.
