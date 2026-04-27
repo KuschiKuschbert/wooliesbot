@@ -4097,20 +4097,21 @@ body.drawer-scroll-lock {
 
 .cg-compare-btn {
     font-family: inherit;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(99, 102, 241, 0.45);
-    background: rgba(99, 102, 241, 0.12);
-    color: #a5b4fc;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(63, 93, 125, 0.32);
+    background: rgba(63, 93, 125, 0.1);
+    color: var(--primary);
     cursor: pointer;
-    transition: background 0.15s, border-color 0.15s;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
 .cg-compare-btn:hover {
-    background: rgba(99, 102, 241, 0.22);
-    border-color: rgba(129, 140, 248, 0.7);
+    background: rgba(63, 93, 125, 0.16);
+    border-color: rgba(63, 93, 125, 0.45);
 }
 
 .cg-compare-btn-sm {
@@ -5256,28 +5257,25 @@ button, a, label, [role="button"] {
     .mobile-bottom-nav {
         left: max(12px, env(safe-area-inset-left, 0px));
         right: max(12px, env(safe-area-inset-right, 0px));
-        bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(6px + env(safe-area-inset-bottom, 0px));
         width: auto;
         height: auto;
-        min-height: 58px;
-        padding: 8px 8px 10px;
+        min-height: 54px;
+        padding: 6px 8px 8px;
         align-items: stretch;
-        border-radius: 22px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        border: 1px solid var(--border-color);
         border-top: none;
-        background: linear-gradient(180deg, rgba(22, 22, 32, 0.92) 0%, rgba(10, 10, 16, 0.88) 100%);
-        backdrop-filter: blur(28px) saturate(180%);
-        -webkit-backdrop-filter: blur(28px) saturate(180%);
-        box-shadow:
-            0 -4px 48px rgba(0, 0, 0, 0.55),
-            0 20px 60px rgba(0, 0, 0, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        background: rgba(248, 245, 239, 0.98);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 10px 26px rgba(17, 24, 39, 0.12);
     }
 
     .mobile-bottom-nav .mobile-nav-link {
-        min-height: 48px;
+        min-height: 44px;
         justify-content: center;
-        padding: 6px 2px 8px;
+        padding: 4px 2px 6px;
         box-sizing: border-box;
     }
 
@@ -5367,11 +5365,11 @@ button, a, label, [role="button"] {
         position: relative;
         top: auto;
         z-index: 900;
-        background: rgba(5, 5, 5, 0.88);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(248, 245, 239, 0.96);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         margin: 0 -1rem;
-        padding: 0.35rem 0.75rem;
+        padding: 0.22rem 0.6rem;
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -5390,7 +5388,7 @@ button, a, label, [role="button"] {
     }
 
     .search-wrap input {
-        padding: 0.48rem 0;
+        padding: 0.38rem 0;
     }
 
     .filter-controls {
@@ -5706,8 +5704,8 @@ button, a, label, [role="button"] {
     }
 
     .stats-sidebar .cola-card .fighter-actions .store-pdp-link {
-        min-width: 36px;
-        min-height: 36px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .stats-sidebar .fighter-product {
@@ -6433,6 +6431,7 @@ table.dr-table {
     .fighter-add-btn,
     .fighter-actions .store-pdp-link {
         min-height: 44px;
+        min-width: 44px;
     }
 
     .header-review-link {
