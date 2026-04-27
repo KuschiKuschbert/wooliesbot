@@ -23,17 +23,18 @@
   "baseline_max_lines": {
     "chef_os.py": 3841,
     "receipt_sync.py": 654,
-    "docs/app.js": 4661,
-    "workers/wooliesbot-write/src/index.js": 655,
+    "docs/app.js": 5010,
+    "workers/wooliesbot-write/src/index.js": 616,
+    "workers/wooliesbot-write/src/household_merge.js": 199,
     "scripts/e2e_validate.py": 1599,
-    "scripts/e2e_mobile.py": 1083,
+    "scripts/e2e_mobile.py": 1109,
     "scripts/audit_mobile.py": 481,
     "scripts/discover_variants.py": 422
   },
   "exceptions": [
     {
       "path": "docs/app.js",
-      "reason": "Wave A module extraction is in progress",
+      "reason": "Wave A module extraction; household sync v2 merged into app.js — extract modules when touching this file",
       "owner": "wooliesbot-maintainers",
       "expires": "2026-09-01"
     }

@@ -7,6 +7,9 @@ Uses the same JSON shape as docs/app.js (device_id, items, updated_at).
 Read-only (default):
   python3 scripts/simulate_shopping_list_dual_device.py
 
+For merge **contract** tests (items-only preserves v2 sections, section LWW) without the network:
+  python3 scripts/validate_household_merge.py
+
 Mutates docs/shopping_list_sync.json in the repo (adds two rows with item_id
 __sim__dev_a / __sim__dev_b) — only with --write:
   python3 scripts/simulate_shopping_list_dual_device.py --write

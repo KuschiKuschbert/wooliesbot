@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    initHouseholdSectionMeta();
     safeFeatherReplace();
     registerSW();
     checkForStaleShellVersion();
     ensureShoppingDeviceId();
+    tryApplyPairingFromHash();
     setupShoppingListSessionSync();
     showSkeletons();
     setupOverlayEscapeHandler();
@@ -95,6 +97,93 @@ function ensureShoppingDeviceId() {
             }
             localStorage.setItem(key, id);
         } catch {}
+    }
+}
+
+const HOUSEHOLD_SECTION_META_KEY = 'householdSectionMeta';
+
+/**
+ * LWW section timestamps (ISO). Bumped on local edits; overwritten when remote section wins.
+ * @type {{ trip: string, shopMode: string, essentials: string, tripSessions: string, dropAlerts: string }}
+ */
+let _householdSectionMeta = {
+    trip: new Date().toISOString(),
+    shopMode: new Date().toISOString(),
+    essentials: new Date().toISOString(),
+    tripSessions: new Date().toISOString(),
+    dropAlerts: new Date().toISOString()
+};
+
+/** >0 while applying cloud document — skip bump+push on nested saves */
+let _householdRemoteApplyDepth = 0;
+
+function initHouseholdSectionMeta() {
+    try {
+        const raw = localStorage.getItem(HOUSEHOLD_SECTION_META_KEY);
+        if (!raw) return;
+        const p = JSON.parse(raw);
+        if (p && typeof p === 'object') {
+            if (p.trip) _householdSectionMeta.trip = p.trip;
+            if (p.shopMode) _householdSectionMeta.shopMode = p.shopMode;
+            if (p.essentials) _householdSectionMeta.essentials = p.essentials;
+            if (p.tripSessions) _householdSectionMeta.tripSessions = p.tripSessions;
+            if (p.dropAlerts) _householdSectionMeta.dropAlerts = p.dropAlerts;
+        }
+    } catch { /* keep defaults */ }
+}
+
+function persistHouseholdSectionMeta() {
+    try {
+        localStorage.setItem(HOUSEHOLD_SECTION_META_KEY, JSON.stringify(_householdSectionMeta));
+    } catch { /* ignore */ }
+}
+
+function bumpHouseholdSection(key) {
+    const iso = new Date().toISOString();
+    if (key === 'trip') _householdSectionMeta.trip = iso;
+    else if (key === 'shopMode') _householdSectionMeta.shopMode = iso;
+    else if (key === 'essentials') _householdSectionMeta.essentials = iso;
+    else if (key === 'tripSessions') _householdSectionMeta.tripSessions = iso;
+    else if (key === 'dropAlerts') _householdSectionMeta.dropAlerts = iso;
+    persistHouseholdSectionMeta();
+}
+
+/**
+ * One-time: #wbt=...&wbu=... (optional) seeds write API token / URL, then strip hash.
+ */
+function tryApplyPairingFromHash() {
+    const W = typeof WooliesHouseholdSync !== 'undefined' ? WooliesHouseholdSync : null;
+    if (!W || !W.parsePairingFromHash) return;
+    let hash = '';
+    try { hash = window.location.hash || ''; } catch { return; }
+    const parsed = W.parsePairingFromHash(hash);
+    if (!parsed || !parsed.wbt) return;
+    const nextTok = parsed.wbt;
+    const nextUrl = (parsed.wbu || '').trim();
+    const existing = (() => { try { return localStorage.getItem('write_api_token') || ''; } catch { return ''; } })();
+    if (existing && existing !== nextTok) {
+        if (typeof window !== 'undefined' && !window.confirm('Replace the existing sync token on this device?')) {
+            try {
+                const u = new URL(window.location.href);
+                u.hash = '';
+                window.history.replaceState(null, '', u.pathname + u.search);
+            } catch { /* ignore */ }
+            return;
+        }
+    }
+    try { localStorage.setItem('write_api_token', nextTok); } catch { return; }
+    _writeApiToken = nextTok;
+    if (nextUrl) {
+        try { localStorage.setItem('write_api_url', nextUrl); } catch { /* ignore */ }
+        _writeApiUrl = nextUrl;
+    }
+    try {
+        const u = new URL(window.location.href);
+        u.hash = '';
+        window.history.replaceState(null, '', u.pathname + u.search);
+    } catch { /* ignore */ }
+    if (typeof showUiToast === 'function') {
+        showUiToast('Shopping sync enabled on this device', 3600);
     }
 }
 
@@ -535,6 +624,10 @@ function loadShoppingTripSessions() {
 
 function persistShoppingTripSessions(sessions) {
     localStorage.setItem(SHOPPING_TRIP_SESSIONS_KEY, JSON.stringify(sessions));
+    if (_householdRemoteApplyDepth === 0) {
+        bumpHouseholdSection('tripSessions');
+        scheduleShoppingListCloudPush('trip_sessions');
+    }
 }
 
 function computePickedSavingsAmount(rows = _shoppingList) {
@@ -667,6 +760,8 @@ function setShoppingTripMode(on, reason = 'manual') {
         _shoppingTripTimeoutAt = 0;
         localStorage.removeItem('shoppingTripTimeoutAt');
     }
+    bumpHouseholdSection('trip');
+    scheduleShoppingListCloudPush('trip');
     updateListCount();
     renderShoppingList();
 }
@@ -690,6 +785,9 @@ function toggleListItemPicked(index) {
     touchShoppingListRow(row);
     markShoppingTripActivity();
     refreshShoppingTripSavedPeak();
+    if (_shoppingTripMode) {
+        bumpHouseholdSection('trip');
+    }
     persistShoppingList();
     if (_shoppingTripMode && !wasPicked && row.picked) {
         maybeShowShoppingTripMilestone();
@@ -721,6 +819,7 @@ function maybeShowShoppingTripMilestone() {
 function clearPickedListItems() {
     _shoppingList = _shoppingList.filter(row => !row?.picked);
     if (_shoppingList.length === 0 && _shoppingTripMode) setShoppingTripMode(false, 'clear_completed_empty');
+    if (_shoppingTripMode) bumpHouseholdSection('trip');
     persistShoppingList();
     updateListCount();
     renderShoppingList();
@@ -821,7 +920,199 @@ function choosePreferredShoppingRow(currentRow, incomingRow, preferIncomingOnTie
     return nextSig > currSig ? { ...incomingRow } : { ...currentRow };
 }
 
+function getWooliesHouseholdSync() {
+    return typeof WooliesHouseholdSync !== 'undefined' ? WooliesHouseholdSync : null;
+}
+
+function getLocalTripStateForMerge() {
+    return {
+        updated_at: _householdSectionMeta.trip,
+        mode: _shoppingTripMode ? '1' : '0',
+        started_at: _shoppingTripStartedAt || '',
+        start_count: _shoppingTripStartCount,
+        saved_peak: _shoppingTripSavedPeak,
+        timeout_at: _shoppingTripTimeoutAt || 0
+    };
+}
+
+function getLocalShopModeStateForMerge() {
+    return {
+        updated_at: _householdSectionMeta.shopMode,
+        value: _shopMode || 'weekly'
+    };
+}
+
+function getLocalEssentialsStateForMerge() {
+    return {
+        updated_at: _householdSectionMeta.essentials,
+        list: getEssentials(),
+        checked: JSON.parse(localStorage.getItem('essentialsChecked') || '[]'),
+        last_reset: localStorage.getItem('essentialsLastReset') || '',
+        done_expanded: localStorage.getItem('essentialsDoneExpanded') === 'true',
+        remaining_expanded: localStorage.getItem('essentialsRemainingExpanded') === 'true'
+    };
+}
+
+function getLocalTripSessionsStateForMerge() {
+    const W = getWooliesHouseholdSync();
+    const raw = loadShoppingTripSessions();
+    const sessions = W && W.capTripSessions ? W.capTripSessions(raw) : raw;
+    return {
+        updated_at: _householdSectionMeta.tripSessions,
+        sessions
+    };
+}
+
+function getLocalDropAlertsStateForMerge() {
+    const W = getWooliesHouseholdSync();
+    const ids = [..._alertedItems];
+    const item_ids = W && W.capDropItemIds ? W.capDropItemIds(ids) : ids.slice(0, 500);
+    return {
+        updated_at: _householdSectionMeta.dropAlerts,
+        item_ids
+    };
+}
+
+function applyTripStateObject(t) {
+    if (!t || typeof t !== 'object') return;
+    const modeOn = t.mode === '1' || t.mode === true;
+    _shoppingTripMode = modeOn;
+    _shoppingTripStartedAt = t.started_at || '';
+    const sc = Number(t.start_count);
+    _shoppingTripStartCount = Number.isFinite(sc) && sc >= 0 ? sc : null;
+    _shoppingTripSavedPeak = Number.isFinite(Number(t.saved_peak)) ? Number(t.saved_peak) : 0;
+    const to = Number(t.timeout_at);
+    _shoppingTripTimeoutAt = Number.isFinite(to) && to > 0 ? to : 0;
+    try {
+        localStorage.setItem('shoppingTripMode', _shoppingTripMode ? '1' : '0');
+        if (_shoppingTripStartedAt) localStorage.setItem('shoppingTripStartedAt', _shoppingTripStartedAt);
+        else localStorage.removeItem('shoppingTripStartedAt');
+        if (_shoppingTripStartCount != null) localStorage.setItem('shoppingTripStartCount', String(_shoppingTripStartCount));
+        else localStorage.removeItem('shoppingTripStartCount');
+        localStorage.setItem('shoppingTripSavedPeak', _shoppingTripSavedPeak.toFixed(2));
+        if (_shoppingTripTimeoutAt) localStorage.setItem('shoppingTripTimeoutAt', String(_shoppingTripTimeoutAt));
+        else localStorage.removeItem('shoppingTripTimeoutAt');
+    } catch { /* ignore */ }
+    _shoppingTripMilestonesShown = new Set();
+    _shoppingTripBeatLastToastShown = false;
+}
+
+function applyShopModeStateObject(s) {
+    if (!s || typeof s !== 'object') return;
+    _shopMode = s.value || 'weekly';
+    try { localStorage.setItem('shopMode', _shopMode); } catch { /* ignore */ }
+    document.querySelectorAll('.mode-label')?.forEach((el) => {
+        el.classList.toggle('active', el.dataset.mode === _shopMode);
+    });
+}
+
+function applyEssentialsStateObject(e) {
+    if (!e || typeof e !== 'object') return;
+    if (Array.isArray(e.list)) {
+        try { localStorage.setItem('essentialsList', JSON.stringify(e.list)); } catch { /* ignore */ }
+    }
+    try {
+        if (Array.isArray(e.checked)) {
+            localStorage.setItem('essentialsChecked', JSON.stringify(e.checked));
+        }
+        if (e.last_reset != null) localStorage.setItem('essentialsLastReset', String(e.last_reset));
+        if (typeof e.done_expanded === 'boolean') {
+            localStorage.setItem('essentialsDoneExpanded', e.done_expanded ? 'true' : 'false');
+        }
+        if (typeof e.remaining_expanded === 'boolean') {
+            localStorage.setItem('essentialsRemainingExpanded', e.remaining_expanded ? 'true' : 'false');
+        }
+    } catch { /* ignore */ }
+}
+
+function applyTripSessionsStateObject(s) {
+    if (!s || typeof s !== 'object' || !Array.isArray(s.sessions)) return;
+    try { localStorage.setItem(SHOPPING_TRIP_SESSIONS_KEY, JSON.stringify(s.sessions)); } catch { /* ignore */ }
+}
+
+function applyDropAlertsStateObject(s) {
+    if (!s || typeof s !== 'object' || !Array.isArray(s.item_ids)) return;
+    _alertedItems.clear();
+    s.item_ids.forEach((id) => { if (id) _alertedItems.add(String(id)); });
+    try {
+        localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
+    } catch { /* ignore */ }
+}
+
+function applyRemoteHouseholdFromDocument(doc, meta = {}) {
+    _householdRemoteApplyDepth += 1;
+    try {
+    const W = getWooliesHouseholdSync();
+    const items = Array.isArray(doc?.items) ? doc.items : [];
+    if (W && W.mergeShoppingListRows) {
+        _shoppingList = normalizeShoppingListShape(W.mergeShoppingListRows(_shoppingList, items));
+    } else {
+        _shoppingList = mergeShoppingListRows(_shoppingList, items);
+    }
+    try { localStorage.setItem('shoppingList', JSON.stringify(_shoppingList)); } catch { /* ignore */ }
+
+    if (W && doc.trip_state && typeof doc.trip_state === 'object' && String(doc.trip_state.updated_at || '').trim() !== '') {
+        const win = W.chooseSectionLWW(getLocalTripStateForMerge(), doc.trip_state, true);
+        applyTripStateObject(win);
+        _householdSectionMeta.trip = win.updated_at || _householdSectionMeta.trip;
+    }
+    if (W && doc.shop_mode_state && typeof doc.shop_mode_state === 'object' && String(doc.shop_mode_state.updated_at || '').trim() !== '') {
+        const win = W.chooseSectionLWW(getLocalShopModeStateForMerge(), doc.shop_mode_state, true);
+        applyShopModeStateObject(win);
+        _householdSectionMeta.shopMode = win.updated_at || _householdSectionMeta.shopMode;
+    }
+    if (W && doc.essentials_state && typeof doc.essentials_state === 'object' && String(doc.essentials_state.updated_at || '').trim() !== '') {
+        const win = W.chooseSectionLWW(getLocalEssentialsStateForMerge(), doc.essentials_state, true);
+        applyEssentialsStateObject(win);
+        _householdSectionMeta.essentials = win.updated_at || _householdSectionMeta.essentials;
+    }
+    if (W && doc.trip_sessions_state && typeof doc.trip_sessions_state === 'object' && String(doc.trip_sessions_state.updated_at || '').trim() !== '') {
+        const win = W.chooseSectionLWW(getLocalTripSessionsStateForMerge(), doc.trip_sessions_state, true);
+        applyTripSessionsStateObject(win);
+        _householdSectionMeta.tripSessions = win.updated_at || _householdSectionMeta.tripSessions;
+    }
+    if (W && doc.drop_alerts_state && typeof doc.drop_alerts_state === 'object' && String(doc.drop_alerts_state.updated_at || '').trim() !== '') {
+        const win = W.chooseSectionLWW(getLocalDropAlertsStateForMerge(), doc.drop_alerts_state, true);
+        applyDropAlertsStateObject(win);
+        _householdSectionMeta.dropAlerts = win.updated_at || _householdSectionMeta.dropAlerts;
+    }
+
+    persistHouseholdSectionMeta();
+    const stamp = meta.updated_at || doc?.updated_at;
+    if (stamp) setShoppingListCloudStamp(stamp);
+    updateListCount();
+    renderShoppingList();
+    if (typeof renderEssentials === 'function') renderEssentials();
+    } finally {
+        _householdRemoteApplyDepth = Math.max(0, _householdRemoteApplyDepth - 1);
+    }
+}
+
+function buildHouseholdPostBody(reason) {
+    const W = getWooliesHouseholdSync();
+    const deviceId = getShoppingDeviceId();
+    const listNorm = W && W.normalizeShoppingListRows
+        ? W.normalizeShoppingListRows(_shoppingList)
+        : normalizeShoppingListShape(_shoppingList);
+    const body = {
+        device_id: deviceId,
+        reason: reason || 'household_sync',
+        household_sync: true,
+        items: listNorm,
+        trip_state: { ...getLocalTripStateForMerge() },
+        shop_mode_state: { ...getLocalShopModeStateForMerge() },
+        essentials_state: { ...getLocalEssentialsStateForMerge() },
+        trip_sessions_state: { ...getLocalTripSessionsStateForMerge() },
+        drop_alerts_state: { ...getLocalDropAlertsStateForMerge() }
+    };
+    return body;
+}
+
 function mergeShoppingListRows(localRows, remoteRows) {
+    const W = getWooliesHouseholdSync();
+    if (W && W.mergeShoppingListRows) {
+        return normalizeShoppingListShape(W.mergeShoppingListRows(localRows, remoteRows));
+    }
     const normalizedLocal = normalizeShoppingListShape(localRows);
     const normalizedRemote = normalizeShoppingListShape(remoteRows);
     const merged = new Map();
@@ -861,14 +1152,10 @@ function noteShoppingListSyncSuccess() {
 }
 
 function applyRemoteShoppingList(remoteRows, meta = {}) {
-    const merged = mergeShoppingListRows(_shoppingList, remoteRows);
-    const prevSig = JSON.stringify(normalizeShoppingListShape(_shoppingList));
-    const nextSig = JSON.stringify(merged);
-    _shoppingList = merged;
-    if (prevSig !== nextSig) persistShoppingList({ skipCloud: true });
-    if (meta.updated_at) setShoppingListCloudStamp(meta.updated_at);
-    updateListCount();
-    renderShoppingList();
+    applyRemoteHouseholdFromDocument(
+        { items: remoteRows, updated_at: meta?.updated_at || '' },
+        meta
+    );
 }
 
 async function pushShoppingListToCloud(reason = 'manual') {
@@ -883,15 +1170,8 @@ async function pushShoppingListToCloud(reason = 'manual') {
     }
     _shoppingListSyncPushInFlight = true;
     const dispatchedReason = reason || 'manual';
-    const deviceId = getShoppingDeviceId();
     try {
-        const nowIso = new Date().toISOString();
-        const payload = {
-            device_id: deviceId,
-            reason: dispatchedReason,
-            updated_at: nowIso,
-            items: normalizeShoppingListShape(_shoppingList),
-        };
+        const payload = buildHouseholdPostBody(dispatchedReason);
         const res = await fetch(`${base}/shopping_list`, {
             ...buildWriteApiRequestInit('POST', {
                 headers: {
@@ -956,7 +1236,7 @@ async function pullShoppingListFromCloud(reason = 'poll') {
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
         if (remoteMs <= localCloudMs) return;
-        applyRemoteShoppingList(body.items, { updated_at: body.updated_at, reason });
+        applyRemoteHouseholdFromDocument(body, { updated_at: body.updated_at, reason });
         noteShoppingListSyncSuccess();
     } catch {
         noteShoppingListSyncFailure('pull', reason);
@@ -1517,6 +1797,8 @@ function setupFilters() {
         label.addEventListener('click', () => {
             _shopMode = label.dataset.mode;
             localStorage.setItem('shopMode', _shopMode);
+            bumpHouseholdSection('shopMode');
+            scheduleShoppingListCloudPush('shop_mode');
             modeLabels.forEach(l => l.classList.remove('active'));
             label.classList.add('active');
             renderDashboard();
@@ -1853,6 +2135,10 @@ function getEssentials() {
 
 function saveEssentials(list) {
     localStorage.setItem('essentialsList', JSON.stringify(list));
+    if (_householdRemoteApplyDepth === 0) {
+        bumpHouseholdSection('essentials');
+        scheduleShoppingListCloudPush('essentials');
+    }
 }
 
 // Auto-reset checked items each new grocery week (Sunday)
@@ -1864,6 +2150,8 @@ function maybeResetEssentials() {
     if (today.getDay() === 0 && lastReset !== todayStr) {
         localStorage.removeItem('essentialsChecked');
         localStorage.setItem('essentialsLastReset', todayStr);
+        bumpHouseholdSection('essentials');
+        scheduleShoppingListCloudPush('essentials_reset');
     }
 }
 
@@ -1979,6 +2267,8 @@ function renderEssentials() {
                 current = current.filter(i => i !== itemName);
             }
             localStorage.setItem('essentialsChecked', JSON.stringify(current));
+            bumpHouseholdSection('essentials');
+            scheduleShoppingListCloudPush('essentials_check');
             renderEssentials();
         });
 
@@ -1997,6 +2287,8 @@ function renderEssentials() {
         remainingToggle.innerHTML = `<span class="essentials-done-label">${remainingExpanded ? 'Show less' : `Show ${remainingItems.length - remainingCap} more`}</span><span class="essentials-done-caret">${remainingExpanded ? '▴' : '▾'}</span>`;
         remainingToggle.addEventListener('click', () => {
             localStorage.setItem('essentialsRemainingExpanded', remainingExpanded ? 'false' : 'true');
+            bumpHouseholdSection('essentials');
+            scheduleShoppingListCloudPush('essentials_ui');
             renderEssentials();
         }); list.appendChild(remainingToggle);
     }
@@ -2028,6 +2320,8 @@ function renderEssentials() {
             doneToggle.setAttribute('aria-expanded', nextExpanded ? 'true' : 'false');
             doneToggle.querySelector('.essentials-done-caret').textContent = nextExpanded ? '▾' : '▸';
             localStorage.setItem('essentialsDoneExpanded', nextExpanded ? 'true' : 'false');
+            bumpHouseholdSection('essentials');
+            scheduleShoppingListCloudPush('essentials_ui');
         });
 
         list.appendChild(doneSection);
@@ -2061,6 +2355,8 @@ function renderEssentials() {
 
 function resetEssentialsChecked() {
     localStorage.removeItem('essentialsChecked');
+    bumpHouseholdSection('essentials');
+    scheduleShoppingListCloudPush('essentials_reset_check');
     renderEssentials();
 }
 
@@ -2068,6 +2364,8 @@ function resetEssentialsToDefaults() {
     if (!confirm('Reset to the default list? Your custom changes will be lost.')) return;
     localStorage.removeItem('essentialsList');
     localStorage.removeItem('essentialsChecked');
+    bumpHouseholdSection('essentials');
+    scheduleShoppingListCloudPush('essentials_defaults');
     const list = document.getElementById('essentials-list');
     if (list) list.dataset.editMode = 'false';
     renderEssentials();
@@ -3979,6 +4277,10 @@ function checkPriceDropAlerts() {
     });
 
     localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
+    if (_householdRemoteApplyDepth === 0) {
+        bumpHouseholdSection('dropAlerts');
+        scheduleShoppingListCloudPush('drop_alerts');
+    }
 
     if (newDrops.length > 0) {
         showPriceDropToast(newDrops);

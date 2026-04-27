@@ -1,6 +1,6 @@
 ---
 description: Protect multi-device shopping-list merge correctness
-globs: "{docs/app.js,workers/wooliesbot-write/src/**/*.js,scripts/simulate_shopping_list_dual_device.py}"
+globs: "{docs/app.js,docs/js/household_sync.js,workers/wooliesbot-write/src/**/*.js,scripts/simulate_shopping_list_dual_device.py,scripts/validate_household_merge.py}"
 alwaysApply: false
 ---
 
@@ -19,5 +19,6 @@ alwaysApply: false
 ## Verification
 
 - Run dual-device simulation script in read-only and write mode as needed.
+- Run `python3 scripts/validate_household_merge.py` (items-only preserves v2 sections; section LWW).
 - Confirm no duplicate-key explosion or oscillating row resolution.
 - Validate client still renders merged list and updates cloud stamp safely.

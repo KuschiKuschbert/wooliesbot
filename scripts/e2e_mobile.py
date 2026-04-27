@@ -22,7 +22,11 @@ Checks:
   11  Master Tracklist renders as mobile card list (not desktop table)
   12  Analytics tab: narrative stack, advanced diagnostics collapsed on mobile, heatmap swaps list/grid across viewport changes, no horizontal overflow
   13  Tap-highlight disabled (WebkitTapHighlightColor transparent on buttons)
+  14  Shopping trip mode tick flow
   15  Sync merge keeps both-device cart edits (union + newest row wins per item)
+  16  Hash #wbt=... pairs write token and strips URL fragment
+  17  Household: remote trip_state with newer updated_at applies to localStorage
+  18  Trip timeout marker and next-trip reminder
 
 Usage:
   python scripts/e2e_mobile.py                     # run all checks
@@ -938,7 +942,71 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
     _try(results, "15", "sync merge semantics", check_sync_merge_semantics)
 
     # ------------------------------------------------------------------
-    # 16 — Trip timeout marker and next-trip reminder
+    # 16 — Hash #wbt=... pairing (seeds localStorage, strips hash)
+    # ------------------------------------------------------------------
+    def check_hash_pairing():
+        page.evaluate("() => { try { localStorage.removeItem('write_api_token'); } catch (e) {} }")
+        pair_url = f"{base_url}#wbt=e2e_hash_pairing_token_123456&wbu="
+        page.goto(pair_url, wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+        info = page.evaluate(
+            """() => ({
+            tok: localStorage.getItem('write_api_token') || '',
+            hash: (window.location.hash || '')
+        })"""
+        )
+        if info.get("tok") != "e2e_hash_pairing_token_123456":
+            return "FAIL", f"write_api_token not set ({info!r})"
+        if info.get("hash"):
+            return "FAIL", f"location.hash not stripped ({info!r})"
+        return "PASS", "hash pairing applied"
+
+    _try(results, "16", "hash pairing wbt", check_hash_pairing)
+
+    # ------------------------------------------------------------------
+    # 17 — applyRemoteHouseholdFromDocument: newer trip_state from remote
+    # ------------------------------------------------------------------
+    def check_household_trip_remote():
+        page.goto(base_url, wait_until="domcontentloaded")
+        _wait_for_app_ready(page)
+        page.evaluate(
+            """() => {
+            localStorage.setItem('householdSectionMeta', JSON.stringify({
+                trip: '2000-01-01T00:00:00.000Z',
+                shopMode: new Date().toISOString(),
+                essentials: new Date().toISOString(),
+                tripSessions: new Date().toISOString(),
+                dropAlerts: new Date().toISOString()
+            }));
+            localStorage.setItem('shoppingTripMode', '0');
+            localStorage.removeItem('shoppingTripStartedAt');
+            localStorage.setItem('shoppingList', '[]');
+            if (typeof applyRemoteHouseholdFromDocument !== 'function') {
+                throw new Error('applyRemoteHouseholdFromDocument missing');
+            }
+            applyRemoteHouseholdFromDocument({
+                items: [],
+                updated_at: '2099-06-01T00:00:00.000Z',
+                trip_state: {
+                    updated_at: '2099-06-01T00:00:00.000Z',
+                    mode: '1',
+                    started_at: '',
+                    start_count: 0,
+                    saved_peak: 0,
+                    timeout_at: 0
+                }
+            }, { updated_at: '2099-06-01T00:00:00.000Z', reason: 'e2e' });
+        }"""
+        )
+        on = page.evaluate("() => localStorage.getItem('shoppingTripMode') === '1'")
+        if not on:
+            return "FAIL", "remote trip_state did not apply (shoppingTripMode)"
+        return "PASS", "remote trip_state merged"
+
+    _try(results, "17", "household trip remote apply", check_household_trip_remote)
+
+    # ------------------------------------------------------------------
+    # 18 — Trip timeout marker and next-trip reminder
     # ------------------------------------------------------------------
     def check_trip_timeout_reminder():
         stale_start = "2026-01-01T00:00:00.000Z"
@@ -1003,7 +1071,7 @@ def run_checks(page: Page, results: Results, shot_dir: Path, base_url: str) -> N
             return "FAIL", "timeout reminder marker was not cleared after showing reminder"
         return "PASS", "idle timeout marker and next-trip reminder validated"
 
-    _try(results, "16", "trip timeout reminder flow", check_trip_timeout_reminder)
+    _try(results, "18", "trip timeout reminder flow", check_trip_timeout_reminder)
 
 # --------------------------------------------------------------------------
 # Entrypoint
