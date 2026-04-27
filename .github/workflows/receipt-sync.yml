@@ -62,6 +62,7 @@ jobs:
     timeout-minutes: 45
     env:
       RUNNER_TOOL_CACHE: ${{ github.workspace }}/.runner-toolcache
+      AGENT_TOOLSDIRECTORY: ${{ github.workspace }}/.runner-toolcache
 
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
