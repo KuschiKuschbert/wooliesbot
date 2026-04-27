@@ -2,13 +2,14 @@
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
-const SHELL_VERSION = '2037-stale-shell-fix';
+const SHELL_VERSION = '2038-pairing-page';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const PRECACHE = [
     './',
     './index.html',
     './discovery-review.html',
+    './pairing.html',
     './style.css',
     './env.js',
     './js/household_sync.js',
@@ -28,7 +29,7 @@ function isAppShellRequest(url) {
         if (u.origin !== self.location.origin) return false;
         const p = u.pathname;
         if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
-        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$/.test(
+        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$|\/pairing\.html$/.test(
             p
         );
     } catch {
