@@ -5,6 +5,7 @@ import json
 import logging
 import datetime
 import re
+import subprocess
 from bs4 import BeautifulSoup
 from curl_cffi import requests as cffi_requests
 import undetected_chromedriver as uc
@@ -115,13 +116,40 @@ def _clear_profile_singleton_locks(user_data_dir):
 
 def _build_driver(user_data_dir, headless=False):
     """Build a Chrome driver with a persistent profile and optional headless mode."""
-    options = uc.ChromeOptions()
-    options.add_argument(f"--user-data-dir={user_data_dir}")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    if headless:
-        options.add_argument("--headless=new")
+    def _new_options():
+        options = uc.ChromeOptions()
+        options.add_argument(f"--user-data-dir={user_data_dir}")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        if headless:
+            options.add_argument("--headless=new")
+        return options
+
+    def _detect_chrome_major():
+        chrome_cmds = (
+            "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "/Applications/Chromium.app/Contents/MacOS/Chromium",
+            "google-chrome",
+            "google-chrome-stable",
+            "chromium",
+            "chromium-browser",
+        )
+        for cmd in chrome_cmds:
+            try:
+                proc = subprocess.run(
+                    [cmd, "--version"],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+                text = (proc.stdout or proc.stderr or "").strip()
+                match = re.search(r"(\d+)\.", text)
+                if match:
+                    return int(match.group(1))
+            except Exception:
+                continue
+        return None
 
     logging.info(
         "Starting Chrome with persistent profile%s...",
@@ -129,11 +157,25 @@ def _build_driver(user_data_dir, headless=False):
     )
 
     try:
-        return uc.Chrome(options=options)
-    except SessionNotCreatedException:
+        return uc.Chrome(options=_new_options())
+    except SessionNotCreatedException as exc:
         # Common on stale profile locks from interrupted runs.
         _clear_profile_singleton_locks(user_data_dir)
-        return uc.Chrome(options=options)
+
+        detected_major = _detect_chrome_major()
+        if detected_major is not None:
+            logging.info(
+                "Retrying driver start with detected Chrome major version %s...",
+                detected_major,
+            )
+            try:
+                return uc.Chrome(options=_new_options(), version_main=detected_major)
+            except SessionNotCreatedException:
+                pass
+
+        # Final retry with a fresh options object; uc blocks options reuse.
+        logging.info("Retrying driver start with fresh options after session error: %s", exc)
+        return uc.Chrome(options=_new_options())
 
 
 def _is_auth_prompt_visible(driver):
