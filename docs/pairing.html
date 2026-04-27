@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WooliesBot — sync pairing (QR)</title>
+    <link rel="stylesheet" href="style.css?v=9">
+    <style>
+        .pair-wrap { max-width: 36rem; margin: 0 auto; padding: 1.5rem; }
+        .pair-wrap h1 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+        .pair-wrap p.muted { color: var(--text-muted, #666); font-size: 0.9rem; margin-bottom: 1rem; }
+        .pair-wrap label { display: block; font-weight: 600; margin-top: 1rem; margin-bottom: 0.25rem; }
+        .pair-wrap input[type="text"], .pair-wrap input[type="password"], .pair-wrap input[type="url"] {
+            width: 100%; max-width: 100%; box-sizing: border-box; padding: 0.5rem 0.6rem; border-radius: 8px;
+            border: 1px solid var(--border, #ccc); background: var(--card-bg, #fff); color: inherit;
+        }
+        .pair-wrap .row { margin-top: 0.75rem; }
+        .pair-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .pair-btns button { padding: 0.5rem 1rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
+        .pair-btns .primary { background: var(--woolies-green, #0d7a3e); color: #fff; }
+        .pair-btns .ghost { background: transparent; border: 1px solid var(--border, #ccc); }
+        #qrcode { margin: 1.25rem auto; width: 220px; min-height: 220px; display: flex; align-items: center; justify-content: center; }
+        #qrcode:empty::after { content: "QR appears here"; color: var(--text-muted, #999); font-size: 0.85rem; }
+        .out-url { width: 100%; min-height: 5rem; font-family: ui-monospace, monospace; font-size: 0.75rem; }
+        .warn { background: #fff8e6; border: 1px solid #e6c200; border-radius: 8px; padding: 0.75rem; margin: 1rem 0; font-size: 0.88rem; }
+        a.back { color: var(--woolies-green, #0d7a3e); }
+    </style>
+</head>
+<body>
+    <div class="pair-wrap">
+        <p><a class="back" href="index.html">← Back to dashboard</a></p>
+        <h1>Sync pairing (phone &amp; laptop)</h1>
+        <p class="muted">Generates a link with <code>#wbt=…</code> (and optional <code>wbu=…</code>) so each browser can store your write token once. Nothing is sent to a server from this page — it runs only in your browser.</p>
+        <div class="warn">Keep your token secret. Anyone with the link can use your write API. Clear the form when you’re done.</div>
+
+        <label for="dash-base">Dashboard base URL (no trailing slash)</label>
+        <input type="url" id="dash-base" autocomplete="off" value="https://kuschikuschbert.github.io/wooliesbot" placeholder="https://…github.io/wooliesbot">
+
+        <label for="wbu">Optional: Worker base URL (only if different from <code>env.js</code>)</label>
+        <input type="url" id="wbu" autocomplete="off" placeholder="https://wooliesbot-write.wooliesbot.workers.dev">
+
+        <p class="muted row"><button type="button" class="ghost" id="load-env" style="padding:0.35rem 0.6rem;">Load Worker URL from env.js (same site only)</button></p>
+
+        <label for="wbt">Write API token (Bearer secret)</label>
+        <input type="password" id="wbt" autocomplete="off" placeholder="Paste token" spellcheck="false">
+
+        <div class="pair-btns">
+            <button type="button" class="primary" id="gen">Generate link &amp; QR</button>
+            <button type="button" class="ghost" id="copy">Copy link</button>
+            <button type="button" class="ghost" id="clear">Clear</button>
+        </div>
+
+        <div id="qrcode" aria-label="Pairing QR code"></div>
+
+        <label for="out">Pairing link (open on the other device, or scan the QR)</label>
+        <textarea id="out" class="out-url" readonly rows="4" placeholder="Click Generate first"></textarea>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous"></script>
+    <script>
+(function () {
+    const $ = (id) => document.getElementById(id);
+    const dash = $('dash-base');
+    const wbu = $('wbu');
+    const wbt = $('wbt');
+    const out = $('out');
+    const elQr = $('qrcode');
+    let qrObj = null;
+
+    function buildUrl() {
+        const base = (dash.value || '').trim().replace(/\/$/, '');
+        const tok = (wbt.value || '').trim();
+        if (!base) throw new Error('Set dashboard base URL');
+        if (tok.length < 8) throw new Error('Token looks too short (min 8 chars for safety check)');
+        let u = base + '/#wbt=' + encodeURIComponent(tok);
+        const extra = (wbu.value || '').trim().replace(/\/$/, '');
+        if (extra) u += '&wbu=' + encodeURIComponent(extra);
+        return u;
+    }
+
+    function renderQr(text) {
+        elQr.innerHTML = '';
+        qrObj = new QRCode(elQr, {
+            text: text,
+            width: 220,
+            height: 220,
+            colorDark: '#0d1f12',
+            colorLight: '#f4f0e9',
+            correctLevel: QRCode.CorrectLevel.M
+        });
+    }
+
+    $('gen').addEventListener('click', function () {
+        try {
+            const url = buildUrl();
+            out.value = url;
+            renderQr(url);
+        } catch (e) {
+            alert(e.message || String(e));
+        }
+    });
+
+    $('copy').addEventListener('click', function () {
+        if (!out.value) return;
+        navigator.clipboard.writeText(out.value).then(function () {
+            alert('Link copied. Open it on the other device (same browser you use for WooliesBot), or scan the QR.');
+        }).catch(function () {
+            out.select();
+            document.execCommand('copy');
+        });
+    });
+
+    $('clear').addEventListener('click', function () {
+        wbt.value = '';
+        out.value = '';
+        elQr.innerHTML = '';
+        wbt.focus();
+    });
+
+    $('load-env').addEventListener('click', function () {
+        fetch('env.js', { cache: 'no-store' })
+            .then(function (r) { return r.text(); })
+            .then(function (t) {
+                const m = t.match(/"writeApiUrl"\s*:\s*"([^"]+)"/);
+                if (m) wbu.value = m[1].trim();
+                else alert('Could not find writeApiUrl in env.js');
+            })
+            .catch(function () {
+                alert('Open this page from your GitHub Pages site (same origin as env.js), or paste the Worker URL by hand.');
+            });
+    });
+})();
+    </script>
+</body>
+</html>
