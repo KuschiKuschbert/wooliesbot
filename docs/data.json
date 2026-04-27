@@ -10662,7 +10662,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 0.8,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -10793,9 +10793,9 @@
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 0.8,
+          "price": 4.0,
           "unit_price": 1.14,
-          "eff_price": 0.8,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -10809,7 +10809,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 0.8,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -33620,7 +33620,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -33749,9 +33749,9 @@
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.7,
+          "price": 8.8,
           "unit_price": 1.28,
-          "eff_price": 7.7,
+          "eff_price": 8.8,
           "was_price": 9.8,
           "on_special": true
         },
@@ -33764,8 +33764,8 @@
         }
       },
       "price_unavailable": false,
-      "avg_price": 7.7,
-      "eff_price": 7.7,
+      "avg_price": 8.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -44220,7 +44220,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 14.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -44349,16 +44349,16 @@
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
+          "price": 14.0,
           "unit_price": 1.33,
-          "eff_price": 12.0,
+          "eff_price": 14.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 14.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
