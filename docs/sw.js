@@ -2,7 +2,7 @@
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
-const SHELL_VERSION = '2038-pairing-page';
+const SHELL_VERSION = '2039-kg-pack-price-labels';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const PRECACHE = [
