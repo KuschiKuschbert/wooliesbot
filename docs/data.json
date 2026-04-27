@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-27 10:30 AM",
+  "last_updated": "2026-04-27 03:09 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1659,13 +1659,13 @@
       "on_special": false,
       "local_image": "images/Baby_Spinach___Kaleslaw.jpg",
       "image_url": "images/baby_spinach__kaleslaw.jpg",
-      "unit_price": 17.86,
+      "unit_price": 22.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 17.86,
-          "eff_price": 5.0,
+          "price": 2.7,
+          "unit_price": 22.5,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         },
@@ -1681,7 +1681,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Baby Leaf Spinach Spinach",
+      "name_check": "Woolworths Baby Leaf Spinach",
       "item_id": "a4ad4367-febf-429b-ac90-8cd79940c7af"
     },
     {
@@ -10753,7 +10753,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "The Man Bar Rocky Road Rocky Road High Fibre",
+      "name_check": "The Lady Bar Rocky Road Rocky Road High Fibre",
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e"
     },
     {
@@ -11706,9 +11706,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -14650,9 +14650,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.3,
-          "unit_price": 13.29,
-          "eff_price": 9.3,
+          "price": 11.2,
+          "unit_price": 14.93,
+          "eff_price": 11.2,
           "was_price": null,
           "on_special": false
         },
@@ -21028,13 +21028,6 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 35.0,
-          "unit_price": 17.5,
-          "eff_price": 35.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -27674,7 +27667,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 4.7,
+      "price": 4.65,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "425Ml",
@@ -27787,10 +27780,17 @@
         }
       ],
       "local_image": "images/Rokeby_Protein_Smoothie_Dbl_Esprs_425Ml.jpg",
-      "store": "coles",
-      "unit_price": 11.06,
+      "store": "woolworths",
+      "unit_price": 10.94,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 4.65,
+          "unit_price": 10.94,
+          "eff_price": 4.65,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.7,
           "unit_price": 11.06,
@@ -27802,13 +27802,13 @@
       "price_unavailable": false,
       "image_url": "images/rokeby_protein_smoothie_dbl_esprs_425ml.jpg",
       "avg_price": 3.5,
-      "eff_price": 4.7,
+      "eff_price": 4.65,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Protein Smoothie Strawberry",
+      "name_check": "Rokeby Protein Smoothie Double Espresso",
       "item_id": "53f39246-5474-4bfc-b2af-deed3e766ed3"
     },
     {
@@ -35649,14 +35649,14 @@
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 4.08,
-          "eff_price": 2.45,
+          "price": 3.3,
+          "unit_price": 2.2,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -35677,7 +35677,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Mount Franklin Spring Water Bottle",
+      "name_check": "Chilled Spring Water Natural",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23"
     },
     {
@@ -36616,14 +36616,14 @@
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -36644,7 +36644,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20"
     },
     {
@@ -41093,9 +41093,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
           "was_price": null,
           "on_special": false
         },
@@ -46651,14 +46651,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -46679,7 +46679,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Pump Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
@@ -51256,7 +51256,7 @@
       "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
       "type": "snacks",
       "price_mode": "each",
-      "target": 6.9,
+      "target": 4.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Noshu%20Low%20Carb%20Pnut%20&%20Crml%20Bar%20160g%205Pk",
       "coles": "https://www.coles.com.au/product/low-carb-peanut-and-caramel-nougat-indulgence-bar-4256684",
       "price_history": [
@@ -51267,13 +51267,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 6.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.90, now $6.90 (store special)",
+      "target_method": "was $8.90, now $4.90 (store special)",
       "target_data_points": 14,
       "target_updated": "2026-04-27",
       "scrape_history": [
@@ -51383,14 +51383,14 @@
       "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
-      "store": "coles",
-      "unit_price": 4.31,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.63,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.93,
-          "eff_price": 8.9,
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -51404,11 +51404,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 6.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Low Carb Peanut And Caramel Nougat Indulgence Bar",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a"
     },
     {
@@ -63259,14 +63259,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 2.25,
-      "unit": "each",
-      "store": "coles",
+      "unit_price": 37.5,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 13.5,
-          "unit_price": 3.6,
-          "eff_price": 13.5,
+          "price": 9.0,
+          "unit_price": 37.5,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -63388,7 +63388,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Ant Rid Ant Bait",
+      "name_check": "Combat Ant-Rid Bait Pest Control",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b"
     },
     {
