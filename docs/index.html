@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
-    <meta name="theme-color" content="#0a0a14">
-    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#f4f0e9">
+    <meta name="color-scheme" content="light">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -12,7 +12,7 @@
     <meta name="wooliesbot-shell-version" content="2037-stale-shell-fix">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=9">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -134,7 +134,7 @@
                     <!-- F: Buy Now — LOW STOCK + ON SPECIAL -->
                     <div class="stat-card buy-now-card" id="buy-now-card" style="display:none;">
                         <div class="stat-header">
-                            <h3>🔥 Buy Now</h3>
+                            <h3>Buy now</h3>
                             <span class="buy-now-badge" id="buy-now-count">0</span>
                         </div>
                         <p style="font-size:11px; color:var(--text-muted); margin-bottom:10px;">Running low + on special right now</p>
@@ -144,7 +144,7 @@
                     <!-- Wednesday banners (compact now) -->
                     <div class="stat-card wednesday-banner hidden" id="wednesday-banner">
                         <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:20px;">📅</span>
+                            <span style="font-size:20px;">Schedule</span>
                             <div>
                                 <div style="font-weight:700; font-size:12px;">Specials refresh tomorrow!</div>
                                 <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">New deals every Wednesday morning.</div>
@@ -153,7 +153,7 @@
                     </div>
                     <div class="stat-card wednesday-banner hidden" id="wednesday-live-banner">
                         <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:20px;">🔄</span>
+                            <span style="font-size:20px;">Update</span>
                             <div>
                                 <div style="font-weight:700; font-size:12px;">New specials live today!</div>
                                 <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies & Coles updated this morning.</div>
@@ -164,21 +164,21 @@
                     <!-- Top 5 deals this week -->
                     <div class="stat-card" id="top5-card">
                         <div class="stat-header">
-                            <h3>🔥 Top 5 This Week</h3>
+                            <h3>Top 5 this week</h3>
                         </div>
                         <div id="top5-list" class="top5-list"></div>
                     </div>
 
                     <div class="stat-card">
                         <div class="stat-header">
-                            <h3>📝 Essentials</h3>
+                            <h3>Essentials</h3>
                         </div>
                         <div id="essentials-list" class="essentials-checklist"></div>
                     </div>
 
                     <div class="stat-card cola-card" id="cola-battle-container">
                         <div class="stat-header">
-                            <h3>🥤 Soft drink head-to-head</h3>
+                            <h3>Soft drink head-to-head</h3>
                         </div>
                         <div class="stat-hint">Finding the best litre price…</div>
                     </div>
@@ -214,17 +214,17 @@
 
                     <div class="category-scroll category-scroll-fade">
                         <button class="filter-btn-cat active" data-cat="all">All</button>
-                        <button class="filter-btn-cat" data-cat="produce">🥬 Produce</button>
-                        <button class="filter-btn-cat" data-cat="meat">🥩 Meat</button>
-                        <button class="filter-btn-cat" data-cat="dairy">🧀 Dairy</button>
-                        <button class="filter-btn-cat" data-cat="beverages">🥤 Drinks</button>
-                        <button class="filter-btn-cat" data-cat="snacks">🍫 Snacks</button>
-                        <button class="filter-btn-cat" data-cat="pantry">🫙 Pantry</button>
-                        <button class="filter-btn-cat" data-cat="bakery">🍞 Bakery</button>
-                        <button class="filter-btn-cat" data-cat="frozen">🧊 Frozen</button>
-                        <button class="filter-btn-cat" data-cat="household">🧹 House</button>
-                        <button class="filter-btn-cat" data-cat="personal_care">🪥 Care</button>
-                        <button class="filter-btn-cat" data-cat="pet">🐾 Pet</button>
+                        <button class="filter-btn-cat" data-cat="produce">Produce</button>
+                        <button class="filter-btn-cat" data-cat="meat">Meat</button>
+                        <button class="filter-btn-cat" data-cat="dairy">Dairy</button>
+                        <button class="filter-btn-cat" data-cat="beverages">Drinks</button>
+                        <button class="filter-btn-cat" data-cat="snacks">Snacks</button>
+                        <button class="filter-btn-cat" data-cat="pantry">Pantry</button>
+                        <button class="filter-btn-cat" data-cat="bakery">Bakery</button>
+                        <button class="filter-btn-cat" data-cat="frozen">Frozen</button>
+                        <button class="filter-btn-cat" data-cat="household">House</button>
+                        <button class="filter-btn-cat" data-cat="personal_care">Care</button>
+                        <button class="filter-btn-cat" data-cat="pet">Pet</button>
                     </div>
 
                     <!-- Predictions / Due Soon -->
@@ -236,14 +236,14 @@
 
                     <!-- Almost There -->
                     <section id="near-misses-section" class="featured-section hidden">
-                        <h2 class="section-title">🎯 Getting Close to Deal Price</h2>
+                        <h2 class="section-title">Getting close to deal price</h2>
                         <p class="section-subtitle">Almost at your good-deal price — worth watching; they might hit special soon.</p>
                         <div id="near-misses-grid" class="specials-grid"></div>
                     </section>
 
                     <!-- Main Grid -->
                     <section id="specials-section">
-                        <h2 class="section-title">🛍️ Specials &amp; deals</h2>
+                        <h2 class="section-title">Specials and deals</h2>
                         <div id="specials-grid" class="specials-grid"></div>
                         <div id="pagination-controls" class="pagination-container"></div>
                     </section>
@@ -253,7 +253,7 @@
             <!-- D: Master Tracklist — collapsible, collapsed by default -->
             <section class="master-table-section">
                 <button class="master-table-toggle" id="master-table-toggle" onclick="toggleMasterTable()" aria-expanded="false">
-                    <span>📋 Everything you track</span>
+                    <span>Everything you track</span>
                     <span class="master-table-meta" id="master-table-meta"></span>
                     <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
                 </button>
@@ -285,7 +285,7 @@
         <section id="tab-analytics" class="tab-content">
             <div class="insights-shell">
             <div class="analytics-header">
-                <h2 class="section-title">📈 Savings &amp; trends</h2>
+                <h2 class="section-title">Savings and trends</h2>
                 <p class="section-subtitle">See how prices move and where you’re saving most</p>
             </div>
 
@@ -310,7 +310,7 @@
 
                     <div class="analytics-card">
                         <div class="card-header">
-                            <h3>🎯 Live Savings Gauge</h3>
+                            <h3>Live savings gauge</h3>
                             <i data-feather="zap"></i>
                         </div>
                         <div id="savings-gauge-container"></div>
@@ -318,7 +318,7 @@
 
                     <div class="analytics-card">
                         <div class="card-header">
-                            <h3>💰 This Week's Wins</h3>
+                            <h3>This week's wins</h3>
                             <i data-feather="dollar-sign"></i>
                         </div>
                         <div id="weekly-savings-container"></div>
@@ -348,7 +348,7 @@
 
                     <div class="analytics-card span-3">
                         <div class="card-header">
-                            <h3>📊 Price changes by category</h3>
+                            <h3>Price changes by category</h3>
                             <i data-feather="activity"></i>
                         </div>
                         <p class="analytics-card-copy">Compared to about two months ago, for products you’re tracking.</p>
@@ -357,7 +357,7 @@
 
                     <div class="analytics-card span-3">
                         <div class="card-header">
-                            <h3>🌡️ Who’s cheaper, by aisle</h3>
+                            <h3>Who is cheaper by aisle</h3>
                             <i data-feather="grid"></i>
                         </div>
                         <p class="analytics-card-copy">Darker = bigger savings. Numbers = how many specials we’re comparing.</p>
@@ -385,7 +385,7 @@
 
                     <div class="analytics-card span-2">
                         <div class="card-header">
-                            <h3>📉 Prices that bounce around most</h3>
+                            <h3>Most volatile prices</h3>
                             <i data-feather="trending-up"></i>
                         </div>
                         <p class="analytics-card-copy">Items that jump in price most - buy on special and stock up.</p>
@@ -394,7 +394,7 @@
 
                     <div class="analytics-card">
                         <div class="card-header">
-                            <h3>📅 Best Month to Buy</h3>
+                            <h3>Best month to buy</h3>
                             <i data-feather="calendar"></i>
                         </div>
                         <p class="analytics-card-copy">Cheapest historical months per category.</p>
@@ -403,7 +403,7 @@
 
                     <div class="analytics-card span-3">
                         <div class="card-header">
-                            <h3>🏠 Pantry Health Score</h3>
+                            <h3>Pantry health score</h3>
                             <i data-feather="award"></i>
                         </div>
                         <div id="pantry-health-container"></div>
@@ -417,7 +417,7 @@
                 <div class="insights-story-section insights-story-section--advanced" data-mobile-collapsed="true">
                     <div class="analytics-card" id="shopping-time-insights-card">
                         <div class="card-header">
-                            <h3>⏱️ Average Shopping Time</h3>
+                            <h3>Average shopping time</h3>
                             <i data-feather="clock"></i>
                         </div>
                         <div id="shopping-time-insights"></div>
@@ -453,7 +453,7 @@
         <div class="drawer-grabber" id="drawer-grabber" aria-hidden="true"></div>
         <div class="drawer-header">
             <div class="drawer-title-wrap">
-                <h3 id="drawer-title">🛒 Shopping List</h3>
+                <h3 id="drawer-title">Shopping list</h3>
                 <p id="shopping-trip-compact" class="shopping-trip-compact" hidden aria-live="polite"></p>
                 <p id="shopping-trip-status" class="shopping-trip-status" hidden aria-live="polite"></p>
                 <div id="shopping-trip-progress-wrap" class="shopping-trip-progress-wrap" hidden aria-hidden="true">
