@@ -3,6 +3,8 @@
 GitHub Actions is now the primary automation path (4-hour scrape workflow + weekly summary workflow).
 This launchd setup is kept as a local fallback/legacy option.
 
+Stop-at-stable closeout checklist: `docs/STOP_AT_STABLE_OPERATOR_CHECKLIST.md`.
+
 The long-running service is `com.wooliesbot.automation.plist` (runs `chef_os.py`) and uses the project `.venv` Python.
 
 ## Optional components (not required for scrape → `data.json` → GitHub Pages)
@@ -77,3 +79,32 @@ The automation plist runs **one** long-lived `chef_os.py` process (`KeepAlive`).
 ### Receipt sync auth note
 
 `receipt_sync.py` needs an authenticated Everyday Rewards browser profile. GitHub-hosted runners are ephemeral, so they cannot keep this session. Use a **self-hosted runner** plus a persistent profile directory (workflow variable `RECEIPT_SYNC_PROFILE_DIR`, default `$HOME/.wooliesbot/chrome_profile`), and complete login/MFA once on that machine.
+
+### Self-hosted runner auto-restart (recommended)
+
+To keep receipt sync resilient, install the GitHub runner as a launchd service on the runner host:
+
+```bash
+cd ~/actions-runner
+./svc.sh install
+./svc.sh start
+./svc.sh status
+```
+
+Health checks:
+
+```bash
+gh api repos/KuschiKuschbert/wooliesbot/actions/runners --jq '.total_count, (.runners[]? | {name,status,busy})'
+```
+
+Recovery checklist when receipt sync is queued/pending:
+
+1. Confirm runner is online via the command above.
+2. If offline, restart service: `cd ~/actions-runner && ./svc.sh restart`.
+3. If still missing, reconfigure runner token and restart (`./config.sh ...`, then `./svc.sh start`).
+4. Re-run `.github/workflows/receipt-sync.yml`.
+
+Workflow-level safety nets:
+
+- `.github/workflows/receipt-sync.yml` now fails fast with a clear error if no self-hosted runner is online.
+- `.github/workflows/receipt-runner-health.yml` checks for queued/pending stalls and sends Telegram alerts when runs are stuck.

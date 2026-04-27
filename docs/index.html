@@ -36,6 +36,16 @@
                         <i data-feather="refresh-cw" class="icon-sm"></i> 
                         <span>Next scheduled: <span id="next-update">...</span></span>
                     </div>
+                    <span class="status-sep">|</span>
+                    <div class="status-item" title="Most recent successful Everyday Rewards receipt sync run.">
+                        <i data-feather="archive" class="icon-sm"></i>
+                        <span>Receipt sync: <span id="receipt-sync-last">Checking...</span></span>
+                    </div>
+                    <span class="status-sep">|</span>
+                    <div class="status-item" title="Date on the newest receipt processed in the latest successful receipt sync.">
+                        <i data-feather="calendar" class="icon-sm"></i>
+                        <span>Latest receipt: <span id="receipt-sync-date">...</span></span>
+                    </div>
                 </div>
                 <div class="scrape-status" aria-live="polite">
                     <div id="scrape-status-dot" class="status-dot"></div>

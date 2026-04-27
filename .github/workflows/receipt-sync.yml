@@ -54,9 +54,51 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
+  runner-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check self-hosted runner availability
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import sys
+          
+          repo = os.environ.get("GITHUB_REPOSITORY")
+          cmd = ["gh", "api", f"repos/{repo}/actions/runners"]
+          proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
+          if proc.returncode != 0:
+              print(proc.stdout)
+              print(proc.stderr)
+              raise SystemExit("Failed to query Actions runners via GitHub API.")
+          payload = json.loads(proc.stdout or "{}")
+          runners = payload.get("runners") or []
+          online = [r for r in runners if (r.get("status") or "").lower() == "online"]
+          if not online:
+              raise SystemExit(
+                  "No online self-hosted runners are available for receipt-sync. "
+                  "Start the runner service on the host machine and retry."
+              )
+          print(f"Runner preflight OK: {len(online)} online self-hosted runner(s).")
+          PY
+
+      - name: Telegram runner preflight failure notification
+        if: failure()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python scripts/telegram_notify.py --allow-missing-secrets --text "🚨 *Receipt sync runner unavailable*\nNo self-hosted runner online for https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
   receipt-sync:
+    needs: runner-preflight
     # Requires a persistent machine/profile for Everyday Rewards auth sessions.
     runs-on: self-hosted
     timeout-minutes: 45
@@ -105,12 +147,12 @@ jobs:
 
       - name: Commit and push receipt updates
         run: |
-          if git diff --quiet -- docs/data.json; then
+          if git diff --quiet -- docs/data.json docs/receipt_sync_status.json; then
             echo "No receipt-driven changes to commit."
             exit 0
           fi
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add docs/data.json
+          git add docs/data.json docs/receipt_sync_status.json
           git commit -m "chore: sync everyday rewards receipts"
           git push

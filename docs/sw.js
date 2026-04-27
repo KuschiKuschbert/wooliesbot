@@ -26,7 +26,7 @@ function isAppShellRequest(url) {
         const u = new URL(url);
         if (u.origin !== self.location.origin) return false;
         const p = u.pathname;
-        if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json')) return false;
+        if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
         return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$/.test(
             p
         );
@@ -70,7 +70,7 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    if (url.includes('data.json') || url.includes('heartbeat.json') || isAppShellRequest(url)) {
+    if (url.includes('data.json') || url.includes('heartbeat.json') || url.includes('receipt_sync_status.json') || isAppShellRequest(url)) {
         event.respondWith(networkFirstWithCacheUpdate(request));
         return;
     }

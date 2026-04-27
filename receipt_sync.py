@@ -17,6 +17,11 @@ from receipt_sync_lib import matching as _receipt_matching
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 INV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
+RECEIPT_STATUS_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "docs",
+    "receipt_sync_status.json",
+)
 
 # CSS selectors for activity-feed receipt cards on everyday.com.au
 CARD_SELECTORS = [
@@ -240,6 +245,26 @@ def _write_debug_artifacts(driver):
         logging.warning(f"Could not write debug artifacts: {exc}")
 
 
+def _write_receipt_sync_status(
+    *,
+    processed_receipts,
+    latest_receipt_date,
+    prices_updated,
+    new_items_added,
+    run_mode,
+):
+    payload = {
+        "last_success_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "latest_receipt_date": latest_receipt_date,
+        "processed_receipts": processed_receipts,
+        "prices_updated": prices_updated,
+        "new_items_added": new_items_added,
+        "run_mode": run_mode,
+    }
+    with open(RECEIPT_STATUS_FILE, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=True)
+
+
 def run_sync(
     all_receipts=True,
     months_back=6,
@@ -392,6 +417,7 @@ def run_sync(
         new_items_added = 0
         prices_updated = 0
         skipped_non_woolies = 0
+        processed_receipt_dates = []
 
         for index in range(num_to_process):
             # Re-fetch cards because DOM changes after open/close
@@ -558,6 +584,8 @@ def run_sync(
 
 
             logging.info(f"  Parsed {items_found} items from receipt #{index+1}")
+            if receipt_date_obj:
+                processed_receipt_dates.append(receipt_date_obj)
 
             # Close the side panel
             try:
@@ -573,6 +601,21 @@ def run_sync(
             if processed_count % 5 == 0: save_inventory(inventory)
 
         save_inventory(inventory)
+        latest_receipt_date = None
+        if processed_receipt_dates:
+            latest_receipt_date = max(processed_receipt_dates).strftime("%Y-%m-%d")
+        run_mode = "headless"
+        if headless and not active_headless:
+            run_mode = "headed_fallback"
+        elif not active_headless:
+            run_mode = "headed"
+        _write_receipt_sync_status(
+            processed_receipts=processed_count,
+            latest_receipt_date=latest_receipt_date,
+            prices_updated=prices_updated,
+            new_items_added=new_items_added,
+            run_mode=run_mode,
+        )
         logging.info(f"Sync complete. Processed {processed_count} receipts. Added {new_items_added} new items, updated prices for {prices_updated} items.")
     except Exception as e:
         logging.error(f"Error during receipt sync: {e}")
