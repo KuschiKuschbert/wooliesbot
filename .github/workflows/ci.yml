@@ -32,6 +32,12 @@ jobs:
       - name: Inventory identity (duplicate item_id / names)
         run: python3 scripts/check_inventory_identity.py
 
+      - name: e2e Layer B (data.json internal consistency)
+        run: python3 scripts/e2e_validate.py --layer B --strict-exit
+
+      - name: e2e Layer C (dashboard eff_price vs data.json)
+        run: python3 scripts/e2e_validate.py --layer C --strict-exit
+
       - name: Block hard-coded Telegram secrets (long string fallbacks)
         run: |
           python3 << 'PY'
