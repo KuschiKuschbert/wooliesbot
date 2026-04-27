@@ -60,12 +60,31 @@ def _detect_base_ref() -> str:
     return ""
 
 
-def _changed_files() -> set[str]:
-    base_ref = _detect_base_ref()
-    if not base_ref:
-        return set()
-    out = _run_git(["diff", "--name-only", f"{base_ref}...HEAD", "--diff-filter=ACMR"])
+def _diff_paths(diff_range: str) -> set[str]:
+    out = _run_git(["diff", "--name-only", diff_range, "--diff-filter=ACMR"])
     return {line.strip() for line in out.splitlines() if line.strip()}
+
+
+def _changed_files() -> tuple[set[str], str]:
+    base_ref = _detect_base_ref()
+    if base_ref:
+        changed = _diff_paths(f"{base_ref}...HEAD")
+        if changed:
+            return changed, f"{base_ref}...HEAD"
+
+    for candidate in ("origin/main", "origin/master"):
+        if not _run_git(["rev-parse", "--verify", candidate]):
+            continue
+        changed = _diff_paths(f"{candidate}...HEAD")
+        if changed:
+            return changed, f"{candidate}...HEAD"
+
+    if _run_git(["rev-parse", "--verify", "HEAD~1"]):
+        changed = _diff_paths("HEAD~1..HEAD")
+        if changed:
+            return changed, "HEAD~1..HEAD"
+
+    return set(), ""
 
 
 def _line_count(path: Path) -> int:
@@ -94,7 +113,15 @@ def main() -> int:
     allowance = int(config["legacy_growth_allowance_lines"])
     baseline = {k: int(v) for k, v in config["baseline_max_lines"].items()}
     exceptions = {item["path"]: item for item in config.get("exceptions", [])}
-    changed = _changed_files()
+    changed, changed_source = _changed_files()
+    if not changed:
+        print("ERROR: unable to determine changed files for guardrail scope.")
+        print(
+            "Expected one of: origin/<base>...HEAD, origin/main...HEAD, origin/master...HEAD, or HEAD~1..HEAD."
+        )
+        print("Guardrail failure: provide base refs/history in CI checkout or run against a branch with commits.")
+        return 1
+    print(f"Guardrail scope determined from: {changed_source} ({len(changed)} changed files)")
 
     issues: list[Issue] = []
     checked = 0
@@ -111,7 +138,7 @@ def main() -> int:
 
         checked += 1
         lines = _line_count(file_path)
-        is_changed = rel_path in changed if changed else True
+        is_changed = rel_path in changed
         baseline_limit = baseline.get(rel_path)
 
         if baseline_limit is not None:
