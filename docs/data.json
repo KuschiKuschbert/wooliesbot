@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-28 12:27 AM",
+  "last_updated": "2026-04-28 05:05 AM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5592,7 +5592,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Hazelnut Ice Cream",
+      "name_check": "Roasted Hazelnut & Choc",
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac"
     },
     {
@@ -8173,7 +8173,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Zero Sugar Soft Drink Multipack Cans 30x375ml",
+      "name_check": "Zero Sugar Soft Drink Multipack Cans 375ml",
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07"
     },
     {
@@ -10662,7 +10662,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 4.0,
+      "price": 0.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -10789,13 +10789,13 @@
       "local_image": "images/Ww_Yoghurt_Starwberry_1Kg.jpg",
       "image_url": "images/ww_yoghurt_starwberry_1kg.jpg",
       "store": "woolworths",
-      "unit_price": 0.4,
+      "unit_price": 1.14,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 0.8,
+          "unit_price": 1.14,
+          "eff_price": 0.8,
           "was_price": null,
           "on_special": false
         },
@@ -10809,11 +10809,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 4.0,
+      "eff_price": 0.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Strawberry Yoghurt",
+      "name_check": "Woolworths Strawberry Yoghurt Pouch Strawberry",
       "item_id": "7d0cec65-68f2-414f-af17-21c5704e6950"
     },
     {
@@ -13721,7 +13721,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Zero Sugar Soft Drink Multipack Cans 10x375ml",
+      "name_check": "Zero Sugar Soft Drink Multipack Cans 375ml",
       "pack_litres": 3.75,
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee"
     },
@@ -14376,13 +14376,6 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 7.9,
-          "unit_price": 15.8,
-          "eff_price": 7.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -22113,13 +22106,6 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 35.0,
-          "unit_price": 17.5,
-          "eff_price": 35.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -29090,7 +29076,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 4.65,
+      "price": 4.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "425Ml",
@@ -29211,17 +29197,10 @@
         }
       ],
       "local_image": "images/Rokeby_Protein_Smoothie_Dbl_Esprs_425Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 10.94,
+      "store": "coles",
+      "unit_price": 11.06,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 4.65,
-          "unit_price": 10.94,
-          "eff_price": 4.65,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.7,
           "unit_price": 11.06,
@@ -29233,13 +29212,13 @@
       "price_unavailable": false,
       "image_url": "images/rokeby_protein_smoothie_dbl_esprs_425ml.jpg",
       "avg_price": 3.5,
-      "eff_price": 4.65,
+      "eff_price": 4.7,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Rokeby Protein Smoothie Double Espresso",
+      "name_check": "Protein Smoothie Strawberry",
       "item_id": "53f39246-5474-4bfc-b2af-deed3e766ed3"
     },
     {
@@ -33630,7 +33609,7 @@
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
       "type": "meat",
       "price_mode": "each",
-      "target": 6.0,
+      "target": 7.7,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mccain%20Pizza%20Slice%20Cheese%20And%20Bacon600g",
       "coles": "https://www.coles.com.au/product/cheese-bacon-pizza-slices-2-pack-8544829",
       "price_history": [
@@ -33641,33 +33620,33 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (3/15 obs, 20% on sale)",
+      "target_method": "was $9.80, now $7.70 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-28",
       "scrape_history": [
         {
           "date": "2026-04-15",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "store": "coles"
         },
         {
           "date": "2026-04-16",
           "price": 7.53,
-          "is_special": false,
+          "is_special": true,
           "was_price": null,
           "store": "coles"
         },
         {
           "date": "2026-04-17",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -33675,7 +33654,7 @@
         {
           "date": "2026-04-18",
           "price": 7.7,
-          "is_special": false,
+          "is_special": true,
           "was_price": 9.8,
           "store": "coles",
           "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
@@ -33762,19 +33741,19 @@
         }
       ],
       "was_price": 9.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
       "image_url": "images/mccain_pizza_slice_cheese_and_bacon600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.28,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.7,
+          "unit_price": 1.28,
+          "eff_price": 7.7,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -33786,11 +33765,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee"
     },
     {
@@ -37145,13 +37124,6 @@
       "unit_price": 18.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 36.0,
-          "unit_price": 18.0,
-          "eff_price": 36.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 27.9,
           "unit_price": 18.0,
@@ -37472,14 +37444,14 @@
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 2.45,
+          "unit_price": 4.08,
+          "eff_price": 2.45,
           "was_price": null,
           "on_special": false
         },
@@ -37500,7 +37472,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Chilled Spring Water Natural",
+      "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23"
     },
     {
@@ -42709,7 +42681,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sugar Free Orange Soft Drink Bottle",
+      "name_check": "Orange Zero Sugar Soft Drink Bottle",
       "item_id": "14be39db-e186-4a76-bf9c-2d6b961d93e0"
     },
     {
@@ -44248,7 +44220,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 14.0,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -44373,24 +44345,24 @@
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
       "image_url": "images/ww_free_range_lge_eggs_18pk_900g.jpg",
       "store": "woolworths",
-      "unit_price": 1.56,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 14.0,
-          "unit_price": 1.56,
-          "eff_price": 14.0,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 14.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Lake Macquarie 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a"
     },
     {
@@ -49025,14 +48997,14 @@
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -49053,7 +49025,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833"
     },
     {
@@ -61756,17 +61728,10 @@
       "on_special": false,
       "local_image": "images/Ww_Beef_Stir_Fry_Heart_Smart_500G.jpg",
       "image_url": "images/ww_beef_stir_fry_heart_smart_500g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 24.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 12.0,
-          "unit_price": 24.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 12.0,
           "unit_price": 24.0,
@@ -61781,7 +61746,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Stir Fry",
+      "name_check": "Beef Stir Fry",
       "item_id": "26e45eea-397a-4435-9801-03e513d85f3a"
     },
     {
@@ -64248,7 +64213,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Soft Drink Multipack Cans 10x375ml",
+      "name_check": "Classic Soft Drink Multipack Cans 375ml",
       "pack_litres": 3.75,
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8"
     },
