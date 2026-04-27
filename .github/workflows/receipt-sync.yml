@@ -61,6 +61,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
       - name: Check self-hosted runner availability
         env:
           GH_TOKEN: ${{ github.token }}
@@ -75,6 +77,10 @@ jobs:
           cmd = ["gh", "api", f"repos/{repo}/actions/runners"]
           proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
           if proc.returncode != 0:
+              out = (proc.stdout or "") + "\n" + (proc.stderr or "")
+              if "Resource not accessible by integration" in out:
+                  print("Runner preflight check skipped: token cannot query self-hosted runners in this context.")
+                  raise SystemExit(0)
               print(proc.stdout)
               print(proc.stderr)
               raise SystemExit("Failed to query Actions runners via GitHub API.")
