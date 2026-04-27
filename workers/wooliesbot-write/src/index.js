@@ -1,4 +1,9 @@
 import { corsHeaders, corsPolicy } from "./cors.js";
+import {
+	buildHouseholdPayload,
+	isItemsOnlyHouseholdPost,
+	normalizeShoppingListRows,
+} from "./household_merge.js";
 
 /**
  * WooliesBot write API — Cloudflare Worker.
@@ -12,7 +17,8 @@ import { corsHeaders, corsPolicy } from "./cors.js";
 
 const DATA_PATH = "docs/data.json";
 const SHOPPING_LIST_PATH = "docs/shopping_list_sync.json";
-const MAX_BODY_BYTES = 32768;
+/** Large enough for full household snapshot (items + sections + caps). */
+const MAX_BODY_BYTES = 131072;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 45;
 
@@ -46,73 +52,6 @@ function base64ToUtf8(b64) {
 	const bytes = new Uint8Array(bin.length);
 	for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
 	return new TextDecoder().decode(bytes);
-}
-
-function normalizeShoppingListRows(rows) {
-	if (!Array.isArray(rows)) return [];
-	return rows.map((row) => {
-		const safe = row && typeof row === "object" ? { ...row } : {};
-		const t = Date.parse(String(safe.updated_at || ""));
-		return {
-			item_id: safe.item_id || null,
-			name: String(safe.name || ""),
-			price: Number.isFinite(Number(safe.price)) ? Number(safe.price) : 0,
-			qty: Number.isFinite(Number(safe.qty)) && Number(safe.qty) > 0 ? Number(safe.qty) : 1,
-			store: String(safe.store || "woolworths"),
-			image: safe.image || null,
-			on_special: Boolean(safe.on_special),
-			was_price: Number.isFinite(Number(safe.was_price)) ? Number(safe.was_price) : null,
-			picked: Boolean(safe.picked),
-			updated_at: Number.isFinite(t) ? new Date(t).toISOString() : new Date().toISOString(),
-		};
-	});
-}
-
-function shoppingListRowKey(row, fallbackIdx = -1) {
-	const byId = String(row?.item_id || "").trim().toLowerCase();
-	if (byId) return `id:${byId}`;
-	const byName = String(row?.name || "").trim().toLowerCase();
-	if (byName) return `name:${byName}`;
-	return `anon:${fallbackIdx}:${String(row?.updated_at || "").trim()}`;
-}
-
-function shoppingListRowUpdatedMs(row) {
-	const t = Date.parse(String(row?.updated_at || ""));
-	return Number.isFinite(t) ? t : 0;
-}
-
-function choosePreferredShoppingListRow(currentRow, incomingRow, preferIncomingOnTie = false) {
-	if (!currentRow) return { ...incomingRow };
-	if (!incomingRow) return { ...currentRow };
-	const currMs = shoppingListRowUpdatedMs(currentRow);
-	const nextMs = shoppingListRowUpdatedMs(incomingRow);
-	if (nextMs > currMs) return { ...incomingRow };
-	if (nextMs < currMs) return { ...currentRow };
-	if (preferIncomingOnTie) return { ...incomingRow };
-	const currSig = JSON.stringify(currentRow);
-	const nextSig = JSON.stringify(incomingRow);
-	return nextSig > currSig ? { ...incomingRow } : { ...currentRow };
-}
-
-function mergeShoppingListRows(existingRows, incomingRows) {
-	const current = normalizeShoppingListRows(existingRows);
-	const incoming = normalizeShoppingListRows(incomingRows);
-	const merged = new Map();
-	const orderedKeys = [];
-
-	current.forEach((row, idx) => {
-		const key = shoppingListRowKey(row, idx);
-		if (!merged.has(key)) orderedKeys.push(key);
-		merged.set(key, choosePreferredShoppingListRow(merged.get(key), row));
-	});
-
-	incoming.forEach((row, idx) => {
-		const key = shoppingListRowKey(row, current.length + idx);
-		if (!merged.has(key)) orderedKeys.push(key);
-		merged.set(key, choosePreferredShoppingListRow(merged.get(key), row, true));
-	});
-
-	return orderedKeys.map((key) => merged.get(key)).filter(Boolean);
 }
 
 function jsonResponse(body, status, env, requestOrigin) {
@@ -490,7 +429,17 @@ async function handleGetShoppingList(request, env) {
 
 	const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
 	if (getRes.status === 404) {
-		return jsonResponse({ schema: 1, updated_at: "", updated_by: "", items: [] }, 200, env, request.headers.get("Origin"));
+		return jsonResponse(
+			{
+				schema: 2,
+				updated_at: "",
+				updated_by: "",
+				items: [],
+			},
+			200,
+			env,
+			request.headers.get("Origin"),
+		);
 	}
 	if (!getRes.ok) {
 		return jsonResponse(
@@ -504,17 +453,9 @@ async function handleGetShoppingList(request, env) {
 	try {
 		const decoded = JSON.parse(base64ToUtf8(String(fileMeta.content || "").replace(/\n/g, "")));
 		const items = normalizeShoppingListRows(decoded?.items || []);
-		return jsonResponse(
-			{
-				schema: 1,
-				updated_at: decoded?.updated_at || "",
-				updated_by: decoded?.updated_by || "",
-				items,
-			},
-			200,
-			env,
-			request.headers.get("Origin"),
-		);
+		const schema = Number(decoded?.schema) === 2 ? 2 : 1;
+		const rest = { ...decoded, items, schema };
+		return jsonResponse(rest, 200, env, request.headers.get("Origin"));
 	} catch {
 		return jsonResponse({ error: "shopping_list_parse_failed" }, 500, env, request.headers.get("Origin"));
 	}
@@ -549,7 +490,8 @@ async function handleUpsertShoppingList(request, env) {
 		attempt++;
 		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
 		let sha = null;
-		let existingItems = [];
+		/** @type {object} */
+		let existingDecoded = { schema: 1, items: [] };
 		if (getRes.status === 404) {
 			sha = null;
 		} else if (!getRes.ok) {
@@ -562,21 +504,16 @@ async function handleUpsertShoppingList(request, env) {
 		} else {
 			sha = fileMeta.sha || null;
 			try {
-				const decoded = JSON.parse(base64ToUtf8(String(fileMeta.content || "").replace(/\n/g, "")));
-				existingItems = normalizeShoppingListRows(decoded?.items || []);
+				existingDecoded = JSON.parse(base64ToUtf8(String(fileMeta.content || "").replace(/\n/g, "")));
 			} catch {
-				existingItems = [];
+				existingDecoded = { schema: 1, items: [] };
 			}
 		}
 
-		const mergedItems = mergeShoppingListRows(existingItems, incomingItems);
-		const updatedAt = new Date().toISOString();
-		const payload = {
-			schema: 1,
-			updated_at: updatedAt,
-			updated_by: deviceId,
-			items: mergedItems,
-		};
+		const payload = buildHouseholdPayload(existingDecoded, body);
+		const mergedItems = normalizeShoppingListRows(payload?.items || []);
+		const updatedAt = payload.updated_at;
+		const itemsOnly = isItemsOnlyHouseholdPost(body);
 		const outStr = `${JSON.stringify(payload, null, 2)}\n`;
 		const contentB64 = utf8ToBase64(outStr);
 		const putRes = await githubPutFile(
@@ -584,7 +521,9 @@ async function handleUpsertShoppingList(request, env) {
 			cfg.repo,
 			cfg.token,
 			SHOPPING_LIST_PATH,
-			"Sync shopping list via WooliesBot write API",
+			itemsOnly
+				? "Sync shopping list via WooliesBot write API (items only)"
+				: "Sync household state via WooliesBot write API",
 			contentB64,
 			sha,
 		);
@@ -603,8 +542,11 @@ async function handleUpsertShoppingList(request, env) {
 		return jsonResponse(
 			{
 				status: "success",
-				merge_mode: "item_level_latest_updated_at",
+				merge_mode: itemsOnly
+					? "item_level_latest_updated_at_preserve_sections"
+					: "household_schema_v2_sections_lww",
 				updated_at: updatedAt,
+				schema: payload.schema || 1,
 				item_count: mergedItems.length,
 				received_item_count: incomingItems.length,
 			},

@@ -11,6 +11,7 @@ const PRECACHE = [
     './discovery-review.html',
     './style.css',
     './env.js',
+    './js/household_sync.js',
     './app.js',
     './js/compare_helpers.js',
     './js/store_pdp_link.js',
@@ -27,7 +28,7 @@ function isAppShellRequest(url) {
         if (u.origin !== self.location.origin) return false;
         const p = u.pathname;
         if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
-        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$/.test(
+        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$/.test(
             p
         );
     } catch {

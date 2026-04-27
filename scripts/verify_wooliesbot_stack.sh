@@ -40,6 +40,9 @@ run_layer() {
 echo "== py_compile discover_variants + chef_os =="
 python3 -m py_compile scripts/discover_variants.py chef_os.py
 
+echo "== validate_household_merge =="
+python3 scripts/validate_household_merge.py
+
 echo "== e2e_validate Layer B (internal consistency) =="
 run_layer B --layer B
 

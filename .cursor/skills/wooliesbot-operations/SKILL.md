@@ -48,6 +48,13 @@ Workspace rule **[`.cursor/rules/wooliesbot-data-safety.mdc`](../../rules/woolie
 - Scraper architecture & anti-bot: [`.cursor/rules/wooliesbot-scraper.mdc`](../../rules/wooliesbot-scraper.mdc)
 - Variant discovery epic: `.cursor/plans/variant_discovery_workflow_*.plan.md` (user plans dir) if present
 
+## Household sync file (`docs/shopping_list_sync.json`)
+
+- The Cloudflare Worker reads/writes this JSON (schema v2: cart + trip + essentials + sessions + drop alerts). **Checkpoint** (commit/branch/copy) before risky experiments or first v2 migration; `git restore docs/shopping_list_sync.json` is the file-level rollback.
+- **Items-only** legacy POSTs still merge `items` only and **preserve** non-item keys (see `scripts/validate_household_merge.py`).
+- **Pairing link:** open the dashboard with `#wbt=<token>&wbu=<optional worker base URL>` once per device; the fragment is stripped after save.
+- Contract check: `python3 scripts/validate_household_merge.py`
+
 ## Quick verification commands
 
 ```bash
@@ -55,4 +62,5 @@ cd "/path/to/Woolies Script"
 ./scripts/verify_wooliesbot_stack.sh       # py_compile + e2e B/C (Layer D: RUN_LAYER_D=1)
 VERIFY_STRICT=1 ./scripts/verify_wooliesbot_stack.sh   # exit 1 if any layer prints FAIL (e.g. Layer B DIFFs)
 python scripts/e2e_validate.py --help      # choose layers per need
+python3 scripts/validate_household_merge.py
 ```
