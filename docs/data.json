@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-27 03:09 PM",
+  "last_updated": "2026-04-27 07:47 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10255,13 +10255,13 @@
       "local_image": "images/Ww_Yoghurt_Starwberry_1Kg.jpg",
       "image_url": "images/ww_yoghurt_starwberry_1kg.jpg",
       "store": "woolworths",
-      "unit_price": 1.14,
+      "unit_price": 0.4,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 0.8,
-          "unit_price": 1.14,
-          "eff_price": 0.8,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -10279,7 +10279,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Strawberry Yoghurt Pouch Strawberry",
+      "name_check": "Woolworths Strawberry Yoghurt",
       "item_id": "7d0cec65-68f2-414f-af17-21c5704e6950"
     },
     {
@@ -11706,9 +11706,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -21028,6 +21028,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 35.0,
+          "unit_price": 17.5,
+          "eff_price": 35.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -41093,9 +41100,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -64869,18 +64876,11 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 3.5,
-      "unit_price": 14.0,
-      "unit": "100g",
-      "store": "woolworths",
+      "price": 4.0,
+      "unit_price": 16.0,
+      "unit": "kg",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.5,
-          "unit_price": 14.0,
-          "eff_price": 3.5,
-          "was_price": 4.0,
-          "on_special": true
-        },
         "coles": {
           "price": 4.0,
           "unit_price": 16.0,
@@ -64990,16 +64990,16 @@
         }
       ],
       "target_confidence": "high",
-      "target_method": "was $4.00, now $3.50 (store special)",
+      "target_method": "sale median (6/13 obs, 46% on sale)",
       "target_data_points": 13,
       "target_updated": "2026-04-27",
-      "eff_price": 3.5,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.0,
-      "on_special": true,
-      "name_check": "Obento Japanese Yaki Nori For Sushi",
+      "on_special": false,
+      "name_check": "Yaki Nori Seaweed Sushi Sheets",
       "item_id": "1c4f5b1b-f4f4-415d-bedc-610290d37440"
     },
     {
