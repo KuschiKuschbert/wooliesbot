@@ -2048,13 +2048,19 @@ function formatPrice(item) {
     return `$${item.price.toFixed(2)}`;
 }
 
-/** "Good deal" / target line — same units as eff_price (e.g. /kg for price_mode kg). */
+/** Target / good-deal price with correct unit (matches eff_price semantics). */
+function formatTargetValue(item) {
+    if ((item.target || 0) <= 0) return '';
+    const t = item.target;
+    if (item.price_mode === 'kg') return '$' + t.toFixed(2) + '/kg';
+    if (item.price_mode === 'litre') return '$' + t.toFixed(2) + '/L';
+    return '$' + t.toFixed(2);
+}
+
+/** "Good deal" row on product cards */
 function formatGoodDealTarget(item) {
     if ((item.target || 0) <= 0) return '<span class="item-target-empty">No deal price yet</span>';
-    const t = item.target;
-    if (item.price_mode === 'kg') return 'Good deal: $' + t.toFixed(2) + '/kg';
-    if (item.price_mode === 'litre') return 'Good deal: $' + t.toFixed(2) + '/L';
-    return 'Good deal: $' + t.toFixed(2);
+    return 'Good deal: ' + formatTargetValue(item);
 }
 
 function renderCountdown() {
@@ -2260,7 +2266,7 @@ function renderEssentials() {
 
         const dotClass = stock === 'low' ? 'low' : stock === 'medium' ? 'medium' : stock === 'full' ? 'full' : '';
         const stockDot = dotClass ? `<span class="stock-dot ${dotClass}" title="${stock} stock"></span>` : '';
-        const priceBadge = dataItem && (dataItem.eff_price != null || dataItem.price != null)
+        const priceBadge = dataItem && (Number.isFinite(dataItem.eff_price) || Number.isFinite(dataItem.price))
             ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}${formatPrice(dataItem)}</span>${staleBadge}`
             : '';
 
@@ -3549,7 +3555,7 @@ function renderAllItems() {
                     <div class="tracklist-row-sub">
                         <span>${storeLabel}</span>
                         <div class="stock-dot ${stockColor}" title="${item.stock}"></div>
-                        ${(item.target || 0) > 0 ? `<span style="opacity:0.5;">Deal $${item.target.toFixed(2)}</span>` : ''}
+                        ${(item.target || 0) > 0 ? `<span style="opacity:0.5;">Deal ${formatTargetValue(item)}</span>` : ''}
                     </div>
                 </div>
                 <div>
@@ -3603,7 +3609,7 @@ function renderAllItems() {
                 </div>
             </td>
             <td>${priceCell}</td>
-            <td>${(item.target || 0) > 0 ? '$' + item.target.toFixed(2) : '<span style="opacity:0.4">—</span>'}</td>
+            <td>${(item.target || 0) > 0 ? formatTargetValue(item) : '<span style="opacity:0.4">—</span>'}</td>
             <td>
                 <div class="chart-container-td" id="chart-td-${index}">
                     <canvas></canvas>
@@ -4125,7 +4131,7 @@ function renderDeeperInsights(brandPrices) {
                     <div class="smart-buy-item">
                         <span class="name">${displayName(item.name)}</span>
                         <div class="meta">
-                            <span class="price">$${item.eff_price?.toFixed(2)}</span>
+                            <span class="price">${formatPrice(item)}</span>
                             <span class="volatility-tag high">Volatility: ${(_volatility[itemKey(item)] || 0).toFixed(0)}%</span>
                         </div>
                     </div>
@@ -4259,7 +4265,7 @@ function renderTop5Deals() {
                 <span class="top5-medal">${medal}</span>
                 <div class="top5-info">
                     <div class="top5-name">${(() => { const dn = displayName(item.name); return dn.length > 28 ? dn.substring(0,28)+'…' : dn; })()}</div>
-                    <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
+                    <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">${formatPrice(item)}</div>
                 </div>
                 <span class="top5-save">-${item._snap.savePct}%</span>
             </div>
@@ -5001,15 +5007,15 @@ function openItemDeepdive(itemName) {
             </div>
             <div class="deepdive-stats">
                 <div class="dd-stat">
-                    <div class="dd-stat-val" style="color:${storeColor}">$${ep.toFixed(2)}</div>
+                    <div class="dd-stat-val" style="color:${storeColor}">${formatPrice(item)}</div>
                     <div class="dd-stat-label">Current</div>
                 </div>
                 ${item.target > 0 ? `<div class="dd-stat">
-                    <div class="dd-stat-val">$${item.target.toFixed(2)}</div>
+                    <div class="dd-stat-val">${formatTargetValue(item)}</div>
                     <div class="dd-stat-label">Good deal</div>
                 </div>` : ''}
                 ${wasDive != null ? `<div class="dd-stat">
-                    <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${wasDive.toFixed(2)}</div>
+                    <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${wasDive.toFixed(2)}${item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : ''}</div>
                     <div class="dd-stat-label">Was</div>
                 </div>` : ''}
                 <div class="dd-stat">
