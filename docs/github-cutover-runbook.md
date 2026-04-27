@@ -58,7 +58,34 @@ Use this checklist for each automatic run:
 - `docs/heartbeat.json` reflects current execution.
 - Layer B/C validations pass.
 - Layer D audit artifact exists.
+- Layer A spot-check step (`Layer A live price spot-check`) passes.
+- Layer A artifact (`e2e-validate-layer-a`) is present and readable.
 - No unexpected regression in link-health counts.
+
+## Layer A failure triage and recovery
+
+When `Scrape & push data` fails in step `Layer A live price spot-check`, use this sequence.
+
+1. Open the failed Actions run and inspect the `Layer A live price spot-check` logs first.
+2. Download artifact `e2e-validate-layer-a` and review:
+   - `layer_summaries.A` totals (`DIFF`, `DEAD`, `WARN`, `SKIP`).
+   - top failing rows in `results.A` (item names + notes).
+3. Classify quickly:
+   - **Likely transient/noise**: low-count failures, no repeated pattern, surrounding runs green.
+   - **Likely scraper/export issue**: repeated `DIFF` for same items across reruns.
+   - **Likely mapping/link issue**: repeated `DEAD` or wrong-product notes; validate with Layer D outputs.
+4. Recovery path:
+   - Rerun the workflow once from Actions UI.
+   - If rerun passes, treat as transient and record run URL in notes.
+   - If rerun fails on same items, run targeted validation locally or in debug CI:
+     - `python scripts/e2e_validate.py --layer A --item "<item name>" --sample 50 --seed 1 --strict-exit`
+     - `python scripts/e2e_validate.py --layer D --item "<item name>" --sample 50`
+   - Route fixes:
+     - scraper/export mismatch -> `chef_os.py` scrape/export path.
+     - URL/mapping mismatch -> repair URL metadata / data row mapping.
+5. Escalation threshold:
+   - One isolated Layer A fail: investigate + single rerun.
+   - Two consecutive Layer A failures (or recurring same-item failures in one day): treat as incident and follow rollback/escalation policy below.
 
 ## 7-run acceptance gate
 

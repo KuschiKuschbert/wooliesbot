@@ -593,7 +593,10 @@ body {
     opacity: 0.8;
 }
 
-#last-updated, #next-update {
+#last-updated,
+#next-update,
+#receipt-sync-last,
+#receipt-sync-date {
     color: var(--text-main);
 }
 

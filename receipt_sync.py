@@ -5,6 +5,7 @@ import json
 import logging
 import datetime
 import re
+import subprocess
 from bs4 import BeautifulSoup
 from curl_cffi import requests as cffi_requests
 import undetected_chromedriver as uc
@@ -16,6 +17,11 @@ from receipt_sync_lib import matching as _receipt_matching
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 INV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "data.json")
+RECEIPT_STATUS_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "docs",
+    "receipt_sync_status.json",
+)
 
 # CSS selectors for activity-feed receipt cards on everyday.com.au
 CARD_SELECTORS = [
@@ -115,13 +121,40 @@ def _clear_profile_singleton_locks(user_data_dir):
 
 def _build_driver(user_data_dir, headless=False):
     """Build a Chrome driver with a persistent profile and optional headless mode."""
-    options = uc.ChromeOptions()
-    options.add_argument(f"--user-data-dir={user_data_dir}")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    if headless:
-        options.add_argument("--headless=new")
+    def _new_options():
+        options = uc.ChromeOptions()
+        options.add_argument(f"--user-data-dir={user_data_dir}")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        if headless:
+            options.add_argument("--headless=new")
+        return options
+
+    def _detect_chrome_major():
+        chrome_cmds = (
+            "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "/Applications/Chromium.app/Contents/MacOS/Chromium",
+            "google-chrome",
+            "google-chrome-stable",
+            "chromium",
+            "chromium-browser",
+        )
+        for cmd in chrome_cmds:
+            try:
+                proc = subprocess.run(
+                    [cmd, "--version"],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+                text = (proc.stdout or proc.stderr or "").strip()
+                match = re.search(r"(\d+)\.", text)
+                if match:
+                    return int(match.group(1))
+            except Exception:
+                continue
+        return None
 
     logging.info(
         "Starting Chrome with persistent profile%s...",
@@ -129,11 +162,25 @@ def _build_driver(user_data_dir, headless=False):
     )
 
     try:
-        return uc.Chrome(options=options)
-    except SessionNotCreatedException:
+        return uc.Chrome(options=_new_options())
+    except SessionNotCreatedException as exc:
         # Common on stale profile locks from interrupted runs.
         _clear_profile_singleton_locks(user_data_dir)
-        return uc.Chrome(options=options)
+
+        detected_major = _detect_chrome_major()
+        if detected_major is not None:
+            logging.info(
+                "Retrying driver start with detected Chrome major version %s...",
+                detected_major,
+            )
+            try:
+                return uc.Chrome(options=_new_options(), version_main=detected_major)
+            except SessionNotCreatedException:
+                pass
+
+        # Final retry with a fresh options object; uc blocks options reuse.
+        logging.info("Retrying driver start with fresh options after session error: %s", exc)
+        return uc.Chrome(options=_new_options())
 
 
 def _is_auth_prompt_visible(driver):
@@ -198,10 +245,31 @@ def _write_debug_artifacts(driver):
         logging.warning(f"Could not write debug artifacts: {exc}")
 
 
+def _write_receipt_sync_status(
+    *,
+    processed_receipts,
+    latest_receipt_date,
+    prices_updated,
+    new_items_added,
+    run_mode,
+):
+    payload = {
+        "last_success_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "latest_receipt_date": latest_receipt_date,
+        "processed_receipts": processed_receipts,
+        "prices_updated": prices_updated,
+        "new_items_added": new_items_added,
+        "run_mode": run_mode,
+    }
+    with open(RECEIPT_STATUS_FILE, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=True)
+
+
 def run_sync(
     all_receipts=True,
     months_back=6,
     headless=False,
+    allow_headed_fallback=True,
     login_timeout=180,
     poll_interval=5,
     profile_dir=None,
@@ -213,7 +281,8 @@ def run_sync(
 
     user_data_dir = profile_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "chrome_profile")
     os.makedirs(user_data_dir, exist_ok=True)
-    driver = _build_driver(user_data_dir=user_data_dir, headless=headless)
+    active_headless = headless
+    driver = _build_driver(user_data_dir=user_data_dir, headless=active_headless)
     
     try:
         driver.get(ACTIVITY_URL)
@@ -300,12 +369,36 @@ def run_sync(
             driver,
             login_timeout=login_timeout,
             poll_interval=poll_interval,
-            headless=headless,
+            headless=active_headless,
         )
         if initial_cards:
             logging.info(f"Auth/feed ready — detected {len(initial_cards)} activity cards before scroll.")
         else:
             logging.warning("No activity cards found during auth/feed readiness wait.")
+
+        # Some anti-bot flows reject headless even with a valid session profile.
+        # Retry once in headed mode on the same profile before failing hard.
+        if (
+            not initial_cards
+            and active_headless
+            and allow_headed_fallback
+            and _is_auth_prompt_visible(driver)
+        ):
+            logging.info("Headless auth gate detected; retrying once in headed mode with same profile...")
+            driver.quit()
+            active_headless = False
+            driver = _build_driver(user_data_dir=user_data_dir, headless=False)
+            driver.get(ACTIVITY_URL)
+            logging.info("Waiting for page load after headed fallback...")
+            time.sleep(8)
+            initial_cards = _wait_for_activity_feed(
+                driver,
+                login_timeout=login_timeout,
+                poll_interval=poll_interval,
+                headless=False,
+            )
+            if initial_cards:
+                logging.info(f"Headed fallback ready — detected {len(initial_cards)} activity cards.")
 
         cards = _scroll_and_load_cards(driver, cutoff_date, CARD_SELECTORS[0])
         if not cards:
@@ -324,6 +417,7 @@ def run_sync(
         new_items_added = 0
         prices_updated = 0
         skipped_non_woolies = 0
+        processed_receipt_dates = []
 
         for index in range(num_to_process):
             # Re-fetch cards because DOM changes after open/close
@@ -490,6 +584,8 @@ def run_sync(
 
 
             logging.info(f"  Parsed {items_found} items from receipt #{index+1}")
+            if receipt_date_obj:
+                processed_receipt_dates.append(receipt_date_obj)
 
             # Close the side panel
             try:
@@ -505,6 +601,21 @@ def run_sync(
             if processed_count % 5 == 0: save_inventory(inventory)
 
         save_inventory(inventory)
+        latest_receipt_date = None
+        if processed_receipt_dates:
+            latest_receipt_date = max(processed_receipt_dates).strftime("%Y-%m-%d")
+        run_mode = "headless"
+        if headless and not active_headless:
+            run_mode = "headed_fallback"
+        elif not active_headless:
+            run_mode = "headed"
+        _write_receipt_sync_status(
+            processed_receipts=processed_count,
+            latest_receipt_date=latest_receipt_date,
+            prices_updated=prices_updated,
+            new_items_added=new_items_added,
+            run_mode=run_mode,
+        )
         logging.info(f"Sync complete. Processed {processed_count} receipts. Added {new_items_added} new items, updated prices for {prices_updated} items.")
     except Exception as e:
         logging.error(f"Error during receipt sync: {e}")
@@ -573,6 +684,11 @@ def _parse_args():
         help="Run Chrome headless (works best with an already-authenticated profile).",
     )
     parser.add_argument(
+        "--no-headed-fallback",
+        action="store_true",
+        help="Disable one-time headed retry when headless auth is blocked.",
+    )
+    parser.add_argument(
         "--login-timeout",
         type=int,
         default=180,
@@ -603,6 +719,7 @@ if __name__ == "__main__":
         all_receipts=not args.latest_only,
         months_back=args.months_back,
         headless=args.headless,
+        allow_headed_fallback=not args.no_headed_fallback,
         login_timeout=max(30, args.login_timeout),
         poll_interval=max(1, args.poll_interval),
         profile_dir=args.profile_dir,

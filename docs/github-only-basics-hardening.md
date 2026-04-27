@@ -56,8 +56,6 @@ Rotation baseline:
 
 - Keep heartbeat staleness guard active in scheduled workflows.
 - Keep Layer D JSON audit artifact upload active (`e2e-validate-links-full`).
+- Keep Layer A spot-check + artifact path active (`Layer A live price spot-check`, `e2e-validate-layer-a`).
+- If Layer A fails, follow triage/recovery steps in `docs/github-cutover-runbook.md` (Layer A failure section).
 - If two consecutive scheduled runs fail, follow rollback steps in `docs/github-cutover-runbook.md`.
-
-<!-- ruleset smoke test 2 -->
-
-<!-- ruleset smoke test 2 -->

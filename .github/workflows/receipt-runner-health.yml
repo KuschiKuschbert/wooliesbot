@@ -1,0 +1,67 @@
+name: Receipt runner health monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  actions: read
+
+jobs:
+  runner-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check receipt sync queue staleness
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import subprocess
+          
+          repo = os.environ.get("GITHUB_REPOSITORY")
+          cmd = ["gh", "api", f"repos/{repo}/actions/workflows/receipt-sync.yml/runs?per_page=1"]
+          proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
+          if proc.returncode != 0:
+              print(proc.stdout)
+              print(proc.stderr)
+              raise SystemExit("Unable to read receipt-sync workflow runs.")
+          
+          payload = json.loads(proc.stdout or "{}")
+          runs = payload.get("workflow_runs") or []
+          if not runs:
+              print("No receipt-sync runs yet; skipping.")
+              raise SystemExit(0)
+          
+          latest = runs[0]
+          status = (latest.get("status") or "").lower()
+          created_at = latest.get("created_at")
+          if not created_at:
+              print("Latest run has no created_at; skipping.")
+              raise SystemExit(0)
+          
+          started = dt.datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+          now = dt.datetime.now(dt.timezone.utc)
+          age_min = (now - started).total_seconds() / 60.0
+          
+          if status in {"queued", "pending"} and age_min >= 20:
+              print(
+                  f"stalled=true\nstatus={status}\nage_min={age_min:.1f}\n"
+                  f"run_url={latest.get('html_url')}"
+              )
+              raise SystemExit(2)
+          
+          print(f"Runner health OK. Latest status={status}, age_min={age_min:.1f}")
+          PY
+
+      - name: Telegram stalled queue notification
+        if: failure()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python scripts/telegram_notify.py --allow-missing-secrets --text "🚨 *Receipt sync appears stalled*\nLatest run is queued/pending for 20+ minutes.\nRepo: https://github.com/${{ github.repository }}/actions/workflows/receipt-sync.yml"

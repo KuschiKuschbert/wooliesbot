@@ -175,6 +175,23 @@ async function tryLoadHeartbeatForHeader() {
     }
 }
 
+async function tryLoadReceiptSyncStatusForHeader() {
+    try {
+        const statusUrl = docsBundleAssetUrl('receipt_sync_status.json');
+        statusUrl.searchParams.set('t', String(Date.now()));
+        const res = await fetchWithTimeout(statusUrl.href, { cache: 'no-store' }, 12000);
+        if (!res || !res.ok) return false;
+        const data = await res.json();
+        if (!data || !data.last_success_at) return false;
+        _receiptSyncLastSuccess = data.last_success_at;
+        _receiptSyncLatestDate = data.latest_receipt_date || null;
+        updateReceiptSyncDisplay();
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 let _focusBeforeDrawer = null;
 let _focusBeforeStockModal = null;
 let _drawerScrollLockY = 0;
@@ -423,6 +440,8 @@ let _writeApiToken = localStorage.getItem('write_api_token') || _runtimeWriteCon
 if (_writeApiToken && !localStorage.getItem('write_api_token')) localStorage.setItem('write_api_token', _writeApiToken);
 localStorage.removeItem('write_api_secret');
 let _nextRun = null;
+let _receiptSyncLastSuccess = null;
+let _receiptSyncLatestDate = null;
 const MONTHLY_BUDGET = 800;
 const SHOPPING_LIST_SYNC_STAMP_KEY = 'shoppingListCloudUpdatedAt';
 const SHOPPING_LIST_SYNC_POLL_MS = 25000;
@@ -1321,8 +1340,9 @@ async function initDashboard() {
         const dataUrl = docsBundleAssetUrl('data.json');
         const dataUrlStr = dataUrl.href;
         dataUrl.searchParams.set('t', String(Date.now()));
-        const [gotHb, dataRes] = await Promise.all([
+        const [gotHb, _gotReceiptSync, dataRes] = await Promise.all([
             tryLoadHeartbeatForHeader(),
+            tryLoadReceiptSyncStatusForHeader(),
             fetchWithTimeout(dataUrl.href, { cache: 'no-store' }, 120000)
                 .catch((e) => {
                     console.warn('data.json fetch failed', e);
@@ -1363,6 +1383,7 @@ async function initDashboard() {
             _data = [];
         }
         if (_lastChecked) updateLastCheckedDisplay();
+        updateReceiptSyncDisplay();
 
         if (!_monitorsStarted) {
             _monitorsStarted = true;
@@ -2692,6 +2713,31 @@ function updateLastCheckedDisplay() {
     syncDealsHeroStatus();
 }
 
+function updateReceiptSyncDisplay() {
+    const syncEl = document.getElementById('receipt-sync-last');
+    const dateEl = document.getElementById('receipt-sync-date');
+    if (!syncEl || !dateEl) return;
+
+    if (!_receiptSyncLastSuccess) {
+        syncEl.textContent = 'Not synced yet';
+        dateEl.textContent = '—';
+        return;
+    }
+
+    const lastDate = parseDashboardTimestamp(_receiptSyncLastSuccess);
+    if (isNaN(lastDate.getTime())) {
+        syncEl.textContent = String(_receiptSyncLastSuccess);
+    } else {
+        const now = new Date();
+        const diffMins = Math.floor((now - lastDate) / 60000);
+        if (diffMins < 1) syncEl.textContent = 'Just now';
+        else if (diffMins < 60) syncEl.textContent = `${diffMins}m ago`;
+        else syncEl.textContent = `${Math.floor(diffMins / 60)}h ${diffMins % 60}m ago`;
+    }
+
+    dateEl.textContent = _receiptSyncLatestDate || 'Unknown';
+}
+
 async function monitorCloudHealth() {
     const dot = document.getElementById('scrape-status-dot');
     const text = document.getElementById('scrape-status-text');
@@ -2725,6 +2771,7 @@ async function monitorCloudHealth() {
             _lastChecked = data.last_heartbeat;
             _nextRun = data.next_run;
             updateLastCheckedDisplay();
+            await tryLoadReceiptSyncStatusForHeader();
             return;
         }
         dot.className = 'status-dot offline';
