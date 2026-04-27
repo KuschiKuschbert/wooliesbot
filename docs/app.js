@@ -102,6 +102,9 @@ function ensureShoppingDeviceId() {
 
 const HOUSEHOLD_SECTION_META_KEY = 'householdSectionMeta';
 
+/** Max was:shelf (or target cap) ratio for savings % — must match was/now on product cards. */
+const SAVINGS_WAS_MAX_MULT = 4;
+
 /**
  * LWW section timestamps (ISO). Bumped on local edits; overwritten when remote section wins.
  * @type {{ trip: string, shopMode: string, essentials: string, tripSessions: string, dropAlerts: string }}
@@ -635,7 +638,8 @@ function computePickedSavingsAmount(rows = _shoppingList) {
         if (!i?.picked) return sum;
         const nowP = Number(i.price || 0);
         const wasP = Number(i.was_price || 0);
-        const eachSave = Math.max(0, wasP - nowP);
+        const eachSave =
+            wasP > nowP && wasP < nowP * SAVINGS_WAS_MAX_MULT ? wasP - nowP : 0;
         return sum + (eachSave * Number(i.qty || 1));
     }, 0);
 }
@@ -2480,6 +2484,38 @@ function getStaleBadge(item, compact = false) {
     return `<span class="stale-badge${compact ? ' compact' : ''}" title="${title}">${label}</span>`;
 }
 
+/**
+ * "Was" only for savings when it matches was/now plausibility on product cards
+ * (on special, and was strictly between shelf and shelf×SAVINGS_WAS_MAX_MULT).
+ * @returns {number|null}
+ */
+function saneWasForSavings(item, shelf) {
+    if (!item || !item.on_special || item.was_price == null) return null;
+    const s = Number(shelf);
+    const w = Number(item.was_price);
+    if (!Number.isFinite(s) || s <= 0 || !Number.isFinite(w) || !(w > s) || w >= s * SAVINGS_WAS_MAX_MULT) {
+        return null;
+    }
+    return w;
+}
+
+/**
+ * Single reference for savings % and dollars: sane was, else capped target (unit mismatch guard), else shelf.
+ * @param {object} item
+ * @param {number} shelf shelf/scan price — match computeItemSavingsSnapshot
+ */
+function savingsReferencePrice(item, shelf) {
+    const s = Number(shelf);
+    if (!Number.isFinite(s) || s <= 0) return 0;
+    const was = saneWasForSavings(item, s);
+    if (was != null) return was;
+    const t = item.target;
+    if ((t || 0) > 0 && Number.isFinite(t)) {
+        return Math.min(t, s * SAVINGS_WAS_MAX_MULT);
+    }
+    return s;
+}
+
 function getEffectivePrice(item) {
     if (!item || typeof item !== 'object') return 0;
     const ep = item.eff_price || item.price || 0;
@@ -2495,7 +2531,7 @@ function isItemAtDealPrice(item) {
 function computeItemSavingsSnapshot(item) {
     const eff = getEffectivePrice(item);
     const shelf = item.price || eff;
-    const reference = item.was_price && item.was_price > shelf ? item.was_price : (item.target || shelf);
+    const reference = savingsReferencePrice(item, shelf);
     const savedDollar = Math.max(0, reference - shelf);
     const savePct = reference > 0 ? Math.round((savedDollar / reference) * 100) : 0;
     return {
@@ -2541,8 +2577,9 @@ function getSavingsOverview(items = _data) {
         if ((item.target || 0) > 0) {
             summary.potentialSavings += Math.max(0, getEffectivePrice(item) - item.target);
         }
-        if (item.on_special && item.was_price && item.was_price > snap.shelf) {
-            summary.potentialSavings += Math.max(0, item.was_price - snap.shelf);
+        {
+            const w = saneWasForSavings(item, snap.shelf);
+            if (w != null) summary.potentialSavings += Math.max(0, w - snap.shelf);
         }
     }
     return summary;
@@ -2585,10 +2622,9 @@ function createItemCard(item, index, type = 'special') {
         : '';
 
     // Was/Now pricing for store-confirmed specials
-    // Compare was_price to shelf price; cap at 70% to catch unit mismatches in stale data
     const shelfPrice = item.price || effPrice;
     let priceHtml;
-    const hasSaneWas = item.on_special && item.was_price && item.was_price > shelfPrice && item.was_price < shelfPrice * 4;
+    const hasSaneWas = saneWasForSavings(item, shelfPrice) != null;
     if (hasSaneWas) {
         const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
@@ -3221,13 +3257,12 @@ function renderSpecials() {
         if (_currentSort === 'price') return priceA - priceB;
 
         if (_currentSort === 'discount') {
-            // Compare was_price to shelf price (not eff_price) to avoid unit mismatch
             const shelfA = a.price || priceA;
             const shelfB = b.price || priceB;
-            const refA = a.was_price && a.was_price > shelfA ? a.was_price : (a.target || shelfA);
-            const refB = b.was_price && b.was_price > shelfB ? b.was_price : (b.target || shelfB);
-            const savingsA = (refA - shelfA) / refA;
-            const savingsB = (refB - shelfB) / refB;
+            const refA = savingsReferencePrice(a, shelfA);
+            const refB = savingsReferencePrice(b, shelfB);
+            const savingsA = refA > 0 ? (refA - shelfA) / refA : 0;
+            const savingsB = refB > 0 ? (refB - shelfB) / refB : 0;
             return savingsB - savingsA;
         }
         return 0;
@@ -3441,8 +3476,7 @@ function renderBuyNow() {
     badge.textContent = priorityItems.length;
     list.innerHTML = priorityItems.map(item => {
         const price = item._snap.eff;
-        const wasPr = item.was_price;
-        const shelf = item._snap.shelf;
+        const wasSane = saneWasForSavings(item, item._snap.shelf);
         const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
         const priceStr = price ? `$${price.toFixed(2)}` : '—';
         return `
@@ -3450,7 +3484,7 @@ function renderBuyNow() {
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
                     <div class="buy-now-name">${displayName(item.name)}</div>
-                    <div class="buy-now-price">${priceStr}${wasPr ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasPr.toFixed(2)}</span>` : ''}</div>
+                    <div class="buy-now-price">${priceStr}${wasSane != null ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasSane.toFixed(2)}</span>` : ''}</div>
                 </div>
                 <div class="buy-now-save">${saveStr}</div>
             </div>`;
@@ -3480,9 +3514,10 @@ function renderAllItems() {
 
             let priceHtml;
             const itemShelf = item.price || effPrice;
-            if (item.on_special && item.was_price && item.was_price > itemShelf) {
-                const savePct = Math.round((1 - itemShelf / item.was_price) * 100);
-                priceHtml = `<span style="color:var(--woolies-green);">$${effPrice.toFixed(2)}</span> <span style="font-size:10px;opacity:0.5;text-decoration:line-through;">$${item.was_price.toFixed(2)}</span>`;
+            if (saneWasForSavings(item, itemShelf) != null) {
+                const w = item.was_price;
+                const savePct = Math.round((1 - itemShelf / w) * 100);
+                priceHtml = `<span style="color:var(--woolies-green);">$${effPrice.toFixed(2)}</span> <span style="font-size:10px;opacity:0.5;text-decoration:line-through;">$${w.toFixed(2)}</span>`;
             } else {
                 priceHtml = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
             }
@@ -3526,9 +3561,10 @@ function renderAllItems() {
 
         let priceCell;
         const itemShelf = item.price || effPrice;
-        if (item.on_special && item.was_price && item.was_price > itemShelf) {
-            const savePct = Math.round((1 - itemShelf / item.was_price) * 100);
-            priceCell = `$${effPrice.toFixed(2)} <span class="was-price">$${item.was_price.toFixed(2)}</span> <span class="save-badge">-${savePct}%</span>`;
+        if (saneWasForSavings(item, itemShelf) != null) {
+            const w = item.was_price;
+            const savePct = Math.round((1 - itemShelf / w) * 100);
+            priceCell = `$${effPrice.toFixed(2)} <span class="was-price">$${w.toFixed(2)}</span> <span class="save-badge">-${savePct}%</span>`;
         } else {
             priceCell = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
         }
@@ -3733,12 +3769,11 @@ function renderAnalytics() {
     const isCompact = isCompactViewport();
     document.body.dataset.analyticsViewport = isMobile ? 'mobile' : 'desktop';
 
-    // 4. Total historical savings: add was_price-based savings for current specials
+    // 4. Total historical savings: add was_price-based savings for current specials (sane was only)
     _data.forEach(item => {
-        const shelf = item.price || 0;
-        if (item.on_special && item.was_price && item.was_price > shelf) {
-            totalRealizedSavings += (item.was_price - shelf);
-        }
+        const shelf = item.price || getEffectivePrice(item);
+        const w = saneWasForSavings(item, shelf);
+        if (w != null) totalRealizedSavings += w - shelf;
     });
 
     document.getElementById('analytic-savings-val').textContent = `$${totalRealizedSavings.toFixed(2)}`;
@@ -4376,12 +4411,13 @@ function renderWeeklySavings() {
 
     _data.forEach(item => {
         const snap = computeItemSavingsSnapshot(item);
-        if (item.on_special && item.was_price && item.was_price > snap.shelf && snap.shelf > 0) {
-            const saved = item.was_price - snap.shelf;
-            totalSaved += saved;
-            totalWouldCost += item.was_price;
-            dealItems.push({ name: item.name, saved, savePct: Math.round((saved / item.was_price) * 100), store: item.store });
-        }
+        if (snap.shelf <= 0) return;
+        const w = saneWasForSavings(item, snap.shelf);
+        if (w == null) return;
+        const saved = w - snap.shelf;
+        totalSaved += saved;
+        totalWouldCost += w;
+        dealItems.push({ name: item.name, saved, savePct: Math.round((saved / w) * 100), store: item.store });
     });
 
     const topDeals = dealItems.sort((a, b) => b.saved - a.saved).slice(0, 4);
@@ -4570,7 +4606,7 @@ function renderDealHeatmap() {
         const isSpecial = item.on_special || (item.target > 0 && ep <= item.target && !item.price_unavailable);
         if (isSpecial) {
             heatData[cat][store].specials++;
-            const ref = item.was_price && item.was_price > shelf ? item.was_price : (item.target || shelf);
+            const ref = savingsReferencePrice(item, shelf);
             heatData[cat][store].savings += Math.max(0, ref - shelf);
         }
     });
@@ -4912,6 +4948,8 @@ function openItemDeepdive(itemName) {
     const sorted = [...ph].sort((a, b) => new Date(a.date) - new Date(b.date));
     const vol = _volatility[itemKey(item)] || 0;
     const ep = item.eff_price || item.price || 0;
+    const shelfDive = item.price || ep;
+    const wasDive = saneWasForSavings(item, shelfDive);
     const isOnSpecial = item.on_special || (item.target > 0 && ep <= item.target);
     const storeColor = item.store === 'woolworths' ? '#10b981' : '#ef4444';
     const as = item.all_stores || {};
@@ -4951,8 +4989,8 @@ function openItemDeepdive(itemName) {
                     <div class="dd-stat-val">$${item.target.toFixed(2)}</div>
                     <div class="dd-stat-label">Good deal</div>
                 </div>` : ''}
-                ${item.was_price ? `<div class="dd-stat">
-                    <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${item.was_price.toFixed(2)}</div>
+                ${wasDive != null ? `<div class="dd-stat">
+                    <div class="dd-stat-val" style="color:#f87171;text-decoration:line-through">$${wasDive.toFixed(2)}</div>
                     <div class="dd-stat-label">Was</div>
                 </div>` : ''}
                 <div class="dd-stat">
