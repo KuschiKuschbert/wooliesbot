@@ -2036,9 +2036,25 @@ function renderDashboard() {
 
 function formatPrice(item) {
     const effPrice = item.eff_price || item.price;
-    if (item.price_mode === 'kg') return `$${effPrice.toFixed(2)}/kg`;
+    if (item.price_mode === 'kg') {
+        let s = `$${effPrice.toFixed(2)}/kg`;
+        const pack = item.price;
+        if (Number.isFinite(pack) && Number.isFinite(effPrice) && Math.abs(pack - effPrice) > 0.02) {
+            s += ` · $${pack.toFixed(2)} pack`;
+        }
+        return s;
+    }
     if (item.price_mode === 'litre') return `$${item.price.toFixed(2)} ($${effPrice.toFixed(2)}/L)`;
     return `$${item.price.toFixed(2)}`;
+}
+
+/** "Good deal" / target line — same units as eff_price (e.g. /kg for price_mode kg). */
+function formatGoodDealTarget(item) {
+    if ((item.target || 0) <= 0) return '<span class="item-target-empty">No deal price yet</span>';
+    const t = item.target;
+    if (item.price_mode === 'kg') return 'Good deal: $' + t.toFixed(2) + '/kg';
+    if (item.price_mode === 'litre') return 'Good deal: $' + t.toFixed(2) + '/L';
+    return 'Good deal: $' + t.toFixed(2);
 }
 
 function renderCountdown() {
@@ -2244,8 +2260,8 @@ function renderEssentials() {
 
         const dotClass = stock === 'low' ? 'low' : stock === 'medium' ? 'medium' : stock === 'full' ? 'full' : '';
         const stockDot = dotClass ? `<span class="stock-dot ${dotClass}" title="${stock} stock"></span>` : '';
-        const priceBadge = price
-            ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}$${price.toFixed(2)}</span>${staleBadge}`
+        const priceBadge = dataItem && (dataItem.eff_price != null || dataItem.price != null)
+            ? `<span class="essential-price ${onSpecial ? 'on-sale' : ''}">${onSpecial ? '🔥' : ''}${formatPrice(dataItem)}</span>${staleBadge}`
             : '';
 
         const row = document.createElement('div');
@@ -2625,17 +2641,18 @@ function createItemCard(item, index, type = 'special') {
     const shelfPrice = item.price || effPrice;
     let priceHtml;
     const hasSaneWas = saneWasForSavings(item, shelfPrice) != null;
+    const wasUnit = item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : '';
     if (hasSaneWas) {
         const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
-            <span class="item-price">$${effPrice.toFixed(2)}</span>
-            <span class="was-price">Was $${item.was_price.toFixed(2)}</span>
+            <span class="item-price">${formatPrice(item)}</span>
+            <span class="was-price">Was $${item.was_price.toFixed(2)}${wasUnit}</span>
             <span class="save-badge">Save ${savePct}%</span>
         `;
     } else if (item.price_unavailable) {
         priceHtml = `<span class="item-price">❓</span>`;
     } else {
-        priceHtml = `<span class="item-price">$${effPrice.toFixed(2)}</span>`;
+        priceHtml = `<span class="item-price">${formatPrice(item)}</span>`;
     }
 
     // Build store comparison row if both stores available
@@ -2643,23 +2660,25 @@ function createItemCard(item, index, type = 'special') {
     const wooliesData = allStores.woolworths;
     const colesData = allStores.coles;
     let storeCompareHtml = '';
-    if (wooliesData && colesData) {
+        if (wooliesData && colesData) {
         const wp = wooliesData.eff_price || wooliesData.price;
         const cp = colesData.eff_price || colesData.price;
         if (Number.isFinite(wp) && Number.isFinite(cp)) {
             const wooliesWinner = wp <= cp;
             const saving = Math.abs(wp - cp).toFixed(2);
+            const wLabel = formatPrice({ ...item, eff_price: wp, price: wooliesData.price != null ? wooliesData.price : wp });
+            const cLabel = formatPrice({ ...item, eff_price: cp, price: colesData.price != null ? colesData.price : cp });
             storeCompareHtml = `
                 <div class="store-compare">
                     <div class="store-compare-row ${wooliesWinner ? 'winner' : ''}">
                         <span class="store-compare-label">🟢 Woolies</span>
-                        <span class="store-compare-price">$${wp.toFixed(2)}</span>
+                        <span class="store-compare-price">${wLabel}</span>
                         ${wooliesWinner ? '<span class="winner-badge">✓ Best</span>' : ''}
                     </div>
                     <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
                         <span class="store-compare-label">🔴 Coles</span>
-                        <span class="store-compare-price">$${cp.toFixed(2)}</span>
-                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving}</span>` : ''}
+                        <span class="store-compare-price">${cLabel}</span>
+                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving} ${item.price_mode === 'kg' ? '/kg' : ''}</span>` : ''}
                     </div>
                 </div>
             `;
@@ -2689,7 +2708,7 @@ function createItemCard(item, index, type = 'special') {
             <h3 class="item-title item-title-spaced">${displayName(item.name)}</h3>
             <div class="item-price-row">
                 ${priceHtml}
-                <span class="item-target" ${targetTooltip}>${(item.target || 0) > 0 ? 'Good deal: $' + item.target.toFixed(2) : '<span class="item-target-empty">No deal price yet</span>'}</span>
+                <span class="item-target" ${targetTooltip}>${formatGoodDealTarget(item)}</span>
             </div>
             ${storeCompareHtml}
             ${groupBestHtml}
@@ -3427,7 +3446,7 @@ function renderMobilePriorityRail() {
                     <span class="top5-medal">${medals[i]}</span>
                     <div class="top5-info">
                         <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
-                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
+                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">${formatPrice(item)}</div>
                     </div>
                     <span class="top5-save">-${item._snap.savePct}%</span>
                 </div>`;
@@ -3446,7 +3465,7 @@ function renderMobilePriorityRail() {
                     <span class="top5-medal">${i + 1}</span>
                     <div class="top5-info">
                         <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
-                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">$${item._snap.eff.toFixed(2)}</div>
+                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">${formatPrice(item)}</div>
                     </div>
                     <span class="top5-save">$${item._snap.savedDollar.toFixed(2)}</span>
                 </div>`;
@@ -3475,10 +3494,9 @@ function renderBuyNow() {
     card.style.display = 'block';
     badge.textContent = priorityItems.length;
     list.innerHTML = priorityItems.map(item => {
-        const price = item._snap.eff;
         const wasSane = saneWasForSavings(item, item._snap.shelf);
         const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
-        const priceStr = price ? `$${price.toFixed(2)}` : '—';
+        const priceStr = item.price_unavailable ? '—' : formatPrice(item);
         return `
                 <div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                 <div class="buy-now-stock-dot"></div>
@@ -3516,10 +3534,10 @@ function renderAllItems() {
             const itemShelf = item.price || effPrice;
             if (saneWasForSavings(item, itemShelf) != null) {
                 const w = item.was_price;
-                const savePct = Math.round((1 - itemShelf / w) * 100);
-                priceHtml = `<span style="color:var(--woolies-green);">$${effPrice.toFixed(2)}</span> <span style="font-size:10px;opacity:0.5;text-decoration:line-through;">$${w.toFixed(2)}</span>`;
+                const wu = item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : '';
+                priceHtml = `<span style="color:var(--woolies-green);">${formatPrice(item)}</span> <span style="font-size:10px;opacity:0.5;text-decoration:line-through;">$${w.toFixed(2)}${wu}</span>`;
             } else {
-                priceHtml = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
+                priceHtml = item.price_unavailable ? '❓' : formatPrice(item);
             }
 
             const row = document.createElement('div');
@@ -3563,10 +3581,11 @@ function renderAllItems() {
         const itemShelf = item.price || effPrice;
         if (saneWasForSavings(item, itemShelf) != null) {
             const w = item.was_price;
+            const wu = item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : '';
             const savePct = Math.round((1 - itemShelf / w) * 100);
-            priceCell = `$${effPrice.toFixed(2)} <span class="was-price">$${w.toFixed(2)}</span> <span class="save-badge">-${savePct}%</span>`;
+            priceCell = `${formatPrice(item)} <span class="was-price">$${w.toFixed(2)}${wu}</span> <span class="save-badge">-${savePct}%</span>`;
         } else {
-            priceCell = item.price_unavailable ? '❓' : `$${effPrice.toFixed(2)}`;
+            priceCell = item.price_unavailable ? '❓' : formatPrice(item);
         }
 
         tr.innerHTML = `
