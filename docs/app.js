@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBottomSheetDrag();
 });
 
+const { formatPrice, cardPricePrimaryHtml } = window.WooliesFormatPrice;
+
 // ── PWA Service Worker ────────────────────────────────────────────────────────
 /** Directory containing app.js — use for static JSON so fetches work when the page URL is e.g. /repo (no slash) on GitHub Pages. */
 function getDocsBundleBaseUrl() {
@@ -2218,20 +2220,6 @@ function renderDashboard() {
     const heroEyebrow = hero?.querySelector('.deals-hero-eyebrow');
 }
 
-function formatPrice(item) {
-    const effPrice = item.eff_price || item.price;
-    if (item.price_mode === 'kg') {
-        let s = `$${effPrice.toFixed(2)}/kg`;
-        const pack = item.price;
-        if (Number.isFinite(pack) && Number.isFinite(effPrice) && Math.abs(pack - effPrice) > 0.02) {
-            s += ` · $${pack.toFixed(2)} pack`;
-        }
-        return s;
-    }
-    if (item.price_mode === 'litre') return `$${item.price.toFixed(2)} ($${effPrice.toFixed(2)}/L)`;
-    return `$${item.price.toFixed(2)}`;
-}
-
 /** Target / good-deal price with correct unit (matches eff_price semantics). */
 function formatTargetValue(item) {
     if ((item.target || 0) <= 0) return '';
@@ -2835,14 +2823,14 @@ function createItemCard(item, index, type = 'special') {
     if (hasSaneWas) {
         const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
-            <span class="item-price">${formatPrice(item)}</span>
+            ${cardPricePrimaryHtml(item)}
             <span class="was-price">Was $${item.was_price.toFixed(2)}${wasUnit}</span>
             <span class="save-badge">Save ${savePct}%</span>
         `;
     } else if (item.price_unavailable) {
         priceHtml = `<span class="item-price">❓</span>`;
     } else {
-        priceHtml = `<span class="item-price">${formatPrice(item)}</span>`;
+        priceHtml = cardPricePrimaryHtml(item);
     }
 
     // Build store comparison row if both stores available
@@ -2868,7 +2856,7 @@ function createItemCard(item, index, type = 'special') {
                     <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
                         <span class="store-compare-label">🔴 Coles</span>
                         <span class="store-compare-price">${cLabel}</span>
-                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving} ${item.price_mode === 'kg' ? '/kg' : ''}</span>` : ''}
+                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving} ${item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : ''}</span>` : ''}
                     </div>
                 </div>
             `;
