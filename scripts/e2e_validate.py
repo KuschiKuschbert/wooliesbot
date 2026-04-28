@@ -161,6 +161,24 @@ def _save_data_container(raw, items):
     DATA_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _persist_layer_a_checks(checked_names):
+    """Write today's ISO date into last_layer_a_check for each item whose name is in checked_names.
+
+    Only called when --persist-checks is set (pre-push smoke gate). The post-push
+    Layer A run does NOT write back to avoid racing the auto-commit.
+    """
+    today = datetime.date.today().isoformat()
+    raw, items = _load_data_container()
+    changed = 0
+    for item in items:
+        if item.get("name") in checked_names:
+            item["last_layer_a_check"] = today
+            changed += 1
+    if changed:
+        _save_data_container(raw, items)
+        print(f"  Persisted last_layer_a_check={today} for {changed} item(s).")
+
+
 def _resolve_item_for_metadata_record(items, record):
     return _url_metadata.resolve_item_for_metadata_record(items, record)
 
@@ -541,6 +559,12 @@ def _build_smoke_sample(items, target=15):
     return selected
 
 
+def _rotation_sort_key(item):
+    """Sort key for Layer A rotation: items never checked sort first (None -> ''),
+    then by oldest last_layer_a_check date string ascending."""
+    return item.get("last_layer_a_check") or ""
+
+
 def run_layer_a(items, sample_size=25, filter_name=None, smoke=False):
     """For a sample of items, fetch live prices and compare to data.json.
 
@@ -548,8 +572,9 @@ def run_layer_a(items, sample_size=25, filter_name=None, smoke=False):
     WW search items: POST search API.
     Coles: call BFF via product ID in URL.
 
-    smoke=True: use a curated 15-item sample prioritising compare_group,
-    on_special, and PDP-URL items — intended for the pre-push gate.
+    smoke=True: curated 15-item sample (compare_group + on_special + PDP-URL).
+    smoke=False: items sorted by last_layer_a_check (oldest/never first) for
+    coverage rotation, eliminating the fixed --seed 1 blind spot.
     """
     print("\n\nLAYER A — Website (live API) vs data.json")
 
@@ -565,16 +590,18 @@ def run_layer_a(items, sample_size=25, filter_name=None, smoke=False):
         sampled = _build_smoke_sample(items, target=15)
         print(f"  Sample (smoke): {len(sampled)} items (compare_group + on_special + PDP-URL priority)")
     else:
-        # Pick a representative sample across both stores
-        has_ww = [i for i in items if i.get("woolworths")]
-        has_coles = [i for i in items if i.get("coles")]
+        # Sort by last_layer_a_check ascending (oldest / never-checked items first)
+        # so every item is covered over successive runs without a fixed seed.
+        sorted_items = sorted(items, key=_rotation_sort_key)
+        has_ww = [i for i in sorted_items if i.get("woolworths")]
+        has_coles = [i for i in sorted_items if i.get("coles")]
         sample_ww_n = min(len(has_ww), sample_size // 2)
         sample_c_n = min(len(has_coles), sample_size - sample_ww_n)
-        sampled_ww = random.sample(has_ww, sample_ww_n)
+        sampled_ww = has_ww[:sample_ww_n]
         remaining_coles = [i for i in has_coles if i not in sampled_ww]
-        sampled_coles_only = random.sample(remaining_coles, min(len(remaining_coles), sample_c_n))
+        sampled_coles_only = remaining_coles[:sample_c_n]
         sampled = sampled_ww + sampled_coles_only
-        print(f"  Sample: {len(sampled)} items ({sample_ww_n} WW + {len(sampled_coles_only)} Coles-only)")
+        print(f"  Sample: {len(sampled)} items ({sample_ww_n} WW + {len(sampled_coles_only)} Coles-only, rotation-ordered)")
 
     print("  Warming up Woolworths session...")
 
@@ -1263,6 +1290,15 @@ def main():
             "priority). Intended for the pre-push gate in scrape_pipeline.py."
         ),
     )
+    parser.add_argument(
+        "--persist-checks",
+        action="store_true",
+        help=(
+            "After Layer A runs, write today's date into last_layer_a_check for each checked item "
+            "in docs/data.json. Only use pre-push (scrape_pipeline smoke gate) to avoid racing "
+            "the auto-commit. Post-push Layer A should NOT use this flag."
+        ),
+    )
     parser.add_argument("--layer", choices=["A", "B", "C", "D"], help="Run only one layer")
     parser.add_argument("--item", type=str, default=None, help="Filter by item name substring")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
@@ -1343,6 +1379,10 @@ def main():
         all_results["A"] = run_layer_a(
             items, sample_size=sample_size, filter_name=args.item, smoke=args.smoke
         )
+        if args.persist_checks and all_results.get("A"):
+            checked = {r.get("item") for r in all_results["A"] if r.get("item")}
+            if checked:
+                _persist_layer_a_checks(checked)
 
     if run_d:
         sample_size = len(items) if args.all else args.sample
