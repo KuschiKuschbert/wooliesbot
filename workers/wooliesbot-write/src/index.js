@@ -130,6 +130,7 @@ function accessIdentityEmail(request) {
 function requireConfig(env) {
 	const owner = (env.GITHUB_REPO_OWNER || "").trim();
 	const repo = (env.GITHUB_REPO_NAME || "").trim();
+	const branch = (env.GITHUB_CONTENTS_BRANCH || "").trim();
 	const token = githubToken(env);
 	const allowedEmails = parseAllowedEmails(env);
 	const writeApiTokens = parseWriteApiTokens(env);
@@ -148,6 +149,7 @@ function requireConfig(env) {
 	return {
 		owner,
 		repo,
+		branch,
 		token,
 		allowedEmails,
 		writeApiTokens,
@@ -212,8 +214,9 @@ function mergeStockChange(rawDecoded, params) {
 	return { updated, payload };
 }
 
-async function githubGetFile(owner, repo, token, path) {
-	const url = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}`;
+async function githubGetFile(owner, repo, token, path, branch = "") {
+	const baseUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}`;
+	const url = branch ? `${baseUrl}?ref=${encodeURIComponent(branch)}` : baseUrl;
 	const res = await fetch(url, {
 		headers: {
 			Authorization: `Bearer ${token}`,
@@ -232,7 +235,7 @@ async function githubGetFile(owner, repo, token, path) {
 	return { res, data };
 }
 
-async function githubPutFile(owner, repo, token, path, message, contentB64, sha) {
+async function githubPutFile(owner, repo, token, path, message, contentB64, sha, branch = "") {
 	const url = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}`;
 	const res = await fetch(url, {
 		method: "PUT",
@@ -247,6 +250,7 @@ async function githubPutFile(owner, repo, token, path, message, contentB64, sha)
 			message,
 			content: contentB64,
 			...(sha ? { sha } : {}),
+			...(branch ? { branch } : {}),
 		}),
 	});
 	const text = await res.text();
@@ -358,10 +362,11 @@ async function handleUpdateStock(request, env) {
 	}
 
 	let attempt = 0;
+	let lastConflictMessage = "";
 	const maxAttempts = 6;
 	while (attempt < maxAttempts) {
 		attempt++;
-		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, DATA_PATH);
+		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, DATA_PATH, cfg.branch);
 
 		if (getRes.status === 404) {
 			return jsonResponse({ error: "github_file_not_found", path: DATA_PATH }, 502, env, request.headers.get("Origin"));
@@ -391,9 +396,11 @@ async function handleUpdateStock(request, env) {
 				"Update stock via WooliesBot write API",
 				contentB64,
 				decoded.sha,
+				cfg.branch,
 			);
 
 			if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
+				lastConflictMessage = String(putRes.data?.message || "").trim();
 				continue;
 			}
 
@@ -416,7 +423,15 @@ async function handleUpdateStock(request, env) {
 		}
 	}
 
-	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
+	return jsonResponse(
+		{
+			error: "aborted_after_concurrent_conflicts",
+			detail: lastConflictMessage || "github_conflict",
+		},
+		409,
+		env,
+		request.headers.get("Origin"),
+	);
 }
 
 async function handleGetShoppingList(request, env) {
@@ -427,7 +442,7 @@ async function handleGetShoppingList(request, env) {
 	const authErr = ensureAuthorizedRequest(request, cfg, env, request.headers.get("Origin"));
 	if (authErr) return authErr;
 
-	const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
+	const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH, cfg.branch);
 	if (getRes.status === 404) {
 		return jsonResponse(
 			{
@@ -485,10 +500,11 @@ async function handleUpsertShoppingList(request, env) {
 	const deviceId = String(body?.device_id || "").trim() || "unknown";
 
 	let attempt = 0;
+	let lastConflictMessage = "";
 	const maxAttempts = 6;
 	while (attempt < maxAttempts) {
 		attempt++;
-		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH);
+		const { res: getRes, data: fileMeta } = await githubGetFile(cfg.owner, cfg.repo, cfg.token, SHOPPING_LIST_PATH, cfg.branch);
 		let sha = null;
 		/** @type {object} */
 		let existingDecoded = { schema: 1, items: [] };
@@ -526,9 +542,11 @@ async function handleUpsertShoppingList(request, env) {
 				: "Sync household state via WooliesBot write API",
 			contentB64,
 			sha,
+			cfg.branch,
 		);
 
 		if (putRes.res.status === 409 || (putRes.data.message && String(putRes.data.message).toLowerCase().includes("sha"))) {
+			lastConflictMessage = String(putRes.data?.message || "").trim();
 			continue;
 		}
 		if (!putRes.res.ok) {
@@ -556,7 +574,15 @@ async function handleUpsertShoppingList(request, env) {
 		);
 	}
 
-	return jsonResponse({ error: "aborted_after_concurrent_conflicts" }, 409, env, request.headers.get("Origin"));
+	return jsonResponse(
+		{
+			error: "aborted_after_concurrent_conflicts",
+			detail: lastConflictMessage || "github_conflict",
+		},
+		409,
+		env,
+		request.headers.get("Origin"),
+	);
 }
 
 export default {
@@ -592,6 +618,7 @@ export default {
 						allow_credentials: cors.allowCredentials,
 						allowed_origin_count: cors.allowedOrigins.length,
 					},
+					github_contents_branch: cfg.branch || "default",
 				},
 				ok ? 200 : 503,
 				env,

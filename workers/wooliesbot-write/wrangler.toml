@@ -11,6 +11,8 @@ compatibility_date = "2024-11-01"
 [vars]
 GITHUB_REPO_OWNER = "KuschiKuschbert"
 GITHUB_REPO_NAME = "wooliesbot"
+# shopping-sync-data: unprotected branch for Worker GitHub Contents writes (main is PR-only).
+GITHUB_CONTENTS_BRANCH = "shopping-sync-data"
 # Browser Origin is scheme + host only (no /wooliesbot path).
 ALLOWED_ORIGINS = "https://kuschikuschbert.github.io"
 # Identity allowlist — only when ALLOW_INSECURE_PUBLIC_WRITES = "0" (optional Cloudflare Access / headers).
