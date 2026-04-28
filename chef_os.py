@@ -191,6 +191,8 @@ _BASE_CHROME_THRESHOLD = min(0.95, max(0.35, _env_float("WOOLIESBOT_CHROME_FALLB
 _BASE_HTTP_RETRIES = max(1, _env_int("WOOLIESBOT_CFFI_HTTP_RETRIES", 4))
 _OUTLIER_DEVIATION_PCT = min(90, max(5, _env_float("WOOLIESBOT_OUTLIER_DEVIATION_PCT", 40)))
 _ADAPTIVE_ENABLED = os.environ.get("WOOLIESBOT_ADAPTIVE", "1").strip().lower() not in ("0", "false", "no")
+# Max days a carry-forward (stale) price is kept before flipping to price_unavailable.
+_STALE_MAX_DAYS = max(1, _env_int("WOOLIESBOT_STALE_MAX_DAYS", 14))
 _METRICS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "scraper_metrics.json")
 _MAX_METRICS_RUNS = max(5, _env_int("WOOLIESBOT_METRICS_HISTORY", 30))
 # Retained for scraper_metrics.json (sequential BFF path; not parallel worker count)
@@ -1714,12 +1716,39 @@ def check_prices():
     def _has_reliable_price(value):
         return isinstance(value, (int, float)) and 0 < value < _PRICE_UNRELIABLE
 
+    stale_flipped_count = [0]  # mutable container so inner functions can increment
+
     def _carry_forward_previous(item, existing, history, avg_price, reason):
-        """Keep last-known-good price when a live scrape fails."""
+        """Keep last-known-good price when a live scrape fails.
+
+        Returns None when:
+        - No reliable previous price exists.
+        - The existing item has already been stale for > WOOLIESBOT_STALE_MAX_DAYS
+          (default 14), in which case the caller will emit price_unavailable=True
+          and the item drops from deals/comparisons until a live scrape succeeds.
+        """
         prev_price = existing.get("price")
         prev_eff = existing.get("eff_price")
         if not (_has_reliable_price(prev_price) and _has_reliable_price(prev_eff)):
             return None
+
+        # Cap carry-forward staleness: if the item was already stale before this
+        # cycle and has been so for longer than the configured max, stop carrying.
+        existing_stale_as_of = existing.get("stale_as_of")
+        if existing.get("stale") and existing_stale_as_of:
+            try:
+                stale_since = datetime.date.fromisoformat(existing_stale_as_of)
+                age_days = (datetime.date.today() - stale_since).days
+                if age_days > _STALE_MAX_DAYS:
+                    stale_flipped_count[0] += 1
+                    logging.info(
+                        f"  {item.get('name','?')}: stale carry-forward exceeded {_STALE_MAX_DAYS}d "
+                        f"(stale since {existing_stale_as_of}) — flipping to price_unavailable"
+                    )
+                    return None
+            except (ValueError, TypeError):
+                pass
+
         store = existing.get("store")
         all_stores = existing.get("all_stores") or {}
         if (not store or store == "none") and all_stores:
@@ -1740,7 +1769,7 @@ def check_prices():
             "avg_price": avg_price,
             "stale": True,
             "stale_source": reason,
-            "stale_as_of": datetime.datetime.now().strftime("%Y-%m-%d"),
+            "stale_as_of": existing_stale_as_of or datetime.datetime.now().strftime("%Y-%m-%d"),
         }
 
     for idx, item in enumerate(TRACKING_LIST):
@@ -1860,8 +1889,17 @@ def check_prices():
 
     # Scraper Health Check
     unavail_count = sum(1 for r in results if r.get("price_unavailable"))
+    stale_count = sum(1 for r in results if r.get("stale"))
+    flipped = stale_flipped_count[0]
+    if flipped > 0:
+        logging.warning(
+            f"  {flipped} item(s) exceeded stale carry-forward cap ({_STALE_MAX_DAYS}d) "
+            f"and were flipped to price_unavailable."
+        )
     if unavail_count > (len(TRACKING_LIST) * 0.25):
         health_msg = f"⚠️ *SCRAPER HEALTH ALERT*\n{unavail_count}/{len(TRACKING_LIST)} items have no reliable price. "
+        if flipped > 0:
+            health_msg += f"{flipped} item(s) flipped from stale to unavailable (>{_STALE_MAX_DAYS}d old). "
         health_msg += "Site layouts may have changed."
         send_telegram(health_msg)
 
@@ -2524,10 +2562,12 @@ def _build_run_summary(raw_results, now_dt=None):
         )
     )
     items_scraped = len([r for r in raw_results if not r.get("price_unavailable")])
+    stale_count = sum(1 for r in raw_results if r.get("stale"))
     scrape_time = now_dt.strftime("%-I:%M %p")
+    stale_note = f" · {stale_count} stale" if stale_count > 0 else ""
     return (
         f"🛒 *WooliesBot* updated at {scrape_time}\n"
-        f"🏷️ *{specials_count}* deals · {items_scraped} items tracked\n"
+        f"🏷️ *{specials_count}* deals · {items_scraped} items tracked{stale_note}\n"
         f"👉 [View Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
     ).strip()
 
