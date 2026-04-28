@@ -3,7 +3,7 @@
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
 // Bump with meta[name="wooliesbot-shell-version"], index.html ?v=, and body data-shell-version together.
-const SHELL_VERSION = '2046-sw-offline-fallback';
+const SHELL_VERSION = '2047-prev-snapshot-fallback';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
@@ -31,7 +31,7 @@ function isAppShellRequest(url) {
         const u = new URL(url);
         if (u.origin !== self.location.origin) return false;
         const p = u.pathname;
-        if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
+        if (p.endsWith('/data.json') || p.endsWith('/data.prev.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
         return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/js\/format_price\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$|\/pairing\.html$/.test(
             p
         );
@@ -96,6 +96,7 @@ self.addEventListener('fetch', event => {
     }
 
     if (url.includes('data.json') || url.includes('heartbeat.json') || url.includes('receipt_sync_status.json') || isAppShellRequest(url)) {
+        // Note: data.json, data.prev.json, heartbeat.json all match 'data.json' or 'heartbeat.json'
         event.respondWith(networkFirstWithCacheUpdate(request));
         return;
     }
