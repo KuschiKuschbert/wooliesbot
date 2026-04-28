@@ -19,6 +19,8 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
@@ -95,6 +97,28 @@ jobs:
         with:
           name: e2e-validate-layer-a
           path: logs/e2e_validate_layer_a.json
+
+      # Belt-and-braces: if Layer A failed AND the offending commit was the
+      # auto-update commit (not human work), revert it so bad data is not
+      # served while the next 4 h scrape runs.
+      - name: Auto-revert on Layer A red (bot commits only)
+        if: failure()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          HEAD_AUTHOR=$(git log -1 --format='%ae')
+          HEAD_MSG=$(git log -1 --format='%s')
+          if [ "$HEAD_AUTHOR" = "github-actions[bot]@users.noreply.github.com" ] && \
+             [ "$HEAD_MSG" = "Auto-update dashboard data [skip ci]" ]; then
+            echo "Layer A red on bot auto-commit — reverting HEAD"
+            git revert HEAD --no-edit
+            git push origin main
+            python scripts/telegram_notify.py --allow-missing-secrets \
+              --text "⏪ *[AUTO-REVERT]* Layer A post-push check failed\\nThe bad auto-update commit has been reverted on main\\.\\nNext scheduled scrape will re-attempt\\.\\nSee logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            echo "HEAD is not a bot auto-commit (author=$HEAD_AUTHOR msg=$HEAD_MSG) — skipping auto-revert"
+          fi
 
       - name: Telegram failure notification
         if: failure()
