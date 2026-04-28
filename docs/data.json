@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-28 02:27 PM",
+  "last_updated": "2026-04-28 07:08 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -12311,9 +12311,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -14547,14 +14547,14 @@
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -14575,7 +14575,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54"
     },
     {
@@ -19108,13 +19108,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 1.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -28696,13 +28696,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 4.2,
+      "unit_price": 1.9,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.2,
-          "unit_price": 4.2,
-          "eff_price": 4.2,
+          "price": 1.9,
+          "unit_price": 1.9,
+          "eff_price": 1.9,
           "was_price": null,
           "on_special": false
         },
@@ -28720,7 +28720,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Massel Gourmet Liquid Stock Chicken",
+      "name_check": "Woolworths Chicken Liquid Stock",
       "item_id": "69003d24-5705-4435-953f-9ff830a2e577"
     },
     {
@@ -33397,14 +33397,14 @@
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
       "image_url": "images/pak_choy_baby.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 4.9,
+          "unit_price": 4.9,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -33422,7 +33422,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d"
     },
     {
@@ -35834,7 +35834,7 @@
       "name": "Mutti Tomato Paste Dbl Conc 130G",
       "type": "produce",
       "price_mode": "each",
-      "target": 1.59,
+      "target": 1.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mutti%20Tomato%20Paste%20Dbl%20Conc%20130g",
       "coles": "https://www.coles.com.au/search?q=Mutti+Tomato+Passata+400g",
       "price_history": [
@@ -35851,7 +35851,7 @@
       "size": "130G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (3/15 obs, 20% on sale)",
+      "target_method": "was $2.40, now $1.90 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-28",
       "scrape_history": [
@@ -35911,7 +35911,7 @@
         {
           "date": "2026-04-22",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35919,7 +35919,7 @@
         {
           "date": "2026-04-23",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35927,7 +35927,7 @@
         {
           "date": "2026-04-24",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35935,7 +35935,7 @@
         {
           "date": "2026-04-25",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35943,7 +35943,7 @@
         {
           "date": "2026-04-26",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35951,7 +35951,7 @@
         {
           "date": "2026-04-27",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35959,26 +35959,26 @@
         {
           "date": "2026-04-28",
           "price": 1.9,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
         }
       ],
       "was_price": 2.4,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mutti_Tomato_Paste_Dbl_Conc_130G.jpg",
       "image_url": "images/mutti_tomato_paste_dbl_conc_130g.jpg",
       "store": "woolworths",
-      "unit_price": 2.12,
+      "unit_price": 1.46,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.75,
-          "unit_price": 2.12,
-          "eff_price": 2.75,
-          "was_price": null,
-          "on_special": false
+          "price": 1.9,
+          "unit_price": 1.46,
+          "eff_price": 1.9,
+          "was_price": 2.4,
+          "on_special": true
         }
       },
       "price_unavailable": false,
@@ -35987,7 +35987,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Mutti Organic Tomato Paste Double Concentrated",
+      "name_check": "Mutti Tomato Paste Double Concentrate",
       "item_id": "482376b7-0a9e-4349-911d-132dc1aa9887"
     },
     {
@@ -42862,7 +42862,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
+      "name_check": "Musashi High Protein Bar Dark Chocolate Salted Caramel,",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6"
     },
     {
@@ -55480,17 +55480,10 @@
       "on_special": false,
       "local_image": "images/Ww_Garam_Masala_29G.jpg",
       "image_url": "images/ww_garam_masala_29g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.69,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.17,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.69,
-          "eff_price": 2.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.5,
           "unit_price": 1.17,
@@ -55505,7 +55498,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Garam Masala",
+      "name_check": "Regular Garam Masala",
       "item_id": "74a458d5-94b6-45b5-84b6-74143c415334"
     },
     {
@@ -68163,11 +68156,18 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 4.0,
-      "unit_price": 16.0,
-      "unit": "kg",
-      "store": "coles",
+      "price": 3.5,
+      "unit_price": 14.0,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
+        "woolworths": {
+          "price": 3.5,
+          "unit_price": 14.0,
+          "eff_price": 3.5,
+          "was_price": 4.0,
+          "on_special": true
+        },
         "coles": {
           "price": 4.0,
           "unit_price": 16.0,
@@ -68285,16 +68285,16 @@
         }
       ],
       "target_confidence": "high",
-      "target_method": "sale median (6/14 obs, 43% on sale)",
+      "target_method": "was $4.00, now $3.50 (store special)",
       "target_data_points": 14,
       "target_updated": "2026-04-28",
-      "eff_price": 4.0,
+      "eff_price": 3.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.0,
-      "on_special": false,
-      "name_check": "Yaki Nori Seaweed Sushi Sheets",
+      "on_special": true,
+      "name_check": "Obento Japanese Yaki Nori For Sushi",
       "item_id": "1c4f5b1b-f4f4-415d-bedc-610290d37440"
     },
     {
