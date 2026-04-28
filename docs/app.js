@@ -4512,6 +4512,7 @@ const _alertedItems = new Set(JSON.parse(localStorage.getItem('alertedDrops') ||
 
 function checkPriceDropAlerts() {
     const newDrops = [];
+    let alertedStateChanged = false;
     _data.forEach(item => {
         const ep = item.eff_price || item.price || 0;
         const isSpecial = item.on_special || ((item.target || 0) > 0 && ep <= item.target && !item.price_unavailable);
@@ -4519,14 +4520,18 @@ function checkPriceDropAlerts() {
         if (isSpecial && !_alertedItems.has(k)) {
             newDrops.push(item);
             _alertedItems.add(k);
+            alertedStateChanged = true;
         }
         if (!isSpecial && _alertedItems.has(k)) {
             _alertedItems.delete(k);
+            alertedStateChanged = true;
         }
     });
 
-    localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
-    if (_householdRemoteApplyDepth === 0) {
+    if (alertedStateChanged) {
+        localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
+    }
+    if (alertedStateChanged && _householdRemoteApplyDepth === 0) {
         bumpHouseholdSection('dropAlerts');
         if (_shoppingListInitialCloudPullOk && getStockWriteBase()) {
             scheduleShoppingListCloudPush('drop_alerts');
