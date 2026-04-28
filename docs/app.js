@@ -2881,6 +2881,13 @@ function createItemCard(item, index, type = 'special') {
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
+    const cardContextHtml =
+        type === 'near'
+            ? '<div class="item-card-context item-card-context--near" role="status">Near deal price</div>'
+            : type === 'predicted'
+              ? '<div class="item-card-context item-card-context--predict" role="status">Time to restock</div>'
+              : '';
+
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
@@ -2896,6 +2903,7 @@ function createItemCard(item, index, type = 'special') {
                 </div>
             </div>
             <h3 class="item-title item-title-spaced">${displayName(item.name)}</h3>
+            ${cardContextHtml}
             <div class="item-price-row">
                 ${priceHtml}
                 <span class="item-target" ${targetTooltip}>${formatGoodDealTarget(item)}</span>
@@ -3495,9 +3503,7 @@ function renderSpecials() {
                     <div class="no-deals-near-title">🎯 Worth watching</div>
                 </div>`;
             nearMisses.forEach((item, i) => {
-                const card = createItemCard(item, i);
-                card.classList.add('near-miss-card');
-                grid.appendChild(card);
+                grid.appendChild(createItemCard(item, i, 'near'));
             });
         } else {
             grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align:center;">Nothing in your filters right now — try another category or check back after Wednesday’s new specials. 🗓️</p>';

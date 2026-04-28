@@ -921,11 +921,11 @@ body {
 
 .item-title {
     font-family: var(--font-heading);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     margin-bottom: 6px;
-    color: var(--text-main);
-    line-height: 1.2;
+    color: var(--text-strong);
+    line-height: 1.25;
 }
 
 .item-price-row {
@@ -944,15 +944,49 @@ body {
     color: var(--text-strong);
 }
 
-/* Shelf (pack) price emphasised next to unit rate — kg / litre */
+/* Shelf + unit: two short columns (data from price + eff_price, no extra scrape) */
 .item-price--dual {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25rem 0.55rem;
+    align-items: flex-end;
+    gap: 0.5rem 0.9rem;
+    width: 100%;
+    max-width: 100%;
 }
 
-.item-price--dual .price-pack {
+.item-price--simple {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
+}
+
+.price-dual-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    min-width: 0;
+    flex: 1 1 44%;
+    max-width: calc(50% - 0.5rem);
+}
+
+.price-dual-col--unit {
+    flex: 1 1 44%;
+}
+
+.price-tier-caption {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    line-height: 1.1;
+}
+
+.item-price--dual .price-pack,
+.item-price--simple .price-pack--solo {
     font-size: 1.125rem;
     font-weight: 800;
     color: var(--text-strong);
@@ -961,10 +995,10 @@ body {
 }
 
 .item-price--dual .price-per-unit {
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     color: var(--text-secondary);
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .was-price {
@@ -1751,13 +1785,53 @@ footer {
     opacity: 0.5;
 }
 
-/* Near Miss Treatment */
-.near-miss-card {
-    border: 1px dashed rgba(234, 179, 8, 0.4) !important;
+/* Near-miss + predictions: same card shell as specials, tint + ribbon (see .item-card-context) */
+.item-card.near-miss-card,
+.item-card.predicted-card {
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: var(--border-color) !important;
 }
 
-.near-miss-card:hover {
-    border-color: rgba(234, 179, 8, 0.8) !important;
+.item-card.near-miss-card {
+    border-left: 3px solid #ca8a04 !important;
+    background: linear-gradient(90deg, rgba(234, 179, 8, 0.06) 0%, transparent 52%);
+}
+
+.item-card.predicted-card {
+    border-left: 3px solid var(--primary, #3f5d7d) !important;
+    background: linear-gradient(90deg, rgba(63, 93, 125, 0.06) 0%, transparent 52%);
+}
+
+.item-card.near-miss-card:hover,
+.item-card.predicted-card:hover {
+    border-color: var(--border-strong) !important;
+}
+
+/* Section cue — matches Time to restock / Near deal sections */
+.item-card-context {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    padding: 4px 8px;
+    margin: 2px 0 6px;
+    border-radius: 6px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.item-card-context--near {
+    color: #a16207;
+    background: rgba(234, 179, 8, 0.14);
+    border: 1px solid rgba(202, 138, 4, 0.35);
+}
+
+.item-card-context--predict {
+    color: var(--primary, #3f5d7d);
+    background: rgba(63, 93, 125, 0.1);
+    border: 1px solid rgba(63, 93, 125, 0.28);
 }
 
 .badge-near {
@@ -2297,7 +2371,7 @@ body.drawer-scroll-lock {
     }
 
     .item-title {
-        font-size: 13px;
+        font-size: 15px;
         margin-bottom: 4px;
         line-height: 1.28;
         color: var(--text-strong);
@@ -2311,12 +2385,17 @@ body.drawer-scroll-lock {
         font-size: 15px;
     }
 
-    .item-price--dual .price-pack {
-        font-size: 1.22rem;
+    .item-price--dual .price-pack,
+    .item-price--simple .price-pack--solo {
+        font-size: 1.2rem;
     }
 
     .item-price--dual .price-per-unit {
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
+    }
+
+    .price-tier-caption {
+        font-size: 8px;
     }
 
     .item-price-row {
@@ -5680,8 +5759,9 @@ button, a, label, [role="button"] {
         margin-top: 8px;
     }
 
-    .item-price--dual .price-pack {
-        font-size: 1.22rem;
+    .item-price--dual .price-pack,
+    .item-price--simple .price-pack--solo {
+        font-size: 1.2rem;
     }
 
     /* ── Shopping list drawer → bottom sheet ────── */
@@ -6070,7 +6150,11 @@ button, a, label, [role="button"] {
         height: 110px;
     }
 
-    .item-title { font-size: 12px; }
+    /* Keep product names readable in 2-col grid (aisle use) */
+    .item-card .item-title {
+        font-size: 14px;
+        line-height: 1.28;
+    }
 
     .priority-rail-section { min-width: 240px; }
 
