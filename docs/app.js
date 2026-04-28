@@ -188,6 +188,9 @@ function tryApplyPairingFromHash() {
     if (typeof showUiToast === 'function') {
         showUiToast('Shopping sync enabled on this device', 3600);
     }
+    if (typeof updateCartSyncStatusLabels === 'function') {
+        updateCartSyncStatusLabels();
+    }
 }
 
 // ── Haptics helper ────────────────────────────────────────────────────────────
@@ -546,6 +549,19 @@ let _shoppingListSyncPullInFlight = false;
 let _shoppingListSyncPushQueued = false;
 let _shoppingListSyncQueuedReason = 'local_edit';
 let _shoppingListSyncFailureStreak = 0;
+
+const CART_SYNC_LAST_FETCH_KEY = 'cartSyncLastFetchOkAt';
+const CART_SYNC_LAST_PUSH_KEY = 'cartSyncLastPushOkAt';
+let _cartSyncLastFetchOkAt = '';
+let _cartSyncLastPushOkAt = '';
+let _cartSyncLabelTimer = null;
+try {
+    _cartSyncLastFetchOkAt = localStorage.getItem(CART_SYNC_LAST_FETCH_KEY) || '';
+    _cartSyncLastPushOkAt = localStorage.getItem(CART_SYNC_LAST_PUSH_KEY) || '';
+} catch {
+    _cartSyncLastFetchOkAt = '';
+    _cartSyncLastPushOkAt = '';
+}
 
 /** Mirrors chef_os._PRICE_UNRELIABLE — eff_price at or above is not comparable */
 const PRICE_UNRELIABLE = 99999;
@@ -1140,6 +1156,72 @@ function mergeShoppingListRows(localRows, remoteRows) {
         .map((row) => ({ ...row }));
 }
 
+function formatIsoAgo(iso) {
+    if (!iso) return '—';
+    const t = Date.parse(String(iso));
+    if (!Number.isFinite(t)) return '—';
+    const sec = Math.max(0, Math.round((Date.now() - t) / 1000));
+    if (sec < 12) return 'just now';
+    if (sec < 60) return `${sec}s ago`;
+    const min = Math.floor(sec / 60);
+    if (min < 60) return `${min}m ago`;
+    const h = Math.floor(min / 60);
+    if (h < 24) return `${h}h ago`;
+    const d = Math.floor(h / 24);
+    return `${d}d ago`;
+}
+
+function recordCartSyncFetchOk() {
+    const iso = new Date().toISOString();
+    _cartSyncLastFetchOkAt = iso;
+    try {
+        localStorage.setItem(CART_SYNC_LAST_FETCH_KEY, iso);
+    } catch {
+        /* ignore */
+    }
+    updateCartSyncStatusLabels();
+}
+
+function recordCartSyncPushOk() {
+    const iso = new Date().toISOString();
+    _cartSyncLastPushOkAt = iso;
+    try {
+        localStorage.setItem(CART_SYNC_LAST_PUSH_KEY, iso);
+    } catch {
+        /* ignore */
+    }
+    updateCartSyncStatusLabels();
+}
+
+function updateCartSyncStatusLabels() {
+    if (typeof document === 'undefined') return;
+    const hosts = document.querySelectorAll('.js-cart-sync-host');
+    if (!hosts.length) return;
+    if (!getStockWriteBase()) {
+        hosts.forEach(el => {
+            el.hidden = true;
+            el.textContent = '';
+        });
+        return;
+    }
+    const fetchPart = _cartSyncLastFetchOkAt
+        ? `Checked ${formatIsoAgo(_cartSyncLastFetchOkAt)}`
+        : 'Not checked yet';
+    const pushPart = _cartSyncLastPushOkAt ? `Uploaded ${formatIsoAgo(_cartSyncLastPushOkAt)}` : 'No upload yet';
+    const text = `List sync · ${fetchPart} · ${pushPart}`;
+    hosts.forEach(el => {
+        el.hidden = false;
+        el.textContent = text;
+    });
+}
+
+function startCartSyncLabelRefresh() {
+    if (_cartSyncLabelTimer) return;
+    _cartSyncLabelTimer = setInterval(() => {
+        updateCartSyncStatusLabels();
+    }, 15000);
+}
+
 function noteShoppingListSyncFailure(kind, reason, status = 0) {
     _shoppingListSyncFailureStreak += 1;
     console.warn(
@@ -1191,6 +1273,7 @@ async function pushShoppingListToCloud(reason = 'manual') {
         const body = await res.json().catch(() => ({}));
         if (body?.updated_at) setShoppingListCloudStamp(body.updated_at);
         noteShoppingListSyncSuccess();
+        recordCartSyncPushOk();
         pullShoppingListFromCloud('post_push');
     } catch {
         noteShoppingListSyncFailure('push', dispatchedReason);
@@ -1237,9 +1320,13 @@ async function pullShoppingListFromCloud(reason = 'poll') {
         }
         const body = await res.json().catch(() => null);
         if (!body || !Array.isArray(body.items)) return;
+        recordCartSyncFetchOk();
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
-        if (remoteMs <= localCloudMs) return;
+        if (remoteMs <= localCloudMs) {
+            noteShoppingListSyncSuccess();
+            return;
+        }
         applyRemoteHouseholdFromDocument(body, { updated_at: body.updated_at, reason });
         noteShoppingListSyncSuccess();
     } catch {
@@ -1252,6 +1339,8 @@ async function pullShoppingListFromCloud(reason = 'poll') {
 
 function startShoppingListCloudSyncMonitors() {
     if (_shoppingListSyncPollTimer) return;
+    updateCartSyncStatusLabels();
+    startCartSyncLabelRefresh();
     _shoppingListSyncPollTimer = setInterval(() => {
         if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
         pullShoppingListFromCloud('interval');

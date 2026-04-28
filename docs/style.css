@@ -554,6 +554,41 @@ body {
     font-weight: 500;
 }
 
+/* Cart sync (Worker): desktop under logo; mobile only in list drawer */
+.header-cart-sync {
+    display: none;
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--text-muted);
+    font-weight: 500;
+    max-width: min(100%, 42rem);
+}
+
+.drawer-cart-sync {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .header-cart-sync {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .header-cart-sync {
+        display: block;
+    }
+
+    .drawer-cart-sync {
+        display: none !important;
+    }
+}
+
 .live-status {
     display: flex;
     align-items: center;
