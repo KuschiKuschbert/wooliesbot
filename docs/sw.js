@@ -3,7 +3,7 @@
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
 // Bump with meta[name="wooliesbot-shell-version"], index.html ?v=, and body data-shell-version together.
-const SHELL_VERSION = '2045-reliability-hardening';
+const SHELL_VERSION = '2046-sw-offline-fallback';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
@@ -40,14 +40,34 @@ function isAppShellRequest(url) {
     }
 }
 
+/** Return a canonical request with the ?t= cache-buster stripped.
+ *  Cache entries are stored under this key so offline fallback can find them
+ *  regardless of which ?t= value the live request carries. */
+function canonicalCacheRequest(request) {
+    try {
+        const u = new URL(request.url);
+        u.searchParams.delete('t');
+        return new Request(u.href);
+    } catch {
+        return request;
+    }
+}
+
 function networkFirstWithCacheUpdate(request) {
+    const cacheKey = canonicalCacheRequest(request);
     return fetch(request)
         .then(res => {
             const clone = res.clone();
-            caches.open(CACHE).then(c => c.put(request, clone));
+            // Store under canonical (no ?t=) so the offline fallback path finds it.
+            caches.open(CACHE).then(c => c.put(cacheKey, clone));
             return res;
         })
-        .catch(() => caches.match(request));
+        .catch(() =>
+            // First try the exact canonical key, then ignoreSearch as belt-and-braces.
+            caches.match(cacheKey).then(
+                cached => cached || caches.match(request, { ignoreSearch: true })
+            )
+        );
 }
 
 self.addEventListener('install', event => {
