@@ -1,0 +1,34 @@
+---
+description: >-
+  One active owner per path: declare scopes, respect .agent-locks, and avoid
+  parallel agent edits to the same files. Pairs with .agent-locks/README.md.
+alwaysApply: true
+---
+
+# WooliesBot — agent path ownership and lock files (always)
+
+Cursor does not provide a hard mutex between chats or Composer sessions. Use **explicit path ownership** and **optional local lock files** so only one agent flow touches a given file at a time.
+
+## Path ownership (required discipline)
+
+1. **At the start of a task**, name the **files and directories** you intend to change (in the chat or in a new lock file). Stay inside that scope unless the user expands it.
+2. **While a task is in progress**, **do not** edit paths that another active agent session owns for the same task window. If unsure, ask the user or wait.
+3. Prefer **narrow scopes** (one subsystem per agent run): e.g. `workers/wooliesbot-write/` OR `docs/app.js` + `docs/style.css`, not both unrelated areas in parallel sessions.
+
+## Lock files (optional, recommended for parallel agents)
+
+- Directory: **[`.agent-locks/README.md`](../../.agent-locks/README.md)** — format and lifecycle.
+- Create a **local** `*.lock` file before editing contested paths; **delete it** when the task completes or is abandoned.
+- **Never edit** any path listed in another lock file that is still present (treat as owned by another session).
+
+Lock files are **gitignored**; they coordinate local/machine sessions only, not remote teammates unless shared out-of-band.
+
+## Merge discipline
+
+- Land work through **PRs** to `main`; follow **[`scripts/shippr.sh`](../../scripts/shippr.sh)** and **[`.cursor/rules/wooliesbot-shippr-mainline.mdc`](wooliesbot-shippr-mainline.mdc)**.
+- **One cohesive task → one branch / one PR** when possible; avoid mixing unrelated edits so merge conflicts stay traceable.
+- Before opening or updating a PR, **pull or rebase** onto the latest `main` if others may have merged overlapping files; resolve conflicts in a single coherent commit narrative.
+
+## When two sessions conflict
+
+If another branch or agent already changed shared files: **stop**, reconcile git state (merge/rebase), then continue—do not blindly overwrite.
