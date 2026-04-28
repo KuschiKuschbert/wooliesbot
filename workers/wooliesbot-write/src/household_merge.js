@@ -164,7 +164,13 @@ export function buildHouseholdPayload(existingDecoded, body) {
 	const updatedAt = new Date().toISOString();
 	const existingItems = normalizeShoppingListRows(existing.items || []);
 	const incomingItems = normalizeShoppingListRows(body?.items || []);
-	const mergedItems = mergeShoppingListRows(existingItems, incomingItems);
+	let mergedItems = mergeShoppingListRows(existingItems, incomingItems);
+	// Union-merge keeps rows that exist only on GitHub when incoming is empty — but an explicit
+	// "clear entire cart" POST must empty the stored list (otherwise clears never stick).
+	const reason = String(body?.reason || "").trim();
+	if (reason === "clear_all" && incomingItems.length === 0) {
+		mergedItems = [];
+	}
 
 	if (isItemsOnlyHouseholdPost(body)) {
 		return {
