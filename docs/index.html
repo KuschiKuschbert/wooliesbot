@@ -9,16 +9,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
-    <meta name="wooliesbot-shell-version" content="2038-kg-pack-price-labels">
+    <meta name="wooliesbot-shell-version" content="2040-unified-dashboard-shell">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=9">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css?v=2040-unified-dashboard-shell">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="icon" href="data:,">
 </head>
-<body data-ui-surface="2037-stale-shell-fix" data-shell-version="2037-stale-shell-fix">
+<body data-ui-surface="2040-unified-dashboard-shell" data-shell-version="2040-unified-dashboard-shell">
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
@@ -97,7 +96,6 @@
                 </div>
             </header>
 
-            <!-- ── A: Compact Stats Strip (replaces bulky sidebar stat cards) ── -->
             <div class="stats-strip">
                 <div class="strip-stat">
                     <i data-feather="database" class="strip-icon"></i>
@@ -131,39 +129,35 @@
             </div>
 
             <div class="dashboard-grid">
-                <!-- Sidebar: Top 5, Essentials, Cola Battle only -->
                 <aside class="stats-sidebar">
-                    <!-- F: Buy Now — LOW STOCK + ON SPECIAL -->
                     <div class="stat-card buy-now-card" id="buy-now-card" style="display:none;">
                         <div class="stat-header">
                             <h3>Buy now</h3>
                             <span class="buy-now-badge" id="buy-now-count">0</span>
                         </div>
-                        <p style="font-size:11px; color:var(--text-muted); margin-bottom:10px;">Running low + on special right now</p>
+                        <p class="buy-now-card__hint">Running low + on special right now</p>
                         <div id="buy-now-list" class="buy-now-list"></div>
                     </div>
 
-                    <!-- Wednesday banners (compact now) -->
                     <div class="stat-card wednesday-banner hidden" id="wednesday-banner">
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:20px;">Schedule</span>
-                            <div>
-                                <div style="font-weight:700; font-size:12px;">Specials refresh tomorrow!</div>
-                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">New deals every Wednesday morning.</div>
+                        <div class="wednesday-banner__row">
+                            <span class="wednesday-banner__emoji" aria-hidden="true">Schedule</span>
+                            <div class="wednesday-banner__text">
+                                <div class="wednesday-banner__headline">Specials refresh tomorrow!</div>
+                                <div class="wednesday-banner__sub">New deals every Wednesday morning.</div>
                             </div>
                         </div>
                     </div>
                     <div class="stat-card wednesday-banner hidden" id="wednesday-live-banner">
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <span style="font-size:20px;">Update</span>
-                            <div>
-                                <div style="font-weight:700; font-size:12px;">New specials live today!</div>
-                                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Woolies & Coles updated this morning.</div>
+                        <div class="wednesday-banner__row">
+                            <span class="wednesday-banner__emoji" aria-hidden="true">Update</span>
+                            <div class="wednesday-banner__text">
+                                <div class="wednesday-banner__headline">New specials live today!</div>
+                                <div class="wednesday-banner__sub">Woolies & Coles updated this morning.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Top 5 deals this week -->
                     <div class="stat-card" id="top5-card">
                         <div class="stat-header">
                             <h3>Top 5 this week</h3>
@@ -186,10 +180,8 @@
                     </div>
                 </aside>
 
-                <!-- Mobile priority rail (Buy Now + Top 5): visible only on ≤768px -->
                 <div id="mobile-priority-rail" class="priority-rail" aria-label="Highlights"></div>
 
-                <!-- Main Section: Filtering & Grid -->
                 <div class="main-feed">
                     <div class="sticky-filter-bar">
                     <div class="feed-header">
@@ -203,7 +195,6 @@
                                 <button class="filter-btn" data-filter="woolworths" title="Woolworths only">W</button>
                                 <button class="filter-btn" data-filter="coles" title="Coles only">C</button>
                             </div>
-                            <!-- E: Sort pills (replaces native <select>) -->
                             <div class="sort-pills" id="sort-pills">
                                 <button class="sort-pill active" data-sort="discount">% Off</button>
                                 <button class="sort-pill" data-sort="price">Price</button>
@@ -252,14 +243,13 @@
                 </div>
             </div>
 
-            <!-- D: Master Tracklist — collapsible, collapsed by default -->
             <section class="master-table-section">
-                <button class="master-table-toggle" id="master-table-toggle" onclick="toggleMasterTable()" aria-expanded="false">
+                <button type="button" class="master-table-toggle" id="master-table-toggle" aria-expanded="false">
                     <span>Everything you track</span>
                     <span class="master-table-meta" id="master-table-meta"></span>
                     <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
                 </button>
-                <div class="master-table-body" id="master-table-body" style="display:none;">
+                <div class="master-table-body" id="master-table-body">
                     <!-- Desktop table -->
                     <div class="table-container master-desktop-table">
                         <table class="data-table">
@@ -446,7 +436,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>Prices refresh on a schedule — WooliesBot <span class="footer-ui-stamp" id="footer-ui-stamp" title="Static UI bundle id">· UI 2037-stale-shell-fix</span></p>
+            <p>Prices refresh on a schedule — WooliesBot <span class="footer-ui-stamp" id="footer-ui-stamp" title="Static UI bundle id">· UI 2040-unified-dashboard-shell</span></p>
         </div>
     </footer>
 
@@ -483,7 +473,7 @@
             <button type="button" id="clear-completed-btn" class="sync-btn" hidden disabled>
                 <i data-feather="check-circle"></i> Clear completed
             </button>
-            <button type="button" id="copy-list-btn" class="sync-btn" disabled onclick="copyShoppingList()">
+            <button type="button" id="copy-list-btn" class="sync-btn" disabled>
                 <i data-feather="copy"></i> Copy for messages
             </button>
         </div>
@@ -491,7 +481,7 @@
     <div id="drawer-overlay" class="drawer-overlay"></div>
 
     <!-- Modals (Stock / Target Edit) -->
-    <div id="overlay-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="overlay-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal">
             <h3 id="modal-title">Item Name</h3>
             <div class="modal-body">
@@ -501,9 +491,9 @@
                     <button type="button" class="stock-btn med" data-level="medium">Medium</button>
                     <button type="button" class="stock-btn full" data-level="full">Full</button>
                 </div>
-                <label style="margin-top:20px; display:block;">Good deal price ($) — buy at or below this</label>
+                <label class="modal-label-target">Good deal price ($) — buy at or below this</label>
                 <input type="number" id="target-input-modal" step="0.10">
-                <div id="modal-store-links" class="modal-store-links" style="display:none" aria-label="Open product on store website"></div>
+                <div id="modal-store-links" class="modal-store-links" aria-label="Open product on store website"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="modal-cancel">Cancel</button>
@@ -534,10 +524,10 @@
 
     <div id="app-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <script src="env.js?v=9"></script>
-    <script src="js/household_sync.js?v=9"></script>
-    <script src="js/compare_helpers.js?v=9"></script>
-    <script src="js/store_pdp_link.js?v=9"></script>
-    <script id="wooliesbot-app-js" src="app.js?v=9"></script>
+    <script src="env.js?v=2040-unified-dashboard-shell"></script>
+    <script src="js/household_sync.js?v=2040-unified-dashboard-shell"></script>
+    <script src="js/compare_helpers.js?v=2040-unified-dashboard-shell"></script>
+    <script src="js/store_pdp_link.js?v=2040-unified-dashboard-shell"></script>
+    <script id="wooliesbot-app-js" src="app.js?v=2040-unified-dashboard-shell"></script>
 </body>
 </html>

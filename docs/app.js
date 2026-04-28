@@ -61,6 +61,27 @@ function extractShellVersionFromHtml(html) {
         : '';
 }
 
+/** Loaded on demand (removed from index `<head>`); keep URL aligned with `docs/sw.js` precache expectations for offline. */
+const CHART_JS_CDN = 'https://cdn.jsdelivr.net/npm/chart.js';
+let _chartJsPromise = null;
+function ensureChartJs() {
+    if (typeof window.Chart !== 'undefined') return Promise.resolve();
+    if (!_chartJsPromise) {
+        _chartJsPromise = new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = CHART_JS_CDN;
+            s.async = true;
+            s.onload = () => resolve();
+            s.onerror = () => {
+                _chartJsPromise = null;
+                reject(new Error('Chart.js failed to load'));
+            };
+            document.head.appendChild(s);
+        });
+    }
+    return _chartJsPromise;
+}
+
 async function checkForStaleShellVersion() {
     const expected = getExpectedShellVersion();
     if (!expected) return;
@@ -1713,7 +1734,7 @@ async function initDashboard() {
         const dataUrl = docsBundleAssetUrl('data.json');
         const dataUrlStr = dataUrl.href;
         dataUrl.searchParams.set('t', String(Date.now()));
-        const [gotHb, _gotReceiptSync, dataRes] = await Promise.all([
+        const [gotHb, _gotReceiptSync, dataRes, _chartPreload] = await Promise.all([
             tryLoadHeartbeatForHeader(),
             tryLoadReceiptSyncStatusForHeader(),
             fetchWithTimeout(dataUrl.href, { cache: 'no-store' }, 120000)
@@ -1721,6 +1742,10 @@ async function initDashboard() {
                     console.warn('data.json fetch failed', e);
                     return null;
                 }),
+            ensureChartJs().catch((e) => {
+                console.warn('Chart.js preload failed', e);
+                return null;
+            }),
         ]);
 
         if (dataRes && dataRes.ok) {
@@ -1839,7 +1864,7 @@ function setupFilters() {
         if (target === 'analytics') {
             syncCompareGroupDetailsState();
             syncAnalyticsViewportState();
-            renderAnalytics();
+            void renderAnalytics().catch(() => {});
         }
         else renderDashboard();
     };
@@ -1948,6 +1973,17 @@ function setupFilters() {
     document.getElementById('go-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(true));
     document.getElementById('done-shopping-btn')?.addEventListener('click', () => setShoppingTripMode(false, 'done_button'));
     document.getElementById('clear-completed-btn')?.addEventListener('click', clearPickedListItems);
+
+    document.getElementById('master-table-toggle')?.addEventListener('click', toggleMasterTable);
+    document.getElementById('copy-list-btn')?.addEventListener('click', () => copyShoppingList());
+    document.getElementById('shopping-list-items')?.addEventListener('click', (e) => {
+        const btn = e.target.closest('.shopping-item-remove');
+        if (!btn) return;
+        const raw = btn.getAttribute('data-remove-index');
+        const idx = raw == null ? NaN : parseInt(raw, 10);
+        if (!Number.isInteger(idx)) return;
+        removeFromList(idx);
+    });
 }
 
 function syncCompareGroupDetailsState() {
@@ -1971,7 +2007,7 @@ function rerenderAnalyticsForViewportIfNeeded() {
     const modeChanged = prevMode && prevMode !== _analyticsViewportMode;
     const orientationChanged = prevOrientation && prevOrientation !== _analyticsOrientation;
     if (modeChanged || orientationChanged) {
-        renderAnalytics();
+        void renderAnalytics().catch(() => {});
         return;
     }
     resizeInsightsCharts();
@@ -3038,7 +3074,7 @@ function renderShoppingList() {
                 <div class="shopping-item-name">${item.qty}× ${displayName(item.name)} ${specialBadge}</div>
                 <div class="shopping-item-price">${item.store === 'woolworths' ? '🟢 Woolies' : '🔴 Coles'} — $${itemTotal.toFixed(2)}</div>
             </div>
-            <button class="icon-btn shopping-item-remove" type="button" onclick="removeFromList(${index})" aria-label="Remove ${displayName(item.name)} from shopping list"><i data-feather="trash-2"></i></button>
+            <button class="icon-btn shopping-item-remove" type="button" data-remove-index="${index}" aria-label="Remove ${displayName(item.name)} from shopping list"><i data-feather="trash-2"></i></button>
         `;
         container.appendChild(div);
     });
@@ -3475,10 +3511,10 @@ function toggleMasterTable() {
     if (!btn || !body) return;
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
     if (isOpen) {
-        body.style.display = 'none';
+        body.classList.remove('is-expanded');
         btn.setAttribute('aria-expanded', 'false');
     } else {
-        body.style.display = 'block';
+        body.classList.add('is-expanded');
         btn.setAttribute('aria-expanded', 'true');
         // Lazy-render: check both table (desktop) and card list (mobile)
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -3734,10 +3770,10 @@ function openStockModal(itemName, itemId) {
             ? `${storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' })}${storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' })}`
             : storePdpLinkForItem(item, item.store === 'coles' ? 'coles' : 'woolworths', {}, { className: 'store-pdp-link--inline' });
         linksEl.innerHTML = `<span class="modal-store-links-label">Open in browser</span><span class="modal-store-links-row">${row}</span>`;
-        linksEl.style.display = 'flex';
+        linksEl.classList.add('is-visible');
     }
 
-    document.getElementById('overlay-modal').style.display = 'flex';
+    document.getElementById('overlay-modal')?.removeAttribute('hidden');
     setTimeout(() => {
         safeFeatherReplace();
         document.querySelector('#overlay-modal .stock-btn.active')?.focus()
@@ -3747,11 +3783,11 @@ function openStockModal(itemName, itemId) {
 }
 
 function closeModal() {
-    document.getElementById('overlay-modal').style.display = 'none';
+    document.getElementById('overlay-modal')?.setAttribute('hidden', '');
     const linksEl = document.getElementById('modal-store-links');
     if (linksEl) {
         linksEl.innerHTML = '';
-        linksEl.style.display = 'none';
+        linksEl.classList.remove('is-visible');
     }
     const prev = _focusBeforeStockModal;
     _focusBeforeStockModal = null;
@@ -3800,7 +3836,8 @@ async function saveItemChanges() {
     }
 }
 
-function renderAnalytics() {
+async function renderAnalytics() {
+    await ensureChartJs().catch(() => {});
     syncAnalyticsViewportState();
     // Collect data
     const categories = {};
@@ -4262,6 +4299,13 @@ function renderDeeperInsights(brandPrices) {
 }
 
 function renderSparkline(containerId, historyData, storeClass) {
+    if (typeof window.Chart === 'undefined') {
+        void ensureChartJs()
+            .then(() => renderSparkline(containerId, historyData, storeClass))
+            .catch(() => {});
+        return;
+    }
+
     const container = document.getElementById(containerId);
     if (!container) return;
 
@@ -5049,7 +5093,7 @@ function renderPantryHealthScore() {
 // ─── 8. ITEM DEEP-DIVE MODAL ─────────────────────────────────────────────────
 let _deepdiveChart = null;
 
-function openItemDeepdive(itemName) {
+async function openItemDeepdive(itemName) {
     const item = _data.find(i => i.name === itemName);
     if (!item) return;
 
@@ -5148,6 +5192,7 @@ function openItemDeepdive(itemName) {
     safeFeatherReplace();
 
     if (sorted.length > 1) {
+        await ensureChartJs().catch(() => {});
         const canvas = document.getElementById('deepdive-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
