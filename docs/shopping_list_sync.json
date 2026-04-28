@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "updated_at": "2026-04-28T02:56:15.106Z",
-  "updated_by": "dev_a",
+  "updated_at": "2026-04-28T02:56:16.316Z",
+  "updated_by": "dev_b_seq",
   "items": [
     {
       "item_id": "__sim__dev_a_seq__1",
@@ -26,6 +26,18 @@
       "was_price": 0,
       "picked": false,
       "updated_at": "2026-01-15T12:31:00.000Z"
+    },
+    {
+      "item_id": "__sim__dev_b_seq__2",
+      "name": "Sim product (dev_b_seq #2)",
+      "price": 2.5,
+      "qty": 1,
+      "store": "woolworths",
+      "image": null,
+      "on_special": false,
+      "was_price": 0,
+      "picked": false,
+      "updated_at": "2026-01-15T12:32:00.000Z"
     }
   ]
 }
