@@ -1,0 +1,35 @@
+---
+description: >-
+  Use scripts/shippr.sh (shippr) to land work on main via PR — never push commits
+  directly to main. Documents usage and when to branch manually instead.
+alwaysApply: true
+---
+
+# WooliesBot — shippr for mainline (always)
+
+`main` is **protected**: changes must go through a **pull request** (and required checks). The repo standard is to use **[`scripts/shippr.sh`](scripts/shippr.sh)** (**shippr**) to package local work into a new branch, one commit, push, and `gh pr create` — not to `git push origin main` or commit on `main` locally and push.
+
+## When an agent or human ships user-facing or repo changes
+
+1. **Prefer shippr** from a clean intent: you have local changes and want a PR into `main`.
+2. Run (from repo root):
+
+   ```bash
+   ./scripts/shippr.sh <branch-name> "<pr-title>" "<commit-message>" [base-branch]
+   ```
+
+   - Default `base-branch` is `main`.
+   - Requires **GitHub CLI** (`gh`) and **uncommitted** changes; creates a **new** local branch name that must not already exist locally or on `origin`.
+3. **After the PR is open:** wait for CI / GitGuardian (and any other required checks), then **merge** in GitHub (or `gh pr merge` when appropriate). shippr does **not** merge — it only opens the PR.
+4. **Do not** attempt `git push origin main` to bypass rules; it will be rejected and bypasses review.
+
+## If shippr is not applicable
+
+- You already have a **feature branch** with commits: push that branch and open/update the PR with `gh` (or the existing PR); do not recreate with shippr on top of dirty state without reading `shippr.sh` constraints.
+- **No local diff** (nothing to commit): there is nothing for shippr to commit; branch and commit manually as needed.
+- **Amend / multi-commit workflows:** use a normal branch workflow; shippr is opinionated (single commit, new branch from current `HEAD` after `checkout -b`).
+
+## Reference
+
+- Full behavior and flags: `./scripts/shippr.sh --help`
+- If the user says “use shippr” or “ship to main,” follow this path unless they explicitly request a different Git workflow (e.g. hotfix runbook).

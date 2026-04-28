@@ -12,6 +12,18 @@ pip install -r requirements.txt
 python3 chef_os.py
 ```
 
+## Contributing (shipping to `main`)
+
+The `main` branch is **protected** — land work via **pull request**, not a direct push.
+
+For a typical flow with local changes, use **shippr** (creates a branch, commits, pushes, opens a PR with `gh`):
+
+```bash
+./scripts/shippr.sh <branch-name> "<pr-title>" "<commit-message>"
+```
+
+Run `./scripts/shippr.sh --help` for full behavior and arguments. Agent-side conventions for this repo live in [`.cursor/rules/wooliesbot-shippr-mainline.mdc`](.cursor/rules/wooliesbot-shippr-mainline.mdc).
+
 ## Common Commands
 
 - Install/start launchd service: `./manage_services.sh install`
