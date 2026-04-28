@@ -29,10 +29,13 @@ jobs:
       - name: Compile Python modules
         run: |
           python3 -m py_compile chef_os.py receipt_sync.py
-          python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py scripts/scrape_pipeline.py scripts/telegram_notify.py scripts/validate_household_merge.py
+          python3 -m py_compile scripts/e2e_validate.py scripts/check_inventory_identity.py scripts/smart_targets.py scripts/scrape_pipeline.py scripts/telegram_notify.py scripts/validate_household_merge.py scripts/check_compare_groups.py
 
       - name: Inventory identity (duplicate item_id / names)
         run: python3 scripts/check_inventory_identity.py
+
+      - name: Compare-group taxonomy (near-dup names, mixed price_mode)
+        run: python3 scripts/check_compare_groups.py
 
       - name: e2e Layer B (data.json internal consistency)
         run: python3 scripts/e2e_validate.py --layer B --strict-exit
