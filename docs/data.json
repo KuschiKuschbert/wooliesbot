@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-28 09:45 AM",
+  "last_updated": "2026-04-28 02:27 PM",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -12311,9 +12311,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -14376,13 +14376,6 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 7.9,
-          "unit_price": 15.8,
-          "eff_price": 7.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -19115,13 +19108,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -22113,13 +22106,6 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 35.0,
-          "unit_price": 17.5,
-          "eff_price": 35.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -28710,13 +28696,13 @@
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
       "image_url": "images/ww_liquid_stock_chicken_style_1l.jpg",
       "store": "woolworths",
-      "unit_price": 1.9,
+      "unit_price": 4.2,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 1.9,
-          "unit_price": 1.9,
-          "eff_price": 1.9,
+          "price": 4.2,
+          "unit_price": 4.2,
+          "eff_price": 4.2,
           "was_price": null,
           "on_special": false
         },
@@ -28734,7 +28720,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Chicken Liquid Stock",
+      "name_check": "Massel Gourmet Liquid Stock Chicken",
       "item_id": "69003d24-5705-4435-953f-9ff830a2e577"
     },
     {
@@ -35848,7 +35834,7 @@
       "name": "Mutti Tomato Paste Dbl Conc 130G",
       "type": "produce",
       "price_mode": "each",
-      "target": 1.9,
+      "target": 1.59,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Mutti%20Tomato%20Paste%20Dbl%20Conc%20130g",
       "coles": "https://www.coles.com.au/search?q=Mutti+Tomato+Passata+400g",
       "price_history": [
@@ -35865,7 +35851,7 @@
       "size": "130G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $2.40, now $1.90 (store special)",
+      "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-28",
       "scrape_history": [
@@ -35925,7 +35911,7 @@
         {
           "date": "2026-04-22",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35933,7 +35919,7 @@
         {
           "date": "2026-04-23",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35941,7 +35927,7 @@
         {
           "date": "2026-04-24",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35949,7 +35935,7 @@
         {
           "date": "2026-04-25",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35957,7 +35943,7 @@
         {
           "date": "2026-04-26",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35965,7 +35951,7 @@
         {
           "date": "2026-04-27",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
@@ -35973,26 +35959,26 @@
         {
           "date": "2026-04-28",
           "price": 1.9,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
         }
       ],
       "was_price": 2.4,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Mutti_Tomato_Paste_Dbl_Conc_130G.jpg",
       "image_url": "images/mutti_tomato_paste_dbl_conc_130g.jpg",
       "store": "woolworths",
-      "unit_price": 1.46,
+      "unit_price": 2.12,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.9,
-          "unit_price": 1.46,
-          "eff_price": 1.9,
-          "was_price": 2.4,
-          "on_special": true
+          "price": 2.75,
+          "unit_price": 2.12,
+          "eff_price": 2.75,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -36001,7 +35987,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Mutti Tomato Paste Double Concentrate",
+      "name_check": "Mutti Organic Tomato Paste Double Concentrated",
       "item_id": "482376b7-0a9e-4349-911d-132dc1aa9887"
     },
     {
@@ -43188,9 +43174,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
+          "price": 8.5,
+          "unit_price": 3.4,
+          "eff_price": 8.5,
           "was_price": null,
           "on_special": false
         },
@@ -53861,7 +53847,7 @@
       "name": "Noshu Low Carb Pnut & Crml Bar 160G 5Pk",
       "type": "snacks",
       "price_mode": "each",
-      "target": 6.9,
+      "target": 4.9,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Noshu%20Low%20Carb%20Pnut%20&%20Crml%20Bar%20160g%205Pk",
       "coles": "https://www.coles.com.au/product/low-carb-peanut-and-caramel-nougat-indulgence-bar-4256684",
       "price_history": [
@@ -53872,13 +53858,13 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 6.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.90, now $6.90 (store special)",
+      "target_method": "was $8.90, now $4.90 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-28",
       "scrape_history": [
@@ -53996,14 +53982,14 @@
       "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
-      "store": "coles",
-      "unit_price": 4.31,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.63,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.56,
-          "eff_price": 8.9,
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         },
@@ -54017,11 +54003,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 6.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Low Carb Peanut And Caramel Nougat Indulgence Bar",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a"
     },
     {
