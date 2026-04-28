@@ -45,3 +45,15 @@ gh run list --workflow "Deploy Worker (write API)" --limit 5
 - All phase branches merged in planned order.
 - `main` is green in CI/deploy workflows.
 - Runtime smoke checks confirm expected behavior post-merge.
+
+## Dashboard shell version (static `docs/` site)
+
+When you change `docs/index.html`, `docs/app.js`, `docs/style.css`, or `docs/sw.js` in a way that affects caching or the service worker precache, bump **one** id everywhere in the same commit:
+
+1. `meta name="wooliesbot-shell-version"` in `docs/index.html`
+2. `body` `data-ui-surface` and `data-shell-version` (same value)
+3. Footer `#footer-ui-stamp` text (same value, for humans)
+4. `docs/sw.js` `SHELL_VERSION` (cache bucket name)
+5. Query string on static assets in `index.html` (e.g. `style.css?v=…`, `app.js?v=…`, and the same on `pairing.html` / `discovery-review.html` if they reference those files)
+
+Keeping these aligned avoids stale UI, stale SW caches, and confusing version drift. The app reads the meta tag for `checkForStaleShellVersion` in `docs/app.js` reload logic.
