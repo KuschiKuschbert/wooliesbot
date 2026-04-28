@@ -5,7 +5,9 @@
     --bg-card: #ffffff;
     --bg-card-hover: #f8f5ef;
     --text-main: #1f2937;
-    --text-muted: #596579;
+    --text-strong: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #4b5563;
     --woolies-green: #2f7f4f;
     --woolies-glow: rgba(47, 127, 79, 0.18);
     --coles-red: #b0463c;
@@ -169,6 +171,8 @@ body {
 #analytic-savings-val,
 #analytic-efficiency-val,
 .item-price,
+.price-pack,
+.price-per-unit,
 .was-price,
 .pagination-btn,
 .master-table-meta,
@@ -937,8 +941,30 @@ body {
     font-family: var(--font-heading);
     font-size: 16px;
     font-weight: 700;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    color: var(--text-strong);
+}
+
+/* Shelf (pack) price emphasised next to unit rate — kg / litre */
+.item-price--dual {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.55rem;
+}
+
+.item-price--dual .price-pack {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--text-strong);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.item-price--dual .price-per-unit {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.2;
 }
 
 .was-price {
@@ -962,7 +988,7 @@ body {
 
 .item-target {
     font-size: 12px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     width: 100%;
 }
 
@@ -973,9 +999,9 @@ body {
     gap: 3px;
     margin: 8px 0;
     padding: 8px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(15, 23, 42, 0.035);
     border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--border-color);
 }
 
 .store-compare-row {
@@ -993,14 +1019,14 @@ body {
 
 .store-compare-label {
     font-size: 11px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     flex: 1;
 }
 
 .store-compare-price {
     font-size: 12px;
     font-weight: 700;
-    color: var(--text-main);
+    color: var(--text-strong);
 }
 
 .winner-badge {
@@ -1017,12 +1043,12 @@ body {
 .group-best-hint {
     font-size: 11px;
     line-height: 1.35;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin: 6px 0 4px;
     padding: 6px 8px;
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid var(--border-color);
 }
 
 .group-best-on-top {
@@ -1406,6 +1432,10 @@ body {
     letter-spacing: 1px;
     width: fit-content;
     border: 1px solid transparent;
+}
+
+.item-card-head .store-badge {
+    margin-top: 0;
 }
 
 .store-badge.woolworths {
@@ -2248,20 +2278,82 @@ body.drawer-scroll-lock {
 
     .specials-grid {
         grid-template-columns: repeat(2, 1fr) !important; /* Force 2 columns on mobile */
-        gap: 0.6rem !important;
+        gap: 0.55rem !important;
     }
 
     .item-card .item-image {
-        height: 120px;
-        padding: 8px;
+        height: 112px;
+        padding: 6px;
+    }
+
+    .item-content {
+        padding: 6px 10px 8px;
+        gap: 0;
+    }
+
+    .item-card-head {
+        align-items: flex-start;
+        gap: 6px;
     }
 
     .item-title {
         font-size: 13px;
+        margin-bottom: 4px;
+        line-height: 1.28;
+        color: var(--text-strong);
+    }
+
+    .item-title.item-title-spaced {
+        margin-top: 6px;
     }
 
     .item-price {
         font-size: 15px;
+    }
+
+    .item-price--dual .price-pack {
+        font-size: 1.22rem;
+    }
+
+    .item-price--dual .price-per-unit {
+        font-size: 0.8125rem;
+    }
+
+    .item-price-row {
+        gap: 4px 6px;
+        margin-bottom: 8px;
+    }
+
+    .item-target {
+        font-size: 11px;
+        line-height: 1.35;
+        color: var(--text-secondary);
+    }
+
+    .store-compare {
+        margin: 5px 0;
+        padding: 6px 8px;
+        gap: 2px;
+    }
+
+    .store-compare-row {
+        padding: 2px 4px;
+    }
+
+    .chart-container-sm {
+        margin-top: 10px;
+        height: 36px;
+    }
+
+    .group-best-hint {
+        margin: 4px 0 3px;
+        padding: 5px 7px;
+        font-size: 10px;
+        line-height: 1.32;
+    }
+
+    .add-to-list-btn {
+        margin-top: 4px;
     }
 
     .table-container {
@@ -5553,13 +5645,14 @@ button, a, label, [role="button"] {
     /* ── Specials grid ──────────────────────────── */
     .specials-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
+        gap: 9px !important;
     }
 
     /* ── Item card v2 ───────────────────────────── */
     .item-card .item-image,
     .item-card .product-img-placeholder {
-        height: 140px;
+        height: 116px;
+        padding: 6px;
     }
 
     .item-card:hover {
@@ -5584,6 +5677,11 @@ button, a, label, [role="button"] {
         justify-content: center;
         padding: 9px;
         font-size: 13px;
+        margin-top: 8px;
+    }
+
+    .item-price--dual .price-pack {
+        font-size: 1.22rem;
     }
 
     /* ── Shopping list drawer → bottom sheet ────── */

@@ -2220,16 +2220,56 @@ function renderDashboard() {
 
 function formatPrice(item) {
     const effPrice = item.eff_price || item.price;
+    const pack = item.price;
     if (item.price_mode === 'kg') {
-        let s = `$${effPrice.toFixed(2)}/kg`;
-        const pack = item.price;
-        if (Number.isFinite(pack) && Number.isFinite(effPrice) && Math.abs(pack - effPrice) > 0.02) {
-            s += ` · $${pack.toFixed(2)} pack`;
+        if (
+            Number.isFinite(pack) &&
+            Number.isFinite(effPrice) &&
+            Math.abs(pack - effPrice) > 0.02
+        ) {
+            return `$${pack.toFixed(2)} · $${effPrice.toFixed(2)}/kg`;
         }
-        return s;
+        return `$${effPrice.toFixed(2)}/kg`;
     }
-    if (item.price_mode === 'litre') return `$${item.price.toFixed(2)} ($${effPrice.toFixed(2)}/L)`;
+    if (item.price_mode === 'litre') {
+        if (
+            Number.isFinite(pack) &&
+            Number.isFinite(effPrice) &&
+            Math.abs(pack - effPrice) > 0.02
+        ) {
+            return `$${pack.toFixed(2)} · $${effPrice.toFixed(2)}/L`;
+        }
+        return `$${pack.toFixed(2)} ($${effPrice.toFixed(2)}/L)`;
+    }
     return `$${item.price.toFixed(2)}`;
+}
+
+/** Product cards: shelf price visually dominant next to unit price when both differ. */
+function cardPricePrimaryHtml(item) {
+    const effPrice = item.eff_price ?? item.price;
+    const pack = item.price;
+    const pm = item.price_mode || 'each';
+    if (
+        pm === 'kg' &&
+        Number.isFinite(pack) &&
+        Number.isFinite(effPrice) &&
+        Math.abs(pack - effPrice) > 0.02
+    ) {
+        return `<span class="item-price item-price--dual"><span class="price-pack">$${pack.toFixed(
+            2,
+        )}</span><span class="price-per-unit">$${effPrice.toFixed(2)}/kg</span></span>`;
+    }
+    if (
+        pm === 'litre' &&
+        Number.isFinite(pack) &&
+        Number.isFinite(effPrice) &&
+        Math.abs(pack - effPrice) > 0.02
+    ) {
+        return `<span class="item-price item-price--dual"><span class="price-pack">$${pack.toFixed(
+            2,
+        )}</span><span class="price-per-unit">$${effPrice.toFixed(2)}/L</span></span>`;
+    }
+    return `<span class="item-price">${formatPrice(item)}</span>`;
 }
 
 /** Target / good-deal price with correct unit (matches eff_price semantics). */
@@ -2835,14 +2875,14 @@ function createItemCard(item, index, type = 'special') {
     if (hasSaneWas) {
         const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
-            <span class="item-price">${formatPrice(item)}</span>
+            ${cardPricePrimaryHtml(item)}
             <span class="was-price">Was $${item.was_price.toFixed(2)}${wasUnit}</span>
             <span class="save-badge">Save ${savePct}%</span>
         `;
     } else if (item.price_unavailable) {
         priceHtml = `<span class="item-price">❓</span>`;
     } else {
-        priceHtml = `<span class="item-price">${formatPrice(item)}</span>`;
+        priceHtml = cardPricePrimaryHtml(item);
     }
 
     // Build store comparison row if both stores available
@@ -2868,7 +2908,7 @@ function createItemCard(item, index, type = 'special') {
                     <div class="store-compare-row ${!wooliesWinner ? 'winner' : ''}">
                         <span class="store-compare-label">🔴 Coles</span>
                         <span class="store-compare-price">${cLabel}</span>
-                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving} ${item.price_mode === 'kg' ? '/kg' : ''}</span>` : ''}
+                        ${!wooliesWinner ? `<span class="winner-badge">✓ Save $${saving} ${item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : ''}</span>` : ''}
                     </div>
                 </div>
             `;
