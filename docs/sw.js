@@ -3,7 +3,7 @@
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
 // Bump with meta[name="wooliesbot-shell-version"], index.html ?v=, and body data-shell-version together.
-const SHELL_VERSION = '2041-shopping-sync-hardening';
+const SHELL_VERSION = '2042-mobile-card-readability';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
@@ -19,6 +19,7 @@ const PRECACHE = [
     './app.js',
     './js/compare_helpers.js',
     './js/store_pdp_link.js',
+    './js/format_price.js',
     './data.json',
     INTER_FONT,
     'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
@@ -31,7 +32,7 @@ function isAppShellRequest(url) {
         if (u.origin !== self.location.origin) return false;
         const p = u.pathname;
         if (p.endsWith('/data.json') || p.endsWith('/heartbeat.json') || p.endsWith('/receipt_sync_status.json')) return false;
-        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$|\/pairing\.html$/.test(
+        return /\/(app|sw|env)\.js$|\/index\.html$|\/style\.css$|\/js\/household_sync\.js$|\/js\/compare_helpers\.js$|\/js\/store_pdp_link\.js$|\/js\/format_price\.js$|\/manifest\.webmanifest$|\/discovery-review\.html$|\/pairing\.html$/.test(
             p
         );
     } catch {
