@@ -15,8 +15,9 @@ GITHUB_REPO_NAME = "wooliesbot"
 ALLOWED_ORIGINS = "https://kuschikuschbert.github.io"
 # Identity allowlist — only when ALLOW_INSECURE_PUBLIC_WRITES = "0" (optional Cloudflare Access / headers).
 ALLOWED_USER_EMAILS = "derkusch@gmail.com,mikkogram@gmail.com"
-# "1" = dev-only: any client can call the write API (no Bearer); per-IP rate limit. Production: use "0" + WRITE_API_TOKENS (wrangler secret) and Pairing in the dashboard.
-ALLOW_INSECURE_PUBLIC_WRITES = "0"
+# "1" = allowed-origins-only writes without a browser token (CORS + per-IP rate limit). Default for this personal dashboard.
+# Set "0" and use WRITE_API_TOKENS + pairing if you want Bearer-only access.
+ALLOW_INSECURE_PUBLIC_WRITES = "1"
 # Optional hybrid auth token(s), comma-separated. Keep empty to disable token auth.
 # WRITE_API_TOKENS = ""
 # Emergency rollback path: set to "1" to temporarily allow legacy X-WooliesBot-Secret auth.
