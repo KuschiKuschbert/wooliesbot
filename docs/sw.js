@@ -2,8 +2,11 @@
 // If the UI looks stale after deploy: DevTools → Application → Service Workers → Unregister,
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
-const SHELL_VERSION = '2039-kg-pack-price-labels';
+// Bump with meta[name="wooliesbot-shell-version"], index.html ?v=, and body data-shell-version together.
+const SHELL_VERSION = '2040-unified-dashboard-shell';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
+
+const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
 
 const PRECACHE = [
     './',
@@ -17,8 +20,7 @@ const PRECACHE = [
     './js/compare_helpers.js',
     './js/store_pdp_link.js',
     './data.json',
-    'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap',
-    'https://cdn.jsdelivr.net/npm/chart.js',
+    INTER_FONT,
     'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
 ];
 
