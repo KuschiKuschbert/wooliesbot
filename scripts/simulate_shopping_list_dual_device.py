@@ -106,7 +106,9 @@ def options_preflight(base: str, origin: str) -> tuple[int, dict]:
 
 def one_item(device: str, token: str) -> dict:
     now = f"2026-01-01T00:00:00.000Z"  # fixed for stable keys in logs; merge uses row updated_at
-    t = f"2026-01-15T12:{30 + int(device)}:00.000Z"
+    # Deterministic skew between writers; do not int() device (e.g. dev_a_seq).
+    minute_offset = 30 + int(token)
+    t = f"2026-01-15T12:{minute_offset:02d}:00.000Z"
     return {
         "item_id": f"__sim__{device}__{token}",
         "name": f"Sim product ({device} #{token})",
