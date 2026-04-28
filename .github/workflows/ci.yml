@@ -43,6 +43,34 @@ jobs:
       - name: Household merge contract (Python mirror)
         run: python3 scripts/validate_household_merge.py
 
+      - name: Heartbeat timezone guard (must carry Z or numeric offset, never naive)
+        run: |
+          python3 << 'PY'
+          import json, re, sys
+          from pathlib import Path
+          hb = Path("docs/heartbeat.json")
+          if not hb.exists():
+              print("docs/heartbeat.json missing — skipping check (first-ever run)")
+              sys.exit(0)
+          payload = json.loads(hb.read_text(encoding="utf-8"))
+          # Both timestamp fields must end with Z or a numeric UTC offset like +10:00
+          tz_aware = re.compile(r"[Zz]$|[+-]\d{2}:?\d{2}$")
+          errors = []
+          for field in ("last_heartbeat", "next_run"):
+              val = payload.get(field)
+              if val is None:
+                  continue  # next_run is optional when schedule unknown
+              if not tz_aware.search(str(val)):
+                  errors.append(f"  {field}={val!r} — naive timestamp (no Z or offset)")
+          if errors:
+              print("FAIL: docs/heartbeat.json contains naive timestamps.")
+              print("Ensure sync_to_github writes Z-suffixed strings (chef_os.py).")
+              for e in errors:
+                  print(e)
+              sys.exit(1)
+          print(f"OK: heartbeat.json timestamps are timezone-aware")
+          PY
+
       - name: Block hard-coded Telegram secrets (long string fallbacks)
         run: |
           python3 << 'PY'
