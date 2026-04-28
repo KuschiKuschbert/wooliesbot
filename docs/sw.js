@@ -3,7 +3,7 @@
 // or hard-refresh; cache name bumps force a fresh precache on next visit.
 
 // Bump with meta[name="wooliesbot-shell-version"], index.html ?v=, and body data-shell-version together.
-const SHELL_VERSION = '2044-unified-product-cards';
+const SHELL_VERSION = '2045-reliability-hardening';
 const CACHE = `wooliesbot-${SHELL_VERSION}`;
 
 const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
