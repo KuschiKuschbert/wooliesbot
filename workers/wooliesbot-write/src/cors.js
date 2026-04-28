@@ -25,7 +25,8 @@ export function corsPolicy(env, requestOrigin) {
 	const headers = {
 		"Access-Control-Allow-Origin": origin,
 		"Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-		"Access-Control-Allow-Headers": "Content-Type, X-Requested-With, X-WooliesBot-Device",
+		"Access-Control-Allow-Headers":
+			"Content-Type, X-Requested-With, X-WooliesBot-Device, Authorization",
 		"Access-Control-Allow-Credentials": allowCredentials,
 		"Access-Control-Max-Age": "86400",
 	};
