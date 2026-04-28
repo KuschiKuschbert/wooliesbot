@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "updated_at": "2026-04-28T03:05:26.721Z",
-  "updated_by": "wb_5db9d06e-0665-4376-85f9-1e3709137de6",
+  "updated_at": "2026-04-28T03:05:42.741Z",
+  "updated_by": "wb_fe235abf-2ca3-459a-8c53-df5ac096881f",
   "items": [
     {
       "item_id": "__sim__dev_a_seq__1",
@@ -62,6 +62,42 @@
       "was_price": 0,
       "picked": false,
       "updated_at": "2026-04-28T02:57:14.865Z"
+    },
+    {
+      "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
+      "name": "F/C Babyspinach 120G",
+      "price": 15,
+      "qty": 1,
+      "store": "woolworths",
+      "image": "images/F_C_Babyspinach_120G.jpg",
+      "on_special": false,
+      "was_price": 15,
+      "picked": false,
+      "updated_at": "2026-04-28T03:05:41.262Z"
+    },
+    {
+      "item_id": "b926606a-607c-4ba0-a197-ef00e1c0fd91",
+      "name": "Onion Brown 1Kg P/P",
+      "price": 0.63,
+      "qty": 1,
+      "store": "woolworths",
+      "image": "images/Onion_Brown_1Kg_PP.jpg",
+      "on_special": false,
+      "was_price": 0,
+      "picked": false,
+      "updated_at": "2026-04-28T03:05:42.007Z"
+    },
+    {
+      "item_id": "ea101cc8-c2cc-4379-84e2-ca0e2e4aa1ac",
+      "name": "Avocado Hass",
+      "price": 3.5,
+      "qty": 1,
+      "store": "coles",
+      "image": "images/Avocado_Hass.jpg",
+      "on_special": false,
+      "was_price": 0,
+      "picked": false,
+      "updated_at": "2026-04-28T03:05:42.810Z"
     }
   ],
   "trip_state": {
