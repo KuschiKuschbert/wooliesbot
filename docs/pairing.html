@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WooliesBot — sync pairing (QR)</title>
-    <link rel="stylesheet" href="style.css?v=2040-unified-dashboard-shell">
+    <link rel="stylesheet" href="style.css?v=2041-shopping-sync-hardening">
     <style>
         .pair-wrap { max-width: 36rem; margin: 0 auto; padding: 1.5rem; }
         .pair-wrap h1 { font-size: 1.35rem; margin-bottom: 0.5rem; }
@@ -30,7 +30,7 @@
     <div class="pair-wrap">
         <p><a class="back" href="index.html">← Back to dashboard</a></p>
         <h1>Sync pairing (phone &amp; laptop)</h1>
-        <p class="muted">Generates a link with <code>#wbt=…</code> (and optional <code>wbu=…</code>) so each browser can store your write token once. Nothing is sent to a server from this page — it runs only in your browser.</p>
+        <p class="muted">Generates a link with <code>#wbt=…</code> (and optional <code>wbu=…</code>) so each browser can store your write token once. Nothing is sent to a server from this page — it runs only in your browser. Use a Bearer token issued for your Worker (<code>WRITE_API_TOKENS</code> in Cloudflare); do not rely on anonymous “open” write APIs in production.</p>
         <div class="warn">Keep your token secret. Anyone with the link can use your write API. Clear the form when you’re done.</div>
 
         <label for="dash-base">Dashboard base URL (no trailing slash)</label>
