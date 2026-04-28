@@ -9,15 +9,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
-    <meta name="wooliesbot-shell-version" content="2042-mobile-card-readability">
+    <meta name="wooliesbot-shell-version" content="2044-unified-product-cards">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2042-mobile-card-readability">
+    <link rel="stylesheet" href="style.css?v=2044-unified-product-cards">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="icon" href="data:,">
 </head>
-<body data-ui-surface="2042-mobile-card-readability" data-shell-version="2042-mobile-card-readability">
+<body data-ui-surface="2044-unified-product-cards" data-shell-version="2044-unified-product-cards">
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
@@ -25,31 +25,21 @@
                     <i data-feather="shopping-bag"></i>
                     <h1>WooliesBot</h1>
                 </div>
-                <div class="header-cart-sync js-cart-sync-host" hidden aria-live="polite" title="Multi-device shopping list sync (Cloudflare Worker)"></div>
-                <div class="live-status" title="Scrapes run on a schedule; times below reflect the last successful publish to GitHub Pages.">
-                    <div class="status-item" title="Time since the dashboard last committed a successful data sync (heartbeat) to the repo.">
+                <div class="header-cart-sync js-cart-sync-host" hidden aria-live="polite" title="Shopping list sync across your devices"></div>
+                <div class="live-status" title="Prices refresh on a schedule; times show when WooliesBot last pulled store prices and approximately when the next refresh is expected.">
+                    <div class="status-item" title="How long since prices were last refreshed from the stores.">
                         <i data-feather="clock" class="icon-sm"></i> 
-                        <span>Last published: <span id="last-updated">Checking...</span></span>
+                        <span>Prices updated: <span id="last-updated">Checking...</span></span>
                     </div>
                     <span class="status-sep">|</span>
-                    <div class="status-item" title="Next scheduled run from heartbeat (Actions use a 4-hour UTC cron: 0,4,8,12,16,20 UTC). Shown in your local time.">
+                    <div class="status-item" title="Roughly when the next scheduled price refresh runs (your local time).">
                         <i data-feather="refresh-cw" class="icon-sm"></i> 
-                        <span>Next scheduled: <span id="next-update">...</span></span>
-                    </div>
-                    <span class="status-sep">|</span>
-                    <div class="status-item" title="Most recent successful Everyday Rewards receipt sync run.">
-                        <i data-feather="archive" class="icon-sm"></i>
-                        <span>Receipt sync: <span id="receipt-sync-last">Checking...</span></span>
-                    </div>
-                    <span class="status-sep">|</span>
-                    <div class="status-item" title="Date on the newest receipt processed in the latest successful receipt sync.">
-                        <i data-feather="calendar" class="icon-sm"></i>
-                        <span>Latest receipt: <span id="receipt-sync-date">...</span></span>
+                        <span>Next refresh: <span id="next-update">...</span></span>
                     </div>
                 </div>
                 <div class="scrape-status" aria-live="polite">
                     <div id="scrape-status-dot" class="status-dot"></div>
-                    <span id="scrape-status-text">Scrape status: checking...</span>
+                    <span id="scrape-status-text">Price updates: checking…</span>
                 </div>
             </div>
 
@@ -63,8 +53,6 @@
             </nav>
 
             <div class="header-actions">
-                <a href="discovery-review.html" class="header-review-link" title="Review suggested new products before adding them to your list (advanced)">Review</a>
-                <a href="pairing.html" class="header-review-link" title="Build a sync pairing link and QR (two devices)">Pairing</a>
                 <button id="toggle-list-btn" class="list-toggle-pill" type="button" aria-expanded="false" aria-controls="list-drawer">
                     <i data-feather="shopping-cart"></i>
                     <span id="list-count">0</span> items
@@ -86,11 +74,11 @@
             <div id="data-json-banner" class="data-json-banner hidden" role="alert" aria-live="assertive"></div>
             <header class="deals-hero">
                 <div class="deals-hero-main">
-                    <p class="deals-hero-eyebrow">Live specials intelligence</p>
+                    <p class="deals-hero-eyebrow">This week’s specials</p>
                     <h2 class="deals-hero-title display-headline">Spend less on what you actually buy</h2>
                     <p class="deals-hero-sub">Woolworths &amp; Coles — ranked by your deal prices and what’s on special today.</p>
                 </div>
-                <div class="deals-hero-status" id="deals-hero-status" title="Price snapshot freshness">
+                <div class="deals-hero-status" id="deals-hero-status" title="When prices were last refreshed">
                     <span class="deals-hero-dot" aria-hidden="true"></span>
                     <span id="deals-hero-live">Loading prices…</span>
                 </div>
@@ -423,7 +411,7 @@
                         <details id="compare-group-details" class="analytics-card-details">
                             <summary>Show diagnostic details</summary>
                             <div class="analytics-card-details-body">
-                                <p class="analytics-card-copy">For troubleshooting: shows when similar products can’t be compared fairly across stores (for example different unit types or missing prices).</p>
+                                <p class="analytics-card-copy">Shows when similar products can’t be matched fairly across Woolworths and Coles (for example different unit sizes or missing prices).</p>
                                 <div id="compare-group-diagnostics"></div>
                             </div>
                         </details>
@@ -436,7 +424,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>Prices refresh on a schedule — WooliesBot <span class="footer-ui-stamp" id="footer-ui-stamp" title="Static UI bundle id">· UI 2042-mobile-card-readability</span></p>
+            <p>Prices refresh on a schedule — WooliesBot</p>
         </div>
     </footer>
 
@@ -446,7 +434,7 @@
         <div class="drawer-header">
             <div class="drawer-title-wrap">
                 <h3 id="drawer-title">Shopping list</h3>
-                <p class="drawer-cart-sync js-cart-sync-host" hidden aria-live="polite" title="Multi-device list sync status"></p>
+                <p class="drawer-cart-sync js-cart-sync-host" hidden aria-live="polite" title="Shopping list sync across your devices"></p>
                 <p id="shopping-trip-compact" class="shopping-trip-compact" hidden aria-live="polite"></p>
                 <p id="shopping-trip-status" class="shopping-trip-status" hidden aria-live="polite"></p>
                 <div id="shopping-trip-progress-wrap" class="shopping-trip-progress-wrap" hidden aria-hidden="true">
@@ -524,11 +512,11 @@
 
     <div id="app-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <script src="env.js?v=2042-mobile-card-readability"></script>
-    <script src="js/household_sync.js?v=2042-mobile-card-readability"></script>
-    <script src="js/compare_helpers.js?v=2042-mobile-card-readability"></script>
-    <script src="js/store_pdp_link.js?v=2042-mobile-card-readability"></script>
-    <script src="js/format_price.js?v=2042-mobile-card-readability"></script>
-    <script id="wooliesbot-app-js" src="app.js?v=2042-mobile-card-readability"></script>
+    <script src="env.js?v=2044-unified-product-cards"></script>
+    <script src="js/household_sync.js?v=2044-unified-product-cards"></script>
+    <script src="js/compare_helpers.js?v=2044-unified-product-cards"></script>
+    <script src="js/store_pdp_link.js?v=2044-unified-product-cards"></script>
+    <script src="js/format_price.js?v=2044-unified-product-cards"></script>
+    <script id="wooliesbot-app-js" src="app.js?v=2044-unified-product-cards"></script>
 </body>
 </html>

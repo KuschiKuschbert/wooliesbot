@@ -188,7 +188,7 @@ function tryApplyPairingFromHash() {
     const nextUrl = (parsed.wbu || '').trim();
     const existing = (() => { try { return localStorage.getItem('write_api_token') || ''; } catch { return ''; } })();
     if (existing && existing !== nextTok) {
-        if (typeof window !== 'undefined' && !window.confirm('Replace the existing sync token on this device?')) {
+        if (typeof window !== 'undefined' && !window.confirm('Replace the shopping list link saved on this device?')) {
             try {
                 const u = new URL(window.location.href);
                 u.hash = '';
@@ -209,7 +209,7 @@ function tryApplyPairingFromHash() {
         window.history.replaceState(null, '', u.pathname + u.search);
     } catch { /* ignore */ }
     if (typeof showUiToast === 'function') {
-        showUiToast('Shopping sync enabled on this device', 3600);
+        showUiToast('Shopping list linked on this device', 3600);
     }
     if (typeof updateCartSyncStatusLabels === 'function') {
         updateCartSyncStatusLabels();
@@ -376,17 +376,17 @@ function syncDealsHeroStatus() {
     const live = document.getElementById('deals-hero-live');
     if (!live) return;
     if (_dataJsonLoadError) {
-        live.textContent = 'Price list unavailable';
+        live.textContent = 'Prices unavailable';
         return;
     }
     const src = document.getElementById('last-updated');
     const t = src && src.textContent ? src.textContent.trim() : '';
     if (t && t !== 'Checking...') {
-        live.textContent = `Snapshot · ${t}`;
+        live.textContent = `Prices updated · ${t}`;
         return;
     }
     if (_data && _data.length) {
-        live.textContent = `${_data.length} products tracked`;
+        live.textContent = `${_data.length} products`;
         return;
     }
     live.textContent = 'Waiting for data…';
@@ -1232,10 +1232,10 @@ function updateCartSyncStatusLabels() {
         return;
     }
     const fetchPart = _cartSyncLastFetchOkAt
-        ? `Checked ${formatIsoAgo(_cartSyncLastFetchOkAt)}`
-        : 'Not checked yet';
-    const pushPart = _cartSyncLastPushOkAt ? `Uploaded ${formatIsoAgo(_cartSyncLastPushOkAt)}` : 'No upload yet';
-    const text = `List sync · ${fetchPart} · ${pushPart}`;
+        ? `last checked ${formatIsoAgo(_cartSyncLastFetchOkAt)}`
+        : 'not checked yet';
+    const pushPart = _cartSyncLastPushOkAt ? `last saved ${formatIsoAgo(_cartSyncLastPushOkAt)}` : 'not saved yet';
+    const text = `Saved across devices · ${fetchPart} · ${pushPart}`;
     hosts.forEach(el => {
         el.hidden = false;
         el.textContent = text;
@@ -1262,14 +1262,20 @@ function noteShoppingListSyncFailure(kind, reason, status = 0) {
     ) {
         _shoppingListAuthHintShown = true;
         const hasTok = Boolean(getWriteApiToken());
+        console.warn(
+            '[shopping-sync] auth hint',
+            hasTok
+                ? 'Bearer rejected — verify WRITE_API_TOKENS / pairing link with operator.'
+                : 'Missing Bearer — device needs pairing link (#wbt=) when Worker requires token.'
+        );
         showUiToast(
             hasTok
-                ? 'List sync denied (401). Token may not match Cloudflare WRITE_API_TOKENS — open pairing.html and paste the current token, or ask the operator to rotate the secret.'
-                : 'List sync needs a token on this browser — open pairing.html and use the generated #wbt= link (same token as in Cloudflare WRITE_API_TOKENS).',
+                ? 'Couldn’t sync your list with the cloud. The link on this device may be out of date — ask whoever set up WooliesBot.'
+                : 'Couldn’t sync your list to the cloud. This device may need to be linked for shared lists — ask whoever set up WooliesBot.',
             7200
         );
     } else if (_shoppingListSyncFailureStreak === 3 || _shoppingListSyncFailureStreak % 5 === 0) {
-        showUiToast('Cart sync is retrying. Your local changes are still saved on this device.', 3200);
+        showUiToast('Saving your list to the cloud is taking a moment. Your changes are still on this device.', 3200);
     }
 }
 
@@ -1808,9 +1814,11 @@ async function initDashboard() {
             try {
                 parsed = await dataRes.json();
             } catch (e) {
-                const msg = `data.json: response was not valid JSON — ${String(e && e.message ? e.message : e)} · ${dataUrlStr}`;
-                console.error(msg, e);
-                setDataJsonLoadState(msg);
+                const detail = `data.json: response was not valid JSON — ${String(e && e.message ? e.message : e)} · ${dataUrlStr}`;
+                console.error(detail, e);
+                setDataJsonLoadState(
+                    'Couldn’t load prices. Check your connection and tap Refresh, or try again in a moment.'
+                );
                 _data = [];
             }
             if (parsed != null) {
@@ -1825,13 +1833,17 @@ async function initDashboard() {
             }
         } else {
             if (!dataRes) {
-                const msg = `data.json: fetch failed (timeout, offline, or blocked) — ${dataUrlStr}`;
-                console.error(msg);
-                setDataJsonLoadState(msg);
+                const detail = `data.json: fetch failed (timeout, offline, or blocked) — ${dataUrlStr}`;
+                console.error(detail);
+                setDataJsonLoadState(
+                    'Couldn’t load prices. Check your connection and tap Refresh, or try again in a moment.'
+                );
             } else {
-                const msg = `data.json: ${dataRes.status} ${dataRes.statusText} — ${dataUrlStr}`;
-                console.error(msg);
-                setDataJsonLoadState(msg);
+                const detail = `data.json: ${dataRes.status} ${dataRes.statusText} — ${dataUrlStr}`;
+                console.error(detail);
+                setDataJsonLoadState(
+                    'Couldn’t load prices. Check your connection and tap Refresh, or try again in a moment.'
+                );
             }
             _data = [];
         }
@@ -1877,9 +1889,9 @@ async function initDashboard() {
         syncDealsHeroStatus();
         return true;
     } catch (e) {
-        console.error("Failed to initialize dashboard:", e);
         const detail = e && e.message ? String(e.message) : String(e);
-        setDataJsonLoadState(`Dashboard error: ${detail}. Pull to refresh.`);
+        console.error('Failed to initialize dashboard:', detail, e);
+        setDataJsonLoadState('Something went wrong loading prices. Refresh the page or try again.');
         const grid = document.getElementById('specials-grid');
         if (grid) {
             grid.innerHTML = '<p style="color: #ef4444;">Could not load prices. Check your connection and refresh.</p>';
@@ -2869,6 +2881,13 @@ function createItemCard(item, index, type = 'special') {
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
+    const cardContextHtml =
+        type === 'near'
+            ? '<div class="item-card-context item-card-context--near" role="status">Near deal price</div>'
+            : type === 'predicted'
+              ? '<div class="item-card-context item-card-context--predict" role="status">Time to restock</div>'
+              : '';
+
     card.innerHTML = `
         ${imgHtml}
         <div class="item-content">
@@ -2884,6 +2903,7 @@ function createItemCard(item, index, type = 'special') {
                 </div>
             </div>
             <h3 class="item-title item-title-spaced">${displayName(item.name)}</h3>
+            ${cardContextHtml}
             <div class="item-price-row">
                 ${priceHtml}
                 <span class="item-target" ${targetTooltip}>${formatGoodDealTarget(item)}</span>
@@ -3287,15 +3307,15 @@ async function monitorCloudHealth() {
             // 4h GitHub schedule + long runs (~1h); below ~5.5h counts as healthy (old 35m assumed hourly runs).
             if (!Number.isFinite(minsAgo)) {
                 dot.className = 'status-dot offline';
-                text.textContent = 'Scrape status: unavailable';
+                text.textContent = 'Price updates: unavailable';
                 return;
             }
             if (minsAgo < 5.5 * 60) {
                 dot.className = 'status-dot online';
-                text.textContent = `Scrape status: healthy (${Math.round(minsAgo)}m ago)`;
+                text.textContent = `Price updates: up to date (${Math.round(minsAgo)}m ago)`;
             } else {
                 dot.className = 'status-dot stale';
-                text.textContent = `Scrape status: stale (${Math.round(minsAgo)}m ago)`;
+                text.textContent = `Price updates: delayed (${Math.round(minsAgo)}m ago)`;
             }
 
             // Sync Last published / Next scheduled with cloud heartbeat
@@ -3306,10 +3326,10 @@ async function monitorCloudHealth() {
             return;
         }
         dot.className = 'status-dot offline';
-        text.textContent = 'Scrape status: unavailable';
+        text.textContent = 'Price updates: unavailable';
     } catch (e) {
         dot.className = 'status-dot offline';
-        text.textContent = 'Scrape status: unavailable';
+        text.textContent = 'Price updates: unavailable';
     }
 }
 
@@ -3483,9 +3503,7 @@ function renderSpecials() {
                     <div class="no-deals-near-title">🎯 Worth watching</div>
                 </div>`;
             nearMisses.forEach((item, i) => {
-                const card = createItemCard(item, i);
-                card.classList.add('near-miss-card');
-                grid.appendChild(card);
+                grid.appendChild(createItemCard(item, i, 'near'));
             });
         } else {
             grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; padding: 2rem; text-align:center;">Nothing in your filters right now — try another category or check back after Wednesday’s new specials. 🗓️</p>';
@@ -3850,7 +3868,10 @@ async function saveItemChanges() {
     try {
         const base = getStockWriteBase();
         if (!base) {
-            alert('Cloud write API URL is not configured. Set WOOLIESBOT_WRITE_API_URL when building (see scripts/generate_runtime_env.py → docs/env.js), or set localStorage key write_api_url to your Worker base URL.');
+            console.error('saveItemChanges: no write API base URL (env / local storage)');
+            alert(
+                'Can’t save changes right now — this app isn’t fully set up for cloud saves. If this keeps happening, check you’re online or try Wi‑Fi.'
+            );
             return;
         }
         const headers = { 'Content-Type': 'application/json' };
@@ -3873,16 +3894,18 @@ async function saveItemChanges() {
             renderDashboard();
             closeModal();
         } else if (response.status === 401 || response.status === 403) {
+            console.warn('saveItemChanges: rejected', response.status);
             alert(
-                'Write rejected (401/403). Open Pairing (docs/pairing.html or your site’s pairing link) to set a write API token, ' +
-                    'or ask the operator to confirm WRITE_API_TOKENS / ALLOWED_ORIGINS on the Worker and that GH_TOKEN is set.'
+                'Can’t save right now — you may not be allowed to update the list. If you use shared lists, ask whoever set up WooliesBot to check permissions.'
             );
         } else if (!response.ok) {
             const errText = await response.text().catch(() => '');
-            alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
+            console.error('saveItemChanges: HTTP error', response.status, errText.slice(0, 200));
+            alert('Couldn’t save. Please try again in a moment.');
         }
     } catch (e) {
-        alert('Could not reach the cloud write API. Check the Worker URL and your connection.');
+        console.error('saveItemChanges: network error', e);
+        alert('Couldn’t reach the server to save. Check your connection or try Wi‑Fi.');
     }
 }
 
@@ -4217,42 +4240,42 @@ function renderTargetIntelligence() {
     container.innerHTML = `
         <div class="target-intel-header">
             <i data-feather="target"></i>
-            <span>Deal price confidence</span>
+            <span>Your deal-price hints</span>
         </div>
 
         <div class="target-confidence-bar-wrap">
             <div class="target-conf-bar">
-                <div class="tcb-fill high"  style="width:${highPct}%" title="${high} high-confidence"></div>
-                <div class="tcb-fill med"   style="width:${medPct}%"  title="${med} medium-confidence"></div>
-                <div class="tcb-fill low"   style="width:${lowPct}%"  title="${low} low-confidence"></div>
+                <div class="tcb-fill high"  style="width:${highPct}%" title="${high} strong hints"></div>
+                <div class="tcb-fill med"   style="width:${medPct}%"  title="${med} moderate"></div>
+                <div class="tcb-fill low"   style="width:${lowPct}%"  title="${low} thin history"></div>
             </div>
             <div class="tcb-labels">
-                <span><span class="conf-dot high"></span>${high} High</span>
-                <span><span class="conf-dot med"></span>${med} Medium</span>
-                <span><span class="conf-dot low"></span>${low} Low</span>
+                <span><span class="conf-dot high"></span>${high} Strong</span>
+                <span><span class="conf-dot med"></span>${med} Moderate</span>
+                <span><span class="conf-dot low"></span>${low} Thin</span>
             </div>
         </div>
 
         <div class="target-intel-stats">
             <div class="ti-stat">
                 <div class="ti-val">${high}</div>
-                <div class="ti-label">Strong<br>suggestions</div>
+                <div class="ti-label">Solid<br>hints</div>
             </div>
             <div class="ti-stat">
                 <div class="ti-val">${low + noMeta}</div>
-                <div class="ti-label">Need More<br>Receipts</div>
+                <div class="ti-label">Needs more<br>shops</div>
             </div>
             <div class="ti-stat">
                 <div class="ti-val">${Math.round((high + med) / total * 100)}%</div>
-                <div class="ti-label">Confidence<br>Score</div>
+                <div class="ti-label">Overall<br>fit</div>
             </div>
         </div>
 
         ${needsData > 0 ? `
         <div class="ti-tip">
             <i data-feather="info"></i>
-            <span>More shopping history would sharpen deal prices for <strong>${needsData}</strong> items.</span>
-        </div>` : '<div class="ti-tip success"><i data-feather="check-circle"></i><span>All items have price observations — great coverage!</span></div>'}
+            <span>A bit more shopping history would sharpen deal hints for <strong>${needsData}</strong> items.</span>
+        </div>` : '<div class="ti-tip success"><i data-feather="check-circle"></i><span>Good coverage across your items.</span></div>'}
     `;
 
     safeFeatherReplace();
