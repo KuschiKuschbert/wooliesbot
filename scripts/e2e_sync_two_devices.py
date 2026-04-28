@@ -7,14 +7,16 @@ and must show the item after a cloud pull (real GET + merge).
 
 Requires:
   pip install playwright && python -m playwright install chromium
-  WOOLIESBOT_WRITE_API_TOKEN — Bearer token the Worker accepts (same as dashboard pairing).
+  WOOLIESBOT_WRITE_API_TOKEN — optional; Bearer when Worker requires tokens. If unset, the test assumes
+  public writes are allowed from ALLOWED_ORIGINS (no token in localStorage).
 
 Worker CORS must allow the page origin (e.g. GitHub Pages). Local http://127.0.0.1:* only works
 if the deployed Worker includes that origin in ALLOWED_ORIGINS — otherwise use --base-url with
 the production dashboard URL (default).
 
 Usage:
-  export WOOLIESBOT_WRITE_API_TOKEN="your-token"
+  # optional when Worker uses ALLOW_INSECURE_PUBLIC_WRITES=1:
+  # export WOOLIESBOT_WRITE_API_TOKEN="your-token"
   python3 scripts/e2e_sync_two_devices.py
   python3 scripts/e2e_sync_two_devices.py --headed
   python3 scripts/e2e_sync_two_devices.py --base-url "http://127.0.0.1:9333" --local   # serve docs/
@@ -22,7 +24,7 @@ Usage:
 
 Env:
   WOOLIESBOT_WRITE_API_URL   — override Worker base (else parsed from docs/env.js)
-  WOOLIESBOT_WRITE_API_TOKEN — required for token-auth Worker
+  WOOLIESBOT_WRITE_API_TOKEN — optional Bearer (required only if Worker rejects unauthenticated writes)
 """
 from __future__ import annotations
 
@@ -87,6 +89,44 @@ def wait_for_app_ready(page) -> None:
     )
 
 
+# Matches createItemCard() output (specials grid, predictions, near-miss section).
+_ADD_TO_LIST_SELECTOR = (
+    "#specials-grid button.add-to-list-btn, "
+    "#near-misses-grid button.add-to-list-btn, "
+    "#predictions-grid button.add-to-list-btn"
+)
+
+
+def clear_dashboard_search(page) -> None:
+    """Reset filters so the specials grid can render cards (rail alone can pass wait_for_app_ready)."""
+    page.evaluate(
+        """() => {
+            const inp = document.getElementById('dashboard-search');
+            if (!inp) return;
+            if (!String(inp.value || '').trim()) return;
+            inp.value = '';
+            inp.dispatchEvent(new Event('input', { bubbles: true }));
+        }"""
+    )
+    page.wait_for_timeout(950)
+
+
+def switch_to_deals_tab(page) -> None:
+    """Ensure Deals tab is active (mobile bottom nav hides header `.nav-link`; use visible control)."""
+    page.evaluate(
+        """() => {
+            const mob = document.querySelector('.mobile-bottom-nav .mobile-nav-link[data-tab="deals"]');
+            const desk = document.querySelector('nav.main-nav .nav-link[data-tab="deals"]');
+            (mob || desk)?.click?.();
+        }"""
+    )
+    page.wait_for_selector("#tab-deals.tab-content.active", timeout=10_000)
+
+
+def wait_for_add_to_list_button(page, timeout_ms: int = 90_000) -> None:
+    page.wait_for_selector(_ADD_TO_LIST_SELECTOR, timeout=timeout_ms, state="visible")
+
+
 def list_badge_count(page) -> int:
     return int(
         page.evaluate(
@@ -118,9 +158,10 @@ def main() -> int:
 
     token = os.environ.get("WOOLIESBOT_WRITE_API_TOKEN", "").strip()
     if not token:
-        print("ERROR: set WOOLIESBOT_WRITE_API_TOKEN to a valid Worker Bearer token.", file=sys.stderr)
-        print("  (Same value you store after opening a pairing link on a real device.)", file=sys.stderr)
-        return 1
+        print(
+            "Note: WOOLIESBOT_WRITE_API_TOKEN not set — using no Bearer (OK when Worker "
+            "has ALLOW_INSECURE_PUBLIC_WRITES=1)."
+        )
 
     write_url = read_write_base()
     if not write_url:
@@ -164,13 +205,20 @@ def main() -> int:
                 # ---- Device A: load, add first special to list, wait for POST ----
                 page_a.goto(f"{base_url}/", wait_until="domcontentloaded")
                 wait_for_app_ready(page_a)
-                before = list_badge_count(page_a)
-                add_btn = page_a.query_selector(
-                    "#specials-grid .add-to-list-btn, #near-misses-grid .add-to-list-btn"
-                )
-                if not add_btn:
-                    print("FAIL: no .add-to-list-btn (grid empty or layout changed).")
+                switch_to_deals_tab(page_a)
+                clear_dashboard_search(page_a)
+                try:
+                    wait_for_add_to_list_button(page_a)
+                except PWTimeoutError:
+                    print(
+                        "FAIL: no add-to-list button found after clearing search. "
+                        "Specials grid may be empty (filters/data) — check DOM for "
+                        f"{_ADD_TO_LIST_SELECTOR!r}"
+                    )
                     return 1
+                before = list_badge_count(page_a)
+                add_btn = page_a.query_selector(_ADD_TO_LIST_SELECTOR)
+                assert add_btn is not None
 
                 post_seen: list[int] = []
 
