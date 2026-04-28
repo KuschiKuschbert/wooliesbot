@@ -570,6 +570,8 @@ let _shoppingListSyncPullInFlight = false;
 let _shoppingListSyncPushQueued = false;
 let _shoppingListSyncQueuedReason = 'local_edit';
 let _shoppingListSyncFailureStreak = 0;
+/** Set after first successful GET /shopping_list (valid body). Gates drop_alerts push until cloud has been read (avoids racing startup pull). */
+let _shoppingListInitialCloudPullOk = false;
 
 const CART_SYNC_LAST_FETCH_KEY = 'cartSyncLastFetchOkAt';
 const CART_SYNC_LAST_PUSH_KEY = 'cartSyncLastPushOkAt';
@@ -1258,6 +1260,17 @@ function noteShoppingListSyncSuccess() {
     _shoppingListSyncFailureStreak = 0;
 }
 
+function shoppingListNotifyInitialPullReadyIfNeeded(wasFirstPull) {
+    if (!wasFirstPull || !getStockWriteBase()) return;
+    queueMicrotask(() => {
+        try {
+            checkPriceDropAlerts();
+        } catch {
+            /* ignore */
+        }
+    });
+}
+
 function applyRemoteShoppingList(remoteRows, meta = {}) {
     applyRemoteHouseholdFromDocument(
         { items: remoteRows, updated_at: meta?.updated_at || '' },
@@ -1278,8 +1291,8 @@ async function pushShoppingListToCloud(reason = 'manual') {
     _shoppingListSyncPushInFlight = true;
     const dispatchedReason = reason || 'manual';
     try {
-        const payload = buildHouseholdPostBody(dispatchedReason);
-        const res = await fetch(`${base}/shopping_list`, {
+        let payload = buildHouseholdPostBody(dispatchedReason);
+        let res = await fetch(`${base}/shopping_list`, {
             ...buildWriteApiRequestInit('POST', {
                 headers: {
                 'Content-Type': 'application/json',
@@ -1287,6 +1300,27 @@ async function pushShoppingListToCloud(reason = 'manual') {
                 body: JSON.stringify(payload),
             }),
         });
+        // Worker stores shopping_list on GitHub; concurrent tabs/devices cause SHA 409. Pull-merge then retry (up to 2 post-conflict attempts).
+        let conflictRetries = 0;
+        const maxConflictPostAttempts = 2;
+        while (res.status === 409 && conflictRetries < maxConflictPostAttempts) {
+            conflictRetries += 1;
+            for (let i = 0; i < 80; i++) {
+                if (!_shoppingListSyncPullInFlight) break;
+                await new Promise(r => setTimeout(r, 50));
+            }
+            await pullShoppingListFromCloud('github_sha_conflict');
+            const retryReason = conflictRetries === 1 ? 'retry_after_409' : 'retry_after_409_2';
+            payload = buildHouseholdPostBody(retryReason);
+            res = await fetch(`${base}/shopping_list`, {
+                ...buildWriteApiRequestInit('POST', {
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                }),
+            });
+        }
         if (!res.ok) {
             noteShoppingListSyncFailure('push', dispatchedReason, res.status);
             return;
@@ -1342,14 +1376,18 @@ async function pullShoppingListFromCloud(reason = 'poll') {
         const body = await res.json().catch(() => null);
         if (!body || !Array.isArray(body.items)) return;
         recordCartSyncFetchOk();
+        const wasFirstCloudPull = !_shoppingListInitialCloudPullOk;
+        _shoppingListInitialCloudPullOk = true;
         const remoteMs = Date.parse(String(body.updated_at || '')) || 0;
         const localCloudMs = getShoppingListCloudStampMs();
         if (remoteMs <= localCloudMs) {
             noteShoppingListSyncSuccess();
+            shoppingListNotifyInitialPullReadyIfNeeded(wasFirstCloudPull);
             return;
         }
         applyRemoteHouseholdFromDocument(body, { updated_at: body.updated_at, reason });
         noteShoppingListSyncSuccess();
+        shoppingListNotifyInitialPullReadyIfNeeded(wasFirstCloudPull);
     } catch {
         noteShoppingListSyncFailure('pull', reason);
     }
@@ -3826,7 +3864,10 @@ async function saveItemChanges() {
             renderDashboard();
             closeModal();
         } else if (response.status === 401 || response.status === 403) {
-            alert("Write rejected (401/403). Check the Worker is deployed with open access or an allowlist, GitHub token is set, and this site's origin is in ALLOWED_ORIGINS.");
+            alert(
+                'Write rejected (401/403). Open Pairing (docs/pairing.html or your site’s pairing link) to set a write API token, ' +
+                    'or ask the operator to confirm WRITE_API_TOKENS / ALLOWED_ORIGINS on the Worker and that GH_TOKEN is set.'
+            );
         } else if (!response.ok) {
             const errText = await response.text().catch(() => '');
             alert(`Could not save (${response.status}). ${errText.slice(0, 120)}`);
@@ -4472,7 +4513,9 @@ function checkPriceDropAlerts() {
     localStorage.setItem('alertedDrops', JSON.stringify([..._alertedItems]));
     if (_householdRemoteApplyDepth === 0) {
         bumpHouseholdSection('dropAlerts');
-        scheduleShoppingListCloudPush('drop_alerts');
+        if (_shoppingListInitialCloudPullOk && getStockWriteBase()) {
+            scheduleShoppingListCloudPush('drop_alerts');
+        }
     }
 
     if (newDrops.length > 0) {
