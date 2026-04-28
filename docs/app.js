@@ -2012,12 +2012,18 @@ function setupFilters() {
         });
     });
 
-    // Clear List
+    // Clear List — persist locally, cancel debounced push, then POST with reason clear_all so
+    // the Worker replaces server items instead of union-merge preserving old rows.
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
         if (confirm("Clear your entire shopping list?")) {
             if (_shoppingTripMode) setShoppingTripMode(false, 'clear_all');
             _shoppingList = [];
-            persistShoppingList();
+            persistShoppingList({ skipCloud: true });
+            if (_shoppingListSyncPushTimer) {
+                clearTimeout(_shoppingListSyncPushTimer);
+                _shoppingListSyncPushTimer = null;
+            }
+            pushShoppingListToCloud('clear_all');
             renderShoppingList();
             updateListCount();
         }

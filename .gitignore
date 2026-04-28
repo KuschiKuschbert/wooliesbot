@@ -17,3 +17,6 @@ screenshots/
 
 # Local Cursor IDE settings (machine-specific; do not ship via shippr)
 .cursor/settings.json
+
+# Local multi-agent coordination (see .agent-locks/README.md)
+.agent-locks/*.lock

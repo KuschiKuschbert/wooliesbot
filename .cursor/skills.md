@@ -4,6 +4,8 @@ Quick reference for common tasks on the WooliesBot project.
 
 **Safety:** Cursor loads **[`.cursor/rules/wooliesbot-data-safety.mdc`](rules/wooliesbot-data-safety.mdc)** in every session (`alwaysApply`). For inventory merges, discovery, and verification habits, see the **wooliesbot-operations** skill: **[`SKILL.md`](skills/wooliesbot-operations/SKILL.md)**.
 
+**Parallel agents:** Path ownership and optional **`.agent-locks/*.lock`** (local, gitignored) — see **[`AGENTS.md`](../AGENTS.md)** and **[`.cursor/rules/wooliesbot-agent-coordination.mdc`](rules/wooliesbot-agent-coordination.mdc)** (`alwaysApply`).
+
 **Variant discovery:** **[`scripts/discover_variants.py`](../scripts/discover_variants.py)** — proposes draft SKUs (`--compare-group`, `--inventory-scan`). Does not edit `data.json`; merge by hand after review. **UI:** [`docs/discovery-review.html`](../docs/discovery-review.html). **Optional weekly snippet:** [`scripts/discovery_weekly_snippet.sh`](../scripts/discovery_weekly_snippet.sh) → see [`LAUNCHD_SETUP.md`](../LAUNCHD_SETUP.md). **Stack verify:** [`scripts/verify_wooliesbot_stack.sh`](../scripts/verify_wooliesbot_stack.sh) (`VERIFY_STRICT=1` fails on e2e layer FAIL lines).
 
 ---
