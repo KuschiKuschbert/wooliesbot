@@ -572,6 +572,8 @@ let _shoppingListSyncQueuedReason = 'local_edit';
 let _shoppingListSyncFailureStreak = 0;
 /** Set after first successful GET /shopping_list (valid body). Gates drop_alerts push until cloud has been read (avoids racing startup pull). */
 let _shoppingListInitialCloudPullOk = false;
+/** One toast per page load when Worker returns 401/403 (missing or invalid Bearer). */
+let _shoppingListAuthHintShown = false;
 
 const CART_SYNC_LAST_FETCH_KEY = 'cartSyncLastFetchOkAt';
 const CART_SYNC_LAST_PUSH_KEY = 'cartSyncLastPushOkAt';
@@ -1251,7 +1253,20 @@ function noteShoppingListSyncFailure(kind, reason, status = 0) {
         `[shopping-sync] ${kind} failed (${reason})`,
         status ? { status, authMode: getWriteApiAuthMode() } : { authMode: getWriteApiAuthMode() }
     );
-    if (_shoppingListSyncFailureStreak === 3 || _shoppingListSyncFailureStreak % 5 === 0) {
+    if (
+        !_shoppingListAuthHintShown &&
+        (status === 401 || status === 403) &&
+        (kind === 'pull' || kind === 'push')
+    ) {
+        _shoppingListAuthHintShown = true;
+        const hasTok = Boolean(getWriteApiToken());
+        showUiToast(
+            hasTok
+                ? 'List sync denied (401). Token may not match Cloudflare WRITE_API_TOKENS — open pairing.html and paste the current token, or ask the operator to rotate the secret.'
+                : 'List sync needs a token on this browser — open pairing.html and use the generated #wbt= link (same token as in Cloudflare WRITE_API_TOKENS).',
+            7200
+        );
+    } else if (_shoppingListSyncFailureStreak === 3 || _shoppingListSyncFailureStreak % 5 === 0) {
         showUiToast('Cart sync is retrying. Your local changes are still saved on this device.', 3200);
     }
 }
