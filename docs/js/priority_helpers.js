@@ -106,7 +106,7 @@ function getSavingsOverview(items) {
     for (const item of (items || [])) {
         if (!item || item.price_unavailable) continue;
         const snap = computeItemSavingsSnapshot(item);
-        if (snap.isDeal) {
+        if (snap.isDeal && !item.fake_deal) {
             summary.currentSavings += snap.savedDollar;
             summary.activeDeals += 1;
         }
@@ -139,4 +139,38 @@ function buildWeeklyActionPlan(limit) {
         .filter(row => (row.likelyLow || row.snap.isDeal) && row.score > 0)
         .sort((a, b) => b.score - a.score)
         .slice(0, limit);
+}
+
+function renderSuspiciousSpecials() {
+    const container = document.getElementById('suspicious-specials-container');
+    if (!container) return;
+    const fakes = (_data || []).filter(i => i.fake_deal && i.was_price && i.baseline_price);
+    if (fakes.length === 0) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+        return;
+    }
+    container.style.display = '';
+    fakes.sort((a, b) => {
+        const ai = (a.was_price || 0) / (a.baseline_price || 1);
+        const bi = (b.was_price || 0) / (b.baseline_price || 1);
+        return bi - ai;
+    });
+    const top = fakes.slice(0, 5);
+    container.innerHTML = `
+        <div class="suspicious-title">Suspicious specials <span class="suspicious-count">${fakes.length}</span></div>
+        <div class="suspicious-sub">Stores claiming a "was-price" above the real historical baseline.</div>
+        <div class="suspicious-list">
+            ${top.map(it => {
+                const inflated = it.baseline_price > 0 ? Math.round(((it.was_price / it.baseline_price) - 1) * 100) : 0;
+                const dn = displayName(it.name);
+                const name = dn.length > 30 ? dn.slice(0, 30) + '\u2026' : dn;
+                return `<div class="suspicious-row" onclick="openStockModal(${JSON.stringify(it.name)}, ${it.item_id ? JSON.stringify(it.item_id) : 'null'})">
+                    <span class="suspicious-name">${name}</span>
+                    <span class="suspicious-claim">claims $${Number(it.was_price).toFixed(2)} \u2192 normally $${Number(it.baseline_price).toFixed(2)} (+${inflated}%)</span>
+                </div>`;
+            }).join('')}
+            ${fakes.length > 5 ? `<div class="suspicious-more">+ ${fakes.length - 5} more</div>` : ''}
+        </div>
+    `;
 }
