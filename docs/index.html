@@ -43,11 +43,11 @@
                 </div>
             </div>
 
-            <nav class="main-nav">
-                <button type="button" class="nav-link active" data-tab="deals" aria-current="page">
+            <nav class="main-nav" role="tablist" aria-label="Main sections">
+                <button type="button" class="nav-link active" data-tab="deals" role="tab" aria-selected="true" aria-controls="deals-section">
                     <i data-feather="tag"></i> Deals
                 </button>
-                <button type="button" class="nav-link" data-tab="analytics">
+                <button type="button" class="nav-link" data-tab="analytics" role="tab" aria-selected="false" aria-controls="analytics-section">
                     <i data-feather="bar-chart-2"></i> Insights
                 </button>
             </nav>
