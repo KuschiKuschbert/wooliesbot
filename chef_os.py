@@ -2705,27 +2705,19 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     )
     items_scraped = len(active)
 
-    # ── Cola battle (grouped by variant) ──────────────────────────
-    # Groups: (label, name-match fn). Matched against lowercased item name.
-    _COLA_GROUPS = [
-        ("Coke Classic",  lambda n: ("coca cola" in n or "coke" in n) and "zero" not in n and "no sugar" not in n),
-        ("Coke No Sugar", lambda n: "coca cola zero" in n or "coke no sugar" in n or "coke zero" in n),
-        ("Pepsi Max",     lambda n: "pepsi max" in n),
-        ("Pepsi",         lambda n: "pepsi" in n and "max" not in n),
-    ]
+    # ── Cola battle — overall winner + Coke Classic + Coke No Sugar ──
     cola_active = [
         r for r in active
         if r.get('compare_group') == 'cola'
         and (r.get('eff_price') or 0) < 5.0   # exclude single-serve convenience bottles
     ]
-    cola_groups = []
-    for _lbl, _match in _COLA_GROUPS:
-        _cands = [r for r in cola_active if _match((r.get('name') or '').lower())]
-        if not _cands:
-            continue
-        _best = min(_cands, key=lambda r: r.get('eff_price') or 9999)
-        cola_groups.append((_lbl, _best))
-    cola_groups.sort(key=lambda t: t[1].get('eff_price') or 9999)
+    def _is_coke_classic(n): return ('coca cola' in n or 'coke' in n) and 'zero' not in n and 'no sugar' not in n
+    def _is_coke_zero(n):    return 'coca cola zero' in n or 'coke no sugar' in n or 'coke zero' in n
+    _cola_winner   = min(cola_active, key=lambda r: r.get('eff_price') or 9999) if cola_active else None
+    _coke_classic  = [r for r in cola_active if _is_coke_classic((r.get('name') or '').lower())]
+    _best_classic  = min(_coke_classic, key=lambda r: r.get('eff_price') or 9999) if _coke_classic else None
+    _coke_zero     = [r for r in cola_active if _is_coke_zero((r.get('name') or '').lower())]
+    _best_zero     = min(_coke_zero,    key=lambda r: r.get('eff_price') or 9999) if _coke_zero    else None
 
     # ── Essentials on special ────────────────────────────────────────────────
     def _is_essential(item):
@@ -2775,15 +2767,24 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
         "",
     ]
 
-    if cola_groups:
-        lines.append("🧃 *Cola battle (\$/L — best pack each):*")
-        for _idx, (_lbl, _item) in enumerate(cola_groups):
-            _ep    = _item.get("eff_price") or _item.get("price") or 0
-            _emoji = store_emoji.get((_item.get("store") or "").lower(), "🩊")
-            _crown = " 🏆" if _idx == 0 else ""
-            _disc  = " 🔻" if _item.get("on_special") else ""
-            lines.append(f"  {_emoji} *{_lbl}:* {_item.get('name', '?')} — \${_ep:.2f}/L{_crown}{_disc}")
-        lines.append("")
+    if _cola_winner:
+        lines.append("🧃 *Cola \$/L — best pack:*")
+        _cola_rows = []
+        _winner_name = _cola_winner.get('name', '')
+        # Always show overall winner first.
+        _cola_rows.append((_cola_winner, True))
+        # Add Coke Classic and Coke No Sugar rows only if not already the winner.
+        if _best_classic and _best_classic.get('name') != _winner_name:
+            _cola_rows.append((_best_classic, False))
+        if _best_zero and _best_zero.get('name') != _winner_name:
+            _cola_rows.append((_best_zero, False))
+        for _cr_item, _cr_is_winner in _cola_rows:
+            _ep    = _cr_item.get('eff_price') or _cr_item.get('price') or 0
+            _emoji = store_emoji.get((_cr_item.get('store') or '').lower(), '🩊')
+            _crown = ' 🏆' if _cr_is_winner else ''
+            _disc  = ' 🔻' if _cr_item.get('on_special') else ''
+            lines.append(f'  {_emoji} {_cr_item.get("name", "?")} — \${_ep:.2f}/L{_crown}{_disc}')
+        lines.append('')
 
     if top_essentials:
         lines.append("\U0001f9fa *Essentials on special:*")
