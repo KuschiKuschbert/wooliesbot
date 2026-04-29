@@ -2795,8 +2795,8 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
             if not _side_a and not _side_b:
                 continue
             if _side_a and _side_b:
-                _a_wins = (_side_a.get('eff_price') or 9999) <= (_side_b.get('eff_price') or 9999)
-                lines.append(f'  *{_cat}:* {_fmt(_side_a, _a_wins)} vs {_fmt(_side_b, not _a_wins)}')
+                _winner = _side_a if (_side_a.get('eff_price') or 9999) <= (_side_b.get('eff_price') or 9999) else _side_b
+                lines.append(f'  *{_cat}:* {_fmt(_winner, True)}')
             elif _side_a:
                 lines.append(f'  *{_cat}:* {_fmt(_side_a, True)}')
             else:
