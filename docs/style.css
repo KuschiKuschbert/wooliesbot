@@ -2437,10 +2437,6 @@ body.drawer-scroll-lock {
         flex-shrink: 0;
     }
 
-    .live-status {
-        display: none;
-    }
-
     .header-review-link {
         display: none;
     }
@@ -2449,8 +2445,18 @@ body.drawer-scroll-lock {
         display: none;
     }
 
-    .subtitle, .live-status, .scrape-status {
+    .subtitle, .scrape-status {
         display: none; /* Hide clutter on mobile header */
+    }
+
+    .status-item--mobile-hide,
+    .status-sep--mobile-hide {
+        display: none;
+    }
+
+    .live-status {
+        font-size: 0.72rem;
+        padding: 2px 0;
     }
 
     .main-nav {
