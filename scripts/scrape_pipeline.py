@@ -30,9 +30,14 @@ def _run_validator_smoke_a():
     Runs between Layer C and sync_to_github so a live-price mismatch blocks
     the push before bad data lands on main. Uses --smoke sample (compare_group
     + on_special + WW PDP items) for broad coverage in ~2-3 minutes.
+    Writes last_layer_a_check timestamps back to data.json via --persist-checks
+    so post-push Layer A rotation skips recently verified items.
     """
     validator = ROOT_DIR / "scripts" / "e2e_validate.py"
-    cmd = [sys.executable, str(validator), "--layer", "A", "--smoke", "--strict-exit"]
+    cmd = [
+        sys.executable, str(validator),
+        "--layer", "A", "--smoke", "--persist-checks", "--strict-exit",
+    ]
     result = subprocess.run(cmd, cwd=str(ROOT_DIR), capture_output=True, text=True)
     if result.returncode != 0:
         details = (result.stderr or result.stdout or "").strip()

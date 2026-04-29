@@ -84,12 +84,14 @@ jobs:
           name: e2e-validate-links-full
           path: logs/e2e_validate_links_full.json
 
-      # Live API vs data.json; fixed seed keeps the sampled set stable. Raise E2E_LAYER_A_SAMPLE in env for stricter coverage (slower).
+      # Live API vs data.json; rotates sample by last_layer_a_check (oldest/never first).
+      # Raise E2E_LAYER_A_SAMPLE in env for stricter coverage (slower).
+      # Do NOT add --persist-checks here — this runs post-push and must not race the auto-commit.
       - name: Layer A live price spot-check
         env:
           E2E_LAYER_A_SAMPLE: "25"
         run: |
-          python scripts/e2e_validate.py --layer A --sample "${E2E_LAYER_A_SAMPLE}" --seed 1 --strict-exit --json-out logs/e2e_validate_layer_a.json
+          python scripts/e2e_validate.py --layer A --sample "${E2E_LAYER_A_SAMPLE}" --strict-exit --json-out logs/e2e_validate_layer_a.json
 
       - name: Upload Layer A report artifact
         if: always()
