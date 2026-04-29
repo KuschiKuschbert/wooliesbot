@@ -317,10 +317,8 @@ body {
     padding-left: 8px;
     padding-right: 8px;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(129, 140, 248, 0.18);
-    background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 120px),
-        rgba(8, 10, 18, 0.35);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    background: rgba(99, 102, 241, 0.04);
 }
 
 .insights-shell .analytics-header {
@@ -1480,18 +1478,16 @@ body {
     font-size: 32px;
     font-weight: 800;
     font-family: var(--font-heading);
-    color: white;
-    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+    color: var(--primary);
+    line-height: 1.1;
 }
 
 #analytic-savings-val {
     color: var(--woolies-green);
-    background: linear-gradient(135deg, #fff 0%, var(--woolies-green) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+#analytic-efficiency-val {
+    color: var(--primary);
 }
 
 /* Modals */
@@ -2919,12 +2915,11 @@ body.drawer-scroll-lock {
 }
 
 .deep-insight-card {
-    flex: 1;
-    min-width: 350px;
-    background: rgba(255, 255, 255, 0.03);
+    min-width: 0;
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 16px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
 }
 
 .deep-insight-card h4 {
@@ -2948,14 +2943,14 @@ body.drawer-scroll-lock {
     justify-content: space-between;
     align-items: center;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 12px;
-    border: 1px solid transparent;
+    border: 1px solid var(--border-color);
     transition: all 0.2s ease;
 }
 
 .smart-buy-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(99, 102, 241, 0.05);
     border-color: var(--primary);
     transform: translateX(4px);
 }
@@ -2989,16 +2984,9 @@ body.drawer-scroll-lock {
 }
 
 .volatility-tag.high {
-    background: rgba(239, 68, 68, 0.1);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    animation: pulse-red-subtle 3s infinite;
-}
-
-@keyframes pulse-red-subtle {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
-    100% { opacity: 0.8; }
+    background: rgba(245, 158, 11, 0.12);
+    color: #b45309;
+    border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
 .bias-viz {
@@ -3437,23 +3425,20 @@ body.drawer-scroll-lock {
     margin-bottom: 1.5rem;
 }
 .ti-stat {
-    background: rgba(255,255,255,0.03);
+    background: rgba(0, 0, 0, 0.03);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 1.2rem;
     text-align: center;
     transition: background 0.25s;
 }
-.ti-stat:hover { background: rgba(255,255,255,0.06); }
+.ti-stat:hover { background: rgba(99, 102, 241, 0.06); }
 
 .ti-val {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 800;
-    color: white;
-    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary);
     line-height: 1;
     margin-bottom: 0.4rem;
 }
@@ -3849,10 +3834,7 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #10b981, #34d399);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
+    color: var(--woolies-green);
     line-height: 1;
     margin-bottom: 0.3rem;
 }
@@ -3868,7 +3850,7 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-strong);
     letter-spacing: -0.02em;
     line-height: 1.1;
 }
@@ -3897,9 +3879,9 @@ body.drawer-scroll-lock {
     justify-content: space-between;
     align-items: center;
     padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
     font-size: 12px;
 }
 
@@ -3911,8 +3893,9 @@ body.drawer-scroll-lock {
     text-overflow: ellipsis;
     white-space: nowrap;
     padding-right: 0.75rem;
+    max-width: 160px;
 }
-.wdr-save { color: #10b981; font-weight: 700; white-space: nowrap; }
+.wdr-save { color: var(--woolies-green); font-weight: 700; white-space: nowrap; }
 
 /* ─── Category Inflation ─────────────────────────────────────────────────── */
 .inflation-grid {
@@ -4045,7 +4028,7 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-strong);
     line-height: 1;
 }
 
@@ -4058,7 +4041,7 @@ body.drawer-scroll-lock {
 .heatmap-savings {
     font-size: 10px;
     font-weight: 700;
-    color: #fbbf24;
+    color: #047857;
     margin-top: 3px;
 }
 
@@ -4209,7 +4192,7 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 14px;
     font-weight: 800;
-    color: #6366f1;
+    color: var(--text-strong);
     min-width: 36px;
     text-align: center;
 }
@@ -6897,6 +6880,52 @@ table.dr-table {
         grid-column: 1 / -1;
         padding-left: 1px;
     }
+
+    /* Insights v2 — mobile overrides */
+
+    .insights-shell {
+        padding-bottom: var(--mobile-bottom-clearance);
+    }
+
+    .insights-row {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: var(--mobile-card-gap);
+        margin-bottom: var(--mobile-card-gap);
+    }
+
+    .insights-kpi-band {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--mobile-card-gap);
+    }
+
+    .insights-kpi {
+        padding: 0.85rem;
+        border-radius: var(--mobile-card-radius);
+    }
+
+    .insights-kpi-value {
+        font-size: 1.6rem;
+    }
+
+    .insights-kpi-label,
+    .insights-kpi-foot {
+        font-size: 0.68rem;
+    }
+
+    .insights-section-eyebrow {
+        font-size: 0.65rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .insights-diagnostics-body {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0 0.65rem 0.65rem;
+    }
+
+    .insights-diagnostics > summary {
+        padding: 0.85rem 1rem;
+        font-size: 0.78rem;
+    }
 }
 
 @media (max-width: 430px) {
@@ -6912,8 +6941,8 @@ table.dr-table {
         height: 15px;
     }
 
-    .savings-metric .value {
-        font-size: 1.55rem;
+    .insights-kpi-value {
+        font-size: 1.4rem;
     }
 }
 
