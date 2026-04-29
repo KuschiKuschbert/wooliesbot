@@ -1887,6 +1887,41 @@ def check_prices():
         item_result = _maybe_confirm_outlier_price(item, item_result, inv_data)
         results.append(item_result)
 
+    # Per-item failure counter + auto-quarantine
+    # Fresh successful scrape -> consecutive_failures=0; price_unavailable -> +1;
+    # carry-forward (stale=True) -> unchanged so a known-bad item does not silently
+    # reset its counter. Items hitting WOOLIESBOT_QUARANTINE_THRESHOLD (default 6)
+    # are flagged quarantined=True and emit a distinct one-shot Telegram alert.
+    quarantine_threshold = max(2, _env_int("WOOLIESBOT_QUARANTINE_THRESHOLD", 6))
+    newly_quarantined = []
+    for r in results:
+        existing = inv_data.get(_inventory_row_key(r)) or {}
+        if not existing and r.get("name"):
+            existing = inv_data.get("name:" + r["name"], {})
+        prev_count = int(existing.get("consecutive_failures", 0) or 0)
+        was_quarantined = bool(existing.get("quarantined", False))
+        if r.get("price_unavailable"):
+            new_count = prev_count + 1
+        elif r.get("stale"):
+            new_count = prev_count
+        else:
+            new_count = 0
+        r["consecutive_failures"] = new_count
+        is_quarantined = new_count >= quarantine_threshold
+        r["quarantined"] = is_quarantined
+        if is_quarantined and not was_quarantined:
+            newly_quarantined.append((r.get("name", "?"), new_count))
+    if newly_quarantined:
+        sample = "\n".join(f"  - {n} ({c} fails)" for n, c in newly_quarantined[:10])
+        send_telegram(
+            f"🚧 *[ITEM QUARANTINED]* {len(newly_quarantined)} item(s) failed "
+            f"≥{quarantine_threshold} consecutive cycles:\n{sample}\n"
+            f"Likely a dead URL or persistent vendor mismatch — review manually."
+        )
+        logging.warning(
+            f"  {len(newly_quarantined)} item(s) quarantined after {quarantine_threshold} consecutive failures."
+        )
+
     # Scraper Health Check
     unavail_count = sum(1 for r in results if r.get("price_unavailable"))
     stale_count = sum(1 for r in results if r.get("stale"))
@@ -2087,7 +2122,10 @@ def export_data_to_json(results):
                                "size", "tags", "target_confidence", "target_method",
                                "target_data_points", "target_updated", "last_purchased",
                                "local_image", "on_special", "was_price",
-                               "type", "all_stores", "coles"):
+                               "type", "all_stores", "coles",
+                               # Preserve fields written by validators / out-of-band tools
+                               # so the next scrape merge does not clobber them.
+                               "last_layer_a_check"):
                 if keep_field in existing and (
                     keep_field not in item or _is_effectively_empty(item.get(keep_field))
                 ):
