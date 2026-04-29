@@ -3948,6 +3948,12 @@ function openStockModal(itemName, itemId) {
         }
     }
 
+    const fakeEl = document.getElementById('modal-fake-deal-note');
+    if (fakeEl) {
+        const isFake = Boolean(item.fake_deal && item.was_price);
+        fakeEl.textContent = isFake ? `Store advertises "was $${Number(item.was_price).toFixed(2)}", but the normal price is ~${item.baseline_price ? '$' + Number(item.baseline_price).toFixed(2) : 'lower'}. Not a real saving.` : '';
+        fakeEl.toggleAttribute('hidden', !isFake);
+    }
     const linksEl = document.getElementById('modal-store-links');
     if (linksEl) {
         const as = item.all_stores || {};
@@ -4298,6 +4304,7 @@ async function renderAnalytics() {
     // ── New Analytics Widgets ──────────────────────────────────────────────
     renderSavingsGauge();
     renderWeeklySavings();
+    renderSuspiciousSpecials();
     renderWeeklyActionPlan();
     renderShoppingTimeInsights();
     renderCategoryInflation();
