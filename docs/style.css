@@ -2618,17 +2618,121 @@ footer {
     padding: 0;
 }
 
-.shopping-trip-mode #copy-list-btn {
-    opacity: 0.75;
-    filter: saturate(0.6);
-}
-
 .shopping-trip-mode .shopping-item-name {
     font-size: 15px;
 }
 
 .shopping-trip-mode .shopping-item-price {
     font-size: 13px;
+}
+
+/* === Compact trip-mode action bar ===
+   When a shopping trip is in progress, collapse the drawer footer into a
+   single horizontal row: Done shopping (primary pill) + Clear completed
+   and Copy list as 44×44 icon-only secondary pills. Saves vertical space
+   for the actual shopping list. */
+.sync-btn-label {
+    display: inline;
+}
+
+.shopping-trip-mode .drawer-footer {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+        "total total total"
+        "done  copy  clear";
+    column-gap: 8px;
+    row-gap: 10px;
+    padding: 14px 18px calc(14px + env(safe-area-inset-bottom, 0px));
+    background:
+        linear-gradient(180deg, rgba(34,197,94,0.08), rgba(20,184,166,0.04)),
+        #faf6ef;
+    border-top: 1px solid rgba(34,197,94,0.20);
+}
+
+.shopping-trip-mode .list-total-row {
+    grid-area: total;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.92;
+}
+
+.shopping-trip-mode #go-shopping-btn {
+    display: none;
+}
+
+.shopping-trip-mode #done-shopping-btn {
+    grid-area: done;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
+    color: #06210f;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    box-shadow: 0 6px 16px rgba(34,197,94,0.32);
+}
+
+.shopping-trip-mode #done-shopping-btn:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(34,197,94,0.4);
+}
+
+.shopping-trip-mode #clear-completed-btn,
+.shopping-trip-mode #copy-list-btn {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.85);
+    color: var(--text-color, #1f2937);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    gap: 0;
+    filter: none;
+    opacity: 1;
+    transform: none;
+    font-size: 0;
+}
+
+.shopping-trip-mode #clear-completed-btn { grid-area: clear; }
+.shopping-trip-mode #copy-list-btn       { grid-area: copy; }
+
+.shopping-trip-mode #clear-completed-btn .sync-btn-label,
+.shopping-trip-mode #copy-list-btn .sync-btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.shopping-trip-mode #clear-completed-btn svg,
+.shopping-trip-mode #copy-list-btn svg,
+.shopping-trip-mode #clear-completed-btn .feather,
+.shopping-trip-mode #copy-list-btn .feather {
+    width: 18px;
+    height: 18px;
+}
+
+.shopping-trip-mode #clear-completed-btn:disabled,
+.shopping-trip-mode #copy-list-btn:disabled {
+    opacity: 0.45;
+    filter: none;
+}
+
+.shopping-trip-mode #clear-completed-btn:not(:disabled):hover,
+.shopping-trip-mode #copy-list-btn:not(:disabled):hover {
+    background: #ffffff;
+    transform: translateY(-1px);
 }
 
 /* Card Add Button */
@@ -6487,24 +6591,6 @@ button, a, label, [role="button"] {
         min-height: 48px;
     }
 
-    .shopping-trip-mode #done-shopping-btn,
-    .shopping-trip-mode #clear-completed-btn {
-        background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
-        color: #06210f;
-        font-weight: 800;
-        box-shadow: 0 8px 22px rgba(129, 140, 248, 0.35);
-    }
-
-    .shopping-trip-mode #go-shopping-btn {
-        opacity: 0.6;
-    }
-
-    .shopping-trip-mode #copy-list-btn {
-        transform: scale(0.98);
-        opacity: 0.74;
-        filter: saturate(0.65);
-    }
-
     .shopping-item {
         padding: 11px;
         gap: 10px;
@@ -6518,9 +6604,23 @@ button, a, label, [role="button"] {
         padding: 10px 12px 6px;
     }
 
+    /* Trip-mode footer: tighter padding on mobile; compact action-bar
+       layout (grid + icon pills) is defined in the global trip-mode block. */
     .shopping-trip-mode .drawer-footer {
         padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-        gap: 8px;
+        column-gap: 8px;
+        row-gap: 8px;
+    }
+
+    .shopping-trip-mode #done-shopping-btn {
+        min-height: 48px;
+    }
+
+    .shopping-trip-mode #clear-completed-btn,
+    .shopping-trip-mode #copy-list-btn {
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
     }
 
     .shopping-trip-mode .shopping-item {
