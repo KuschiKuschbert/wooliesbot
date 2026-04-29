@@ -2686,14 +2686,14 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     """Build a richer Sunday-reminder Telegram message for planning the weekly shop.
 
     Sections:
-      1. Headline deal/item counts.
-      2. Cola battle — compare_group 'cola' winner with compact runners-up ($/L).
-      3. Essentials on special — staples from clean grocery types/subcategories.
+      1. Headline deal / item counts.
+      2. Cola battle — compare_group 'cola' winner + compact runners-up ($/L).
+      3. Essentials on special — staples from clean grocery types / subcategories.
       4. Best deals — top 5 genuine promotions by dollar saving (any category).
     """
     now_dt = now_dt or datetime.datetime.now()
     dashboard_url = "https://KuschiKuschbert.github.io/wooliesbot/"
-    store_emoji = {"woolworths": "🟢", "coles": "🔴"}
+    store_emoji = {"woolworths": "\U0001f7e2", "coles": "\U0001f534"}
 
     active = [r for r in raw_results if not r.get("price_unavailable") and not r.get("stale")]
 
@@ -2705,13 +2705,29 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     )
     items_scraped = len(active)
 
-    cola_items = [
+    # ── Cola battle (grouped by variant) ──────────────────────────
+    # Groups: (label, name-match fn). Matched against lowercased item name.
+    _COLA_GROUPS = [
+        ("Coke Classic",  lambda n: ("coca cola" in n or "coke" in n) and "zero" not in n and "no sugar" not in n),
+        ("Coke No Sugar", lambda n: "coca cola zero" in n or "coke no sugar" in n or "coke zero" in n),
+        ("Pepsi Max",     lambda n: "pepsi max" in n),
+        ("Pepsi",         lambda n: "pepsi" in n and "max" not in n),
+    ]
+    cola_active = [
         r for r in active
         if r.get('compare_group') == 'cola'
-        and (r.get('eff_price') or 0) < 5.0
+        and (r.get('eff_price') or 0) < 5.0   # exclude single-serve convenience bottles
     ]
-    cola_items.sort(key=lambda r: r.get('eff_price') or 9999)
+    cola_groups = []
+    for _lbl, _match in _COLA_GROUPS:
+        _cands = [r for r in cola_active if _match((r.get('name') or '').lower())]
+        if not _cands:
+            continue
+        _best = min(_cands, key=lambda r: r.get('eff_price') or 9999)
+        cola_groups.append((_lbl, _best))
+    cola_groups.sort(key=lambda t: t[1].get('eff_price') or 9999)
 
+    # ── Essentials on special ────────────────────────────────────────────────
     def _is_essential(item):
         subcat = (item.get('subcategory') or '').lower()
         itype  = (item.get('type') or '').lower()
@@ -2724,6 +2740,8 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
             return True
         if itype == 'pantry' and subcat == 'grains_pasta':
             return True
+        # Dairy staples: subcat is almost always 'other', match by name keyword.
+        # "cream" / bare "cheese" omitted — matches ice cream and cracker biscuits.
         if itype == 'dairy' and any(kw in name for kw in _DAIRY_ESSENTIAL_KEYWORDS):
             return True
         return False
@@ -2742,6 +2760,7 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     )
     top_essentials = essential_specials[:5]
 
+    # ── Best deals (any category) ────────────────────────────────────────────
     essential_names = {i.get('name') for i in top_essentials}
     all_promos = sorted(
         [r for r in active if r.get('on_special') and r.get('was_price')],
@@ -2749,49 +2768,44 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     )
     top_deals = [r for r in all_promos if r.get('name') not in essential_names][:5]
 
+    # ── Assemble message ─────────────────────────────────────────────────────
     lines = [
-        "🛒 *Time to plan your shop!*",
-        f"Fresh prices are in — {specials_count} deals across {items_scraped} tracked items\\.",
+        "\U0001f6d2 *Time to plan your shop!*",
+        f"Fresh prices are in \u2014 {specials_count} deals across {items_scraped} tracked items\\.",
         "",
     ]
 
-    if cola_items:
-        winner = cola_items[0]
-        w_ep    = winner.get('eff_price') or winner.get('price') or 0
-        w_emoji = store_emoji.get((winner.get('store') or '').lower(), '🏪')
-        w_flag  = " 🔻" if winner.get('on_special') else ""
-        lines.append(
-            f"🥤 *Cola:* {w_emoji} *{winner.get('name')}* — \\${w_ep:.2f}/L{w_flag}"
-        )
-        runners = cola_items[1:4]
-        if runners:
-            parts = [f"{r.get('name')} \\${r.get('eff_price') or 0:.2f}" for r in runners]
-            lines.append("  _also: " + " · ".join(parts) + " /L_")
+    if cola_groups:
+        lines.append("🧃 *Cola battle (\$/L — best pack each):*")
+        for _idx, (_lbl, _item) in enumerate(cola_groups):
+            _ep    = _item.get("eff_price") or _item.get("price") or 0
+            _emoji = store_emoji.get((_item.get("store") or "").lower(), "🩊")
+            _crown = " 🏆" if _idx == 0 else ""
+            _disc  = " 🔻" if _item.get("on_special") else ""
+            lines.append(f"  {_emoji} *{_lbl}:* {_item.get('name', '?')} — \${_ep:.2f}/L{_crown}{_disc}")
         lines.append("")
 
     if top_essentials:
-        lines.append("🧺 *Essentials on special:*")
+        lines.append("\U0001f9fa *Essentials on special:*")
         for item in top_essentials:
             ep    = item.get("eff_price") or item.get("price") or 0
             wp    = item.get("was_price") or 0
-            emoji = store_emoji.get((item.get("store") or "").lower(), "🏪")
-            lines.append(f"  {emoji} {item.get('name', '?')} — \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
+            emoji = store_emoji.get((item.get("store") or "").lower(), "\U0001fa4a")
+            lines.append(f"  {emoji} {item.get('name', '?')} \u2014 \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
         lines.append("")
 
     if top_deals:
-        lines.append("🔥 *Best deals:*")
+        lines.append("\U0001f525 *Best deals:*")
         for item in top_deals:
             ep    = item.get("eff_price") or item.get("price") or 0
             wp    = item.get("was_price") or 0
-            emoji = store_emoji.get((item.get("store") or "").lower(), "🏪")
-            lines.append(f"  {emoji} {item.get('name', '?')} — \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
+            emoji = store_emoji.get((item.get("store") or "").lower(), "\U0001fa4a")
+            lines.append(f"  {emoji} {item.get('name', '?')} \u2014 \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
         lines.append("")
 
-    lines.append(f"👉 [Open Dashboard]({dashboard_url})")
+    lines.append(f"\U0001f449 [Open Dashboard]({dashboard_url})")
 
     return "\n".join(lines)
-
-
 def run_report(full_list=False, send_telegram_messages=True):
     """Generate and send shopping report.
     full_list: /show_staples - full staples list with all prices. False = deals only.

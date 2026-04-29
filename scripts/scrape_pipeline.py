@@ -153,12 +153,10 @@ def _notify_failure(exc):
 
 
 def _notify_success(raw_results, weekly=False):
-    summary = bot._build_run_summary(raw_results)
     if weekly:
-        summary += (
-            "\n\nWeekly checkpoint completed.\n"
-            "Data and dashboard are in sync."
-        )
+        summary = bot._build_weekly_shopping_reminder(raw_results)
+    else:
+        summary = bot._build_run_summary(raw_results)
     bot.send_telegram(summary)
 
 
