@@ -1903,6 +1903,36 @@ def check_prices():
         health_msg += "Site layouts may have changed."
         send_telegram(health_msg)
 
+    # Per-store success-rate floor — catches a single-vendor outage (e.g. Coles BFF down)
+    # that the global unavail_count check above can miss when the other store is healthy.
+    # Threshold env-overridable: WOOLIESBOT_STORE_FLOOR (default 0.80 = 80%).
+    store_floor = float(os.environ.get("WOOLIESBOT_STORE_FLOOR", "0.80"))
+    store_min_items = int(os.environ.get("WOOLIESBOT_STORE_FLOOR_MIN_ITEMS", "20"))
+    per_store_alerts = []
+    for store_key in ("woolworths", "coles"):
+        expected = sum(1 for it in TRACKING_LIST if it.get(store_key))
+        if expected < store_min_items:
+            continue
+        success = sum(
+            1 for r in results
+            if not r.get("price_unavailable")
+            and (r.get("all_stores") or {}).get(store_key)
+        )
+        rate = success / expected
+        logging.info(f"  {store_key}: {success}/{expected} success rate = {rate:.1%}")
+        if rate < store_floor:
+            per_store_alerts.append((store_key, success, expected, rate))
+    if per_store_alerts:
+        lines = [
+            f"{store.upper()}: {ok}/{exp} = {pct:.0%} (floor {store_floor:.0%})"
+            for store, ok, exp, pct in per_store_alerts
+        ]
+        send_telegram(
+            "🏪 *[VENDOR DEGRADED]* Per-store success rate below floor:\n"
+            + "\n".join(lines)
+            + "\nLikely a single-vendor API outage (BFF / Search). Cross-check with vendor status."
+        )
+
     _append_metrics_run({
         "ts": datetime.datetime.now().isoformat(),
         "items": len(TRACKING_LIST),
