@@ -422,7 +422,7 @@ function updateHeartbeatAgeBanner(minsAgo) {
     }
 }
 
-/** Deals hero pill — mirrors header times / product count */
+/** Deals hero pill — product count only (freshness lives in the header strip). */
 function syncDealsHeroStatus() {
     const live = document.getElementById('deals-hero-live');
     if (!live) return;
@@ -430,17 +430,11 @@ function syncDealsHeroStatus() {
         live.textContent = 'Prices unavailable';
         return;
     }
-    const src = document.getElementById('last-updated');
-    const t = src && src.textContent ? src.textContent.trim() : '';
-    if (t && t !== 'Checking...') {
-        live.textContent = `Prices updated · ${t}`;
-        return;
-    }
     if (_data && _data.length) {
         live.textContent = `${_data.length} products`;
         return;
     }
-    live.textContent = 'Waiting for data…';
+    live.textContent = 'Loading prices…';
 }
 
 function setInsightsChartEmpty(canvasId, isEmpty, title, hint) {
@@ -1282,11 +1276,10 @@ function updateCartSyncStatusLabels() {
         });
         return;
     }
-    const fetchPart = _cartSyncLastFetchOkAt
-        ? `last checked ${formatIsoAgo(_cartSyncLastFetchOkAt)}`
-        : 'not checked yet';
-    const pushPart = _cartSyncLastPushOkAt ? `last saved ${formatIsoAgo(_cartSyncLastPushOkAt)}` : 'not saved yet';
-    const text = `Saved across devices · ${fetchPart} · ${pushPart}`;
+    const lastActivity = _cartSyncLastPushOkAt || _cartSyncLastFetchOkAt;
+    const text = lastActivity
+        ? `Saved across devices · ${formatIsoAgo(lastActivity)}`
+        : 'Saved across devices · checking…';
     hosts.forEach(el => {
         el.hidden = false;
         el.textContent = text;
@@ -3375,13 +3368,24 @@ function updateReceiptSyncDisplay() {
     dateEl.textContent = _receiptSyncLatestDate || 'Unknown';
 }
 
+function _setScrapeStatusVisible(dot, text, dotClass, message) {
+    dot.className = `status-dot ${dotClass}`;
+    text.textContent = message;
+    dot.closest('.scrape-status')?.classList.add('is-warning');
+}
+
+function _setScrapeStatusHealthy(dot, text) {
+    dot.className = 'status-dot online';
+    text.textContent = '';
+    dot.closest('.scrape-status')?.classList.remove('is-warning');
+}
+
 async function monitorCloudHealth() {
     const dot = document.getElementById('scrape-status-dot');
     const text = document.getElementById('scrape-status-text');
     if (!dot || !text) return;
 
     try {
-        // Fetch heartbeat from the same origin (GitHub Pages)
         const hb = docsBundleAssetUrl('heartbeat.json');
         hb.searchParams.set('t', String(Date.now()));
         const res = await fetchWithTimeout(hb.href, { cache: 'no-store' }, 12000).catch(() => null);
@@ -3390,34 +3394,28 @@ async function monitorCloudHealth() {
             const lastBeat = parseDashboardTimestamp(data.last_heartbeat);
             const now = new Date();
             const minsAgo = (now - lastBeat) / (1000 * 60);
-            // 4h GitHub schedule + long runs (~1h); below ~5.5h counts as healthy (old 35m assumed hourly runs).
+            // 4h GitHub schedule + long runs (~1h); below ~5.5h counts as healthy.
             if (!Number.isFinite(minsAgo)) {
-                dot.className = 'status-dot offline';
-                text.textContent = 'Price updates: unavailable';
+                _setScrapeStatusVisible(dot, text, 'offline', 'Price updates: unavailable');
                 updateHeartbeatAgeBanner(NaN);
                 return;
             }
             if (minsAgo < 5.5 * 60) {
-                dot.className = 'status-dot online';
-                text.textContent = `Price updates: up to date (${Math.round(minsAgo)}m ago)`;
+                _setScrapeStatusHealthy(dot, text);
             } else {
-                dot.className = 'status-dot stale';
-                text.textContent = `Price updates: delayed (${Math.round(minsAgo)}m ago)`;
+                _setScrapeStatusVisible(dot, text, 'stale', `Price updates: delayed (${Math.round(minsAgo)}m ago)`);
             }
             updateHeartbeatAgeBanner(minsAgo);
 
-            // Sync Last published / Next scheduled with cloud heartbeat
             _lastChecked = data.last_heartbeat;
             _nextRun = data.next_run;
             updateLastCheckedDisplay();
             await tryLoadReceiptSyncStatusForHeader();
             return;
         }
-        dot.className = 'status-dot offline';
-        text.textContent = 'Price updates: unavailable';
+        _setScrapeStatusVisible(dot, text, 'offline', 'Price updates: unavailable');
     } catch (e) {
-        dot.className = 'status-dot offline';
-        text.textContent = 'Price updates: unavailable';
+        _setScrapeStatusVisible(dot, text, 'offline', 'Price updates: unavailable');
     }
 }
 
