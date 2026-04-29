@@ -2057,7 +2057,10 @@ def export_data_to_json(results):
                                "size", "tags", "target_confidence", "target_method",
                                "target_data_points", "target_updated", "last_purchased",
                                "local_image", "on_special", "was_price",
-                               "type", "all_stores", "coles"):
+                               "type", "all_stores", "coles",
+                               # Preserve fields written by validators / out-of-band tools
+                               # so the next scrape merge does not clobber them.
+                               "last_layer_a_check"):
                 if keep_field in existing and (
                     keep_field not in item or _is_effectively_empty(item.get(keep_field))
                 ):
