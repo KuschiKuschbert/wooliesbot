@@ -1727,6 +1727,7 @@ function getStoreUrlForStore(item, storeKey, opts = {}) {
     return WooliesCompareHelpers.getStoreUrlForStore(item, storeKey, opts);
 }
 
+
 function storePdpAnchorHtml(href, storeKey, opts) {
     const m = window.WBStorePdp;
     if (!m || typeof m.storePdpAnchorHtml !== 'function') return '';
@@ -1757,26 +1758,23 @@ function buildGroupBestRowHtml(item) {
     const memberN = _compareGroupMemberCounts.get(g) || 0;
     if (memberN < 2) return '';
 
-    const btn = `<button type="button" class="cg-compare-btn" data-compare-group="${escapeHtml(g)}">Compare sizes</button>`;
+    const totalLabel = memberN === 2 ? '2 sizes' : `${memberN} sizes`;
+    const btn = `<button type="button" class="cg-compare-btn" data-compare-group="${escapeHtml(g)}" data-stop-card-click>${totalLabel} · Compare</button>`;
 
-    let hintHtml = '';
-    const meta = _compareGroupMeta.get(g);
-    if (meta && meta.candidateCount >= 2) {
-        const minSelf = minEffPriceAcrossStores(item);
-        const eps = 0.01;
-        if (Number.isFinite(minSelf) && Math.abs(minSelf - meta.winnerEff) <= eps) {
-            hintHtml = '<div class="group-best-hint group-best-on-top" title="Lowest comparable unit price in this compare_group">You\'re on the best deal in this group</div>';
-        } else {
-            const storeLabel = meta.winnerStore === 'woolworths' ? 'Woolworths' : 'Coles';
-            const priceStr = formatCompareEffPrice(meta.mode, meta.winnerEff);
-            const shortName = escapeHtml(displayName(meta.winnerItemName));
-            hintHtml = `<div class="group-best-hint" title="Cheapest comparable unit across all SKUs and stores in this group">Best in group: ${priceStr} · ${storeLabel} · ${shortName}</div>`;
-        }
-    } else {
-        hintHtml = `<div class="group-best-hint cg-hint-muted" title="Open Compare sizes to see each SKU; dashboard ranking is off until modes align and both stores have prices">Compare SKUs — see all sizes &amp; stores</div>`;
+    const allGroupMembers = _data.filter(i => i.compare_group === g);
+    const cheaper = WooliesCompareHelpers.findCheaperVariant(allGroupMembers, item, isReliableEffPrice);
+
+    let hintText = '';
+    if (cheaper) {
+        const cheaperName = escapeHtml(displayName(cheaper.item.name));
+        hintText = `Cheaper option: ${cheaperName}`;
     }
 
-    return `<div class="cg-group-row">${hintHtml}<div class="cg-compare-actions">${btn}</div></div>`;
+    const hintHtml = hintText
+        ? `<span class="cg-quiet-hint" title="Open Compare to see all sizes">${hintText}</span>`
+        : `<span class="cg-quiet-hint cg-quiet-hint--plain"></span>`;
+
+    return `<div class="cg-group-row">${hintHtml}${btn}</div>`;
 }
 
 // Track sparkline Chart instances so we can destroy them before recreating.
@@ -2862,6 +2860,8 @@ function createItemCard(item, index, type = 'special') {
     const storeClass = item.store || 'woolworths';
 
     card.className = `item-card store-${storeClass} ${isNearMiss ? 'near-miss-card' : ''} ${isPredicted ? 'predicted-card' : ''}`;
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
 
     let imgSrc = item.local_image || item.image_url;
     let imgHtml = imgSrc 
@@ -2931,9 +2931,10 @@ function createItemCard(item, index, type = 'special') {
         }
     }
 
-    // Resolve all store links through one helper so fallback behavior stays consistent.
+    // Resolve store URL for whole-card click (no separate icon in card head).
     const itemStore = item.store === 'coles' ? 'coles' : 'woolworths';
-    const storePdpLink = storePdpLinkForItem(item, itemStore, {}, { className: 'store-pdp-link--card' });
+    const cardHref = getStoreUrlForStore(item, itemStore, {});
+    card.dataset.storeHref = cardHref;
 
     const groupBestHtml = buildGroupBestRowHtml(item);
 
@@ -2950,7 +2951,6 @@ function createItemCard(item, index, type = 'special') {
             <div class="item-card-head">
                 <div class="item-card-store-row">
                     <span class="store-badge ${storeClass}">${storeClass === 'woolworths' ? 'Woolies' : 'Coles'}</span>
-                    ${storePdpLink}
                 </div>
                 <div class="item-card-badges">
                     ${staleBadge}
@@ -2966,9 +2966,11 @@ function createItemCard(item, index, type = 'special') {
             </div>
             ${storeCompareHtml}
             ${groupBestHtml}
-            <button type="button" class="add-to-list-btn">
-                <i data-feather="plus"></i> Add to shopping list
-            </button>
+            <div class="card-action-footer">
+                <button type="button" class="add-to-list-btn" data-stop-card-click>
+                    <i data-feather="plus"></i> Add
+                </button>
+            </div>
             <div class="chart-container-sm" id="chart-${type}-${index}">
                 <canvas></canvas>
             </div>
@@ -2977,8 +2979,26 @@ function createItemCard(item, index, type = 'special') {
 
     const addBtn = card.querySelector('.add-to-list-btn');
     if (addBtn) {
-        addBtn.addEventListener('click', () => addToList(item.name, addBtn, item.item_id || null));
+        addBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addToList(item.name, addBtn, item.item_id || null);
+        });
     }
+
+    // Whole-card click opens the store PDP in a new tab.
+    // Clicks on buttons, anchors, or [data-stop-card-click] are handled by those elements.
+    const _cardClickHandler = (e) => {
+        if (e.target.closest('button, a, [data-stop-card-click]')) return;
+        haptic(8);
+        window.open(cardHref, '_blank', 'noopener,noreferrer');
+    };
+    card.addEventListener('click', _cardClickHandler);
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            _cardClickHandler(e);
+        }
+    });
 
     setTimeout(() => {
         if (_history[itemKey(item)] && _history[itemKey(item)].history.length > 0) {
@@ -3548,7 +3568,10 @@ function renderSpecials() {
         return 0;
     });
 
-    if (displayItems.length === 0) {
+    const _collapsedDisplayItems = WooliesCompareHelpers.collapseGroupsToAnchors(
+        displayItems, _shoppingList.map(r => r.name), isReliableEffPrice);
+
+    if (_collapsedDisplayItems.length === 0) {
         // B: Show near-miss fallback instead of plain empty state
         const nearMisses = _data
             .filter(item => {
@@ -3575,11 +3598,11 @@ function renderSpecials() {
         return;
     }
 
-    // Pagination Slicing
-    const totalItems = displayItems.length;
+    // Pagination Slicing (use collapsed list)
+    const totalItems = _collapsedDisplayItems.length;
     const startIndex = (_currentPage - 1) * _itemsPerPage;
     const endIndex = startIndex + _itemsPerPage;
-    const pagedItems = displayItems.slice(startIndex, endIndex);
+    const pagedItems = _collapsedDisplayItems.slice(startIndex, endIndex);
 
     pagedItems.forEach((item, index) => {
         const card = createItemCard(item, startIndex + index);

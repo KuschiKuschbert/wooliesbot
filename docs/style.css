@@ -908,7 +908,7 @@ body {
 
 .item-image {
     width: 100%;
-    height: 140px;
+    height: 110px;
     object-fit: contain;
     background: var(--surface-image-bg);
     border-bottom: 1px solid var(--border-color);
@@ -922,7 +922,7 @@ body {
 }
 
 .item-content {
-    padding: 8px 12px;
+    padding: 6px 12px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -933,7 +933,7 @@ body {
     font-family: var(--font-heading);
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     color: var(--text-strong);
     line-height: 1.25;
 }
@@ -944,7 +944,7 @@ body {
     align-items: baseline;
     gap: 6px;
     margin-top: auto;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .item-price {
@@ -2633,21 +2633,22 @@ footer {
 
 /* Card Add Button */
 .add-to-list-btn {
-    width: 100%;
-    margin-top: 15px;
+    margin-top: auto;
     background: var(--track-bg);
     border: 1px solid var(--border-color);
-    padding: 8px;
-    border-radius: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
     color: var(--text-main);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
+    height: 32px;
+    white-space: nowrap;
 }
 
 .add-to-list-btn:hover {
@@ -4817,13 +4818,26 @@ body.drawer-scroll-lock {
 /* ─── Compare group row (cards) + modal ───────────────────────────────────── */
 .cg-group-row {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 6px 0 4px;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    margin: 4px 0 2px;
+    min-height: 36px;
 }
 
-.cg-group-row .group-best-hint {
-    margin: 0;
+.cg-quiet-hint {
+    flex: 1;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.3;
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cg-quiet-hint--plain {
+    pointer-events: none;
 }
 
 .cg-hint-muted {
@@ -4832,9 +4846,14 @@ body.drawer-scroll-lock {
     line-height: 1.4 !important;
 }
 
-.cg-compare-actions {
+.card-action-footer {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.item-card[role="link"] {
+    cursor: pointer;
 }
 
 .cg-compare-btn {
