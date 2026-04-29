@@ -2227,6 +2227,21 @@ def sync_to_github(next_scheduled=None):
             )
             return
 
+        # Snapshot the current (just-validated) data.json as the last-known-good
+        # fallback. The dashboard can serve data.prev.json when data.json fails
+        # the shape guard. Written here so it is always one commit behind (i.e.
+        # the previous good scrape), giving the dashboard a safe fallback if the
+        # current push is later auto-reverted.
+        data_path = os.path.join("docs", "data.json")
+        prev_path = os.path.join("docs", "data.prev.json")
+        if os.path.exists(data_path):
+            try:
+                import shutil
+                shutil.copy2(data_path, prev_path)
+                logging.info("Copied data.json -> data.prev.json for last-known-good fallback.")
+            except Exception as snap_exc:
+                logging.warning(f"data.prev.json snapshot failed (non-fatal): {snap_exc}")
+
         add_r = _run_git(["git", "add", "docs/"])
         if add_r.returncode != 0:
             logging.error(f"git add docs/ failed (exit {add_r.returncode}): {add_r.stderr.strip()}")

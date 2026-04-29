@@ -289,6 +289,26 @@ function parseDashboardTimestamp(s) {
     return new Date(NaN);
 }
 
+/** Try fetching docs/data.prev.json (last-known-good snapshot written by sync_to_github).
+ *  Returns the parsed items array on success, or null if unavailable.
+ *  Used as a client-side fallback when data.json fails the shape guard. */
+async function tryLoadPrevDataJson() {
+    try {
+        const prevUrl = docsBundleAssetUrl('data.prev.json');
+        prevUrl.searchParams.set('t', String(Date.now()));
+        const res = await fetchWithTimeout(prevUrl.href, { cache: 'no-store' }, 20000).catch(() => null);
+        if (!res || !res.ok) return null;
+        const parsed = await res.json().catch(() => null);
+        if (!parsed) return null;
+        const items = Array.isArray(parsed) ? parsed : (parsed.items || []);
+        if (items.length === 0) return null;
+        if (items.every(i => !i.eff_price && !i.price)) return null;
+        return items;
+    } catch {
+        return null;
+    }
+}
+
 /** Prefer heartbeat for header times so we do not show stale data.json if heartbeat fetch failed earlier. */
 async function tryLoadHeartbeatForHeader() {
     try {
@@ -1879,20 +1899,32 @@ async function initDashboard() {
             _data = [];
         }
 
-        // Shape guard: data parsed OK but is structurally empty or all-zero-priced.
-        // Phase 6 will add a fallback to data.prev.json here; for now surface an error banner.
-        if (_data.length === 0 && dataRes && dataRes.ok && !_dataJsonLoadError) {
-            setDataJsonLoadState(
-                'Price data appears empty — this may be a temporary deploy issue. Tap Refresh or check back after the next update.'
-            );
-        } else if (
+        // Shape guard: if data parsed OK but is empty or all-zero-priced, try
+        // the last-known-good snapshot (data.prev.json) before surfacing an error.
+        const _dataShapeEmpty = _data.length === 0 && dataRes && dataRes.ok && !_dataJsonLoadError;
+        const _dataShapeCorrupt = (
             _data.length > 0 &&
             !_dataJsonLoadError &&
             _data.every(i => !i.eff_price && !i.price)
-        ) {
-            setDataJsonLoadState(
-                'Price data loaded but contains no prices — may be a corrupt deploy. Tap Refresh or try again.'
-            );
+        );
+        if (_dataShapeEmpty || _dataShapeCorrupt) {
+            console.warn('data.json shape guard triggered — attempting data.prev.json fallback');
+            const prevItems = await tryLoadPrevDataJson();
+            if (prevItems) {
+                _data = prevItems;
+                setDataJsonLoadState(
+                    'Showing last known good prices (data.json was empty or corrupt). Values may be up to one scrape cycle old.'
+                );
+                // Override the banner style to yellow-warning rather than red-error
+                const banner = document.getElementById('data-json-banner');
+                if (banner) banner.style.cssText = 'color:#fef08a;background:rgba(113,63,18,0.35);border-color:rgba(234,179,8,0.45)';
+            } else {
+                setDataJsonLoadState(
+                    _dataShapeEmpty
+                        ? 'Price data appears empty — this may be a temporary deploy issue. Tap Refresh or check back after the next update.'
+                        : 'Price data loaded but contains no prices — may be a corrupt deploy. Tap Refresh or try again.'
+                );
+            }
         }
 
         if (_lastChecked) {
