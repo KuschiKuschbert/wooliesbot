@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
-    <meta name="wooliesbot-shell-version" content="2048-shopper-ui-v2">
+    <meta name="wooliesbot-shell-version" content="2049-shopper-ui-v3">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,12 +29,12 @@
                 <div class="live-status" title="Prices refresh on a schedule; times show when WooliesBot last pulled store prices and approximately when the next refresh is expected.">
                     <div class="status-item" title="How long since prices were last refreshed from the stores.">
                         <i data-feather="clock" class="icon-sm"></i> 
-                        <span>Prices updated: <span id="last-updated">Checking...</span></span>
+                        <span>Prices updated: <span id="last-updated">Checking…</span></span>
                     </div>
-                    <span class="status-sep">|</span>
-                    <div class="status-item" title="Roughly when the next scheduled price refresh runs (your local time).">
+                    <span class="status-sep status-sep--mobile-hide">|</span>
+                    <div class="status-item status-item--mobile-hide" title="Roughly when the next scheduled price refresh runs (your local time).">
                         <i data-feather="refresh-cw" class="icon-sm"></i> 
-                        <span>Next refresh: <span id="next-update">...</span></span>
+                        <span>Next refresh: <span id="next-update">…</span></span>
                     </div>
                 </div>
                 <div class="scrape-status" aria-live="polite">
@@ -43,11 +43,11 @@
                 </div>
             </div>
 
-            <nav class="main-nav">
-                <button type="button" class="nav-link active" data-tab="deals" aria-current="page">
+            <nav class="main-nav" role="tablist" aria-label="Main sections">
+                <button type="button" class="nav-link active" data-tab="deals" role="tab" aria-selected="true" aria-controls="tab-deals">
                     <i data-feather="tag"></i> Deals
                 </button>
-                <button type="button" class="nav-link" data-tab="analytics">
+                <button type="button" class="nav-link" data-tab="analytics" role="tab" aria-selected="false" aria-controls="tab-analytics">
                     <i data-feather="bar-chart-2"></i> Insights
                 </button>
             </nav>
@@ -89,15 +89,15 @@
                 <div class="strip-stat">
                     <i data-feather="database" class="strip-icon"></i>
                     <div class="strip-info">
-                        <span class="strip-label">Your list</span>
+                        <span class="strip-label">Watching</span>
                         <span class="strip-value"><span id="total-items">0</span> items · <span id="total-specials">0</span> on special</span>
                     </div>
                 </div>
                 <div class="strip-stat" id="specials-countdown">
                     <i data-feather="clock" class="strip-icon"></i>
                     <div class="strip-info">
-                        <span class="strip-label">Specials</span>
-                        <span class="strip-value" id="countdown-text">Calculating...</span>
+                        <span class="strip-label">Cycle</span>
+                        <span class="strip-value" id="countdown-text">Calculating…</span>
                     </div>
                 </div>
                 <div class="strip-stat">
@@ -111,7 +111,7 @@
                 <div class="strip-stat">
                     <i data-feather="trending-down" class="strip-icon"></i>
                     <div class="strip-info">
-                        <span class="strip-label">You could save</span>
+                        <span class="strip-label">Possible savings</span>
                         <span class="strip-value" id="cart-total">$0.00</span>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                             <h3>Buy now</h3>
                             <span class="buy-now-badge" id="buy-now-count">0</span>
                         </div>
-                        <p class="buy-now-card__hint">Running low + on special right now</p>
+                        <p class="buy-now-card__hint">Running low and on special</p>
                         <div id="buy-now-list" class="buy-now-list"></div>
                     </div>
 
@@ -165,7 +165,7 @@
                         <div class="stat-header">
                             <h3>Soft drink head-to-head</h3>
                         </div>
-                        <div class="stat-hint">Finding the best litre price…</div>
+                        <div class="stat-hint">Cheapest cola, side by side</div>
                     </div>
                 </aside>
 
@@ -211,7 +211,7 @@
 
                     <!-- Predictions / Due Soon -->
                     <section id="predictions-section" class="predictions-section hidden">
-                        <h2 class="section-title"><i data-feather="shopping-cart"></i> Time to Restock?</h2>
+                        <h2 class="section-title"><i data-feather="shopping-cart"></i> Time to restock?</h2>
                         <p class="section-subtitle">You might be running low on these — based on your stock levels & how often you usually buy them.</p>
                         <div id="predictions-grid" class="horizontal-scroll-grid"></div>
                     </section>
@@ -244,12 +244,12 @@
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>Item Name</th>
+                                    <th>Item name</th>
                                     <th>Store</th>
-                                    <th>In Pantry?</th>
-                                    <th>Today's Price</th>
+                                    <th>In pantry</th>
+                                    <th>Today's price</th>
                                     <th>Good deal at</th>
-                                    <th>Price Trend</th>
+                                    <th>Price trend</th>
                                 </tr>
                             </thead>
                             <tbody id="all-items-tbody"></tbody>
@@ -272,7 +272,7 @@
 
             <!-- ── Row 1: KPI Snapshot ─────────────────────────────────────────── -->
             <section class="insights-row insights-row--hero" aria-label="Savings snapshot">
-                <p class="insights-section-eyebrow">Snapshot</p>
+                <p class="insights-section-eyebrow">Overview</p>
                 <div id="savings-breakdown" class="insights-kpi-band">
                     <div class="insights-kpi">
                         <span class="insights-kpi-label">Saved vs full price</span>
@@ -334,7 +334,7 @@
             <section class="insights-row insights-row--reference-wide" aria-label="Store comparison">
                 <div class="analytics-card analytics-card--quiet">
                     <div class="card-header">
-                        <h3>Who is cheaper by aisle</h3>
+                        <h3>Who's cheaper by category</h3>
                         <i data-feather="grid"></i>
                     </div>
                     <p class="analytics-card-copy">Darker = bigger savings. Numbers = how many specials we're comparing.</p>
@@ -354,7 +354,7 @@
                 </div>
                 <div class="analytics-card analytics-card--quiet">
                     <div class="card-header">
-                        <h3>Most volatile prices</h3>
+                        <h3>Biggest price swings</h3>
                         <i data-feather="trending-up"></i>
                     </div>
                     <p class="analytics-card-copy">Items that swing most — buy on special and stock up.</p>
@@ -401,7 +401,7 @@
                     </div>
                     <div class="analytics-card analytics-card--quiet" id="compare-group-diagnostics-card">
                         <div class="card-header">
-                            <h3>Product matching (advanced)</h3>
+                            <h3>Product matching</h3>
                             <i data-feather="layers"></i>
                         </div>
                         <details id="compare-group-details" class="analytics-card-details">
@@ -439,14 +439,14 @@
                 </div>
             </div>
             <div class="drawer-header-actions">
-                <button id="clear-list-btn" class="clear-list-btn" type="button">Clear All</button>
+                <button id="clear-list-btn" class="clear-list-btn" type="button">Clear all</button>
                 <button id="close-drawer" class="icon-btn" type="button" aria-label="Close shopping list"><i data-feather="x"></i></button>
             </div>
         </div>
         <div id="shopping-list-items" class="drawer-content"></div>
         <div class="drawer-footer">
             <div class="list-total-row">
-                <span id="list-total-label">About</span>
+                <span id="list-total-label">Estimated total</span>
                 <span id="list-total-price">$0.00</span>
             </div>
             <button type="button" id="go-shopping-btn" class="sync-btn" disabled>
@@ -459,7 +459,7 @@
                 <i data-feather="check-circle"></i> Clear completed
             </button>
             <button type="button" id="copy-list-btn" class="sync-btn" disabled>
-                <i data-feather="copy"></i> Copy for messages
+                <i data-feather="copy"></i> Copy list
             </button>
         </div>
     </div>
@@ -476,23 +476,24 @@
                     <button type="button" class="stock-btn med" data-level="medium">Medium</button>
                     <button type="button" class="stock-btn full" data-level="full">Full</button>
                 </div>
-                <label class="modal-label-target">Good deal price ($) — buy at or below this</label>
+                <label class="modal-label-target">Good deal price ($)</label>
+                <p class="modal-label-helper">Buy at or below this price</p>
                 <input type="number" id="target-input-modal" step="0.10">
                 <div id="modal-store-links" class="modal-store-links" aria-label="Open product on store website"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="modal-cancel">Cancel</button>
-                <button type="button" id="modal-save" class="primary">Save Changes</button>
+                <button type="button" id="modal-save" class="primary">Save</button>
             </div>
         </div>
     </div>
 
-    <nav class="mobile-bottom-nav" aria-label="Primary">
-        <button type="button" class="mobile-nav-link active" data-tab="deals" aria-current="page">
+    <nav class="mobile-bottom-nav" role="tablist" aria-label="Primary">
+        <button type="button" class="mobile-nav-link active" data-tab="deals" role="tab" aria-selected="true" aria-controls="tab-deals">
             <i data-feather="tag"></i>
             <span>Deals</span>
         </button>
-        <button type="button" class="mobile-nav-link" data-tab="analytics">
+        <button type="button" class="mobile-nav-link" data-tab="analytics" role="tab" aria-selected="false" aria-controls="tab-analytics">
             <i data-feather="bar-chart-2"></i>
             <span>Insights</span>
         </button>

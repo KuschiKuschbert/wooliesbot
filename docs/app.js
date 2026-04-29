@@ -350,7 +350,9 @@ let _debugChromeSnapshotLogged = false;
 
 function syncTabAriaCurrent(target) {
     document.querySelectorAll('.nav-link[data-tab], .mobile-nav-link[data-tab]').forEach(el => {
-        if (el.dataset.tab === target) el.setAttribute('aria-current', 'page');
+        const isActive = el.dataset.tab === target;
+        el.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) el.setAttribute('aria-current', 'page');
         else el.removeAttribute('aria-current');
     });
 }
@@ -605,7 +607,7 @@ localStorage.removeItem('write_api_secret');
 let _nextRun = null;
 let _receiptSyncLastSuccess = null;
 let _receiptSyncLatestDate = null;
-const MONTHLY_BUDGET = 800;
+const MONTHLY_BUDGET = Number(localStorage.getItem('shoppingBudget')) || 800;
 const SHOPPING_LIST_SYNC_STAMP_KEY = 'shoppingListCloudUpdatedAt';
 const SHOPPING_LIST_SYNC_POLL_MS = 25000;
 const SHOPPING_LIST_SYNC_PUSH_DEBOUNCE_MS = 900;
@@ -2198,6 +2200,25 @@ function setupMobileChromeCompaction() {
     updateMobileChrome();
 }
 
+function _drawerFocusTrap(e) {
+    const drawer = document.getElementById('list-drawer');
+    if (!drawer?.classList.contains('open')) return;
+    if (e.key !== 'Tab') {
+        if (e.key === 'Escape') toggleDrawer();
+        return;
+    }
+    const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    const focusable = Array.from(drawer.querySelectorAll(FOCUSABLE)).filter(el => !el.closest('[hidden]'));
+    if (!focusable.length) { e.preventDefault(); return; }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+}
+
 function toggleDrawer() {
     const drawer = document.getElementById('list-drawer');
     const overlay = document.getElementById('drawer-overlay');
@@ -2244,6 +2265,7 @@ function unlockDrawerBodyScroll() {
 }
 
 function setupOverlayEscapeHandler() {
+    document.addEventListener('keydown', _drawerFocusTrap);
     document.addEventListener('keydown', (e) => {
         if (e.key !== 'Escape') return;
         if (document.getElementById('compare-group-modal')) {
@@ -2283,7 +2305,7 @@ function renderDashboard() {
     renderSpecials();
     // Master table is lazy-loaded on expand (D) — just update the meta count
     const metaEl = document.getElementById('master-table-meta');
-    if (metaEl) metaEl.textContent = `${_data.length} items`;
+    if (metaEl) metaEl.textContent = _data.length === 0 ? 'No items yet' : `${_data.length} items`;
     updateListCount();
     checkPriceDropAlerts();
     syncDealsHeroStatus();
@@ -3070,6 +3092,7 @@ function renderPredictions() {
             grid.appendChild(createItemCard(item, idx, 'predicted'));
         });
     } else {
+        grid.innerHTML = '<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;padding:24px 0;">Nothing due yet — check back after your next shop.</p>';
         section.classList.add('hidden');
     }
 }
@@ -3196,7 +3219,7 @@ function renderShoppingList() {
     container.innerHTML = '';
     const shoppingMode = isShoppingTripMode();
     if (drawer) drawer.classList.toggle('shopping-trip-mode', shoppingMode);
-    if (totalLabelEl) totalLabelEl.textContent = shoppingMode ? 'Left to buy' : 'About';
+    if (totalLabelEl) totalLabelEl.textContent = shoppingMode ? 'Left to buy' : 'Estimated total';
     let total = 0;
     let pickedCount = 0;
 
@@ -3228,6 +3251,9 @@ function renderShoppingList() {
     if (_shoppingList.length === 0) {
         container.innerHTML = '<p style="color:var(--text-muted);text-align:center;margin-top:40px;">Your list is empty.</p>';
     }
+
+    const clearBtn = document.getElementById('clear-list-btn');
+    if (clearBtn) clearBtn.disabled = _shoppingList.length === 0;
 
     if (shoppingMode) {
         container.querySelectorAll('.shopping-item-picked').forEach(cb => {
@@ -3263,7 +3289,7 @@ function renderShoppingList() {
                 }
             }
             tripStatusEl.hidden = false;
-            tripStatusEl.textContent = `${leftCount} left · ${pickedCount} done · ${pct}% · saved $${savedSoFar.toFixed(2)}${deltaText} · ${elapsedMins}m`;
+            tripStatusEl.textContent = `${leftCount} left · ${pct}% · saved $${savedSoFar.toFixed(2)}${deltaText} · ${elapsedMins}m`;
             if (pct >= 100) {
                 tripStatusEl.textContent += ' · Done shopping when finished';
             }
