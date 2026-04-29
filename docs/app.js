@@ -2249,6 +2249,26 @@ function toggleDrawer() {
     }
 }
 
+/** Open the shopping list drawer only when closed (never closes it). Used by Insights CTA. */
+function openShoppingListDrawerIfClosed() {
+    const drawer = document.getElementById('list-drawer');
+    if (!drawer || drawer.classList.contains('open')) return;
+    toggleDrawer();
+}
+
+/** Starts trip mode from dashboard CTA ("Go shopping" idle card); opens drawer only if closed. */
+function startTripFromDashboardCta() {
+    setShoppingTripMode(true);
+    openShoppingListDrawerIfClosed();
+}
+
+if (typeof window !== 'undefined') {
+    window.__wbNav = {
+        openShoppingListDrawerIfClosed,
+        startTripFromDashboardCta,
+    };
+}
+
 function lockDrawerBodyScroll() {
     if (!isMobileViewport()) return;
     if (document.body.classList.contains('drawer-scroll-lock')) return;
