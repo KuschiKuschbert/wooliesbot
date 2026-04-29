@@ -1675,7 +1675,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -3164,7 +3164,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -12403,7 +12403,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -14912,7 +14912,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -15817,7 +15817,7 @@
       "price_mode": "each",
       "target": 1.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Vegeta%20Beef%20Stock%20Cubes%2060g",
-      "coles": "https://www.coles.com.au/product/beef-style-stock-cubes-93726",
+      "coles": null,
       "price_history": [
         {
           "date": "2026-04-05",
@@ -21938,7 +21938,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         },
         "woolworths": {
           "url": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cadbury%20Strawberry%20Eggs%20118g",
@@ -27425,7 +27425,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -56065,7 +56065,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
+          "notes": "BFF returned nothing — product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -65932,7 +65932,7 @@
       "price_mode": "each",
       "target": 4.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Old%20El%20Paso%20Enchilada%20Sauce%20Mild%20375g",
-      "coles": "https://www.coles.com.au/product/enchilada-kit-mexican-style-7010920",
+      "coles": null,
       "price_history": [
         {
           "date": "2025-12-09",
