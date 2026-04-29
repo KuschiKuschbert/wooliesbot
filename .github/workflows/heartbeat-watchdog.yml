@@ -1,0 +1,120 @@
+name: Heartbeat Watchdog
+
+# Fetches the LIVE GitHub Pages heartbeat.json (not the repo file) every 30 min
+# and fires a Telegram alert when last_heartbeat is >5 h old.
+# This catches Pages CDN outages, deployment failures, or scrape stalls even when
+# the scrape workflow itself shows green.
+
+on:
+  schedule:
+    # Every 30 minutes (UTC)
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      force_stale_test:
+        description: "Set to 'true' to test the alert path by treating any age as stale"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.11"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Check live Pages heartbeat
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_STALE_TEST: ${{ github.event.inputs.force_stale_test || 'false' }}
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import sys
+          import urllib.request
+
+          PAGES_URL = "https://KuschiKuschbert.github.io/wooliesbot/heartbeat.json"
+          STALE_THRESHOLD_H = 5
+          FORCE_STALE = os.environ.get("FORCE_STALE_TEST", "false").strip().lower() == "true"
+
+          print(f"Fetching live heartbeat from: {PAGES_URL}")
+          try:
+              req = urllib.request.urlopen(PAGES_URL, timeout=20)
+              payload = json.loads(req.read().decode("utf-8"))
+          except Exception as e:
+              print(f"FAIL: could not fetch heartbeat from Pages: {e}")
+              # Alert on fetch failure (Pages may be down)
+              msg = (
+                  f"⚠️ *[WATCHDOG]* Cannot reach heartbeat.json on GitHub Pages\\n"
+                  f"URL: {PAGES_URL}\\n"
+                  f"Error: {str(e)[:200]}\\n"
+                  f"Workflow: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
+              )
+              import subprocess
+              subprocess.run(
+                  ["python3", "scripts/telegram_notify.py", "--allow-missing-secrets",
+                   "--text", msg],
+                  check=False
+              )
+              sys.exit(1)
+
+          ts = payload.get("last_heartbeat")
+          if not ts:
+              print("FAIL: last_heartbeat key missing from payload")
+              sys.exit(1)
+
+          # Normalise Z and +00:00 forms
+          ts_norm = ts.replace("Z", "+00:00")
+          try:
+              hb = dt.datetime.fromisoformat(ts_norm)
+          except ValueError:
+              # Naive string — treat as UTC (mirrors parseDashboardTimestamp fix)
+              hb = dt.datetime.fromisoformat(ts).replace(tzinfo=dt.timezone.utc)
+
+          if hb.tzinfo is None:
+              hb = hb.replace(tzinfo=dt.timezone.utc)
+
+          now = dt.datetime.now(dt.timezone.utc)
+          age_h = (now - hb).total_seconds() / 3600
+
+          print(f"heartbeat age: {age_h:.2f}h (threshold: {STALE_THRESHOLD_H}h)")
+          print(f"last_heartbeat: {ts}")
+          print(f"next_run: {payload.get('next_run', '?')}")
+
+          if FORCE_STALE:
+              print("FORCE_STALE_TEST=true — simulating stale alert")
+              age_h = STALE_THRESHOLD_H + 1
+
+          if age_h >= STALE_THRESHOLD_H:
+              age_fmt = f"{age_h:.1f}h"
+              msg = (
+                  f"⏰ *[WATCHDOG]* Prices stale on Pages ({age_fmt} old)\\n"
+                  f"last\\_heartbeat: {ts.replace('_', chr(95))}\\n"
+                  f"Next scrape expected: {payload.get('next_run', 'unknown')}\\n"
+                  f"Dashboard: https://KuschiKuschbert.github.io/wooliesbot/\\n"
+                  f"Scrape logs: https://github.com/${{github.repository}}/actions/workflows/scrape.yml"
+              )
+              import subprocess
+              subprocess.run(
+                  ["python3", "scripts/telegram_notify.py", "--allow-missing-secrets",
+                   "--text", msg],
+                  check=False
+              )
+              print(f"ALERT sent: heartbeat is {age_fmt} old (>= {STALE_THRESHOLD_H}h threshold)")
+              sys.exit(1)
+          else:
+              print(f"OK: heartbeat is fresh ({age_h:.2f}h old)")
+          PY
