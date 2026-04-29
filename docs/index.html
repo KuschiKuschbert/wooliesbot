@@ -467,17 +467,17 @@
                 <span id="list-total-label">Estimated total</span>
                 <span id="list-total-price">$0.00</span>
             </div>
-            <button type="button" id="go-shopping-btn" class="sync-btn" disabled>
-                <i data-feather="check-square"></i> Go shopping
+            <button type="button" id="go-shopping-btn" class="sync-btn" disabled aria-label="Go shopping — start trip mode">
+                <i data-feather="check-square"></i><span class="sync-btn-label">Go shopping</span>
             </button>
-            <button type="button" id="done-shopping-btn" class="sync-btn" hidden>
-                <i data-feather="clipboard"></i> Done shopping
+            <button type="button" id="done-shopping-btn" class="sync-btn" hidden aria-label="Done shopping — end trip">
+                <i data-feather="clipboard"></i><span class="sync-btn-label">Done shopping</span>
             </button>
-            <button type="button" id="clear-completed-btn" class="sync-btn" hidden disabled>
-                <i data-feather="check-circle"></i> Clear completed
+            <button type="button" id="clear-completed-btn" class="sync-btn" hidden disabled aria-label="Clear completed items">
+                <i data-feather="check-circle"></i><span class="sync-btn-label">Clear completed</span>
             </button>
-            <button type="button" id="copy-list-btn" class="sync-btn" disabled>
-                <i data-feather="copy"></i> Copy list
+            <button type="button" id="copy-list-btn" class="sync-btn" disabled aria-label="Copy shopping list to clipboard">
+                <i data-feather="copy"></i><span class="sync-btn-label">Copy list</span>
             </button>
         </div>
     </div>
