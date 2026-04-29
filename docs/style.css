@@ -1030,6 +1030,33 @@ body {
     white-space: nowrap;
 }
 
+/* Fake-deal / inflated was-price styles */
+.was-price--fake {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.fake-deal-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #92400e;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: help;
+}
+
+.buy-now-fake-caption {
+    font-size: 9px;
+    color: #f59e0b;
+    margin-left: 4px;
+    opacity: 0.8;
+}
+
 .item-target {
     font-size: 12px;
     color: var(--text-secondary);

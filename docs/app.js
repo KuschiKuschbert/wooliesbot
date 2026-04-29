@@ -2815,6 +2815,7 @@ function getStaleBadge(item, compact = false) {
  */
 function saneWasForSavings(item, shelf) {
     if (!item || !item.on_special || item.was_price == null) return null;
+    if (item.fake_deal) return null;
     const s = Number(shelf);
     const w = Number(item.was_price);
     if (!Number.isFinite(s) || s <= 0 || !Number.isFinite(w) || !(w > s) || w >= s * SAVINGS_WAS_MAX_MULT) {
@@ -2899,7 +2900,15 @@ function createItemCard(item, index, type = 'special') {
     let priceHtml;
     const hasSaneWas = saneWasForSavings(item, shelfPrice) != null;
     const wasUnit = item.price_mode === 'kg' ? '/kg' : item.price_mode === 'litre' ? '/L' : '';
-    if (hasSaneWas) {
+    if (item.fake_deal && item.was_price) {
+        const baselineStr = item.baseline_price ? ` (normally $${Number(item.baseline_price).toFixed(2)})` : '';
+        const tooltip = `Store says was $${Number(item.was_price).toFixed(2)}, but the normal price is ~$${Number(item.baseline_price || item.was_price).toFixed(2)}${wasUnit}. Not a real saving.`;
+        priceHtml = `
+            ${cardPricePrimaryHtml(item)}
+            <span class="was-price was-price--fake" title="${tooltip}">Was $${Number(item.was_price).toFixed(2)}${wasUnit}</span>
+            <span class="fake-deal-badge" title="${tooltip}">Fake special?</span>
+        `;
+    } else if (hasSaneWas) {
         const savePct = Math.round((1 - shelfPrice / item.was_price) * 100);
         priceHtml = `
             ${cardPricePrimaryHtml(item)}
@@ -3183,7 +3192,7 @@ function renderShoppingList() {
 
         const div = document.createElement('div');
         div.className = `shopping-item${shoppingMode ? ' shopping-item--trip' : ''}${isPicked ? ' shopping-item--picked' : ''}${shoppingMode && !isPicked ? ' shopping-item--unpicked' : ''}`;
-        const specialBadge = item.on_special && item.was_price
+        const specialBadge = item.on_special && item.was_price && !item.fake_deal
             ? `<span class="save-badge" style="font-size:9px;">SPECIAL</span>` : '';
         const checkboxHtml = shoppingMode
             ? `<label class="shopping-item-check"><input type="checkbox" class="shopping-item-picked" data-index="${index}" ${isPicked ? 'checked' : ''} aria-label="Mark item as picked"><span></span></label>`
@@ -3671,8 +3680,9 @@ function renderMobilePriorityRail() {
         return;
     }
 
-    const onDeal = priorityItems.filter(item => item._snap.isDeal);
-    const needRestock = priorityItems.filter(item => !item._snap.isDeal);
+    // Fake-deal items are demoted out of "On deal" regardless of isDeal flag
+    const onDeal = priorityItems.filter(item => item._snap.isDeal && !item.fake_deal);
+    const needRestock = priorityItems.filter(item => !item._snap.isDeal || item.fake_deal);
 
     let html = '<div class="priority-rail-inner">';
 
@@ -3701,11 +3711,12 @@ function renderMobilePriorityRail() {
             }
             html += needRestock.map(item => {
                 const priceStr = item.price_unavailable ? '—' : `$${(item._snap.eff || 0).toFixed(2)}`;
+                const fakeCaption = item.fake_deal ? `<span class="buy-now-fake-caption">misleading was-price</span>` : '';
                 return `<div class="buy-now-row buy-now-row--plain" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                     <div class="buy-now-stock-dot"></div>
                     <div class="buy-now-info">
                         <div class="buy-now-name">${displayName(item.name)}</div>
-                        <div class="buy-now-price">${priceStr}</div>
+                        <div class="buy-now-price">${priceStr}${fakeCaption}</div>
                     </div>
                 </div>`;
             }).join('');
@@ -3750,8 +3761,9 @@ function renderBuyNow() {
         return;
     }
 
-    const onDeal = priorityItems.filter(item => item._snap.isDeal);
-    const needRestock = priorityItems.filter(item => !item._snap.isDeal);
+    // Fake-deal items are demoted out of "On deal" regardless of isDeal flag
+    const onDeal = priorityItems.filter(item => item._snap.isDeal && !item.fake_deal);
+    const needRestock = priorityItems.filter(item => !item._snap.isDeal || item.fake_deal);
 
     card.style.display = 'block';
     if (badge) badge.textContent = priorityItems.length;
@@ -3778,11 +3790,12 @@ function renderBuyNow() {
         }
         html += needRestock.map(item => {
             const priceStr = item.price_unavailable ? '—' : formatPrice(item);
+            const fakeCaption = item.fake_deal ? `<span class="buy-now-fake-caption">misleading was-price</span>` : '';
             return `<div class="buy-now-row buy-now-row--plain" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
                     <div class="buy-now-name">${displayName(item.name)}</div>
-                    <div class="buy-now-price">${priceStr}</div>
+                    <div class="buy-now-price">${priceStr}${fakeCaption}</div>
                 </div>
             </div>`;
         }).join('');
