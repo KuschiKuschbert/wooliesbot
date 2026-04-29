@@ -687,6 +687,9 @@ function persistShoppingList(opts = {}) {
     const skipCloud = Boolean(opts?.skipCloud);
     localStorage.setItem('shoppingList', JSON.stringify(_shoppingList));
     if (!skipCloud) scheduleShoppingListCloudPush('local_edit');
+    if (typeof renderHomeShoppingCta === 'function') {
+        renderHomeShoppingCta({ list: _shoppingList, sessions: loadShoppingTripSessions(), tripActive: _shoppingTripMode });
+    }
 }
 
 function setupShoppingListSessionSync() {
@@ -707,14 +710,8 @@ function touchShoppingListRow(row, atIso = '') {
     row.updated_at = atIso || new Date().toISOString();
 }
 
-function loadShoppingTripSessions() {
-    try {
-        const parsed = JSON.parse(localStorage.getItem(SHOPPING_TRIP_SESSIONS_KEY) || '[]');
-        return Array.isArray(parsed) ? parsed : [];
-    } catch {
-        return [];
-    }
-}
+// loadShoppingTripSessions, getLastShoppingTripSavedAmount, getAverageShoppingTripDuration,
+// and formatDurationShort are defined in docs/js/trip_stats.js (loaded before app.js).
 
 function persistShoppingTripSessions(sessions) {
     localStorage.setItem(SHOPPING_TRIP_SESSIONS_KEY, JSON.stringify(sessions));
@@ -744,37 +741,6 @@ function refreshShoppingTripSavedPeak() {
     }
 }
 
-function getLastShoppingTripSavedAmount() {
-    const sessions = loadShoppingTripSessions();
-    if (!Array.isArray(sessions) || sessions.length === 0) return 0;
-    const last = sessions[sessions.length - 1] || {};
-    const val = Number(last.saved_amount || 0);
-    return Number.isFinite(val) && val > 0 ? val : 0;
-}
-
-function getAverageShoppingTripDuration() {
-    const sessions = loadShoppingTripSessions().filter((s) => {
-        const dur = Number(s?.duration_seconds || 0);
-        return Number.isFinite(dur) && dur > 0;
-    });
-    if (!sessions.length) return null;
-    const totalSeconds = sessions.reduce((sum, s) => sum + Number(s.duration_seconds || 0), 0);
-    return {
-        averageSeconds: totalSeconds / sessions.length,
-        sessionCount: sessions.length,
-    };
-}
-
-function formatDurationShort(seconds) {
-    if (!Number.isFinite(seconds) || seconds <= 0) return '0m';
-    const totalMinutes = Math.max(1, Math.round(seconds / 60));
-    const hours = Math.floor(totalMinutes / 60);
-    const mins = totalMinutes % 60;
-    if (hours <= 0) return `${totalMinutes}m`;
-    if (mins === 0) return `${hours}h`;
-    return `${hours}h ${mins}m`;
-}
-
 function markShoppingTripActivity() {
     if (!_shoppingTripMode) return;
     _shoppingTripTimeoutAt = Date.now() + SHOPPING_TRIP_TIMEOUT_MS;
@@ -794,7 +760,7 @@ function beginShoppingTripSession() {
 }
 
 function finalizeShoppingTripSession(reason = 'manual_end') {
-    if (!_shoppingTripStartedAt) return;
+    if (!_shoppingTripStartedAt) return null;
     const startMs = Date.parse(_shoppingTripStartedAt);
     const endIso = new Date().toISOString();
     if (!Number.isFinite(startMs)) {
@@ -802,12 +768,12 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
         _shoppingTripStartCount = null;
         localStorage.removeItem('shoppingTripStartedAt');
         localStorage.removeItem('shoppingTripStartCount');
-        return;
+        return null;
     }
     const sessions = loadShoppingTripSessions();
     const pickedCount = _shoppingList.filter(item => item?.picked).length;
     const sessionSaved = Math.max(computePickedSavingsAmount(), _shoppingTripSavedPeak);
-    sessions.push({
+    const newSession = {
         started_at: _shoppingTripStartedAt,
         ended_at: endIso,
         duration_seconds: Math.max(0, Math.round((Date.now() - startMs) / 1000)),
@@ -816,7 +782,9 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
         end_count: _shoppingList.length,
         picked_count: pickedCount,
         saved_amount: Number(sessionSaved.toFixed(2)),
-    });
+    };
+    if (typeof enrichTripSession === 'function') enrichTripSession(newSession, sessions);
+    sessions.push(newSession);
     const trimmed = sessions.length > SHOPPING_TRIP_SESSIONS_MAX
         ? sessions.slice(-SHOPPING_TRIP_SESSIONS_MAX)
         : sessions;
@@ -830,6 +798,7 @@ function finalizeShoppingTripSession(reason = 'manual_end') {
     _shoppingTripSavedPeak = 0;
     localStorage.removeItem('shoppingTripSavedPeak');
     _shoppingTripBeatLastToastShown = false;
+    return newSession;
 }
 
 function isShoppingTripMode() {
@@ -840,7 +809,8 @@ function setShoppingTripMode(on, reason = 'manual') {
     const next = Boolean(on);
     const prev = _shoppingTripMode;
     if (next && !prev) beginShoppingTripSession();
-    if (!next && prev) finalizeShoppingTripSession(reason);
+    let _finalizedSession = null;
+    if (!next && prev) _finalizedSession = finalizeShoppingTripSession(reason);
     _shoppingTripMode = next;
     localStorage.setItem('shoppingTripMode', _shoppingTripMode ? '1' : '0');
     if (next) {
@@ -859,6 +829,13 @@ function setShoppingTripMode(on, reason = 'manual') {
     scheduleShoppingListCloudPush('trip');
     updateListCount();
     renderShoppingList();
+    if (typeof renderHomeShoppingCta === 'function') {
+        renderHomeShoppingCta({ list: _shoppingList, sessions: loadShoppingTripSessions(), tripActive: _shoppingTripMode });
+    }
+    if (_finalizedSession && typeof showTripRecapModal === 'function'
+            && typeof matchMedia !== 'undefined' && matchMedia('(max-width:720px)').matches) {
+        showTripRecapModal(_finalizedSession, loadShoppingTripSessions());
+    }
 }
 
 if (_shoppingTripMode && !_shoppingTripStartedAt) beginShoppingTripSession();
@@ -2324,6 +2301,9 @@ function renderDashboard() {
     const metaEl = document.getElementById('master-table-meta');
     if (metaEl) metaEl.textContent = _data.length === 0 ? 'No items yet' : `${_data.length} items`;
     updateListCount();
+    if (typeof renderHomeShoppingCta === 'function') {
+        renderHomeShoppingCta({ list: _shoppingList, sessions: loadShoppingTripSessions(), tripActive: _shoppingTripMode });
+    }
     checkPriceDropAlerts();
     syncDealsHeroStatus();
     const isMobile = isMobileViewport();
@@ -3074,6 +3054,16 @@ function updateListCount() {
     const deskToggle = document.getElementById('toggle-list-btn');
     if (deskToggle) {
         deskToggle.setAttribute('aria-label', n === 1 ? 'Shopping list, 1 item' : `Shopping list, ${n} items`);
+    }
+
+    // Streak chips (gated by engagementV1 flag)
+    if (localStorage.getItem('engagementV1') !== '0' && typeof computeWeeklyStreak === 'function') {
+        const streak = computeWeeklyStreak(loadShoppingTripSessions());
+        const streakText = streak >= 2 ? `🔥${streak}` : '';
+        document.querySelectorAll('.streak-chip').forEach(el => {
+            el.textContent = streakText;
+            el.hidden = streak < 2;
+        });
     }
 
     // Enable copy button
@@ -4306,7 +4296,7 @@ async function renderAnalytics() {
     renderWeeklySavings();
     renderSuspiciousSpecials();
     renderWeeklyActionPlan();
-    renderShoppingTimeInsights();
+    if (typeof renderYourTripsTile === 'function') renderYourTripsTile(loadShoppingTripSessions());
     renderCategoryInflation();
     renderDealHeatmap();
     renderVolatilityLeaderboard();
@@ -4829,26 +4819,7 @@ function renderWeeklyActionPlan() {
     }).join('');
 }
 
-function renderShoppingTimeInsights() {
-    const container = document.getElementById('shopping-time-insights');
-    if (!container) return;
-    const duration = getAverageShoppingTripDuration();
-    if (!duration) {
-        container.innerHTML = `
-            <div class="shopping-time-number">--</div>
-            <p class="shopping-time-sub">No completed trip sessions yet.</p>
-            <p class="shopping-time-note">Finish a trip with Done shopping to start tracking average time.</p>
-        `;
-        return;
-    }
-    const avgLabel = formatDurationShort(duration.averageSeconds);
-    const tripLabel = duration.sessionCount === 1 ? 'trip' : 'trips';
-    container.innerHTML = `
-        <div class="shopping-time-number">${avgLabel}</div>
-        <p class="shopping-time-sub">Average time from ${duration.sessionCount} completed ${tripLabel}.</p>
-        <p class="shopping-time-note">Based on your local shopping trip sessions.</p>
-    `;
-}
+// renderShoppingTimeInsights replaced by renderYourTripsTile in docs/js/trip_stats.js
 
 // ─── 3. CATEGORY PRICE INFLATION ─────────────────────────────────────────────
 function renderCategoryInflation() {
