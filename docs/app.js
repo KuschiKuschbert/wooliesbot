@@ -589,6 +589,7 @@ let _selectedItemForModal = null;
 let _currentPage = 1;
 const _itemsPerPage = 12;
 let _currentSort = 'discount';
+let _tracklistSort = localStorage.getItem('tracklistSort') || 'stock';
 
 function getRuntimeWriteConfig() {
     const cfg = (typeof window !== 'undefined' && window.__WOOLIESBOT_ENV__) ? window.__WOOLIESBOT_ENV__ : {};
@@ -2107,6 +2108,22 @@ function setupFilters() {
         });
     });
 
+    // Tracklist sort toggle (stock-first vs A-Z)
+    document.querySelectorAll('.tracklist-sort-pill').forEach(pill => {
+        pill.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.tracklist-sort-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            _tracklistSort = pill.dataset.sort;
+            try { localStorage.setItem('tracklistSort', _tracklistSort); } catch { /* ignore */ }
+            renderAllItems();
+        });
+        if (pill.dataset.sort === _tracklistSort) {
+            document.querySelectorAll('.tracklist-sort-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+        }
+    });
+
     // Clear List — persist locally, cancel debounced push, then POST with reason clear_all so
     // the Worker replaces server items instead of union-merge preserving old rows.
     document.getElementById('clear-list-btn')?.addEventListener('click', () => {
@@ -2851,12 +2868,39 @@ function computeItemSavingsSnapshot(item) {
     };
 }
 
+/**
+ * Returns true if an item is explicitly low or estimated to be running low
+ * based on per-category repurchase frequency heuristics.
+ */
+function isLikelyLow(item, now = new Date()) {
+    if (!item) return false;
+    if (item.stock === 'low') return true;
+    if (!item.last_purchased) return false;
+    const diffDays = (now - new Date(item.last_purchased)) / 86400000;
+    let threshold = 10;
+    if (item.type === 'fresh_protein' || item.type === 'fresh_veg') threshold = 4;
+    else if (item.type === 'fresh_fridge') threshold = 6;
+    else if (item.type === 'pet' || item.type === 'household') threshold = 14;
+    return diffDays >= threshold;
+}
+
 function getPriorityItems(items = _data, limit = 8) {
+    const now = new Date();
     return (items || [])
-        .filter(item => item?.stock === 'low')
+        .filter(item => isLikelyLow(item, now))
         .map(item => ({ ...item, _snap: computeItemSavingsSnapshot(item) }))
-        .filter(item => item._snap.isDeal)
-        .sort((a, b) => b._snap.savePct - a._snap.savePct)
+        .sort((a, b) => {
+            // Explicit low-stock before frequency-estimated
+            const aLow = a.stock === 'low' ? 0 : 1;
+            const bLow = b.stock === 'low' ? 0 : 1;
+            if (aLow !== bLow) return aLow - bLow;
+            // Items on deal come first within each group
+            const aDeal = a._snap.isDeal ? 0 : 1;
+            const bDeal = b._snap.isDeal ? 0 : 1;
+            if (aDeal !== bDeal) return aDeal - bDeal;
+            if (b._snap.savePct !== a._snap.savePct) return b._snap.savePct - a._snap.savePct;
+            return b._snap.savedDollar - a._snap.savedDollar;
+        })
         .slice(0, limit);
 }
 
@@ -2893,14 +2937,16 @@ function getSavingsOverview(items = _data) {
 }
 
 function buildWeeklyActionPlan(limit = 5) {
+    const now = new Date();
     return (_data || [])
         .map(item => {
             const snap = computeItemSavingsSnapshot(item);
-            const urgency = item.stock === 'low' ? 2 : item.stock === 'medium' ? 1 : 0;
+            const likelyLow = isLikelyLow(item, now);
+            const urgency = item.stock === 'low' ? 2 : (likelyLow ? 1.5 : item.stock === 'medium' ? 1 : 0);
             const score = (snap.savePct * 2.2) + (snap.savedDollar * 7) + (urgency * 12);
-            return { item, snap, urgency, score };
+            return { item, snap, urgency, likelyLow, score };
         })
-        .filter(row => row.snap.isDeal && row.score > 0)
+        .filter(row => (row.likelyLow || row.snap.isDeal) && row.score > 0)
         .sort((a, b) => b.score - a.score)
         .slice(0, limit);
 }
@@ -3044,24 +3090,10 @@ function renderPredictions() {
     const now = new Date();
 
     const predicted = _data.filter(item => {
-        // Condition 1: Explicitly low stock (Highest priority)
-        if (item.stock === 'low') return true;
+        // Condition 1 & 2: Explicitly low or frequency-estimated low
+        if (isLikelyLow(item, now)) return true;
 
-        // Condition 2: Buy frequency prediction based on category
-        if (item.last_purchased) {
-            const last = new Date(item.last_purchased);
-            const diffDays = (now - last) / (1000 * 60 * 60 * 24);
-
-            // Per-category heuristics
-            let threshold = 10; // Default
-            if (item.type === 'fresh_protein' || item.type === 'fresh_veg') threshold = 4;
-            else if (item.type === 'fresh_fridge') threshold = 6;
-            else if (item.type === 'pet' || item.type === 'household') threshold = 14;
-
-            if (diffDays >= threshold) return true;
-        }
-
-        // Condition 3: "Stock Up Alert" - Medium stock but currently on a deep special
+        // Condition 3: "Stock Up Alert" — medium stock but currently on a deep special
         const effPrice = item.eff_price || item.price;
         const isOnSpecial = effPrice <= item.target && !item.price_unavailable;
         if (item.stock === 'medium' && isOnSpecial) return true;
@@ -3712,24 +3744,24 @@ function renderMobilePriorityRail() {
     const isMobile = isMobileViewport();
     rail.classList.toggle('desktop-priority-rail', !isMobile);
 
-    const priorityItems = getPriorityItems(_data, 6);
+    const priorityItems = getPriorityItems(_data, 8);
     const topDeals = getTopDeals(_data, 5);
-    const fallbackDeals = (_data || [])
-        .map(item => ({ ...item, _snap: computeItemSavingsSnapshot(item) }))
-        .filter(item => item._snap.isDeal && !item.price_unavailable)
-        .sort((a, b) => b._snap.savedDollar - a._snap.savedDollar)
-        .slice(0, 5);
-    if (priorityItems.length === 0 && topDeals.length === 0 && fallbackDeals.length === 0) {
+    if (priorityItems.length === 0 && topDeals.length === 0) {
         rail.innerHTML = '';
         return;
     }
+
+    const onDeal = priorityItems.filter(item => item._snap.isDeal);
+    const needRestock = priorityItems.filter(item => !item._snap.isDeal);
 
     let html = '<div class="priority-rail-inner">';
 
     if (priorityItems.length > 0) {
         html += `<div class="priority-rail-section">
-            <div class="priority-rail-title">🔥 Buy Now <span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 7px;border-radius:100px;">${priorityItems.length}</span></div>
-            ${priorityItems.map(item => {
+            <div class="priority-rail-title">🔥 Running out <span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 7px;border-radius:100px;">${priorityItems.length}</span></div>`;
+
+        if (onDeal.length > 0) {
+            html += onDeal.map(item => {
                 const price = item._snap.eff;
                 const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
                 return `<div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
@@ -3740,8 +3772,26 @@ function renderMobilePriorityRail() {
                     </div>
                     <div class="buy-now-save">${saveStr}</div>
                 </div>`;
-            }).join('')}
-        </div>`;
+            }).join('');
+        }
+
+        if (needRestock.length > 0) {
+            if (onDeal.length > 0) {
+                html += `<div class="buy-now-subsection-label">Just need to restock</div>`;
+            }
+            html += needRestock.map(item => {
+                const priceStr = item.price_unavailable ? '—' : `$${(item._snap.eff || 0).toFixed(2)}`;
+                return `<div class="buy-now-row buy-now-row--plain" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+                    <div class="buy-now-stock-dot"></div>
+                    <div class="buy-now-info">
+                        <div class="buy-now-name">${displayName(item.name)}</div>
+                        <div class="buy-now-price">${priceStr}</div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        html += `</div>`;
     }
 
     if (topDeals.length > 0) {
@@ -3757,25 +3807,6 @@ function renderMobilePriorityRail() {
                         <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">${formatPrice(item)}</div>
                     </div>
                     <span class="top5-save">-${item._snap.savePct}%</span>
-                </div>`;
-            }).join('')}
-        </div>`;
-    }
-
-    // Keep at least two high-signal panels visible when possible.
-    // If one panel is missing due sparse low-stock/savings data, provide a fallback list.
-    if (priorityItems.length > 0 && topDeals.length === 0 && fallbackDeals.length > 0) {
-        html += `<div class="priority-rail-section">
-            <div class="priority-rail-title">✨ Worth checking</div>
-            ${fallbackDeals.map((item, i) => {
-                const name = displayName(item.name);
-                return `<div class="top5-row" onclick="document.getElementById('dashboard-search').value='${item.name.substring(0,15)}'; _searchText='${item.name.substring(0,15).toLowerCase()}'; _currentPage=1; renderDashboard();" title="${name}">
-                    <span class="top5-medal">${i + 1}</span>
-                    <div class="top5-info">
-                        <div class="top5-name">${name.length > 26 ? name.substring(0,26)+'…' : name}</div>
-                        <div class="top5-price top5-price-${item.store === 'coles' ? 'coles' : 'woolies'}">${formatPrice(item)}</div>
-                    </div>
-                    <span class="top5-save">$${item._snap.savedDollar.toFixed(2)}</span>
                 </div>`;
             }).join('')}
         </div>`;
@@ -3799,32 +3830,62 @@ function renderBuyNow() {
         return;
     }
 
+    const onDeal = priorityItems.filter(item => item._snap.isDeal);
+    const needRestock = priorityItems.filter(item => !item._snap.isDeal);
+
     card.style.display = 'block';
-    badge.textContent = priorityItems.length;
-    list.innerHTML = priorityItems.map(item => {
+    if (badge) badge.textContent = priorityItems.length;
+
+    let html = '';
+
+    html += onDeal.map(item => {
         const wasSane = saneWasForSavings(item, item._snap.shelf);
         const saveStr = item._snap.savePct > 0 ? `-${item._snap.savePct}%` : '🎯';
         const priceStr = item.price_unavailable ? '—' : formatPrice(item);
-        return `
-                <div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+        return `<div class="buy-now-row" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
+            <div class="buy-now-stock-dot"></div>
+            <div class="buy-now-info">
+                <div class="buy-now-name">${displayName(item.name)}</div>
+                <div class="buy-now-price">${priceStr}${wasSane != null ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasSane.toFixed(2)}</span>` : ''}</div>
+            </div>
+            <div class="buy-now-save">${saveStr}</div>
+        </div>`;
+    }).join('');
+
+    if (needRestock.length > 0) {
+        if (onDeal.length > 0) {
+            html += `<div class="buy-now-subsection-label">Just need to restock</div>`;
+        }
+        html += needRestock.map(item => {
+            const priceStr = item.price_unavailable ? '—' : formatPrice(item);
+            return `<div class="buy-now-row buy-now-row--plain" onclick="openStockModal(${JSON.stringify(item.name)}, ${item.item_id ? JSON.stringify(item.item_id) : 'null'})">
                 <div class="buy-now-stock-dot"></div>
                 <div class="buy-now-info">
                     <div class="buy-now-name">${displayName(item.name)}</div>
-                    <div class="buy-now-price">${priceStr}${wasSane != null ? ` <span style="color:var(--text-muted);font-weight:400;text-decoration:line-through;">$${wasSane.toFixed(2)}</span>` : ''}</div>
+                    <div class="buy-now-price">${priceStr}</div>
                 </div>
-                <div class="buy-now-save">${saveStr}</div>
             </div>`;
-    }).join('');
+        }).join('');
+    }
+
+    list.innerHTML = html;
 }
 
 function renderAllItems() {
     const isMobile = isMobileViewport();
 
+    const stockRank = (s) => s === 'low' ? 0 : s === 'medium' ? 1 : 2;
     const filteredData = _data.filter(item => {
         const matchesStore = _currentFilter === 'all' || item.store === _currentFilter;
         const matchesSearch = !_searchText || item.name.toLowerCase().includes(_searchText) || displayName(item.name).toLowerCase().includes(_searchText);
         return matchesStore && matchesSearch;
-    }).sort((a, b) => displayName(a.name).localeCompare(displayName(b.name)));
+    }).sort((a, b) => {
+        if (_tracklistSort === 'stock') {
+            const r = stockRank(a.stock) - stockRank(b.stock);
+            if (r !== 0) return r;
+        }
+        return displayName(a.name).localeCompare(displayName(b.name));
+    });
 
     if (isMobile) {
         // ── Mobile: render as compact rows ────────────────────────────────
@@ -3938,6 +3999,21 @@ function openStockModal(itemName, itemId) {
     document.querySelectorAll('.stock-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.level === item.stock);
     });
+
+    const freshnessEl = document.getElementById('modal-stock-freshness');
+    if (freshnessEl) {
+        if (item.stock_updated_at) {
+            const updatedMs = new Date(item.stock_updated_at).getTime();
+            const diffDays = Math.round((Date.now() - updatedMs) / 86400000);
+            const label = diffDays === 0 ? 'Flag set today'
+                : diffDays === 1 ? 'Flag set 1 day ago'
+                : `Flag set ${diffDays} days ago`;
+            freshnessEl.textContent = label;
+            freshnessEl.removeAttribute('hidden');
+        } else {
+            freshnessEl.setAttribute('hidden', '');
+        }
+    }
 
     const linksEl = document.getElementById('modal-store-links');
     if (linksEl) {

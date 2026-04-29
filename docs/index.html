@@ -239,6 +239,13 @@
                     <i data-feather="chevron-down" class="toggle-chevron" id="master-chevron"></i>
                 </button>
                 <div class="master-table-body" id="master-table-body">
+                    <div class="tracklist-sort-bar">
+                        <span class="tracklist-sort-label">Sort:</span>
+                        <div class="tracklist-sort-pills">
+                            <button class="tracklist-sort-pill active" data-sort="stock">Low first</button>
+                            <button class="tracklist-sort-pill" data-sort="name">A–Z</button>
+                        </div>
+                    </div>
                     <!-- Desktop table -->
                     <div class="table-container master-desktop-table">
                         <table class="data-table">
@@ -476,6 +483,7 @@
                     <button type="button" class="stock-btn med" data-level="medium">Medium</button>
                     <button type="button" class="stock-btn full" data-level="full">Full</button>
                 </div>
+                <p id="modal-stock-freshness" class="modal-stock-freshness" hidden></p>
                 <label class="modal-label-target">Good deal price ($)</label>
                 <p class="modal-label-helper">Buy at or below this price</p>
                 <input type="number" id="target-input-modal" step="0.10">

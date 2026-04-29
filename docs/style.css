@@ -3627,6 +3627,13 @@ body.drawer-scroll-lock {
     flex-wrap: wrap;
 }
 
+.modal-stock-freshness {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 4px 0 0;
+    opacity: 0.75;
+}
+
 .modal-store-links {
     display: none;
     margin-top: 14px;
@@ -4887,6 +4894,54 @@ body.drawer-scroll-lock {
     border: none;
 }
 
+.tracklist-sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tracklist-sort-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.tracklist-sort-pills {
+    display: flex;
+    gap: 3px;
+    background: rgba(255,255,255,0.06);
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.tracklist-sort-pill {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tracklist-sort-pill:hover {
+    color: var(--text-main);
+    background: rgba(255,255,255,0.12);
+}
+
+.tracklist-sort-pill.active {
+    background: var(--primary);
+    color: #fff;
+}
+
 /* ── E: Sort Pills ──────────────────────────────────────────────────────── */
 .sort-pills {
     display: flex;
@@ -5018,6 +5073,26 @@ body.drawer-scroll-lock {
     border-radius: 4px;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.buy-now-row--plain {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+}
+
+.buy-now-row--plain:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.buy-now-subsection-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 6px 2px 2px;
+    opacity: 0.7;
 }
 
 /* ── B: No-deals empty state ────────────────────────────────────────────── */
