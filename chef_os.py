@@ -2333,20 +2333,24 @@ def sync_to_github(next_scheduled=None):
             )
             return
 
-        # Snapshot the current (just-validated) data.json as the last-known-good
-        # fallback. The dashboard can serve data.prev.json when data.json fails
-        # the shape guard. Written here so it is always one commit behind (i.e.
-        # the previous good scrape), giving the dashboard a safe fallback if the
-        # current push is later auto-reverted.
+        # Rotate the rolling snapshot chain before writing the new prev.
+        # Chain: data.prev.json → data.prev-1.json → data.prev-2.json → data.prev-3.json
+        # The dashboard uses data.prev.json as the primary fallback; the deeper
+        # slots are for manual recovery and bulk-diff guard comparisons.
         data_path = os.path.join("docs", "data.json")
         prev_path = os.path.join("docs", "data.prev.json")
         if os.path.exists(data_path):
             try:
                 import shutil
+                for slot in (3, 2, 1):
+                    src = os.path.join("docs", f"data.prev-{slot - 1}.json") if slot > 1 else prev_path
+                    dst = os.path.join("docs", f"data.prev-{slot}.json")
+                    if os.path.exists(src):
+                        shutil.copy2(src, dst)
                 shutil.copy2(data_path, prev_path)
-                logging.info("Copied data.json -> data.prev.json for last-known-good fallback.")
+                logging.info("Rotated snapshot chain: data.json → data.prev.json (prev-1..3 shifted).")
             except Exception as snap_exc:
-                logging.warning(f"data.prev.json snapshot failed (non-fatal): {snap_exc}")
+                logging.warning(f"data.prev snapshot rotation failed (non-fatal): {snap_exc}")
 
         add_r = _run_git(["git", "add", "docs/"])
         if add_r.returncode != 0:
@@ -2567,8 +2571,17 @@ def _recalculate_smart_targets():
     _st.recalculate_targets(dry_run=False)
 
 
+_LINK_HEAL_URL_CAP = int(os.environ.get("WOOLIESBOT_LINK_HEAL_CAP", "10"))
+
+
 def _run_local_link_self_heal(report_basename="e2e_validate_links_local.json"):
-    """Run Layer D scan/apply with auto-repair, writing a JSON report under logs/."""
+    """Run Layer D scan/apply with auto-repair, writing a JSON report under logs/.
+
+    Aborts the apply step if the scan reports more than _LINK_HEAL_URL_CAP URLs
+    to change — a sudden large batch of URL mutations is a signal of a scraper
+    anomaly or bad upstream redirect, not routine self-healing.
+    """
+    import json as _json
     import subprocess
 
     root_dir = os.path.dirname(os.path.abspath(__file__))
@@ -2607,6 +2620,24 @@ def _run_local_link_self_heal(report_basename="e2e_validate_links_local.json"):
         )
         return False
 
+    # Inspect the report before applying so we can bail on unexpected bulk changes.
+    changed_count = 0
+    try:
+        report_data = _json.loads(open(links_report, encoding="utf-8").read())
+        changed_count = len(report_data.get("url_metadata_records", []))
+        logging.info(f"Link self-heal scan: {changed_count} URL record(s) to apply.")
+    except Exception as read_exc:
+        logging.warning(f"Link self-heal: could not read scan report ({read_exc}); skipping apply.")
+        return False
+
+    if changed_count > _LINK_HEAL_URL_CAP:
+        logging.warning(
+            f"Link self-heal CAPPED: scan reported {changed_count} URL changes, "
+            f"which exceeds the cap of {_LINK_HEAL_URL_CAP} "
+            f"(set WOOLIESBOT_LINK_HEAL_CAP to raise). Apply skipped."
+        )
+        return False
+
     apply_res = subprocess.run(apply_cmd, cwd=root_dir, capture_output=True, text=True)
     if apply_res.returncode != 0:
         logging.warning(
@@ -2615,7 +2646,7 @@ def _run_local_link_self_heal(report_basename="e2e_validate_links_local.json"):
         )
         return False
 
-    logging.info("Local link self-heal completed.")
+    logging.info(f"Local link self-heal completed ({changed_count} URL(s) updated).")
     return True
 
 
@@ -2638,6 +2669,127 @@ def _build_run_summary(raw_results, now_dt=None):
         f"🏷️ *{specials_count}* deals · {items_scraped} items tracked{stale_note}\n"
         f"👉 [View Dashboard](https://KuschiKuschbert.github.io/wooliesbot/)"
     ).strip()
+
+
+_ESSENTIAL_SUBCATS = frozenset((
+    "root_veg", "leafy_greens", "cooking_veg", "salad_veg", "fruit", "alliums", "herbs",
+    "beef", "chicken", "pork_deli",
+    "bakery", "breakfast",
+))
+_DAIRY_ESSENTIAL_KEYWORDS = (
+    "egg", "milk", "butter", "yoghurt", "yogurt",
+    "cream cheese", "cheese block", "cheese slice",
+)
+
+
+def _build_weekly_shopping_reminder(raw_results, now_dt=None):
+    """Build a richer Sunday-reminder Telegram message for planning the weekly shop.
+
+    Sections:
+      1. Headline deal/item counts.
+      2. Cola battle — compare_group 'cola' winner with compact runners-up ($/L).
+      3. Essentials on special — staples from clean grocery types/subcategories.
+      4. Best deals — top 5 genuine promotions by dollar saving (any category).
+    """
+    now_dt = now_dt or datetime.datetime.now()
+    dashboard_url = "https://KuschiKuschbert.github.io/wooliesbot/"
+    store_emoji = {"woolworths": "🟢", "coles": "🔴"}
+
+    active = [r for r in raw_results if not r.get("price_unavailable") and not r.get("stale")]
+
+    specials_count = sum(
+        1 for r in active
+        if r.get('on_special') or (
+            (r.get('eff_price') or r.get('price', 0)) <= (r.get('target') or 0) > 0
+        )
+    )
+    items_scraped = len(active)
+
+    cola_items = [
+        r for r in active
+        if r.get('compare_group') == 'cola'
+        and (r.get('eff_price') or 0) < 5.0
+    ]
+    cola_items.sort(key=lambda r: r.get('eff_price') or 9999)
+
+    def _is_essential(item):
+        subcat = (item.get('subcategory') or '').lower()
+        itype  = (item.get('type') or '').lower()
+        name   = (item.get('name') or '').lower()
+        if subcat == 'snacks':
+            return False
+        if subcat in _ESSENTIAL_SUBCATS:
+            return True
+        if itype == 'bakery':
+            return True
+        if itype == 'pantry' and subcat == 'grains_pasta':
+            return True
+        if itype == 'dairy' and any(kw in name for kw in _DAIRY_ESSENTIAL_KEYWORDS):
+            return True
+        return False
+
+    def _saving(item):
+        wp = item.get('was_price') or 0
+        ep = item.get('eff_price') or item.get('price') or wp
+        return wp - ep
+
+    essential_specials = sorted(
+        [r for r in active
+         if r.get('on_special') and r.get('was_price')
+         and r.get('compare_group') != 'cola'
+         and _is_essential(r)],
+        key=_saving, reverse=True,
+    )
+    top_essentials = essential_specials[:5]
+
+    essential_names = {i.get('name') for i in top_essentials}
+    all_promos = sorted(
+        [r for r in active if r.get('on_special') and r.get('was_price')],
+        key=_saving, reverse=True,
+    )
+    top_deals = [r for r in all_promos if r.get('name') not in essential_names][:5]
+
+    lines = [
+        "🛒 *Time to plan your shop!*",
+        f"Fresh prices are in — {specials_count} deals across {items_scraped} tracked items\\.",
+        "",
+    ]
+
+    if cola_items:
+        winner = cola_items[0]
+        w_ep    = winner.get('eff_price') or winner.get('price') or 0
+        w_emoji = store_emoji.get((winner.get('store') or '').lower(), '🏪')
+        w_flag  = " 🔻" if winner.get('on_special') else ""
+        lines.append(
+            f"🥤 *Cola:* {w_emoji} *{winner.get('name')}* — \\${w_ep:.2f}/L{w_flag}"
+        )
+        runners = cola_items[1:4]
+        if runners:
+            parts = [f"{r.get('name')} \\${r.get('eff_price') or 0:.2f}" for r in runners]
+            lines.append("  _also: " + " · ".join(parts) + " /L_")
+        lines.append("")
+
+    if top_essentials:
+        lines.append("🧺 *Essentials on special:*")
+        for item in top_essentials:
+            ep    = item.get("eff_price") or item.get("price") or 0
+            wp    = item.get("was_price") or 0
+            emoji = store_emoji.get((item.get("store") or "").lower(), "🏪")
+            lines.append(f"  {emoji} {item.get('name', '?')} — \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
+        lines.append("")
+
+    if top_deals:
+        lines.append("🔥 *Best deals:*")
+        for item in top_deals:
+            ep    = item.get("eff_price") or item.get("price") or 0
+            wp    = item.get("was_price") or 0
+            emoji = store_emoji.get((item.get("store") or "").lower(), "🏪")
+            lines.append(f"  {emoji} {item.get('name', '?')} — \\${ep:.2f} _\\(-\\${wp - ep:.2f})_")
+        lines.append("")
+
+    lines.append(f"👉 [Open Dashboard]({dashboard_url})")
+
+    return "\n".join(lines)
 
 
 def run_report(full_list=False, send_telegram_messages=True):
