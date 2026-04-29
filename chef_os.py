@@ -2705,13 +2705,27 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
     )
     items_scraped = len(active)
 
-    # ── Cola battle ──────────────────────────────────────────────────────────
-    cola_items = [
+    # ── Cola battle (grouped by variant) ──────────────────────────
+    # Groups: (label, name-match fn). Matched against lowercased item name.
+    _COLA_GROUPS = [
+        ("Coke Classic",  lambda n: ("coca cola" in n or "coke" in n) and "zero" not in n and "no sugar" not in n),
+        ("Coke No Sugar", lambda n: "coca cola zero" in n or "coke no sugar" in n or "coke zero" in n),
+        ("Pepsi Max",     lambda n: "pepsi max" in n),
+        ("Pepsi",         lambda n: "pepsi" in n and "max" not in n),
+    ]
+    cola_active = [
         r for r in active
         if r.get('compare_group') == 'cola'
         and (r.get('eff_price') or 0) < 5.0   # exclude single-serve convenience bottles
     ]
-    cola_items.sort(key=lambda r: r.get('eff_price') or 9999)
+    cola_groups = []
+    for _lbl, _match in _COLA_GROUPS:
+        _cands = [r for r in cola_active if _match((r.get('name') or '').lower())]
+        if not _cands:
+            continue
+        _best = min(_cands, key=lambda r: r.get('eff_price') or 9999)
+        cola_groups.append((_lbl, _best))
+    cola_groups.sort(key=lambda t: t[1].get('eff_price') or 9999)
 
     # ── Essentials on special ────────────────────────────────────────────────
     def _is_essential(item):
@@ -2761,18 +2775,14 @@ def _build_weekly_shopping_reminder(raw_results, now_dt=None):
         "",
     ]
 
-    if cola_items:
-        winner = cola_items[0]
-        w_ep    = winner.get('eff_price') or winner.get('price') or 0
-        w_emoji = store_emoji.get((winner.get('store') or '').lower(), '\U0001fa4a')
-        w_flag  = " \U0001f53b" if winner.get('on_special') else ""
-        lines.append(
-            f"\U0001f9c3 *Cola:* {w_emoji} *{winner.get('name')}* \u2014 \\${w_ep:.2f}/L{w_flag}"
-        )
-        runners = cola_items[1:4]
-        if runners:
-            parts = [f"{r.get('name')} \\${r.get('eff_price') or 0:.2f}" for r in runners]
-            lines.append("  _also: " + " \u00b7 ".join(parts) + " /L_")
+    if cola_groups:
+        lines.append("🧃 *Cola battle (\$/L — best pack each):*")
+        for _idx, (_lbl, _item) in enumerate(cola_groups):
+            _ep    = _item.get("eff_price") or _item.get("price") or 0
+            _emoji = store_emoji.get((_item.get("store") or "").lower(), "🩊")
+            _crown = " 🏆" if _idx == 0 else ""
+            _disc  = " 🔻" if _item.get("on_special") else ""
+            lines.append(f"  {_emoji} *{_lbl}:* {_item.get('name', '?')} — \${_ep:.2f}/L{_crown}{_disc}")
         lines.append("")
 
     if top_essentials:
