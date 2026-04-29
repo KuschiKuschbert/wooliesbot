@@ -281,8 +281,9 @@ function renderHomeShoppingCta({ list, sessions, tripActive }) {
         </div>
     `;
     document.getElementById('cta-open-list-btn')?.addEventListener('click', () => {
-        document.getElementById('toggle-list-btn')?.click() ||
-        document.getElementById('mobile-toggle-list')?.click();
+        const btn = document.getElementById('toggle-list-btn') ||
+                    document.getElementById('mobile-toggle-list');
+        btn?.click();
     });
     document.getElementById('cta-dismiss-btn')?.addEventListener('click', () => {
         section.hidden = true;
