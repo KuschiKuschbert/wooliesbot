@@ -251,10 +251,23 @@ function nextGithubActionsScrapeUtc(after) {
     return new Date(t.getTime() + 4 * 60 * 60 * 1000);
 }
 
-/** data.json `last_updated` is ISO-8601 UTC; legacy rows used Python 12h strftime (ambiguous in JS). */
+/** data.json `last_updated` is ISO-8601 UTC; legacy rows used Python 12h strftime (ambiguous in JS).
+ *  Naive ISO datetime strings (no Z / no offset) are treated as UTC to match the Python/CI convention.
+ *  Browsers otherwise parse them as local time, causing wrong "X mins ago" display for non-UTC users.
+ */
 function parseDashboardTimestamp(s) {
     if (s == null || s === "") return new Date(NaN);
-    const t = new Date(s);
+    // Normalise naive ISO-8601 datetime strings to UTC by appending Z.
+    // Matches "2026-04-29T04:27:39" and "2026-04-29T04:27:39.739313" but not strings
+    // that already carry Z or a numeric offset like +10:00.
+    let normalized = String(s);
+    if (
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(normalized) &&
+        !/[Zz]|[+-]\d{2}:?\d{2}$/.test(normalized)
+    ) {
+        normalized = normalized + 'Z';
+    }
+    const t = new Date(normalized);
     if (!isNaN(t.getTime())) return t;
     const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
     if (m) {

@@ -2204,7 +2204,8 @@ def sync_to_github(next_scheduled=None):
             nr = NEXT_SCHEDULED_RUN
         if nr is None and os.environ.get("GITHUB_ACTIONS") == "true":
             nr = _next_github_actions_scrape_utc()
-        next_run_str = nr.isoformat() if nr else None
+        # Normalise both timestamps to Z-suffix so the browser client never sees naive strings.
+        next_run_str = nr.isoformat().replace("+00:00", "Z") if nr else None
 
         with open(heartbeat_path, "w", encoding="utf-8") as f:
             json.dump({
