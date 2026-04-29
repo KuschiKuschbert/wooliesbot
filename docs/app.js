@@ -384,6 +384,24 @@ function setDataJsonLoadState(message) {
     if (s) s.textContent = text;
 }
 
+/** Show/hide an above-the-fold yellow warning when the heartbeat is >6 h old.
+ *  Kept separate from the red error banner so a data-load error is not hidden by
+ *  an age warning and vice-versa. */
+function updateHeartbeatAgeBanner(minsAgo) {
+    const banner = document.getElementById('heartbeat-age-banner');
+    if (!banner) return;
+    const STALE_MINS = 6 * 60;
+    if (Number.isFinite(minsAgo) && minsAgo >= STALE_MINS) {
+        const hOld = Math.round(minsAgo / 60);
+        banner.textContent =
+            `Prices last refreshed ${hOld}h ago — values may be out of date. Prices update every 4 hours.`;
+        banner.classList.remove('hidden');
+    } else {
+        banner.textContent = '';
+        banner.classList.add('hidden');
+    }
+}
+
 /** Deals hero pill — mirrors header times / product count */
 function syncDealsHeroStatus() {
     const live = document.getElementById('deals-hero-live');
@@ -1860,7 +1878,30 @@ async function initDashboard() {
             }
             _data = [];
         }
-        if (_lastChecked) updateLastCheckedDisplay();
+
+        // Shape guard: data parsed OK but is structurally empty or all-zero-priced.
+        // Phase 6 will add a fallback to data.prev.json here; for now surface an error banner.
+        if (_data.length === 0 && dataRes && dataRes.ok && !_dataJsonLoadError) {
+            setDataJsonLoadState(
+                'Price data appears empty — this may be a temporary deploy issue. Tap Refresh or check back after the next update.'
+            );
+        } else if (
+            _data.length > 0 &&
+            !_dataJsonLoadError &&
+            _data.every(i => !i.eff_price && !i.price)
+        ) {
+            setDataJsonLoadState(
+                'Price data loaded but contains no prices — may be a corrupt deploy. Tap Refresh or try again.'
+            );
+        }
+
+        if (_lastChecked) {
+            updateLastCheckedDisplay();
+            const hbDate = parseDashboardTimestamp(_lastChecked);
+            if (!isNaN(hbDate.getTime())) {
+                updateHeartbeatAgeBanner((Date.now() - hbDate.getTime()) / 60000);
+            }
+        }
         updateReceiptSyncDisplay();
 
         if (!_monitorsStarted) {
@@ -3321,6 +3362,7 @@ async function monitorCloudHealth() {
             if (!Number.isFinite(minsAgo)) {
                 dot.className = 'status-dot offline';
                 text.textContent = 'Price updates: unavailable';
+                updateHeartbeatAgeBanner(NaN);
                 return;
             }
             if (minsAgo < 5.5 * 60) {
@@ -3330,6 +3372,7 @@ async function monitorCloudHealth() {
                 dot.className = 'status-dot stale';
                 text.textContent = `Price updates: delayed (${Math.round(minsAgo)}m ago)`;
             }
+            updateHeartbeatAgeBanner(minsAgo);
 
             // Sync Last published / Next scheduled with cloud heartbeat
             _lastChecked = data.last_heartbeat;
