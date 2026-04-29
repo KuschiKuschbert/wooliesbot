@@ -1,0 +1,110 @@
+name: Variant Discovery Report
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 3am UTC every Monday
+    - cron: "0 3 * * 1"
+
+concurrency:
+  group: wooliesbot-discovery
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Git identity
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Run variant discovery for all compare_groups
+        run: |
+          python scripts/discover_all_groups.py \
+            --max-per-store 5 \
+            --min-score 0.45 \
+            --sleep-sec 2.5
+
+      - name: Sanity-check discovery report
+        run: |
+          python - <<'PY'
+          import datetime as dt, json, sys
+          from pathlib import Path
+
+          report_path = Path("docs/discovery_report.json")
+
+          # 1. File must exist
+          if not report_path.exists():
+              raise SystemExit("FAIL: docs/discovery_report.json was not written")
+
+          try:
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+          except Exception as e:
+              raise SystemExit(f"FAIL: report is not valid JSON — {e}")
+
+          # 2. Required top-level keys
+          for key in ("generated_at", "report_id", "groups", "total_new_candidates"):
+              if key not in report:
+                  raise SystemExit(f"FAIL: report missing required key '{key}'")
+
+          # 3. Report must be fresh (written within the last 60 minutes)
+          ts = report["generated_at"].replace("Z", "+00:00")
+          generated = dt.datetime.fromisoformat(ts)
+          if generated.tzinfo is None:
+              generated = generated.replace(tzinfo=dt.timezone.utc)
+          age_min = (dt.datetime.now(dt.timezone.utc) - generated).total_seconds() / 60
+          if age_min > 60:
+              raise SystemExit(f"FAIL: report is stale ({age_min:.1f} min old, expected < 60)")
+
+          # 4. At least 50% of groups must have been checked (guards against silent skip-all)
+          groups = report.get("groups", {})
+          if not groups:
+              raise SystemExit("FAIL: report contains no group entries")
+
+          checked = sum(1 for g in groups.values() if g.get("checked_at"))
+          coverage_pct = checked / len(groups) * 100
+          if coverage_pct < 50:
+              raise SystemExit(
+                  f"FAIL: only {checked}/{len(groups)} groups checked ({coverage_pct:.0f}%) — "
+                  "looks like the run was silently skipped or blocked"
+              )
+
+          # 5. total_new_candidates must be a non-negative integer
+          total = report.get("total_new_candidates", -1)
+          if not isinstance(total, int) or total < 0:
+              raise SystemExit(f"FAIL: total_new_candidates is invalid: {total!r}")
+
+          print(
+              f"Sanity check OK — report_id={report['report_id']}, "
+              f"groups_checked={checked}/{len(groups)}, "
+              f"new_candidates={total}, "
+              f"age={age_min:.1f}min"
+          )
+          PY
+
+      - name: Commit discovery report
+        run: |
+          git add docs/discovery_report.json
+          if git diff --cached --quiet; then
+            echo "No changes to discovery_report.json — skipping commit."
+          else
+            git commit -m "chore: update discovery_report.json [skip ci]"
+            git push
+          fi
