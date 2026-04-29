@@ -60,9 +60,34 @@ def near_dup_pairs(names: list[str]) -> list[tuple[str, str, float]]:
     return pairs
 
 
+# Categories considered "comparable" for coverage reporting.
+# Items in these types without a compare_group are reported as ungrouped.
+COVERAGE_TYPES = {"beverages", "dairy", "pantry", "household", "bakery"}
+
+# Default minimum fraction of items in COVERAGE_TYPES that must carry a
+# compare_group before a coverage warning is emitted.
+DEFAULT_MIN_COVERAGE = 0.10  # 10 % — warn-only baseline
+
+
 def main():
     parser = argparse.ArgumentParser(description="Lint compare_group taxonomy in data.json")
     parser.add_argument("--data", default=str(DEFAULT_DATA), help="Path to data.json")
+    parser.add_argument(
+        "--min-coverage",
+        type=float,
+        default=DEFAULT_MIN_COVERAGE,
+        metavar="FRACTION",
+        help=(
+            "Warn if fewer than FRACTION of items in comparable types "
+            f"({', '.join(sorted(COVERAGE_TYPES))}) have a compare_group. "
+            f"Default: {DEFAULT_MIN_COVERAGE:.0%}. Set to 0 to suppress."
+        ),
+    )
+    parser.add_argument(
+        "--fail-on-coverage",
+        action="store_true",
+        help="Exit 1 on coverage shortfall instead of just warning.",
+    )
     args = parser.parse_args()
 
     data_path = Path(args.data)
@@ -116,6 +141,30 @@ def main():
                 f"  SINGLETON: compare_group='{g}' has only 1 member ({members[0]}). "
                 f"Single-member groups cannot be compared — remove the group or add a second item."
             )
+
+    # 4. Coverage check across comparable categories
+    coverage_fail = False
+    coverage_total = sum(1 for it in items if isinstance(it, dict) and it.get("type") in COVERAGE_TYPES)
+    coverage_grouped = sum(
+        1 for it in items
+        if isinstance(it, dict) and it.get("type") in COVERAGE_TYPES and it.get("compare_group")
+    )
+    coverage_rate = coverage_grouped / coverage_total if coverage_total else 0.0
+
+    if args.min_coverage > 0:
+        coverage_line = (
+            f"  COVERAGE: {coverage_grouped}/{coverage_total} items in comparable types "
+            f"({', '.join(sorted(COVERAGE_TYPES))}) have a compare_group "
+            f"({coverage_rate:.1%} vs required ≥{args.min_coverage:.0%})"
+        )
+        if coverage_rate < args.min_coverage:
+            if args.fail_on_coverage:
+                errors.append(coverage_line)
+                coverage_fail = True
+            else:
+                warnings.append(coverage_line)
+        else:
+            print(coverage_line + " ✓")
 
     # Report
     print(f"\ncompare_group taxonomy check")

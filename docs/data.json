@@ -4512,7 +4512,8 @@
       "avg_price": 8.5,
       "stale": false,
       "name_check": "Dairy Butter Pat",
-      "item_id": "87ad6dac-7e75-40a2-a654-bf7a5dd50939"
+      "item_id": "87ad6dac-7e75-40a2-a654-bf7a5dd50939",
+      "compare_group": "butter_block_250g"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -6896,7 +6897,8 @@
       "avg_price": 0,
       "stale": false,
       "name_check": "Peanut Butter Smooth",
-      "item_id": "8c775909-15cc-4df4-aa21-124e0bf9a651"
+      "item_id": "8c775909-15cc-4df4-aa21-124e0bf9a651",
+      "compare_group": "peanut_butter"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -9238,7 +9240,8 @@
       "avg_price": 0,
       "stale": false,
       "name_check": "3 Ply Classic White Toilet Paper",
-      "item_id": "bfdef56b-15b6-4e1d-aa4c-c3759805c7ad"
+      "item_id": "bfdef56b-15b6-4e1d-aa4c-c3759805c7ad",
+      "compare_group": "tp_quilton"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -9916,7 +9919,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "White Toilet Tissue",
-      "item_id": "2bb2d82d-0d10-40a4-b7e0-2181a896807e"
+      "item_id": "2bb2d82d-0d10-40a4-b7e0-2181a896807e",
+      "compare_group": "tp_quilton"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -13845,7 +13849,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Crafted Rustic White Sourdough",
-      "item_id": "b69b37ea-42f6-4bc3-9e9e-62a04e9e197e"
+      "item_id": "b69b37ea-42f6-4bc3-9e9e-62a04e9e197e",
+      "compare_group": "sourdough_loaf"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -16169,7 +16174,8 @@
       "stale_as_of": "2026-04-16",
       "was_price": 9.0,
       "name_check": "Tasty Cheese Block",
-      "item_id": "9ccaa9d4-7203-4ecd-8a1b-3194cab46e91"
+      "item_id": "9ccaa9d4-7203-4ecd-8a1b-3194cab46e91",
+      "compare_group": "cheese_tasty_block"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -18634,7 +18640,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "OMO Expert Wonder Wash Laundry Liquid Detergent Odour Refresh",
-      "item_id": "666ece9c-cf25-46b0-8ccf-57a154247dc2"
+      "item_id": "666ece9c-cf25-46b0-8ccf-57a154247dc2",
+      "compare_group": "omo_wonder_wash"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -20597,7 +20604,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths Australian Butter Unsalted",
-      "item_id": "b607c942-ff1d-4676-ad33-897913420da4"
+      "item_id": "b607c942-ff1d-4676-ad33-897913420da4",
+      "compare_group": "butter_block_250g"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -24249,7 +24257,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Peanut Butter Crunchy",
-      "item_id": "0ec9fa35-abdf-4c44-88a8-a522b90b97ce"
+      "item_id": "0ec9fa35-abdf-4c44-88a8-a522b90b97ce",
+      "compare_group": "peanut_butter"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -26208,7 +26217,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "OMO Expert Wonder Wash Laundry Liquid Detergent Speed Clean",
-      "item_id": "0dcd7fbd-70e0-4b85-8b63-feb227c8dc3c"
+      "item_id": "0dcd7fbd-70e0-4b85-8b63-feb227c8dc3c",
+      "compare_group": "omo_wonder_wash"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -27091,7 +27101,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Quilton King Size 3 Ply Toilet Paper Unscented",
-      "item_id": "c226bdb6-2079-43d2-9a08-8ae51677b34a"
+      "item_id": "c226bdb6-2079-43d2-9a08-8ae51677b34a",
+      "compare_group": "tp_quilton"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -28138,7 +28149,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Peanut Butter Crunchy",
-      "item_id": "0d15eb0b-1054-4174-84c3-52f1c17eeef6"
+      "item_id": "0d15eb0b-1054-4174-84c3-52f1c17eeef6",
+      "compare_group": "peanut_butter"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -35218,7 +35230,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths Tasty Cheese Block",
-      "item_id": "eaeaa57a-ca47-41e0-83c2-d4947381e696"
+      "item_id": "eaeaa57a-ca47-41e0-83c2-d4947381e696",
+      "compare_group": "cheese_tasty_block"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -41773,7 +41786,8 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "name_check": "Woolworths 35hr Sourdough Loaf White Loaf",
-      "item_id": "38829e8f-f428-4d44-a352-58fe2e15ad37"
+      "item_id": "38829e8f-f428-4d44-a352-58fe2e15ad37",
+      "compare_group": "sourdough_loaf"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -42123,7 +42137,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Quilton Classic 3 Ply Toilet Paper",
-      "item_id": "f754a243-8805-4ef4-9651-aa573fa7c88b"
+      "item_id": "f754a243-8805-4ef4-9651-aa573fa7c88b",
+      "compare_group": "tp_quilton"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -42473,7 +42488,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Western Star Unsalted Butter Block Chef's Choice",
-      "item_id": "f8d10bdf-83d2-4eee-8984-6b2e21cc23ea"
+      "item_id": "f8d10bdf-83d2-4eee-8984-6b2e21cc23ea",
+      "compare_group": "butter_block_250g"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -52439,7 +52455,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Peanut Butter Crunchy",
-      "item_id": "59a5c5cc-5bd8-4aca-95f2-186a122bf88e"
+      "item_id": "59a5c5cc-5bd8-4aca-95f2-186a122bf88e",
+      "compare_group": "peanut_butter"
     },
     {
       "name": "Vegemite 150G",
@@ -57637,7 +57654,8 @@
       "stale_as_of": "2026-04-16",
       "was_price": 3.25,
       "name_check": "Woolworths 35hr Sourdough Mini Loaf Seeded",
-      "item_id": "0902602a-f8f5-4494-b178-8f1839f3830d"
+      "item_id": "0902602a-f8f5-4494-b178-8f1839f3830d",
+      "compare_group": "sourdough_loaf"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -59714,7 +59732,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Lurpak Butter Lighter Spreadable Slightly Salted",
-      "item_id": "aa81d104-06b1-4b3e-be10-99385930c224"
+      "item_id": "aa81d104-06b1-4b3e-be10-99385930c224",
+      "compare_group": "butter_block_250g"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -64198,7 +64217,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Peanut Butter Smoochy",
-      "item_id": "0eb8e395-adb2-4beb-b7cd-8a768c07d595"
+      "item_id": "0eb8e395-adb2-4beb-b7cd-8a768c07d595",
+      "compare_group": "peanut_butter"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -71747,6 +71767,56 @@
       "on_special": false,
       "name_check": "Kale Bunch Green",
       "item_id": "323910db-c316-4014-8a5c-a5965ccd2b60"
+    },
+    {
+      "name": "Quilton 3Ply Classic 36Pk",
+      "type": "household",
+      "price_mode": "each",
+      "compare_group": "tp_quilton",
+      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quilton%203Ply%2036%20Pack",
+      "coles": "https://www.coles.com.au/search?q=Quilton+3Ply+Classic+36+Pack",
+      "stock": "medium",
+      "target": null
+    },
+    {
+      "name": "Quilton Softness 3Ply Box 18Pk",
+      "type": "household",
+      "price_mode": "each",
+      "compare_group": "tp_quilton",
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/6059370/quilton-softness-3ply-white-toilet-paper-box",
+      "coles": "https://www.coles.com.au/search?q=Quilton+Softness+3Ply+18+pack",
+      "stock": "medium",
+      "target": null
+    },
+    {
+      "name": "Quilton Gold 4Ply 30Pk",
+      "type": "household",
+      "price_mode": "each",
+      "compare_group": "tp_quilton",
+      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quilton%20Gold%204Ply%2030%20Pack",
+      "coles": "https://www.coles.com.au/search?q=Quilton+Gold+4Ply+30+Pack",
+      "stock": "medium",
+      "target": null
+    },
+    {
+      "name": "Pics Peanut Butter Crunchy 1Kg",
+      "type": "pantry",
+      "price_mode": "each",
+      "compare_group": "peanut_butter",
+      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pics%20Peanut%20Butter%20Crunchy%201kg",
+      "coles": "https://www.coles.com.au/product/peanut-butter-crunchy-3609009",
+      "stock": "medium",
+      "target": null
+    },
+    {
+      "name": "Pics Peanut Butter Smoochy 380G",
+      "type": "pantry",
+      "price_mode": "each",
+      "compare_group": "peanut_butter",
+      "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Pics%20Peanut%20Butter%20Smoochy%20380g",
+      "coles": "https://www.coles.com.au/product/peanut-butter-smoochy-7042370",
+      "stock": "medium",
+      "target": null
     }
   ]
 }
