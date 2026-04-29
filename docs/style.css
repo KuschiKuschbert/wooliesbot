@@ -1057,6 +1057,85 @@ body {
     opacity: 0.8;
 }
 
+/* Modal fake-deal explanation note */
+.modal-fake-deal-note {
+    font-size: 12px;
+    color: #92400e;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+/* Suspicious specials Insights tile */
+.suspicious-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.suspicious-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: #92400e;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 100px;
+    padding: 1px 7px;
+}
+
+.suspicious-sub {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.suspicious-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.suspicious-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(245,158,11,0.06);
+    border: 1px solid rgba(245,158,11,0.18);
+    transition: background 0.15s;
+}
+
+.suspicious-row:hover {
+    background: rgba(245,158,11,0.12);
+}
+
+.suspicious-name {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.suspicious-claim {
+    font-size: 10px;
+    opacity: 0.65;
+}
+
+.suspicious-more {
+    font-size: 11px;
+    opacity: 0.5;
+    text-align: center;
+    margin-top: 4px;
+}
+
 .item-target {
     font-size: 12px;
     color: var(--text-secondary);
