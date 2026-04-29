@@ -4993,7 +4993,7 @@ body.drawer-scroll-lock {
 }
 
 .cg-row-best {
-    background: var(--state-success-soft);
+    border-left: 3px solid #c9a227;
 }
 
 .cg-row-best .cg-col-unit {
@@ -5010,6 +5010,18 @@ body.drawer-scroll-lock {
 .cg-col-price {
     white-space: nowrap;
     color: var(--text-main);
+}
+
+.cg-col-price--win-woolies {
+    background: var(--woolies-glow);
+    color: var(--woolies-green);
+    font-weight: 700;
+}
+
+.cg-col-price--win-coles {
+    background: var(--coles-glow);
+    color: var(--coles-red);
+    font-weight: 700;
 }
 
 /* compare modal: use .store-pdp-link--inline (see .store-pdp-link) */
