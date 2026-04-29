@@ -193,6 +193,7 @@ function mergeStockChange(rawDecoded, params) {
 		else if (itemName && item.name === itemName) match = true;
 		if (match) {
 			item.stock = newStock;
+			item.stock_updated_at = sydneyDateStr();
 			if (newStock === "full") {
 				item.last_purchased = sydneyDateStr();
 			}
