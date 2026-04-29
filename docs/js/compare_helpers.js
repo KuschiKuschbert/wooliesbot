@@ -154,6 +154,66 @@
     return n.replace(/\s{2,}/g, ' ').trim();
   }
 
+  /**
+   * Pick the single anchor item to display for a compare_group in the specials
+   * grid. Priority: most-recently purchased > in shopping list > cheapest.
+   * @param {object[]} members  - all items that are currently visible (on special) for the group
+   * @param {Set|string[]} shoppingListNames - names currently in the shopping list
+   * @param {Function} isReliableEffPriceFn
+   * @returns {object} one item from members
+   */
+  function pickGroupAnchor(members, shoppingListNames, isReliableEffPriceFn) {
+    if (!members || members.length === 0) return null;
+    if (members.length === 1) return members[0];
+
+    const listSet = shoppingListNames instanceof Set
+      ? shoppingListNames
+      : new Set(Array.isArray(shoppingListNames) ? shoppingListNames : []);
+
+    // 1. Most recently purchased
+    let bestPurchased = null;
+    let bestDate = '';
+    for (const item of members) {
+      const d = item.last_purchased || '';
+      if (d && d > bestDate) { bestDate = d; bestPurchased = item; }
+    }
+    if (bestPurchased) return bestPurchased;
+
+    // 2. In shopping list
+    for (const item of members) {
+      if (listSet.has(item.name)) return item;
+    }
+
+    // 3. Cheapest by min eff_price across stores
+    let cheapest = members[0];
+    let cheapestEff = minEffPriceAcrossStores(members[0], isReliableEffPriceFn);
+    for (let i = 1; i < members.length; i++) {
+      const ep = minEffPriceAcrossStores(members[i], isReliableEffPriceFn);
+      if (ep < cheapestEff) { cheapestEff = ep; cheapest = members[i]; }
+    }
+    return cheapest;
+  }
+
+  /**
+   * Find a group member that beats the anchor by at least thresholdPct (default 5 %).
+   * Returns { item, eff_price } or null if anchor is already best / within threshold.
+   */
+  function findCheaperVariant(members, anchor, isReliableEffPriceFn, thresholdPct) {
+    const thr = typeof thresholdPct === 'number' ? thresholdPct : 0.05;
+    const anchorEff = minEffPriceAcrossStores(anchor, isReliableEffPriceFn);
+    if (!Number.isFinite(anchorEff)) return null;
+    let best = null;
+    let bestEff = Infinity;
+    for (const item of members) {
+      if (item === anchor) continue;
+      const ep = minEffPriceAcrossStores(item, isReliableEffPriceFn);
+      if (!Number.isFinite(ep)) continue;
+      if (ep < bestEff) { bestEff = ep; best = item; }
+    }
+    if (best && bestEff < anchorEff * (1 - thr)) return { item: best, eff_price: bestEff };
+    return null;
+  }
+
   global.WooliesCompareHelpers = {
     formatCompareEffPrice,
     minEffPriceAcrossStores,
@@ -167,5 +227,7 @@
     colaCandidatePerLitre,
     compareColaCandidates,
     displayName,
+    pickGroupAnchor,
+    findCheaperVariant,
   };
 })(window);
