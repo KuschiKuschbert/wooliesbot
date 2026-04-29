@@ -1727,13 +1727,6 @@ function getStoreUrlForStore(item, storeKey, opts = {}) {
     return WooliesCompareHelpers.getStoreUrlForStore(item, storeKey, opts);
 }
 
-function pickGroupAnchor(members, shoppingListNames) {
-    return WooliesCompareHelpers.pickGroupAnchor(members, shoppingListNames, isReliableEffPrice);
-}
-
-function findCheaperVariant(members, anchor) {
-    return WooliesCompareHelpers.findCheaperVariant(members, anchor, isReliableEffPrice);
-}
 
 function storePdpAnchorHtml(href, storeKey, opts) {
     const m = window.WBStorePdp;
@@ -1768,9 +1761,8 @@ function buildGroupBestRowHtml(item) {
     const totalLabel = memberN === 2 ? '2 sizes' : `${memberN} sizes`;
     const btn = `<button type="button" class="cg-compare-btn" data-compare-group="${escapeHtml(g)}" data-stop-card-click>${totalLabel} · Compare</button>`;
 
-    // Check if a cheaper variant exists (≥5 % unit-price saving vs this item)
     const allGroupMembers = _data.filter(i => i.compare_group === g);
-    const cheaper = findCheaperVariant(allGroupMembers, item);
+    const cheaper = WooliesCompareHelpers.findCheaperVariant(allGroupMembers, item, isReliableEffPrice);
 
     let hintText = '';
     if (cheaper) {
@@ -3576,30 +3568,8 @@ function renderSpecials() {
         return 0;
     });
 
-    // Collapse compare_group variants to a single anchor card per group.
-    // Skip collapsing when a search/filter makes only one group member visible —
-    // in that case the user is explicitly looking for that item.
-    const _shoppingListNames = new Set(_shoppingList.map(r => r.name));
-    const _groupVisibleCounts = new Map();
-    for (const item of displayItems) {
-        if (item.compare_group) {
-            _groupVisibleCounts.set(item.compare_group, (_groupVisibleCounts.get(item.compare_group) || 0) + 1);
-        }
-    }
-    const _collapsedDisplayItems = [];
-    const _seenGroups = new Set();
-    for (const item of displayItems) {
-        const g = item.compare_group;
-        if (!g || (_groupVisibleCounts.get(g) || 1) <= 1) {
-            _collapsedDisplayItems.push(item);
-            continue;
-        }
-        if (_seenGroups.has(g)) continue;
-        _seenGroups.add(g);
-        const groupVisible = displayItems.filter(i => i.compare_group === g);
-        const anchor = pickGroupAnchor(groupVisible, _shoppingListNames);
-        _collapsedDisplayItems.push(anchor);
-    }
+    const _collapsedDisplayItems = WooliesCompareHelpers.collapseGroupsToAnchors(
+        displayItems, _shoppingList.map(r => r.name), isReliableEffPrice);
 
     if (_collapsedDisplayItems.length === 0) {
         // B: Show near-miss fallback instead of plain empty state

@@ -214,6 +214,35 @@
     return null;
   }
 
+  /**
+   * Collapse a list of special items so that multi-member compare_groups are
+   * represented by a single anchor card. Groups with only one visible member are
+   * left through untouched (so a search that surfaces a non-anchor still shows it).
+   * @param {object[]} items - already-filtered display items
+   * @param {string[]|Set} shoppingListNames
+   * @param {Function} isReliableEffPriceFn
+   * @returns {object[]} collapsed list
+   */
+  function collapseGroupsToAnchors(items, shoppingListNames, isReliableEffPriceFn) {
+    const listSet = shoppingListNames instanceof Set
+      ? shoppingListNames
+      : new Set(Array.isArray(shoppingListNames) ? shoppingListNames : []);
+    const counts = new Map();
+    for (const item of items) {
+      if (item.compare_group) counts.set(item.compare_group, (counts.get(item.compare_group) || 0) + 1);
+    }
+    const seen = new Set();
+    const out = [];
+    for (const item of items) {
+      const g = item.compare_group;
+      if (!g || (counts.get(g) || 1) <= 1) { out.push(item); continue; }
+      if (seen.has(g)) continue;
+      seen.add(g);
+      out.push(pickGroupAnchor(items.filter(i => i.compare_group === g), listSet, isReliableEffPriceFn));
+    }
+    return out;
+  }
+
   global.WooliesCompareHelpers = {
     formatCompareEffPrice,
     minEffPriceAcrossStores,
@@ -229,5 +258,6 @@
     displayName,
     pickGroupAnchor,
     findCheaperVariant,
+    collapseGroupsToAnchors,
   };
 })(window);
