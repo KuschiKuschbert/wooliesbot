@@ -36,6 +36,19 @@
     --radius-full: 999px;
     --essentials-list-gap: 8px;
     --essentials-list-max-height: min(36vh, 300px);
+    /* Readability-audit tokens — light-theme surface/state/track */
+    --surface-elevated: #ffffff;
+    --surface-image-bg: #f8f5ef;
+    --overlay-scrim: rgba(15, 23, 42, 0.45);
+    --track-bg: rgba(31, 41, 55, 0.08);
+    --track-bg-strong: rgba(31, 41, 55, 0.14);
+    --state-success-text: #047857;
+    --state-warning-text: #b45309;
+    --state-danger-text: #b91c1c;
+    --state-info-text: var(--primary);
+    --state-success-soft: rgba(4, 120, 87, 0.10);
+    --state-warning-soft: rgba(180, 83, 9, 0.10);
+    --state-danger-soft: rgba(185, 28, 28, 0.08);
     --space-1: clamp(0.25rem, 0.3vw, 0.35rem);
     --space-2: clamp(0.5rem, 0.6vw, 0.7rem);
     --space-3: clamp(0.75rem, 0.9vw, 1rem);
@@ -376,11 +389,9 @@ body {
     font-size: 13px;
     font-weight: 600;
     color: var(--text-main);
-    background: linear-gradient(135deg, rgba(38, 40, 54, 0.96), rgba(18, 20, 32, 0.96));
-    border: 1px solid rgba(129, 140, 248, 0.35);
-    box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.55),
-        0 0 40px rgba(99, 102, 241, 0.2);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 28px rgba(17, 24, 39, 0.16);
     opacity: 0;
     transition: opacity 0.28s ease, transform 0.28s ease;
     pointer-events: none;
@@ -740,7 +751,7 @@ body {
 .store-filters, .category-filters {
     display: flex;
     gap: 8px;
-    background: rgba(0,0,0,0.3);
+    background: var(--track-bg);
     padding: 4px;
     border-radius: 30px;
     border: 1px solid var(--border-color);
@@ -760,7 +771,7 @@ body {
 .store-filter {
     display: flex;
     gap: 12px;
-    background: rgba(0,0,0,0.3);
+    background: var(--track-bg);
     padding: 6px;
     border-radius: 30px;
     border: 1px solid var(--border-color);
@@ -899,7 +910,8 @@ body {
     width: 100%;
     height: 140px;
     object-fit: contain;
-    background: linear-gradient(to bottom, #1e293b, #0a0a0c);
+    background: var(--surface-image-bg);
+    border-bottom: 1px solid var(--border-color);
     padding: 12px;
     box-sizing: border-box;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -914,7 +926,7 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background: radial-gradient(circle at top right, rgba(255,255,255,0.03), transparent 60%);
+    background: transparent;
 }
 
 .item-title {
@@ -1001,7 +1013,7 @@ body {
 
 .was-price {
     font-size: 12px;
-    color: #f87171;
+    color: var(--state-danger-text);
     text-decoration: line-through;
     opacity: 0.8;
 }
@@ -1064,8 +1076,8 @@ body {
 .winner-badge {
     font-size: 10px;
     font-weight: 700;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.15);
+    color: var(--state-success-text);
+    background: var(--state-success-soft);
     padding: 1px 5px;
     border-radius: 4px;
     white-space: nowrap;
@@ -1084,7 +1096,7 @@ body {
 }
 
 .group-best-on-top {
-    color: var(--accent-green, #10b981);
+    color: var(--accent-green, var(--state-success-text));
     border-color: rgba(16, 185, 129, 0.2);
     background: rgba(16, 185, 129, 0.06);
 }
@@ -1278,7 +1290,7 @@ body {
 .analytics-card-details {
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--bg-card-hover);
 }
 
 .analytics-card-details > summary {
@@ -1494,9 +1506,9 @@ body {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.72);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: var(--overlay-scrim);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
     z-index: 4000;
     display: flex;
     align-items: center;
@@ -1513,16 +1525,13 @@ body {
 }
 
 .modal {
-    background: linear-gradient(165deg, rgba(22, 24, 36, 0.96) 0%, rgba(10, 12, 20, 0.94) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     width: 100%;
     max-width: 450px;
     padding: 2rem;
-    box-shadow:
-        0 32px 80px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-        0 0 80px rgba(99, 102, 241, 0.12);
+    box-shadow: var(--surface-shadow);
 }
 
 .stock-selector {
@@ -1536,7 +1545,7 @@ body {
     padding: 0.8rem;
     border-radius: 12px;
     border: 1px solid var(--border-color);
-    background: rgba(255,255,255,0.05);
+    background: var(--track-bg);
     color: var(--text-muted);
     font-weight: 600;
     cursor: pointer;
@@ -1549,11 +1558,11 @@ body {
 
 .modal input {
     width: 100%;
-    background: rgba(0,0,0,0.3);
+    background: var(--bg-card-hover);
     border: 1px solid var(--border-color);
     padding: 0.8rem;
     border-radius: 12px;
-    color: white;
+    color: var(--text-main);
     font-size: 1.1rem;
     font-weight: 600;
     outline: none;
@@ -1651,7 +1660,7 @@ body {
 
 .data-table th, .data-table td {
     padding: 20px 28px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .data-table th {
@@ -1661,7 +1670,7 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: rgba(0,0,0,0.2);
+    background: var(--bg-card-hover);
 }
 
 .data-table tbody tr {
@@ -1673,7 +1682,7 @@ body {
 }
 
 .data-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-card-hover);
     transform: scale(1.005);
 }
 
@@ -1776,9 +1785,9 @@ footer {
     border-radius: 10px;
     font-size: 13px;
     line-height: 1.45;
-    color: #fecaca;
-    background: rgba(127, 29, 29, 0.35);
-    border: 1px solid rgba(248, 113, 113, 0.45);
+    color: var(--state-danger-text);
+    background: var(--state-danger-soft);
+    border: 1px solid rgba(185, 28, 28, 0.28);
 }
 
 /* Stale-data age warning — shown when heartbeat is >6 h old */
@@ -1788,9 +1797,9 @@ footer {
     border-radius: 10px;
     font-size: 13px;
     line-height: 1.45;
-    color: #fef08a;
-    background: rgba(113, 63, 18, 0.35);
-    border: 1px solid rgba(234, 179, 8, 0.45);
+    color: var(--state-warning-text);
+    background: var(--state-warning-soft);
+    border: 1px solid rgba(180, 83, 9, 0.28);
 }
 
 /* Dynamic Animation Triggers */
@@ -1814,7 +1823,7 @@ footer {
 }
 /* Specials Countdown */
 .countdown-pill {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border: 1px solid var(--border-color);
     padding: 8px 16px;
     border-radius: 100px;
@@ -1834,9 +1843,9 @@ footer {
 }
 
 .countdown-pill.urgent {
-    background: rgba(239, 68, 68, 0.1);
-    border-color: rgba(239, 68, 68, 0.3);
-    color: #fca5a5;
+    background: var(--state-danger-soft);
+    border-color: rgba(185, 28, 28, 0.3);
+    color: var(--state-danger-text);
     animation: pulse-red 2s infinite;
 }
 
@@ -1849,7 +1858,7 @@ footer {
 /* Shop Mode Toggle */
 .shop-mode-toggle {
     display: flex;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     padding: 4px;
     border-radius: 10px;
     gap: 4px;
@@ -1883,7 +1892,7 @@ footer {
 
 .progress-bar-bg {
     height: 6px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border-radius: 100px;
     overflow: hidden;
 }
@@ -2104,7 +2113,7 @@ footer {
     margin-top: 6px;
     font-size: 12px;
     font-weight: 800;
-    color: #d4f7ea;
+    color: var(--state-success-text);
     letter-spacing: 0.01em;
 }
 
@@ -2113,7 +2122,7 @@ footer {
     width: min(210px, 55vw);
     height: 7px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--track-bg);
     overflow: hidden;
 }
 
@@ -2202,7 +2211,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 14px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-card);
     padding: 12px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -2215,8 +2224,8 @@ footer {
 
 .shopping-item--picked {
     opacity: 0.68;
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.04);
+    background: var(--bg-card);
+    border-color: var(--border-color);
 }
 
 .shopping-item--picked .shopping-item-name {
@@ -2253,7 +2262,7 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.02);
+    background: transparent;
     cursor: pointer;
     flex-shrink: 0;
 }
@@ -2291,7 +2300,7 @@ footer {
 .add-to-list-btn {
     width: 100%;
     margin-top: 15px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border: 1px solid var(--border-color);
     padding: 8px;
     border-radius: 10px;
@@ -2322,8 +2331,8 @@ footer {
 }
 
 .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--track-bg-strong);
+    color: var(--text-main);
 }
 
 body.drawer-open {
@@ -2669,7 +2678,7 @@ body.drawer-scroll-lock {
 }
 
 .mobile-nav-link.active {
-    color: #eef2ff;
+    color: var(--primary);
 }
 
 .mobile-nav-link.active svg {
@@ -2775,7 +2784,7 @@ body.drawer-scroll-lock {
 
 .search-input {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
     padding: 12px 16px 12px 42px;
     border-radius: 12px;
@@ -2788,7 +2797,7 @@ body.drawer-scroll-lock {
 .search-input:focus {
     outline: none;
     border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--surface-elevated);
     box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
@@ -2997,11 +3006,11 @@ body.drawer-scroll-lock {
 
 .bias-bar {
     height: 12px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border-radius: 100px;
     display: flex;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .bias-fill.woolies { background: var(--woolies-green); box-shadow: 0 0 15px var(--woolies-glow); }
@@ -3039,7 +3048,7 @@ body.drawer-scroll-lock {
 .pagination-btn {
     padding: 0.6rem 1rem;
     border-radius: 10px;
-    background: rgba(255,255,255,0.05);
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
     color: var(--text-main);
     font-weight: 600;
@@ -3051,7 +3060,7 @@ body.drawer-scroll-lock {
 }
 
 .pagination-btn:hover:not(:disabled) {
-    background: rgba(255,255,255,0.1);
+    background: var(--bg-card-hover);
     transform: translateY(-2px);
 }
 
@@ -3095,8 +3104,8 @@ body.drawer-scroll-lock {
 /* Clear List Button */
 .clear-list-btn {
     background: none;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #fca5a5;
+    border: 1px solid rgba(185, 28, 28, 0.3);
+    color: var(--state-danger-text);
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 12px;
@@ -3112,11 +3121,11 @@ body.drawer-scroll-lock {
 
 /* Cola Battle v2.0 */
 .cola-card {
-    background: linear-gradient(135deg, rgba(20, 20, 30, 0.9), rgba(10, 10, 15, 0.95));
-    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 1rem;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    box-shadow: var(--surface-shadow);
 }
 
 .cola-battle-header {
@@ -3132,8 +3141,8 @@ body.drawer-scroll-lock {
 }
 
 .cola-battle-header i {
-    color: #fbbf24;
-    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.5));
+    color: var(--state-warning-text);
+    filter: drop-shadow(0 0 5px rgba(180, 83, 9, 0.35));
 }
 
 .battle-arena {
@@ -3161,8 +3170,8 @@ body.drawer-scroll-lock {
 
 .fighter {
     display: block;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: var(--track-bg);
+    border: 1px solid var(--border-color);
     padding: 10px 10px 8px;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -3176,8 +3185,8 @@ body.drawer-scroll-lock {
 
 .fighter:hover {
     transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.07);
+    border-color: var(--border-strong);
+    background: var(--bg-card-hover);
 }
 
 .fighter.winner {
@@ -3191,21 +3200,21 @@ body.drawer-scroll-lock {
 }
 
 .fighter.winner-woolworths {
-    background: #064e3b !important; /* Deep Woolies Emerald */
-    border-color: #10b981;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    background: rgba(47, 127, 79, 0.12) !important;
+    border-color: var(--woolies-green);
+    box-shadow: 0 0 14px rgba(47, 127, 79, 0.2);
 }
 
 .fighter.winner-coles {
-    background: #7f1d1d !important; /* Deep Coles Crimson */
-    border-color: #ef4444;
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    background: rgba(176, 70, 60, 0.10) !important;
+    border-color: var(--coles-red);
+    box-shadow: 0 0 14px rgba(176, 70, 60, 0.18);
 }
 
 .fighter.winner .fighter-brand,
 .fighter.winner .fighter-price,
 .fighter.winner .fighter-product {
-    color: white !important;
+    color: var(--text-strong);
 }
 
 .fighter.winner .winner-badge {
@@ -3214,8 +3223,8 @@ body.drawer-scroll-lock {
     font-weight: 900;
     padding: 6px 0;
     margin: -12px -12px 8px -12px;
-    background: rgba(0,0,0,0.3);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    background: var(--track-bg-strong);
+    text-shadow: none;
     letter-spacing: 0.5px;
 }
 
@@ -3228,7 +3237,7 @@ body.drawer-scroll-lock {
 }
 
 .fighter-add-btn {
-    border: 1px solid rgba(255,255,255,0.16);
+    border: 1px solid var(--border-color);
     border-radius: 999px;
     padding: 5px 10px;
     font-size: 11px;
@@ -3236,7 +3245,7 @@ body.drawer-scroll-lock {
     line-height: 1;
     text-decoration: none;
     color: var(--text-main);
-    background: rgba(255,255,255,0.05);
+    background: var(--track-bg);
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -3244,18 +3253,18 @@ body.drawer-scroll-lock {
 }
 
 .fighter-add-btn:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.3);
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
 }
 
 .fighter-actions .store-pdp-link {
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid var(--border-color);
     border-radius: 999px;
-    background: rgba(255,255,255,0.04);
+    background: var(--track-bg);
 }
 .fighter-actions .store-pdp-link:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.25);
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
 }
 
 .fighter-add-btn i {
@@ -3305,7 +3314,7 @@ body.drawer-scroll-lock {
 
 .arena-divider {
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
     margin: 12px 0;
 }
 
@@ -3325,19 +3334,19 @@ body.drawer-scroll-lock {
 .confidence-badge:hover { opacity: 0.8; }
 
 .confidence-badge.high {
-    background: rgba(16, 185, 129, 0.12);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    background: var(--state-success-soft);
+    color: var(--state-success-text);
+    border: 1px solid rgba(4, 120, 87, 0.25);
 }
 .confidence-badge.medium {
-    background: rgba(245, 158, 11, 0.12);
-    color: #fbbf24;
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    background: var(--state-warning-soft);
+    color: var(--state-warning-text);
+    border: 1px solid rgba(180, 83, 9, 0.25);
 }
 .confidence-badge.low {
-    background: rgba(239, 68, 68, 0.10);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    background: var(--state-danger-soft);
+    color: var(--state-danger-text);
+    border: 1px solid rgba(185, 28, 28, 0.2);
 }
 
 .stale-badge {
@@ -3349,9 +3358,9 @@ body.drawer-scroll-lock {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.2px;
-    color: #fbbf24;
-    background: rgba(245, 158, 11, 0.15);
-    border: 1px solid rgba(245, 158, 11, 0.35);
+    color: var(--state-warning-text);
+    background: var(--state-warning-soft);
+    border: 1px solid rgba(180, 83, 9, 0.35);
     white-space: nowrap;
 }
 
@@ -3386,7 +3395,7 @@ body.drawer-scroll-lock {
     height: 10px;
     border-radius: 100px;
     overflow: hidden;
-    background: rgba(255,255,255,0.05);
+    background: var(--track-bg);
     gap: 2px;
 }
 .tcb-fill {
@@ -3457,11 +3466,11 @@ body.drawer-scroll-lock {
     align-items: center;
     gap: 10px;
     padding: 0.9rem 1.2rem;
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.18);
+    background: rgba(63, 93, 125, 0.08);
+    border: 1px solid rgba(63, 93, 125, 0.18);
     border-radius: 12px;
     font-size: 13px;
-    color: #a5b4fc;
+    color: var(--state-info-text);
 }
 .ti-tip svg {
     flex-shrink: 0;
@@ -3470,9 +3479,9 @@ body.drawer-scroll-lock {
     opacity: 0.8;
 }
 .ti-tip.success {
-    background: rgba(16, 185, 129, 0.08);
-    border-color: rgba(16, 185, 129, 0.18);
-    color: #6ee7b7;
+    background: var(--state-success-soft);
+    border-color: rgba(4, 120, 87, 0.18);
+    color: var(--state-success-text);
 }
 .ti-tip.success svg { color: var(--woolies-green); }
 
@@ -3520,7 +3529,7 @@ body.drawer-scroll-lock {
     cursor: pointer;
     transition: background 0.15s;
 }
-.top5-row:hover { background: rgba(255,255,255,0.06); }
+.top5-row:hover { background: var(--bg-card-hover); }
 
 .top5-medal { font-size: 16px; flex-shrink: 0; }
 
@@ -3535,8 +3544,8 @@ body.drawer-scroll-lock {
     text-overflow: ellipsis;
 }
 .top5-price { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-.top5-price-woolies { color: #34d399; }
-.top5-price-coles { color: #f87171; }
+.top5-price-woolies { color: var(--state-success-text); }
+.top5-price-coles { color: var(--state-danger-text); }
 
 .top5-save {
     font-size: 11px;
@@ -3679,7 +3688,7 @@ body.drawer-scroll-lock {
     gap: 0.6rem;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--bg-card);
     padding: 0.55rem 0.7rem;
     color: var(--text-main);
     cursor: pointer;
@@ -3687,7 +3696,7 @@ body.drawer-scroll-lock {
 }
 
 .action-plan-row:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-card-hover);
     border-color: var(--border-strong);
 }
 
@@ -3726,8 +3735,8 @@ body.drawer-scroll-lock {
 .action-plan-save {
     font-size: 11px;
     font-weight: 700;
-    color: #34d399;
-    background: rgba(16, 185, 129, 0.14);
+    color: var(--state-success-text);
+    background: var(--state-success-soft);
     border-radius: 999px;
     padding: 3px 8px;
     white-space: nowrap;
@@ -3818,7 +3827,7 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-strong);
 }
 
 .gauge-stat-label {
@@ -3921,7 +3930,7 @@ body.drawer-scroll-lock {
 
 .inflation-bar-wrap {
     height: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border-radius: 100px;
     overflow: hidden;
 }
@@ -3949,8 +3958,8 @@ body.drawer-scroll-lock {
     white-space: nowrap;
 }
 
-.inflation-label.up { color: #fca5a5; }
-.inflation-label.down { color: #34d399; }
+.inflation-label.up { color: var(--state-danger-text); }
+.inflation-label.down { color: var(--state-success-text); }
 
 @media (max-width: 768px) {
     .inflation-row {
@@ -3979,15 +3988,15 @@ body.drawer-scroll-lock {
 }
 
 .heatmap-store-header.woolies-head {
-    background: rgba(16, 185, 129, 0.08);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.15);
+    background: var(--state-success-soft);
+    color: var(--state-success-text);
+    border: 1px solid rgba(4, 120, 87, 0.2);
 }
 
 .heatmap-store-header.coles-head {
-    background: rgba(239, 68, 68, 0.08);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, 0.15);
+    background: var(--state-danger-soft);
+    color: var(--state-danger-text);
+    border: 1px solid rgba(185, 28, 28, 0.2);
 }
 
 .heatmap-label {
@@ -4067,14 +4076,14 @@ body.drawer-scroll-lock {
     gap: 12px;
     padding: 10px 14px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .vol-row:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--bg-card-hover);
     border-color: var(--primary);
     transform: translateX(4px);
 }
@@ -4104,11 +4113,11 @@ body.drawer-scroll-lock {
 .vol-special-badge {
     font-size: 10px;
     font-weight: 700;
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
+    background: var(--state-success-soft);
+    color: var(--state-success-text);
     padding: 2px 6px;
     border-radius: 4px;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(4, 120, 87, 0.3);
     animation: pulse-green 2s infinite;
 }
 
@@ -4119,7 +4128,7 @@ body.drawer-scroll-lock {
 
 .vol-bar-wrap {
     height: 4px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border-radius: 100px;
     overflow: hidden;
 }
@@ -4146,8 +4155,8 @@ body.drawer-scroll-lock {
     line-height: 1;
 }
 
-.vol-score.high { color: #fca5a5; }
-.vol-score.med  { color: #fbbf24; }
+.vol-score.high { color: var(--state-danger-text); }
+.vol-score.med  { color: var(--state-warning-text); }
 .vol-score.low  { color: #818cf8; }
 
 .vol-range {
@@ -4168,13 +4177,13 @@ body.drawer-scroll-lock {
     align-items: center;
     gap: 12px;
     padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-card);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
     transition: background 0.2s;
 }
 
-.best-time-row:hover { background: rgba(255, 255, 255, 0.06); }
+.best-time-row:hover { background: var(--bg-card-hover); }
 
 .bt-cat {
     flex: 1;
@@ -4200,8 +4209,8 @@ body.drawer-scroll-lock {
 .bt-saving {
     font-size: 11px;
     font-weight: 700;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.1);
+    color: var(--state-success-text);
+    background: var(--state-success-soft);
     padding: 2px 8px;
     border-radius: 6px;
 }
@@ -4283,7 +4292,7 @@ body.drawer-scroll-lock {
 
 .health-metric-bar {
     height: 5px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border-radius: 100px;
     overflow: hidden;
 }
@@ -4306,9 +4315,9 @@ body.drawer-scroll-lock {
 .deepdive-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--overlay-scrim);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 5000;
     display: flex;
     align-items: center;
@@ -4323,14 +4332,14 @@ body.drawer-scroll-lock {
 }
 
 .deepdive-panel {
-    background: var(--bg-dark);
+    background: var(--surface-elevated);
     border: 1px solid var(--border-color);
     border-radius: 28px;
     width: 100%;
     max-width: 680px;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    box-shadow: 0 20px 48px rgba(17, 24, 39, 0.18);
     animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -4363,7 +4372,7 @@ body.drawer-scroll-lock {
 }
 
 .deepdive-close {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--track-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 8px;
@@ -4374,8 +4383,8 @@ body.drawer-scroll-lock {
 }
 
 .deepdive-close:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--track-bg-strong);
+    color: var(--text-main);
 }
 
 .deepdive-stats {
@@ -4400,12 +4409,12 @@ body.drawer-scroll-lock {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-strong);
     margin-bottom: 4px;
 }
 
-.dd-stat-val.vol-high { color: #fca5a5; }
-.dd-stat-val.vol-med  { color: #fbbf24; }
+.dd-stat-val.vol-high { color: var(--state-danger-text); }
+.dd-stat-val.vol-med  { color: var(--state-warning-text); }
 
 .dd-stat-label {
     font-size: 10px;
@@ -4513,9 +4522,9 @@ body.drawer-scroll-lock {
 .cg-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--overlay-scrim);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 5100;
     display: flex;
     align-items: center;
@@ -4525,7 +4534,7 @@ body.drawer-scroll-lock {
 }
 
 .cg-modal-panel {
-    background: var(--bg-dark);
+    background: var(--surface-elevated);
     border: 1px solid var(--border-color);
     border-radius: 24px;
     width: 100%;
@@ -4534,7 +4543,7 @@ body.drawer-scroll-lock {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 48px rgba(17, 24, 39, 0.18);
     animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -4568,7 +4577,7 @@ body.drawer-scroll-lock {
 .cg-modal-badge {
     padding: 2px 8px;
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--track-bg);
     border: 1px solid var(--border-color);
 }
 
@@ -4613,21 +4622,21 @@ body.drawer-scroll-lock {
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
-    background: var(--bg-dark);
+    background: var(--surface-elevated);
 }
 
 .cg-modal-table td {
     padding: 10px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
 }
 
 .cg-row-best {
-    background: rgba(16, 185, 129, 0.08);
+    background: var(--state-success-soft);
 }
 
 .cg-row-best .cg-col-unit {
-    color: #6ee7b7;
+    color: var(--state-success-text);
     font-weight: 700;
 }
 
@@ -4774,7 +4783,7 @@ body.drawer-scroll-lock {
 
 .strip-progress-bg {
     height: 3px;
-    background: rgba(255,255,255,0.06);
+    background: var(--track-bg);
     border-radius: 100px;
     margin-top: 4px;
     overflow: hidden;
@@ -4788,7 +4797,7 @@ body.drawer-scroll-lock {
 }
 
 #specials-countdown.urgent .strip-value {
-    color: #fca5a5;
+    color: var(--state-danger-text);
 }
 
 @media (max-width: 900px) {
@@ -4915,8 +4924,8 @@ body.drawer-scroll-lock {
 
 /* ── F: Buy Now Card ────────────────────────────────────────────────────── */
 .buy-now-card {
-    border-color: rgba(239, 68, 68, 0.35) !important;
-    background: linear-gradient(135deg, rgba(239,68,68,0.07), rgba(10,10,12,0.9)) !important;
+    border-color: rgba(176, 70, 60, 0.35) !important;
+    background: linear-gradient(135deg, rgba(176,70,60,0.08), rgba(176,70,60,0.02)) !important;
     position: relative;
     overflow: hidden;
 }
@@ -4998,7 +5007,7 @@ body.drawer-scroll-lock {
     text-overflow: ellipsis;
 }
 
-.buy-now-price { font-size: 11px; color: #34d399; font-weight: 700; }
+.buy-now-price { font-size: 11px; color: var(--state-success-text); font-weight: 700; }
 
 .buy-now-save {
     font-size: 10px;
@@ -5135,7 +5144,7 @@ body.drawer-scroll-lock {
 
 .essentials-reset-btn,
 .essentials-edit-btn {
-    background: rgba(255,255,255,0.05);
+    background: var(--track-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-muted);
@@ -5150,13 +5159,13 @@ body.drawer-scroll-lock {
     padding: 0;
 }
 
-.essentials-reset-btn:hover { background: rgba(255,255,255,0.12); color: white; }
+.essentials-reset-btn:hover { background: var(--track-bg-strong); color: var(--text-main); }
 .essentials-edit-btn:hover  { background: rgba(99,102,241,0.15); border-color: var(--primary); color: var(--primary); }
 
 /* Progress bar */
 .essentials-progress-bar-bg {
     height: 3px;
-    background: rgba(255,255,255,0.06);
+    background: var(--track-bg);
     border-radius: 100px;
     margin-bottom: 10px;
     overflow: hidden;
@@ -5181,7 +5190,7 @@ body.drawer-scroll-lock {
 }
 
 .essential-row:hover {
-    background: rgba(255,255,255,0.04);
+    background: var(--track-bg);
 }
 
 .essential-row.checked {
@@ -5294,7 +5303,7 @@ body.drawer-scroll-lock {
 .essentials-done-section {
     margin-top: 8px;
     padding-top: 8px;
-    border-top: 1px dashed rgba(255,255,255,0.1);
+    border-top: 1px dashed var(--border-color);
 }
 
 .essentials-done-toggle {
@@ -5348,10 +5357,10 @@ body.drawer-scroll-lock {
 
 .essential-new-input {
     flex: 1;
-    background: rgba(0,0,0,0.3);
+    background: var(--bg-card-hover);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    color: white;
+    color: var(--text-main);
     font-size: 12px;
     font-family: var(--font-body);
     padding: 5px 10px;
@@ -5393,10 +5402,10 @@ body.drawer-scroll-lock {
 
 .essential-reset-defaults-btn {
     width: 100%;
-    background: rgba(239, 68, 68, 0.07);
-    border: 1px dashed rgba(239, 68, 68, 0.3);
+    background: var(--state-danger-soft);
+    border: 1px dashed rgba(185, 28, 28, 0.3);
     border-radius: 8px;
-    color: #f87171;
+    color: var(--state-danger-text);
     font-size: 11px;
     font-weight: 600;
     font-family: var(--font-body);
@@ -5407,9 +5416,9 @@ body.drawer-scroll-lock {
 }
 
 .essential-reset-defaults-btn:hover {
-    background: rgba(239, 68, 68, 0.15);
-    border-color: rgba(239, 68, 68, 0.6);
-    color: #fca5a5;
+    background: rgba(185, 28, 28, 0.14);
+    border-color: rgba(185, 28, 28, 0.55);
+    color: var(--state-danger-text);
 }
 
 /* Cola Battle — store badges, special badge, view link */
@@ -5432,15 +5441,15 @@ body.drawer-scroll-lock {
 }
 
 .fighter-store-badge.woolies {
-    background: rgba(0, 148, 68, 0.15);
-    color: #4ade80;
-    border: 1px solid rgba(0, 148, 68, 0.3);
+    background: var(--state-success-soft);
+    color: var(--state-success-text);
+    border: 1px solid rgba(4, 120, 87, 0.3);
 }
 
 .fighter-store-badge.coles {
-    background: rgba(220, 38, 38, 0.15);
-    color: #f87171;
-    border: 1px solid rgba(220, 38, 38, 0.3);
+    background: var(--state-danger-soft);
+    color: var(--state-danger-text);
+    border: 1px solid rgba(185, 28, 28, 0.3);
 }
 
 .fighter-on-special {
@@ -6183,19 +6192,19 @@ button, a, label, [role="button"] {
     }
 
     .heatmap-mobile-winner.woolies {
-        background: rgba(16,185,129,0.12);
-        color: #34d399;
+        background: var(--state-success-soft);
+        color: var(--state-success-text);
     }
 
     .heatmap-mobile-winner.coles {
-        background: rgba(239,68,68,0.12);
-        color: #fca5a5;
+        background: var(--state-danger-soft);
+        color: var(--state-danger-text);
     }
 
     .heatmap-mobile-save {
         font-size: 10px;
         font-weight: 700;
-        color: #fbbf24;
+        color: var(--state-warning-text);
         white-space: nowrap;
     }
 
@@ -6350,7 +6359,7 @@ button, a, label, [role="button"] {
 
 .dr-back:hover {
     color: var(--text-main);
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--track-bg);
 }
 
 .dr-logo-lockup {
@@ -6368,11 +6377,10 @@ button, a, label, [role="button"] {
     border-radius: 12px;
     font-size: 17px;
     line-height: 1;
-    background: linear-gradient(145deg, rgba(129, 140, 248, 0.38), rgba(34, 211, 238, 0.12));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow:
-        0 8px 28px rgba(99, 102, 241, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    color: var(--primary);
+    background: var(--primary-glow);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .dr-logo-title {
@@ -6382,18 +6390,17 @@ button, a, label, [role="button"] {
     letter-spacing: -0.03em;
     line-height: 1.15;
     margin: 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #a5b4fc 50%, #c4b5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-strong);
+    -webkit-text-fill-color: initial;
+    background-clip: unset;
 }
 
 .dr-hero {
     margin-bottom: 28px;
     padding: 1.35rem 1.5rem;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     box-shadow: var(--surface-shadow);
@@ -6405,10 +6412,7 @@ button, a, label, [role="button"] {
     font-weight: 800;
     letter-spacing: -0.035em;
     margin-bottom: 12px;
-    background: linear-gradient(135deg, #f8fafc 0%, #a5b4fc 42%, #67e8f9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-strong);
 }
 
 .dr-hero p {
@@ -6420,7 +6424,7 @@ button, a, label, [role="button"] {
 
 .dr-panel {
     background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 1.35rem 1.45rem;
     margin-bottom: 1.35rem;
@@ -6451,8 +6455,8 @@ button, a, label, [role="button"] {
     min-height: 132px;
     padding: 14px 16px;
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card-hover);
     color: var(--text-main);
     font-family: ui-monospace, "SF Mono", Monaco, monospace;
     font-size: 12px;
@@ -6463,8 +6467,8 @@ button, a, label, [role="button"] {
 
 .dr-textarea:focus {
     outline: none;
-    border-color: rgba(129, 140, 248, 0.55);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.22);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .dr-row {
@@ -6478,8 +6482,8 @@ button, a, label, [role="button"] {
 .dr-btn {
     padding: 11px 18px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    background: var(--track-bg);
     color: var(--text-main);
     font-family: var(--font-body);
     font-size: 13px;
@@ -6489,8 +6493,8 @@ button, a, label, [role="button"] {
 }
 
 .dr-btn:hover {
-    background: rgba(255, 255, 255, 0.11);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
 }
 
 .dr-btn:active {
@@ -6532,8 +6536,8 @@ button, a, label, [role="button"] {
 .dr-table-wrap {
     overflow-x: auto;
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
 }
 
 table.dr-table {
@@ -6546,7 +6550,7 @@ table.dr-table {
 .dr-table td {
     padding: 11px 14px;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .dr-table th {
@@ -6555,11 +6559,11 @@ table.dr-table {
     font-size: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-card-hover);
 }
 
 .dr-table tbody tr:hover td {
-    background: rgba(129, 140, 248, 0.06);
+    background: rgba(63, 93, 125, 0.06);
 }
 
 .dr-table a {
@@ -6626,9 +6630,9 @@ table.dr-table {
 
 .dr-warn {
     font-size: 12px;
-    color: #fcd34d;
-    background: rgba(245, 158, 11, 0.09);
-    border: 1px solid rgba(245, 158, 11, 0.28);
+    color: var(--state-warning-text);
+    background: var(--state-warning-soft);
+    border: 1px solid rgba(180, 83, 9, 0.28);
     padding: 11px 14px;
     border-radius: var(--radius-md);
     margin-top: 14px;
