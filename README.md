@@ -38,7 +38,7 @@ Run `./scripts/shippr.sh --help` for full behavior and arguments. Agent-side con
 
 The dashboard calls the Cloudflare Worker at `writeApiUrl` ([`docs/env.js`](docs/env.js) or `localStorage` `write_api_url`). **You do not need a token in the browser by default** for this repo: [`wrangler.toml`](workers/wooliesbot-write/wrangler.toml) uses `ALLOW_INSECURE_PUBLIC_WRITES = "1"`, so requests from **[`ALLOWED_ORIGINS`](workers/wooliesbot-write/wrangler.toml)** are accepted with per-IP rate limiting (GitHub still uses `GH_TOKEN` on the server only).
 
-**Optional stricter mode:** set `ALLOW_INSECURE_PUBLIC_WRITES = "0"`, set `WRITE_API_TOKENS` in Cloudflare (`npx wrangler secret put WRITE_API_TOKENS`), then use [`docs/pairing.html`](docs/pairing.html) on each device.
+**Optional stricter mode:** set `ALLOW_INSECURE_PUBLIC_WRITES = "0"`, set `WRITE_API_TOKENS` in Cloudflare (`npx wrangler secret put WRITE_API_TOKENS`), then open the dashboard on each device with `#wbt=<token>` appended to the URL — the token is stored in `localStorage` and the fragment is stripped automatically.
 
 ### Rollback (if a deploy breaks sync)
 
