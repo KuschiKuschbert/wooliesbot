@@ -1636,24 +1636,33 @@ function openCompareGroupModal(groupKey) {
         const csd = item.all_stores?.coles;
         const wep = wsd?.eff_price;
         const cep = csd?.eff_price;
-        const wStr = isReliableEffPrice(wep) ? formatCompareEffPrice(pm, wep) : '—';
-        const cStr = isReliableEffPrice(cep) ? formatCompareEffPrice(pm, cep) : '—';
+        const wReliable = isReliableEffPrice(wep);
+        const cReliable = isReliableEffPrice(cep);
+        const wStr = wReliable ? formatCompareEffPrice(pm, wep) : '—';
+        const cStr = cReliable ? formatCompareEffPrice(pm, cep) : '—';
         const rowMin = minEffPriceAcrossStores(item);
         const bestUnit = formatCompareEffPrice(pm, Number.isFinite(rowMin) && isReliableEffPrice(rowMin) ? rowMin : NaN);
         const isWinner = Number.isFinite(globalBest) && Number.isFinite(rowMin)
             && isReliableEffPrice(rowMin) && Math.abs(rowMin - globalBest) <= eps;
         const trClass = isWinner ? 'cg-row cg-row-best' : 'cg-row';
 
+        let wCellClass = 'cg-col-price';
+        let cCellClass = 'cg-col-price';
+        if (wReliable && cReliable && Math.abs(wep - cep) > 0.01) {
+            if (wep < cep) wCellClass += ' cg-col-price--win-woolies';
+            else cCellClass += ' cg-col-price--win-coles';
+        }
+
         const wLink = storePdpLinkForItem(item, 'woolworths', {}, { className: 'store-pdp-link--inline' });
         const cLink = storePdpLinkForItem(item, 'coles', {}, { className: 'store-pdp-link--inline' });
 
         return `<tr class="${trClass}">
             <td class="cg-col-name">${escapeHtml(displayName(item.name))}</td>
-            <td class="cg-col-price">
+            <td class="${wCellClass}">
                 ${wStr}
                 ${wLink}
             </td>
-            <td class="cg-col-price">
+            <td class="${cCellClass}">
                 ${cStr}
                 ${cLink}
             </td>

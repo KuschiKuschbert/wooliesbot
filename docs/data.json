@@ -373,7 +373,8 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
       "name_check": "No Added Hormone Beef 4 Star Lean Mince",
-      "item_id": "a29ffe28-55a8-4592-8813-6f76a1b4305d"
+      "item_id": "a29ffe28-55a8-4592-8813-6f76a1b4305d",
+      "compare_group": "mince_beef"
     },
     {
       "name": "Bacon (Middle)",
@@ -1675,7 +1676,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -3164,7 +3165,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -4339,7 +4340,8 @@
       "avg_price": 0,
       "stale": false,
       "name_check": "Woolworths 18 Large Cage Free Eggs  900g",
-      "item_id": "b4ec8760-4821-4ddf-8e73-14671e4b5a6a"
+      "item_id": "b4ec8760-4821-4ddf-8e73-14671e4b5a6a",
+      "compare_group": "eggs_free_range"
     },
     {
       "name": "Butter (Western Star)",
@@ -10281,7 +10283,7 @@
     {
       "name": "Ww Lean Beef Mince 1Kg",
       "type": "meat",
-      "price_mode": "each",
+      "price_mode": "kg",
       "target": 18.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%201kg",
       "coles": "https://www.coles.com.au/search?q=Woolworths+Lean+Beef+Mince",
@@ -10466,7 +10468,8 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "name_check": "Woolworths Lean Beef Mince",
-      "item_id": "12abc8dd-8c9f-491a-b095-c1cc18eb41d8"
+      "item_id": "12abc8dd-8c9f-491a-b095-c1cc18eb41d8",
+      "compare_group": "mince_beef"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -12407,7 +12410,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -14917,7 +14920,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -15646,7 +15649,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths 12 Extra Large Cage Free Eggs",
-      "item_id": "b4bb9066-5940-48c2-a5c1-424a1d7af4a2"
+      "item_id": "b4bb9066-5940-48c2-a5c1-424a1d7af4a2",
+      "compare_group": "eggs_free_range"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -19710,7 +19714,7 @@
     {
       "name": "Ww Lean Beef Mince 500G",
       "type": "meat",
-      "price_mode": "each",
+      "price_mode": "kg",
       "target": 10.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Lean%20Beef%20Mince%20500g",
       "coles": "https://www.coles.com.au/product/no-added-hormone-beef-4-star-lean-mince-8112449",
@@ -19869,26 +19873,27 @@
         "woolworths": {
           "price": 10.5,
           "unit_price": 21.0,
-          "eff_price": 10.5,
+          "eff_price": 21.0,
           "was_price": null,
           "on_special": false
         },
         "coles": {
           "price": 11.0,
           "unit_price": 22.0,
-          "eff_price": 11.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 10.5,
-      "eff_price": 10.5,
+      "eff_price": 21.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths Lean Beef Mince",
-      "item_id": "924e578d-1093-4005-a2d9-dd6e249da68d"
+      "item_id": "924e578d-1093-4005-a2d9-dd6e249da68d",
+      "compare_group": "mince_beef"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -21946,7 +21951,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         },
         "woolworths": {
           "url": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cadbury%20Strawberry%20Eggs%20118g",
@@ -27436,7 +27441,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -46515,7 +46520,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Lake Macquarie 18 Large Free Range Eggs",
-      "item_id": "26269db4-012f-478a-b48a-b11340ee261a"
+      "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
+      "compare_group": "eggs_free_range"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -48616,7 +48622,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths 18 Large Cage Free Eggs",
-      "item_id": "ed7bd94b-5a34-4e9f-89fb-1b0ed9d75d4f"
+      "item_id": "ed7bd94b-5a34-4e9f-89fb-1b0ed9d75d4f",
+      "compare_group": "eggs_free_range"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -56082,7 +56089,7 @@
           "url_verdict": "repaired_search_fallback",
           "url_verified_at": "2026-04-22T13:17:57Z",
           "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "notes": "BFF returned nothing \u2014 product ID invalid or delisted"
         }
       },
       "price_unavailable": false,
@@ -65776,7 +65783,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Sunny Queen 18 Large Free Range Eggs",
-      "item_id": "41a17706-fed1-4e47-8d2e-949e30ae1738"
+      "item_id": "41a17706-fed1-4e47-8d2e-949e30ae1738",
+      "compare_group": "eggs_free_range"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -71817,6 +71825,152 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-smoochy-7042370",
       "stock": "medium",
       "target": null
+    },
+    {
+      "name": "Woolworths Full Cream Milk 2L",
+      "type": "dairy",
+      "price_mode": "litre",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/888137/woolworths-full-cream-milk",
+      "coles": "https://www.coles.com.au/product/full-cream-milk-9760091",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "milk_full_cream",
+      "price_history": [],
+      "scrape_history": [],
+      "pack_litres": 2.0
+    },
+    {
+      "name": "Woolworths Full Cream Milk 3L",
+      "type": "dairy",
+      "price_mode": "litre",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/888140/woolworths-full-cream-milk",
+      "coles": "https://www.coles.com.au/product/full-cream-milk-8150288",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "milk_full_cream",
+      "price_history": [],
+      "scrape_history": [],
+      "pack_litres": 3.0
+    },
+    {
+      "name": "Tip Top The One White Toast Bread 700g",
+      "type": "bakery",
+      "price_mode": "each",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/6028177/tip-top-super-thick-toast-soft-white",
+      "coles": "https://www.coles.com.au/product/the-one-white-toast-bread-8956189",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "bread_white",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "Woolworths White Soft Sandwich Bread 650g",
+      "type": "bakery",
+      "price_mode": "each",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/581172/woolworths-white-soft-sandwich-bread",
+      "coles": "https://www.coles.com.au/search?q=white+sandwich+bread+650g",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "bread_white",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "Coles Free Range Eggs 12 Pack 700g",
+      "type": "dairy",
+      "price_mode": "each",
+      "target": null,
+      "woolworths": "",
+      "coles": "https://www.coles.com.au/product/free-range-eggs-12-pack-9453478",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "coles",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "eggs_free_range",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "Woolworths 12 Large Free Range Eggs 600g",
+      "type": "dairy",
+      "price_mode": "each",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/224762/woolworths-12-large-free-range-eggs",
+      "coles": "",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "eggs_free_range",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
+      "type": "dairy",
+      "price_mode": "each",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/771237/sunny-queen-18-large-free-range-eggs",
+      "coles": "https://www.coles.com.au/product/free-range-large-eggs-18-pack-8953577",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "eggs_free_range",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "San Remo Spaghetti No 5 500g",
+      "type": "pantry",
+      "price_mode": "kg",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/43973/san-remo-thin-spaghetti-no-4",
+      "coles": "https://www.coles.com.au/product/spaghetti-no-5-206196",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "pasta_dry",
+      "price_history": [],
+      "scrape_history": []
+    },
+    {
+      "name": "Woolworths Pasta Spaghetti 500g",
+      "type": "pantry",
+      "price_mode": "kg",
+      "target": null,
+      "woolworths": "https://www.woolworths.com.au/shop/productdetails/346830/woolworths-pasta-spaghetti",
+      "coles": "https://www.coles.com.au/product/pasta-spaghetti-3329115",
+      "stock": "medium",
+      "last_purchased": null,
+      "store": "woolworths",
+      "price": null,
+      "eff_price": null,
+      "compare_group": "pasta_dry",
+      "price_history": [],
+      "scrape_history": []
     }
   ]
 }

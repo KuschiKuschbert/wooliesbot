@@ -859,6 +859,17 @@ def run_layer_b(items, filter_name=None):
                         shelf_norm = float(hist_price) / float(pack_l)
                         if abs(shelf_norm - float(canonical)) < abs(hist_compare - float(canonical)):
                             hist_compare = shelf_norm
+                # Kg rows: scrape_history records raw pack price; canonical is $/kg.
+                # Derive pack_kg from price/unit_price and normalise.
+                if item.get("price_mode") == "kg":
+                    _raw = item.get("price")
+                    _upr = item.get("unit_price") or item.get("eff_price")
+                    if _raw and _upr and float(_upr) > 0 and float(_raw) > 0:
+                        _pack_kg = float(_raw) / float(_upr)
+                        if _pack_kg > 0:
+                            shelf_norm_kg = float(hist_price) / _pack_kg
+                            if abs(shelf_norm_kg - float(canonical)) < abs(hist_compare - float(canonical)):
+                                hist_compare = shelf_norm_kg
 
                 delta = abs(hist_compare - float(canonical))
                 if hist_store == item_store:
