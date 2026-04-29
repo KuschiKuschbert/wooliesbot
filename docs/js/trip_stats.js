@@ -281,9 +281,20 @@ function renderHomeShoppingCta({ list, sessions, tripActive }) {
         </div>
     `;
     document.getElementById('cta-open-list-btn')?.addEventListener('click', () => {
-        const btn = document.getElementById('toggle-list-btn') ||
-                    document.getElementById('mobile-toggle-list');
-        btn?.click();
+        const nav = typeof window !== 'undefined' ? window.__wbNav : null;
+        const items = list || [];
+        if (copy.kind === 'idle' && items.length > 0 && nav?.startTripFromDashboardCta) {
+            nav.startTripFromDashboardCta();
+            return;
+        }
+        if (nav?.openShoppingListDrawerIfClosed) {
+            nav.openShoppingListDrawerIfClosed();
+            return;
+        }
+        const drawer = document.getElementById('list-drawer');
+        const btn = document.getElementById('toggle-list-btn')
+            || document.getElementById('mobile-toggle-list');
+        if (!drawer?.classList.contains('open')) btn?.click();
     });
     document.getElementById('cta-dismiss-btn')?.addEventListener('click', () => {
         section.hidden = true;
