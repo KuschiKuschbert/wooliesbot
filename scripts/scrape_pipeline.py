@@ -24,6 +24,21 @@ def _run_validator(layer):
         raise RuntimeError(f"Layer {layer} validation failed: {details[:500]}")
 
 
+def _run_validator_smoke_a():
+    """Pre-push Layer A smoke gate: 15 curated items, strict exit.
+
+    Runs between Layer C and sync_to_github so a live-price mismatch blocks
+    the push before bad data lands on main. Uses --smoke sample (compare_group
+    + on_special + WW PDP items) for broad coverage in ~2-3 minutes.
+    """
+    validator = ROOT_DIR / "scripts" / "e2e_validate.py"
+    cmd = [sys.executable, str(validator), "--layer", "A", "--smoke", "--strict-exit"]
+    result = subprocess.run(cmd, cwd=str(ROOT_DIR), capture_output=True, text=True)
+    if result.returncode != 0:
+        details = (result.stderr or result.stdout or "").strip()
+        raise RuntimeError(f"Layer A smoke gate failed (pre-push): {details[:800]}")
+
+
 def _notify_failure(exc):
     bot.send_telegram(f"🚨 *Pipeline Error*:\n{bot._escape_md(str(exc))}")
 
@@ -38,7 +53,7 @@ def _notify_success(raw_results, weekly=False):
     bot.send_telegram(summary)
 
 
-def run_pipeline(discover_coles_batch_size=20, link_self_heal=True, sync=True):
+def run_pipeline(discover_coles_batch_size=20, link_self_heal=True, sync=True, layer_a_smoke=True):
     raw_results = bot.check_prices()
     bot.export_data_to_json(raw_results)
 
@@ -62,6 +77,9 @@ def run_pipeline(discover_coles_batch_size=20, link_self_heal=True, sync=True):
 
     _run_validator("B")
     _run_validator("C")
+
+    if layer_a_smoke:
+        _run_validator_smoke_a()
 
     if sync:
         bot.sync_to_github(next_scheduled=None)
@@ -88,6 +106,11 @@ def main():
         help="Skip sync/push step (useful for dry test runs).",
     )
     parser.add_argument(
+        "--skip-layer-a-smoke",
+        action="store_true",
+        help="Skip the pre-push Layer A smoke gate (15-item live-price check). Use only for local debugging.",
+    )
+    parser.add_argument(
         "--notify",
         choices=("off", "success", "failure", "always"),
         default="off",
@@ -109,6 +132,7 @@ def main():
             discover_coles_batch_size=max(0, args.discover_coles_batch_size),
             link_self_heal=not args.skip_link_self_heal,
             sync=not args.skip_sync,
+            layer_a_smoke=not args.skip_layer_a_smoke,
         )
         if args.notify in ("success", "always"):
             _notify_success(results, weekly=args.weekly)

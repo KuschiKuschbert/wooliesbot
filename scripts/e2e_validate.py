@@ -504,12 +504,52 @@ def _print_summary(results):
 # Layer A: Live website vs data.json
 # ---------------------------------------------------------------------------
 
-def run_layer_a(items, sample_size=25, filter_name=None):
+def _build_smoke_sample(items, target=15):
+    """Return a curated smoke sample of up to `target` items for pre-push Layer A.
+
+    Priority order (deduplicated by item identity):
+      1. Items with a compare_group set (representative taxonomy coverage).
+      2. Items currently on_special (most time-sensitive to catch price bugs).
+      3. Items with a WW PDP URL (exercise the PDP scrape path specifically).
+      4. Random fill to reach the target.
+
+    Deterministic within a run (random is seeded externally if needed); callers
+    should NOT set a fixed seed so coverage rotates across runs.
+    """
+    seen = set()
+    selected = []
+
+    def _add(candidates, quota):
+        pool = [i for i in candidates if id(i) not in seen]
+        take = random.sample(pool, min(len(pool), quota))
+        for i in take:
+            seen.add(id(i))
+            selected.append(i)
+
+    group_items = [i for i in items if i.get("compare_group")]
+    special_items = [i for i in items if i.get("on_special")]
+    pdp_items = [i for i in items if "productdetails" in (i.get("woolworths") or "")]
+
+    _add(group_items, min(len(group_items), 5))
+    _add(special_items, 5)
+    _add(pdp_items, 5)
+
+    remaining = target - len(selected)
+    if remaining > 0:
+        _add(items, remaining)
+
+    return selected
+
+
+def run_layer_a(items, sample_size=25, filter_name=None, smoke=False):
     """For a sample of items, fetch live prices and compare to data.json.
 
     WW PDP items: GET /productdetails/ URL (like-for-like with scraper).
     WW search items: POST search API.
     Coles: call BFF via product ID in URL.
+
+    smoke=True: use a curated 15-item sample prioritising compare_group,
+    on_special, and PDP-URL items — intended for the pre-push gate.
     """
     print("\n\nLAYER A — Website (live API) vs data.json")
 
@@ -521,17 +561,21 @@ def run_layer_a(items, sample_size=25, filter_name=None):
     if filter_name:
         items = [i for i in items if filter_name.lower() in i.get("name", "").lower()]
 
-    # Pick a representative sample across both stores
-    has_ww = [i for i in items if i.get("woolworths")]
-    has_coles = [i for i in items if i.get("coles")]
-    sample_ww_n = min(len(has_ww), sample_size // 2)
-    sample_c_n = min(len(has_coles), sample_size - sample_ww_n)
-    sampled_ww = random.sample(has_ww, sample_ww_n)
-    remaining_coles = [i for i in has_coles if i not in sampled_ww]
-    sampled_coles_only = random.sample(remaining_coles, min(len(remaining_coles), sample_c_n))
-    sampled = sampled_ww + sampled_coles_only
+    if smoke:
+        sampled = _build_smoke_sample(items, target=15)
+        print(f"  Sample (smoke): {len(sampled)} items (compare_group + on_special + PDP-URL priority)")
+    else:
+        # Pick a representative sample across both stores
+        has_ww = [i for i in items if i.get("woolworths")]
+        has_coles = [i for i in items if i.get("coles")]
+        sample_ww_n = min(len(has_ww), sample_size // 2)
+        sample_c_n = min(len(has_coles), sample_size - sample_ww_n)
+        sampled_ww = random.sample(has_ww, sample_ww_n)
+        remaining_coles = [i for i in has_coles if i not in sampled_ww]
+        sampled_coles_only = random.sample(remaining_coles, min(len(remaining_coles), sample_c_n))
+        sampled = sampled_ww + sampled_coles_only
+        print(f"  Sample: {len(sampled)} items ({sample_ww_n} WW + {len(sampled_coles_only)} Coles-only)")
 
-    print(f"  Sample: {len(sampled)} items ({sample_ww_n} WW + {len(sampled_coles_only)} Coles-only)")
     print("  Warming up Woolworths session...")
 
     session = _make_session()
@@ -1211,6 +1255,14 @@ def main():
     parser = argparse.ArgumentParser(description="WooliesBot end-to-end price validator")
     parser.add_argument("--all", action="store_true", help="Check all items in Layer A/D (slow)")
     parser.add_argument("--sample", type=int, default=25, help="Sample size for Layer A/D (default: 25)")
+    parser.add_argument(
+        "--smoke",
+        action="store_true",
+        help=(
+            "Use a curated 15-item smoke sample for Layer A (compare_group + on_special + PDP-URL "
+            "priority). Intended for the pre-push gate in scrape_pipeline.py."
+        ),
+    )
     parser.add_argument("--layer", choices=["A", "B", "C", "D"], help="Run only one layer")
     parser.add_argument("--item", type=str, default=None, help="Filter by item name substring")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
@@ -1288,7 +1340,9 @@ def main():
 
     if run_a:
         sample_size = len(items) if args.all else args.sample
-        all_results["A"] = run_layer_a(items, sample_size=sample_size, filter_name=args.item)
+        all_results["A"] = run_layer_a(
+            items, sample_size=sample_size, filter_name=args.item, smoke=args.smoke
+        )
 
     if run_d:
         sample_size = len(items) if args.all else args.sample
