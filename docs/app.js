@@ -1953,6 +1953,7 @@ async function initDashboard() {
         setupFilters();
         renderDashboard();
         syncDealsHeroStatus();
+        void checkDiscoveryReport();
         return true;
     } catch (e) {
         const detail = e && e.message ? String(e.message) : String(e);
@@ -4732,6 +4733,7 @@ function showPriceDropToast(items) {
     document.body.appendChild(toast);
     _priceDropToastTimer = setTimeout(() => dismissPriceDropToast(), 6500);
 }
+
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // NEW ANALYTICS WIDGETS
