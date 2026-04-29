@@ -24,6 +24,21 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Telegram secrets pre-flight
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          missing = [k for k in ("TELEGRAM_TOKEN", "TELEGRAM_CHAT_ID") if not os.environ.get(k, "").strip()]
+          if missing:
+              print(f"WARNING: Telegram secret(s) not set: {', '.join(missing)}")
+              print("Notifications will be silently skipped for this run.")
+          else:
+              print("Telegram secrets OK.")
+          PY
+
       - name: Install Google Chrome
         run: |
           set -e

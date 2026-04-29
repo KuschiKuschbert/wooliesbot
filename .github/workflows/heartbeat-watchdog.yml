@@ -51,16 +51,35 @@ jobs:
           FORCE_STALE = os.environ.get("FORCE_STALE_TEST", "false").strip().lower() == "true"
 
           print(f"Fetching live heartbeat from: {PAGES_URL}")
+          raw_body = None
           try:
               req = urllib.request.urlopen(PAGES_URL, timeout=20)
-              payload = json.loads(req.read().decode("utf-8"))
+              raw_body = req.read().decode("utf-8")
           except Exception as e:
               print(f"FAIL: could not fetch heartbeat from Pages: {e}")
-              # Alert on fetch failure (Pages may be down)
               msg = (
-                  f"⚠️ *[WATCHDOG]* Cannot reach heartbeat.json on GitHub Pages\\n"
+                  f"⚠️ *[WATCHDOG]* Cannot reach heartbeat\\.json on GitHub Pages\\n"
                   f"URL: {PAGES_URL}\\n"
                   f"Error: {str(e)[:200]}\\n"
+                  f"Workflow: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
+              )
+              import subprocess
+              subprocess.run(
+                  ["python3", "scripts/telegram_notify.py", "--allow-missing-secrets",
+                   "--text", msg],
+                  check=False
+              )
+              sys.exit(1)
+
+          try:
+              payload = json.loads(raw_body)
+          except Exception as je:
+              print(f"FAIL: heartbeat.json is not valid JSON: {je}")
+              print(f"Raw body (first 500 chars): {raw_body[:500]}")
+              msg = (
+                  f"⚠️ *[WATCHDOG]* heartbeat\\.json is not valid JSON\\n"
+                  f"Parse error: {str(je)[:200]}\\n"
+                  f"URL: {PAGES_URL}\\n"
                   f"Workflow: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
               )
               import subprocess
