@@ -2299,6 +2299,21 @@ def sync_to_github(next_scheduled=None):
             logging.error(f"Runtime env generation exception before sync_to_github: {env_exc}")
             return
 
+        # Pull before writing heartbeat so the working tree is clean at pull time.
+        # --autostash handles any in-progress scrape data.json changes: git stashes
+        # them automatically, applies incoming commits, then re-applies the stash.
+        # Heartbeat is written after the pull so it is never a dirty-file conflict.
+        logging.info("Syncing data to GitHub...")
+        pull_r = _run_git(["git", "pull", "--rebase", "--autostash", "origin", "main"])
+        if pull_r.returncode != 0:
+            logging.error(
+                f"git pull --rebase --autostash failed (exit {pull_r.returncode}): "
+                f"{(pull_r.stderr or pull_r.stdout or '').strip()}"
+            )
+            return
+
+        # Write heartbeat after pull so the working tree is clean and the commit
+        # captures the actual push timestamp rather than the pre-pull time.
         heartbeat_path = os.path.join("docs", "heartbeat.json")
         nr = next_scheduled
         if nr is None:
@@ -2323,15 +2338,6 @@ def sync_to_github(next_scheduled=None):
                 "next_run": next_run_str,
                 "status": "active"
             }, f)
-
-        logging.info("Syncing data to GitHub...")
-        pull_r = _run_git(["git", "pull", "--rebase", "origin", "main"])
-        if pull_r.returncode != 0:
-            logging.error(
-                f"git pull --rebase failed (exit {pull_r.returncode}): "
-                f"{(pull_r.stderr or pull_r.stdout or '').strip()}"
-            )
-            return
 
         # Rotate the rolling snapshot chain before writing the new prev.
         # Chain: data.prev.json → data.prev-1.json → data.prev-2.json → data.prev-3.json
