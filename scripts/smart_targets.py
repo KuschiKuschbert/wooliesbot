@@ -88,6 +88,29 @@ def get_special_prices(item):
     return specials
 
 
+# ── Fake-deal / baseline-inflation detection ─────────────────────────────────
+
+INFLATION_THRESHOLD = 1.10  # was_price > baseline × 1.10 → inflated
+MIN_BASELINE_OBS = 5         # need this many plain-price snapshots to judge
+
+
+def compute_baseline_price(item):
+    """Median of scrape snapshots where the store was NOT showing a was_price.
+    Returns (median, n) or (None, n) if too few clean observations."""
+    plain = [
+        e["price"] for e in item.get("scrape_history", [])
+        if e.get("was_price") in (None, 0) and 0 < e.get("price", 0) < MAX_SENTINEL
+    ]
+    if len(plain) < MIN_BASELINE_OBS:
+        return None, len(plain)
+    return statistics.median(plain), len(plain)
+
+
+def is_inflated_was(was_price, baseline):
+    """True when the store's claimed was_price is inflated above the real baseline."""
+    return baseline is not None and float(was_price) > baseline * INFLATION_THRESHOLD
+
+
 def percentile(data, pct):
     """Calculate percentile value. pct is 0-100."""
     if not data:
@@ -157,10 +180,14 @@ def recalculate_targets(dry_run=False):
         confidence = "low"
         method = "unchanged"
 
+        # ── Baseline price (plain shelf price before any was_price events) ──
+        baseline, baseline_n = compute_baseline_price(item)
+
         # ── PRIORITY 1: Retailer says "on special" right now ──
         # Use was_price as target — that's the regular price the store normally charges.
         # If the store marks "Was $11, Now $8.50", the was_price ($11) becomes the
         # ceiling and the current price is the genuine special price.
+        # Guard: skip if was_price is inflated above the baseline (fake deal).
         was = item.get("was_price")
         on_special = item.get("on_special", False)
 
@@ -176,15 +203,61 @@ def recalculate_targets(dry_run=False):
             was = float(was)
             best_was = was
 
-        if best_was and best_was > current_price and current_price > 0:
-            # Store confirms a special — use was_price as the target
+        # Detect whether the current live was_price is inflated
+        current_was_inflated = best_was is not None and is_inflated_was(best_was, baseline)
+
+        # ── Pre-compute historical sale episodes for Priority 2 ──
+        # Group (was_price, now_price) tuples from scrape_history to deduplicate
+        # consecutive daily snapshots of the same ongoing special. Each unique
+        # tuple = one distinct sale event the store ran in the past.
+        # Entries whose was_price is inflated vs the baseline are excluded.
+        episodes = {}
+        for entry in item.get("scrape_history", []):
+            p = entry.get("price", 0)
+            w = entry.get("was_price")
+            if not (w and 0 < p < MAX_SENTINEL and float(w) > p):
+                continue
+            # Require a meaningful discount (>=5%) to skip noise
+            if (float(w) - p) / float(w) < 0.05:
+                continue
+            # Skip episodes whose was_price is above the real baseline (fake deal)
+            if is_inflated_was(float(w), baseline):
+                continue
+            key = (round(float(w), 2), round(float(p), 2))
+            # Keep the most recent date seen for this episode
+            d = entry.get("date", "")
+            if key not in episodes or d > episodes[key]:
+                episodes[key] = d
+
+        _tier_set = False
+
+        if best_was and best_was > current_price and current_price > 0 and not current_was_inflated:
+            # Store confirms a genuine special — use was_price as the target
             new_target = round(best_was, 2)
             confidence = "high"
             method = f"was ${best_was:.2f}, now ${current_price:.2f} (store special)"
             summary["gold"] += 1
+            _tier_set = True
 
-        # ── PRIORITY 2: Enough historical data for statistical target ──
-        elif n >= 10:
+        # ── PRIORITY 2: Historical sale episodes ──
+        # Requires ≥3 distinct (was, now) pairs so single multi-day specials don't
+        # qualify. Episodes with inflated was_prices were excluded during dedup above.
+        # Clamp: if today's price is already below the historical sale median, fall through.
+        if not _tier_set and len(episodes) >= 3:
+            sale_prices = [k[1] for k in episodes.keys()]
+            proposed = round(statistics.median(sale_prices), 2)
+            if current_price <= 0 or proposed <= current_price * 1.05:
+                new_target = proposed
+                confidence = "high"
+                latest = max(episodes.values()) if episodes else "?"
+                method = (
+                    f"median of {len(episodes)} historical specials (last {latest})"
+                )
+                summary["gold"] += 1
+                _tier_set = True
+
+        # ── PRIORITY 3: Enough historical data for statistical target ──
+        if not _tier_set and n >= 10:
             # Sale-cluster detection: find prices >10% below median
             median_price = statistics.median(all_prices)
             sale_threshold = median_price * 0.90
@@ -200,15 +273,17 @@ def recalculate_targets(dry_run=False):
                 confidence = "high"
                 method = f"p15 of {n} prices (few sales detected)"
             summary["gold"] += 1
+            _tier_set = True
 
-        elif n >= 4:
+        if not _tier_set and n >= 4:
             # SILVER: p20 with fewer data points
             new_target = round(percentile(all_prices, 20), 2)
             confidence = "medium"
             method = f"p20 of {n} prices"
             summary["silver"] += 1
+            _tier_set = True
 
-        else:
+        if not _tier_set:
             # BRONZE: Not enough data for a reliable target.
             # Only set a target if we have receipt data showing a DIFFERENT price.
             receipt_prices = [e.get("price", 0) for e in item.get("price_history", [])
@@ -239,6 +314,23 @@ def recalculate_targets(dry_run=False):
             current_price = item.get("eff_price") or item.get("price", 0)
             if current_price > 0 and current_price < MAX_SENTINEL and new_target > current_price:
                 new_target = current_price
+
+        # ── Fake-deal flags ──
+        # Set item.fake_deal=True and item.baseline_price when the item is actively
+        # being promoted as a special AND the was_price is above the real baseline.
+        # Requires on_special=True so stale all_stores was_price values don't trigger.
+        item_fake_deal = current_was_inflated and best_was is not None and on_special
+        if item_fake_deal:
+            item["fake_deal"] = True
+            if baseline is not None:
+                item["baseline_price"] = round(baseline, 2)
+            logging.info(
+                f"{'[DRY] ' if dry_run else ''}FAKE DEAL: {name}: "
+                f"was_price ${best_was:.2f} > baseline ${baseline:.2f} (+{((best_was/baseline)-1)*100:.0f}%)"
+            )
+        else:
+            item.pop("fake_deal", None)
+            item.pop("baseline_price", None)
 
         # Apply
         if abs(new_target - old_target) > 0.01:

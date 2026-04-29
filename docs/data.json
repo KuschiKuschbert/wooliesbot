@@ -553,7 +553,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $19.38, now $13.00 (store special)",
+      "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -6579,7 +6579,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $4.50, now $2.25 (store special)",
+      "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -20799,7 +20799,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $7.50, now $1.80 (store special)",
+      "target_method": "p15 of 17 prices (few sales detected)",
       "target_data_points": 17,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -22672,7 +22672,7 @@
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
       "type": "meat",
       "price_mode": "each",
-      "target": 3.27,
+      "target": 2.25,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Dorsogna%20Leg%20Hm%20Trplsmkd%2097%%20F/f%20Shvd%20Kg",
       "coles": "https://www.coles.com.au/product/double-smoked-leg-ham-6284545",
       "price_history": [
@@ -22689,7 +22689,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $28.00, now $5.00 (store special)",
+      "target_method": "sale median (5/16 obs, 31% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -23367,7 +23367,7 @@
       "name": "Western Star Spreadable Supersoft 500G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 7.0,
+      "target": 6.38,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Western%20Star%20Spreadable%20Supersoft%20500g",
       "coles": "https://www.coles.com.au/product/spreadable-blend-supersoft-9615296",
       "price_history": [
@@ -23388,7 +23388,7 @@
       "size": "500G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $7.90, now $7.00 (store special)",
+      "target_method": "p15 of 17 prices (few sales detected)",
       "target_data_points": 17,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -23408,7 +23408,7 @@
         {
           "date": "2026-04-17",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23416,7 +23416,7 @@
         {
           "date": "2026-04-18",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23424,7 +23424,7 @@
         {
           "date": "2026-04-19",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23432,7 +23432,7 @@
         {
           "date": "2026-04-20",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23440,7 +23440,7 @@
         {
           "date": "2026-04-21",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23448,7 +23448,7 @@
         {
           "date": "2026-04-22",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23456,7 +23456,7 @@
         {
           "date": "2026-04-23",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23464,7 +23464,7 @@
         {
           "date": "2026-04-24",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23472,7 +23472,7 @@
         {
           "date": "2026-04-25",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23480,7 +23480,7 @@
         {
           "date": "2026-04-26",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23488,7 +23488,7 @@
         {
           "date": "2026-04-27",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23496,7 +23496,7 @@
         {
           "date": "2026-04-28",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -23504,7 +23504,7 @@
         {
           "date": "2026-04-29",
           "price": 7.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
@@ -26918,7 +26918,7 @@
       "name": "Quilton Toilet Tissue King Size 6Pk",
       "type": "household",
       "price_mode": "each",
-      "target": 5.8,
+      "target": 4.0,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Quilton%20Toilet%20Tissue%20King%20Size%206pk",
       "coles": "https://www.coles.com.au/product/king-size-gold-4-ply-toilet-tissue-3055202",
       "price_history": [
@@ -26939,7 +26939,7 @@
       "size": "6Pk",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $15.00, now $5.80 (store special)",
+      "target_method": "sale median (7/17 obs, 41% on sale)",
       "target_data_points": 17,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -26959,7 +26959,7 @@
         {
           "date": "2026-04-17",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -26967,7 +26967,7 @@
         {
           "date": "2026-04-18",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -26975,7 +26975,7 @@
         {
           "date": "2026-04-19",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -26983,7 +26983,7 @@
         {
           "date": "2026-04-20",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -26991,7 +26991,7 @@
         {
           "date": "2026-04-21",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -27055,7 +27055,7 @@
         {
           "date": "2026-04-29",
           "price": 5.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.8,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
@@ -27440,7 +27440,7 @@
       "name": "Cheer Cheese Block Tasty 200G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 6.5,
+      "target": 4.84,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cheer%20Cheese%20Block%20Tasty%20200g",
       "coles": "https://www.coles.com.au/product/tasty-cheese-block-7648283",
       "price_history": [
@@ -27457,7 +27457,7 @@
       "size": "200G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.00, now $6.50 (store special)",
+      "target_method": "sale median (3/16 obs, 19% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -27477,7 +27477,7 @@
         {
           "date": "2026-04-17",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27485,7 +27485,7 @@
         {
           "date": "2026-04-18",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27493,7 +27493,7 @@
         {
           "date": "2026-04-19",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27501,7 +27501,7 @@
         {
           "date": "2026-04-20",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27509,7 +27509,7 @@
         {
           "date": "2026-04-21",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27517,7 +27517,7 @@
         {
           "date": "2026-04-22",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27525,7 +27525,7 @@
         {
           "date": "2026-04-23",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27533,7 +27533,7 @@
         {
           "date": "2026-04-24",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27541,7 +27541,7 @@
         {
           "date": "2026-04-25",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27549,7 +27549,7 @@
         {
           "date": "2026-04-26",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27557,7 +27557,7 @@
         {
           "date": "2026-04-27",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27565,7 +27565,7 @@
         {
           "date": "2026-04-28",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -27573,7 +27573,7 @@
         {
           "date": "2026-04-29",
           "price": 6.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cheer Tasty Cheese Block"
@@ -33106,7 +33106,7 @@
       "name": "Lindt Excellence 85% Cocoa 100G",
       "type": "snacks",
       "price_mode": "each",
-      "target": 5.92,
+      "target": 6.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Lindt%20Excellence%2085%%20Cocoa%20100g",
       "coles": "https://www.coles.com.au/product/excellence-85-cocoa-dark-chocolate-block-9524521",
       "price_history": [
@@ -33127,7 +33127,7 @@
       "size": "100G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (4/17 obs, 24% on sale)",
+      "target_method": "median of 3 historical specials (last 2026-04-28)",
       "target_data_points": 17,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -33187,7 +33187,7 @@
         {
           "date": "2026-04-22",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33195,7 +33195,7 @@
         {
           "date": "2026-04-23",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33203,7 +33203,7 @@
         {
           "date": "2026-04-24",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33211,7 +33211,7 @@
         {
           "date": "2026-04-25",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33219,7 +33219,7 @@
         {
           "date": "2026-04-26",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33227,7 +33227,7 @@
         {
           "date": "2026-04-27",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -33235,7 +33235,7 @@
         {
           "date": "2026-04-28",
           "price": 6.75,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
@@ -36294,7 +36294,7 @@
       "name": "Cornish Sea Salt Flakes 150G",
       "type": "pantry",
       "price_mode": "each",
-      "target": 5.5,
+      "target": 4.36,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cornish%20Sea%20Salt%20Flakes%20150g",
       "coles": "https://www.coles.com.au/product/sea-salt-crystals-9964568",
       "price_history": [
@@ -36311,7 +36311,7 @@
       "size": "150G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.80, now $5.50 (store special)",
+      "target_method": "sale median (3/16 obs, 19% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -36331,7 +36331,7 @@
         {
           "date": "2026-04-17",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36339,7 +36339,7 @@
         {
           "date": "2026-04-18",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36347,7 +36347,7 @@
         {
           "date": "2026-04-19",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36355,7 +36355,7 @@
         {
           "date": "2026-04-20",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36363,7 +36363,7 @@
         {
           "date": "2026-04-21",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36371,7 +36371,7 @@
         {
           "date": "2026-04-22",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36379,7 +36379,7 @@
         {
           "date": "2026-04-23",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36387,7 +36387,7 @@
         {
           "date": "2026-04-24",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36395,7 +36395,7 @@
         {
           "date": "2026-04-25",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36403,7 +36403,7 @@
         {
           "date": "2026-04-26",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36411,7 +36411,7 @@
         {
           "date": "2026-04-27",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36419,7 +36419,7 @@
         {
           "date": "2026-04-28",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -36427,7 +36427,7 @@
         {
           "date": "2026-04-29",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
@@ -41971,7 +41971,7 @@
       "size": "8Pk",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "sale median (8/16 obs, 50% on sale)",
+      "target_method": "median of 3 historical specials (last 2026-04-21)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -44917,7 +44917,7 @@
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
       "type": "beverages",
       "price_mode": "each",
-      "target": 3.5,
+      "target": 2.75,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Cocobella%20Coconut%20Wtr%20W/Mln%20and%20Mnt%201L",
       "coles": "https://www.coles.com.au/product/coconut-water-chocolate-1330816",
       "price_history": [
@@ -44934,7 +44934,7 @@
       "size": "1L",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $5.50, now $3.50 (store special)",
+      "target_method": "p15 of 16 prices (few sales detected)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -45050,7 +45050,7 @@
         {
           "date": "2026-04-29",
           "price": 3.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Cocobella Coconut Water Watermelon & Mint"
@@ -45086,7 +45086,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Cocobella Coconut Water Watermelon & Mint",
-      "item_id": "55e74b8d-0ab3-4039-a763-9f2818b38887"
+      "item_id": "55e74b8d-0ab3-4039-a763-9f2818b38887",
+      "fake_deal": true,
+      "baseline_price": 3.8
     },
     {
       "name": "Mainland Organic Salted Sprd Butter 250G",
@@ -45988,7 +45990,7 @@
       "name": "Ww Cream Cheese Light Spread 250G",
       "type": "dairy",
       "price_mode": "each",
-      "target": 3.87,
+      "target": 2.58,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=WW%20Cream%20Cheese%20Light%20Spread%20250g",
       "coles": "https://www.coles.com.au/product/portions-cream-cheese-light-spread-5432057",
       "price_history": [
@@ -46005,7 +46007,7 @@
       "size": "250G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $5.70, now $4.00 (store special)",
+      "target_method": "sale median (3/16 obs, 19% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -48963,7 +48965,7 @@
       "name": "White Label Extra Tasty Cheese Block 1Kg",
       "type": "dairy",
       "price_mode": "each",
-      "target": 9.69,
+      "target": 6.46,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=White%20Label%20Extra%20Tasty%20Cheese%20Block%201kg",
       "coles": "https://www.coles.com.au/product/white-label-chardonnay-750ml-1223601",
       "price_history": [
@@ -48982,7 +48984,7 @@
         "bulk"
       ],
       "target_confidence": "high",
-      "target_method": "was $30.00, now $10.50 (store special)",
+      "target_method": "sale median (3/16 obs, 19% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -52460,7 +52462,7 @@
       "size": "150G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $5.20, now $4.00 (store special)",
+      "target_method": "p15 of 16 prices (few sales detected)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -55218,7 +55220,7 @@
       "name": "Waterfords L/F Blackcurrant 1L",
       "type": "beverages",
       "price_mode": "each",
-      "target": 2.0,
+      "target": 1.5,
       "woolworths": "https://www.woolworths.com.au/shop/search/products?searchTerm=Waterfords%20L/F%20Blackcurrant%201L",
       "coles": "https://www.coles.com.au/product/hydrate-blackcurrant-8922223",
       "price_history": [
@@ -55235,7 +55237,7 @@
       "size": "1L",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $25.00, now $2.00 (store special)",
+      "target_method": "sale median (7/16 obs, 44% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -55255,7 +55257,7 @@
         {
           "date": "2026-04-17",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55263,7 +55265,7 @@
         {
           "date": "2026-04-18",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55271,7 +55273,7 @@
         {
           "date": "2026-04-19",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55279,7 +55281,7 @@
         {
           "date": "2026-04-20",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55287,7 +55289,7 @@
         {
           "date": "2026-04-21",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55351,7 +55353,7 @@
         {
           "date": "2026-04-29",
           "price": 2.0,
-          "is_special": true,
+          "is_special": false,
           "was_price": 2.0,
           "store": "woolworths",
           "matched_name": "Waterfords Sparkling Water Blackcurrant"
@@ -55752,7 +55754,7 @@
       "size": "125G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $4.00, now $3.50 (store special)",
+      "target_method": "p15 of 16 prices (few sales detected)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -61456,7 +61458,7 @@
       "size": "Standard",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $5.70, now $4.70 (store special)",
+      "target_method": "p15 of 16 prices (few sales detected)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -61810,7 +61812,7 @@
       "size": "150G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $9.50, now $4.00 (store special)",
+      "target_method": "p15 of 17 prices (few sales detected)",
       "target_data_points": 17,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -65945,7 +65947,7 @@
       "size": "375G",
       "tags": [],
       "target_confidence": "high",
-      "target_method": "was $8.50, now $4.25 (store special)",
+      "target_method": "p15 of 16 prices (few sales detected)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
       "scrape_history": [
@@ -69298,7 +69300,7 @@
         }
       ],
       "target_confidence": "high",
-      "target_method": "was $5.70, now $4.00 (store special)",
+      "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
       "eff_price": 4.0,
