@@ -2326,7 +2326,13 @@ def sync_to_github(next_scheduled=None):
         if nr is None and os.environ.get("GITHUB_ACTIONS") == "true":
             nr = _next_github_actions_scrape_utc()
         # Normalise both timestamps to Z-suffix so the browser client never sees naive strings.
-        next_run_str = nr.isoformat().replace("+00:00", "Z") if nr else None
+        # schedule.next_run() returns a naive local-time datetime — convert to UTC first.
+        if nr is not None:
+            if nr.tzinfo is None:
+                nr = nr.astimezone(datetime.timezone.utc)
+            next_run_str = nr.isoformat().replace("+00:00", "Z")
+        else:
+            next_run_str = None
 
         with open(heartbeat_path, "w", encoding="utf-8") as f:
             json.dump({
