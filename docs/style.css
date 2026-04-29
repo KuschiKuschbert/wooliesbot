@@ -1136,6 +1136,235 @@ body {
     margin-top: 4px;
 }
 
+/* ─── Trip gamification ──────────────────────────────────────────────────── */
+
+/* Your Shopping CTA card (Deals tab, above stats-strip) */
+.your-shopping-cta {
+    margin: 0 0 12px;
+}
+.cta-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(var(--woolies-green-rgb, 34,197,94), 0.35);
+    background: rgba(var(--woolies-green-rgb, 34,197,94), 0.05);
+    position: relative;
+}
+.cta-card--mid-trip {
+    border-color: rgba(99,102,241,0.45);
+    background: rgba(99,102,241,0.06);
+}
+.cta-card--no-trips {
+    border-color: rgba(99,102,241,0.3);
+    background: rgba(99,102,241,0.04);
+}
+.cta-card-text {
+    flex: 1;
+    min-width: 0;
+}
+.cta-card-headline {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    color: var(--text-primary);
+}
+.cta-card-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+.cta-card-btn {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: var(--woolies-green, #22c55e);
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.cta-card--mid-trip .cta-card-btn {
+    background: #6366f1;
+}
+.cta-dismiss {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: none;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Your trips Insights tile */
+.insights-row--your-trips {
+    margin-bottom: 0;
+}
+.your-trips-empty {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+}
+.your-trips-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin: 0;
+}
+.your-trips-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.your-trips-chip {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.your-trips-chip--streak {
+    background: rgba(251,191,36,0.18);
+    border: 1px solid rgba(251,191,36,0.45);
+    color: #92400e;
+}
+.your-trips-chip--pb {
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    color: #4338ca;
+}
+.your-trips-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.your-trips-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 6px;
+}
+.your-trips-stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.your-trips-stat-label {
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+.your-trips-stat-value {
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Streak chip on cart pill buttons */
+.streak-chip {
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(251,191,36,0.22);
+    border: 1px solid rgba(251,191,36,0.5);
+    color: #92400e;
+    border-radius: 100px;
+    padding: 1px 5px;
+    margin-left: 4px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Trip recap modal */
+.trip-recap-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9100;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.trip-recap-modal[hidden] { display: none; }
+.trip-recap-card {
+    background: var(--surface-card, #fff);
+    border-radius: 18px;
+    padding: 28px 24px 22px;
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.recap-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 20px;
+}
+.recap-stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+.recap-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.recap-stat-val {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--woolies-green, #22c55e);
+}
+.recap-stat-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.recap-pb {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6366f1;
+    margin: 0 0 6px;
+}
+.recap-delta {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 18px;
+}
+.recap-delta--pos { color: #16a34a; }
+.recap-delta--neg { color: var(--text-secondary); }
+.recap-close-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: var(--woolies-green, #22c55e);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
 .item-target {
     font-size: 12px;
     color: var(--text-secondary);
@@ -7131,4 +7360,35 @@ table.dr-table {
     }
 }
 
-
+/* ─── Trip gamification — mobile overrides (@max-width: 720px) ─────────── */
+@media (max-width: 720px) {
+    .cta-card {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .cta-card-btn {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    .cta-dismiss {
+        top: 6px;
+        right: 6px;
+    }
+    .your-trips-stat {
+        font-size: 12px;
+    }
+    .recap-stats {
+        gap: 16px;
+    }
+    .recap-stat-val {
+        font-size: 20px;
+    }
+    .trip-recap-card {
+        padding: 22px 18px 18px;
+    }
+    .streak-chip {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+}

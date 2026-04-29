@@ -9,15 +9,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WooliesBot">
-    <meta name="wooliesbot-shell-version" content="2050-readability-audit">
+    <meta name="wooliesbot-shell-version" content="2051-trip-gamification">
     <link rel="manifest" href="manifest.webmanifest">
     <title>WooliesBot — grocery deals & savings</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2050-readability-audit">
+    <link rel="stylesheet" href="style.css?v=2051-trip-gamification">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="icon" href="data:,">
 </head>
-<body data-ui-surface="2050-readability-audit" data-shell-version="2050-readability-audit">
+<body data-ui-surface="2051-trip-gamification" data-shell-version="2051-trip-gamification">
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
@@ -56,6 +56,7 @@
                 <button id="toggle-list-btn" class="list-toggle-pill" type="button" aria-expanded="false" aria-controls="list-drawer">
                     <i data-feather="shopping-cart"></i>
                     <span id="list-count">0</span> items
+                    <span class="streak-chip" hidden aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -84,6 +85,8 @@
                     <span id="deals-hero-live">Loading prices…</span>
                 </div>
             </header>
+
+            <section id="your-shopping-cta" class="your-shopping-cta" hidden aria-label="Shopping list call to action"></section>
 
             <div class="stats-strip">
                 <div class="strip-stat">
@@ -297,6 +300,17 @@
                 </div>
             </section>
 
+            <!-- ── Row 1b: Your trips ──────────────────────────────────────────── -->
+            <section class="insights-row insights-row--your-trips" aria-label="Your shopping trips">
+                <div class="analytics-card" id="your-trips-tile-card">
+                    <div class="card-header">
+                        <h3>Your trips</h3>
+                        <i data-feather="award"></i>
+                    </div>
+                    <div id="your-trips-tile"></div>
+                </div>
+            </section>
+
             <!-- ── Row 2: Trends ────────────────────────────────────────────────────────── -->
             <section class="insights-row insights-row--trends" aria-label="Spend trends">
                 <div class="analytics-card analytics-card--hero">
@@ -400,13 +414,6 @@
             <details class="insights-diagnostics">
                 <summary>Diagnostics</summary>
                 <div class="insights-diagnostics-body">
-                    <div class="analytics-card analytics-card--quiet" id="shopping-time-insights-card">
-                        <div class="card-header">
-                            <h3>Average shopping time</h3>
-                            <i data-feather="clock"></i>
-                        </div>
-                        <div id="shopping-time-insights"></div>
-                    </div>
                     <div class="analytics-card analytics-card--quiet" id="compare-group-diagnostics-card">
                         <div class="card-header">
                             <h3>Product matching</h3>
@@ -498,6 +505,9 @@
         </div>
     </div>
 
+    <!-- Trip recap modal (populated by showTripRecapModal in trip_stats.js) -->
+    <div id="trip-recap-modal" class="trip-recap-modal" role="dialog" aria-modal="true" aria-label="Shopping trip summary" hidden></div>
+
     <nav class="mobile-bottom-nav" role="tablist" aria-label="Primary">
         <button type="button" class="mobile-nav-link active" data-tab="deals" role="tab" aria-selected="true" aria-controls="tab-deals">
             <i data-feather="tag"></i>
@@ -511,17 +521,19 @@
             <i data-feather="shopping-cart"></i>
             <span class="mobile-badge" id="mobile-list-count" aria-hidden="true">0</span>
             <span>List</span>
+            <span class="streak-chip" hidden aria-hidden="true"></span>
         </button>
     </nav>
 
     <div id="app-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <script src="env.js?v=2050-readability-audit"></script>
-    <script src="js/household_sync.js?v=2050-readability-audit"></script>
-    <script src="js/compare_helpers.js?v=2050-readability-audit"></script>
-    <script src="js/store_pdp_link.js?v=2050-readability-audit"></script>
-    <script src="js/format_price.js?v=2050-readability-audit"></script>
+    <script src="env.js?v=2051-trip-gamification"></script>
+    <script src="js/household_sync.js?v=2051-trip-gamification"></script>
+    <script src="js/compare_helpers.js?v=2051-trip-gamification"></script>
+    <script src="js/store_pdp_link.js?v=2051-trip-gamification"></script>
+    <script src="js/format_price.js?v=2051-trip-gamification"></script>
     <script src="js/priority_helpers.js?v=stock-aware-v1"></script>
-    <script id="wooliesbot-app-js" src="app.js?v=2050-readability-audit"></script>
+    <script src="js/trip_stats.js?v=2051-trip-gamification"></script>
+    <script id="wooliesbot-app-js" src="app.js?v=2051-trip-gamification"></script>
 </body>
 </html>
