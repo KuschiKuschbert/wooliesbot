@@ -1,4 +1,5 @@
 import time
+import tempfile
 import requests
 import schedule
 import datetime
@@ -2059,6 +2060,22 @@ def _item_store_prices(item):
 
     return (fmt(woolies_sd), fmt(coles_sd))
 
+def _atomic_write_json(path, payload, *, indent=2):
+    """Write JSON atomically (temp + fsync + os.replace) — never leaves a partial file."""
+    d = os.path.dirname(os.path.abspath(path)) or "."
+    fd, tmp = tempfile.mkstemp(prefix=".tmp_", suffix=".json", dir=d)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, indent=indent)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp, path)
+    except Exception:
+        try: os.unlink(tmp)
+        except FileNotFoundError: pass
+        raise
+
+
 def export_data_to_json(results):
     """Exports scraped data to data.json and appends today's snapshot to scrape_history.
 
@@ -2239,8 +2256,7 @@ def export_data_to_json(results):
             "items": merged,
         }
         with _data_write_lock:
-            with open(data_path, "w") as f:
-                json.dump(payload, f, indent=2)
+            _atomic_write_json(data_path, payload)
         logging.info(f"Exported data.json successfully ({len(merged)} items, scrape_history updated).")
     except Exception as e:
         logging.error(f"Error exporting data.json: {e}")
@@ -2334,16 +2350,11 @@ def sync_to_github(next_scheduled=None):
         else:
             next_run_str = None
 
-        with open(heartbeat_path, "w", encoding="utf-8") as f:
-            json.dump({
-                "last_heartbeat": (
-                    datetime.datetime.now(datetime.timezone.utc)
-                    .isoformat()
-                    .replace("+00:00", "Z")
-                ),
-                "next_run": next_run_str,
-                "status": "active"
-            }, f)
+        _atomic_write_json(heartbeat_path, {
+            "last_heartbeat": datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
+            "next_run": next_run_str,
+            "status": "active",
+        })
 
         # Rotate the rolling snapshot chain before writing the new prev.
         # Chain: data.prev.json → data.prev-1.json → data.prev-2.json → data.prev-3.json
@@ -2363,6 +2374,17 @@ def sync_to_github(next_scheduled=None):
                 logging.info("Rotated snapshot chain: data.json → data.prev.json (prev-1..3 shifted).")
             except Exception as snap_exc:
                 logging.warning(f"data.prev snapshot rotation failed (non-fatal): {snap_exc}")
+
+        try:  # Validate data.json before staging — refuse to commit a corrupt/truncated file.
+            with open(data_path, "r", encoding="utf-8") as fv:
+                _dv = json.load(fv)
+            _dv_items = _dv.get("items") if isinstance(_dv, dict) else _dv
+            if not isinstance(_dv_items, list) or len(_dv_items) < 200:
+                raise RuntimeError(f"data.json shape check failed: items={type(_dv_items).__name__} len={len(_dv_items) if isinstance(_dv_items, list) else 'n/a'}")
+            logging.info(f"data.json pre-commit OK ({len(_dv_items)} items).")
+        except (json.JSONDecodeError, OSError, RuntimeError) as exc:
+            logging.error(f"Refusing to commit corrupt/short data.json: {exc}")
+            raise
 
         add_r = _run_git(["git", "add", "docs/"])
         if add_r.returncode != 0:
@@ -2558,8 +2580,7 @@ def _discover_coles_prices(batch_size=20):
         with _data_write_lock:
             if isinstance(raw, dict):
                 raw["items"] = data
-            with open(data_path, "w", encoding="utf-8") as f:
-                json.dump(raw if isinstance(raw, dict) else data, f, indent=2)
+            _atomic_write_json(data_path, raw if isinstance(raw, dict) else data)
 
     total = sum(1 for i in data if i.get("coles"))
     logging.info(f"[Coles] Discovered {matched} matches ({cheaper} cheaper). Total with Coles: {total}/{len(data)}")

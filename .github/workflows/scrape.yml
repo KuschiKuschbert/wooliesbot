@@ -150,7 +150,7 @@ jobs:
       # Belt-and-braces: if Layer A failed AND the offending commit was the
       # auto-update commit (not human work), revert it so bad data is not
       # served while the next 4 h scrape runs.
-      - name: Auto-revert on Layer A red (bot commits only)
+      - name: Auto-revert bot commit on post-push check failure
         if: failure()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -163,11 +163,11 @@ jobs:
           #   - PR auto-merge squash: "Auto-update dashboard data (#NNN)"
           if [ "$HEAD_AUTHOR" = "github-actions[bot]@users.noreply.github.com" ] && \
              echo "$HEAD_MSG" | grep -Eq '^Auto-update dashboard data( \[skip ci\]| \(#[0-9]+\))?$'; then
-            echo "Layer A red on bot auto-commit — reverting HEAD"
+            echo "Post-push check failed on bot auto-commit — reverting HEAD"
             git revert HEAD --no-edit
             git push origin main
             python scripts/telegram_notify.py --allow-missing-secrets \
-              --text "⏪ *[AUTO-REVERT]* Layer A post-push check failed\\nThe bad auto-update commit has been reverted on main\\.\\nNext scheduled scrape will re-attempt\\.\\nSee logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              --text "⏪ *[AUTO-REVERT]* A post-push check failed (Layer A or Layer D)\\nThe bad auto-update commit has been reverted on main\\.\\nNext scheduled scrape will re-attempt\\.\\nSee logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           else
             echo "HEAD is not a bot auto-commit (author=$HEAD_AUTHOR msg=$HEAD_MSG) — skipping auto-revert"
           fi
