@@ -12,11 +12,14 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
@@ -90,6 +93,34 @@ jobs:
           print(f"heartbeat age OK: {age_min:.1f} minutes")
           PY
 
+      # Confirm the workspace heartbeat actually landed on origin/main. Catches
+      # silent push regressions (e.g. branch protection rejecting the push) that
+      # would otherwise leave Pages stale while the workflow turns green.
+      # If sync_to_github used the PR-fallback path, origin may not yet be in
+      # sync at this exact moment — auto-merge still pending checks — so a
+      # mismatch warns instead of failing.
+      - name: Verify push landed on origin/main
+        run: |
+          set -e
+          git fetch origin main --quiet
+          LOCAL_TS=$(python3 -c 'import json; print(json.load(open("docs/heartbeat.json"))["last_heartbeat"])')
+          REMOTE_TS=$(git show origin/main:docs/heartbeat.json | python3 -c 'import json,sys; print(json.load(sys.stdin)["last_heartbeat"])')
+          echo "local heartbeat:  $LOCAL_TS"
+          echo "remote heartbeat: $REMOTE_TS"
+          if [ "$LOCAL_TS" = "$REMOTE_TS" ]; then
+            echo "PUSH OK: workspace heartbeat is on origin/main."
+          else
+            # Either auto-merge is still pending or the push silently failed.
+            # Check for an open auto-merge PR before deciding pass/fail.
+            OPEN_PR=$(gh pr list --state open --search 'in:title Auto-update dashboard data' --json number --jq '.[0].number' 2>/dev/null || echo "")
+            if [ -n "$OPEN_PR" ]; then
+              echo "PUSH PENDING: open auto-merge PR #$OPEN_PR awaiting required checks. Not failing the workflow."
+              exit 0
+            fi
+            echo "::error::Heartbeat on origin/main does not match workspace and no open auto-merge PR. Push silently failed."
+            exit 1
+          fi
+
       - name: Layer D audit report
         run: |
           python scripts/e2e_validate.py --layer D --all --json-out logs/e2e_validate_links_full.json
@@ -127,8 +158,11 @@ jobs:
         run: |
           HEAD_AUTHOR=$(git log -1 --format='%ae')
           HEAD_MSG=$(git log -1 --format='%s')
+          # Match both forms the bot can produce on main:
+          #   - direct push:  "Auto-update dashboard data [skip ci]"
+          #   - PR auto-merge squash: "Auto-update dashboard data (#NNN)"
           if [ "$HEAD_AUTHOR" = "github-actions[bot]@users.noreply.github.com" ] && \
-             [ "$HEAD_MSG" = "Auto-update dashboard data [skip ci]" ]; then
+             echo "$HEAD_MSG" | grep -Eq '^Auto-update dashboard data( \[skip ci\]| \(#[0-9]+\))?$'; then
             echo "Layer A red on bot auto-commit — reverting HEAD"
             git revert HEAD --no-edit
             git push origin main

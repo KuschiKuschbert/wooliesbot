@@ -2382,26 +2382,17 @@ def sync_to_github(next_scheduled=None):
             text=True,
         )
 
-        push_r = _run_git(["git", "push", "origin", "main"])
-        if push_r.returncode != 0:
-            logging.warning(
-                f"git push failed (exit {push_r.returncode}), retrying after pull — "
-                f"{(push_r.stderr or push_r.stdout or '').strip()}"
-            )
-            pull2 = _run_git(["git", "pull", "--rebase", "origin", "main"])
-            if pull2.returncode != 0:
-                logging.error(f"git pull retry failed: {(pull2.stderr or pull2.stdout or '').strip()}")
-                return
-            subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True, text=True)
-
-        logging.info("Successfully pushed updated data & heartbeat to GitHub.")
+        from scripts.git_sync_helpers import push_main_with_pr_fallback
+        push_main_with_pr_fallback()
     except subprocess.CalledProcessError as e:
         err = e.stderr or e.stdout or ""
         if isinstance(err, bytes):
             err = err.decode()
         logging.error(f"GitHub sync failed: {err}")
+        raise
     except Exception as e:
         logging.error(f"Error during GitHub sync: {e}")
+        raise
     finally:
         _release_git_push_lock(lock_fd)
 
