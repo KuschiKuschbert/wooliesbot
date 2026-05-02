@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-02T17:41:14.154996Z",
+  "last_updated": "2026-05-02T14:07:52.948470Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -776,8 +776,7 @@
       "name_check": "Woolworths Pork Loin Roast Boneless Small 1.2kg - 2kg",
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -1506,8 +1505,7 @@
       "name_check": "11x 9 Beef Rump Steak",
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Capsicum (Red)",
@@ -3889,8 +3887,7 @@
       "name_check": "Seedless Watermelon Cut",
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Lemons (Bag)",
@@ -5353,13 +5350,6 @@
           "eff_price": 5.7,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -5369,8 +5359,7 @@
       "name_check": "Philadelphia Original Cream Cheese Block 250g",
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Sour Cream",
@@ -6303,13 +6292,6 @@
           "price": 4.5,
           "unit_price": 11.25,
           "eff_price": 4.5,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 5.5,
-          "unit_price": 13.75,
-          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         }
@@ -7279,9 +7261,9 @@
       "coles": "https://www.coles.com.au/product/campbell's-real-stock-chicken-stock-1l-8157935",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.25,
-      "eff_price": 2.25,
-      "store": "coles",
+      "price": 4.5,
+      "eff_price": 4.5,
+      "store": "woolworths",
       "brand": "Campbells",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -7418,19 +7400,19 @@
         },
         {
           "date": "2026-05-02",
-          "price": 2.25,
+          "price": 4.5,
           "is_special": false,
           "was_price": 4.5,
-          "store": "coles",
-          "matched_name": "Real Stock Chicken"
+          "store": "woolworths",
+          "matched_name": "Campbell's Real Stock Chicken Liquid Stock 1L"
         }
       ],
       "was_price": 4.5,
       "on_special": false,
       "local_image": "images/Liquid_Stock_Campbells.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8157935.jpg",
-      "unit_price": 0.22,
-      "unit": "litre",
+      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/077750.jpg",
+      "unit_price": 0.45,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
           "price": 4.5,
@@ -7438,20 +7420,13 @@
           "eff_price": 4.5,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 2.25,
-          "unit_price": 0.22,
-          "eff_price": 2.25,
-          "was_price": 4.5,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Real Stock Chicken",
+      "name_check": "Campbell's Real Stock Chicken Liquid Stock 1L",
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -8924,13 +8899,6 @@
           "eff_price": 2.6333333333333333,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 39.5,
-          "unit_price": 4.39,
-          "eff_price": 4.388888888888889,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -9130,8 +9098,7 @@
       "name_check": "Zero Sugar Soft Drink Multipack Cans 375ml",
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Pepsi Max 30pk",
@@ -9298,13 +9265,6 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 29.5,
-          "unit_price": 2.62,
-          "eff_price": 2.6222222222222222,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
           "price": 29.5,
           "unit_price": 2.62,
           "eff_price": 2.6222222222222222,
@@ -11418,7 +11378,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -11557,7 +11517,7 @@
         },
         {
           "date": "2026-05-02",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -11566,21 +11526,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -14280,22 +14240,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -14313,7 +14273,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -16857,19 +16817,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -16882,7 +16842,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -16890,7 +16850,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20805,7 +20765,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.4,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -20942,27 +20902,27 @@
         },
         {
           "date": "2026-05-02",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.4,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.4,
+          "unit_price": 1.75,
+          "eff_price": 1.4,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -20974,7 +20934,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -26168,19 +26128,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -26193,7 +26153,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -26201,7 +26161,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -28153,8 +28113,7 @@
       "pack_litres": 0.6,
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -36890,7 +36849,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -36914,7 +36873,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -36922,7 +36881,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -46094,8 +46053,7 @@
       "item_id": "38829e8f-f428-4d44-a352-58fe2e15ad37",
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -50331,8 +50289,7 @@
       "name_check": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets",
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Ww Lean Pork Mince 500G",
@@ -52467,8 +52424,7 @@
       "name_check": "Double 'D' Fruit Jellies Sugar Free",
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -53996,9 +53952,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -62265,7 +62221,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -62402,27 +62358,27 @@
         },
         {
           "date": "2026-05-02",
-          "price": 5.9,
-          "is_special": true,
+          "price": 4.9,
+          "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Honeycomb Indulgence Bars"
+          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
         }
       ],
       "was_price": 8.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 3.93,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.9,
-          "unit_price": 3.93,
-          "eff_price": 5.9,
-          "was_price": 8.9,
-          "on_special": true
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.9,
@@ -62434,11 +62390,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 5.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -63405,8 +63361,7 @@
       "name_check": "Kewpie Sriracha Mayonnaise",
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -74277,8 +74232,7 @@
       "pack_litres": 3.75,
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -74443,9 +74397,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
+          "price": 3.75,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -75425,8 +75379,7 @@
       "name_check": "Nando's Perinaise Garlic Peri-Peri Mayonnaise Sauce",
       "item_id": "38097635-643f-4e36-a19a-e7652748fa46",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "quarantined": false
     },
     {
       "name": "Energizer A23 2Pk",
@@ -75800,15 +75753,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -75938,24 +75891,24 @@
         },
         {
           "date": "2026-05-02",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -79607,8 +79560,7 @@
       "name_check": "Woolworths Full Cream Milk 3L",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-02"
+      "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
