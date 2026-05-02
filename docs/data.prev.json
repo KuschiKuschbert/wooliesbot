@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "last_updated": "2026-05-02T14:07:52.948470Z",
+=======
+  "last_updated": "2026-05-02T15:08:45.279320Z",
+>>>>>>> Stashed changes
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -410,8 +414,12 @@
       "item_id": "a29ffe28-55a8-4592-8813-6f76a1b4305d",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Bacon (Middle)",
@@ -2426,7 +2434,12 @@
       "name_check": "Woolworths Washed Potatoes Bag 2kg",
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Carrots (1kg)",
@@ -2614,7 +2627,12 @@
       "name_check": "Woolworths Australian Grown Carrots 1kg",
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Broccoli",
@@ -3332,7 +3350,12 @@
       "name_check": "Kent Pumpkin Cut",
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Snow Peas",
@@ -4247,8 +4270,12 @@
       "name_check": "Garlic Loose",
       "item_id": "957adf63-2bcf-4c78-94e9-cacb31782581",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Fresh Herbs (Basil)",
@@ -6123,8 +6150,12 @@
       "name_check": "Peas Snap Frozen",
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -7400,19 +7431,33 @@
         },
         {
           "date": "2026-05-02",
+<<<<<<< Updated upstream
           "price": 4.5,
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
           "matched_name": "Campbell's Real Stock Chicken Liquid Stock 1L"
+=======
+          "price": 2.25,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Real Stock Chicken"
+>>>>>>> Stashed changes
         }
       ],
       "was_price": 4.5,
       "on_special": false,
       "local_image": "images/Liquid_Stock_Campbells.jpg",
+<<<<<<< Updated upstream
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/077750.jpg",
       "unit_price": 0.45,
       "unit": "each",
+=======
+      "image_url": "https://productimages.coles.com.au/8/8157935.jpg",
+      "unit_price": 0.22,
+      "unit": "litre",
+>>>>>>> Stashed changes
       "all_stores": {
         "woolworths": {
           "price": 4.5,
@@ -7426,7 +7471,11 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
+<<<<<<< Updated upstream
       "name_check": "Campbell's Real Stock Chicken Liquid Stock 1L",
+=======
+      "name_check": "Real Stock Chicken",
+>>>>>>> Stashed changes
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -7983,8 +8032,12 @@
       "name_check": "Woolworths Almond Meal",
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Gravy Granules",
@@ -8908,7 +8961,12 @@
       "name_check": "Pepsi Max No Sugar Cola Soft Drink Cans Multipack 375mL x 24 pack",
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -9825,7 +9883,12 @@
       "name_check": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch",
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -13311,8 +13374,12 @@
       "name_check": "Queen Sugar Free Maple Flavoured Syrup",
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -16817,8 +16884,13 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
+<<<<<<< Updated upstream
           "store": "woolworths",
           "matched_name": "Woolworths Light Thickened Cream"
+=======
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
+>>>>>>> Stashed changes
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
@@ -16842,7 +16914,11 @@
         }
       },
       "price_unavailable": false,
+<<<<<<< Updated upstream
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+=======
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+>>>>>>> Stashed changes
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -16850,7 +16926,11 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
+<<<<<<< Updated upstream
       "name_check": "Woolworths Light Thickened Cream",
+=======
+      "name_check": "Light Thickened Cream",
+>>>>>>> Stashed changes
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20542,8 +20622,12 @@
       "item_id": "666ece9c-cf25-46b0-8ccf-57a154247dc2",
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -20941,8 +21025,12 @@
       "name_check": "Continental Pasta & Sauce Carbonara",
       "item_id": "3b66949a-617d-4585-b8bb-21862397e551",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Cottee'S Strawberry Jam 375G",
@@ -28899,7 +28987,12 @@
       "item_id": "0dcd7fbd-70e0-4b85-8b63-feb227c8dc3c",
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -29873,8 +29966,12 @@
       "item_id": "c226bdb6-2079-43d2-9a08-8ae51677b34a",
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -35525,7 +35622,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 2.1,
+      "price": 2.5,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -35662,25 +35759,26 @@
         },
         {
           "date": "2026-05-02",
+<<<<<<< Updated upstream
           "price": 2.1,
           "is_special": true,
           "was_price": 2.5,
           "store": "woolworths",
           "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+=======
+          "price": 2.5,
+          "is_special": false,
+          "was_price": 4.2,
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
+>>>>>>> Stashed changes
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 3.5,
+      "store": "coles",
+      "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.1,
-          "unit_price": 3.5,
-          "eff_price": 2.1,
-          "was_price": 2.5,
-          "on_special": true
-        },
         "coles": {
           "price": 2.5,
           "unit_price": 4.17,
@@ -35690,15 +35788,24 @@
         }
       },
       "price_unavailable": false,
+<<<<<<< Updated upstream
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+=======
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+>>>>>>> Stashed changes
       "avg_price": 2.1,
-      "eff_price": 2.1,
-      "on_special": true,
+      "eff_price": 2.5,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
+<<<<<<< Updated upstream
       "was_price": 2.5,
       "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+=======
+      "was_price": 4.2,
+      "name_check": "Electrolyte Water Grape",
+>>>>>>> Stashed changes
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false
@@ -40987,7 +41094,12 @@
       "name_check": "LYNX Fine Fragrance Collection Body Spray Cherry Spritz 72h",
       "item_id": "59610197-cc0d-4739-9942-bfcf8633ae53",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Greens Gravy Granles Roast Meat 120G",
@@ -41957,8 +42069,12 @@
       "name_check": "Mayver's Dark Peanut Butter Crunchy",
       "item_id": "b703b057-3e09-494f-8e29-9f6cb76230d6",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Native Bouquet",
@@ -42339,8 +42455,12 @@
       "pack_litres": 0.6,
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -46246,8 +46366,12 @@
       "name_check": "Dine Creamy Cat Treats Seafood Selections",
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -46441,7 +46565,12 @@
       "item_id": "f754a243-8805-4ef4-9651-aa573fa7c88b",
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -60301,7 +60430,12 @@
       "name_check": "Western Star Spreadable Butter Blend Tub Supersoft",
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -65264,7 +65398,12 @@
       "name_check": "Primo Air Dried Salami Sticks Mild Pepperoni",
       "item_id": "b2fb6164-4aac-44dc-99a3-8908c91d3586",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Libra Tampons Super 32Pk",
@@ -65850,7 +65989,12 @@
       "item_id": "aa81d104-06b1-4b3e-be10-99385930c224",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -68906,8 +69050,12 @@
       "name_check": "Arnott's Jatz Original Crackers Biscuits",
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false,
       "last_layer_a_check": "2026-05-02"
+=======
+      "quarantined": false
+>>>>>>> Stashed changes
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -73276,7 +73424,12 @@
       "name_check": "Aeroplane Original Berry Blue Flavoured Jelly",
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -74232,7 +74385,12 @@
       "pack_litres": 3.75,
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
+<<<<<<< Updated upstream
       "quarantined": false
+=======
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -79209,7 +79367,11 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49"
+=======
+      "item_id": "e7497ee3-d2e8-49f1-b2e0-98412b1307a3"
+>>>>>>> Stashed changes
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -79262,7 +79424,11 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5"
+=======
+      "item_id": "c36db7a1-7658-40bd-a546-70a56a53a799"
+>>>>>>> Stashed changes
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -79315,7 +79481,11 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4"
+=======
+      "item_id": "98f0ef04-0a8c-4888-b75b-c97b62164c04"
+>>>>>>> Stashed changes
     },
     {
       "name": "Pics Peanut Butter Crunchy 1Kg",
@@ -79375,7 +79545,11 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc"
+=======
+      "item_id": "bcfe77d9-b8a0-4e06-bc27-90d2d6afcb26"
+>>>>>>> Stashed changes
     },
     {
       "name": "Pics Peanut Butter Smoochy 380G",
@@ -79435,7 +79609,11 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f"
+=======
+      "item_id": "bed69751-f1f6-429a-9c46-f5e005e558c0"
+>>>>>>> Stashed changes
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -79497,8 +79675,12 @@
       "name_check": "Woolworths Full Cream Milk 2L",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
       "last_layer_a_check": "2026-05-02"
+=======
+      "item_id": "93e5f714-2b93-46b6-92c2-d8699bec3e37"
+>>>>>>> Stashed changes
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -79560,7 +79742,12 @@
       "name_check": "Woolworths Full Cream Milk 3L",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38"
+=======
+      "item_id": "74f2cdba-2f5b-4e1c-b8d8-0f1abf66b0cc",
+      "last_layer_a_check": "2026-05-02"
+>>>>>>> Stashed changes
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -79621,7 +79808,11 @@
       "name_check": "Tip Top Super Thick Toast Soft White 700g",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c"
+=======
+      "item_id": "db6c0cda-ad52-4edb-af45-45a56e631f3b"
+>>>>>>> Stashed changes
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -79675,7 +79866,11 @@
       "name_check": "Woolworths White Soft Sandwich Bread 650g",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8"
+=======
+      "item_id": "c77b83da-035c-4281-85e1-dc88d4001e17"
+>>>>>>> Stashed changes
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
@@ -79729,7 +79924,11 @@
       "name_check": "Free Range Eggs 12 Pack",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853"
+=======
+      "item_id": "117f55bf-f3c7-4fa2-b53f-d3ad39904184"
+>>>>>>> Stashed changes
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
@@ -79783,7 +79982,11 @@
       "name_check": "Woolworths 12 Large Free Range Eggs 600g",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
+=======
+      "item_id": "524a3f76-1d04-4314-a8e4-460914d0516d",
+>>>>>>> Stashed changes
       "last_layer_a_check": "2026-05-02"
     },
     {
@@ -79845,7 +80048,11 @@
       "name_check": "Sunny Queen 18 Large Free Range Eggs 900g",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12"
+=======
+      "item_id": "8a9d39b2-a708-4070-b4ca-c6f50b361544"
+>>>>>>> Stashed changes
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
@@ -79899,8 +80106,12 @@
       "name_check": "Spaghetti No 5",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
       "last_layer_a_check": "2026-05-02"
+=======
+      "item_id": "21e259d2-6098-4c6f-9db1-924fb8a03067"
+>>>>>>> Stashed changes
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
@@ -79954,7 +80165,11 @@
       "name_check": "Pasta Spaghetti",
       "consecutive_failures": 0,
       "quarantined": false,
+<<<<<<< Updated upstream
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab"
+=======
+      "item_id": "42e9abb2-b8bc-401b-91c0-9a077900fe03"
+>>>>>>> Stashed changes
     }
   ]
 }
