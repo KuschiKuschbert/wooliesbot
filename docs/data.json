@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T10:08:33.959160Z",
+  "last_updated": "2026-05-03T14:03:49.776780Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1382,7 +1382,8 @@
       "name_check": "Beef Stir Fry",
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -7197,7 +7198,8 @@
       "name_check": "Mission Carb Balance Original Wraps  6 pack",
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Rice Paper",
@@ -7975,7 +7977,8 @@
       "item_id": "8c775909-15cc-4df4-aa21-124e0bf9a651",
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -8169,7 +8172,8 @@
       "name_check": "Blend 43 Espresso Instant Coffee",
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Almond Meal",
@@ -26268,10 +26272,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -46348,19 +46352,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -46373,7 +46377,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -46381,7 +46385,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -48227,7 +48231,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -48630,7 +48634,8 @@
       "name_check": "Infuzions Air Fries Aioli",
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -51848,7 +51853,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 7.0,
+      "price": 8.5,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
@@ -51993,25 +51998,25 @@
         },
         {
           "date": "2026-05-03",
-          "price": 7.0,
-          "is_special": true,
+          "price": 8.5,
+          "is_special": false,
           "was_price": 8.5,
-          "store": "woolworths",
-          "matched_name": "Mainland Organic Butter Block Butter"
+          "store": "coles",
+          "matched_name": "Organic Salted Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
-      "store": "woolworths",
-      "unit_price": 2.8,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
+      "store": "coles",
+      "unit_price": 3.4,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 2.8,
-          "eff_price": 7.0,
-          "was_price": 8.5,
-          "on_special": true
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.5,
@@ -52023,13 +52028,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 7.0,
-      "on_special": true,
+      "eff_price": 8.5,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Mainland Organic Butter Block Butter",
+      "name_check": "Organic Salted Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false
@@ -59029,19 +59034,19 @@
           "price": 3.3,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Spring Water Bottle"
+          "store": "woolworths",
+          "matched_name": "Pump Spring Water Bottle"
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.3,
+          "unit_price": 2.64,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -59054,7 +59059,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8973472.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/148409.jpg",
       "avg_price": 3.15,
       "eff_price": 3.3,
       "on_special": false,
@@ -59062,7 +59067,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Pump Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833",
       "consecutive_failures": 0,
       "quarantined": false
@@ -60276,7 +60281,8 @@
       "item_id": "59a5c5cc-5bd8-4aca-95f2-186a122bf88e",
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Vegemite 150G",
@@ -65070,7 +65076,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 9.5,
+      "price": 13.5,
       "brand": "Bega",
       "subcategory": "other",
       "size": "750G",
@@ -65215,19 +65221,19 @@
         },
         {
           "date": "2026-05-03",
-          "price": 9.5,
+          "price": 13.5,
           "is_special": false,
           "was_price": 10.5,
-          "store": "coles",
-          "matched_name": "Cheese Tasty Block"
+          "store": "woolworths",
+          "matched_name": "Bega Tasty Cheese Block Tasty"
         }
       ],
       "was_price": 10.5,
       "on_special": false,
       "local_image": "images/Bega_Tasty_Cheese_Block_750G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/189712.jpg",
-      "store": "coles",
-      "unit_price": 19.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/381313.jpg",
+      "store": "woolworths",
+      "unit_price": 18.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -65236,22 +65242,15 @@
           "eff_price": 13.5,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 9.5,
-          "unit_price": 19.0,
-          "eff_price": 9.5,
-          "was_price": 10.5,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 13.5,
-      "eff_price": 9.5,
+      "eff_price": 13.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cheese Tasty Block",
+      "name_check": "Bega Tasty Cheese Block Tasty",
       "item_id": "01e4e793-5144-4a60-bbd8-004235acc6fb",
       "consecutive_failures": 0,
       "quarantined": false
@@ -82923,7 +82922,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -83382,7 +83381,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
@@ -83444,7 +83443,8 @@
       "name_check": "Pasta Spaghetti",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab"
+      "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
+      "last_layer_a_check": "2026-05-03"
     }
   ]
 }

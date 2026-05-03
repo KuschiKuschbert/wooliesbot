@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T04:21:54.014801Z",
+  "last_updated": "2026-05-03T07:13:47.833711Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -427,7 +427,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Bacon (Middle)",
@@ -1573,7 +1573,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Capsicum (Red)",
@@ -2918,7 +2918,8 @@
       "name_check": "Broccoli Medium",
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Zucchini",
@@ -5018,7 +5019,8 @@
       "item_id": "b4ec8760-4821-4ddf-8e73-14671e4b5a6a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Butter (Western Star)",
@@ -5811,7 +5813,8 @@
       "name_check": "Woolworths Sour Cream  300mL",
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -9920,7 +9923,8 @@
       "name_check": "Coca-Cola Zero Sugar Soft Drink Multipack Cans 375mL x 30 pack",
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -10118,9 +10122,9 @@
       "coles": "https://www.coles.com.au/product/whiskas-kitten-2-12-months-wet-cat-food-with-mixed-favourites-in-jelly-12x85g-pouch-12-pack-5172659",
       "stock": "medium",
       "last_purchased": null,
-      "price": 13.0,
-      "eff_price": 13.0,
-      "store": "coles",
+      "price": 9.0,
+      "eff_price": 9.0,
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "other",
       "size": "12pk",
@@ -10265,20 +10269,27 @@
         },
         {
           "date": "2026-05-03",
-          "price": 13.0,
-          "is_special": false,
+          "price": 9.0,
+          "is_special": true,
           "was_price": 13.0,
-          "store": "coles",
-          "matched_name": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch"
+          "store": "woolworths",
+          "matched_name": "Whiskas Kitten Wet Cat Food Chicken In Gravy Pouch"
         }
       ],
       "was_price": 13.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Whiskas_Kitten_12pk.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5172659.jpg",
-      "unit_price": 1.27,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/784322.jpg",
+      "unit_price": 0.88,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 9.0,
+          "unit_price": 0.88,
+          "eff_price": 9.0,
+          "was_price": 13.0,
+          "on_special": true
+        },
         "coles": {
           "price": 13.0,
           "unit_price": 1.27,
@@ -10291,7 +10302,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch",
+      "name_check": "Whiskas Kitten Wet Cat Food Chicken In Gravy Pouch",
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false
@@ -13921,7 +13932,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -23698,7 +23709,8 @@
       "item_id": "b607c942-ff1d-4676-ad33-897913420da4",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -43742,7 +43754,7 @@
       "item_id": "b703b057-3e09-494f-8e29-9f6cb76230d6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Native Bouquet",
@@ -45146,7 +45158,8 @@
       "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Coca Cola Zero Sugarpet 600Ml",
@@ -46329,19 +46342,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -46354,7 +46367,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -46362,7 +46375,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -62849,7 +62862,8 @@
       "name_check": "Western Star Spreadable Butter Blend Tub Supersoft",
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -66236,7 +66250,8 @@
       "item_id": "0902602a-f8f5-4494-b178-8f1839f3830d",
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -77564,7 +77579,8 @@
       "name_check": "Soft Drink Cola Bottle",
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -78953,15 +78969,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -79099,24 +79115,24 @@
         },
         {
           "date": "2026-05-03",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -82970,7 +82986,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
