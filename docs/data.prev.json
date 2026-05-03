@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T07:13:47.833711Z",
+  "last_updated": "2026-05-03T10:08:33.959160Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5221,7 +5221,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -5606,7 +5606,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Sour Cream",
@@ -8936,7 +8936,8 @@
       "name_check": "Lindt Excellence 95% Cocoa Dark Chocolate Block 80g",
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -10696,7 +10697,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -11279,7 +11280,8 @@
       "name_check": "Energizer Max AA Alkaline Batteries  16 pack",
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -16595,7 +16597,8 @@
       "pack_litres": 3.75,
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -18830,7 +18833,8 @@
       "name_check": "Heinz Tomato Ketchup Squeezy Bottle",
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -24504,7 +24508,8 @@
       "pack_litres": 1.25,
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -42952,7 +42957,8 @@
       "name_check": "Green's Gravy Granules For Roast Meat",
       "item_id": "a0b95e6b-6398-4af0-a852-47327d7a96fa",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Mission Carb Balancespinach 288G Pk 6",
@@ -52397,7 +52403,7 @@
           "is_special": true,
           "was_price": 4.0,
           "store": "woolworths",
-          "matched_name": "Dine Creamy Treats Tuna Flavour Cat Treat"
+          "matched_name": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets"
         }
       ],
       "was_price": 4.0,
@@ -52429,7 +52435,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Creamy Treats Tuna Flavour Cat Treat",
+      "name_check": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets",
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -59023,19 +59029,19 @@
           "price": 3.3,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pump Spring Water Bottle"
+          "store": "coles",
+          "matched_name": "Spring Water Bottle"
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -59048,7 +59054,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/148409.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8973472.jpg",
       "avg_price": 3.15,
       "eff_price": 3.3,
       "on_special": false,
@@ -59056,7 +59062,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833",
       "consecutive_failures": 0,
       "quarantined": false
@@ -73808,7 +73814,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -78969,15 +78975,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -79115,24 +79121,24 @@
         },
         {
           "date": "2026-05-03",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -82585,7 +82591,8 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49"
+      "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -82707,7 +82714,8 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "5255fb18-007c-42c5-93a2-21616300aab4"
+      "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Pics Peanut Butter Crunchy 1Kg",
