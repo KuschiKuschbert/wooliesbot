@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-02T17:41:14.154996Z",
+  "last_updated": "2026-05-02T21:31:06.323144Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -590,7 +590,8 @@
       "name_check": "Woolworths Middle Bacon Middle Rashers 1kg",
       "item_id": "78b8cbd4-2f0e-4507-abda-57d772fba6a9",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Pork Loin Roast",
@@ -5002,7 +5003,8 @@
       "item_id": "87ad6dac-7e75-40a2-a654-bf7a5dd50939",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -10238,7 +10240,8 @@
       "item_id": "bfdef56b-15b6-4e1d-aa4c-c3759805c7ad",
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -10610,7 +10613,8 @@
       "name_check": "General Purpose Refill",
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Energizer Batteries AA",
@@ -17055,13 +17059,13 @@
           "is_special": true,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "YoPRO High Protein Yoghurt Vanilla"
+          "matched_name": "YoPRO Protein Yoghurt Pot Caramel Macchiato"
         }
       ],
       "was_price": 3.2,
       "on_special": true,
       "local_image": "images/Yopro_Yoghurt_Pot_Vanilla_160G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/646684.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6060469.jpg",
       "store": "woolworths",
       "unit_price": 1.56,
       "unit": "100g",
@@ -17087,7 +17091,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "YoPRO High Protein Yoghurt Vanilla",
+      "name_check": "YoPRO Protein Yoghurt Pot Caramel Macchiato",
       "item_id": "3221318c-963e-45cc-9ad5-16a5908602d7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -21958,7 +21962,8 @@
       "item_id": "924e578d-1093-4005-a2d9-dd6e249da68d",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -35742,7 +35747,8 @@
       "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -45460,7 +45466,7 @@
           "is_special": false,
           "was_price": 1.6,
           "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels with Salmon Tray"
+          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Salmon Tray"
         }
       ],
       "was_price": 1.6,
@@ -45492,7 +45498,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Salmon Tray",
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Salmon Tray",
       "item_id": "852c2a34-7748-421b-a043-0cec5d731f37",
       "consecutive_failures": 0,
       "quarantined": false
@@ -48788,7 +48794,8 @@
       "name_check": "Slendier Konjac Spaghetti Style",
       "item_id": "a0c66303-6565-4487-b86c-257f25cf99f1",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
@@ -58629,7 +58636,8 @@
       "name_check": "Continental Classics Rice Chicken",
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -62265,7 +62273,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -62402,27 +62410,27 @@
         },
         {
           "date": "2026-05-02",
-          "price": 5.9,
-          "is_special": true,
+          "price": 4.9,
+          "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Honeycomb Indulgence Bars"
+          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
         }
       ],
       "was_price": 8.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 3.93,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.9,
-          "unit_price": 3.93,
-          "eff_price": 5.9,
-          "was_price": 8.9,
-          "on_special": true
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.9,
@@ -62434,11 +62442,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 5.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -70849,7 +70857,8 @@
       "item_id": "0eb8e395-adb2-4beb-b7cd-8a768c07d595",
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -79482,7 +79491,8 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f"
+      "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
+      "last_layer_a_check": "2026-05-02"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
