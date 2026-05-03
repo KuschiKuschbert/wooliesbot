@@ -1,0 +1,80 @@
+"""Shared constants for WooliesBot (store metadata, price sentinels, shopping caps)."""
+
+STORES = {
+    "woolworths": {
+        "label": "Woolies",
+        "emoji": "🟢",
+        "price_css": "div[class*='product-price_component_price-lead']",
+        "unit_css": "div[class*='product-unit-price_component_price-cup-string'], div[class*='product-unit-price']",
+        "price_fallback_css": (".price-dollars", ".price-cents"),
+    },
+    "coles": {
+        "label": "Coles",
+        "emoji": "🔴",
+        "price_css": "span.price__value",
+        "unit_css": "div.price__calculation_method, span.price__calculation_method",
+        "price_fallback_css": None,
+    },
+}
+
+_PRICE_UNRELIABLE = 99999.0  # sentinel for bad / missing prices
+
+BIG_SHOP_START_DAY = 14
+DISCOUNT_CAP = 500.00
+
+# Receipt-style abbreviations on Woolworths labels (expanded before token overlap / search cleaning).
+_RECEIPT_ABBREVIATIONS = {
+    "Ww": "Woolworths",
+    "Df": "Dairy Farmers",
+    "Ess": "Essentials",
+    "Srdgh": "Sourdough",
+    "Hmlyn": "Himalayan",
+    "Bflied": "Butterflied",
+    "B'Flied": "Butterflied",
+    "Lemn": "Lemon",
+    "Grlc": "Garlic",
+    "Starwberry": "Strawberry",
+    "Conc": "Concentrate",
+    "Rw": "",
+    "Trplsmkd": "Triple Smoked",
+    "Shvd": "Shaved",
+    "Apprvd": "Approved",
+    "F/F": "Fat Free",
+    "F/C": "Fresh Choice",
+    "P/P": "",
+    "Ff": "",
+    "Pnut": "Peanut",
+    "Crml": "Caramel",
+    "Ckie": "Cookie",
+    "Btr": "Butter",
+    "Efferv": "Effervescent",
+    "Ap": "Antiperspirant",
+    "Cb": "Carb",
+    "Hm": "Ham",
+    "T/Tissue": "Toilet Tissue",
+    "Lge": "Large",
+    "Xl": "Extra Large",
+    "Choc": "Chocolate",
+    "Pud": "Pudding",
+    "Crspy": "Crispy",
+    "Bbq": "BBQ",
+    "Crnchy": "Crunchy",
+    "Pb": "Peanut Butter",
+    "35Hr": "35 Hour",
+    "Dbl": "Double",
+    "Esprs": "Espresso",
+    "Flav": "Flavoured",
+    "Wtr": "Water",
+    "Natrl": "Natural",
+    "Tbone": "T-Bone",
+    "P&S": "Pasta Sauce",
+    "L&C": "Light Crispy",
+    "L/F": "Low Fat",
+    "P/Appl": "Pineapple",
+    "P/Apple": "Pineapple",
+    "W/Mln": "Watermelon",
+    "F/Milk": "Full Cream Milk",
+    "M/Blast": "Mountain Blast",
+    "H/Comb": "Honeycomb",
+    "B/There": "Barely There",
+}
