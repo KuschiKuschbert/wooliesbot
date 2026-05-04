@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T04:21:07.190329Z",
+  "last_updated": "2026-05-04T07:29:56.940559Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8913,7 +8913,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Crackers (Jatz)",
@@ -9110,7 +9110,8 @@
       "name_check": "Arnott's Jatz Original Crackers Biscuits 225g",
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -9313,7 +9314,7 @@
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -12423,7 +12424,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -12578,7 +12579,7 @@
         },
         {
           "date": "2026-05-04",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -12587,21 +12588,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -12611,7 +12612,8 @@
       "item_id": "12abc8dd-8c9f-491a-b095-c1cc18eb41d8",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -14517,7 +14519,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -14726,7 +14728,8 @@
       "name_check": "Hydralyte Effervescent Electrolyte Tablets Passionfruit Punch",
       "item_id": "f637f0ff-96d0-41ed-8df1-8f98f944e483",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Meggles Farm Cage Eggs Xl 12Pk 700G",
@@ -17307,7 +17310,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 12.0,
+      "price": 13.5,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600G",
@@ -17460,28 +17463,21 @@
         },
         {
           "date": "2026-05-04",
-          "price": 12.0,
+          "price": 13.5,
           "is_special": false,
           "was_price": 13.5,
-          "store": "woolworths",
-          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
+          "store": "coles",
+          "matched_name": "Chicken Goujons"
         }
       ],
       "was_price": 13.5,
       "on_special": false,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
-      "store": "woolworths",
-      "unit_price": 20.0,
+      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
+      "store": "coles",
+      "unit_price": 13.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 12.0,
-          "unit_price": 20.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 13.5,
           "unit_price": 13.5,
@@ -17492,11 +17488,11 @@
       },
       "price_unavailable": false,
       "avg_price": 12.0,
-      "eff_price": 12.0,
+      "eff_price": 13.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
+      "name_check": "Chicken Goujons",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -27337,10 +27333,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -31594,7 +31590,7 @@
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -42135,7 +42131,8 @@
       "item_id": "eaeaa57a-ca47-41e0-83c2-d4947381e696",
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -49492,9 +49489,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 64.27,
-          "unit_price": 2.3,
-          "eff_price": 64.27,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -50794,7 +50791,8 @@
       "item_id": "f8d10bdf-83d2-4eee-8984-6b2e21cc23ea",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -52873,7 +52871,7 @@
       "item_id": "a0c66303-6565-4487-b86c-257f25cf99f1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
@@ -68712,7 +68710,7 @@
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -86209,7 +86207,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -86585,7 +86583,8 @@
       "name_check": "Free Range Eggs 12 Pack",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853"
+      "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
@@ -86733,7 +86732,8 @@
       "name_check": "Sunny Queen 18 Large Free Range Eggs 900g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12"
+      "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
