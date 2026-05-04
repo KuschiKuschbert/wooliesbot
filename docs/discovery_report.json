@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-05-04T06:16:44.829879+00:00",
+  "report_id": "2026-W19",
+  "total_new_candidates": 5,
+  "groups": {
+    "beef_strips": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "bread_white": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": [
+        {
+          "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/263669/wonder-white-bread-vitamins-minerals-sandwich",
+          "coles": "",
+          "compare_group": "bread_white",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "white sandwich bread 700g",
+            "bucket": "('sig', ((), (), (700,)))",
+            "overlap_labels": [
+              "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g"
+            ]
+          }
+        }
+      ]
+    },
+    "butter_block_250g": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": [
+        {
+          "name": "Mainland Mainland Organic Butter Block Butter 250g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/799120/mainland-organic-butter-block-butter",
+          "coles": "",
+          "compare_group": "butter_block_250g",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "butter block 250g",
+            "bucket": "('sig', ((), (), (250,)))",
+            "overlap_labels": [
+              "Mainland Mainland Organic Butter Block Butter 250g",
+              "Allowrie Allowrie Unsalted Butter Block Butter 250g",
+              "Allowrie Allowrie Salted Butter Block 250g",
+              "Devondale Devondale Butter Block Unsalted Butter 250g",
+              "Western Star Western Star Salted Butter Block Butter Block 250g"
+            ]
+          }
+        }
+      ]
+    },
+    "cheese_tasty_block": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "cola": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": [
+        {
+          "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/32731/coca-cola-classic-soft-drink-bottle",
+          "coles": "",
+          "compare_group": "cola",
+          "price_mode": "litre",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "cola soft drink 1.25L",
+            "bucket": "('sig', ((), (1250,), ()))",
+            "overlap_labels": [
+              "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
+              "Coca-Cola Coca-Cola Diet Soft Drink Bottle 1.25L",
+              "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
+              "Coca-Cola Coca-Cola Zero Sugar Soft Drink Bottle 1.25L"
+            ]
+          },
+          "pack_litres": 1.25
+        }
+      ]
+    },
+    "eggs_free_range": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": [
+        {
+          "name": "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/101565/lake-macquarie-12-jumbo-free-range-eggs",
+          "coles": "",
+          "compare_group": "eggs_free_range",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "free range eggs 12 pack",
+            "bucket": "('sig', ((), (), (800,)))",
+            "overlap_labels": [
+              "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g"
+            ]
+          }
+        },
+        {
+          "name": "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/224763/woolworths-12-x-large-free-range-eggs",
+          "coles": "",
+          "compare_group": "eggs_free_range",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "free range eggs 12 pack",
+            "bucket": "('sig', ((), (), (700,)))",
+            "overlap_labels": [
+              "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
+              "Open Range Open Range 12 Large Free Range Eggs 700g"
+            ]
+          }
+        }
+      ]
+    },
+    "milk_full_cream": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "mince_beef": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "omo_wonder_wash": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "pasta_dry": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "peanut_butter": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "sourdough_loaf": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    },
+    "tp_quilton": {
+      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "new_candidates": []
+    }
+  }
+}
