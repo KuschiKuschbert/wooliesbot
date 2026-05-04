@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T00:19:56.031215Z",
+  "last_updated": "2026-05-04T04:21:07.190329Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2032,7 +2032,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Baby Spinach / Kaleslaw",
@@ -8309,7 +8309,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -9931,7 +9931,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -10341,7 +10341,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -12423,7 +12423,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -12578,7 +12578,7 @@
         },
         {
           "date": "2026-05-04",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -12587,21 +12587,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -16635,7 +16635,8 @@
       "item_id": "b69b37ea-42f6-4bc3-9e9e-62a04e9e197e",
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -18307,19 +18308,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -18332,7 +18333,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -18340,7 +18341,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -22769,7 +22770,7 @@
       "item_id": "3b66949a-617d-4585-b8bb-21862397e551",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Cottee'S Strawberry Jam 375G",
@@ -28386,19 +28387,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -28411,7 +28412,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -28419,7 +28420,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30533,7 +30534,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -50583,7 +50584,7 @@
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -55598,7 +55599,8 @@
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -65394,7 +65396,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -68917,7 +68919,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -70772,7 +70774,8 @@
       "name_check": "Primo Air Dried Salami Sticks Mild Pepperoni",
       "item_id": "b2fb6164-4aac-44dc-99a3-8908c91d3586",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Libra Tampons Super 32Pk",
@@ -72856,7 +72859,8 @@
       "name_check": "Connoisseur Gourmet Ice Cream Mini Cookies & Cream Sticks",
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -73862,13 +73866,6 @@
       "unit_price": 31.25,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 8.5,
-          "unit_price": 42.5,
-          "eff_price": 8.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 5.0,
           "unit_price": 31.25,
@@ -83317,14 +83314,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 37.5,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit_price": 2.25,
+      "unit": "each",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 37.5,
-          "eff_price": 9.0,
+          "price": 12.6,
+          "unit_price": 2.1,
+          "eff_price": 12.6,
           "was_price": null,
           "on_special": false
         },
@@ -83480,8 +83477,8 @@
           "price": 9.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Combat Ant-Rid Bait Pest Control"
+          "store": "coles",
+          "matched_name": "Ant Rid Ant Bait"
         }
       ],
       "target_confidence": "high",
@@ -83494,7 +83491,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Combat Ant-Rid Bait Pest Control",
+      "name_check": "Ant Rid Ant Bait",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b",
       "consecutive_failures": 0,
       "quarantined": false
