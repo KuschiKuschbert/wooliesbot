@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T14:03:49.776780Z",
+  "last_updated": "2026-05-03T17:40:34.373557Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1952,7 +1952,8 @@
       "was_price": null,
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Baby Spinach / Kaleslaw",
@@ -2931,8 +2932,8 @@
       "coles": "https://www.coles.com.au/product/coles-green-zucchini-approx.-200g-4910506",
       "stock": "medium",
       "last_purchased": null,
-      "price": 0.98,
-      "eff_price": 4.9,
+      "price": 1.18,
+      "eff_price": 5.9,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
@@ -3078,7 +3079,7 @@
         },
         {
           "date": "2026-05-03",
-          "price": 4.9,
+          "price": 5.9,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -3089,13 +3090,13 @@
       "on_special": false,
       "local_image": "images/Zucchini.jpg",
       "image_url": "https://productimages.coles.com.au/4/4910506.jpg",
-      "unit_price": 4.9,
+      "unit_price": 5.9,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 0.98,
-          "unit_price": 4.9,
-          "eff_price": 4.9,
+          "price": 1.18,
+          "unit_price": 5.9,
+          "eff_price": 5.9,
           "was_price": null,
           "on_special": false
         }
@@ -4247,7 +4248,8 @@
       "name_check": "I'm Perfect Lemons Prepack",
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Garlic",
@@ -6793,7 +6795,8 @@
       "name_check": "Connoisseur Ice Cream Classic Vanilla Tub 1L",
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "English Muffins",
@@ -8557,7 +8560,8 @@
       "name_check": "Green's Gravy Granules Traditional 120g",
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Crackers (Jatz)",
@@ -13497,18 +13501,25 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Belgian Dark Block 85%"
+          "store": "woolworths",
+          "matched_name": "Woolworths 85% Belgian Dark Chocolate"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Belgian_Dark_Choc_Block_85%_100G.jpg",
       "image_url": "images/ww_belgian_dark_choc_block_85_100g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.0,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.0,
+          "unit_price": 4.0,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.0,
           "unit_price": 4.0,
@@ -13523,7 +13534,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Belgian Dark Block 85%",
+      "name_check": "Woolworths 85% Belgian Dark Chocolate",
       "item_id": "17ae333b-c42f-447b-8908-49db17b75088",
       "consecutive_failures": 0,
       "quarantined": false
@@ -16390,7 +16401,8 @@
       "pack_litres": 3.75,
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -26272,10 +26284,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -38280,7 +38292,8 @@
       "name_check": "Lindt Excellence Dark Chocolate 85% Cocoa Block",
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -46352,19 +46365,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -46377,7 +46390,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -46385,7 +46398,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -51853,7 +51866,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 8.5,
+      "price": 7.0,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
@@ -51998,25 +52011,25 @@
         },
         {
           "date": "2026-05-03",
-          "price": 8.5,
-          "is_special": false,
+          "price": 7.0,
+          "is_special": true,
           "was_price": 8.5,
-          "store": "coles",
-          "matched_name": "Organic Salted Butter"
+          "store": "woolworths",
+          "matched_name": "Mainland Organic Butter Block Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
-      "store": "coles",
-      "unit_price": 3.4,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
+      "store": "woolworths",
+      "unit_price": 2.8,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.9,
-          "unit_price": 2.64,
-          "eff_price": 9.9,
-          "was_price": null,
-          "on_special": false
+          "price": 7.0,
+          "unit_price": 2.8,
+          "eff_price": 7.0,
+          "was_price": 8.5,
+          "on_special": true
         },
         "coles": {
           "price": 8.5,
@@ -52028,13 +52041,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.5,
-      "on_special": false,
+      "eff_price": 7.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter",
+      "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false
@@ -57671,7 +57684,8 @@
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -60079,7 +60093,8 @@
       "name_check": "Kewpie Mayonnaise Wasabi Flavour",
       "item_id": "465d9b16-5d92-4aa6-85a6-5d89d6cf2364",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Bega Peanut Butter Crunchy 375G",
@@ -65076,7 +65091,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 13.5,
+      "price": 9.5,
       "brand": "Bega",
       "subcategory": "other",
       "size": "750G",
@@ -65221,19 +65236,19 @@
         },
         {
           "date": "2026-05-03",
-          "price": 13.5,
+          "price": 9.5,
           "is_special": false,
           "was_price": 10.5,
-          "store": "woolworths",
-          "matched_name": "Bega Tasty Cheese Block Tasty"
+          "store": "coles",
+          "matched_name": "Cheese Tasty Block"
         }
       ],
       "was_price": 10.5,
       "on_special": false,
       "local_image": "images/Bega_Tasty_Cheese_Block_750G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/381313.jpg",
-      "store": "woolworths",
-      "unit_price": 18.0,
+      "image_url": "https://productimages.coles.com.au/1/189712.jpg",
+      "store": "coles",
+      "unit_price": 19.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -65242,15 +65257,22 @@
           "eff_price": 13.5,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 9.5,
+          "unit_price": 19.0,
+          "eff_price": 9.5,
+          "was_price": 10.5,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 13.5,
-      "eff_price": 13.5,
+      "eff_price": 9.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Bega Tasty Cheese Block Tasty",
+      "name_check": "Cheese Tasty Block",
       "item_id": "01e4e793-5144-4a60-bbd8-004235acc6fb",
       "consecutive_failures": 0,
       "quarantined": false
@@ -75606,7 +75628,8 @@
       "item_id": "41a17706-fed1-4e47-8d2e-949e30ae1738",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -77560,9 +77583,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -80477,22 +80500,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 14.5,
-      "unit_price": null,
-      "unit": "kg",
-      "store": "coles",
+      "price": 28.0,
+      "unit_price": 5.6,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
           "price": 28.0,
           "unit_price": 5.6,
           "eff_price": 28.0,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 14.5,
-          "unit_price": null,
-          "eff_price": 14.5,
           "was_price": null,
           "on_special": false
         }
@@ -80630,24 +80646,24 @@
         },
         {
           "date": "2026-05-03",
-          "price": 14.5,
+          "price": 28.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Italian Ground Coffee"
+          "store": "woolworths",
+          "matched_name": "Vittoria Italian Ground"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 14.5,
+      "eff_price": 28.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Italian Ground Coffee",
+      "name_check": "Vittoria Italian Ground",
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false
@@ -82782,7 +82798,8 @@
       ],
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc"
+      "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Pics Peanut Butter Smoochy 380G",

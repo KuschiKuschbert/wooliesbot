@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T17:40:34.373557Z",
+  "last_updated": "2026-05-03T21:39:21.446680Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4061,7 +4061,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Lemons (Bag)",
@@ -6207,7 +6207,8 @@
       "name_check": "Wicked Sister High Protein Coffee Pudding",
       "item_id": "3635b745-21d0-4776-bccf-0a808ff3229a",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Frozen Peas",
@@ -14751,7 +14752,8 @@
       "name_check": "La Molisana Extra Di Lusso 28 Fusilli",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ww Original Water Crackers 125G",
@@ -17597,19 +17599,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -17622,7 +17624,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -17630,7 +17632,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -21476,7 +21478,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -21706,7 +21708,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.4,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -21851,27 +21853,27 @@
         },
         {
           "date": "2026-05-03",
-          "price": 1.4,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.4,
-          "unit_price": 1.75,
-          "eff_price": 1.4,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -21883,7 +21885,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.4,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -27294,19 +27296,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -27319,7 +27321,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -27327,7 +27329,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30379,7 +30381,8 @@
       "name_check": "Temptations Tantalising Turkey Cat Treats",
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -31195,7 +31198,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -32597,7 +32600,8 @@
       "name_check": "Arnott's Shapes Light & Crispy Cheddar Cheese Crackers",
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -46365,19 +46369,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -46390,7 +46394,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -46398,7 +46402,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -55885,7 +55889,8 @@
       "item_id": "ed7bd94b-5a34-4e9f-89fb-1b0ed9d75d4f",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -83141,7 +83146,8 @@
       "name_check": "Woolworths White Soft Sandwich Bread 650g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8"
+      "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
+      "last_layer_a_check": "2026-05-03"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
