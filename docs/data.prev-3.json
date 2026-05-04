@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:29:56.940559Z",
+  "last_updated": "2026-05-04T11:05:11.458104Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2436,7 +2436,8 @@
       "name_check": "Brown Onions",
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -4227,7 +4228,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Lemons (Bag)",
@@ -22573,7 +22574,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.4,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -22726,27 +22727,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 1.4,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.4,
-          "unit_price": 1.75,
-          "eff_price": 1.4,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -22758,7 +22759,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.4,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -27333,10 +27334,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -31380,7 +31381,8 @@
       "item_id": "0dcd7fbd-70e0-4b85-8b63-feb227c8dc3c",
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -44466,7 +44468,8 @@
       "name_check": "LYNX Fine Fragrance Collection Body Spray Cherry Spritz 72h",
       "item_id": "59610197-cc0d-4739-9942-bfcf8633ae53",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Greens Gravy Granles Roast Meat 120G",
@@ -45932,7 +45935,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -50371,7 +50374,8 @@
       "item_id": "f754a243-8805-4ef4-9651-aa573fa7c88b",
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -59981,7 +59985,7 @@
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -74715,7 +74719,7 @@
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -78640,7 +78644,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -83312,14 +83316,14 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "price": 9.0,
-      "unit_price": 2.25,
-      "unit": "each",
-      "store": "coles",
+      "unit_price": 37.5,
+      "unit": "100g",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 12.6,
-          "unit_price": 2.1,
-          "eff_price": 12.6,
+          "price": 9.0,
+          "unit_price": 37.5,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -83475,8 +83479,8 @@
           "price": 9.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Ant Rid Ant Bait"
+          "store": "woolworths",
+          "matched_name": "Combat Ant-Rid Bait Pest Control"
         }
       ],
       "target_confidence": "high",
@@ -83489,7 +83493,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Ant Rid Ant Bait",
+      "name_check": "Combat Ant-Rid Bait Pest Control",
       "item_id": "e76ff148-f4ee-46cd-a73b-301fa2defe8b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86286,7 +86290,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -86365,7 +86369,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",

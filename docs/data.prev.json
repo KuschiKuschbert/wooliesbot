@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T18:31:53.761151Z",
+  "last_updated": "2026-05-04T22:00:32.878683Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7500,7 +7500,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Rice Paper",
@@ -11756,7 +11756,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -38751,7 +38751,7 @@
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -48216,19 +48216,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -48241,7 +48241,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -48249,7 +48249,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -53936,7 +53936,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 7.0,
+      "price": 8.5,
       "brand": "Mainland",
       "subcategory": "other",
       "size": "250G",
@@ -54089,25 +54089,25 @@
         },
         {
           "date": "2026-05-04",
-          "price": 7.0,
-          "is_special": true,
+          "price": 8.5,
+          "is_special": false,
           "was_price": 8.5,
-          "store": "woolworths",
-          "matched_name": "Mainland Organic Butter Block Butter"
+          "store": "coles",
+          "matched_name": "Organic Salted Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
-      "store": "woolworths",
-      "unit_price": 2.8,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
+      "store": "coles",
+      "unit_price": 3.4,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 2.8,
-          "eff_price": 7.0,
-          "was_price": 8.5,
-          "on_special": true
+          "price": 9.9,
+          "unit_price": 2.64,
+          "eff_price": 9.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.5,
@@ -54119,13 +54119,13 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 7.0,
-      "on_special": true,
+      "eff_price": 8.5,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Mainland Organic Butter Block Butter",
+      "name_check": "Organic Salted Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -67481,7 +67481,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.9,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -67634,27 +67634,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 5.9,
-          "is_special": true,
+          "price": 4.9,
+          "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Honeycomb Indulgence Bars"
+          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
         }
       ],
       "was_price": 8.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 3.93,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.9,
-          "unit_price": 3.93,
-          "eff_price": 5.9,
-          "was_price": 8.9,
-          "on_special": true
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.9,
@@ -67666,11 +67666,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 5.9,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -70346,7 +70346,7 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": null,
@@ -70378,7 +70378,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -76783,7 +76783,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
