@@ -1,0 +1,16 @@
+# Woolies bot — logs, browser profile, venv, and heavy runtime artifacts.
+
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+logs/
+backups/
+chrome_profile/
+.agent-locks/
+
+chef_os.log*
+*.log
