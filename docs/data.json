@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T11:05:11.458104Z",
+  "last_updated": "2026-05-04T14:56:56.530588Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1045,7 +1045,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -1439,7 +1439,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -6259,7 +6259,8 @@
       "name_check": "Woolworths Natural Greek Style Yoghurt  1kg",
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -24678,7 +24679,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -29706,7 +29707,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 2.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "200G",
@@ -29859,27 +29860,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 2.5,
-          "is_special": false,
+          "price": 3.0,
+          "is_special": true,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Woolworths Pikelets"
+          "matched_name": "Golden Pikelets"
         }
       ],
       "was_price": 4.5,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Pikelets_200G_8Pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/365378.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/046645.jpg",
       "store": "woolworths",
-      "unit_price": 1.25,
+      "unit_price": 1.5,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.5,
-          "unit_price": 1.25,
-          "eff_price": 2.5,
-          "was_price": null,
-          "on_special": false
+          "price": 3.0,
+          "unit_price": 1.5,
+          "eff_price": 3.0,
+          "was_price": 4.5,
+          "on_special": true
         },
         "coles": {
           "price": 4.5,
@@ -29891,11 +29892,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.6666666666666665,
-      "eff_price": 2.5,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Pikelets",
+      "name_check": "Golden Pikelets",
       "item_id": "6a440bde-b66e-40f0-868b-4b346e849d9d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -39819,7 +39820,7 @@
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -42151,7 +42152,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -42304,27 +42305,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 9.8,
-          "is_special": false,
+          "price": 7.0,
+          "is_special": true,
           "was_price": 8.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 8.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.4,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -42336,11 +42337,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -48213,19 +48214,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -48238,7 +48239,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -48246,7 +48247,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -71597,9 +71598,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 10.0,
-          "eff_price": 3.0,
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -77366,25 +77367,18 @@
           "price": 12.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Beef Stir Fry"
+          "store": "coles",
+          "matched_name": "Beef Stir Fry"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Beef_Stir_Fry_Heart_Smart_500G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/531015.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/9/9990965.jpg",
+      "store": "coles",
       "unit_price": 24.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 12.0,
-          "unit_price": 24.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 12.0,
           "unit_price": 24.0,
@@ -77399,7 +77393,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Stir Fry",
+      "name_check": "Beef Stir Fry",
       "item_id": "26e45eea-397a-4435-9801-03e513d85f3a",
       "consecutive_failures": 0,
       "quarantined": false
