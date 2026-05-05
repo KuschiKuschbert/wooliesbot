@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-05T04:08:17.144727Z",
+  "last_updated": "2026-05-05T07:06:27.372037Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -211,7 +211,8 @@
       "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet 1.3kg - 1.7kg",
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -1702,7 +1703,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Capsicum (Red)",
@@ -1918,7 +1919,7 @@
       "coles": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.96,
+      "price": 2.5,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "salad_veg",
@@ -2063,55 +2064,40 @@
         },
         {
           "date": "2026-05-05",
-          "price": 2.96,
+          "price": 2.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths"
+          "store": "woolworths",
+          "matched_name": " Hass Avocado  each"
         }
       ],
       "local_image": "images/Avocados_Hass.jpg",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 2.5,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.96,
-          "unit_price": null,
-          "eff_price": 2.96,
+          "price": 2.5,
+          "unit_price": 2.5,
+          "eff_price": 2.5,
           "was_price": null,
-          "on_special": false,
-          "url": "https://www.woolworths.com.au/shop/productdetails/120080/hass-avocado",
-          "url_type": "pdp",
-          "url_verdict": "ok",
-          "url_verified_at": "2026-04-22T13:17:57Z",
-          "verification_source": "e2e_validate_layer_d",
-          "http_status": 200,
-          "overlap": 1.0,
-          "live_name": "Hass Avocado  each",
-          "notes": "overlap=1.00"
-        },
-        "coles": {
-          "url": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
-          "url_type": "search",
-          "url_verdict": "repaired_search_fallback",
-          "url_verified_at": "2026-04-22T13:17:57Z",
-          "verification_source": "e2e_validate_layer_d",
-          "notes": "BFF returned nothing — product ID invalid or delisted"
+          "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "",
+      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/120080.jpg",
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 2.96,
+      "eff_price": 2.5,
       "on_special": false,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-04",
+      "name_check": " Hass Avocado  each"
     },
     {
       "name": "Baby Spinach / Kaleslaw",
@@ -3160,7 +3146,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Zucchini",
@@ -8849,7 +8835,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Almond Meal",
@@ -13110,7 +13096,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -16867,7 +16853,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-26",
-      "price": 1.3,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -17028,28 +17014,21 @@
         },
         {
           "date": "2026-05-05",
-          "price": 1.3,
+          "price": 1.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Avocado Shepard"
+          "store": "coles",
+          "matched_name": "Shepard Avocados"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Avocado_Shepard.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/186910.jpg",
-      "store": "woolworths",
-      "unit_price": 1.3,
+      "image_url": "https://productimages.coles.com.au/5/5900891.jpg",
+      "store": "coles",
+      "unit_price": 1.5,
       "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 1.3,
-          "unit_price": 1.3,
-          "eff_price": 1.3,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 1.5,
           "unit_price": 1.5,
@@ -17060,11 +17039,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.375,
-      "eff_price": 1.3,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Avocado Shepard",
+      "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
       "consecutive_failures": 0,
       "quarantined": false
@@ -17981,7 +17960,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 13.5,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600G",
@@ -18142,21 +18121,28 @@
         },
         {
           "date": "2026-05-05",
-          "price": 13.5,
+          "price": 12.0,
           "is_special": false,
           "was_price": 13.5,
-          "store": "coles",
-          "matched_name": "Chicken Goujons"
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
         }
       ],
       "was_price": 13.5,
       "on_special": false,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
-      "store": "coles",
-      "unit_price": 13.5,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
+      "store": "woolworths",
+      "unit_price": 20.0,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 12.0,
+          "unit_price": 20.0,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 13.5,
           "unit_price": 13.5,
@@ -18167,11 +18153,11 @@
       },
       "price_unavailable": false,
       "avg_price": 12.0,
-      "eff_price": 13.5,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Chicken Goujons",
+      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -26486,7 +26472,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -43763,7 +43749,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -43924,27 +43910,27 @@
         },
         {
           "date": "2026-05-05",
-          "price": 9.8,
-          "is_special": false,
+          "price": 7.0,
+          "is_special": true,
           "was_price": 8.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 8.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.4,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -43956,11 +43942,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -44441,7 +44427,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.7,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "10Pk",
@@ -44602,27 +44588,27 @@
         },
         {
           "date": "2026-05-05",
-          "price": 8.7,
-          "is_special": false,
+          "price": 6.95,
+          "is_special": true,
           "was_price": 8.7,
-          "store": "coles",
-          "matched_name": "Tablets Orange"
+          "store": "woolworths",
+          "matched_name": "Hydralyte Effervescent Electrolyte Tablets Kiwi Strawberry"
         }
       ],
       "was_price": 8.7,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Hydralyte_Efferv_Tab_Strawb_Kiwi_10Pk.jpg",
-      "image_url": "https://productimages.coles.com.au/2/2864838.jpg",
-      "store": "coles",
-      "unit_price": 0.87,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/206020.jpg",
+      "store": "woolworths",
+      "unit_price": 0.7,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 24.4,
-          "unit_price": 61.0,
-          "eff_price": 24.4,
-          "was_price": null,
-          "on_special": false
+          "price": 6.95,
+          "unit_price": 0.7,
+          "eff_price": 6.95,
+          "was_price": 8.7,
+          "on_special": true
         },
         "coles": {
           "price": 8.7,
@@ -44634,11 +44620,11 @@
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 8.7,
+      "eff_price": 6.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Tablets Orange",
+      "name_check": "Hydralyte Effervescent Electrolyte Tablets Kiwi Strawberry",
       "item_id": "7fe723ed-bbf1-4851-a79b-36fb7442a2d4",
       "consecutive_failures": 0,
       "quarantined": false
@@ -52518,7 +52504,7 @@
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -65098,7 +65084,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Vegemite 150G",
@@ -75650,7 +75636,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -76696,6 +76682,13 @@
       "unit_price": 31.25,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 8.5,
+          "unit_price": 42.5,
+          "eff_price": 8.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.0,
           "unit_price": 31.25,
@@ -79499,7 +79492,7 @@
       "item_id": "a1535919-d8e7-4303-8b51-dc8c33dc2413",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Pics Peanut Butter Crunchy 380G",
@@ -84225,7 +84218,8 @@
       "name_check": "Mission Wraps Roasted Garlic",
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Broccolini Bunch",
@@ -85290,15 +85284,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -85452,24 +85446,24 @@
         },
         {
           "date": "2026-05-05",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -88546,6 +88540,13 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 3.9,
+          "unit_price": 3.9,
+          "eff_price": 3.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 3.8,
           "unit_price": 3.8,
@@ -89213,7 +89214,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -89626,7 +89627,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -90035,7 +90036,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
