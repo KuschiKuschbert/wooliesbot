@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T14:56:56.530588Z",
+  "last_updated": "2026-05-04T18:31:53.761151Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10139,7 +10139,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -17071,7 +17071,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -22575,7 +22575,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.4,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -22728,27 +22728,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.4,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.4,
+          "unit_price": 1.75,
+          "eff_price": 1.4,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -22760,7 +22760,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -29046,7 +29046,8 @@
       "item_id": "0ec9fa35-abdf-4c44-88a8-a522b90b97ce",
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -36864,7 +36865,8 @@
       "name_check": "Colgate Plaque Release Toothpaste Total Fragrant Mint",
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -53916,7 +53918,8 @@
       "fake_deal": true,
       "baseline_price": 3.8,
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Mainland Organic Salted Sprd Butter 250G",
@@ -67478,7 +67481,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 4.9,
+      "price": 5.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -67631,27 +67634,27 @@
         },
         {
           "date": "2026-05-04",
-          "price": 4.9,
-          "is_special": false,
+          "price": 5.9,
+          "is_special": true,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
+          "matched_name": "Noshu Low Carb Honeycomb Indulgence Bars"
         }
       ],
       "was_price": 8.9,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 3.93,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 1.63,
-          "eff_price": 4.9,
-          "was_price": null,
-          "on_special": false
+          "price": 5.9,
+          "unit_price": 3.93,
+          "eff_price": 5.9,
+          "was_price": 8.9,
+          "on_special": true
         },
         "coles": {
           "price": 8.9,
@@ -67663,11 +67666,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 4.9,
+      "eff_price": 5.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
+      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -70343,7 +70346,7 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": null,
@@ -70375,7 +70378,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -71412,7 +71415,8 @@
       "item_id": "aa81d104-06b1-4b3e-be10-99385930c224",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -71598,9 +71602,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 1.6,
-          "eff_price": 4.0,
+          "price": 3.0,
+          "unit_price": 10.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -80275,7 +80279,8 @@
       "name_check": "Pedigree Adult 7+ Years With Real Turkey Dry Dog Food",
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -86653,7 +86658,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
