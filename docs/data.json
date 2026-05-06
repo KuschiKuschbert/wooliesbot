@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-06T04:18:06.014391Z",
+  "last_updated": "2026-05-06T07:18:10.303621Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -907,7 +907,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -3902,7 +3902,8 @@
       "name_check": "Kent Pumpkin Cut",
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Snow Peas",
@@ -8737,7 +8738,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -12019,7 +12020,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -12456,7 +12457,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Energizer Batteries AA",
@@ -14959,7 +14960,8 @@
       "name_check": "Cadbury Old Gold Peppermint Dark Chocolate Block",
       "item_id": "432c61be-c6df-4cdd-bc16-5a88d8ad45ac",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Ww Belgian Dark Choc Block 85% 100G",
@@ -18379,7 +18381,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -19946,7 +19948,7 @@
           "is_special": false,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "YoPRO High Protein Yoghurt Vanilla"
+          "matched_name": "YoPRO Protein Yoghurt Vanilla"
         }
       ],
       "was_price": 3.2,
@@ -19978,7 +19980,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "YoPRO High Protein Yoghurt Vanilla",
+      "name_check": "YoPRO Protein Yoghurt Vanilla",
       "item_id": "3221318c-963e-45cc-9ad5-16a5908602d7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -35585,7 +35587,8 @@
       "name_check": "Cheer Tasty Cheese Block",
       "item_id": "56efbcab-9d29-4273-b924-6d988bc78810",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Libra Tampons Super 16Pk",
@@ -39684,7 +39687,7 @@
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -43758,7 +43761,8 @@
       "name_check": "Waterfords Sparkling Water Apple Berry",
       "item_id": "c94b7d6c-f528-43b0-abe7-c3d18508b439",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Rexona Men Advanced Sport Ap 220Ml",
@@ -45805,13 +45809,6 @@
       "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 18.7,
-          "unit_price": 11.0,
-          "eff_price": 18.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 17.5,
           "unit_price": 17.5,
@@ -57773,13 +57770,13 @@
           "is_special": true,
           "was_price": 6.9,
           "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar Lemon Cheesecake"
+          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
         }
       ],
       "was_price": 6.9,
       "on_special": true,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6014750.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
       "store": "woolworths",
       "unit_price": 3.83,
       "unit": "100g",
@@ -57805,7 +57802,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Lemon Cheesecake",
+      "name_check": "Musashi High Protein Bar Chocolate Brownie",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false
@@ -92067,13 +92064,6 @@
       "unit": "kg",
       "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 4.0,
-          "unit_price": 16.0,
-          "eff_price": 4.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.2,
           "unit_price": 12.8,
@@ -92857,13 +92847,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
       "was_price": 7.5,
       "on_special": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Smooth",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -92911,7 +92901,7 @@
           "is_special": false,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Smooth"
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
@@ -93012,7 +93002,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -93374,7 +93364,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
