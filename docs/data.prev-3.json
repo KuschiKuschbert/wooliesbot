@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-06T07:18:10.303621Z",
+  "last_updated": "2026-05-06T11:06:18.213469Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3481,7 +3481,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -6526,7 +6526,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -8958,7 +8958,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -9177,7 +9177,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Almond Meal",
@@ -10487,7 +10487,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -17919,7 +17919,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -22690,7 +22690,7 @@
       "price_unavailable": false,
       "avg_price": 2.6,
       "eff_price": 2.0,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
@@ -34469,7 +34469,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -45809,6 +45809,13 @@
       "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 17.5,
           "unit_price": 17.5,
@@ -46498,7 +46505,8 @@
       "name_check": "M&M's Minis Milk Chocolate Treat Tube",
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -54213,7 +54221,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -61442,7 +61450,8 @@
       "name_check": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips",
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Macro Org Natural Corn Chips 200G",
@@ -63696,7 +63705,8 @@
       "name_check": "Powerade Mountain Blast Zero Sports Drink Sipper Cap",
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -71308,7 +71318,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -86696,8 +86706,8 @@
       "pack_litres": 1.25,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/21350/pepsi-soft-drink-cola-bottle",
       "coles": "https://www.coles.com.au/product/soft-drink-cola-bottle-1310309",
-      "price": 3.75,
-      "store": "coles",
+      "price": 2.25,
+      "store": "woolworths",
       "last_updated": "2026-04-14T23:50:00Z",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -86867,26 +86877,26 @@
         },
         {
           "date": "2026-05-06",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.8,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Soft Drink Cola Bottle"
+          "store": "woolworths",
+          "matched_name": "Pepsi Soft Drink Cola Bottle"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Pepsi_Cola_Soft_Drink_1.25L.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1310309.jpg",
-      "unit_price": 3.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033188.jpg",
+      "unit_price": 1.8,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
-          "was_price": null,
-          "on_special": false
+          "price": 2.25,
+          "unit_price": 1.8,
+          "eff_price": 1.8,
+          "was_price": 3.75,
+          "on_special": true
         },
         "coles": {
           "price": 3.75,
@@ -86899,11 +86909,11 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 3.0,
+      "eff_price": 1.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Soft Drink Cola Bottle",
+      "name_check": "Pepsi Soft Drink Cola Bottle",
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -87607,15 +87617,15 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.0,
-      "unit_price": 2.0,
+      "price": 2.5,
+      "unit_price": 2.5,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 2.5,
+          "unit_price": 2.5,
+          "eff_price": 2.5,
           "was_price": null,
           "on_special": false
         },
@@ -87784,24 +87794,24 @@
         },
         {
           "date": "2026-05-06",
-          "price": 2.0,
+          "price": 2.5,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "The Odd Bunch Continental Cucumber"
+          "matched_name": "Woolworths Continental Cucumbers"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.0,
+      "eff_price": 2.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "The Odd Bunch Continental Cucumber",
+      "name_check": "Woolworths Continental Cucumbers",
       "item_id": "11e7aa33-0137-4912-a4e8-fb4bd1fb81fc",
       "consecutive_failures": 0,
       "quarantined": false
@@ -93097,7 +93107,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -93277,7 +93287,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
