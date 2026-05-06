@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-06T11:06:18.213469Z",
+  "last_updated": "2026-05-06T15:13:23.089257Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1552,7 +1552,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -3053,7 +3053,8 @@
       "name_check": "Woolworths Australian Grown Carrots 1kg",
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Broccoli",
@@ -8082,7 +8083,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Rice Paper",
@@ -9391,7 +9392,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Gravy Granules",
@@ -11152,7 +11153,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -15650,7 +15651,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -19718,19 +19719,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -19743,7 +19744,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -19751,7 +19752,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -22690,7 +22691,7 @@
       "price_unavailable": false,
       "avg_price": 2.6,
       "eff_price": 2.0,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
@@ -26573,7 +26574,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -30564,19 +30565,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -30589,7 +30590,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -30597,7 +30598,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30802,9 +30803,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 13.75,
-          "unit_price": 11.0,
-          "eff_price": 13.75,
+          "price": 16.25,
+          "unit_price": 13.0,
+          "eff_price": 16.25,
           "was_price": null,
           "on_special": false
         },
@@ -30846,7 +30847,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 7.7,
+      "price": 8.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "2Kg",
@@ -31015,7 +31016,7 @@
         },
         {
           "date": "2026-05-06",
-          "price": 7.7,
+          "price": 8.0,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -31027,20 +31028,20 @@
       "local_image": "images/Potato_Brushed_2Kg.jpg",
       "image_url": "https://productimages.coles.com.au/3/3958573.jpg",
       "store": "coles",
-      "unit_price": 3.85,
+      "unit_price": 4.0,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 7.7,
-          "unit_price": 3.85,
-          "eff_price": 7.7,
+          "price": 8.0,
+          "unit_price": 4.0,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 7.7,
+      "eff_price": 8.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -37838,7 +37839,7 @@
         },
         "coles": {
           "price": 8.0,
-          "unit_price": 4.44,
+          "unit_price": null,
           "eff_price": 8.0,
           "was_price": null,
           "on_special": false
@@ -41934,7 +41935,8 @@
       "name_check": "Old El Paso Hard N Soft Taco Kit Chipotle",
       "item_id": "df038f80-1d83-4878-84c9-c1c60433a67c",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Colgate Toothpaste Harry Potter 100G",
@@ -43050,7 +43052,7 @@
           "is_special": true,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -43074,7 +43076,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 3.95,
       "on_special": true,
@@ -43082,7 +43084,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -57813,7 +57815,8 @@
       "name_check": "Musashi High Protein Bar Chocolate Brownie",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -72198,7 +72201,7 @@
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -78880,9 +78883,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 13.75,
-          "unit_price": 11.0,
-          "eff_price": 13.75,
+          "price": 16.25,
+          "unit_price": 13.0,
+          "eff_price": 16.25,
           "was_price": null,
           "on_special": false
         },
@@ -79816,7 +79819,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-22",
-      "price": 2.7,
+      "price": 3.1,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "125G",
@@ -79985,7 +79988,7 @@
         },
         {
           "date": "2026-05-06",
-          "price": 2.7,
+          "price": 3.1,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -79997,20 +80000,20 @@
       "local_image": "images/Thomas_Dux_Camembert125G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/311843.jpg",
       "store": "woolworths",
-      "unit_price": 21.6,
+      "unit_price": 24.8,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 21.6,
-          "eff_price": 2.7,
+          "price": 3.1,
+          "unit_price": 24.8,
+          "eff_price": 3.1,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.7,
-      "eff_price": 2.7,
+      "eff_price": 3.1,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -86706,8 +86709,8 @@
       "pack_litres": 1.25,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/21350/pepsi-soft-drink-cola-bottle",
       "coles": "https://www.coles.com.au/product/soft-drink-cola-bottle-1310309",
-      "price": 2.25,
-      "store": "woolworths",
+      "price": 3.75,
+      "store": "coles",
       "last_updated": "2026-04-14T23:50:00Z",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -86877,26 +86880,26 @@
         },
         {
           "date": "2026-05-06",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Pepsi Soft Drink Cola Bottle"
+          "store": "coles",
+          "matched_name": "Soft Drink Cola Bottle"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Pepsi_Cola_Soft_Drink_1.25L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033188.jpg",
-      "unit_price": 1.8,
+      "image_url": "https://productimages.coles.com.au/1/1310309.jpg",
+      "unit_price": 3.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.25,
-          "unit_price": 1.8,
-          "eff_price": 1.8,
-          "was_price": 3.75,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.75,
@@ -86909,11 +86912,11 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 1.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pepsi Soft Drink Cola Bottle",
+      "name_check": "Soft Drink Cola Bottle",
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -88475,15 +88478,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -88645,24 +88648,24 @@
         },
         {
           "date": "2026-05-06",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -93461,7 +93464,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
