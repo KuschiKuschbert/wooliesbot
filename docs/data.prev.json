@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-06T15:13:23.089257Z",
+  "last_updated": "2026-05-06T18:29:38.815845Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1126,7 +1126,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -6076,7 +6076,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Philly Cream Cheese",
@@ -6262,7 +6262,7 @@
           "is_special": false,
           "was_price": 5.7,
           "store": "coles",
-          "matched_name": "Regular Cream Cheese Block"
+          "matched_name": "Original Cream Cheese Block"
         }
       ],
       "was_price": 5.7,
@@ -6291,11 +6291,11 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Regular Cream Cheese Block",
+      "name_check": "Original Cream Cheese Block",
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Sour Cream",
@@ -12677,7 +12677,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -19719,19 +19719,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -19744,7 +19744,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -19752,7 +19752,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -22691,7 +22691,7 @@
       "price_unavailable": false,
       "avg_price": 2.6,
       "eff_price": 2.0,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
@@ -25656,7 +25656,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -28515,7 +28515,7 @@
           "is_special": false,
           "was_price": 3.0,
           "store": "coles",
-          "matched_name": "Turkish Delight Chocolate Bar"
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
       "store": "coles",
@@ -28539,7 +28539,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30565,19 +30565,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -30590,7 +30590,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -30598,7 +30598,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -46951,7 +46951,8 @@
       "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
@@ -68872,7 +68873,8 @@
       "name_check": "Campbell's Real Stock Chicken Liquid Stock",
       "item_id": "abeb7504-9d95-4282-8cd3-e42211196f0f",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "La Molisana Egg Fettuccine 250G",
@@ -86212,13 +86214,13 @@
           "is_special": true,
           "was_price": 5.4,
           "store": "woolworths",
-          "matched_name": "Quest Protein Bar Choc Brownie"
+          "matched_name": "Quest White Chocolate Raspberry"
         }
       ],
       "was_price": 5.4,
       "on_special": true,
       "local_image": "images/Quest_Bar_White_Choc_Raspberry_60G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473741.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473738.jpg",
       "store": "woolworths",
       "unit_price": 4.5,
       "unit": "100g",
@@ -86237,10 +86239,11 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest Protein Bar Choc Brownie",
+      "name_check": "Quest White Chocolate Raspberry",
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -92920,7 +92923,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -93558,7 +93561,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
