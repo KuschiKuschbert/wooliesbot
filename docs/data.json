@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T11:15:01.492960Z",
+  "last_updated": "2026-05-07T18:38:47.243378Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3617,7 +3617,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -12014,7 +12014,8 @@
       "name_check": "Kitten 2-12 Months Wet Cat Food with Mixed Favourites In Jelly 12x85g Pouch",
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -13892,7 +13893,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -14071,7 +14072,7 @@
         },
         {
           "date": "2026-05-07",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -14080,21 +14081,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -14326,9 +14327,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 7.8,
-          "unit_price": 15.6,
-          "eff_price": 7.8,
+          "price": 8.0,
+          "unit_price": 16.0,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         }
@@ -14571,9 +14572,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 4.8,
-          "unit_price": 22.86,
-          "eff_price": 4.8,
+          "price": 5.0,
+          "unit_price": 23.81,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
@@ -20437,19 +20438,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -20462,7 +20463,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -20470,7 +20471,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -23509,7 +23510,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -28661,7 +28662,7 @@
       "pack_litres": 1.25,
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -31657,19 +31658,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -31682,7 +31683,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -31690,7 +31691,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -32631,7 +32632,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Beanette 400G P/P",
@@ -39184,13 +39185,6 @@
           "eff_price": 5.5,
           "was_price": 8.0,
           "on_special": true
-        },
-        "coles": {
-          "price": 8.0,
-          "unit_price": null,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -48404,7 +48398,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 4.5,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -48581,28 +48575,21 @@
         },
         {
           "date": "2026-05-07",
-          "price": 4.5,
-          "is_special": true,
-          "was_price": 5.5,
-          "store": "woolworths",
-          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 8.8,
+          "store": "coles",
+          "matched_name": "Sea Salt Crystals"
         }
       ],
-      "was_price": 5.5,
-      "on_special": true,
+      "was_price": 8.8,
+      "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
-      "store": "woolworths",
-      "unit_price": 0.3,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
+      "store": "coles",
+      "unit_price": 0.31,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 4.5,
-          "unit_price": 0.3,
-          "eff_price": 4.5,
-          "was_price": 5.5,
-          "on_special": true
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 0.31,
@@ -48613,11 +48600,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 4.5,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
+      "name_check": "Sea Salt Crystals",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -74771,7 +74758,7 @@
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -87226,9 +87213,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 10.0,
-          "unit_price": 14.29,
-          "eff_price": 10.0,
+          "price": 10.5,
+          "unit_price": 15.0,
+          "eff_price": 10.5,
           "was_price": null,
           "on_special": false
         }
@@ -87475,7 +87462,8 @@
       "name_check": "Philadelphia Light Cream Cheese Block",
       "item_id": "bc3762d1-a847-493c-a436-98335850ecd8",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Sunny Queen Fms Cge Free Eggs 12Pk 700G",
@@ -88855,7 +88843,8 @@
       "name_check": "Aeroplane Jelly Lite Crystals Blueberry",
       "item_id": "e15c6771-7522-4f6b-9ed3-d03f475ad099",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Mango Calypso",
@@ -96566,7 +96555,8 @@
       "name_check": "Tip Top Super Thick Toast Soft White 700g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c"
+      "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
