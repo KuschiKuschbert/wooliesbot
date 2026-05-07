@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T15:09:46.707435Z",
+  "last_updated": "2026-05-07T11:15:01.492960Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2059,8 +2059,7 @@
       "name_check": "Red Capsicum Loose",
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "quarantined": false
     },
     {
       "name": "Avocados (Hass)",
@@ -3396,7 +3395,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Zucchini",
@@ -5852,7 +5851,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Butter (Western Star)",
@@ -13893,7 +13892,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -14072,7 +14071,7 @@
         },
         {
           "date": "2026-05-07",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -14081,21 +14080,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -14327,9 +14326,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 8.0,
-          "unit_price": 16.0,
-          "eff_price": 8.0,
+          "price": 7.8,
+          "unit_price": 15.6,
+          "eff_price": 7.8,
           "was_price": null,
           "on_special": false
         }
@@ -14572,9 +14571,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 5.0,
-          "unit_price": 23.81,
-          "eff_price": 5.0,
+          "price": 4.8,
+          "unit_price": 22.86,
+          "eff_price": 4.8,
           "was_price": null,
           "on_special": false
         }
@@ -23510,7 +23509,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 5,
+      "consecutive_failures": 4,
       "quarantined": false
     },
     {
@@ -28224,7 +28223,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -28662,7 +28661,7 @@
       "pack_litres": 1.25,
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -28905,7 +28904,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -29082,23 +29081,23 @@
         },
         {
           "date": "2026-05-07",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -29112,13 +29111,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -39185,6 +39184,13 @@
           "eff_price": 5.5,
           "was_price": 8.0,
           "on_special": true
+        },
+        "coles": {
+          "price": 8.0,
+          "unit_price": null,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -44142,8 +44148,7 @@
       "name_check": "Lindt Excellence 95% Cocoa Dark Chocolate Block",
       "item_id": "4b79e45c-8ceb-4644-8629-8f34bea15a40",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "quarantined": false
     },
     {
       "name": "Lindt Excellence 85% Cocoa 100G",
@@ -49330,8 +49335,7 @@
       "name_check": "Hygiene Plus Gloves Disposable Powder Free",
       "item_id": "040bf110-b3fc-4295-81df-51d116665446",
       "consecutive_failures": 0,
-      "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "quarantined": false
     },
     {
       "name": "Lynx Ff Body Spray Cherry Spritz 150Ml",
@@ -61991,7 +61995,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-04"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -65971,7 +65975,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -69916,7 +69920,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-05"
     },
     {
       "name": "Vegemite 150G",
@@ -87222,9 +87226,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 10.5,
-          "unit_price": 15.0,
-          "eff_price": 10.5,
+          "price": 10.0,
+          "unit_price": 14.29,
+          "eff_price": 10.0,
           "was_price": null,
           "on_special": false
         }
@@ -96358,7 +96362,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
