@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T11:15:01.492960Z",
+  "last_updated": "2026-05-07T21:55:24.933977Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1615,7 +1615,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -5396,7 +5396,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Medjool Dates",
@@ -9522,7 +9522,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Almond Meal",
@@ -13892,7 +13892,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -14071,7 +14071,7 @@
         },
         {
           "date": "2026-05-07",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -14080,21 +14080,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -14326,9 +14326,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 7.8,
-          "unit_price": 15.6,
-          "eff_price": 7.8,
+          "price": 8.0,
+          "unit_price": 16.0,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         }
@@ -14571,9 +14571,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 4.8,
-          "unit_price": 22.86,
-          "eff_price": 4.8,
+          "price": 5.0,
+          "unit_price": 23.81,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
@@ -19311,7 +19311,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 10.0,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600G",
@@ -19488,28 +19488,21 @@
         },
         {
           "date": "2026-05-07",
-          "price": 10.0,
-          "is_special": true,
-          "was_price": 12.0,
-          "store": "woolworths",
-          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
+          "price": 11.0,
+          "is_special": false,
+          "was_price": 13.5,
+          "store": "coles",
+          "matched_name": "Chicken Goujons"
         }
       ],
-      "was_price": 12.0,
-      "on_special": true,
+      "was_price": 13.5,
+      "on_special": false,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
-      "store": "woolworths",
-      "unit_price": 16.67,
+      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 10.0,
-          "unit_price": 16.67,
-          "eff_price": 10.0,
-          "was_price": 12.0,
-          "on_special": true
-        },
         "coles": {
           "price": 11.0,
           "unit_price": 11.0,
@@ -19520,11 +19513,11 @@
       },
       "price_unavailable": false,
       "avg_price": 12.0,
-      "eff_price": 10.0,
+      "eff_price": 11.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
+      "name_check": "Chicken Goujons",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -20437,19 +20430,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -20462,7 +20455,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -20470,7 +20463,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -23509,7 +23502,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -26573,7 +26566,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -31657,19 +31650,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -31682,7 +31675,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -31690,7 +31683,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -39184,13 +39177,6 @@
           "eff_price": 5.5,
           "was_price": 8.0,
           "on_special": true
-        },
-        "coles": {
-          "price": 8.0,
-          "unit_price": null,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -44584,7 +44570,7 @@
           "is_special": true,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -44608,7 +44594,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 3.95,
       "on_special": true,
@@ -44616,7 +44602,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -48404,7 +48390,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 4.5,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -48581,28 +48567,21 @@
         },
         {
           "date": "2026-05-07",
-          "price": 4.5,
-          "is_special": true,
-          "was_price": 5.5,
-          "store": "woolworths",
-          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 8.8,
+          "store": "coles",
+          "matched_name": "Sea Salt Crystals"
         }
       ],
-      "was_price": 5.5,
-      "on_special": true,
+      "was_price": 8.8,
+      "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
-      "store": "woolworths",
-      "unit_price": 0.3,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
+      "store": "coles",
+      "unit_price": 0.31,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 4.5,
-          "unit_price": 0.3,
-          "eff_price": 4.5,
-          "was_price": 5.5,
-          "on_special": true
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 0.31,
@@ -48613,11 +48592,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 4.5,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
+      "name_check": "Sea Salt Crystals",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -66675,7 +66654,8 @@
       "name_check": "Aeroplane Jelly Lite Crystals Strawberry",
       "item_id": "37806560-d62c-4ebe-81c7-35f6fff95105",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Mushroom Cups 500G P/P",
@@ -87226,9 +87206,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 10.0,
-          "unit_price": 14.29,
-          "eff_price": 10.0,
+          "price": 10.5,
+          "unit_price": 15.0,
+          "eff_price": 10.5,
           "was_price": null,
           "on_special": false
         }
@@ -93367,7 +93347,8 @@
       "name_check": "V Original Guarana Energy Drink",
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Vittoria Italian Ground 500G",
@@ -95869,7 +95850,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -96661,7 +96642,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
@@ -97143,7 +97124,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-07"
     }
   ]
 }
