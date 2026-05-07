@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-06T18:29:38.815845Z",
+  "last_updated": "2026-05-06T22:03:03.290705Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -220,7 +220,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -4553,7 +4553,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Lemons (Bag)",
@@ -7864,7 +7864,8 @@
       "name_check": "Woolworths English Muffins  6 pack",
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -10711,7 +10712,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -18618,7 +18619,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -22496,7 +22497,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 2.0,
+      "price": 0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "Standard",
@@ -22675,10 +22676,10 @@
       "was_price": null,
       "on_special": false,
       "local_image": "images/Cucumber_Continentalodd_Bunch.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/829360.jpg",
+      "image_url": "",
       "store": "woolworths",
-      "unit_price": 2.0,
-      "unit": "each",
+      "unit_price": null,
+      "unit": null,
       "all_stores": {
         "woolworths": {
           "price": 2.0,
@@ -22688,15 +22689,14 @@
           "on_special": false
         }
       },
-      "price_unavailable": false,
+      "price_unavailable": true,
       "avg_price": 2.6,
-      "eff_price": 2.0,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "quarantined": false
     },
     {
@@ -27249,7 +27249,8 @@
       "pack_litres": 1.25,
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -27465,7 +27466,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -37170,7 +37171,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -48774,7 +48775,8 @@
       "name_check": "Quest Bar Choc Chip Cookie Dough",
       "item_id": "cd6da3b1-fabe-4780-8b1c-8963b409c92e",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Mayvers Dark Roastedextracrunchy Pb 375G",
@@ -51902,19 +51904,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -51927,7 +51929,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -51935,7 +51937,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -53771,7 +53773,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -55803,7 +55805,8 @@
       "name_check": "Woolworths Mushroom Sliced",
       "item_id": "72ea5351-3272-4b80-ab14-16e1481c7aa7",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -86214,13 +86217,13 @@
           "is_special": true,
           "was_price": 5.4,
           "store": "woolworths",
-          "matched_name": "Quest White Chocolate Raspberry"
+          "matched_name": "Quest Protein Bar Choc Brownie"
         }
       ],
       "was_price": 5.4,
       "on_special": true,
       "local_image": "images/Quest_Bar_White_Choc_Raspberry_60G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473738.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473741.jpg",
       "store": "woolworths",
       "unit_price": 4.5,
       "unit": "100g",
@@ -86239,7 +86242,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest White Chocolate Raspberry",
+      "name_check": "Quest Protein Bar Choc Brownie",
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -88481,15 +88484,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -88651,24 +88654,24 @@
         },
         {
           "date": "2026-05-06",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -92565,7 +92568,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-06"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
