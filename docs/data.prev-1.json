@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T07:26:12.500303Z",
+  "last_updated": "2026-05-07T11:15:01.492960Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2717,7 +2717,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -3173,7 +3173,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Broccoli",
@@ -3839,7 +3839,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -13892,7 +13892,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -14071,7 +14071,7 @@
         },
         {
           "date": "2026-05-07",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -14080,21 +14080,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -18568,7 +18568,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -20437,19 +20437,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -20462,7 +20462,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -20470,7 +20470,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -23509,7 +23509,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "quarantined": false
     },
     {
@@ -24917,7 +24917,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -30487,9 +30487,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -31657,19 +31657,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -31682,7 +31682,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -31690,7 +31690,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -36170,7 +36170,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -64332,7 +64332,8 @@
       "name_check": "Bref Brilliant Gel Spring Rain Toilet Cleaner Block",
       "item_id": "41d4b45f-1efa-499c-9b26-7f3bbf83a409",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Gumption Cleaner Cream 500G",
@@ -69213,7 +69214,7 @@
       "item_id": "1fc81337-8f53-4115-bae9-aa76dc3be187",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Ww Pink Himalayan Salt 110G",
@@ -91624,15 +91625,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -91802,24 +91803,24 @@
         },
         {
           "date": "2026-05-07",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -95962,7 +95963,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -96190,13 +96191,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
       "was_price": 7.5,
       "on_special": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Crunchy",
+      "name_check": "Pic's Peanut Butter Smooth",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -96252,13 +96253,13 @@
           "is_special": false,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Crunchy"
+          "matched_name": "Pic's Peanut Butter Smooth"
         }
       ],
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -96952,7 +96953,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-07"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
