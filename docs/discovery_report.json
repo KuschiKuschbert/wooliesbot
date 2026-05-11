@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-04T06:16:44.829879+00:00",
-  "report_id": "2026-W19",
-  "total_new_candidates": 5,
+  "generated_at": "2026-05-11T06:42:23.967587+00:00",
+  "report_id": "2026-W20",
+  "total_new_candidates": 6,
   "groups": {
     "beef_strips": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "bread_white": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": [
         {
           "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
@@ -30,7 +30,7 @@
       ]
     },
     "butter_block_250g": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": [
         {
           "name": "Mainland Mainland Organic Butter Block Butter 250g",
@@ -46,9 +46,8 @@
             "bucket": "('sig', ((), (), (250,)))",
             "overlap_labels": [
               "Mainland Mainland Organic Butter Block Butter 250g",
-              "Allowrie Allowrie Unsalted Butter Block Butter 250g",
               "Allowrie Allowrie Salted Butter Block 250g",
-              "Devondale Devondale Butter Block Unsalted Butter 250g",
+              "Allowrie Allowrie Unsalted Butter Block Butter 250g",
               "Western Star Western Star Salted Butter Block Butter Block 250g"
             ]
           }
@@ -56,11 +55,11 @@
       ]
     },
     "cheese_tasty_block": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "cola": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": [
         {
           "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
@@ -86,7 +85,7 @@
       ]
     },
     "eggs_free_range": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": [
         {
           "name": "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g",
@@ -126,31 +125,50 @@
       ]
     },
     "milk_full_cream": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "mince_beef": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "omo_wonder_wash": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "pasta_dry": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "peanut_butter": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
-      "new_candidates": []
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "new_candidates": [
+        {
+          "name": "Pic's Pic's Peanut Butter Crunchy 380g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/360257/pic-s-peanut-butter-crunchy",
+          "coles": "",
+          "compare_group": "peanut_butter",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "peanut butter 380g",
+            "bucket": "('sig', ((), (), (380,)))",
+            "overlap_labels": [
+              "Pic's Pic's Peanut Butter Crunchy 380g",
+              "Pic's Pic's Peanut Butter Smooth 380g"
+            ]
+          }
+        }
+      ]
     },
     "sourdough_loaf": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     },
     "tp_quilton": {
-      "checked_at": "2026-05-04T06:16:44.829879+00:00",
+      "checked_at": "2026-05-11T06:42:23.967587+00:00",
       "new_candidates": []
     }
   }
