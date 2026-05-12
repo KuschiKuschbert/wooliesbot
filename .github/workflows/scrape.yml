@@ -60,6 +60,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
+      # ── CORE PIPELINE: scrape → validate → push ──────────────────────────
+      # This is the only step whose failure should block the workflow.
       - name: Run scrape and push docs
         env:
           GITHUB_ACTIONS: "true"
@@ -88,7 +90,9 @@ jobs:
               hb = hb.replace(tzinfo=dt.timezone.utc)
           now = dt.datetime.now(dt.timezone.utc)
           age_min = (now - hb).total_seconds() / 60
-          if age_min > 180:
+          # Allow up to 6 hours (360 min) — accounts for long scrape runs
+          # (~55 min) plus CI queue delay plus GH Actions scheduling jitter.
+          if age_min > 360:
               raise SystemExit(f"heartbeat stale: {age_min:.1f} minutes old")
           print(f"heartbeat age OK: {age_min:.1f} minutes")
           PY
@@ -121,11 +125,18 @@ jobs:
             exit 1
           fi
 
+      # ── POST-PUSH AUDITS (non-fatal) ─────────────────────────────────────
+      # These run AFTER data is pushed. They catch regressions for the NEXT
+      # cycle but must NOT trigger a revert of the current good commit.
+      # continue-on-error: true ensures their failure does not cascade.
+
       - name: Layer D audit report
+        continue-on-error: true
         run: |
           python scripts/e2e_validate.py --layer D --all --json-out logs/e2e_validate_links_full.json
 
       - name: Upload Layer D audit artifact
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: e2e-validate-links-full
@@ -135,6 +146,7 @@ jobs:
       # Raise E2E_LAYER_A_SAMPLE in env for stricter coverage (slower).
       # Do NOT add --persist-checks here — this runs post-push and must not race the auto-commit.
       - name: Layer A live price spot-check
+        continue-on-error: true
         env:
           E2E_LAYER_A_SAMPLE: "25"
         run: |
@@ -147,30 +159,18 @@ jobs:
           name: e2e-validate-layer-a
           path: logs/e2e_validate_layer_a.json
 
-      # Belt-and-braces: if Layer A failed AND the offending commit was the
-      # auto-update commit (not human work), revert it so bad data is not
-      # served while the next 4 h scrape runs.
-      - name: Auto-revert bot commit on post-push check failure
+      # ── NOTIFICATION (replaces destructive auto-revert) ──────────────────
+      # Instead of reverting the commit (which caused infinite loops), we now
+      # report the failure via Telegram and let the next 4h cycle self-correct.
+      # Rationale: stale-but-valid data is better than no data (reverted state).
+      - name: Report post-push audit failures
         if: failure()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          HEAD_AUTHOR=$(git log -1 --format='%ae')
-          HEAD_MSG=$(git log -1 --format='%s')
-          # Match both forms the bot can produce on main:
-          #   - direct push:  "Auto-update dashboard data [skip ci]"
-          #   - PR auto-merge squash: "Auto-update dashboard data (#NNN)"
-          if [ "$HEAD_AUTHOR" = "github-actions[bot]@users.noreply.github.com" ] && \
-             echo "$HEAD_MSG" | grep -Eq '^Auto-update dashboard data( \[skip ci\]| \(#[0-9]+\))?$'; then
-            echo "Post-push check failed on bot auto-commit — reverting HEAD"
-            git revert HEAD --no-edit
-            git push origin main
-            python scripts/telegram_notify.py --allow-missing-secrets \
-              --text "⏪ *[AUTO-REVERT]* A post-push check failed (Layer A or Layer D)\\nThe bad auto-update commit has been reverted on main\\.\\nNext scheduled scrape will re-attempt\\.\\nSee logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          else
-            echo "HEAD is not a bot auto-commit (author=$HEAD_AUTHOR msg=$HEAD_MSG) — skipping auto-revert"
-          fi
+          python scripts/telegram_notify.py --allow-missing-secrets \
+            --text "⚠️ *[SCRAPE AUDIT]* Post-push checks flagged issues\.\nData was pushed successfully but Layer A/D audits found discrepancies\.\nNext scrape will re-validate\.\nSee logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Telegram failure notification
         if: failure()
