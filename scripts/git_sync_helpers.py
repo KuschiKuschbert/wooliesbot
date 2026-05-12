@@ -43,8 +43,27 @@ def push_main_with_pr_fallback() -> None:
         err_text = (push2.stderr or push2.stdout or "").strip()
         logging.warning(f"git push failed after rebase — {err_text}")
     else:
-        err_text = (pull2.stderr or pull2.stdout or "").strip()
-        logging.warning(f"git pull --rebase retry failed — {err_text}")
+        pull2_err = (pull2.stderr or pull2.stdout or "").strip()
+        logging.warning(f"git pull --rebase retry failed — {pull2_err}")
+        # Abort broken rebase and try merge with --strategy-option=theirs
+        # to accept our fresh data over stale/reverted remote state.
+        subprocess.run(["git", "rebase", "--abort"], capture_output=True, text=True)
+        pull3 = subprocess.run(
+            ["git", "pull", "--no-rebase", "--strategy-option=theirs", "origin", "main"],
+            capture_output=True, text=True,
+        )
+        if pull3.returncode == 0:
+            push3 = subprocess.run(
+                ["git", "push", "origin", "main"], capture_output=True, text=True
+            )
+            if push3.returncode == 0:
+                logging.info("Successfully pushed updated data & heartbeat to GitHub (after merge --theirs).")
+                return
+            err_text = (push3.stderr or push3.stdout or "").strip()
+            logging.warning(f"git push failed after merge --theirs — {err_text}")
+        else:
+            err_text = (pull3.stderr or pull3.stdout or "").strip()
+            logging.warning(f"git pull --strategy-option=theirs failed — {err_text}")
 
     if looks_like_protection_rejection(err_text):
         if open_auto_merge_pr_fallback():

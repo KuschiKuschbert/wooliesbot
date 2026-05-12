@@ -1,7 +1,7 @@
 name: Heartbeat Watchdog
 
 # Fetches the LIVE GitHub Pages heartbeat.json (not the repo file) every 30 min
-# and fires a Telegram alert when last_heartbeat is >5 h old.
+# and fires a Telegram alert when last_heartbeat is >6 h old.
 # This catches Pages CDN outages, deployment failures, or scrape stalls even when
 # the scrape workflow itself shows green.
 
@@ -47,7 +47,7 @@ jobs:
           import urllib.request
 
           PAGES_URL = "https://KuschiKuschbert.github.io/wooliesbot/heartbeat.json"
-          STALE_THRESHOLD_H = 5
+          STALE_THRESHOLD_H = 6
           FORCE_STALE = os.environ.get("FORCE_STALE_TEST", "false").strip().lower() == "true"
 
           print(f"Fetching live heartbeat from: {PAGES_URL}")

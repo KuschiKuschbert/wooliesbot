@@ -262,11 +262,23 @@ def sync_to_github(next_scheduled=None):
         logging.info("Syncing data to GitHub...")
         pull_r = _run_git(["git", "pull", "--rebase", "--autostash", "origin", "main"])
         if pull_r.returncode != 0:
-            logging.error(
-                f"git pull --rebase --autostash failed (exit {pull_r.returncode}): "
-                f"{(pull_r.stderr or pull_r.stdout or '').strip()}"
+            pull_err = (pull_r.stderr or pull_r.stdout or "").strip()
+            logging.warning(
+                f"git pull --rebase --autostash failed (exit {pull_r.returncode}): {pull_err}"
             )
-            return
+            # Abort any in-progress rebase and try a merge strategy that prefers
+            # our fresh scrape data over the (potentially reverted) remote state.
+            _run_git(["git", "rebase", "--abort"])
+            pull_merge = _run_git([
+                "git", "pull", "--no-rebase", "--strategy-option=theirs",
+                "--autostash", "origin", "main",
+            ])
+            if pull_merge.returncode != 0:
+                merge_err = (pull_merge.stderr or pull_merge.stdout or "").strip()
+                logging.error(
+                    f"git pull --strategy-option=theirs also failed: {merge_err}"
+                )
+                return
 
         heartbeat_path = os.path.join("docs", "heartbeat.json")
         nr = next_scheduled
