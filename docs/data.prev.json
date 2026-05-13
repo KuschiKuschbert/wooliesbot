@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-13T04:32:38.480605Z",
+  "last_updated": "2026-05-13T07:36:35.861165Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3635,7 +3635,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Zucchini",
@@ -5297,7 +5297,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Garlic",
@@ -6752,7 +6752,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Philly Cream Cheese",
@@ -8473,7 +8473,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "English Muffins",
@@ -19597,7 +19597,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -20640,7 +20640,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 13.5,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600G",
@@ -20833,21 +20833,28 @@
         },
         {
           "date": "2026-05-13",
-          "price": 13.5,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.0,
-          "store": "coles",
-          "matched_name": "Chicken Goujons"
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
         }
       ],
       "was_price": 12.0,
       "on_special": false,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
-      "store": "coles",
-      "unit_price": 13.5,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
+      "store": "woolworths",
+      "unit_price": 20.0,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 12.0,
+          "unit_price": 20.0,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 13.5,
           "unit_price": 13.5,
@@ -20858,11 +20865,11 @@
       },
       "price_unavailable": false,
       "avg_price": 12.0,
-      "eff_price": 13.5,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Chicken Goujons",
+      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -22381,7 +22388,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -23126,7 +23133,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -23650,7 +23657,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.75,
+      "price": 2.65,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "270G",
@@ -23843,19 +23850,26 @@
         },
         {
           "date": "2026-05-13",
-          "price": 2.75,
+          "price": 2.65,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Sundried Tomato Strips"
+          "store": "woolworths",
+          "matched_name": "Woolworths Sundried Tomato Strips"
         }
       ],
       "local_image": "images/Ww_Sundried_Tomato_Strips_270G.jpg",
-      "image_url": "https://productimages.coles.com.au/6/6070326.jpg",
-      "store": "coles",
-      "unit_price": 9.82,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/520728.jpg",
+      "store": "woolworths",
+      "unit_price": 0.98,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 2.65,
+          "unit_price": 0.98,
+          "eff_price": 2.65,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.75,
           "unit_price": 9.82,
@@ -23866,13 +23880,13 @@
       },
       "price_unavailable": false,
       "avg_price": 2.65,
-      "eff_price": 2.75,
+      "eff_price": 2.65,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Sundried Tomato Strips",
+      "name_check": "Woolworths Sundried Tomato Strips",
       "item_id": "4556005d-4224-4a22-a4fb-47f60107b6e3",
       "consecutive_failures": 0,
       "quarantined": false
@@ -25094,7 +25108,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "quarantined": true
     },
     {
@@ -28328,22 +28342,22 @@
           "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
-          "store": "coles",
-          "matched_name": "No Added Hormone Beef 4 Star Lean Mince"
+          "store": "woolworths",
+          "matched_name": "Woolworths Lean Beef Mince"
         }
       ],
       "was_price": 11.0,
       "on_special": false,
       "local_image": "images/Ww_Lean_Beef_Mince_500G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8112449.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "store": "woolworths",
       "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 13.0,
-          "unit_price": 26.0,
-          "eff_price": 26.0,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         },
@@ -28361,7 +28375,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "No Added Hormone Beef 4 Star Lean Mince",
+      "name_check": "Woolworths Lean Beef Mince",
       "item_id": "924e578d-1093-4005-a2d9-dd6e249da68d",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
@@ -30368,7 +30382,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -32549,9 +32563,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -33799,19 +33813,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -33824,7 +33838,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -33832,7 +33846,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -36347,7 +36361,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -38112,7 +38126,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -39805,13 +39819,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Old El Paso Gluten Free Taco Spice Mix Mild"
+          "matched_name": "Old El Paso Taco Spice Mix Extra Mild"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Old_El_Paso_Taco_Spice_Mix_Mild_30G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/229703.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/169527.jpg",
       "store": "woolworths",
       "unit_price": 9.0,
       "unit": "100g",
@@ -39837,7 +39851,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Old El Paso Gluten Free Taco Spice Mix Mild",
+      "name_check": "Old El Paso Taco Spice Mix Extra Mild",
       "item_id": "89d26fc6-342a-454d-bf8d-3a6ac611e536",
       "consecutive_failures": 0,
       "quarantined": false
@@ -51657,7 +51671,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -52386,18 +52400,25 @@
           "price": 1.85,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Almond Milk Unsweetened"
+          "store": "woolworths",
+          "matched_name": "Woolworths Unsweetened Almond Long Life Milk UHT"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Almond_Milk_Unsweetened_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1852210.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/779134.jpg",
+      "store": "woolworths",
       "unit_price": 1.85,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 1.85,
+          "unit_price": 1.85,
+          "eff_price": 1.85,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 1.85,
           "unit_price": 1.85,
@@ -52412,7 +52433,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Almond Milk Unsweetened",
+      "name_check": "Woolworths Unsweetened Almond Long Life Milk UHT",
       "item_id": "1c8e29b9-4a66-46e3-a525-92c7e5e7447f",
       "consecutive_failures": 0,
       "quarantined": false
@@ -57373,19 +57394,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -57398,7 +57419,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -57406,7 +57427,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -58893,9 +58914,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 64.27,
-          "unit_price": 2.3,
-          "eff_price": 64.27,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -64919,7 +64940,7 @@
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Lean Pork Mince 500G",
@@ -74352,18 +74373,25 @@
           "price": 6.5,
           "is_special": false,
           "was_price": 6.5,
-          "store": "coles",
-          "matched_name": "Wasabi Flavour Mayonnaise"
+          "store": "woolworths",
+          "matched_name": "Kewpie Mayonnaise Wasabi Flavour"
         }
       ],
       "was_price": 6.5,
       "on_special": false,
       "local_image": "images/Kewpie_Mayonnaise_Wasabi_300G.jpg",
-      "image_url": "https://productimages.coles.com.au/2/2021500.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/790377.jpg",
+      "store": "woolworths",
       "unit_price": 2.17,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 6.5,
+          "unit_price": 2.17,
+          "eff_price": 6.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.5,
           "unit_price": 2.17,
@@ -74378,7 +74406,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Wasabi Flavour Mayonnaise",
+      "name_check": "Kewpie Mayonnaise Wasabi Flavour",
       "item_id": "465d9b16-5d92-4aa6-85a6-5d89d6cf2364",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -86749,7 +86777,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -95866,7 +95894,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -103103,7 +103131,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
