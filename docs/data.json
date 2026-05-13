@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-13T07:36:35.861165Z",
+  "last_updated": "2026-05-13T11:20:46.798841Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3873,7 +3873,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -4111,7 +4111,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -9949,7 +9949,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -12860,7 +12860,8 @@
       "name_check": "Whiskas Kitten Wet Cat Food Chicken In Gravy Pouch",
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -19597,7 +19598,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -20359,7 +20360,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -21844,19 +21845,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -21869,7 +21870,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -21877,7 +21878,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -25108,7 +25109,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "quarantined": true
     },
     {
@@ -30142,7 +30143,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -33813,19 +33814,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -33838,7 +33839,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -33846,7 +33847,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -50164,7 +50165,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -51671,7 +51672,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -54674,7 +54675,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -63436,7 +63437,8 @@
       "name_check": "Sunbites Grain Waves Wholegrain Chips Sweet Chilli",
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -71424,7 +71426,7 @@
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -73123,19 +73125,19 @@
           "price": 3.3,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pump Spring Water Bottle"
+          "store": "coles",
+          "matched_name": "Spring Water Bottle"
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.64,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.64,
-          "eff_price": 3.3,
+          "price": 13.95,
+          "unit_price": null,
+          "eff_price": 13.95,
           "was_price": null,
           "on_special": false
         },
@@ -73148,7 +73150,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/148409.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8973472.jpg",
       "avg_price": 3.15,
       "eff_price": 3.3,
       "on_special": false,
@@ -73156,7 +73158,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Pump Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833",
       "consecutive_failures": 0,
       "quarantined": false
@@ -83583,7 +83585,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.0,
+      "price": 2.6,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -83776,27 +83778,27 @@
         },
         {
           "date": "2026-05-13",
-          "price": 5.0,
-          "is_special": false,
-          "was_price": 5.0,
+          "price": 2.6,
+          "is_special": true,
+          "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
         }
       ],
-      "was_price": 5.0,
-      "on_special": false,
+      "was_price": 3.2,
+      "on_special": true,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
       "store": "woolworths",
-      "unit_price": 9.09,
+      "unit_price": 4.73,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 9.09,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.6,
+          "unit_price": 4.73,
+          "eff_price": 2.6,
+          "was_price": 3.2,
+          "on_special": true
         },
         "coles": {
           "price": 5.0,
@@ -83808,11 +83810,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 5.0,
+      "eff_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -91460,7 +91462,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -93679,7 +93681,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -100439,7 +100441,8 @@
       "name_check": "Always Fresh Cucumbers Dill",
       "item_id": "9e6379d5-5ab9-4fd7-8d59-3a1e02dd0a0b",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Dole P/Apple Slices In Jce 432G",
@@ -103249,7 +103252,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
