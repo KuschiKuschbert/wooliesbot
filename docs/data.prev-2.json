@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14T04:31:42.986682Z",
+  "last_updated": "2026-05-14T07:35:36.241314Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5228,7 +5228,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Lemons (Bag)",
@@ -6975,7 +6975,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Philly Cream Cheese",
@@ -10773,7 +10773,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Gravy Granules",
@@ -14540,7 +14540,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -15354,7 +15354,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -15557,7 +15557,7 @@
         },
         {
           "date": "2026-05-14",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -15566,21 +15566,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -17166,7 +17166,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 4.5,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "100G",
@@ -17367,21 +17367,28 @@
         },
         {
           "date": "2026-05-14",
-          "price": 4.5,
+          "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Belgian Dark Block 85%"
+          "store": "woolworths",
+          "matched_name": "Woolworths 85% Belgian Dark Chocolate"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Belgian_Dark_Choc_Block_85%_100G.jpg",
       "image_url": "images/ww_belgian_dark_choc_block_85_100g.jpg",
-      "store": "coles",
-      "unit_price": 4.5,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 4.0,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.0,
+          "unit_price": 4.0,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 4.5,
@@ -17392,11 +17399,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 4.5,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Belgian Dark Block 85%",
+      "name_check": "Woolworths 85% Belgian Dark Chocolate",
       "item_id": "17ae333b-c42f-447b-8908-49db17b75088",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20227,7 +20234,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "quarantined": true
     },
     {
@@ -21281,7 +21288,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -22545,19 +22552,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -22570,7 +22577,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -22578,7 +22585,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -23874,7 +23881,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -25905,7 +25912,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 12,
+      "consecutive_failures": 13,
       "quarantined": true
     },
     {
@@ -34888,19 +34895,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -34913,7 +34920,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -34921,7 +34928,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -41381,7 +41388,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -46030,7 +46037,7 @@
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -53309,7 +53316,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "quarantined": true
     },
     {
@@ -53568,7 +53575,7 @@
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
@@ -61600,7 +61607,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -66722,9 +66729,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -82645,7 +82652,7 @@
       "item_id": "f537f68a-7e3d-4413-aa47-e945a44a2321",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
@@ -89541,7 +89548,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -99208,7 +99215,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -106464,7 +106471,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -106828,7 +106835,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",

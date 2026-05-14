@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14T11:10:18.056266Z",
+  "last_updated": "2026-05-14T15:11:18.954417Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -252,7 +252,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -6220,7 +6220,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -13787,7 +13787,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -20234,7 +20234,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "quarantined": true
     },
     {
@@ -24143,7 +24143,7 @@
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -25912,7 +25912,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true
     },
     {
@@ -27750,7 +27750,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -27951,27 +27951,27 @@
         },
         {
           "date": "2026-05-14",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -27983,7 +27983,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -29288,7 +29288,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -36481,7 +36481,8 @@
       "name_check": "Woolworths Multigrain Loaf",
       "item_id": "308064dd-bb2b-47d7-bbd6-c974b7a32605",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Ww Pikelets 200G 8Pk",
@@ -53317,7 +53318,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "quarantined": true
     },
     {
@@ -57967,7 +57968,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -69866,7 +69867,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-02"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -71910,9 +71911,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
           "was_price": null,
           "on_special": false
         },
@@ -86252,7 +86253,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.0,
+      "price": 2.6,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -86453,27 +86454,27 @@
         },
         {
           "date": "2026-05-14",
-          "price": 5.0,
-          "is_special": false,
+          "price": 2.6,
+          "is_special": true,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
         }
       ],
       "was_price": 3.2,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
       "store": "woolworths",
-      "unit_price": 9.09,
+      "unit_price": 4.73,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 9.09,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.6,
+          "unit_price": 4.73,
+          "eff_price": 2.6,
+          "was_price": 3.2,
+          "on_special": true
         },
         "coles": {
           "price": 5.0,
@@ -86485,11 +86486,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 5.0,
+      "eff_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -88747,22 +88748,22 @@
           "price": 7.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Creamy Pasta Salad"
+          "store": "coles",
+          "matched_name": "Pasta Salad"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Pasta_Salad_800G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/793192.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/1/1991647.jpg",
+      "store": "coles",
       "unit_price": 0.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 0.88,
-          "eff_price": 7.0,
+          "price": 7.2,
+          "unit_price": 0.9,
+          "eff_price": 7.2,
           "was_price": null,
           "on_special": false
         },
@@ -88780,7 +88781,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Creamy Pasta Salad",
+      "name_check": "Pasta Salad",
       "item_id": "71573cfe-e1d5-4021-908b-6f3f8ecc4711",
       "consecutive_failures": 0,
       "quarantined": false
@@ -94658,7 +94659,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 3.2,
+      "price": 3.4,
       "brand": "Private Label",
       "subcategory": "bakery",
       "size": "Standard",
@@ -94859,7 +94860,7 @@
         },
         {
           "date": "2026-05-14",
-          "price": 3.2,
+          "price": 3.4,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -94871,20 +94872,20 @@
       "local_image": "images/Crusty_Tiger_Vienna_Loaf_Bread.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/279665.jpg",
       "store": "woolworths",
-      "unit_price": 3.2,
+      "unit_price": 3.4,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.2,
-          "unit_price": 3.2,
-          "eff_price": 3.2,
+          "price": 3.4,
+          "unit_price": 3.4,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 3.2,
-      "eff_price": 3.2,
+      "eff_price": 3.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -100998,15 +100999,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -101200,24 +101201,24 @@
         },
         {
           "date": "2026-05-14",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -106345,7 +106346,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-14"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
