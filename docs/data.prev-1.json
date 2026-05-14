@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-13T18:53:02.540651Z",
+  "last_updated": "2026-05-13T22:27:41.291436Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1966,7 +1966,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Capsicum (Red)",
@@ -4574,7 +4574,7 @@
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Corn Cobs",
@@ -12138,7 +12138,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -18346,7 +18346,7 @@
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Ww Original Water Crackers 125G",
@@ -19598,8 +19598,8 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Crafted Sourdough Loaf Signature White",
@@ -25109,7 +25109,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -30611,7 +30611,7 @@
       "pack_litres": 1.25,
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -34852,7 +34852,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Beanette 400G P/P",
@@ -35609,7 +35609,8 @@
       "name_check": "Golden Pikelets",
       "item_id": "6a440bde-b66e-40f0-868b-4b346e849d9d",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "F/C Babyspinach 120G",
@@ -37373,7 +37374,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -51666,8 +51667,8 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Cornish Sea Salt Flakes 150G",
@@ -56152,6 +56153,13 @@
           "eff_price": 6.666666666666667,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 4.45,
+          "unit_price": 7.42,
+          "eff_price": 7.416666666666667,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -57143,6 +57151,13 @@
       "unit": "100g",
       "all_stores": {
         "woolworths": {
+          "price": 6.6,
+          "unit_price": 2.29,
+          "eff_price": 6.6,
+          "was_price": null,
+          "on_special": false
+        },
+        "coles": {
           "price": 6.6,
           "unit_price": 2.29,
           "eff_price": 6.6,
@@ -64649,9 +64664,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -97848,15 +97863,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -98042,24 +98057,24 @@
         },
         {
           "date": "2026-05-13",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -102792,13 +102807,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
       "was_price": 7.5,
       "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Crunchy",
+      "name_check": "Pic's Peanut Butter Smooth",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -102870,7 +102885,7 @@
           "is_special": true,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Crunchy"
+          "matched_name": "Pic's Peanut Butter Smooth"
         }
       ],
       "consecutive_failures": 0,
@@ -102995,7 +103010,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-13"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
