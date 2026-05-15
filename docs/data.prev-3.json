@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-15T04:35:21.752105Z",
+  "last_updated": "2026-05-15T07:44:20.930835Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4866,7 +4866,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -6937,7 +6937,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -8506,7 +8506,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -8765,7 +8765,7 @@
       "item_id": "67595b51-a9e3-44cd-a1d7-837d5d3a056a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ice Cream (Connoisseur)",
@@ -13959,7 +13959,7 @@
       "item_id": "fdc8b4a6-d67e-49b3-bff8-7fc7f4ad6c9b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -15261,7 +15261,8 @@
       "item_id": "2bb2d82d-0d10-40a4-b7e0-2181a896807e",
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -19005,7 +19006,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -19763,24 +19764,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -19796,7 +19797,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20031,7 +20032,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -20841,7 +20842,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "quarantined": true
     },
     {
@@ -22711,7 +22712,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -26678,7 +26679,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 18,
+      "consecutive_failures": 19,
       "quarantined": true
     },
     {
@@ -32520,7 +32521,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -32797,7 +32798,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -33006,23 +33007,23 @@
         },
         {
           "date": "2026-05-15",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -33036,13 +33037,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -33281,7 +33282,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -37025,7 +37026,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Beanette 400G P/P",
@@ -37832,7 +37833,7 @@
       "item_id": "6a440bde-b66e-40f0-868b-4b346e849d9d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "F/C Babyspinach 120G",
@@ -50372,7 +50373,7 @@
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -54906,7 +54907,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "quarantined": true
     },
     {
@@ -59700,7 +59701,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -69045,7 +69046,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 8.0,
+      "price": 7.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -69254,25 +69255,25 @@
         },
         {
           "date": "2026-05-15",
-          "price": 8.0,
+          "price": 7.5,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Heart Smart Extra Lean Pork Mince"
+          "matched_name": "Woolworths Lean Pork Mince"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Lean_Pork_Mince_500G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/666557.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/582608.jpg",
       "store": "woolworths",
-      "unit_price": 16.0,
+      "unit_price": 15.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 16.0,
-          "eff_price": 8.0,
+          "price": 7.5,
+          "unit_price": 15.0,
+          "eff_price": 7.5,
           "was_price": null,
           "on_special": false
         },
@@ -69286,11 +69287,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 8.0,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Heart Smart Extra Lean Pork Mince",
+      "name_check": "Woolworths Lean Pork Mince",
       "item_id": "a92c43e1-f54a-415e-9b58-ba2e77fddc80",
       "consecutive_failures": 0,
       "quarantined": false
@@ -75905,7 +75906,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -84861,7 +84862,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-05-15"
     },
@@ -89318,7 +89319,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -97219,7 +97220,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -102179,9 +102180,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -104042,15 +104043,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -104252,24 +104253,24 @@
         },
         {
           "date": "2026-05-15",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -106537,7 +106538,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -108936,7 +108937,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -109321,7 +109322,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Pics Peanut Butter Smoochy 380G",
@@ -109354,13 +109355,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
       "was_price": 7.5,
       "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Crunchy",
+      "name_check": "Pic's Peanut Butter Smooth",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -109448,7 +109449,7 @@
           "is_special": true,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Crunchy"
+          "matched_name": "Pic's Peanut Butter Smooth"
         }
       ],
       "consecutive_failures": 0,
@@ -109985,7 +109986,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",

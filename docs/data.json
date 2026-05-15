@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-15T14:59:23.589773Z",
+  "last_updated": "2026-05-15T18:27:48.886515Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4866,7 +4866,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -5388,7 +5388,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Lemons (Bag)",
@@ -5894,7 +5894,7 @@
       "item_id": "957adf63-2bcf-4c78-94e9-cacb31782581",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Fresh Herbs (Basil)",
@@ -11881,7 +11881,7 @@
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -19007,7 +19007,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -20033,7 +20033,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -20843,7 +20843,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -22713,7 +22713,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -26680,7 +26680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 21,
+      "consecutive_failures": 22,
       "quarantined": true
     },
     {
@@ -28574,7 +28574,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -28783,27 +28783,27 @@
         },
         {
           "date": "2026-05-15",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -28815,7 +28815,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -31238,7 +31238,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -32522,7 +32522,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -33283,7 +33283,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -47413,7 +47413,7 @@
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -54908,7 +54908,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -58103,7 +58103,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -59430,7 +59430,7 @@
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Coca Cola Zero Sugarpet 600Ml",
@@ -63722,7 +63722,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -74070,9 +74070,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
           "was_price": null,
           "on_special": false
         },
@@ -75907,7 +75907,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -84863,7 +84863,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false,
       "last_layer_a_check": "2026-05-15"
     },
@@ -89320,7 +89320,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -92234,7 +92234,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -109356,13 +109356,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
       "was_price": 7.5,
       "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Smooth",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -109450,7 +109450,7 @@
           "is_special": true,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Smooth"
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
