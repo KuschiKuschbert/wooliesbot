@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-15T18:27:48.886515Z",
+  "last_updated": "2026-05-15T21:52:46.625781Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1067,7 +1067,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -2094,7 +2094,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Capsicum (Red)",
@@ -3360,7 +3360,7 @@
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Carrots (1kg)",
@@ -4866,8 +4866,8 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 5,
-      "quarantined": false,
+      "consecutive_failures": 6,
+      "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
     {
@@ -6672,7 +6672,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Butter (Western Star)",
@@ -11622,7 +11622,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -12405,7 +12405,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -19007,8 +19007,8 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Weet-Bix Cereal 375G",
@@ -20033,8 +20033,8 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Onion Brown 1Kg P/P",
@@ -20843,7 +20843,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -22713,8 +22713,8 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Ec Sustainable Cottage Cheese 500G",
@@ -26680,7 +26680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -32290,7 +32290,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -32522,8 +32522,8 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 5,
-      "quarantined": false,
+      "consecutive_failures": 6,
+      "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
     {
@@ -33283,8 +33283,8 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Cadbury Turkish Delight Eggs 117G",
@@ -53321,7 +53321,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -54410,7 +54410,7 @@
       "item_id": "7fe723ed-bbf1-4851-a79b-36fb7442a2d4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "M&Ms Minis 145G",
@@ -54908,7 +54908,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -74070,9 +74070,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -75907,8 +75907,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 5,
-      "quarantined": false,
+      "consecutive_failures": 6,
+      "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
     {
@@ -84863,8 +84863,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 5,
-      "quarantined": false,
+      "consecutive_failures": 6,
+      "quarantined": true,
       "last_layer_a_check": "2026-05-15"
     },
     {
@@ -88842,7 +88842,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.0,
+      "price": 2.6,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -89051,27 +89051,27 @@
         },
         {
           "date": "2026-05-15",
-          "price": 5.0,
-          "is_special": false,
+          "price": 2.6,
+          "is_special": true,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
         }
       ],
       "was_price": 3.2,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
       "store": "woolworths",
-      "unit_price": 9.09,
+      "unit_price": 4.73,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 9.09,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.6,
+          "unit_price": 4.73,
+          "eff_price": 2.6,
+          "was_price": 3.2,
+          "on_special": true
         },
         "coles": {
           "price": 5.0,
@@ -89083,11 +89083,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 5.0,
+      "eff_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -89320,8 +89320,8 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 5,
-      "quarantined": false
+      "consecutive_failures": 6,
+      "quarantined": true
     },
     {
       "name": "Primo Salami Sticks Mild Pepp 90G 5Pk",
@@ -100101,7 +100101,7 @@
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Lucas Ointment Papaw 75G",
@@ -104044,15 +104044,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -104254,24 +104254,24 @@
         },
         {
           "date": "2026-05-15",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false

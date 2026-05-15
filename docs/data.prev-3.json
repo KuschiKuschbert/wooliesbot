@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-15T07:44:20.930835Z",
+  "last_updated": "2026-05-15T11:14:52.934771Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -556,7 +556,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Bacon (Middle)",
@@ -4866,7 +4866,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -9024,7 +9024,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "English Muffins",
@@ -10336,7 +10336,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -12929,7 +12929,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -13441,7 +13441,8 @@
       "name_check": "The Juice Lab Wellness Shot Calm  60mL",
       "item_id": "c6ac79cb-8018-4733-9298-ac3195c5e4db",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Whiskas Kitten 12pk",
@@ -15835,7 +15836,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -16046,7 +16047,7 @@
         },
         {
           "date": "2026-05-15",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -16055,21 +16056,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -18757,7 +18758,7 @@
       "item_id": "f637f0ff-96d0-41ed-8df1-8f98f944e483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Meggles Farm Cage Eggs Xl 12Pk 700G",
@@ -19006,7 +19007,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -19764,24 +19765,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -19797,7 +19798,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20032,7 +20033,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -20842,7 +20843,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true
     },
     {
@@ -22712,7 +22713,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -26679,7 +26680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -28279,7 +28280,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -28573,7 +28574,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -28782,27 +28783,27 @@
         },
         {
           "date": "2026-05-15",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -28814,7 +28815,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -32521,7 +32522,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -33282,7 +33283,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -39976,7 +39977,7 @@
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -41048,7 +41049,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -54907,7 +54908,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true
     },
     {
@@ -63454,7 +63455,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -75906,7 +75907,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-05-13"
     },
@@ -84862,7 +84863,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-05-15"
     },
@@ -89319,7 +89320,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -90390,7 +90391,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -104043,15 +104044,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -104253,24 +104254,24 @@
         },
         {
           "date": "2026-05-15",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -110501,7 +110502,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-15"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
