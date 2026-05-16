@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-16T17:46:04.799549Z",
+  "last_updated": "2026-05-16T21:41:07.885220Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1366,7 +1366,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -5011,7 +5011,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
@@ -11713,7 +11713,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Crackers (Jatz)",
@@ -13053,7 +13053,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -19576,7 +19576,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -20626,7 +20626,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -21452,7 +21452,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -23370,7 +23370,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -27449,7 +27449,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 28,
+      "consecutive_failures": 29,
       "quarantined": true
     },
     {
@@ -29399,7 +29399,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -29616,27 +29616,27 @@
         },
         {
           "date": "2026-05-16",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -29648,7 +29648,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -33459,7 +33459,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -34236,7 +34236,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -56502,7 +56502,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -59800,7 +59800,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -74356,7 +74356,7 @@
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Macro Org Natural Corn Chips 200G",
@@ -75722,7 +75722,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -78139,9 +78139,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -82782,7 +82782,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-12"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -87359,9 +87359,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -91945,7 +91945,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -105198,9 +105198,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -113149,7 +113149,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -113831,7 +113831,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
