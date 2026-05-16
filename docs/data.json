@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-16T14:27:10.089772Z",
+  "last_updated": "2026-05-16T17:46:04.799549Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5011,7 +5011,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
@@ -6071,7 +6071,7 @@
       "item_id": "957adf63-2bcf-4c78-94e9-cacb31782581",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Fresh Herbs (Basil)",
@@ -13322,7 +13322,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -19576,7 +19576,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -20358,24 +20358,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -20391,7 +20391,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20626,7 +20626,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -21452,7 +21452,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -23370,7 +23370,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -27449,7 +27449,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 27,
+      "consecutive_failures": 28,
       "quarantined": true
     },
     {
@@ -31050,7 +31050,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -31267,27 +31267,27 @@
         },
         {
           "date": "2026-05-16",
-          "price": 4.0,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -31299,7 +31299,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -32143,7 +32143,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -33459,7 +33459,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -33744,7 +33744,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -33961,23 +33961,23 @@
         },
         {
           "date": "2026-05-16",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -33991,13 +33991,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -34236,7 +34236,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -37812,7 +37812,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -41412,7 +41412,7 @@
       "item_id": "c7919504-140d-4144-b6d2-46f4f8e18324",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -49880,7 +49880,7 @@
       "item_id": "9c814fae-293e-45c9-93da-921ecdcf71ac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
@@ -56502,7 +56502,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -62784,19 +62784,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -62809,7 +62809,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -62817,7 +62817,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -78139,7 +78139,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-05-13"
     },
@@ -87359,7 +87359,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-05-15"
     },
@@ -91945,7 +91945,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -92769,7 +92769,7 @@
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Lurpak Butter Lighter Slightly Sltd 250G",
@@ -109692,7 +109692,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -113554,7 +113554,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-16"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
