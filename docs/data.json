@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-17T10:38:09.597379Z",
+  "last_updated": "2026-05-17T14:14:31.186514Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -588,7 +588,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Bacon (Middle)",
@@ -5155,7 +5155,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -13437,7 +13437,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -19315,7 +19315,8 @@
       "name_check": "The Lady Bar Rocky Road Rocky Road High Fibre",
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Queen Sgr Free Mapleflavoured Syrup 355M",
@@ -20144,7 +20145,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -20950,24 +20951,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -20983,7 +20984,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -21218,7 +21219,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -22060,7 +22061,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 27,
+      "consecutive_failures": 28,
       "quarantined": true
     },
     {
@@ -23517,7 +23518,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 8.0,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "250G",
@@ -23742,19 +23743,19 @@
         },
         {
           "date": "2026-05-17",
-          "price": 8.0,
+          "price": 9.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Beef Rump Steak"
+          "store": "woolworths",
+          "matched_name": "Woolworths Beef Rump Steak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Beef_Rump_Steak_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/3/3920479.jpg",
-      "store": "coles",
-      "unit_price": 34.78,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/236846.jpg",
+      "store": "woolworths",
+      "unit_price": 36.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -23763,22 +23764,15 @@
           "eff_price": 9.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 8.0,
-          "unit_price": 34.78,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 9.0,
-      "eff_price": 8.0,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Beef Rump Steak",
+      "name_check": "Woolworths Beef Rump Steak",
       "item_id": "66be75b9-afaf-4df7-8b2c-0fa02dbe5580",
       "consecutive_failures": 0,
       "quarantined": false
@@ -24026,7 +24020,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -26304,7 +26298,7 @@
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -28217,7 +28211,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -30223,7 +30217,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -30448,27 +30442,27 @@
         },
         {
           "date": "2026-05-17",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -30480,7 +30474,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -34395,7 +34389,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -35188,7 +35182,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -42572,7 +42566,7 @@
       "item_id": "c7919504-140d-4144-b6d2-46f4f8e18324",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -57580,7 +57574,7 @@
       "item_id": "7fe723ed-bbf1-4851-a79b-36fb7442a2d4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "M&Ms Minis 145G",
@@ -58094,7 +58088,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 27,
+      "consecutive_failures": 28,
       "quarantined": true
     },
     {
@@ -61488,7 +61482,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -72762,9 +72756,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -80355,7 +80349,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -89839,7 +89833,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -94553,7 +94547,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -105990,7 +105984,7 @@
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Lucas Ointment Papaw 75G",
@@ -117000,7 +116994,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
