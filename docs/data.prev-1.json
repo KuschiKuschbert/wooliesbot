@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-17T14:14:31.186514Z",
+  "last_updated": "2026-05-17T17:48:22.401161Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1952,7 +1952,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -5155,7 +5155,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -9019,7 +9019,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -13158,7 +13158,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -13714,7 +13714,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -20145,7 +20145,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -21219,7 +21219,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -22061,7 +22061,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 28,
+      "consecutive_failures": 29,
       "quarantined": true
     },
     {
@@ -22345,7 +22345,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -24020,7 +24020,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -28211,7 +28211,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -31899,7 +31899,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -31916,7 +31916,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -32141,27 +32141,27 @@
         },
         {
           "date": "2026-05-17",
-          "price": 2.95,
-          "is_special": false,
+          "price": 4.0,
+          "is_special": true,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 0.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
-          "was_price": null,
-          "on_special": false
+          "price": 4.0,
+          "unit_price": 0.91,
+          "eff_price": 4.0,
+          "was_price": 5.5,
+          "on_special": true
         },
         "coles": {
           "price": 5.95,
@@ -32173,7 +32173,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -33286,22 +33286,22 @@
           "price": 4.5,
           "is_special": false,
           "was_price": 4.5,
-          "store": "woolworths",
-          "matched_name": "Perfect Italiano Parmesan Cheese Shaved Parmesan"
+          "store": "coles",
+          "matched_name": "Cheese Shaved Parmesan"
         }
       ],
       "was_price": 4.5,
       "on_special": false,
       "local_image": "images/Perfect_Italiano_Shaved_Parmesan_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360904.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4405740.jpg",
+      "store": "coles",
       "unit_price": 36.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.5,
-          "unit_price": 36.0,
-          "eff_price": 4.5,
+          "price": 4.8,
+          "unit_price": 38.4,
+          "eff_price": 4.8,
           "was_price": null,
           "on_special": false
         },
@@ -33319,7 +33319,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Perfect Italiano Parmesan Cheese Shaved Parmesan",
+      "name_check": "Cheese Shaved Parmesan",
       "item_id": "f8697e8a-8693-4e8d-b82b-5e8591f71398",
       "consecutive_failures": 0,
       "quarantined": false
@@ -34389,7 +34389,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -35182,7 +35182,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -36316,7 +36316,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -43964,7 +43964,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-15",
-      "price": 6.5,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "200G",
@@ -44189,7 +44189,7 @@
         },
         {
           "date": "2026-05-17",
-          "price": 6.5,
+          "price": 7.0,
           "is_special": false,
           "was_price": 6.5,
           "store": "woolworths",
@@ -44201,13 +44201,13 @@
       "local_image": "images/Cheer_Cheese_Block_Tasty_200G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/902835.jpg",
       "store": "woolworths",
-      "unit_price": 32.5,
+      "unit_price": 35.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 32.5,
-          "eff_price": 6.5,
+          "price": 7.0,
+          "unit_price": 35.0,
+          "eff_price": 7.0,
           "was_price": null,
           "on_special": false
         },
@@ -44221,7 +44221,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.9,
-      "eff_price": 6.5,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -58088,7 +58088,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 28,
+      "consecutive_failures": 29,
       "quarantined": true
     },
     {
@@ -72468,9 +72468,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.5,
-          "unit_price": 3.4,
-          "eff_price": 8.5,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -72756,9 +72756,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -75635,7 +75635,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 5.5,
+      "price": 8.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "180G",
@@ -75860,16 +75860,16 @@
         },
         {
           "date": "2026-05-17",
-          "price": 5.5,
+          "price": 8.0,
           "is_special": false,
           "was_price": 8.0,
-          "store": "coles",
-          "matched_name": "Old Gold Original Dark Chocolate Block"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Original Dark Chocolate Block"
         }
       ],
-      "store": "coles",
-      "unit_price": null,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 4.85,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 8.0,
@@ -75877,25 +75877,18 @@
           "eff_price": 8.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 5.5,
-          "unit_price": null,
-          "eff_price": 5.5,
-          "was_price": 8.0,
-          "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/2/2350568.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6064245.jpg",
       "avg_price": 8.0,
-      "eff_price": 5.5,
+      "eff_price": 8.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.0,
-      "name_check": "Old Gold Original Dark Chocolate Block",
+      "name_check": "Cadbury Old Gold Original Dark Chocolate Block",
       "item_id": "5821ca8c-3254-4a2f-ad22-50ac166581b4",
       "consecutive_failures": 0,
       "quarantined": false
@@ -76180,7 +76173,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -80349,7 +80342,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -89833,7 +89826,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -90930,9 +90923,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 13.5,
-          "unit_price": 18.0,
-          "eff_price": 13.5,
+          "price": 14.4,
+          "unit_price": 19.2,
+          "eff_price": 14.4,
           "was_price": null,
           "on_special": false
         },
@@ -94547,7 +94540,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -110167,15 +110160,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -110393,24 +110386,24 @@
         },
         {
           "date": "2026-05-17",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -117280,7 +117273,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     }
   ]
 }
