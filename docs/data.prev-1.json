@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-17T17:48:22.401161Z",
+  "last_updated": "2026-05-17T21:46:20.734827Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2223,7 +2223,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Capsicum (Red)",
@@ -2744,7 +2744,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04",
+      "last_layer_a_check": "2026-05-17",
       "name_check": " Hass Avocado  each"
     },
     {
@@ -5155,7 +5155,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -13991,7 +13991,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -20145,7 +20145,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -20951,24 +20951,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -20984,7 +20984,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -21219,7 +21219,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -22061,7 +22061,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "quarantined": true
     },
     {
@@ -24020,7 +24020,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -28211,7 +28211,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -31916,7 +31916,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -32141,27 +32141,27 @@
         },
         {
           "date": "2026-05-17",
-          "price": 4.0,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -32173,7 +32173,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -34389,9 +34389,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -35182,7 +35182,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -40005,7 +40005,7 @@
       "item_id": "6a440bde-b66e-40f0-868b-4b346e849d9d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "F/C Babyspinach 120G",
@@ -40296,7 +40296,7 @@
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -51829,22 +51829,15 @@
           "price": 2.5,
           "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.5,
-          "unit_price": 4.17,
-          "eff_price": 2.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.5,
           "unit_price": 4.17,
@@ -51854,7 +51847,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
       "eff_price": 2.5,
       "on_special": false,
@@ -51862,7 +51855,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -58088,7 +58081,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "quarantined": true
     },
     {
@@ -64554,19 +64547,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -64579,7 +64572,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -64587,7 +64580,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -67154,7 +67147,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -72756,9 +72749,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -78409,9 +78402,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -80342,7 +80335,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -89826,7 +89819,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -90401,7 +90394,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 4.9,
+      "price": 8.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -90626,11 +90619,11 @@
         },
         {
           "date": "2026-05-17",
-          "price": 4.9,
+          "price": 8.9,
           "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
+          "matched_name": "Noshu Low Carb Pistachio Indulgence Bars"
         }
       ],
       "was_price": 8.9,
@@ -90638,13 +90631,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 5.56,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.9,
-          "unit_price": 1.63,
-          "eff_price": 4.9,
+          "price": 8.9,
+          "unit_price": 5.56,
+          "eff_price": 8.9,
           "was_price": null,
           "on_special": false
         },
@@ -90658,11 +90651,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 4.9,
+      "eff_price": 8.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
+      "name_check": "Noshu Low Carb Pistachio Indulgence Bars",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -94540,7 +94533,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -95352,7 +95345,7 @@
           "is_special": true,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
+          "matched_name": "Carefree Barely There Scented Aloe Liners"
         }
       ],
       "was_price": 5.5,
@@ -95384,11 +95377,11 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
+      "name_check": "Carefree Barely There Scented Aloe Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Lurpak Butter Lighter Slightly Sltd 250G",
@@ -102921,7 +102914,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -108185,9 +108178,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -110160,15 +110153,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -110386,24 +110379,24 @@
         },
         {
           "date": "2026-05-17",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -116551,7 +116544,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-17"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
