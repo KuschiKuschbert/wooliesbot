@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-11T06:42:23.967587+00:00",
-  "report_id": "2026-W20",
+  "generated_at": "2026-05-18T06:59:38.226776+00:00",
+  "report_id": "2026-W21",
   "total_new_candidates": 6,
   "groups": {
     "beef_strips": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "bread_white": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": [
         {
           "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
@@ -30,7 +30,7 @@
       ]
     },
     "butter_block_250g": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": [
         {
           "name": "Mainland Mainland Organic Butter Block Butter 250g",
@@ -48,6 +48,7 @@
               "Mainland Mainland Organic Butter Block Butter 250g",
               "Allowrie Allowrie Salted Butter Block 250g",
               "Allowrie Allowrie Unsalted Butter Block Butter 250g",
+              "Devondale Devondale Butter Block Salted Butter 250g",
               "Western Star Western Star Salted Butter Block Butter Block 250g"
             ]
           }
@@ -55,15 +56,15 @@
       ]
     },
     "cheese_tasty_block": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "cola": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": [
         {
-          "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
-          "woolworths": "https://www.woolworths.com.au/shop/productdetails/32731/coca-cola-classic-soft-drink-bottle",
+          "name": "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/180941/coca-cola-vanilla-soft-drink-bottle-bottle",
           "coles": "",
           "compare_group": "cola",
           "price_mode": "litre",
@@ -74,9 +75,9 @@
             "anchor_query": "cola soft drink 1.25L",
             "bucket": "('sig', ((), (1250,), ()))",
             "overlap_labels": [
+              "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
               "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
               "Coca-Cola Coca-Cola Diet Soft Drink Bottle 1.25L",
-              "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
               "Coca-Cola Coca-Cola Zero Sugar Soft Drink Bottle 1.25L"
             ]
           },
@@ -85,7 +86,7 @@
       ]
     },
     "eggs_free_range": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": [
         {
           "name": "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g",
@@ -125,23 +126,23 @@
       ]
     },
     "milk_full_cream": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "mince_beef": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "omo_wonder_wash": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "pasta_dry": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "peanut_butter": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": [
         {
           "name": "Pic's Pic's Peanut Butter Crunchy 380g",
@@ -164,11 +165,11 @@
       ]
     },
     "sourdough_loaf": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     },
     "tp_quilton": {
-      "checked_at": "2026-05-11T06:42:23.967587+00:00",
+      "checked_at": "2026-05-18T06:59:38.226776+00:00",
       "new_candidates": []
     }
   }
