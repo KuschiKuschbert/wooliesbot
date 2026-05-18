@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-18T04:48:24.029015Z",
+  "last_updated": "2026-05-18T08:59:17.759748Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3673,7 +3673,7 @@
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Carrots (1kg)",
@@ -5299,7 +5299,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -7273,7 +7273,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Butter (Western Star)",
@@ -7562,7 +7562,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -14106,7 +14106,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -16083,7 +16083,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Energizer Batteries AA",
@@ -17205,13 +17205,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "a2 Milk No Fat Milk"
+          "matched_name": "a2 Milk Light Milk"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/A2_Milk_Lite_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/657076.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/216867.jpg",
       "store": "woolworths",
       "unit_price": 3.9,
       "unit": "litre",
@@ -17237,7 +17237,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "a2 Milk No Fat Milk",
+      "name_check": "a2 Milk Light Milk",
       "item_id": "cd36c0ca-9562-425d-8199-75f9e083256e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -20713,7 +20713,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -21811,7 +21811,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -22669,7 +22669,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -23815,13 +23815,13 @@
           "is_special": true,
           "was_price": 5.6,
           "store": "woolworths",
-          "matched_name": "Coca-Cola Caffeine Free Zero Sugar Soft Drink Cans"
+          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
         }
       ],
       "was_price": 5.6,
       "on_special": true,
       "local_image": "images/Coca_Cola_Zero_Sugar_10X375Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/140640.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/669379.jpg",
       "unit_price": 3.36,
       "unit": "litre",
       "all_stores": {
@@ -23846,7 +23846,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Coca-Cola Caffeine Free Zero Sugar Soft Drink Cans",
+      "name_check": "Coca-Cola Zero Sugar Soft Drink Cans",
       "pack_litres": 3.75,
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
@@ -24676,7 +24676,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -27018,7 +27018,7 @@
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -28979,7 +28979,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -31041,7 +31041,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -31274,27 +31274,27 @@
         },
         {
           "date": "2026-05-18",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -31306,7 +31306,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -35093,7 +35093,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -35325,7 +35325,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -36134,7 +36134,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -40214,7 +40214,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Beanette 400G P/P",
@@ -41967,7 +41967,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -43138,7 +43138,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -46311,7 +46311,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -59465,7 +59465,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 0,
+      "price": 6.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "56L",
@@ -59655,15 +59655,23 @@
           "was_price": 6.5,
           "store": "woolworths",
           "matched_name": "Multix Council Liner Garbage Bags"
+        },
+        {
+          "date": "2026-05-18",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Multix Council Liner Garbage Bags"
         }
       ],
       "was_price": 6.5,
       "on_special": false,
       "local_image": "images/Multix_Garbage_Bag_Extra_Wide_56L50Pk.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/004472.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 0.65,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
           "price": 6.5,
@@ -59673,15 +59681,16 @@
           "on_special": false
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 31,
-      "quarantined": true
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 6.5
     },
     {
       "name": "Cornish Sea Salt Flakes 150G",
@@ -74764,9 +74773,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -76808,6 +76817,13 @@
       "unit_price": 6.0,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.0,
+          "unit_price": 4.67,
+          "eff_price": 7.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 6.0,
@@ -82551,7 +82567,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -92299,7 +92315,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true,
       "last_layer_a_check": "2026-05-16"
     },
@@ -97141,7 +97157,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 19,
+      "consecutive_failures": 20,
       "quarantined": true
     },
     {
@@ -98574,9 +98590,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.2,
-          "unit_price": 0.9,
-          "eff_price": 7.2,
+          "price": 3.0,
+          "unit_price": 10.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -110621,7 +110637,7 @@
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -113209,15 +113225,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -113443,24 +113459,24 @@
         },
         {
           "date": "2026-05-18",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -119197,7 +119213,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -119356,7 +119372,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -119824,7 +119840,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-18"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
