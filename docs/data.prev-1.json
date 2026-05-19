@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-19T08:37:32.238793Z",
+  "last_updated": "2026-05-19T12:09:35.461995Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5443,7 +5443,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -8056,7 +8056,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Philly Cream Cheese",
@@ -15075,7 +15075,7 @@
       "item_id": "c6ac79cb-8018-4733-9298-ac3195c5e4db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Whiskas Kitten 12pk",
@@ -18034,7 +18034,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -20420,7 +20420,7 @@
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Queen Sgr Free Mapleflavoured Syrup 355M",
@@ -21281,7 +21281,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true
     },
     {
@@ -22403,7 +22403,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true
     },
     {
@@ -23277,7 +23277,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 37,
+      "consecutive_failures": 38,
       "quarantined": true
     },
     {
@@ -25332,7 +25332,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true
     },
     {
@@ -29747,7 +29747,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -33643,7 +33643,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -36261,7 +36261,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -36570,7 +36570,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -36811,23 +36811,23 @@
         },
         {
           "date": "2026-05-19",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -36841,13 +36841,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -37086,7 +37086,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true
     },
     {
@@ -59542,7 +59542,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -59783,25 +59783,25 @@
         },
         {
           "date": "2026-05-19",
-          "price": 9.8,
+          "price": 8.8,
           "is_special": false,
           "was_price": 8.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 8.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
           "was_price": null,
           "on_special": false
         },
@@ -59815,11 +59815,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -61280,7 +61280,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -76780,9 +76780,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -84768,7 +84768,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -89819,7 +89819,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -94780,7 +94780,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -99750,7 +99750,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true
     },
     {
@@ -119081,7 +119081,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -122446,7 +122446,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -123264,7 +123264,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
@@ -123589,7 +123589,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
