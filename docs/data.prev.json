@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-19T04:41:59.472156Z",
+  "last_updated": "2026-05-19T08:37:32.238793Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2351,7 +2351,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Capsicum (Red)",
@@ -5443,9 +5443,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Corn Cobs",
@@ -9531,7 +9531,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -21281,7 +21281,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -22403,7 +22403,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -23277,7 +23277,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -23577,7 +23577,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -24455,13 +24455,13 @@
           "is_special": true,
           "was_price": 5.6,
           "store": "woolworths",
-          "matched_name": "Coca-Cola Caffeine Free Zero Sugar Soft Drink Cans"
+          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
         }
       ],
       "was_price": 5.6,
       "on_special": true,
       "local_image": "images/Coca_Cola_Zero_Sugar_10X375Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/140640.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/669379.jpg",
       "unit_price": 3.36,
       "unit": "litre",
       "all_stores": {
@@ -24486,7 +24486,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Coca-Cola Caffeine Free Zero Sugar Soft Drink Cans",
+      "name_check": "Coca-Cola Zero Sugar Soft Drink Cans",
       "pack_litres": 3.75,
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
@@ -25332,7 +25332,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -27738,7 +27738,7 @@
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -29747,7 +29747,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 41,
+      "consecutive_failures": 42,
       "quarantined": true
     },
     {
@@ -31257,7 +31257,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 21.0,
+      "price": 10.5,
       "brand": "Omo",
       "subcategory": "other",
       "size": "1.18L",
@@ -31498,27 +31498,27 @@
         },
         {
           "date": "2026-05-19",
-          "price": 21.0,
-          "is_special": false,
+          "price": 10.5,
+          "is_special": true,
           "was_price": 21.0,
-          "store": "coles",
-          "matched_name": "Expert Wonder Wash Laundry Liquid Odour Refresh"
+          "store": "woolworths",
+          "matched_name": "OMO Expert Wonder Wash Laundry Liquid Detergent Odour Refresh"
         }
       ],
       "was_price": 21.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Omo_Wonder_Wash_Odour_Refresh_1.18L.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1015091.jpg",
-      "store": "coles",
-      "unit_price": 17.8,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6026221.jpg",
+      "store": "woolworths",
+      "unit_price": 8.9,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 32.0,
-          "unit_price": 16.49,
-          "eff_price": 32.0,
-          "was_price": null,
-          "on_special": false
+          "price": 10.5,
+          "unit_price": 8.9,
+          "eff_price": 10.5,
+          "was_price": 21.0,
+          "on_special": true
         },
         "coles": {
           "price": 21.0,
@@ -31530,11 +31530,11 @@
       },
       "price_unavailable": false,
       "avg_price": 10.5,
-      "eff_price": 21.0,
+      "eff_price": 10.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Expert Wonder Wash Laundry Liquid Odour Refresh",
+      "name_check": "OMO Expert Wonder Wash Laundry Liquid Detergent Odour Refresh",
       "item_id": "666ece9c-cf25-46b0-8ccf-57a154247dc2",
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
@@ -36261,7 +36261,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true,
       "last_layer_a_check": "2026-05-17"
     },
@@ -37086,7 +37086,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -42488,7 +42488,7 @@
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -61280,7 +61280,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "quarantined": false
     },
     {
@@ -75309,7 +75309,7 @@
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-13"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -76476,9 +76476,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -80641,27 +80641,20 @@
         {
           "date": "2026-05-19",
           "price": 2.4,
-          "is_special": true,
+          "is_special": false,
           "was_price": 4.8,
-          "store": "woolworths",
-          "matched_name": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips"
+          "store": "coles",
+          "matched_name": "Regular Potato Chips Sea Salt Cracked Pepper"
         }
       ],
       "was_price": 4.8,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Simply_Potato_Chips_Salt_&_Pepper_120G.jpg",
       "image_url": "images/simply_potato_chips_salt__pepper_120g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.0,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.4,
-          "unit_price": 2.0,
-          "eff_price": 2.4,
-          "was_price": 4.8,
-          "on_special": true
-        },
         "coles": {
           "price": 2.4,
           "unit_price": 2.0,
@@ -80676,7 +80669,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips",
+      "name_check": "Regular Potato Chips Sea Salt Cracked Pepper",
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -82166,7 +82159,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -84775,9 +84768,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -94787,7 +94780,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -98363,7 +98356,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 6.5,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "2Kg",
@@ -98604,7 +98597,7 @@
         },
         {
           "date": "2026-05-19",
-          "price": 6.5,
+          "price": 9.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -98614,15 +98607,15 @@
       "was_price": null,
       "on_special": false,
       "local_image": "images/Fab_Laundry_Powder_Fresh_Blossoms_2Kg.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/879965.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/657424.jpg",
       "store": "woolworths",
-      "unit_price": 6.5,
+      "unit_price": 4.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 6.5,
-          "eff_price": 6.5,
+          "price": 9.0,
+          "unit_price": 4.5,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -98636,7 +98629,7 @@
       },
       "price_unavailable": false,
       "avg_price": 9.0,
-      "eff_price": 6.5,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -99247,7 +99240,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 2.6,
+      "price": 5.0,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -99488,27 +99481,27 @@
         },
         {
           "date": "2026-05-19",
-          "price": 2.6,
-          "is_special": true,
+          "price": 5.0,
+          "is_special": false,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 3.2,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
       "store": "woolworths",
-      "unit_price": 4.73,
+      "unit_price": 9.09,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.6,
-          "unit_price": 4.73,
-          "eff_price": 2.6,
-          "was_price": 3.2,
-          "on_special": true
+          "price": 5.0,
+          "unit_price": 9.09,
+          "eff_price": 5.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.0,
@@ -99520,11 +99513,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 2.6,
+      "eff_price": 5.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -99757,7 +99750,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -108336,7 +108329,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 7.5,
+      "price": 3.75,
       "brand": "Pics",
       "subcategory": "snacks",
       "size": "380G",
@@ -108577,21 +108570,28 @@
         },
         {
           "date": "2026-05-19",
-          "price": 7.5,
-          "is_special": false,
+          "price": 3.75,
+          "is_special": true,
           "was_price": 7.5,
-          "store": "coles",
-          "matched_name": "Peanut Butter Smoochy"
+          "store": "woolworths",
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "was_price": 7.5,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Pics_Peanut_Butter_Crunchy_380G.jpg",
-      "image_url": "https://productimages.coles.com.au/7/7042370.jpg",
-      "store": "coles",
-      "unit_price": 1.97,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
+      "store": "woolworths",
+      "unit_price": 0.99,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 3.75,
+          "unit_price": 0.99,
+          "eff_price": 3.75,
+          "was_price": 7.5,
+          "on_special": true
+        },
         "coles": {
           "price": 7.5,
           "unit_price": 1.97,
@@ -108602,16 +108602,16 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 7.5,
+      "eff_price": 3.75,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Peanut Butter Smoochy",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "item_id": "0eb8e395-adb2-4beb-b7cd-8a768c07d595",
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -111262,7 +111262,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-19"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -122127,12 +122127,19 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-crunchy-3609009",
       "stock": "medium",
       "target": null,
-      "price": 13.0,
-      "unit_price": 1.3,
-      "unit": "kg",
-      "eff_price": 13.0,
-      "store": "coles",
+      "price": 3.75,
+      "unit_price": 0.99,
+      "unit": "100g",
+      "eff_price": 3.75,
+      "store": "woolworths",
       "all_stores": {
+        "woolworths": {
+          "price": 3.75,
+          "unit_price": 0.99,
+          "eff_price": 3.75,
+          "was_price": 7.5,
+          "on_special": true
+        },
         "coles": {
           "price": 13.0,
           "unit_price": 1.3,
@@ -122143,12 +122150,12 @@
       },
       "price_unavailable": false,
       "image_url": "images/pics_peanut_butter_crunchy_1kg.jpg",
-      "was_price": 16.0,
-      "on_special": false,
+      "was_price": 7.5,
+      "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Peanut Butter Crunchy",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -122264,11 +122271,11 @@
         },
         {
           "date": "2026-05-19",
-          "price": 13.0,
-          "is_special": false,
-          "was_price": 16.0,
-          "store": "coles",
-          "matched_name": "Peanut Butter Crunchy"
+          "price": 3.75,
+          "is_special": true,
+          "was_price": 7.5,
+          "store": "woolworths",
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
@@ -122307,13 +122314,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/754776.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
       "was_price": 7.5,
       "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Smooth",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -122433,7 +122440,7 @@
           "is_special": true,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Smooth"
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
@@ -123900,7 +123907,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-19"
     }
   ]
 }
