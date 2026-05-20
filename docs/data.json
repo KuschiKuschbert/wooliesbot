@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T04:43:21.872825Z",
+  "last_updated": "2026-05-20T08:38:14.277008Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4183,7 +4183,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Broccoli",
@@ -5588,7 +5588,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -8572,7 +8572,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Sour Cream",
@@ -9183,7 +9183,7 @@
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -9484,7 +9484,7 @@
       "item_id": "3635b745-21d0-4776-bccf-0a808ff3229a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Frozen Peas",
@@ -12791,7 +12791,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Gravy Granules",
@@ -14590,7 +14590,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -16382,7 +16382,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -21850,7 +21850,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true
     },
     {
@@ -22996,7 +22996,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true
     },
     {
@@ -23886,7 +23886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -25403,20 +25403,27 @@
         {
           "date": "2026-05-20",
           "price": 10.5,
-          "is_special": false,
-          "was_price": 13.5,
-          "store": "coles",
-          "matched_name": "Chicken Goujons"
+          "is_special": true,
+          "was_price": 12.0,
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
         }
       ],
-      "was_price": 13.5,
-      "on_special": false,
+      "was_price": 12.0,
+      "on_special": true,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
-      "store": "coles",
-      "unit_price": 10.5,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
+      "store": "woolworths",
+      "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 17.5,
+          "eff_price": 10.5,
+          "was_price": 12.0,
+          "on_special": true
+        },
         "coles": {
           "price": 10.5,
           "unit_price": 10.5,
@@ -25431,7 +25438,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Chicken Goujons",
+      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -25982,7 +25989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true
     },
     {
@@ -26573,19 +26580,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -26598,7 +26605,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -26606,7 +26613,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30510,7 +30517,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -37193,7 +37200,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -37510,7 +37517,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -37759,23 +37766,23 @@
         },
         {
           "date": "2026-05-20",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -37789,13 +37796,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -38034,7 +38041,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true
     },
     {
@@ -39546,10 +39553,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -41076,19 +41083,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -41101,7 +41108,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -41109,7 +41116,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -49077,7 +49084,7 @@
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-03"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -49991,7 +49998,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -62868,7 +62875,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "quarantined": true
     },
     {
@@ -72389,7 +72396,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -77266,7 +77273,7 @@
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -82752,18 +82759,25 @@
           "price": 4.8,
           "is_special": false,
           "was_price": 4.8,
-          "store": "coles",
-          "matched_name": "Regular Potato Chips Sea Salt Cracked Pepper"
+          "store": "woolworths",
+          "matched_name": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips"
         }
       ],
       "was_price": 4.8,
       "on_special": false,
       "local_image": "images/Simply_Potato_Chips_Salt_&_Pepper_120G.jpg",
       "image_url": "images/simply_potato_chips_salt__pepper_120g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.0,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.8,
+          "unit_price": 4.0,
+          "eff_price": 4.8,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.8,
           "unit_price": 4.0,
@@ -82778,7 +82792,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Regular Potato Chips Sea Salt Cracked Pepper",
+      "name_check": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips",
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -86981,7 +86995,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -97257,7 +97271,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -102126,7 +102140,8 @@
       "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Bsc Chupachups Proteinbarchocvan 55",
@@ -102356,7 +102371,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true
     },
     {
@@ -111431,13 +111446,6 @@
       "unit_price": 1.18,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 7.5,
-          "unit_price": 1.97,
-          "eff_price": 7.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.5,
           "unit_price": 1.18,
@@ -119320,15 +119328,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -119570,24 +119578,24 @@
         },
         {
           "date": "2026-05-20",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -125181,7 +125189,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -125358,19 +125366,12 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-crunchy-3609009",
       "stock": "medium",
       "target": null,
-      "price": 7.5,
-      "unit_price": 1.97,
-      "unit": "100g",
-      "eff_price": 7.5,
-      "store": "woolworths",
+      "price": 16.0,
+      "unit_price": 1.6,
+      "unit": "kg",
+      "eff_price": 16.0,
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 7.5,
-          "unit_price": 1.97,
-          "eff_price": 7.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 16.0,
           "unit_price": 1.6,
@@ -125386,7 +125387,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Crunchy",
+      "name_check": "Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -125510,11 +125511,11 @@
         },
         {
           "date": "2026-05-20",
-          "price": 7.5,
+          "price": 16.0,
           "is_special": false,
           "was_price": 7.5,
-          "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Crunchy"
+          "store": "coles",
+          "matched_name": "Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
@@ -125537,13 +125538,6 @@
       "eff_price": 4.5,
       "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 7.5,
-          "unit_price": 1.97,
-          "eff_price": 7.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.5,
           "unit_price": 1.18,
@@ -126217,7 +126211,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
