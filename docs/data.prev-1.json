@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T16:21:24.336239Z",
+  "last_updated": "2026-05-20T19:08:34.345056Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5588,7 +5588,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -6190,7 +6190,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Lemons (Bag)",
@@ -10702,7 +10702,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -11599,7 +11599,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -21850,7 +21850,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -22996,7 +22996,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -23886,7 +23886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -25989,7 +25989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -28149,7 +28149,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -30517,7 +30517,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -32691,7 +32691,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -32940,7 +32940,7 @@
         },
         {
           "date": "2026-05-20",
-          "price": 3.8,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -32952,13 +32952,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -32972,7 +32972,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -37200,7 +37200,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -38041,7 +38041,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -38644,7 +38644,8 @@
       "name_check": "Kettle Sea Salt & Vinegar Potato Chips",
       "item_id": "db49ea8f-e956-41f8-95ed-1c4d3977b2dc",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Natural Greek Style Yoghurt 2Kg",
@@ -42345,7 +42346,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Beanette 400G P/P",
@@ -62869,7 +62870,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 12,
+      "consecutive_failures": 13,
       "quarantined": true
     },
     {
@@ -77836,13 +77837,13 @@
           "is_special": true,
           "was_price": 6.9,
           "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar White Chocolate Caramel"
+          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
         }
       ],
       "was_price": 6.9,
       "on_special": true,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/555091.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
       "store": "woolworths",
       "unit_price": 6.11,
       "unit": "100g",
@@ -77868,7 +77869,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
+      "name_check": "Musashi High Protein Bar Chocolate Brownie",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -84641,7 +84642,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 2.95,
+      "price": 1.45,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -84890,27 +84891,27 @@
         },
         {
           "date": "2026-05-20",
-          "price": 2.95,
-          "is_special": false,
+          "price": 1.45,
+          "is_special": true,
           "was_price": 2.95,
-          "store": "coles",
-          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
-      "unit_price": 1.97,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 0.97,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.75,
-          "unit_price": 0.79,
-          "eff_price": 4.75,
-          "was_price": null,
-          "on_special": false
+          "price": 1.45,
+          "unit_price": 0.97,
+          "eff_price": 1.45,
+          "was_price": 2.95,
+          "on_special": true
         },
         "coles": {
           "price": 2.95,
@@ -84922,11 +84923,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 2.95,
+      "eff_price": 1.45,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86983,7 +86984,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -97259,7 +97260,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -101823,7 +101824,7 @@
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -102359,7 +102360,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 33,
+      "consecutive_failures": 34,
       "quarantined": true
     },
     {
@@ -106281,7 +106282,7 @@
           "is_special": false,
           "was_price": null,
           "store": "coles",
-          "matched_name": "Fueld Texas BBQ Chicken With Mash Potato"
+          "matched_name": "Fueld Texas Bbq Chicken With Mash Potato"
         }
       ],
       "was_price": null,
@@ -106313,7 +106314,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Fueld Texas BBQ Chicken With Mash Potato",
+      "name_check": "Fueld Texas Bbq Chicken With Mash Potato",
       "item_id": "c3c982d9-7fce-43a1-9ee7-2f99c9e79851",
       "consecutive_failures": 0,
       "quarantined": false
@@ -122212,7 +122213,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -125343,7 +125344,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Pics Peanut Butter Crunchy 1Kg",
@@ -127208,7 +127209,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     }
   ]
 }

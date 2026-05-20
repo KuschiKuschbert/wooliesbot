@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T19:08:34.345056Z",
+  "last_updated": "2026-05-20T22:47:21.522232Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5588,7 +5588,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -6776,7 +6776,7 @@
       "item_id": "957adf63-2bcf-4c78-94e9-cacb31782581",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Fresh Herbs (Basil)",
@@ -7979,7 +7979,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -8273,7 +8273,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Philly Cream Cheese",
@@ -11001,7 +11001,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Rice Paper",
@@ -21850,7 +21850,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -22728,24 +22728,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -22761,7 +22761,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -22996,7 +22996,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -23886,7 +23886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 46,
+      "consecutive_failures": 47,
       "quarantined": true
     },
     {
@@ -25989,7 +25989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -27534,7 +27534,8 @@
       "name_check": "Vegeta Chicken Stock Cubes",
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -30517,7 +30518,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 51,
+      "consecutive_failures": 52,
       "quarantined": true
     },
     {
@@ -37200,7 +37201,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -37517,7 +37518,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -37766,23 +37767,23 @@
         },
         {
           "date": "2026-05-20",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -37796,13 +37797,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -38041,7 +38042,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -44195,7 +44196,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -62870,7 +62871,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "quarantined": true
     },
     {
@@ -62888,7 +62889,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 5.5,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -63137,28 +63138,21 @@
         },
         {
           "date": "2026-05-20",
-          "price": 5.5,
+          "price": 7.0,
           "is_special": false,
-          "was_price": 5.5,
-          "store": "woolworths",
-          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
+          "was_price": 8.8,
+          "store": "coles",
+          "matched_name": "Sea Salt Crystals"
         }
       ],
-      "was_price": 5.5,
+      "was_price": 8.8,
       "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
-      "store": "woolworths",
-      "unit_price": 0.37,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
+      "store": "coles",
+      "unit_price": 0.31,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 5.5,
-          "unit_price": 0.37,
-          "eff_price": 5.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 0.31,
@@ -63169,11 +63163,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 5.5,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
+      "name_check": "Sea Salt Crystals",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -77837,13 +77831,13 @@
           "is_special": true,
           "was_price": 6.9,
           "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
+          "matched_name": "Musashi High Protein Bar White Chocolate Caramel"
         }
       ],
       "was_price": 6.9,
       "on_special": true,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/555091.jpg",
       "store": "woolworths",
       "unit_price": 6.11,
       "unit": "100g",
@@ -77869,7 +77863,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Chocolate Brownie",
+      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -84642,7 +84636,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 1.45,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -84891,27 +84885,27 @@
         },
         {
           "date": "2026-05-20",
-          "price": 1.45,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.97,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.97,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.45,
-          "unit_price": 0.97,
-          "eff_price": 1.45,
-          "was_price": 2.95,
-          "on_special": true
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.95,
@@ -84923,11 +84917,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 1.45,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86984,7 +86978,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -97260,9 +97254,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -102360,7 +102354,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -114177,7 +114171,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -117199,7 +117193,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Garlic Minced 500G",

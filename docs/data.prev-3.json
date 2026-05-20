@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T08:38:14.277008Z",
+  "last_updated": "2026-05-20T11:41:14.675879Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -636,7 +636,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Bacon (Middle)",
@@ -5588,7 +5588,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -7374,7 +7374,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -9788,7 +9788,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -15484,7 +15484,7 @@
       "item_id": "c6ac79cb-8018-4733-9298-ac3195c5e4db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Whiskas Kitten 12pk",
@@ -21850,7 +21850,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -22996,7 +22996,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -23886,7 +23886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -25132,7 +25132,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -25989,7 +25989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -26580,19 +26580,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -26605,7 +26605,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -26613,7 +26613,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -30517,7 +30517,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 48,
+      "consecutive_failures": 49,
       "quarantined": true
     },
     {
@@ -32357,7 +32357,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -37200,7 +37200,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -38041,7 +38041,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -39271,7 +39271,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -41083,19 +41083,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -41108,7 +41108,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 5.2,
       "eff_price": 3.4,
       "on_special": false,
@@ -41116,7 +41116,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "7ca72216-cf2b-46da-b00e-abc51e90391b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -53992,7 +53992,8 @@
       "name_check": "Twisted Healthy Treats Protein Pint Butter Caramel Cookie Frozen Dessert",
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -58609,7 +58610,7 @@
       "item_id": "f78a89b0-2aa2-4da2-a4f6-6dd8445b2e69",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Waterfords Sparkling Water Apple Berry1L",
@@ -61080,7 +61081,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -62875,7 +62876,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true
     },
     {
@@ -65041,7 +65042,8 @@
       "name_check": "Mission Carb Balance Original Wraps",
       "item_id": "cac9fa70-ae5e-4712-8186-3ae44d3bb794",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Mutti Tomato Paste Dbl Conc 130G",
@@ -69615,7 +69617,7 @@
       "item_id": "15dc9e10-61d5-44c3-83e4-776bcb0a8347",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Rice Basmati 1Kg",
@@ -70244,7 +70246,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.0,
+      "price": 2.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "38G",
@@ -70493,28 +70495,21 @@
         },
         {
           "date": "2026-05-20",
-          "price": 2.0,
+          "price": 2.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Onion Powder"
+          "store": "coles",
+          "matched_name": "Onion Powder"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Onion_Powder_38G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/647760.jpg",
-      "store": "woolworths",
-      "unit_price": 0.53,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/5/5070863.jpg",
+      "store": "coles",
+      "unit_price": 0.6,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.53,
-          "eff_price": 2.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.5,
           "unit_price": 0.6,
@@ -70525,11 +70520,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.0,
-      "eff_price": 2.0,
+      "eff_price": 2.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Onion Powder",
+      "name_check": "Onion Powder",
       "item_id": "6d35e21d-4687-4567-9815-6f4dc545a27e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86995,7 +86990,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -97271,7 +97266,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -102371,7 +102366,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -117823,7 +117818,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Broccolini Bunch",
@@ -119328,15 +119323,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -119578,24 +119573,24 @@
         },
         {
           "date": "2026-05-20",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -126712,7 +126707,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
