@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T11:41:14.675879Z",
+  "last_updated": "2026-05-20T16:21:24.336239Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2120,7 +2120,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -5588,9 +5588,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Corn Cobs",
@@ -12497,7 +12497,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Almond Meal",
@@ -15192,7 +15192,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -15783,7 +15783,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -21850,7 +21850,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -22996,7 +22996,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -23886,7 +23886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
@@ -25989,7 +25989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -30517,7 +30517,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 49,
+      "consecutive_failures": 50,
       "quarantined": true
     },
     {
@@ -32691,7 +32691,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -32940,7 +32940,7 @@
         },
         {
           "date": "2026-05-20",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -32952,13 +32952,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -32972,7 +32972,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -37200,7 +37200,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -38041,7 +38041,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -39553,10 +39553,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -48778,7 +48778,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -56105,22 +56105,15 @@
           "price": 2.5,
           "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.5,
-          "unit_price": 4.17,
-          "eff_price": 2.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.5,
           "unit_price": 4.17,
@@ -56130,7 +56123,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
       "eff_price": 2.5,
       "on_special": false,
@@ -56138,7 +56131,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -57964,7 +57957,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -57988,7 +57981,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -57996,7 +57989,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
+      "name_check": "Buderim Ginger Refresher Cordial Cordial",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false
@@ -62876,7 +62869,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -77843,13 +77836,13 @@
           "is_special": true,
           "was_price": 6.9,
           "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
+          "matched_name": "Musashi High Protein Bar White Chocolate Caramel"
         }
       ],
       "was_price": 6.9,
       "on_special": true,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/555091.jpg",
       "store": "woolworths",
       "unit_price": 6.11,
       "unit": "100g",
@@ -77875,7 +77868,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Chocolate Brownie",
+      "name_check": "Musashi High Protein Bar White Chocolate Caramel",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -84648,7 +84641,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 1.45,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -84897,27 +84890,27 @@
         },
         {
           "date": "2026-05-20",
-          "price": 1.45,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.97,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.97,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.45,
-          "unit_price": 0.97,
-          "eff_price": 1.45,
-          "was_price": 2.95,
-          "on_special": true
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.95,
@@ -84929,11 +84922,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 1.45,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86990,9 +86983,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -97266,7 +97259,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true,
       "last_layer_a_check": "2026-05-19"
     },
@@ -102366,7 +102359,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -118725,7 +118718,7 @@
       "item_id": "38097635-643f-4e36-a19a-e7652748fa46",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-20"
     },
     {
       "name": "Energizer A23 2Pk",
