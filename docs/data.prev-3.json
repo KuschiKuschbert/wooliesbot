@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21T04:53:22.892051Z",
+  "last_updated": "2026-05-21T12:18:40.972291Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1566,7 +1566,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -5732,7 +5732,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -8489,7 +8489,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Philly Cream Cheese",
@@ -9116,7 +9116,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -13127,7 +13127,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Gravy Granules",
@@ -22418,7 +22418,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -23588,7 +23588,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -24494,7 +24494,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 48,
+      "consecutive_failures": 49,
       "quarantined": true
     },
     {
@@ -26111,7 +26111,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 21.75,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "250G",
@@ -26368,36 +26368,36 @@
         },
         {
           "date": "2026-05-21",
-          "price": 21.75,
+          "price": 9.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Beef Rump Steak Medium"
+          "matched_name": "Woolworths Beef Rump Steak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Beef_Rump_Steak_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/675318.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/236846.jpg",
       "store": "woolworths",
-      "unit_price": 29.0,
+      "unit_price": 36.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 21.75,
-          "unit_price": 29.0,
-          "eff_price": 21.75,
+          "price": 9.0,
+          "unit_price": 36.0,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 9.0,
-      "eff_price": 21.75,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Rump Steak Medium",
+      "name_check": "Woolworths Beef Rump Steak",
       "item_id": "66be75b9-afaf-4df7-8b2c-0fa02dbe5580",
       "consecutive_failures": 0,
       "quarantined": false
@@ -26645,7 +26645,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -28862,7 +28862,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -31087,7 +31087,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 0,
+      "price": 2.1,
       "brand": "Continental",
       "subcategory": "other",
       "size": "Standard",
@@ -31261,33 +31261,42 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "The Odd Bunch Continental Cucumber"
+        },
+        {
+          "date": "2026-05-21",
+          "price": 2.1,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Cucumber_Continentalodd_Bunch.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/829360.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 2.1,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 2.1,
+          "unit_price": 2.1,
+          "eff_price": 2.1,
           "was_price": null,
           "on_special": false
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 53,
-      "quarantined": true
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 2.1
     },
     {
       "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
@@ -37905,7 +37914,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -38137,7 +38146,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -38994,7 +39003,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -40547,10 +40556,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -44065,7 +44074,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 3.0,
+      "price": 2.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "200G",
@@ -44322,25 +44331,25 @@
         },
         {
           "date": "2026-05-21",
-          "price": 3.0,
+          "price": 2.5,
           "is_special": false,
           "was_price": 4.5,
-          "store": "coles",
-          "matched_name": "Pikelets Original"
+          "store": "woolworths",
+          "matched_name": "Woolworths Pikelets"
         }
       ],
       "was_price": 4.5,
       "on_special": false,
       "local_image": "images/Ww_Pikelets_200G_8Pk.jpg",
-      "image_url": "https://productimages.coles.com.au/5/54000.jpg",
-      "store": "coles",
-      "unit_price": 1.5,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/365378.jpg",
+      "store": "woolworths",
+      "unit_price": 1.25,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.5,
-          "unit_price": 2.25,
-          "eff_price": 4.5,
+          "price": 2.5,
+          "unit_price": 1.25,
+          "eff_price": 2.5,
           "was_price": null,
           "on_special": false
         },
@@ -44354,11 +44363,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.6666666666666665,
-      "eff_price": 3.0,
+      "eff_price": 2.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pikelets Original",
+      "name_check": "Woolworths Pikelets",
       "item_id": "6a440bde-b66e-40f0-868b-4b346e849d9d",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -51264,7 +51273,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -64470,7 +64479,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -64488,7 +64497,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.0,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -64745,21 +64754,28 @@
         },
         {
           "date": "2026-05-21",
-          "price": 7.0,
+          "price": 5.5,
           "is_special": false,
           "was_price": 8.8,
-          "store": "coles",
-          "matched_name": "Sea Salt Crystals"
+          "store": "woolworths",
+          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
         }
       ],
       "was_price": 8.8,
       "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
-      "store": "coles",
-      "unit_price": 0.31,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
+      "store": "woolworths",
+      "unit_price": 0.37,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 5.5,
+          "unit_price": 0.37,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 7.0,
           "unit_price": 0.31,
@@ -64770,11 +64786,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 7.0,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sea Salt Crystals",
+      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -68242,7 +68258,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -72025,7 +72041,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.5,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "38G",
@@ -72282,21 +72298,28 @@
         },
         {
           "date": "2026-05-21",
-          "price": 2.5,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Onion Powder"
+          "store": "woolworths",
+          "matched_name": "Woolworths Onion Powder"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Onion_Powder_38G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5070863.jpg",
-      "store": "coles",
-      "unit_price": 0.6,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/647760.jpg",
+      "store": "woolworths",
+      "unit_price": 0.53,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 2.0,
+          "unit_price": 0.53,
+          "eff_price": 2.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.5,
           "unit_price": 0.6,
@@ -72307,11 +72330,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.0,
-      "eff_price": 2.5,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Onion Powder",
+      "name_check": "Woolworths Onion Powder",
       "item_id": "6d35e21d-4687-4567-9815-6f4dc545a27e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -75484,7 +75507,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -79231,7 +79254,7 @@
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -85511,7 +85534,7 @@
       "item_id": "53f0d48b-3324-4eea-9bca-b29ca566e6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Bref Brilliant Gel Spring Rain 42G",
@@ -88341,7 +88364,7 @@
       "item_id": "f4dadaa4-9965-4ffe-b369-f754d184d2fd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -89194,7 +89217,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -93265,7 +93288,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Vegemite 150G",
@@ -99734,7 +99757,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -100373,7 +100396,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 8.9,
+      "price": 7.5,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -100630,11 +100653,11 @@
         },
         {
           "date": "2026-05-21",
-          "price": 8.9,
+          "price": 7.5,
           "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Cherry & Coconut Indulgence Bars"
+          "matched_name": "Noshu Low Carb Cookie Mix Triple Choc"
         }
       ],
       "was_price": 8.9,
@@ -100642,13 +100665,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 5.56,
+      "unit_price": 2.5,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.56,
-          "eff_price": 8.9,
+          "price": 7.5,
+          "unit_price": 2.5,
+          "eff_price": 7.5,
           "was_price": null,
           "on_special": false
         },
@@ -100662,11 +100685,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 8.9,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Cherry & Coconut Indulgence Bars",
+      "name_check": "Noshu Low Carb Cookie Mix Triple Choc",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -103172,7 +103195,8 @@
       "name_check": "Hoyt's Italian Herb Mix",
       "item_id": "8dccc583-c889-47b3-83bf-5238e4f955fe",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Ww Garam Masala 29G",
@@ -104955,7 +104979,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -110859,6 +110883,13 @@
       "unit_price": 11.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 3.5,
+          "unit_price": 3.5,
+          "eff_price": 3.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.3,
           "unit_price": 11.5,
@@ -121149,9 +121180,9 @@
       "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 2.7,
-          "eff_price": 2.7,
+          "price": 2.1,
+          "unit_price": 2.1,
+          "eff_price": 2.1,
           "was_price": null,
           "on_special": false
         },
@@ -122353,15 +122384,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -122611,24 +122642,24 @@
         },
         {
           "date": "2026-05-21",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -129627,7 +129658,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
