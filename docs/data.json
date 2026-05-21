@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21T16:26:12.056719Z",
+  "last_updated": "2026-05-21T18:50:35.099750Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5732,7 +5732,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -11596,7 +11596,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Canned Tomatoes",
@@ -14663,7 +14663,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -18328,19 +18328,19 @@
           "price": 6.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Frozen Blueberries"
+          "store": "coles",
+          "matched_name": "Frozen Fruit Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 13.0,
-          "eff_price": 6.5,
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -18353,7 +18353,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
+      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -18361,7 +18361,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Frozen Blueberries",
+      "name_check": "Frozen Fruit Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -22418,7 +22418,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true
     },
     {
@@ -23333,11 +23333,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -23588,7 +23588,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true
     },
     {
@@ -24494,7 +24494,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -24810,7 +24810,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -26645,7 +26645,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true
     },
     {
@@ -28231,7 +28231,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -37610,7 +37610,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -38146,7 +38146,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -39003,7 +39003,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true
     },
     {
@@ -57540,22 +57540,15 @@
           "price": 2.5,
           "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.5,
-          "unit_price": 4.17,
-          "eff_price": 2.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.5,
           "unit_price": 4.17,
@@ -57565,7 +57558,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
       "eff_price": 2.5,
       "on_special": false,
@@ -57573,7 +57566,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -64479,7 +64472,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -89217,7 +89210,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -99757,7 +99750,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -104979,7 +104972,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true
     },
     {
@@ -120210,7 +120203,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -121770,7 +121763,7 @@
       "item_id": "38097635-643f-4e36-a19a-e7652748fa46",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     },
     {
       "name": "Energizer A23 2Pk",
@@ -130540,7 +130533,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-21"
     }
   ]
 }
