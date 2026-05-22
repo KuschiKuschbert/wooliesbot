@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-22T08:39:18.831887Z",
+  "last_updated": "2026-05-22T11:40:29.277465Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -316,7 +316,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-14"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -1606,7 +1606,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -5876,7 +5876,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true,
       "last_layer_a_check": "2026-05-21"
     },
@@ -8074,7 +8074,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Butter (Western Star)",
@@ -16930,7 +16930,7 @@
       "item_id": "fdc8b4a6-d67e-49b3-bff8-7fc7f4ad6c9b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -18191,7 +18191,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -18513,7 +18513,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -22986,7 +22986,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -24180,7 +24180,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -25102,7 +25102,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "quarantined": true
     },
     {
@@ -26699,27 +26699,20 @@
         {
           "date": "2026-05-22",
           "price": 10.5,
-          "is_special": true,
-          "was_price": 12.0,
-          "store": "woolworths",
-          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
+          "is_special": false,
+          "was_price": 13.5,
+          "store": "coles",
+          "matched_name": "Chicken Goujons"
         }
       ],
-      "was_price": 12.0,
-      "on_special": true,
+      "was_price": 13.5,
+      "on_special": false,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
-      "store": "woolworths",
-      "unit_price": 17.5,
+      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
+      "store": "coles",
+      "unit_price": 10.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 10.5,
-          "unit_price": 17.5,
-          "eff_price": 10.5,
-          "was_price": 12.0,
-          "on_special": true
-        },
         "coles": {
           "price": 10.5,
           "unit_price": 10.5,
@@ -26734,7 +26727,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
+      "name_check": "Chicken Goujons",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -27301,7 +27294,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -27924,19 +27917,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Light Thickened Cream"
+          "store": "woolworths",
+          "matched_name": "Woolworths Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "coles",
-      "unit_price": 1.13,
+      "store": "woolworths",
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -27949,7 +27942,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -27957,7 +27950,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Light Thickened Cream",
+      "name_check": "Woolworths Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -39090,9 +39083,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -39963,7 +39956,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -41556,10 +41549,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -51261,7 +51254,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -62538,7 +62531,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -62562,7 +62555,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -62570,7 +62563,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -66079,7 +66072,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 21,
+      "consecutive_failures": 22,
       "quarantined": true
     },
     {
@@ -68032,7 +68025,7 @@
       "item_id": "a0b95e6b-6398-4af0-a852-47327d7a96fa",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Mission Carb Balancespinach 288G Pk 6",
@@ -86397,7 +86390,7 @@
       "item_id": "5821ca8c-3254-4a2f-ad22-50ac166581b4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Double 'D' Sugar Free Fruit Jellies 90G",
@@ -91449,7 +91442,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -95624,7 +95617,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Vegemite 150G",
@@ -102253,7 +102246,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -102908,7 +102901,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 8.9,
+      "price": 7.5,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -103173,11 +103166,11 @@
         },
         {
           "date": "2026-05-22",
-          "price": 8.9,
+          "price": 7.5,
           "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Choc Mint Indulgence Bars"
+          "matched_name": "Noshu Low Carb Cookie Mix Triple Choc"
         }
       ],
       "was_price": 8.9,
@@ -103185,13 +103178,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 5.93,
+      "unit_price": 2.5,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.93,
-          "eff_price": 8.9,
+          "price": 7.5,
+          "unit_price": 2.5,
+          "eff_price": 7.5,
           "was_price": null,
           "on_special": false
         },
@@ -103205,11 +103198,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 8.9,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Choc Mint Indulgence Bars",
+      "name_check": "Noshu Low Carb Cookie Mix Triple Choc",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -105780,7 +105773,7 @@
       "item_id": "8dccc583-c889-47b3-83bf-5238e4f955fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Ww Garam Masala 29G",
@@ -107610,7 +107603,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 42,
+      "consecutive_failures": 43,
       "quarantined": true
     },
     {
@@ -132961,7 +132954,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
