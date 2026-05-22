@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-22T15:33:53.020450Z",
+  "last_updated": "2026-05-22T18:43:14.763411Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2232,7 +2232,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -5337,7 +5337,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-17"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -5876,7 +5876,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -9663,7 +9663,7 @@
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -11262,7 +11262,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -12838,7 +12838,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -15992,7 +15992,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -22986,7 +22986,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
@@ -23912,24 +23912,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -23945,7 +23945,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -24180,7 +24180,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
@@ -25102,7 +25102,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 56,
+      "consecutive_failures": 57,
       "quarantined": true
     },
     {
@@ -25733,7 +25733,7 @@
       "avg_price": 8.0,
       "eff_price": 1.18,
       "on_special": false,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
@@ -27294,7 +27294,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
@@ -28920,7 +28920,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -39084,7 +39084,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -39957,7 +39957,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
@@ -66073,7 +66073,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -67696,7 +67696,7 @@
       "item_id": "59610197-cc0d-4739-9942-bfcf8633ae53",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Greens Gravy Granles Roast Meat 120G",
@@ -79277,25 +79277,18 @@
           "price": 1.75,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dine Farm Collection In Sauce Chicken Wet Cat Food"
+          "store": "coles",
+          "matched_name": "Farm Collection With Chicken Carrot & Spinach Cat Food"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Dine_Farm_Coll_Chicken_Cat_Food_85G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6038749.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/1/1153925.jpg",
+      "store": "coles",
       "unit_price": 2.06,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 1.75,
-          "unit_price": 2.06,
-          "eff_price": 1.75,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 1.75,
           "unit_price": 2.06,
@@ -79310,7 +79303,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Farm Collection In Sauce Chicken Wet Cat Food",
+      "name_check": "Farm Collection With Chicken Carrot & Spinach Cat Food",
       "item_id": "1ae9402a-d59b-42b9-b3b0-374ace464fc5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -81224,7 +81217,7 @@
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -82487,9 +82480,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -84781,7 +84774,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -87671,7 +87664,7 @@
       "item_id": "53f0d48b-3324-4eea-9bca-b29ca566e6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Bref Brilliant Gel Spring Rain 42G",
@@ -88988,7 +88981,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 1.45,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -89253,27 +89246,27 @@
         },
         {
           "date": "2026-05-22",
-          "price": 1.45,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.97,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 1.97,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.45,
-          "unit_price": 0.97,
-          "eff_price": 1.45,
-          "was_price": 2.95,
-          "on_special": true
+          "price": 4.75,
+          "unit_price": 0.79,
+          "eff_price": 4.75,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.95,
@@ -89285,11 +89278,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 1.45,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -91443,7 +91436,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -93981,13 +93974,6 @@
       "unit_price": 27.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 5.0,
-          "unit_price": 17.86,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.3,
           "unit_price": 27.5,
@@ -102247,7 +102233,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -107604,7 +107590,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true
     },
     {
