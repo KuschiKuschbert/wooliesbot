@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-22T11:40:29.277465Z",
+  "last_updated": "2026-05-22T15:33:53.020450Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4717,7 +4717,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Zucchini",
@@ -5876,9 +5876,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Corn Cobs",
@@ -8395,7 +8395,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -15675,7 +15675,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -22986,7 +22986,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -24180,7 +24180,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -25102,7 +25102,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -27294,7 +27294,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -27917,19 +27917,19 @@
           "price": 3.4,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Light Thickened Cream"
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "store": "coles",
+      "unit_price": 1.13,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -27942,7 +27942,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5033765.jpg",
       "avg_price": 3.4,
       "eff_price": 3.4,
       "on_special": false,
@@ -27950,7 +27950,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Light Thickened Cream",
+      "name_check": "Light Thickened Cream",
       "item_id": "8bf3a391-fe69-433d-9108-d66ce30b8f54",
       "consecutive_failures": 0,
       "quarantined": false
@@ -29234,7 +29234,8 @@
       "name_check": "Vegeta Beef Stock Cubes",
       "item_id": "2c4bf20a-f481-4a4c-8f01-2ca26ec6ff22",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Hillview Cheese Block Tasty 1Kg",
@@ -39083,7 +39084,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -39956,7 +39957,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -43493,11 +43494,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 16.25,
-          "unit_price": 13.0,
-          "eff_price": 16.25,
-          "was_price": null,
-          "on_special": false
+          "price": 13.75,
+          "unit_price": 11.0,
+          "eff_price": 13.75,
+          "was_price": 16.25,
+          "on_special": true
         },
         "coles": {
           "price": 8.0,
@@ -48699,7 +48700,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -56741,7 +56742,7 @@
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -66072,7 +66073,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -77057,7 +77058,7 @@
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -91442,7 +91443,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -102246,7 +102247,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -102901,7 +102902,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 7.5,
+      "price": 8.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -103166,11 +103167,11 @@
         },
         {
           "date": "2026-05-22",
-          "price": 7.5,
+          "price": 8.9,
           "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Cookie Mix Triple Choc"
+          "matched_name": "Noshu Low Carb Pistachio Indulgence Bars"
         }
       ],
       "was_price": 8.9,
@@ -103178,13 +103179,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 2.5,
+      "unit_price": 5.56,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.5,
-          "unit_price": 2.5,
-          "eff_price": 7.5,
+          "price": 8.9,
+          "unit_price": 5.56,
+          "eff_price": 8.9,
           "was_price": null,
           "on_special": false
         },
@@ -103198,11 +103199,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 7.5,
+      "eff_price": 8.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Cookie Mix Triple Choc",
+      "name_check": "Noshu Low Carb Pistachio Indulgence Bars",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -107603,7 +107604,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -111745,11 +111746,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 16.25,
-          "unit_price": 13.0,
-          "eff_price": 16.25,
-          "was_price": null,
-          "on_special": false
+          "price": 13.75,
+          "unit_price": 11.0,
+          "eff_price": 13.75,
+          "was_price": 16.25,
+          "on_special": true
         },
         "coles": {
           "price": 12.0,
@@ -130381,13 +130382,6 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.9,
-          "unit_price": 3.9,
-          "eff_price": 3.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.8,
           "unit_price": 3.8,
@@ -131835,7 +131829,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Pics Peanut Butter Crunchy 1Kg",
@@ -132581,7 +132575,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
