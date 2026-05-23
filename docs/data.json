@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-23T04:22:18.022000Z",
+  "last_updated": "2026-05-23T07:20:47.547324Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -324,7 +324,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -4837,7 +4837,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Zucchini",
@@ -6020,7 +6020,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -8603,7 +8603,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -21973,7 +21973,7 @@
       "item_id": "432c61be-c6df-4cdd-bc16-5a88d8ad45ac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Ww Belgian Dark Choc Block 85% 100G",
@@ -23554,7 +23554,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -24772,7 +24772,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -25710,7 +25710,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 59,
+      "consecutive_failures": 60,
       "quarantined": true
     },
     {
@@ -27347,20 +27347,27 @@
         {
           "date": "2026-05-23",
           "price": 10.5,
-          "is_special": false,
-          "was_price": 13.5,
-          "store": "coles",
-          "matched_name": "Chicken Goujons"
+          "is_special": true,
+          "was_price": 12.0,
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
         }
       ],
-      "was_price": 13.5,
-      "on_special": false,
+      "was_price": 12.0,
+      "on_special": true,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
-      "store": "coles",
-      "unit_price": 10.5,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
+      "store": "woolworths",
+      "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 17.5,
+          "eff_price": 10.5,
+          "was_price": 12.0,
+          "on_special": true
+        },
         "coles": {
           "price": 10.5,
           "unit_price": 10.5,
@@ -27375,7 +27382,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Chicken Goujons",
+      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -27950,7 +27957,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -30280,7 +30287,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -40028,7 +40035,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -40917,7 +40924,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -55182,7 +55189,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-09",
-      "price": 3.4,
+      "price": 5.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -55455,7 +55462,7 @@
         },
         {
           "date": "2026-05-23",
-          "price": 3.4,
+          "price": 5.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -55464,13 +55471,13 @@
       ],
       "local_image": "images/Ww_Thickened_Cream_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "unit_price": 8.7,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -55483,9 +55490,9 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/044317.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/048720.jpg",
       "avg_price": 5.2,
-      "eff_price": 3.4,
+      "eff_price": 5.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -67673,7 +67680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 26,
+      "consecutive_failures": 27,
       "quarantined": true
     },
     {
@@ -69336,7 +69343,7 @@
       "item_id": "59610197-cc0d-4739-9942-bfcf8633ae53",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Greens Gravy Granles Roast Meat 120G",
@@ -71644,7 +71651,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -72937,6 +72944,13 @@
       "unit_price": 16.0,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 28.05,
+          "unit_price": 25.5,
+          "eff_price": 28.05,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 16.0,
           "unit_price": 16.0,
@@ -73620,7 +73634,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -75237,19 +75251,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -75262,7 +75276,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -75270,7 +75284,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -75619,7 +75633,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.5,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "38G",
@@ -75892,21 +75906,28 @@
         },
         {
           "date": "2026-05-23",
-          "price": 2.5,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Onion Powder"
+          "store": "woolworths",
+          "matched_name": "Woolworths Onion Powder"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Onion_Powder_38G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5070863.jpg",
-      "store": "coles",
-      "unit_price": 0.6,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/647760.jpg",
+      "store": "woolworths",
+      "unit_price": 0.53,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 2.0,
+          "unit_price": 0.53,
+          "eff_price": 2.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.5,
           "unit_price": 0.6,
@@ -75917,11 +75938,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.0,
-      "eff_price": 2.5,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Onion Powder",
+      "name_check": "Woolworths Onion Powder",
       "item_id": "6d35e21d-4687-4567-9815-6f4dc545a27e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -81210,6 +81231,13 @@
       "unit_price": 2.06,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 12.0,
+          "unit_price": 2.02,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 1.75,
           "unit_price": 2.06,
@@ -93660,7 +93688,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true,
       "last_layer_a_check": "2026-05-23"
     },
@@ -104728,7 +104756,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -110214,7 +110242,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 47,
+      "consecutive_failures": 48,
       "quarantined": true
     },
     {
@@ -120028,7 +120056,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -131027,7 +131055,7 @@
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Vittoria Italian Ground 500G",
@@ -131651,7 +131679,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -134690,7 +134718,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -135649,7 +135677,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
