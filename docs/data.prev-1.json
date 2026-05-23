@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-22T18:43:14.763411Z",
+  "last_updated": "2026-05-22T22:01:39.011777Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2543,7 +2543,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Capsicum (Red)",
@@ -4090,7 +4090,7 @@
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Carrots (1kg)",
@@ -5876,7 +5876,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -10300,7 +10300,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -17246,7 +17246,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -22986,7 +22986,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -23912,24 +23912,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 0.8,
+          "eff_price": 2.0,
+          "was_price": 2.8,
+          "on_special": true
         },
         "coles": {
           "price": 0.95,
@@ -23945,7 +23945,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -24180,7 +24180,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -25102,7 +25102,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 57,
+      "consecutive_failures": 58,
       "quarantined": true
     },
     {
@@ -25733,7 +25733,7 @@
       "avg_price": 8.0,
       "eff_price": 1.18,
       "on_special": false,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
@@ -27294,7 +27294,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -28605,7 +28605,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -34351,7 +34351,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -34616,7 +34616,7 @@
         },
         {
           "date": "2026-05-22",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -34628,13 +34628,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -34648,7 +34648,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -36290,7 +36290,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 1.45,
+      "price": 4.15,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -36555,27 +36555,27 @@
         },
         {
           "date": "2026-05-22",
-          "price": 1.45,
-          "is_special": true,
-          "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
+          "price": 4.15,
+          "is_special": false,
+          "was_price": 5.95,
+          "store": "coles",
+          "matched_name": "Thick & Creamy Yoghurt Strawberry"
         }
       ],
-      "was_price": 2.95,
-      "on_special": true,
+      "was_price": 5.95,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
-      "store": "woolworths",
-      "unit_price": 0.97,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 0.69,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.45,
-          "unit_price": 0.97,
-          "eff_price": 1.45,
-          "was_price": 2.95,
-          "on_special": true
+          "price": 5.5,
+          "unit_price": 1.25,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.15,
@@ -36587,11 +36587,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 1.45,
+      "eff_price": 4.15,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Strawberry Yoghurt",
+      "name_check": "Thick & Creamy Yoghurt Strawberry",
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -39084,7 +39084,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -39957,7 +39957,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -61599,7 +61599,7 @@
       "item_id": "f78a89b0-2aa2-4da2-a4f6-6dd8445b2e69",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Waterfords Sparkling Water Apple Berry1L",
@@ -66073,7 +66073,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -78988,7 +78988,7 @@
       "item_id": "72ea5351-3272-4b80-ab14-16e1481c7aa7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -82480,9 +82480,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 10.6,
-          "unit_price": 2.83,
-          "eff_price": 10.6,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -90245,7 +90245,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -91436,7 +91436,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true,
       "last_layer_a_check": "2026-05-20"
     },
@@ -93974,6 +93974,13 @@
       "unit_price": 27.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 5.0,
+          "unit_price": 17.86,
+          "eff_price": 5.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 3.3,
           "unit_price": 27.5,
@@ -94634,7 +94641,7 @@
       "item_id": "1fc81337-8f53-4115-bae9-aa76dc3be187",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-07"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Ww Pink Himalayan Salt 110G",
@@ -102233,7 +102240,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -102888,7 +102895,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 8.9,
+      "price": 7.5,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -103153,11 +103160,11 @@
         },
         {
           "date": "2026-05-22",
-          "price": 8.9,
+          "price": 7.5,
           "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Pistachio Indulgence Bars"
+          "matched_name": "Noshu Low Carb Cookie Mix Triple Choc"
         }
       ],
       "was_price": 8.9,
@@ -103165,13 +103172,13 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 5.56,
+      "unit_price": 2.5,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.9,
-          "unit_price": 5.56,
-          "eff_price": 8.9,
+          "price": 7.5,
+          "unit_price": 2.5,
+          "eff_price": 7.5,
           "was_price": null,
           "on_special": false
         },
@@ -103185,11 +103192,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 8.9,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Pistachio Indulgence Bars",
+      "name_check": "Noshu Low Carb Cookie Mix Triple Choc",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -107590,7 +107597,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -122895,7 +122902,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -130368,6 +130375,13 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 3.9,
+          "unit_price": 3.9,
+          "eff_price": 3.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 3.8,
           "unit_price": 3.8,
@@ -131633,7 +131647,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-22"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
