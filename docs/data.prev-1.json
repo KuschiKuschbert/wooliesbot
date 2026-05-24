@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-24T10:46:45.556715Z",
+  "last_updated": "2026-05-24T14:29:29.952304Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2010,7 +2010,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-16"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -4631,7 +4631,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Broccoli",
@@ -5609,7 +5609,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -6164,7 +6164,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -14135,7 +14135,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Gravy Granules",
@@ -24122,7 +24122,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -25364,7 +25364,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -26318,7 +26318,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 67,
+      "consecutive_failures": 68,
       "quarantined": true
     },
     {
@@ -28613,7 +28613,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -35656,7 +35656,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -40979,7 +40979,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -41328,7 +41328,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -41609,23 +41609,23 @@
         },
         {
           "date": "2026-05-24",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -41639,13 +41639,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -41884,7 +41884,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -43557,10 +43557,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -54080,7 +54080,7 @@
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -69280,7 +69280,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -77035,19 +77035,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -77060,7 +77060,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -77068,7 +77068,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -86848,22 +86848,22 @@
           "price": 1.6,
           "is_special": false,
           "was_price": 1.6,
-          "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 1.6,
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.88,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -86881,7 +86881,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false
@@ -90613,7 +90613,7 @@
       "item_id": "5821ca8c-3254-4a2f-ad22-50ac166581b4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Double 'D' Sugar Free Fruit Jellies 90G",
@@ -95912,7 +95912,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true,
       "last_layer_a_check": "2026-05-23"
     },
@@ -107244,7 +107244,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -111952,7 +111952,7 @@
       "item_id": "63e3b7ab-106b-406a-9563-7956cb78eaac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Bsc High Pro Low Cb Bar Cookies&Crm 92G",
@@ -112858,7 +112858,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 55,
+      "consecutive_failures": 56,
       "quarantined": true
     },
     {
@@ -122580,7 +122580,7 @@
       "item_id": "a1535919-d8e7-4303-8b51-dc8c33dc2413",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Pics Peanut Butter Crunchy 380G",
@@ -129943,7 +129943,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Broccolini Bunch",
@@ -131608,15 +131608,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -131890,24 +131890,24 @@
         },
         {
           "date": "2026-05-24",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -138141,7 +138141,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -139753,7 +139753,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-24"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
@@ -140556,7 +140556,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-24"
     }
   ]
 }
