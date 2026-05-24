@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-23T14:29:29.052120Z",
+  "last_updated": "2026-05-23T17:51:35.834489Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6020,7 +6020,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -8921,7 +8921,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Philly Cream Cheese",
@@ -10879,7 +10879,7 @@
       "item_id": "67595b51-a9e3-44cd-a1d7-837d5d3a056a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Ice Cream (Connoisseur)",
@@ -12511,7 +12511,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -23554,7 +23554,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -24772,7 +24772,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -25710,7 +25710,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -27957,7 +27957,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -30951,7 +30951,7 @@
       "item_id": "5f33284e-5198-405b-99f2-484413d69ef4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Ww Sundried Tomato Strips 270G",
@@ -35190,7 +35190,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -35463,7 +35463,7 @@
         },
         {
           "date": "2026-05-23",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -35475,13 +35475,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -35495,7 +35495,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -40035,7 +40035,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -40924,7 +40924,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -41576,7 +41576,7 @@
       "item_id": "db49ea8f-e956-41f8-95ed-1c4d3977b2dc",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Ww Natural Greek Style Yoghurt 2Kg",
@@ -49883,7 +49883,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -50185,13 +50185,6 @@
       "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 7.0,
@@ -67680,7 +67673,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "quarantined": true
     },
     {
@@ -77953,7 +77946,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -81231,13 +81224,6 @@
       "unit_price": 2.06,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 12.0,
-          "unit_price": 2.02,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 1.75,
           "unit_price": 2.06,
@@ -84832,22 +84818,22 @@
           "price": 1.6,
           "is_special": false,
           "was_price": 1.6,
-          "store": "woolworths",
-          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+          "store": "coles",
+          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
         }
       ],
       "was_price": 1.6,
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -84865,7 +84851,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false
@@ -93688,7 +93674,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true,
       "last_layer_a_check": "2026-05-23"
     },
@@ -103226,7 +103212,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-04",
-      "price": 1.5,
+      "price": 25.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "1L",
@@ -103499,28 +103485,21 @@
         },
         {
           "date": "2026-05-23",
-          "price": 1.5,
-          "is_special": true,
+          "price": 25.0,
+          "is_special": false,
           "was_price": 2.0,
-          "store": "woolworths",
-          "matched_name": "Waterfords Sparkling Water Blackcurrant"
+          "store": "coles",
+          "matched_name": "Hydrate Blackcurrant"
         }
       ],
       "was_price": 2.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Waterfords_L_F_Blackcurrant_1L.jpg",
       "image_url": "images/waterfords_lf_blackcurrant_1l.jpg",
-      "store": "woolworths",
-      "unit_price": 1.5,
-      "unit": "litre",
+      "store": "coles",
+      "unit_price": 0.62,
+      "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.5,
-          "eff_price": 1.5,
-          "was_price": 2.0,
-          "on_special": true
-        },
         "coles": {
           "price": 25.0,
           "unit_price": 0.62,
@@ -103531,11 +103510,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.0,
-      "eff_price": 1.5,
+      "eff_price": 25.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Waterfords Sparkling Water Blackcurrant",
+      "name_check": "Hydrate Blackcurrant",
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -104756,7 +104735,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true,
       "last_layer_a_check": "2026-05-22"
     },
@@ -109699,7 +109678,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 4.0,
+      "price": 1.6,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -109972,26 +109951,26 @@
         },
         {
           "date": "2026-05-23",
-          "price": 4.0,
+          "price": 1.6,
           "is_special": true,
-          "was_price": 5.0,
+          "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
         }
       ],
-      "was_price": 5.0,
+      "was_price": 3.2,
       "on_special": true,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
       "store": "woolworths",
-      "unit_price": 7.27,
+      "unit_price": 2.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 7.27,
-          "eff_price": 4.0,
-          "was_price": 5.0,
+          "price": 1.6,
+          "unit_price": 2.91,
+          "eff_price": 1.6,
+          "was_price": 3.2,
           "on_special": true
         },
         "coles": {
@@ -110004,11 +109983,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 4.0,
+      "eff_price": 1.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -110242,7 +110221,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 50,
+      "consecutive_failures": 51,
       "quarantined": true
     },
     {
@@ -111875,9 +111854,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 11.67,
-          "eff_price": 3.5,
+          "price": 7.2,
+          "unit_price": 0.9,
+          "eff_price": 7.2,
           "was_price": null,
           "on_special": false
         },
@@ -133275,16 +133254,9 @@
       "last_purchased": "2025-10-20",
       "price": 3.2,
       "unit_price": 3.2,
-      "unit": "100g",
-      "store": "woolworths",
+      "unit": "kg",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.2,
-          "unit_price": 3.2,
-          "eff_price": 3.2,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.2,
           "unit_price": 3.2,
@@ -133557,8 +133529,8 @@
           "price": 3.2,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Chives Fresh Herb Punnet"
+          "store": "coles",
+          "matched_name": "Herb Punnets Chives"
         }
       ],
       "target_confidence": "high",
@@ -133571,7 +133543,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Chives Fresh Herb Punnet",
+      "name_check": "Herb Punnets Chives",
       "item_id": "ce158004-97c3-47b5-bc70-80eb1febe5fa",
       "consecutive_failures": 0,
       "quarantined": false
@@ -136074,7 +136046,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -136845,7 +136817,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
@@ -137036,7 +137008,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-05-19"
+      "last_layer_a_check": "2026-05-23"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
