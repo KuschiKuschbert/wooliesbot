@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-25T12:43:38.247410Z",
+  "last_updated": "2026-05-25T16:04:55.340327Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -6308,7 +6308,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true,
       "last_layer_a_check": "2026-05-25"
     },
@@ -8334,7 +8334,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -9692,7 +9692,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Sour Cream",
@@ -11746,7 +11746,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-15"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "English Muffins",
@@ -14137,7 +14137,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Almond Meal",
@@ -17863,7 +17863,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -24690,7 +24690,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true
     },
     {
@@ -25956,7 +25956,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true
     },
     {
@@ -26926,7 +26926,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -29269,7 +29269,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true
     },
     {
@@ -29997,7 +29997,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 3.2,
+      "price": 8.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "160G",
@@ -30286,7 +30286,7 @@
         },
         {
           "date": "2026-05-25",
-          "price": 3.2,
+          "price": 8.0,
           "is_special": false,
           "was_price": 3.2,
           "store": "woolworths",
@@ -30296,15 +30296,15 @@
       "was_price": 3.2,
       "on_special": false,
       "local_image": "images/Yopro_Yoghurt_Pot_Vanilla_160G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/646684.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/867015.jpg",
       "store": "woolworths",
-      "unit_price": 2.0,
+      "unit_price": 1.14,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.2,
-          "unit_price": 2.0,
-          "eff_price": 3.2,
+          "price": 8.0,
+          "unit_price": 1.14,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         },
@@ -30318,7 +30318,7 @@
       },
       "price_unavailable": false,
       "avg_price": 3.2,
-      "eff_price": 3.2,
+      "eff_price": 8.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -32407,7 +32407,7 @@
       "item_id": "5f33284e-5198-405b-99f2-484413d69ef4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Ww Sundried Tomato Strips 270G",
@@ -41923,7 +41923,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -42280,7 +42280,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -42569,23 +42569,23 @@
         },
         {
           "date": "2026-05-25",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -42599,13 +42599,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -42844,7 +42844,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true
     },
     {
@@ -44557,10 +44557,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -47357,7 +47357,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -52235,7 +52235,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -67099,7 +67099,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -67123,7 +67123,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -67131,7 +67131,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -70880,7 +70880,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 39,
+      "consecutive_failures": 40,
       "quarantined": true
     },
     {
@@ -87850,7 +87850,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -88518,9 +88518,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -88875,13 +88875,6 @@
           "eff_price": 1.6,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -88910,7 +88903,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-11",
-      "price": 3.2,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "12G",
@@ -89199,20 +89192,20 @@
         },
         {
           "date": "2026-05-25",
-          "price": 3.2,
+          "price": 4.0,
           "is_special": false,
           "was_price": 4.0,
-          "store": "coles",
-          "matched_name": "Creamy Treats Cat Treats Tuna & Prawn Flavour 4x12g Sachets"
+          "store": "woolworths",
+          "matched_name": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets"
         }
       ],
       "was_price": 4.0,
       "on_special": false,
       "local_image": "images/Dine_Creamy_Treats_Tuna_&_Prawn_4X12G.jpg",
       "image_url": "images/dine_creamy_treats_tuna__prawn_4x12g.jpg",
-      "store": "coles",
-      "unit_price": 6.67,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 8.33,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 4.0,
@@ -89220,22 +89213,15 @@
           "eff_price": 4.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 3.2,
-          "unit_price": 6.67,
-          "eff_price": 3.2,
-          "was_price": 4.0,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 3.2,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Creamy Treats Cat Treats Tuna & Prawn Flavour 4x12g Sachets",
+      "name_check": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets",
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -89568,13 +89554,6 @@
           "price": 7.5,
           "unit_price": 15.0,
           "eff_price": 7.5,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
-          "price": 8.0,
-          "unit_price": 16.0,
-          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         }
@@ -90980,7 +90959,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -91660,13 +91639,6 @@
           "eff_price": 4.25,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 4.5,
-          "unit_price": 4.5,
-          "eff_price": 4.5,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -91699,7 +91671,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 16.8,
+      "price": 19.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -91988,19 +91960,19 @@
         },
         {
           "date": "2026-05-25",
-          "price": 16.8,
+          "price": 19.0,
           "is_special": false,
           "was_price": 19.0,
-          "store": "coles",
-          "matched_name": "Middle Bacon"
+          "store": "woolworths",
+          "matched_name": "Hans Middle Bacon Rashers From the Deli"
         }
       ],
       "was_price": 19.0,
       "on_special": false,
       "local_image": "images/Hans_Middle_Bacon_Rashers_Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/4/4258996.jpg",
-      "store": "coles",
-      "unit_price": 22.4,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/714680.jpg",
+      "store": "woolworths",
+      "unit_price": 19.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -92009,22 +91981,15 @@
           "eff_price": 19.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 16.8,
-          "unit_price": 22.4,
-          "eff_price": 16.8,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 11.675,
-      "eff_price": 16.8,
+      "eff_price": 19.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Middle Bacon",
+      "name_check": "Hans Middle Bacon Rashers From the Deli",
       "item_id": "d4c4d83e-ffa0-4b54-bc29-decd392137ba",
       "consecutive_failures": 0,
       "quarantined": false
@@ -92727,7 +92692,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 2.7,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "90G",
@@ -93016,20 +92981,20 @@
         },
         {
           "date": "2026-05-25",
-          "price": 2.7,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Smart Sweets Berry Gummies"
+          "store": "woolworths",
+          "matched_name": "Double 'D' Fruit Jellies Sugar Free"
         }
       ],
       "was_price": 3.0,
       "on_special": false,
       "local_image": "images/Double_'D'_Sugar_Free_Fruit_Jellies_90G.jpg",
       "image_url": "images/double_d_sugar_free_fruit_jellies_90g.jpg",
-      "store": "coles",
-      "unit_price": 5.4,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.33,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 3.0,
@@ -93037,22 +93002,15 @@
           "eff_price": 3.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 2.7,
-          "unit_price": 5.4,
-          "eff_price": 2.7,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 3.0,
-      "eff_price": 2.7,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Smart Sweets Berry Gummies",
+      "name_check": "Double 'D' Fruit Jellies Sugar Free",
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -93378,13 +93336,6 @@
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 4.0,
-          "eff_price": 4.8,
-          "was_price": null,
-          "on_special": false
-        },
-        "coles": {
           "price": 4.8,
           "unit_price": 4.0,
           "eff_price": 4.8,
@@ -94413,13 +94364,6 @@
           "eff_price": 3.5,
           "was_price": 7.0,
           "on_special": true
-        },
-        "coles": {
-          "price": 3.5,
-          "unit_price": 8.33,
-          "eff_price": 3.5,
-          "was_price": 7.0,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -94449,7 +94393,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 5.4,
+      "price": 34.99,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -94738,20 +94682,20 @@
         },
         {
           "date": "2026-05-25",
-          "price": 5.4,
+          "price": 34.99,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Paste All Purpose Cleaner"
+          "store": "woolworths",
+          "matched_name": "Gumption Paste Multipurpose Cleaner AUST MADE 500g Tub Kitchen Bathroom Tiles"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Gumption_Cleaner_Cream_500G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/159540.jpg",
-      "store": "coles",
-      "unit_price": 1.08,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/1124132027.jpg",
+      "store": "woolworths",
+      "unit_price": 7.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 34.99,
@@ -94759,22 +94703,15 @@
           "eff_price": 34.99,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 5.4,
-          "unit_price": 1.08,
-          "eff_price": 5.4,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 5.4,
-      "eff_price": 5.4,
+      "eff_price": 34.99,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Paste All Purpose Cleaner",
+      "name_check": "Gumption Paste Multipurpose Cleaner AUST MADE 500g Tub Kitchen Bathroom Tiles",
       "item_id": "fc21dd18-9bcd-4c29-b36a-38eaae95d237",
       "consecutive_failures": 0,
       "quarantined": false
@@ -98129,7 +98066,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true,
       "last_layer_a_check": "2026-05-23"
     },
@@ -101574,7 +101511,7 @@
       "item_id": "1fc81337-8f53-4115-bae9-aa76dc3be187",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Ww Pink Himalayan Salt 110G",
@@ -109725,7 +109662,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -114891,7 +114828,7 @@
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -115467,7 +115404,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 60,
+      "consecutive_failures": 61,
       "quarantined": true
     },
     {
@@ -119921,11 +119858,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 13.75,
-          "unit_price": 11.0,
-          "eff_price": 13.75,
-          "was_price": 16.25,
-          "on_special": true
+          "price": 16.25,
+          "unit_price": 13.0,
+          "eff_price": 16.25,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 12.0,
@@ -137305,7 +137242,7 @@
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Vittoria Italian Ground 500G",
@@ -141984,7 +141921,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -142835,7 +142772,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
