@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-25T18:33:28.840262Z",
+  "last_updated": "2026-05-25T22:00:31.987600Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2400,7 +2400,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -4063,7 +4063,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -6308,7 +6308,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true,
       "last_layer_a_check": "2026-05-25"
     },
@@ -13798,7 +13798,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -16851,7 +16851,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -20216,19 +20216,19 @@
           "price": 6.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Frozen Fruit Blueberries"
+          "store": "woolworths",
+          "matched_name": "Woolworths Frozen Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
+          "price": 6.5,
+          "unit_price": 13.0,
+          "eff_price": 6.5,
           "was_price": null,
           "on_special": false
         },
@@ -20241,7 +20241,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -20249,7 +20249,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Frozen Fruit Blueberries",
+      "name_check": "Woolworths Frozen Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -24690,7 +24690,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -25956,7 +25956,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -26926,7 +26926,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 74,
+      "consecutive_failures": 75,
       "quarantined": true
     },
     {
@@ -29269,7 +29269,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -31711,7 +31711,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -41923,7 +41923,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -42844,7 +42844,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -44557,10 +44557,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -49798,7 +49798,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -70881,7 +70881,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 41,
+      "consecutive_failures": 42,
       "quarantined": true
     },
     {
@@ -95829,7 +95829,7 @@
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "White Label Extra Tasty Cheese Block 1Kg",
@@ -98130,7 +98130,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true,
       "last_layer_a_check": "2026-05-23"
     },
@@ -109726,9 +109726,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -115468,7 +115468,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true
     },
     {
@@ -143250,7 +143250,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-25"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
