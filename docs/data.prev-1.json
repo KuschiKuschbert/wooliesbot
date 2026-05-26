@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-26T04:42:45.290529Z",
+  "last_updated": "2026-05-26T08:40:47.800447Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1072,7 +1072,7 @@
       "item_id": "78b8cbd4-2f0e-4507-abda-57d772fba6a9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Pork Loin Roast",
@@ -2799,7 +2799,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Capsicum (Red)",
@@ -4159,7 +4159,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -6452,7 +6452,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -9227,7 +9227,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -25258,7 +25258,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -26548,7 +26548,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -27534,7 +27534,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 76,
+      "consecutive_failures": 77,
       "quarantined": true
     },
     {
@@ -28972,7 +28972,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -29925,7 +29925,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -32423,7 +32423,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -37686,7 +37686,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -37983,7 +37983,7 @@
         },
         {
           "date": "2026-05-26",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -37995,13 +37995,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -38015,7 +38015,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -42867,7 +42867,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -45561,10 +45561,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -54127,7 +54127,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -57638,7 +57638,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -70467,7 +70467,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 6.0,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -70764,27 +70764,27 @@
         },
         {
           "date": "2026-05-26",
-          "price": 6.0,
-          "is_special": true,
-          "was_price": 8.8,
-          "store": "woolworths",
-          "matched_name": "McCain Pizza Cheese & Bacon"
+          "price": 7.7,
+          "is_special": false,
+          "was_price": 9.8,
+          "store": "coles",
+          "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
         }
       ],
-      "was_price": 8.8,
-      "on_special": true,
+      "was_price": 9.8,
+      "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
-      "store": "woolworths",
-      "unit_price": 1.2,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/8/8544829.jpg",
+      "store": "coles",
+      "unit_price": 1.28,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 1.2,
-          "eff_price": 6.0,
-          "was_price": 8.8,
-          "on_special": true
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 7.7,
@@ -70796,11 +70796,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 6.0,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "Cheese & Bacon Pizza Slices 2 Pack",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -72485,7 +72485,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true
     },
     {
@@ -72503,7 +72503,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.0,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -72800,21 +72800,28 @@
         },
         {
           "date": "2026-05-26",
-          "price": 7.0,
+          "price": 5.5,
           "is_special": false,
           "was_price": 8.8,
-          "store": "coles",
-          "matched_name": "Sea Salt Crystals"
+          "store": "woolworths",
+          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
         }
       ],
       "was_price": 8.8,
       "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
-      "store": "coles",
-      "unit_price": 0.31,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
+      "store": "woolworths",
+      "unit_price": 0.37,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 5.5,
+          "unit_price": 0.37,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 7.0,
           "unit_price": 0.31,
@@ -72825,11 +72832,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 7.0,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sea Salt Crystals",
+      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -74981,7 +74988,7 @@
       "item_id": "cac9fa70-ae5e-4712-8186-3ae44d3bb794",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Mutti Tomato Paste Dbl Conc 130G",
@@ -99064,7 +99071,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -99418,7 +99425,7 @@
       "item_id": "f4dadaa4-9965-4ffe-b369-f754d184d2fd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -100358,7 +100365,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -112218,7 +112225,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true,
       "last_layer_a_check": "2026-05-25"
     },
@@ -118088,7 +118095,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -128603,6 +128610,13 @@
       "unit_price": 1.18,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.5,
+          "unit_price": 1.97,
+          "eff_price": 7.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 1.18,
@@ -135280,7 +135294,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -144828,12 +144842,19 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-crunchy-3609009",
       "stock": "medium",
       "target": null,
-      "price": 16.0,
-      "unit_price": 1.6,
-      "unit": "kg",
-      "eff_price": 16.0,
-      "store": "coles",
+      "price": 7.5,
+      "unit_price": 1.97,
+      "unit": "100g",
+      "eff_price": 7.5,
+      "store": "woolworths",
       "all_stores": {
+        "woolworths": {
+          "price": 7.5,
+          "unit_price": 1.97,
+          "eff_price": 7.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 16.0,
           "unit_price": 1.6,
@@ -144849,7 +144870,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Peanut Butter Crunchy",
+      "name_check": "Pic's Peanut Butter Crunchy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -145021,11 +145042,11 @@
         },
         {
           "date": "2026-05-26",
-          "price": 16.0,
+          "price": 7.5,
           "is_special": false,
           "was_price": 7.5,
-          "store": "coles",
-          "matched_name": "Peanut Butter Crunchy"
+          "store": "woolworths",
+          "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
       "consecutive_failures": 0,
@@ -145048,6 +145069,13 @@
       "eff_price": 4.5,
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 7.5,
+          "unit_price": 1.97,
+          "eff_price": 7.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 1.18,
@@ -145468,7 +145496,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -145691,7 +145719,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-26"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
