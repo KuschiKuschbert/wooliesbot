@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-27T04:55:12.973179Z",
+  "last_updated": "2026-05-27T12:28:04.634210Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2863,7 +2863,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Capsicum (Red)",
@@ -4610,7 +4610,7 @@
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Carrots (1kg)",
@@ -5317,7 +5317,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Zucchini",
@@ -6596,7 +6596,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -25826,7 +25826,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true
     },
     {
@@ -27140,7 +27140,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true
     },
     {
@@ -28142,7 +28142,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 81,
+      "consecutive_failures": 82,
       "quarantined": true
     },
     {
@@ -29612,7 +29612,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -30581,7 +30581,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true
     },
     {
@@ -40681,7 +40681,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -43812,7 +43812,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -44185,7 +44185,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -44490,23 +44490,23 @@
         },
         {
           "date": "2026-05-27",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -44520,13 +44520,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -45105,11 +45105,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 2.67,
-          "eff_price": 4.8,
-          "was_price": 8.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.25,
@@ -49866,7 +49866,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-20"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Beanette 400G P/P",
@@ -51325,7 +51325,7 @@
       "price_unavailable": false,
       "avg_price": 2.88,
       "eff_price": 7.5,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
@@ -57475,7 +57475,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -58883,13 +58883,13 @@
           "is_special": true,
           "was_price": 10.5,
           "store": "woolworths",
-          "matched_name": "Gem Deodorant Coconut & Vanilla"
+          "matched_name": "Gem Deodorant Antiperspirant Vanilla Macadamia"
         }
       ],
       "was_price": 10.5,
       "on_special": true,
       "local_image": "images/Gem_Deodorant_Vanilla_127G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/911043.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/911300.jpg",
       "store": "woolworths",
       "unit_price": 4.96,
       "unit": "100g",
@@ -58915,7 +58915,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Gem Deodorant Coconut & Vanilla",
+      "name_check": "Gem Deodorant Antiperspirant Vanilla Macadamia",
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -66545,7 +66545,7 @@
       "item_id": "df038f80-1d83-4878-84c9-c1c60433a67c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Colgate Toothpaste Harry Potter 100G",
@@ -70154,7 +70154,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -70178,7 +70178,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -70186,7 +70186,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -74095,7 +74095,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 48,
+      "consecutive_failures": 49,
       "quarantined": true
     },
     {
@@ -102592,7 +102592,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -111961,7 +111961,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -114716,7 +114716,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true,
       "last_layer_a_check": "2026-05-25"
     },
@@ -120139,7 +120139,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 1.6,
+      "price": 3.0,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -120444,27 +120444,27 @@
         },
         {
           "date": "2026-05-27",
-          "price": 1.6,
-          "is_special": true,
-          "was_price": 3.2,
-          "store": "woolworths",
-          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "coles",
+          "matched_name": "Soft Protein Bar Banana Chocolate"
         }
       ],
-      "was_price": 3.2,
-      "on_special": true,
+      "was_price": 5.0,
+      "on_special": false,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
-      "store": "woolworths",
-      "unit_price": 2.91,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 5.45,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 2.91,
-          "eff_price": 1.6,
-          "was_price": 3.2,
-          "on_special": true
+          "price": 5.0,
+          "unit_price": 9.09,
+          "eff_price": 5.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -120476,11 +120476,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 1.6,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
+      "name_check": "Soft Protein Bar Banana Chocolate",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -120714,7 +120714,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 69,
+      "consecutive_failures": 70,
       "quarantined": true
     },
     {
@@ -123245,7 +123245,8 @@
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Ww Pasta Salad 800G",
@@ -127916,7 +127917,7 @@
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -136142,7 +136143,8 @@
       "name_check": "Aeroplane Original Berry Blue Flavoured Jelly",
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -148981,7 +148983,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
