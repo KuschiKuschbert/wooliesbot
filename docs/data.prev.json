@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-27T19:14:43.569789Z",
+  "last_updated": "2026-05-27T22:45:23.731485Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -748,7 +748,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Bacon (Middle)",
@@ -4266,8 +4266,8 @@
       "coles": "https://www.coles.com.au/product/coles-washed-potatoes-2kg-1206748",
       "stock": "medium",
       "last_purchased": null,
-      "price": 6.0,
-      "eff_price": 6.0,
+      "price": 5.5,
+      "eff_price": 5.5,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "root_veg",
@@ -4573,7 +4573,7 @@
         },
         {
           "date": "2026-05-27",
-          "price": 6.0,
+          "price": 5.5,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -4584,13 +4584,13 @@
       "on_special": false,
       "local_image": "images/Potatoes_Washed_Bag.jpg",
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/262783.jpg",
-      "unit_price": 3.0,
+      "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 3.0,
-          "eff_price": 6.0,
+          "price": 5.5,
+          "unit_price": 2.75,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -6596,7 +6596,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -10508,7 +10508,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -19761,7 +19761,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Dishmatic Refills",
@@ -21160,19 +21160,19 @@
           "price": 6.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Frozen Fruit Blueberries"
+          "store": "woolworths",
+          "matched_name": "Woolworths Frozen Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
+          "price": 6.5,
+          "unit_price": 13.0,
+          "eff_price": 6.5,
           "was_price": null,
           "on_special": false
         },
@@ -21185,7 +21185,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -21193,7 +21193,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Frozen Fruit Blueberries",
+      "name_check": "Woolworths Frozen Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -25826,7 +25826,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -27140,7 +27140,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -28142,7 +28142,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true
     },
     {
@@ -30581,7 +30581,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -43812,7 +43812,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -45105,11 +45105,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 2.67,
-          "eff_price": 4.8,
-          "was_price": 8.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.25,
@@ -51329,7 +51329,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-05-27"
     },
@@ -53509,7 +53509,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -74088,7 +74088,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 51,
+      "consecutive_failures": 52,
       "quarantined": true
     },
     {
@@ -80611,7 +80611,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -97289,7 +97289,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-27"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -102586,7 +102586,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -107256,11 +107256,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 1.28,
-          "eff_price": 4.8,
-          "was_price": 5.8,
-          "on_special": true
+          "price": 5.8,
+          "unit_price": 1.55,
+          "eff_price": 5.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.7,
@@ -114710,7 +114710,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true,
       "last_layer_a_check": "2026-05-25"
     },
@@ -120708,7 +120708,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -138270,9 +138270,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
