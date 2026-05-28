@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-28T08:51:46.400128Z",
+  "last_updated": "2026-05-28T16:53:01.466706Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3285,7 +3285,7 @@
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Avocados (Hass)",
@@ -5090,7 +5090,7 @@
       "coles": "https://www.coles.com.au/product/coles-broccoli-approx.-340g-each-407755",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.01,
+      "price": 1.7,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
@@ -5404,7 +5404,7 @@
         },
         {
           "date": "2026-05-28",
-          "price": 5.9,
+          "price": 5.0,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -5415,13 +5415,13 @@
       "on_special": false,
       "local_image": "images/Broccoli.jpg",
       "image_url": "https://productimages.coles.com.au/4/407755.jpg",
-      "unit_price": 5.9,
+      "unit_price": 5.0,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 2.01,
-          "unit_price": 5.9,
-          "eff_price": 5.9,
+          "price": 1.7,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
@@ -5429,7 +5429,7 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 5.9,
+      "eff_price": 5.0,
       "stale": false,
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
@@ -6740,7 +6740,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -7088,9 +7088,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 5.5,
-          "unit_price": 5.5,
-          "eff_price": 5.5,
+          "price": 5.0,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
@@ -7118,8 +7118,8 @@
       "coles": "https://www.coles.com.au/product/coles-seedless-watermelon-cut-approx.-1.8kg-7508229",
       "stock": "medium",
       "last_purchased": null,
-      "price": 6.3,
-      "eff_price": 6.3,
+      "price": 7.02,
+      "eff_price": 7.02,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "fruit",
@@ -7433,7 +7433,7 @@
         },
         {
           "date": "2026-05-28",
-          "price": 6.3,
+          "price": 7.02,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -7444,7 +7444,7 @@
       "on_special": false,
       "local_image": "images/Watermelon_Quarter.jpg",
       "image_url": "https://productimages.coles.com.au/7/7508229.jpg",
-      "unit_price": 3.5,
+      "unit_price": 3.9,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
@@ -7455,9 +7455,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 6.3,
-          "unit_price": 3.5,
-          "eff_price": 6.3,
+          "price": 7.02,
+          "unit_price": 3.9,
+          "eff_price": 7.02,
           "was_price": null,
           "on_special": false
         }
@@ -13668,7 +13668,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-21"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Canned Tomatoes",
@@ -26394,7 +26394,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true
     },
     {
@@ -27732,7 +27732,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true
     },
     {
@@ -28750,7 +28750,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -31237,7 +31237,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true
     },
     {
@@ -39351,7 +39351,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.8,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -39664,27 +39664,27 @@
         },
         {
           "date": "2026-05-28",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.25,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.8,
-          "unit_price": 2.25,
-          "eff_price": 1.8,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -39696,7 +39696,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.8,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -44756,7 +44756,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -52433,8 +52433,8 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 5,
-      "quarantined": false,
+      "consecutive_failures": 6,
+      "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
     {
@@ -54661,7 +54661,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -75695,7 +75695,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "quarantined": true
     },
     {
@@ -79405,7 +79405,7 @@
       "item_id": "b703b057-3e09-494f-8e29-9f6cb76230d6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Native Bouquet",
@@ -87201,7 +87201,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -89409,9 +89409,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 4.0,
-          "unit_price": 4.0,
-          "eff_price": 4.0,
+          "price": 3.9,
+          "unit_price": 3.9,
+          "eff_price": 3.9,
           "was_price": null,
           "on_special": false
         }
@@ -94557,9 +94557,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -99408,7 +99408,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -102348,9 +102348,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.95,
+          "unit_price": 0.99,
+          "eff_price": 5.95,
           "was_price": null,
           "on_special": false
         },
@@ -104817,7 +104817,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -107025,7 +107025,8 @@
       "name_check": "VOOST Effervescent Multivitamin Tablets",
       "item_id": "f2f45aae-cb10-47c8-b535-869406f6f013",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Pump Water Pure 750Ml",
@@ -109616,7 +109617,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Vegemite 150G",
@@ -117205,7 +117206,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true,
       "last_layer_a_check": "2026-05-28"
     },
@@ -123331,7 +123332,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true
     },
     {
@@ -141285,9 +141286,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
+          "price": 3.75,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -143876,15 +143877,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -144190,24 +144191,24 @@
         },
         {
           "date": "2026-05-28",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -147412,7 +147413,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-28"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
