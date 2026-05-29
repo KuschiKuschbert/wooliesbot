@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-29T04:46:24.757523Z",
+  "last_updated": "2026-05-29T08:50:57.589886Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1515,7 +1515,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -2250,7 +2250,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -6884,9 +6884,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Corn Cobs",
@@ -19527,7 +19527,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -26962,7 +26962,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true
     },
     {
@@ -28056,22 +28056,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -28089,7 +28089,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -28324,7 +28324,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true
     },
     {
@@ -29358,7 +29358,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 90,
+      "consecutive_failures": 91,
       "quarantined": true
     },
     {
@@ -31893,7 +31893,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true
     },
     {
@@ -43961,7 +43961,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -45693,7 +45693,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -53530,7 +53530,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 8,
+      "consecutive_failures": 9,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -56944,7 +56944,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -60708,7 +60708,7 @@
       "item_id": "0354e240-bffc-42e5-aad5-43e94e99c393",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-05"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "G Active Flav Water Berry 600Ml",
@@ -61420,13 +61420,13 @@
           "is_special": true,
           "was_price": 10.5,
           "store": "woolworths",
-          "matched_name": "Gem Deodorant Antiperspirant Vanilla Macadamia"
+          "matched_name": "Gem Deodorant Coconut & Vanilla"
         }
       ],
       "was_price": 10.5,
       "on_special": true,
       "local_image": "images/Gem_Deodorant_Vanilla_127G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/911300.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/911043.jpg",
       "store": "woolworths",
       "unit_price": 4.96,
       "unit": "100g",
@@ -61452,7 +61452,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Gem Deodorant Antiperspirant Vanilla Macadamia",
+      "name_check": "Gem Deodorant Coconut & Vanilla",
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -63019,7 +63019,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-09",
-      "price": 5.2,
+      "price": 3.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -63340,7 +63340,7 @@
         },
         {
           "date": "2026-05-29",
-          "price": 5.2,
+          "price": 3.4,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -63349,13 +63349,13 @@
       ],
       "local_image": "images/Ww_Thickened_Cream_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 8.7,
+      "unit_price": 11.299999999999999,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.2,
-          "unit_price": 8.7,
-          "eff_price": 5.2,
+          "price": 3.4,
+          "unit_price": 11.299999999999999,
+          "eff_price": 3.4,
           "was_price": null,
           "on_special": false
         },
@@ -63368,9 +63368,9 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/048720.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/044317.jpg",
       "avg_price": 5.2,
-      "eff_price": 5.2,
+      "eff_price": 3.4,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -66758,7 +66758,7 @@
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -70953,7 +70953,7 @@
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -77288,7 +77288,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 57,
+      "consecutive_failures": 58,
       "quarantined": true
     },
     {
@@ -89420,7 +89420,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -90556,7 +90556,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -96558,9 +96558,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -107034,7 +107034,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true,
       "last_layer_a_check": "2026-05-26"
     },
@@ -119687,9 +119687,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -125941,7 +125941,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true
     },
     {
@@ -137197,7 +137197,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -140569,7 +140569,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-22"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
