@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-29T16:32:12.517396Z",
+  "last_updated": "2026-05-29T19:23:03.739573Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3368,7 +3368,7 @@
       "coles": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
       "stock": "medium",
       "last_purchased": null,
-      "price": 1.5,
+      "price": 2.2,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "salad_veg",
@@ -3673,7 +3673,7 @@
         },
         {
           "date": "2026-05-29",
-          "price": 1.5,
+          "price": 2.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -3681,13 +3681,13 @@
         }
       ],
       "local_image": "images/Avocados_Hass.jpg",
-      "unit_price": 1.5,
+      "unit_price": 2.2,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.5,
-          "eff_price": 1.5,
+          "price": 2.2,
+          "unit_price": 2.2,
+          "eff_price": 2.2,
           "was_price": null,
           "on_special": false
         }
@@ -3696,7 +3696,7 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/120080.jpg",
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 1.5,
+      "eff_price": 2.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -5923,7 +5923,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -6884,7 +6884,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -14335,7 +14335,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -14706,7 +14706,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -16186,7 +16186,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Crackers (Jatz)",
@@ -18046,7 +18046,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -26962,7 +26962,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true
     },
     {
@@ -28056,22 +28056,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
           "was_price": null,
           "on_special": false
         },
@@ -28089,7 +28089,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -28324,7 +28324,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true
     },
     {
@@ -29358,7 +29358,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 92,
+      "consecutive_failures": 93,
       "quarantined": true
     },
     {
@@ -31893,7 +31893,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true
     },
     {
@@ -40176,7 +40176,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.8,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -40497,27 +40497,27 @@
         },
         {
           "date": "2026-05-29",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.25,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.8,
-          "unit_price": 2.25,
-          "eff_price": 1.8,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -40529,7 +40529,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.8,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -45693,7 +45693,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -47050,11 +47050,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 6.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.8,
+          "unit_price": 2.67,
+          "eff_price": 4.8,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 1.25,
@@ -53530,7 +53530,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -58432,7 +58432,8 @@
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
       "consecutive_failures": 0,
       "quarantined": false,
-      "name_check": "Quest Peanut Butter Cups"
+      "name_check": "Quest Peanut Butter Cups",
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Cheer Cheese Block Tasty 200G",
@@ -61456,7 +61457,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -63019,7 +63020,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-09",
-      "price": 3.4,
+      "price": 5.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -63340,7 +63341,7 @@
         },
         {
           "date": "2026-05-29",
-          "price": 3.4,
+          "price": 5.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -63349,13 +63350,13 @@
       ],
       "local_image": "images/Ww_Thickened_Cream_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "unit_price": 8.7,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 5.2,
+          "unit_price": 8.7,
+          "eff_price": 5.2,
           "was_price": null,
           "on_special": false
         },
@@ -63368,9 +63369,9 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/044317.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/048720.jpg",
       "avg_price": 5.2,
-      "eff_price": 3.4,
+      "eff_price": 5.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -75150,7 +75151,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -75471,25 +75472,25 @@
         },
         {
           "date": "2026-05-29",
-          "price": 9.8,
+          "price": 8.8,
           "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
           "was_price": null,
           "on_special": false
         },
@@ -75503,11 +75504,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -77288,7 +77289,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 59,
+      "consecutive_failures": 60,
       "quarantined": true
     },
     {
@@ -85956,19 +85957,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -85981,7 +85982,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -85989,7 +85990,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -96558,9 +96559,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.1,
-          "unit_price": 3.64,
-          "eff_price": 9.1,
+          "price": 10.6,
+          "unit_price": 2.83,
+          "eff_price": 10.6,
           "was_price": null,
           "on_special": false
         },
@@ -98889,7 +98890,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -99210,36 +99211,36 @@
         },
         {
           "date": "2026-05-29",
-          "price": 12.0,
-          "is_special": false,
+          "price": 11.0,
+          "is_special": true,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.22,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
+          "price": 11.0,
+          "unit_price": 1.22,
+          "eff_price": 11.0,
+          "was_price": 12.7,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 11.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -107034,7 +107035,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -111559,7 +111560,7 @@
       "item_id": "465d9b16-5d92-4aa6-85a6-5d89d6cf2364",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Bega Peanut Butter Crunchy 375G",
@@ -119687,7 +119688,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -125941,7 +125942,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true
     },
     {
@@ -144287,9 +144288,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
+          "price": 3.75,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -154784,7 +154785,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Pics Peanut Butter Smoochy 380G",
@@ -155029,7 +155030,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -156971,7 +156972,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-29"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
