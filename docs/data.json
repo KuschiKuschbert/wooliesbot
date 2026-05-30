@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-30T07:36:01.722962Z",
+  "last_updated": "2026-05-30T10:47:13.896968Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7028,7 +7028,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -8536,7 +8536,7 @@
       "item_id": "957adf63-2bcf-4c78-94e9-cacb31782581",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Fresh Herbs (Basil)",
@@ -10059,7 +10059,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -10812,7 +10812,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Sour Cream",
@@ -21460,7 +21460,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Energizer Batteries AA",
@@ -27530,7 +27530,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true
     },
     {
@@ -28648,22 +28648,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -28681,7 +28681,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -28916,7 +28916,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true
     },
     {
@@ -29966,7 +29966,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 96,
+      "consecutive_failures": 97,
       "quarantined": true
     },
     {
@@ -32549,7 +32549,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true
     },
     {
@@ -41015,7 +41015,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -41344,27 +41344,27 @@
         },
         {
           "date": "2026-05-30",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.8,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 2.25,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.8,
+          "unit_price": 2.25,
+          "eff_price": 1.8,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -41376,7 +41376,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -46644,7 +46644,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -47041,7 +47041,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -47370,23 +47370,23 @@
         },
         {
           "date": "2026-05-30",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -47400,13 +47400,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -49594,9 +49594,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -54641,7 +54641,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -72783,7 +72783,7 @@
           "is_special": true,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -72807,7 +72807,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 3.95,
       "on_special": true,
@@ -72815,7 +72815,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -78896,7 +78896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 63,
+      "consecutive_failures": 64,
       "quarantined": true
     },
     {
@@ -91678,7 +91678,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -109273,7 +109273,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -119267,7 +119267,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -122190,7 +122190,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -128572,7 +128572,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 84,
+      "consecutive_failures": 85,
       "quarantined": true
     },
     {
@@ -145034,7 +145034,7 @@
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -147335,7 +147335,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -153709,7 +153709,7 @@
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -157555,7 +157555,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -159805,7 +159805,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
@@ -160059,7 +160059,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
