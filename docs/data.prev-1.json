@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-30T10:47:13.896968Z",
+  "last_updated": "2026-05-30T14:34:52.755964Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -796,7 +796,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Bacon (Middle)",
@@ -7028,7 +7028,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -27530,7 +27530,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -28916,7 +28916,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -29966,7 +29966,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true
     },
     {
@@ -32549,7 +32549,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -34496,7 +34496,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -40601,7 +40601,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -41015,7 +41015,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.8,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -41344,27 +41344,27 @@
         },
         {
           "date": "2026-05-30",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.25,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.8,
-          "unit_price": 2.25,
-          "eff_price": 1.8,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -41376,7 +41376,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.8,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -46644,7 +46644,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -54641,7 +54641,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -76718,7 +76718,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -77047,25 +77047,25 @@
         },
         {
           "date": "2026-05-30",
-          "price": 9.8,
+          "price": 8.8,
           "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
           "was_price": null,
           "on_special": false
         },
@@ -77079,11 +77079,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false
@@ -78896,7 +78896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -83539,7 +83539,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -93190,13 +93190,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Green Asparagus Bunch Green"
+          "matched_name": "Woolworths Asparagus Green Bunch"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Asparagus_Green_Bnch.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/305235.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/132538.jpg",
       "store": "woolworths",
       "unit_price": 3.9,
       "unit": "each",
@@ -93222,7 +93222,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Green Asparagus Bunch Green",
+      "name_check": "Woolworths Asparagus Green Bunch",
       "item_id": "f54c233c-5595-4827-ac60-45db1645eac6",
       "consecutive_failures": 0,
       "quarantined": false
@@ -96298,7 +96298,7 @@
       "item_id": "a0c66303-6565-4487-b86c-257f25cf99f1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-04"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
@@ -101323,7 +101323,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -109273,7 +109273,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -122190,7 +122190,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -125267,7 +125267,7 @@
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -128572,7 +128572,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -146561,7 +146561,7 @@
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-18"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -146953,7 +146953,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -150013,15 +150013,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -150343,24 +150343,24 @@
         },
         {
           "date": "2026-05-30",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -158555,7 +158555,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
