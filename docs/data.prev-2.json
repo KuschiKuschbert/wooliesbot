@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-30T17:58:44.194613Z",
+  "last_updated": "2026-05-30T21:46:11.155950Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7028,7 +7028,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -7411,7 +7411,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -16904,7 +16904,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -27530,7 +27530,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -28648,22 +28648,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
           "was_price": null,
           "on_special": false
         },
@@ -28681,7 +28681,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -28916,7 +28916,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -29966,7 +29966,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true
     },
     {
@@ -32549,7 +32549,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -32909,6 +32909,13 @@
       "unit_price": 21.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.9,
+          "unit_price": 15.8,
+          "eff_price": 7.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.3,
           "unit_price": 21.5,
@@ -41008,7 +41015,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.8,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -41337,27 +41344,27 @@
         },
         {
           "date": "2026-05-30",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.25,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.8,
-          "unit_price": 2.25,
-          "eff_price": 1.8,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -41369,7 +41376,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.8,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -44873,7 +44880,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -46637,7 +46644,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true,
       "last_layer_a_check": "2026-05-24"
     },
@@ -49587,9 +49594,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -54634,7 +54641,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -62729,7 +62736,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -76694,7 +76701,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -78889,7 +78896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 66,
+      "consecutive_failures": 67,
       "quarantined": true
     },
     {
@@ -87748,19 +87755,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -87773,7 +87780,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -87781,7 +87788,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -98574,9 +98581,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 10.6,
-          "unit_price": 2.83,
-          "eff_price": 10.6,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -98951,26 +98958,26 @@
         {
           "date": "2026-05-30",
           "price": 1.6,
-          "is_special": false,
+          "is_special": true,
           "was_price": 2.3,
           "store": "woolworths",
-          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+          "matched_name": "Dine Fillets Wet Cat Food Tuna & Chicken"
         }
       ],
       "was_price": 2.3,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.67,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 1.6,
-          "unit_price": 1.88,
+          "unit_price": 2.67,
           "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
+          "was_price": 2.3,
+          "on_special": true
         },
         "coles": {
           "price": 1.6,
@@ -98986,7 +98993,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
+      "name_check": "Dine Fillets Wet Cat Food Tuna & Chicken",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false
@@ -109266,7 +109273,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -122183,7 +122190,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true,
       "last_layer_a_check": "2026-05-30"
     },
@@ -128565,7 +128572,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -132414,7 +132421,7 @@
       "item_id": "b1975ee5-26e7-41ad-9c02-5c8b775de868",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-05-30"
     },
     {
       "name": "Connoisseur Minis Cookies&Cream 6Pk360Ml",
