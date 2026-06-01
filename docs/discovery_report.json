@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-25T07:17:55.959213+00:00",
-  "report_id": "2026-W22",
-  "total_new_candidates": 5,
+  "generated_at": "2026-06-01T08:37:51.388068+00:00",
+  "report_id": "2026-W23",
+  "total_new_candidates": 6,
   "groups": {
     "beef_strips": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "bread_white": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": [
         {
           "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
@@ -30,7 +30,7 @@
       ]
     },
     "butter_block_250g": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": [
         {
           "name": "Allowrie Allowrie Salted Butter Block 250g",
@@ -56,11 +56,11 @@
       ]
     },
     "cheese_tasty_block": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "cola": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": [
         {
           "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
@@ -86,28 +86,11 @@
       ]
     },
     "eggs_free_range": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": [
         {
-          "name": "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g",
-          "woolworths": "https://www.woolworths.com.au/shop/productdetails/101565/lake-macquarie-12-jumbo-free-range-eggs",
-          "coles": "",
-          "compare_group": "eggs_free_range",
-          "price_mode": "each",
-          "stock": "medium",
-          "last_purchased": null,
-          "price_history": [],
-          "_discovery_meta": {
-            "anchor_query": "free range eggs 12 pack",
-            "bucket": "('sig', ((), (), (800,)))",
-            "overlap_labels": [
-              "Lake Macquarie Lake Macquarie 12 Jumbo Free Range Eggs 800g"
-            ]
-          }
-        },
-        {
-          "name": "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
-          "woolworths": "https://www.woolworths.com.au/shop/productdetails/224763/woolworths-12-x-large-free-range-eggs",
+          "name": "Open Range Open Range 12 Large Free Range Eggs 700g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/117784/open-range-12-large-free-range-eggs",
           "coles": "",
           "compare_group": "eggs_free_range",
           "price_mode": "each",
@@ -118,7 +101,6 @@
             "anchor_query": "free range eggs 12 pack",
             "bucket": "('sig', ((), (), (700,)))",
             "overlap_labels": [
-              "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
               "Open Range Open Range 12 Large Free Range Eggs 700g"
             ]
           }
@@ -126,31 +108,67 @@
       ]
     },
     "milk_full_cream": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "mince_beef": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "omo_wonder_wash": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
-      "new_candidates": []
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "new_candidates": [
+        {
+          "name": "OMO OMO Sensitive Laundry Liquid Detergent 4L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/430625/omo-sensitive-laundry-liquid-detergent",
+          "coles": "",
+          "compare_group": "omo_wonder_wash",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "Omo laundry liquid",
+            "bucket": "('sig', ((), (4000,), ()))",
+            "overlap_labels": [
+              "OMO OMO Sensitive Laundry Liquid Detergent 4L",
+              "OMO OMO Ultimate Liquid Laundry Detergent 4L"
+            ]
+          }
+        },
+        {
+          "name": "OMO OMO Ultimate Laundry Liquid Detergent 2L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/208873/omo-ultimate-laundry-liquid-detergent",
+          "coles": "",
+          "compare_group": "omo_wonder_wash",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "Omo laundry liquid",
+            "bucket": "('sig', ((), (2000,), ()))",
+            "overlap_labels": [
+              "OMO OMO Ultimate Laundry Liquid Detergent 2L"
+            ]
+          }
+        }
+      ]
     },
     "pasta_dry": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "peanut_butter": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "sourdough_loaf": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     },
     "tp_quilton": {
-      "checked_at": "2026-05-25T07:17:55.959213+00:00",
+      "checked_at": "2026-06-01T08:37:51.388068+00:00",
       "new_candidates": []
     }
   }
