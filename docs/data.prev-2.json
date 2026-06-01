@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-31T21:50:27.568684Z",
+  "last_updated": "2026-06-01T05:10:35.860268Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -351,6 +351,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet 1.3kg - 1.7kg"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.0,
           "is_special": false,
           "was_price": null,
@@ -738,6 +746,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 22.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "No Added Hormone Beef 4 Star Lean Mince"
+        },
+        {
+          "date": "2026-06-01",
           "price": 22.0,
           "is_special": false,
           "was_price": null,
@@ -1167,6 +1183,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Middle Bacon Middle Rashers 1kg"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 12.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Middle Bacon Middle Rashers 1kg"
         }
       ],
       "was_price": null,
@@ -1192,7 +1216,7 @@
       "item_id": "78b8cbd4-2f0e-4507-abda-57d772fba6a9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Pork Loin Roast",
@@ -1542,6 +1566,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 13.0,
+          "is_special": false,
+          "was_price": 19.38,
+          "store": "coles",
+          "matched_name": "Boneless Pork Loin Roast"
+        },
+        {
+          "date": "2026-06-01",
           "price": 13.0,
           "is_special": false,
           "was_price": 19.38,
@@ -1934,6 +1966,14 @@
           "was_price": 7.8,
           "store": "woolworths",
           "matched_name": "Primo Chorizo 2 Pack 2 pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.7,
+          "is_special": false,
+          "was_price": 7.8,
+          "store": "woolworths",
+          "matched_name": "Primo Chorizo 2 Pack 2 pack"
         }
       ],
       "was_price": 7.8,
@@ -2321,6 +2361,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": " Leg Ham Shaved From The Deli per 100g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 19.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": " Leg Ham Shaved From The Deli per 100g"
         }
       ],
       "was_price": null,
@@ -2697,6 +2745,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 17.1,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "woolworths",
+          "matched_name": "MasterFoods Chinese Beef Stir Fry Recipe Base"
+        },
+        {
+          "date": "2026-06-01",
           "price": 17.1,
           "is_special": false,
           "was_price": 12.0,
@@ -3091,6 +3147,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "11x 9 Beef Rump Steak"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 29.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "11x 9 Beef Rump Steak"
         }
       ],
       "was_price": null,
@@ -3473,6 +3537,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Red Capsicum Loose"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 10.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Red Capsicum Loose"
         }
       ],
       "was_price": null,
@@ -3833,6 +3905,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": " Hass Avocado  each"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.5,
           "is_special": false,
           "was_price": null,
@@ -4216,6 +4296,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Baby Leaf Spinach"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": null,
@@ -4607,6 +4695,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Brown Onions"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Brown Onions"
         }
       ],
       "was_price": null,
@@ -4989,6 +5085,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Washed Potatoes Bag 2kg"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": null,
@@ -5383,6 +5487,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Australian Grown Carrots 1kg"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Grown Carrots 1kg"
         }
       ],
       "was_price": null,
@@ -5415,7 +5527,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Broccoli",
@@ -5764,6 +5876,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Broccoli Medium"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": null,
@@ -6152,6 +6272,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Green Zucchini"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Green Zucchini"
         }
       ],
       "was_price": null,
@@ -6533,6 +6661,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Mushrooms Cup"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 20.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Mushrooms Cup"
         }
       ],
       "was_price": null,
@@ -6909,6 +7045,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Kent Pumpkin Cut"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Kent Pumpkin Cut"
         }
       ],
       "was_price": null,
@@ -7172,7 +7316,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -7522,6 +7666,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Frozen Sweet Corn Cobs"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": null,
@@ -7918,6 +8070,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Seedless Watermelon Cut"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.02,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Seedless Watermelon Cut"
         }
       ],
       "was_price": null,
@@ -8305,6 +8465,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "I'm Perfect Lemons Prepack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "I'm Perfect Lemons Prepack"
         }
       ],
       "was_price": null,
@@ -8680,6 +8848,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 35.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Garlic Loose"
+        },
+        {
+          "date": "2026-06-01",
           "price": 35.0,
           "is_special": false,
           "was_price": null,
@@ -9067,6 +9243,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Green Basil Bunch each"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Green Basil Bunch each"
         }
       ],
       "was_price": null,
@@ -9099,7 +9283,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Medjool Dates",
@@ -9454,6 +9638,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Golden Palm Medjool Dates Punnet 450g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 10.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Golden Palm Medjool Dates Punnet 450g"
         }
       ],
       "was_price": null,
@@ -9486,7 +9678,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -9836,6 +10028,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths 18 Large Cage Free Eggs  900g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.4,
           "is_special": false,
           "was_price": null,
@@ -10224,6 +10424,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.9,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "coles",
+          "matched_name": "Dairy Butter Pat"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.9,
           "is_special": false,
           "was_price": 5.5,
@@ -10622,6 +10830,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Tasty Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 23.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Tasty Cheese Block"
         }
       ],
       "was_price": null,
@@ -10999,6 +11215,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.7,
+          "is_special": false,
+          "was_price": 5.7,
+          "store": "woolworths",
+          "matched_name": "Philadelphia Original Cream Cheese Block 250g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.7,
           "is_special": false,
           "was_price": 5.7,
@@ -11386,6 +11610,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Sour Cream  300mL"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": null,
@@ -11791,6 +12023,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Natural Greek Style Yoghurt  1kg"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Natural Greek Style Yoghurt  1kg"
         }
       ],
       "was_price": null,
@@ -12173,6 +12413,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": 3.3,
+          "store": "woolworths",
+          "matched_name": "Wicked Sister High Protein Coffee Pudding"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": 3.3,
@@ -12562,6 +12810,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Peas Snap Frozen"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.5,
           "is_special": false,
           "was_price": null,
@@ -12959,6 +13215,14 @@
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Ingham's Frozen Chicken Breast Tenders Original 400g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Ingham's Frozen Chicken Breast Tenders Original 400g"
         }
       ],
       "was_price": 5.5,
@@ -13346,6 +13610,14 @@
           "was_price": 13.0,
           "store": "woolworths",
           "matched_name": "Connoisseur Ice Cream Classic Vanilla Tub 1L"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.75,
+          "is_special": false,
+          "was_price": 13.0,
+          "store": "woolworths",
+          "matched_name": "Connoisseur Ice Cream Classic Vanilla Tub 1L"
         }
       ],
       "was_price": 13.0,
@@ -13728,6 +14000,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths English Muffins  6 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.0,
           "is_special": false,
           "was_price": null,
@@ -14137,6 +14417,14 @@
           "was_price": 6.5,
           "store": "woolworths",
           "matched_name": "Mission Carb Balance Original Wraps  6 pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.6,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Mission Carb Balance Original Wraps  6 pack"
         }
       ],
       "was_price": 6.5,
@@ -14169,7 +14457,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Rice Paper",
@@ -14519,6 +14807,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Pandaroo Ingredients Rice Paper Spring Roll 150g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.3,
           "is_special": false,
           "was_price": null,
@@ -14911,6 +15207,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Essentials Diced Tomatoes  400g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 0.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Essentials Diced Tomatoes  400g"
         }
       ],
       "was_price": null,
@@ -15298,6 +15602,14 @@
           "was_price": 4.5,
           "store": "coles",
           "matched_name": "Real Stock Chicken"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.25,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Real Stock Chicken"
         }
       ],
       "was_price": 4.5,
@@ -15680,6 +15992,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "woolworths",
+          "matched_name": "Pic's Peanut Butter Smooth 380g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.5,
           "is_special": false,
           "was_price": 7.5,
@@ -16073,6 +16393,14 @@
           "was_price": 14.5,
           "store": "coles",
           "matched_name": "Blend 43 Espresso Instant Coffee"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 10.0,
+          "is_special": false,
+          "was_price": 14.5,
+          "store": "coles",
+          "matched_name": "Blend 43 Espresso Instant Coffee"
         }
       ],
       "was_price": 14.5,
@@ -16459,6 +16787,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Almond Meal"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Almond Meal"
         }
       ],
       "was_price": null,
@@ -16837,6 +17173,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": 4.8,
+          "store": "woolworths",
+          "matched_name": "Green's Gravy Granules Traditional 120g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.8,
           "is_special": false,
           "was_price": 4.8,
@@ -17228,6 +17572,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Arnott's Jatz Original Crackers Biscuits 225g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Arnott's Jatz Original Crackers Biscuits 225g"
         }
       ],
       "was_price": null,
@@ -17611,6 +17963,14 @@
           "was_price": 9.75,
           "store": "woolworths",
           "matched_name": "Lindt Excellence 95% Cocoa Dark Chocolate Block 80g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.75,
+          "is_special": false,
+          "was_price": 9.75,
+          "store": "woolworths",
+          "matched_name": "Lindt Excellence 95% Cocoa Dark Chocolate Block 80g"
         }
       ],
       "was_price": 9.75,
@@ -17654,9 +18014,9 @@
       "coles": "https://www.coles.com.au/product/quest-protein-bar-cookies-and-cream-60g-2477671",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.4,
-      "eff_price": 5.4,
-      "store": "coles",
+      "price": 3.75,
+      "eff_price": 3.75,
+      "store": "woolworths",
       "brand": "Quest",
       "subcategory": "snacks",
       "size": "Standard",
@@ -17998,21 +18358,29 @@
           "was_price": 5.4,
           "store": "coles",
           "matched_name": "Protein Bar Cookies & Cream"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.75,
+          "is_special": true,
+          "was_price": 5.4,
+          "store": "woolworths",
+          "matched_name": "Quest Protein Bar Smores"
         }
       ],
       "was_price": 5.4,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Quest_BSC_Protein_Bars.jpg",
       "image_url": "images/questbsc_protein_bars.jpg",
-      "unit_price": 9.0,
-      "unit": "kg",
+      "unit_price": 6.25,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 7.92,
-          "eff_price": 19.0,
-          "was_price": null,
-          "on_special": false
+          "price": 3.75,
+          "unit_price": 6.25,
+          "eff_price": 3.75,
+          "was_price": 5.4,
+          "on_special": true
         },
         "coles": {
           "price": 5.4,
@@ -18028,7 +18396,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Protein Bar Cookies & Cream",
+      "name_check": "Quest Protein Bar Smores",
       "item_id": "ab791734-344e-4514-a3ab-342db74a659b",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -18386,6 +18754,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.6333333333333333,
+          "is_special": false,
+          "was_price": 4.39,
+          "store": "woolworths",
+          "matched_name": "Pepsi Max No Sugar Soft Drink Cans 375mL x 24 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.6333333333333333,
           "is_special": false,
           "was_price": 4.39,
@@ -18782,6 +19158,14 @@
           "was_price": 4.17,
           "store": "coles",
           "matched_name": "Zero Sugar Soft Drink Multipack Cans 375ml"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.888888888888889,
+          "is_special": false,
+          "was_price": 4.17,
+          "store": "coles",
+          "matched_name": "Zero Sugar Soft Drink Multipack Cans 375ml"
         }
       ],
       "was_price": 4.17,
@@ -19166,6 +19550,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.6222222222222222,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Pepsi Max No Sugar Soft Drink Cans 375mL x 30 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.6222222222222222,
           "is_special": false,
           "was_price": null,
@@ -19560,6 +19952,14 @@
           "was_price": 3.56,
           "store": "woolworths",
           "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans 375mL x 30 pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.577777777777778,
+          "is_special": false,
+          "was_price": 3.56,
+          "store": "woolworths",
+          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans 375mL x 30 pack"
         }
       ],
       "was_price": 3.56,
@@ -19592,7 +19992,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -19942,6 +20342,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Juice Lab Wellness Shot Calm  60mL"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.5,
           "is_special": false,
           "was_price": null,
@@ -20322,6 +20730,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.5,
+          "is_special": true,
+          "was_price": 13.0,
+          "store": "woolworths",
+          "matched_name": "Whiskas Kitten Wet Cat Food Chicken In Gravy Pouch"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.5,
           "is_special": true,
           "was_price": 13.0,
@@ -20714,6 +21130,14 @@
           "was_price": 15.0,
           "store": "woolworths",
           "matched_name": "Pedigree Adult Dry Dog Food with Real Beef 3kg"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": 15.0,
+          "store": "woolworths",
+          "matched_name": "Pedigree Adult Dry Dog Food with Real Beef 3kg"
         }
       ],
       "was_price": 15.0,
@@ -21096,6 +21520,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "3 Ply Classic White Toilet Paper"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.0,
           "is_special": false,
           "was_price": null,
@@ -21489,6 +21921,14 @@
           "was_price": 30.0,
           "store": "coles",
           "matched_name": "Laundry Detergent Washing Powder Active Clean"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 15.0,
+          "is_special": false,
+          "was_price": 30.0,
+          "store": "coles",
+          "matched_name": "Laundry Detergent Washing Powder Active Clean"
         }
       ],
       "was_price": 30.0,
@@ -21876,6 +22316,14 @@
           "was_price": 6.3,
           "store": "coles",
           "matched_name": "General Purpose Refill"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.3,
+          "is_special": false,
+          "was_price": 6.3,
+          "store": "coles",
+          "matched_name": "General Purpose Refill"
         }
       ],
       "was_price": 6.3,
@@ -22258,6 +22706,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 28.5,
+          "is_special": false,
+          "was_price": 29.0,
+          "store": "woolworths",
+          "matched_name": "Energizer Max AA Alkaline Batteries  16 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 28.5,
           "is_special": false,
           "was_price": 29.0,
@@ -22660,6 +23116,14 @@
           "was_price": 6.5,
           "store": "coles",
           "matched_name": "White Toilet Tissue"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.55,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "coles",
+          "matched_name": "White Toilet Tissue"
         }
       ],
       "was_price": 6.5,
@@ -23050,17 +23514,25 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Frozen Blueberries"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Frozen Fruit Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 13.0,
-          "eff_price": 6.5,
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -23073,7 +23545,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
+      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -23081,7 +23553,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Frozen Blueberries",
+      "name_check": "Frozen Fruit Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -23442,6 +23914,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "a2 Milk Light Milk"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.9,
           "is_special": false,
           "was_price": null,
@@ -23862,6 +24342,14 @@
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 19.35,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Woolworths Lean Beef Mince"
         }
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
@@ -23912,7 +24400,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 6.0,
+      "price": 5.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "350G",
@@ -24254,20 +24742,28 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Mozzarella Cheese"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Mozzarella Sticks"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Pear_Mozzarella_350G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/688515.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/137393.jpg",
       "store": "woolworths",
-      "unit_price": 17.14,
-      "unit": "kg",
+      "unit_price": 1.93,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 17.14,
-          "eff_price": 6.0,
+          "price": 5.8,
+          "unit_price": 1.93,
+          "eff_price": 5.8,
           "was_price": null,
           "on_special": false
         },
@@ -24281,11 +24777,11 @@
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 6.0,
+      "eff_price": 5.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mozzarella Cheese",
+      "name_check": "Woolworths Mozzarella Sticks",
       "item_id": "010a7b6a-00fc-45b3-acbc-ed4962bc5121",
       "consecutive_failures": 0,
       "quarantined": false
@@ -24654,6 +25150,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Traditional Bocconcini"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.8,
           "is_special": false,
           "was_price": null,
@@ -25052,6 +25556,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Danish Style Fetta"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Danish Style Fetta"
         }
       ],
       "was_price": null,
@@ -25433,6 +25945,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 15.4,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "coles",
+          "matched_name": "RSPCA Approved Chicken Breast Fillets Large Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 15.4,
           "is_special": false,
           "was_price": 12.0,
@@ -25833,6 +26353,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Strawberry Yoghurt"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.25,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Strawberry Yoghurt"
         }
       ],
       "was_price": null,
@@ -26221,6 +26749,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 8.0,
+          "store": "coles",
+          "matched_name": "Old Gold Peppermint Dark Chocolate Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": 8.0,
@@ -26624,6 +27160,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths 85% Belgian Dark Chocolate"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths 85% Belgian Dark Chocolate"
         }
       ],
       "was_price": null,
@@ -27012,6 +27556,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "woolworths",
+          "matched_name": "The Lady Bar Rocky Road Rocky Road High Fibre"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.5,
           "is_special": false,
           "was_price": 4.5,
@@ -27420,6 +27972,14 @@
           "was_price": 4.2,
           "store": "coles",
           "matched_name": "Sugar Free Maple Flavoured Syrup"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.75,
+          "is_special": false,
+          "was_price": 4.2,
+          "store": "coles",
+          "matched_name": "Sugar Free Maple Flavoured Syrup"
         }
       ],
       "was_price": 4.2,
@@ -27814,6 +28374,14 @@
           "was_price": 8.7,
           "store": "woolworths",
           "matched_name": "Hydralyte Effervescent Electrolyte Tablets Passionfruit Punch"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 8.7,
+          "is_special": false,
+          "was_price": 8.7,
+          "store": "woolworths",
+          "matched_name": "Hydralyte Effervescent Electrolyte Tablets Passionfruit Punch"
         }
       ],
       "was_price": 8.7,
@@ -28098,7 +28666,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true
     },
     {
@@ -28453,6 +29021,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Weet-Bix Breakfast Cereal"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": null,
@@ -28855,6 +29431,14 @@
           "was_price": 3.5,
           "store": "woolworths",
           "matched_name": "La Molisana Extra Di Lusso 28 Fusilli"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": 3.5,
+          "store": "woolworths",
+          "matched_name": "La Molisana Extra Di Lusso 28 Fusilli"
         }
       ],
       "was_price": 3.5,
@@ -29242,6 +29826,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Original Water Crackers"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 0.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
@@ -29508,7 +30100,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true
     },
     {
@@ -29885,6 +30477,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 0.63,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Onion Brown"
+        },
+        {
+          "date": "2026-06-01",
           "price": 0.63,
           "is_special": false,
           "was_price": null,
@@ -30295,6 +30895,14 @@
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Woolworths White Cup Sliced Mushroom Punnet"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Woolworths White Cup Sliced Mushroom Punnet"
         }
       ],
       "was_price": 4.0,
@@ -30574,7 +31182,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "quarantined": true
     },
     {
@@ -30929,6 +31537,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.0,
+          "is_special": false,
+          "was_price": 6.8,
+          "store": "coles",
+          "matched_name": "Crafted Rustic White Sourdough"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.0,
           "is_special": false,
           "was_price": 6.8,
@@ -31324,6 +31940,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.18,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Potato Brushed"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.18,
           "is_special": false,
           "was_price": null,
@@ -31733,6 +32357,14 @@
           "was_price": 5.33,
           "store": "coles",
           "matched_name": "Max Soft Drink No Sugar Cans Multipack 375ml"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.2,
+          "is_special": false,
+          "was_price": 5.33,
+          "store": "coles",
+          "matched_name": "Max Soft Drink No Sugar Cans Multipack 375ml"
         }
       ],
       "local_image": "images/Pepsi_Max_Cola_Cans_10X375Ml.jpg",
@@ -32137,6 +32769,14 @@
           "was_price": 5.6,
           "store": "woolworths",
           "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.36,
+          "is_special": true,
+          "was_price": 5.6,
+          "store": "woolworths",
+          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
         }
       ],
       "was_price": 5.6,
@@ -32530,6 +33170,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": false,
           "was_price": 12.0,
@@ -32933,6 +33581,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Beef Rump Steak"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Beef Rump Steak"
         }
       ],
       "was_price": null,
@@ -33205,7 +33861,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true
     },
     {
@@ -33560,6 +34216,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Organic Cottage Cheese"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.3,
           "is_special": false,
           "was_price": null,
@@ -33967,6 +34631,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Light Thickened Cream"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
@@ -34359,6 +35031,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.9,
+          "is_special": true,
+          "was_price": 3.2,
+          "store": "woolworths",
+          "matched_name": "YoPRO Protein Yoghurt Vanilla"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.9,
           "is_special": true,
           "was_price": 3.2,
@@ -34762,6 +35442,14 @@
           "was_price": 6.6,
           "store": "woolworths",
           "matched_name": "Woolworths 12 Extra Large Cage Free Eggs"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.7,
+          "is_special": false,
+          "was_price": 6.6,
+          "store": "woolworths",
+          "matched_name": "Woolworths 12 Extra Large Cage Free Eggs"
         }
       ],
       "was_price": 6.6,
@@ -35152,6 +35840,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.0,
+          "is_special": true,
+          "was_price": 2.0,
+          "store": "woolworths",
+          "matched_name": "Vegeta Chicken Stock Cubes"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.0,
           "is_special": true,
           "was_price": 2.0,
@@ -35569,7 +36265,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Vegeta Beef Stock Cubes",
       "item_id": "2c4bf20a-f481-4a4c-8f01-2ca26ec6ff22",
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "quarantined": false,
       "last_layer_a_check": "2026-05-28"
     },
@@ -35935,6 +36631,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 9.0,
+          "store": "coles",
+          "matched_name": "Tasty Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.5,
           "is_special": false,
           "was_price": 9.0,
@@ -36339,6 +37043,14 @@
           "was_price": 5.0,
           "store": "woolworths",
           "matched_name": "Heinz Tomato Ketchup Squeezy Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": true,
+          "was_price": 5.0,
+          "store": "woolworths",
+          "matched_name": "Heinz Tomato Ketchup Squeezy Bottle"
         }
       ],
       "was_price": 5.0,
@@ -36728,6 +37440,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.1,
+          "is_special": false,
+          "was_price": 2.1,
+          "store": "woolworths",
+          "matched_name": "Real Foods Corn Thins Multigrain"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.1,
           "is_special": false,
           "was_price": 2.1,
@@ -37131,6 +37851,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Sundried Tomato Strips"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.65,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Sundried Tomato Strips"
         }
       ],
       "local_image": "images/Ww_Sundried_Tomato_Strips_270G.jpg",
@@ -37519,6 +38247,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Himalayan Pink Salt Refill"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.0,
           "is_special": false,
           "was_price": null,
@@ -37916,6 +38652,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 3.5,
+          "store": "woolworths",
+          "matched_name": "Cobs Best Ever Butter Popcorn"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": 3.5,
@@ -38322,6 +39066,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Lettuce Cos Baby Hearts"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Lettuce Cos Baby Hearts"
         }
       ],
       "was_price": null,
@@ -38717,6 +39469,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "The Odd Bunch Apples Prepacked Punnet"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Apples Prepacked Punnet"
         }
       ],
       "local_image": "images/Apple_The_Odd_Bunch_1Kg_Pp.jpg",
@@ -39018,6 +39778,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.1,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.1,
           "is_special": false,
           "was_price": null,
@@ -39417,6 +40185,14 @@
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Nu Pure Still Spring Water"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.25,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Nu Pure Still Spring Water"
         }
       ],
       "local_image": "images/Nu_Pure_Lem_Lime_Spklg_Wtr_500Ml_X_12Pk.jpg",
@@ -39805,6 +40581,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Clear Mini Hooks"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.3,
           "is_special": false,
           "was_price": null,
@@ -40200,6 +40984,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Reusable Art Shopping Bag Assorted"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Reusable Art Shopping Bag Assorted"
         }
       ],
       "was_price": null,
@@ -40581,6 +41373,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Shine Dishwashing Liquid Lemon"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.4,
           "is_special": false,
           "was_price": null,
@@ -40984,6 +41784,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "La Gina Italian Passata With Basil"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "La Gina Italian Passata With Basil"
         }
       ],
       "was_price": null,
@@ -41376,6 +42184,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.5,
+          "is_special": true,
+          "was_price": 21.0,
+          "store": "woolworths",
+          "matched_name": "OMO Expert Wonder Wash Laundry Liquid Detergent Odour Refresh"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.5,
           "is_special": true,
           "was_price": 21.0,
@@ -41784,6 +42600,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Diced Italian Tomatoes Basil & Oregano"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Diced Italian Tomatoes Basil & Oregano"
         }
       ],
       "was_price": null,
@@ -42176,6 +43000,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.8,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "woolworths",
+          "matched_name": "Continental Pasta & Sauce Carbonara"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
@@ -42575,6 +43407,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Cottee's Strawberry Jam"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Cottee's Strawberry Jam"
         }
       ],
       "was_price": null,
@@ -42963,6 +43803,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Potato Stix Roast Multipack Kids Lunchbox Snacks 6x20g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": null,
@@ -43362,6 +44210,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Cherry Tomato & Basil Pasta Sauce"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Cherry Tomato & Basil Pasta Sauce"
         }
       ],
       "local_image": "images/Tomato_Cherry_Red_250G_PP.jpg",
@@ -43751,6 +44607,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 0.25,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+        },
+        {
+          "date": "2026-06-01",
           "price": 0.25,
           "is_special": false,
           "was_price": null,
@@ -44157,6 +45021,14 @@
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 22.0,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Woolworths Lean Beef Mince"
         }
       ],
       "was_price": 11.0,
@@ -44210,7 +45082,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.0,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -44552,22 +45424,30 @@
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.95,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 0.91,
+      "unit_price": 1.97,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.91,
-          "eff_price": 4.0,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -44579,7 +45459,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.0,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -44949,6 +45829,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "La Casa Del Formaggio Fresh Mozzarella"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.0,
           "is_special": false,
           "was_price": null,
@@ -45355,6 +46243,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Fajita Spice Mix"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Fajita Spice Mix"
         }
       ],
       "store": "coles",
@@ -45743,6 +46639,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Butter Unsalted"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.5,
           "is_special": false,
           "was_price": null,
@@ -46138,6 +47042,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "woolworths",
+          "matched_name": "Perfect Italiano Parmesan Cheese Shaved Parmesan"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.8,
           "is_special": false,
           "was_price": 4.5,
@@ -46540,6 +47452,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Coat & Cook Seasoning Mix Country Style Roast Chicken"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Coat & Cook Seasoning Mix Country Style Roast Chicken"
         }
       ],
       "local_image": "images/Ww_Country_Style_Roast_Chicken_1Ea.jpg",
@@ -46936,6 +47856,14 @@
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Pepsi Max Cola No Sugar Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "woolworths",
+          "matched_name": "Pepsi Max Cola No Sugar Soft Drink Bottle"
         }
       ],
       "was_price": 3.0,
@@ -47320,6 +48248,14 @@
           "was_price": 3.36,
           "store": "woolworths",
           "matched_name": "Coca-Cola Classic  Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.6800000000000002,
+          "is_special": true,
+          "was_price": 3.36,
+          "store": "woolworths",
+          "matched_name": "Coca-Cola Classic  Soft Drink Bottle"
         }
       ],
       "was_price": 3.36,
@@ -47580,9 +48516,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -47936,6 +48872,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Golden Circle Australian Canned Fruit Tinned Pineapple Slices in Juice"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.4,
           "is_special": false,
           "was_price": null,
@@ -48327,6 +49271,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Naturals Body Wash Pomegranate & Mango"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 16.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
@@ -48604,6 +49556,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "woolworths",
+          "matched_name": "Cadbury Dairy Milk Chocolate Freddo Strawberry 12 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.5,
           "is_special": false,
           "was_price": 7.5,
@@ -48989,6 +49949,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.25,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.25,
           "is_special": false,
           "was_price": 3.0,
@@ -49381,6 +50349,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.0,
+          "is_special": false,
+          "was_price": 6.0,
+          "store": "woolworths",
+          "matched_name": "Kettle Sea Salt & Vinegar Potato Chips"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.0,
           "is_special": false,
           "was_price": 6.0,
@@ -49796,6 +50772,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Natural Greek Style Yoghurt"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Natural Greek Style Yoghurt"
         }
       ],
       "local_image": "images/Ww_Natural_Greek_Style_Yoghurt_2Kg.jpg",
@@ -50184,6 +51168,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "D'Orsogna Champagne Leg Ham Sliced From The Deli per 100g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.3,
           "is_special": false,
           "was_price": null,
@@ -50578,6 +51570,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.6,
+          "is_special": false,
+          "was_price": 6.6,
+          "store": "coles",
+          "matched_name": "Double Smoked Leg Ham"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.6,
           "is_special": false,
           "was_price": 6.6,
@@ -50978,6 +51978,14 @@
           "was_price": 6.5,
           "store": "woolworths",
           "matched_name": "Woolworths Winter Veg Mix"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.2,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Woolworths Winter Veg Mix"
         }
       ],
       "local_image": "images/Ww_Winter_Veg_Mix_1Kg.jpg",
@@ -51366,6 +52374,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Frozen Family Beef Pie"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.0,
           "is_special": false,
           "was_price": null,
@@ -51764,6 +52780,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Essentials Unsalted Butter"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Essentials Unsalted Butter"
         }
       ],
       "local_image": "images/Essentials_Butter_Unsalted_500G.jpg",
@@ -52156,6 +53180,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": null,
@@ -52566,6 +53598,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Light Thickened Cream"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Light Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
@@ -52954,6 +53994,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": 9.0,
+          "store": "coles",
+          "matched_name": "Roasted Chicken Breast BBQ"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.0,
           "is_special": false,
           "was_price": 9.0,
@@ -53356,6 +54404,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Brushed Potatoes"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Brushed Potatoes"
         }
       ],
       "was_price": null,
@@ -53737,6 +54793,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Peanut Butter Crunchy"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.7,
           "is_special": false,
           "was_price": null,
@@ -54138,6 +55202,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Grown Carrots 1kg"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.7,
           "is_special": false,
           "was_price": null,
@@ -54549,6 +55621,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Beanette Pre Pack Punnet"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Beanette Pre Pack Punnet"
         }
       ],
       "was_price": null,
@@ -54934,6 +56014,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": 3.1,
+          "store": "woolworths",
+          "matched_name": "Woolworths Multigrain Loaf"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": 3.1,
@@ -55329,6 +56417,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.5,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "woolworths",
+          "matched_name": "Woolworths Pikelets"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.5,
           "is_special": false,
           "was_price": 4.5,
@@ -55737,7 +56833,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true,
       "last_layer_a_check": "2026-05-27"
     },
@@ -56088,6 +57184,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 20.65,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Beef T Bone Steak"
+        },
+        {
+          "date": "2026-06-01",
           "price": 20.65,
           "is_special": false,
           "was_price": null,
@@ -56482,6 +57586,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.666666666666667,
+          "is_special": false,
+          "was_price": 7.42,
+          "store": "coles",
+          "matched_name": "Classic Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.666666666666667,
           "is_special": false,
           "was_price": 7.42,
@@ -56889,6 +58001,14 @@
           "was_price": 14.5,
           "store": "woolworths",
           "matched_name": "Woolworths Beef Scotch Fillet Steak"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": 14.5,
+          "store": "woolworths",
+          "matched_name": "Woolworths Beef Scotch Fillet Steak"
         }
       ],
       "was_price": 14.5,
@@ -57281,6 +58401,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Sublime Velvet Front & Top Loader Laundry Powder"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.0,
           "is_special": false,
           "was_price": null,
@@ -57687,6 +58815,14 @@
           "was_price": 13.0,
           "store": "coles",
           "matched_name": "Kitten 2-12 Months Wet Cat Food With Mixed Favourites In Jelly 12x85g Pouch"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 13.0,
+          "store": "coles",
+          "matched_name": "Kitten 2-12 Months Wet Cat Food With Mixed Favourites In Jelly 12x85g Pouch"
         }
       ],
       "local_image": "images/Whiskas_Kitten_212M_Mixed_Favs_12X85G.jpg",
@@ -58068,6 +59204,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.5,
+          "is_special": true,
+          "was_price": 21.0,
+          "store": "woolworths",
+          "matched_name": "OMO Expert Wonder Wash Laundry Liquid Detergent Speed Clean"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.5,
           "is_special": true,
           "was_price": 21.0,
@@ -58463,6 +59607,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.4,
+          "is_special": true,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Temptations Tantalising Turkey Cat Treats"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.4,
           "is_special": true,
           "was_price": 5.5,
@@ -58870,6 +60022,14 @@
           "was_price": 7.0,
           "store": "coles",
           "matched_name": "Kitten Dry Cat Food Chicken & Tuna Flavours"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.0,
+          "is_special": false,
+          "was_price": 7.0,
+          "store": "coles",
+          "matched_name": "Kitten Dry Cat Food Chicken & Tuna Flavours"
         }
       ],
       "was_price": 7.0,
@@ -59267,6 +60427,14 @@
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Pepsi Max Cola No Sugar Vanilla Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "woolworths",
+          "matched_name": "Pepsi Max Cola No Sugar Vanilla Soft Drink Bottle"
         }
       ],
       "was_price": 3.0,
@@ -59649,6 +60817,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 6.2,
+          "store": "coles",
+          "matched_name": "Nothing But Pine Lime"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 6.2,
@@ -60051,6 +61227,14 @@
           "was_price": 5.8,
           "store": "woolworths",
           "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.8,
+          "is_special": false,
+          "was_price": 5.8,
+          "store": "woolworths",
+          "matched_name": "Quilton King Size 3 Ply Toilet Paper Unscented"
         }
       ],
       "was_price": 5.8,
@@ -60446,6 +61630,14 @@
           "was_price": 6.0,
           "store": "woolworths",
           "matched_name": "Red Rock Deli Potato Chips Honey Soy Chicken"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": true,
+          "was_price": 6.0,
+          "store": "woolworths",
+          "matched_name": "Red Rock Deli Potato Chips Honey Soy Chicken"
         }
       ],
       "was_price": 6.0,
@@ -60815,6 +62007,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.75,
+          "is_special": true,
+          "was_price": 5.4,
+          "store": "woolworths",
+          "matched_name": "Quest Peanut Butter Cups"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.75,
           "is_special": true,
           "was_price": 5.4,
@@ -61202,6 +62402,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Cheer Tasty Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 6.5,
@@ -61596,6 +62804,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "woolworths",
+          "matched_name": "Libra Tampons Super"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": 5.0,
@@ -61999,6 +63215,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Old El Paso Taco Spice Mix Extra Mild"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Old El Paso Taco Spice Mix Extra Mild"
         }
       ],
       "was_price": null,
@@ -62387,6 +63611,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Peanut Butter Crunchy"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.7,
           "is_special": false,
           "was_price": null,
@@ -62782,6 +64014,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Arnott's Shapes Light & Crispy Cheddar Cheese Crackers"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": 4.0,
@@ -63185,6 +64425,14 @@
           "was_price": 2.5,
           "store": "woolworths",
           "matched_name": "Gatorade G Active Water Sports Drinks Coconut Breeze Sugar Free"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.1,
+          "is_special": true,
+          "was_price": 2.5,
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Coconut Breeze Sugar Free"
         }
       ],
       "was_price": 2.5,
@@ -63579,6 +64827,14 @@
           "was_price": 4.2,
           "store": "coles",
           "matched_name": "Electrolyte Water Grape"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.5,
+          "is_special": false,
+          "was_price": 4.2,
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Berry_600Ml.jpg",
@@ -63960,6 +65216,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.3,
+          "is_special": true,
+          "was_price": 10.5,
+          "store": "woolworths",
+          "matched_name": "Gem Deodorant Coconut & Vanilla"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.3,
           "is_special": true,
           "was_price": 10.5,
@@ -64354,6 +65618,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Peas & Super Juicy Corn Kernels"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.5,
           "is_special": false,
           "was_price": null,
@@ -64768,6 +66040,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Spud Lite Baby Potato"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Spud Lite Baby Potato"
         }
       ],
       "was_price": null,
@@ -65153,6 +66433,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.0,
+          "is_special": false,
+          "was_price": 8.0,
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold 70% Cocoa Dark Chocolate Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.0,
           "is_special": false,
           "was_price": 8.0,
@@ -65564,6 +66852,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "RSPCA Approved Chicken Breast Fillets Small Pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 8.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "RSPCA Approved Chicken Breast Fillets Small Pack"
         }
       ],
       "was_price": null,
@@ -65969,6 +67265,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Thickened Cream"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Thickened Cream"
         }
       ],
       "local_image": "images/Ww_Thickened_Cream_600Ml.jpg",
@@ -66362,6 +67666,14 @@
           "was_price": 4.7,
           "store": "coles",
           "matched_name": "Protein Smoothie Choc Honeycomb"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.7,
+          "is_special": false,
+          "was_price": 4.7,
+          "store": "coles",
+          "matched_name": "Protein Smoothie Choc Honeycomb"
         }
       ],
       "local_image": "images/Omg_Choc_Protein_Oat_Milk_350Ml.jpg",
@@ -66743,6 +68055,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Chicken Liquid Stock"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.9,
           "is_special": false,
           "was_price": null,
@@ -67136,6 +68456,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Corned Beef"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.5,
           "is_special": false,
           "was_price": null,
@@ -67538,6 +68866,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Artusi Melosi Smokehouse Leg Ham"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Artusi Melosi Smokehouse Leg Ham"
         }
       ],
       "was_price": null,
@@ -67931,6 +69267,14 @@
           "was_price": 4.7,
           "store": "woolworths",
           "matched_name": "Rokeby Protein Smoothie Double Espresso"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.65,
+          "is_special": false,
+          "was_price": 4.7,
+          "store": "woolworths",
+          "matched_name": "Rokeby Protein Smoothie Double Espresso"
         }
       ],
       "local_image": "images/Rokeby_Protein_Smoothie_Dbl_Esprs_425Ml.jpg",
@@ -68319,6 +69663,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 10.0,
+          "store": "coles",
+          "matched_name": "Total Toothpaste Plaque Release & Gum Gentle Fragrant Mint"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 10.0,
@@ -68718,6 +70070,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths All Butter Croissant"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths All Butter Croissant"
         }
       ],
       "was_price": null,
@@ -69111,6 +70471,14 @@
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Twisted Healthy Treats Protein Pint Butter Caramel Cookie Frozen Dessert"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Twisted Healthy Treats Protein Pint Butter Caramel Cookie Frozen Dessert"
         }
       ],
       "local_image": "images/Twisted_Protein_Pint_Btr_Crml_Ckie_475Ml.jpg",
@@ -69498,6 +70866,14 @@
           "was_price": 46.0,
           "store": "woolworths",
           "matched_name": "Fairy Platinum Plus Lemon Dishwashing Tablets"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 27.6,
+          "is_special": true,
+          "was_price": 46.0,
+          "store": "woolworths",
+          "matched_name": "Fairy Platinum Plus Lemon Dishwashing Tablets"
         }
       ],
       "was_price": 46.0,
@@ -69526,7 +70902,7 @@
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -69880,6 +71256,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Mission Wraps Soft & Fluffy"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.6,
           "is_special": false,
           "was_price": null,
@@ -70278,6 +71662,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "San Remo Risoni Pasta"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "San Remo Risoni Pasta"
         }
       ],
       "was_price": null,
@@ -70659,6 +72051,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Diced Australian Tomatoes"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.3,
           "is_special": false,
           "was_price": null,
@@ -71056,6 +72456,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Nescafe Espresso Concentrate Velvet Mocha"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.0,
           "is_special": false,
           "was_price": 11.0,
@@ -71471,6 +72879,14 @@
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Nescafe Espresso Concentrate Sweet Vanilla Liquid Coffee"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "Nescafe Espresso Concentrate Sweet Vanilla Liquid Coffee"
         }
       ],
       "local_image": "images/Nescafe_Esp_Conc_Sweet_Vanilla_500Ml.jpg",
@@ -71864,6 +73280,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.1,
+          "is_special": true,
+          "was_price": 2.5,
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.1,
           "is_special": true,
           "was_price": 2.5,
@@ -72263,6 +73687,14 @@
           "was_price": 9.5,
           "store": "woolworths",
           "matched_name": "Old El Paso Hard N Soft Taco Kit Chipotle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.65,
+          "is_special": true,
+          "was_price": 9.5,
+          "store": "woolworths",
+          "matched_name": "Old El Paso Hard N Soft Taco Kit Chipotle"
         }
       ],
       "was_price": 9.5,
@@ -72657,6 +74089,14 @@
           "was_price": 8.0,
           "store": "coles",
           "matched_name": "Harry Potter Toothpaste"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 8.0,
+          "store": "coles",
+          "matched_name": "Harry Potter Toothpaste"
         }
       ],
       "was_price": 8.0,
@@ -73046,6 +74486,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "coles",
+          "matched_name": "Toothpaste Optic White"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": false,
           "was_price": 12.0,
@@ -73465,6 +74913,14 @@
           "was_price": 9.75,
           "store": "woolworths",
           "matched_name": "Lindt Excellence 95% Cocoa Dark Chocolate Block"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.75,
+          "is_special": false,
+          "was_price": 9.75,
+          "store": "woolworths",
+          "matched_name": "Lindt Excellence 95% Cocoa Dark Chocolate Block"
         }
       ],
       "was_price": 9.75,
@@ -73857,6 +75313,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": true,
+          "was_price": 8.5,
+          "store": "woolworths",
+          "matched_name": "Lindt Excellence Dark Chocolate 85% Cocoa Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": true,
           "was_price": 8.5,
@@ -74256,6 +75720,14 @@
           "was_price": 4.5,
           "store": "woolworths",
           "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.95,
+          "is_special": true,
+          "was_price": 4.5,
+          "store": "woolworths",
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -74291,7 +75763,7 @@
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Hoyts Thyme 15G",
@@ -74645,6 +76117,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Hoyt's Thyme"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.6,
           "is_special": false,
           "was_price": null,
@@ -75043,6 +76523,14 @@
           "was_price": 2.0,
           "store": "coles",
           "matched_name": "Sparkling Water Apple Berry"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.5,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "coles",
+          "matched_name": "Sparkling Water Apple Berry"
         }
       ],
       "was_price": 2.0,
@@ -75432,6 +76920,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.5,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "coles",
+          "matched_name": "Sparkling Water Apple Berry"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.5,
           "is_special": false,
           "was_price": 2.0,
@@ -75835,6 +77331,14 @@
           "was_price": 10.5,
           "store": "woolworths",
           "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.9,
+          "is_special": false,
+          "was_price": 10.5,
+          "store": "woolworths",
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Advanced_Sport_Ap_220Ml.jpg",
@@ -76223,6 +77727,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.9,
+          "is_special": false,
+          "was_price": 8.5,
+          "store": "woolworths",
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.9,
           "is_special": false,
           "was_price": 8.5,
@@ -76625,6 +78137,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Lemon Juice"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.65,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Lemon Juice"
         }
       ],
       "local_image": "images/Ww_Juice_Lemon_500Ml.jpg",
@@ -77013,6 +78533,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Sweet Corn"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.0,
           "is_special": false,
           "was_price": null,
@@ -77410,6 +78938,14 @@
           "was_price": 2.15,
           "store": "coles",
           "matched_name": "Baby Puffs Carrot"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.95,
+          "is_special": false,
+          "was_price": 2.15,
+          "store": "coles",
+          "matched_name": "Baby Puffs Carrot"
         }
       ],
       "was_price": 2.15,
@@ -77799,6 +79335,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Asian Choy Pak"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.0,
           "is_special": false,
           "was_price": null,
@@ -78217,6 +79761,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Tasty Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Tasty Cheese Block"
         }
       ],
       "was_price": null,
@@ -78607,6 +80159,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.8,
+          "is_special": false,
+          "was_price": 9.8,
+          "store": "woolworths",
+          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.8,
           "is_special": false,
           "was_price": 9.8,
@@ -79035,6 +80595,14 @@
           "was_price": 17.5,
           "store": "coles",
           "matched_name": "Free Range Chicken Breast Fillets Bulk"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 15.0,
+          "is_special": false,
+          "was_price": 17.5,
+          "store": "coles",
+          "matched_name": "Free Range Chicken Breast Fillets Bulk"
         }
       ],
       "was_price": 17.5,
@@ -79432,6 +81000,14 @@
           "was_price": 4.8,
           "store": "woolworths",
           "matched_name": "Impressed Tropical Breakfast Juice"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 4.8,
+          "store": "woolworths",
+          "matched_name": "Impressed Tropical Breakfast Juice"
         }
       ],
       "was_price": 4.8,
@@ -79814,6 +81390,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.7,
+          "is_special": false,
+          "was_price": 8.7,
+          "store": "woolworths",
+          "matched_name": "Hydralyte Effervescent Electrolyte Tablets Kiwi Strawberry"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.7,
           "is_special": false,
           "was_price": 8.7,
@@ -80213,6 +81797,14 @@
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "M&M's Minis Milk Chocolate Treat Tube"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "woolworths",
+          "matched_name": "M&M's Minis Milk Chocolate Treat Tube"
         }
       ],
       "was_price": 3.0,
@@ -80488,7 +82080,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true
     },
     {
@@ -80843,6 +82435,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": 8.8,
+          "store": "woolworths",
+          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": 8.8,
@@ -81258,6 +82858,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Diced Italian Tomatoes"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.1,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Diced Italian Tomatoes"
         }
       ],
       "was_price": null,
@@ -81651,23 +83259,24 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Unsweetened Almond Long Life Milk UHT"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.85,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Almond Milk Unsweetened"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Almond_Milk_Unsweetened_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/779134.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/1/1852210.jpg",
+      "store": "coles",
       "unit_price": 1.85,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 1.85,
-          "unit_price": 1.85,
-          "eff_price": 1.85,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 1.85,
           "unit_price": 1.85,
@@ -81682,7 +83291,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Unsweetened Almond Long Life Milk UHT",
+      "name_check": "Almond Milk Unsweetened",
       "item_id": "1c8e29b9-4a66-46e3-a525-92c7e5e7447f",
       "consecutive_failures": 0,
       "quarantined": false
@@ -82045,6 +83654,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "woolworths",
+          "matched_name": "Hygiene Plus Gloves Disposable Powder Free"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": 5.0,
@@ -82431,6 +84048,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 10.0,
+          "store": "coles",
+          "matched_name": "Fine Fragrance Deodorant Body Spray Cherry Spritz"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": 10.0,
@@ -82838,6 +84463,14 @@
           "was_price": 4.8,
           "store": "woolworths",
           "matched_name": "Green's Gravy Granules For Roast Meat"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": 4.8,
+          "store": "woolworths",
+          "matched_name": "Green's Gravy Granules For Roast Meat"
         }
       ],
       "was_price": 4.8,
@@ -83231,6 +84864,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.6,
+          "is_special": false,
+          "was_price": 6.6,
+          "store": "woolworths",
+          "matched_name": "Mission Carb Balance Original Wraps"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.6,
           "is_special": false,
           "was_price": 6.6,
@@ -83630,6 +85271,14 @@
           "was_price": 2.4,
           "store": "woolworths",
           "matched_name": "Mutti Tomato Paste Double Concentrate"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.4,
+          "is_special": false,
+          "was_price": 2.4,
+          "store": "woolworths",
+          "matched_name": "Mutti Tomato Paste Double Concentrate"
         }
       ],
       "was_price": 2.4,
@@ -84011,6 +85660,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.75,
+          "is_special": true,
+          "was_price": 5.4,
+          "store": "woolworths",
+          "matched_name": "Quest Bar Choc Chip Cookie Dough"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.75,
           "is_special": true,
           "was_price": 5.4,
@@ -84410,6 +86067,14 @@
           "was_price": 6.3,
           "store": "woolworths",
           "matched_name": "Mayver's Dark Peanut Butter Crunchy"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.4,
+          "is_special": true,
+          "was_price": 6.3,
+          "store": "woolworths",
+          "matched_name": "Mayver's Dark Peanut Butter Crunchy"
         }
       ],
       "was_price": 6.3,
@@ -84804,6 +86469,14 @@
           "was_price": 2.5,
           "store": "coles",
           "matched_name": "Native Nimbu Sparkling Drink"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.25,
+          "is_special": false,
+          "was_price": 2.5,
+          "store": "coles",
+          "matched_name": "Native Nimbu Sparkling Drink"
         }
       ],
       "was_price": 2.5,
@@ -85187,6 +86860,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.666666666666667,
+          "is_special": false,
+          "was_price": 7.0,
+          "store": "woolworths",
+          "matched_name": "Pepsi Max No Sugar Cola Soft Drink Bottle 600ml"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.666666666666667,
           "is_special": false,
           "was_price": 7.0,
@@ -85581,6 +87262,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.25,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Zavance Mini Liquid Caps"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.25,
           "is_special": false,
           "was_price": null,
@@ -85983,6 +87672,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "was_price": null,
@@ -86368,6 +88065,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 27.9,
+          "is_special": false,
+          "was_price": 27.9,
+          "store": "coles",
+          "matched_name": "Beef Blade Roast"
+        },
+        {
+          "date": "2026-06-01",
           "price": 27.9,
           "is_special": false,
           "was_price": 27.9,
@@ -86766,6 +88471,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Lean Salt Reduced Beef Corned Silverside"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 16.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Lean Salt Reduced Beef Corned Silverside"
         }
       ],
       "was_price": null,
@@ -86817,7 +88530,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.45,
+      "price": 2.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -87159,19 +88872,27 @@
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.3,
+          "is_special": true,
+          "was_price": 3.3,
+          "store": "woolworths",
+          "matched_name": "Mount Franklin Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.08,
+      "unit_price": 1.53,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 4.08,
-          "eff_price": 2.45,
-          "was_price": null,
-          "on_special": false
+          "price": 2.3,
+          "unit_price": 1.53,
+          "eff_price": 2.3,
+          "was_price": 3.3,
+          "on_special": true
         },
         "coles": {
           "price": 2.45,
@@ -87182,10 +88903,10 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/015917.jpg",
       "avg_price": 2.45,
-      "eff_price": 2.45,
-      "on_special": false,
+      "eff_price": 2.3,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -87554,6 +89275,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.666666666666667,
+          "is_special": false,
+          "was_price": 7.42,
+          "store": "coles",
+          "matched_name": "Zero Sugar Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.666666666666667,
           "is_special": false,
           "was_price": 7.42,
@@ -87948,6 +89677,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.05,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Corn Kernels"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.05,
           "is_special": false,
           "was_price": null,
@@ -88354,6 +90091,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Dine Farm Collection In Sauce Salmon Wet Cat Food"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.75,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Dine Farm Collection In Sauce Salmon Wet Cat Food"
         }
       ],
       "was_price": null,
@@ -88747,6 +90492,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Click N Stay Reusable Shopping Bag Assorted"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Click N Stay Reusable Shopping Bag Assorted"
         }
       ],
       "was_price": null,
@@ -89132,6 +90885,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.6,
+          "is_special": false,
+          "was_price": 6.6,
+          "store": "woolworths",
+          "matched_name": "Mission Carb Balance Original Wraps"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.6,
           "is_special": false,
           "was_price": 6.6,
@@ -89533,6 +91294,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Basmati Rice"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
@@ -89926,6 +91695,14 @@
           "was_price": 2.0,
           "store": "coles",
           "matched_name": "Roasted Seasoned Seaweed 2 Pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "coles",
+          "matched_name": "Roasted Seasoned Seaweed 2 Pack"
         }
       ],
       "was_price": 2.0,
@@ -90314,6 +92091,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Onion Powder"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": false,
           "was_price": null,
@@ -90716,6 +92501,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Pineapple Slices In Juice"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Pineapple Slices In Juice"
         }
       ],
       "was_price": null,
@@ -91108,6 +92901,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.6,
+          "is_special": false,
+          "was_price": 1.6,
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Cuts In Gravy With Lamb Tray"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.6,
           "is_special": false,
           "was_price": 1.6,
@@ -91510,6 +93311,14 @@
           "was_price": 1.6,
           "store": "woolworths",
           "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Salmon Tray"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.6,
+          "is_special": false,
+          "was_price": 1.6,
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Salmon Tray"
         }
       ],
       "was_price": 1.6,
@@ -91899,6 +93708,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.6,
+          "is_special": false,
+          "was_price": 1.6,
+          "store": "woolworths",
+          "matched_name": "Dine Kitten With Tender Chicken Wet Cat Food Tray"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.6,
           "is_special": false,
           "was_price": 1.6,
@@ -92300,6 +94117,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Hoyt's Turmeric"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.8,
           "is_special": false,
           "was_price": null,
@@ -92710,6 +94535,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths 35hr Sourdough Loaf White Loaf"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths 35hr Sourdough Loaf White Loaf"
         }
       ],
       "store": "woolworths",
@@ -93104,6 +94937,14 @@
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Dine Creamy Cat Treats Seafood Selections"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Dine Creamy Cat Treats Seafood Selections"
         }
       ],
       "was_price": 4.0,
@@ -93493,6 +95334,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.6,
+          "is_special": false,
+          "was_price": 8.6,
+          "store": "woolworths",
+          "matched_name": "Quilton Classic 3 Ply Toilet Paper"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.6,
           "is_special": false,
           "was_price": 8.6,
@@ -93893,6 +95742,14 @@
           "was_price": 4.9,
           "store": "woolworths",
           "matched_name": "Infuzions Air Fries Aioli"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.9,
+          "is_special": false,
+          "was_price": 4.9,
+          "store": "woolworths",
+          "matched_name": "Infuzions Air Fries Aioli"
         }
       ],
       "was_price": 4.9,
@@ -94282,6 +96139,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.9,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Western Star Unsalted Butter Block Chef's Choice"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.9,
           "is_special": false,
           "was_price": 5.5,
@@ -94677,6 +96542,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.6,
+          "is_special": false,
+          "was_price": 4.6,
+          "store": "coles",
+          "matched_name": "Plus+ Protein Summer Berries Milk"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.6,
           "is_special": false,
           "was_price": 4.6,
@@ -95079,6 +96952,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Green Asparagus Bunch Green"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Green Asparagus Bunch Green"
         }
       ],
       "was_price": null,
@@ -95472,6 +97353,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "La Tosca Fresh Pasta Fettucine"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "La Tosca Fresh Pasta Fettucine"
         }
       ],
       "was_price": null,
@@ -95853,6 +97742,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "coles",
+          "matched_name": "Sticks Hot"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": false,
           "was_price": 2.0,
@@ -96255,6 +98152,14 @@
           "was_price": 7.0,
           "store": "woolworths",
           "matched_name": "Woolworths Mushroom Sliced"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 7.0,
+          "store": "woolworths",
+          "matched_name": "Woolworths Mushroom Sliced"
         }
       ],
       "was_price": 7.0,
@@ -96648,6 +98553,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.75,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Dine Farm Collection In Sauce Chicken Wet Cat Food"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.75,
           "is_special": false,
           "was_price": null,
@@ -97058,6 +98971,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "La Gina Italian Tomato Paste Passata"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "La Gina Italian Tomato Paste Passata"
         }
       ],
       "was_price": null,
@@ -97439,6 +99360,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Dijon Mustard"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.5,
           "is_special": false,
           "was_price": 4.5,
@@ -97830,6 +99759,14 @@
           "was_price": 4.5,
           "store": "coles",
           "matched_name": "Wholegrain Mustard"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Wholegrain Mustard"
         }
       ],
       "store": "coles",
@@ -98210,6 +100147,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.2,
+          "is_special": true,
+          "was_price": 4.1,
+          "store": "woolworths",
+          "matched_name": "Slendier Konjac Spaghetti Style"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.2,
           "is_special": true,
           "was_price": 4.1,
@@ -98609,6 +100554,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Mini-Roma Tomato Punnet"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Mini-Roma Tomato Punnet"
         }
       ],
       "was_price": null,
@@ -98990,6 +100943,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.75,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "coles",
+          "matched_name": "Grain Waves Chips Sweet Chilli"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.75,
           "is_special": false,
           "was_price": 5.0,
@@ -99389,6 +101350,14 @@
           "was_price": 3.0,
           "store": "coles",
           "matched_name": "Orange Zero Sugar Soft Drink Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "coles",
+          "matched_name": "Orange Zero Sugar Soft Drink Bottle"
         }
       ],
       "was_price": 3.0,
@@ -99777,6 +101746,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.9,
+          "is_special": false,
+          "was_price": 6.9,
+          "store": "coles",
+          "matched_name": "High Protein Bar White Choc Caramel"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.9,
           "is_special": false,
           "was_price": 6.9,
@@ -100176,6 +102153,14 @@
           "was_price": 3.8,
           "store": "coles",
           "matched_name": "Coconut Water Chocolate"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.8,
+          "is_special": false,
+          "was_price": 3.8,
+          "store": "coles",
+          "matched_name": "Coconut Water Chocolate"
         }
       ],
       "was_price": 3.8,
@@ -100567,6 +102552,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 8.5,
+          "store": "coles",
+          "matched_name": "Organic Salted Butter"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 8.5,
@@ -100970,6 +102963,14 @@
           "was_price": 2.3,
           "store": "woolworths",
           "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.6,
+          "is_special": false,
+          "was_price": 2.3,
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 2.3,
@@ -101358,6 +103359,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": true,
           "was_price": 4.0,
@@ -101756,6 +103765,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": 8.0,
+          "store": "coles",
+          "matched_name": "5 Star Extra Lean Pork Mince"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.5,
           "is_special": false,
           "was_price": 8.0,
@@ -102174,6 +104191,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Hass Avocado"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Hass Avocado"
         }
       ],
       "was_price": null,
@@ -102562,6 +104587,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "coles",
+          "matched_name": "Portions Cream Cheese Light Spread"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": 4.0,
@@ -102960,6 +104993,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Special Burger Slaw"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Special Burger Slaw"
         }
       ],
       "was_price": null,
@@ -103345,6 +105386,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": 12.7,
+          "store": "woolworths",
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
@@ -103746,6 +105795,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Spud Lite Baby Potato"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Spud Lite Baby Potato"
         }
       ],
       "local_image": "images/Potato_Spud_Lite_15_Kg_Pp.jpg",
@@ -104134,6 +106191,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.25,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Fresh Green Cabbage Half"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.25,
           "is_special": false,
           "was_price": null,
@@ -104536,6 +106601,14 @@
           "was_price": 19.0,
           "store": "woolworths",
           "matched_name": "Hans Middle Bacon Rashers From the Deli"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.5,
+          "is_special": true,
+          "was_price": 19.0,
+          "store": "woolworths",
+          "matched_name": "Hans Middle Bacon Rashers From the Deli"
         }
       ],
       "was_price": 19.0,
@@ -104571,7 +106644,7 @@
       "item_id": "d4c4d83e-ffa0-4b54-bc29-decd392137ba",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Woolworths Turkish Rolls 400G Pk 4",
@@ -104925,6 +106998,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Stonebaked Turkish Rolls"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.6,
           "is_special": false,
           "was_price": null,
@@ -105323,6 +107404,14 @@
           "was_price": 8.0,
           "store": "woolworths",
           "matched_name": "Cadbury Old Gold Original Dark Chocolate Block"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 8.0,
+          "is_special": false,
+          "was_price": 8.0,
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Original Dark Chocolate Block"
         }
       ],
       "store": "woolworths",
@@ -105704,6 +107793,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": true,
+          "was_price": 3.0,
+          "store": "woolworths",
+          "matched_name": "Double 'D' Fruit Jellies Sugar Free"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": true,
           "was_price": 3.0,
@@ -106103,6 +108200,14 @@
           "was_price": 4.8,
           "store": "woolworths",
           "matched_name": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": 4.8,
+          "store": "woolworths",
+          "matched_name": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips"
         }
       ],
       "was_price": 4.8,
@@ -106497,6 +108602,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Macro Organic Corn Chips Natural"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Macro Organic Corn Chips Natural"
         }
       ],
       "was_price": null,
@@ -106878,6 +108991,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Duck Action Burst Toilet Bowl Cleaner Tropical Vibes"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": 5.5,
@@ -107277,6 +109398,14 @@
           "was_price": 7.0,
           "store": "woolworths",
           "matched_name": "Bref Brilliant Gel Spring Rain Toilet Cleaner Block"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 7.0,
+          "store": "woolworths",
+          "matched_name": "Bref Brilliant Gel Spring Rain Toilet Cleaner Block"
         }
       ],
       "was_price": 7.0,
@@ -107666,6 +109795,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Paste All Purpose Cleaner"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.4,
           "is_special": false,
           "was_price": null,
@@ -108068,6 +110205,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths 18 Large Cage Free Eggs"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 8.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths 18 Large Cage Free Eggs"
         }
       ],
       "was_price": null,
@@ -108458,6 +110603,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.8,
+          "is_special": false,
+          "was_price": 9.8,
+          "store": "woolworths",
+          "matched_name": "McCain Pizza Slice Snacks Meatlovers Meatlovers"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.8,
           "is_special": false,
           "was_price": 9.8,
@@ -108865,6 +111018,14 @@
           "was_price": 2.95,
           "store": "coles",
           "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.75,
+          "is_special": false,
+          "was_price": 2.95,
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
@@ -109256,6 +111417,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "White Label Extra Tasty Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.5,
           "is_special": false,
           "was_price": null,
@@ -109654,6 +111823,14 @@
           "was_price": 8.5,
           "store": "coles",
           "matched_name": "Nothing But Juice Apple"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.8,
+          "is_special": false,
+          "was_price": 8.5,
+          "store": "coles",
+          "matched_name": "Nothing But Juice Apple"
         }
       ],
       "was_price": 8.5,
@@ -110035,6 +112212,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.7,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Zero Sugar Mountain Blast Drink Sipper Cap"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.7,
           "is_special": false,
           "was_price": 4.5,
@@ -110434,6 +112619,14 @@
           "was_price": 4.5,
           "store": "coles",
           "matched_name": "Berry Ice Zero Sports Drink Sipper Cap"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.7,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Berry Ice Zero Sports Drink Sipper Cap"
         }
       ],
       "local_image": "images/Powerade_Flo_Cap_Zero_Berry_Ice_600Ml.jpg",
@@ -110823,6 +113016,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": 7.0,
+          "store": "woolworths",
+          "matched_name": "Woolworths Honey Quick Oats Sachets"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.7,
           "is_special": false,
           "was_price": 7.0,
@@ -111221,6 +113422,14 @@
           "was_price": 2.8,
           "store": "coles",
           "matched_name": "Lite Jelly Twin Grape"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.4,
+          "is_special": false,
+          "was_price": 2.8,
+          "store": "coles",
+          "matched_name": "Lite Jelly Twin Grape"
         }
       ],
       "was_price": 2.8,
@@ -111489,7 +113698,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -111845,6 +114054,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Essentials Olive Oil"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.0,
           "is_special": false,
           "was_price": null,
@@ -112240,6 +114457,14 @@
           "was_price": 3.3,
           "store": "woolworths",
           "matched_name": "Vitasoy Unsweetened Almond Long Life Milk UHT"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": 3.3,
+          "store": "woolworths",
+          "matched_name": "Vitasoy Unsweetened Almond Long Life Milk UHT"
         }
       ],
       "was_price": 3.3,
@@ -112623,6 +114848,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 15.4,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "coles",
+          "matched_name": "RSPCA Approved Chicken Breast Fillets Large Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 15.4,
           "is_special": false,
           "was_price": 12.0,
@@ -113021,6 +115254,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths RSPCA Approved Chicken Necks"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths RSPCA Approved Chicken Necks"
         }
       ],
       "was_price": null,
@@ -113414,6 +115655,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "All Purpose Seasoning"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "All Purpose Seasoning"
         }
       ],
       "was_price": null,
@@ -113802,6 +116051,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": true,
+          "was_price": 11.0,
+          "store": "woolworths",
+          "matched_name": "VOOST Effervescent Multivitamin Tablets"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": true,
           "was_price": 11.0,
@@ -114201,6 +116458,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Pump Spring Water Bottle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Pump Spring Water Bottle"
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
@@ -114589,6 +116854,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Salad Baby Leaf Spinach & Rocket"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": null,
@@ -114987,6 +117260,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Creme Royale Potato Mash"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Creme Royale Potato Mash"
         }
       ],
       "was_price": null,
@@ -115375,6 +117656,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Oatly! Barista Oat Long Life Milk UHT"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": 5.5,
@@ -115769,6 +118058,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Pink Himalayan Salt Grinder"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.4,
           "is_special": false,
           "was_price": null,
@@ -116171,6 +118468,14 @@
           "was_price": 6.5,
           "store": "woolworths",
           "matched_name": "Kewpie Mayonnaise Wasabi Flavour"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": true,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Kewpie Mayonnaise Wasabi Flavour"
         }
       ],
       "was_price": 6.5,
@@ -116560,6 +118865,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Peanut Butter Crunchy"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.7,
           "is_special": false,
           "was_price": null,
@@ -116960,6 +119273,14 @@
           "was_price": 5.2,
           "store": "woolworths",
           "matched_name": "Vegemite Spread"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.2,
+          "is_special": false,
+          "was_price": 5.2,
+          "store": "woolworths",
+          "matched_name": "Vegemite Spread"
         }
       ],
       "was_price": 5.2,
@@ -117348,6 +119669,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Essentials Coconut Cream"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.7,
           "is_special": false,
           "was_price": null,
@@ -117745,6 +120074,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Colgate Total Active Prevention Original Toothpaste"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Colgate Total Active Prevention Original Toothpaste"
         }
       ],
       "was_price": null,
@@ -118133,6 +120470,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.9,
+          "is_special": true,
+          "was_price": 3.2,
+          "store": "woolworths",
+          "matched_name": "Continental Classics Rice Chicken"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.9,
           "is_special": true,
           "was_price": 3.2,
@@ -118536,6 +120881,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Armada Evergreen Compostable Baking Paper 30cm x 15 Metres"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Armada Evergreen Compostable Baking Paper 30cm x 15 Metres"
         }
       ],
       "was_price": null,
@@ -118924,6 +121277,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.25,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Real Stock Unsalted Chicken"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.25,
           "is_special": false,
           "was_price": 4.5,
@@ -119323,6 +121684,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.15,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine"
         }
       ],
       "was_price": null,
@@ -119704,6 +122073,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "coles",
+          "matched_name": "Milk Chocolate Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": 7.5,
@@ -120094,6 +122471,14 @@
           "was_price": 16.8,
           "store": "coles",
           "matched_name": "Streaky Bacon"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 12.5,
+          "is_special": false,
+          "was_price": 16.8,
+          "store": "coles",
+          "matched_name": "Streaky Bacon"
         }
       ],
       "was_price": 16.8,
@@ -120475,6 +122860,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Nurofen Pain & Inflammation Relief Tablets 200Mg Ibuprofen"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": null,
@@ -120873,6 +123266,14 @@
           "was_price": 4.5,
           "store": "coles",
           "matched_name": "Sweetener Sticks"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": 4.5,
+          "store": "coles",
+          "matched_name": "Sweetener Sticks"
         }
       ],
       "was_price": 4.5,
@@ -121254,6 +123655,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 7.1,
+          "store": "woolworths",
+          "matched_name": "Woolworths Chocolate Mudcake Chocolate Mud"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 7.1,
@@ -121651,6 +124060,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": true,
+          "was_price": 6.3,
+          "store": "woolworths",
+          "matched_name": "Western Star Spreadable Butter Blend Tub Supersoft"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": true,
           "was_price": 6.3,
@@ -122054,6 +124471,14 @@
           "was_price": 16.8,
           "store": "coles",
           "matched_name": "Streaky Bacon"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 12.5,
+          "is_special": false,
+          "was_price": 16.8,
+          "store": "coles",
+          "matched_name": "Streaky Bacon"
         }
       ],
       "was_price": 16.8,
@@ -122435,6 +124860,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Tasty Cheese Slices"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.0,
           "is_special": false,
           "was_price": null,
@@ -122833,6 +125266,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Iceberg Lettuce"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Iceberg Lettuce"
         }
       ],
       "was_price": null,
@@ -123221,6 +125662,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "woolworths",
+          "matched_name": "Waterfords Sparkling Water Blackcurrant"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": false,
           "was_price": 2.0,
@@ -123620,6 +126069,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Barbecue Sauce"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Barbecue Sauce"
         }
       ],
       "local_image": "images/Ww_Bbq_Sauce_500Ml.jpg",
@@ -124012,6 +126469,14 @@
           "was_price": 2.0,
           "store": "coles",
           "matched_name": "Tahitian Lime Sparkling Water"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.5,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "coles",
+          "matched_name": "Tahitian Lime Sparkling Water"
         }
       ],
       "was_price": 2.0,
@@ -124398,6 +126863,14 @@
           "was_price": 4.0,
           "store": "coles",
           "matched_name": "Cruskits Crispbread Original"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "coles",
+          "matched_name": "Cruskits Crispbread Original"
         }
       ],
       "was_price": 4.0,
@@ -124670,7 +127143,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -125026,6 +127499,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.2,
+          "is_special": false,
+          "was_price": 16.0,
+          "store": "coles",
+          "matched_name": "Effervescent Hydrate Sugar Free Raspberry Tablets"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.2,
           "is_special": false,
           "was_price": 16.0,
@@ -125425,6 +127906,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Strike Pro Disinfectant Wipes Apple"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Strike Pro Disinfectant Wipes Apple"
         }
       ],
       "was_price": null,
@@ -125806,6 +128295,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": 8.9,
+          "store": "coles",
+          "matched_name": "Low Carb Peanut And Caramel Nougat Indulgence Bar"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": 8.9,
@@ -126199,6 +128696,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 11.2,
+          "is_special": false,
+          "was_price": 10.5,
+          "store": "coles",
+          "matched_name": "Cheese Tasty Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 11.2,
           "is_special": false,
           "was_price": 10.5,
@@ -126603,6 +129108,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Natural Greek Style Yoghurt"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Natural Greek Style Yoghurt"
         }
       ],
       "local_image": "images/Ww_Natural_Greek_Style_Yoghurt_1Kg.jpg",
@@ -126991,6 +129504,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Birds Eye Veggie Rice Broccoli & Cauli"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": 5.5,
@@ -127390,6 +129911,14 @@
           "was_price": 49.0,
           "store": "coles",
           "matched_name": "Ultimate Dishwasher Tablets Lemon"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 24.5,
+          "is_special": false,
+          "was_price": 49.0,
+          "store": "coles",
+          "matched_name": "Ultimate Dishwasher Tablets Lemon"
         }
       ],
       "local_image": "images/Finish_Ultimate_Lemon_Dish_Tabs_62Pk.jpg",
@@ -127771,6 +130300,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.5,
+          "is_special": true,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Kewpie Sriracha Mayonnaise"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.5,
           "is_special": true,
           "was_price": 6.5,
@@ -128174,6 +130711,14 @@
           "was_price": 3.25,
           "store": "woolworths",
           "matched_name": "Woolworths 35hr Sourdough Mini Loaf Seeded"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.25,
+          "is_special": false,
+          "was_price": 3.25,
+          "store": "woolworths",
+          "matched_name": "Woolworths 35hr Sourdough Mini Loaf Seeded"
         }
       ],
       "store": "woolworths",
@@ -128556,6 +131101,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": 2.0,
+          "store": "woolworths",
+          "matched_name": "Hoyt's Oregano"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.0,
           "is_special": false,
           "was_price": 2.0,
@@ -128949,6 +131502,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.9,
+          "is_special": true,
+          "was_price": 3.2,
+          "store": "woolworths",
+          "matched_name": "Hoyt's Italian Herb Mix"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.9,
           "is_special": true,
           "was_price": 3.2,
@@ -129348,6 +131909,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Garam Masala"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Garam Masala"
         }
       ],
       "was_price": null,
@@ -129736,6 +132305,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Fab Laundry Washing Powder Fresh Blossoms"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.0,
           "is_special": false,
           "was_price": null,
@@ -130134,6 +132711,14 @@
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "BC Snacks Choc Mint Crunch High Protein Bar"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "BC Snacks Choc Mint Crunch High Protein Bar"
         }
       ],
       "was_price": 4.0,
@@ -130516,6 +133101,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "coles",
+          "matched_name": "High Protein Low Carb Bar Cookies & Cream"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.0,
           "is_special": false,
           "was_price": 5.0,
@@ -130915,6 +133508,14 @@
           "was_price": 5.0,
           "store": "coles",
           "matched_name": "Soft Protein Bar Banana Chocolate"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "coles",
+          "matched_name": "Soft Protein Bar Banana Chocolate"
         }
       ],
       "was_price": 5.0,
@@ -131180,7 +133781,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true
     },
     {
@@ -131535,6 +134136,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "coles",
+          "matched_name": "Air-dried Salami Mild Salami Sticks"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": 6.5,
@@ -131934,6 +134543,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Libra Tampons Super"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Libra Tampons Super"
         }
       ],
       "was_price": null,
@@ -132324,6 +134941,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.5,
           "is_special": false,
           "was_price": 5.5,
@@ -132727,6 +135352,14 @@
           "was_price": 6.5,
           "store": "woolworths",
           "matched_name": "Lurpak Butter Lighter Spreadable Slightly Salted"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": 6.5,
+          "store": "woolworths",
+          "matched_name": "Lurpak Butter Lighter Spreadable Slightly Salted"
         }
       ],
       "was_price": 6.5,
@@ -133122,6 +135755,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Coleslaw"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Coleslaw"
         }
       ],
       "was_price": null,
@@ -133133,9 +135774,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 11.67,
-          "eff_price": 3.5,
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -133510,6 +136151,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "coles",
+          "matched_name": "Snacks Dark Chocolate Almond High Protein Bar"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.0,
           "is_special": false,
           "was_price": 4.0,
@@ -133908,6 +136557,14 @@
           "was_price": 6.0,
           "store": "woolworths",
           "matched_name": "Chief Beef Brisket Smokey BBQ Bar"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.8,
+          "is_special": true,
+          "was_price": 6.0,
+          "store": "woolworths",
+          "matched_name": "Chief Beef Brisket Smokey BBQ Bar"
         }
       ],
       "was_price": 6.0,
@@ -133936,7 +136593,7 @@
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Ww Pasta Salad 800G",
@@ -134290,6 +136947,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Pasta Salad"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.0,
           "is_special": false,
           "was_price": null,
@@ -134688,6 +137353,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Libra Tampons Regular"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Libra Tampons Regular"
         }
       ],
       "was_price": null,
@@ -135081,6 +137754,14 @@
           "was_price": 5.5,
           "store": "woolworths",
           "matched_name": "Ingham's Frozen Chicken Breast Tenders Original"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": true,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Ingham's Frozen Chicken Breast Tenders Original"
         }
       ],
       "was_price": 5.5,
@@ -135463,6 +138144,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.9,
+          "is_special": true,
+          "was_price": 12.0,
+          "store": "woolworths",
+          "matched_name": "Connoisseur Gourmet Ice Cream Mini Cookies & Cream Sticks"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.9,
           "is_special": true,
           "was_price": 12.0,
@@ -135862,6 +138551,14 @@
           "was_price": 19.38,
           "store": "coles",
           "matched_name": "Boneless Pork Loin Roast"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 16.25,
+          "is_special": false,
+          "was_price": 19.38,
+          "store": "coles",
+          "matched_name": "Boneless Pork Loin Roast"
         }
       ],
       "local_image": "images/Ww_Pork_Loin_Crackling_Roast.jpg",
@@ -136243,6 +138940,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Fueld Texas Bbq Chicken With Mash Potato"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": false,
           "was_price": null,
@@ -136641,6 +139346,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Kabana"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Kabana"
         }
       ],
       "store": "coles",
@@ -137021,6 +139734,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Primo Diced Bacon Style Pieces Cook & Create Twin Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.0,
           "is_special": false,
           "was_price": null,
@@ -137414,6 +140135,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.6,
+          "is_special": false,
+          "was_price": 6.6,
+          "store": "coles",
+          "matched_name": "Mild Hungarian Salami"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.6,
           "is_special": false,
           "was_price": 6.6,
@@ -137816,6 +140545,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Perfect Italiano Grated Perfect Bakes"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Perfect Italiano Grated Perfect Bakes"
         }
       ],
       "was_price": null,
@@ -138209,6 +140946,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Thomas Dux Camembert Cheese"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.1,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Thomas Dux Camembert Cheese"
         }
       ],
       "was_price": null,
@@ -138590,6 +141335,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Combo Sprouts"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.8,
           "is_special": false,
           "was_price": null,
@@ -138983,6 +141736,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.8,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Arnott's Jatz Original Crackers Biscuits"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.8,
           "is_special": true,
           "was_price": 4.0,
@@ -139382,6 +142143,14 @@
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Arnott's Shapes Chicken Crimpy Cracker Biscuits"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.0,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Arnott's Shapes Chicken Crimpy Cracker Biscuits"
         }
       ],
       "was_price": 4.0,
@@ -139769,6 +142538,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Growers Selection Roasting Potatoes"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Growers Selection Roasting Potatoes"
         }
       ],
       "was_price": null,
@@ -140150,6 +142927,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 0.63,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Onion Brown"
+        },
+        {
+          "date": "2026-06-01",
           "price": 0.63,
           "is_special": false,
           "was_price": null,
@@ -140548,6 +143333,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Crusty Baguette French Stick"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Crusty Baguette French Stick"
         }
       ],
       "was_price": null,
@@ -140941,6 +143734,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "LEGO Disney Classic Stitch (43249)"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 109.95,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "LEGO Disney Classic Stitch (43249)"
         }
       ],
       "was_price": null,
@@ -141322,6 +144123,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Special Burger Slaw"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.5,
           "is_special": false,
           "was_price": null,
@@ -141710,6 +144519,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Australian Corn Kernels"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.7,
           "is_special": false,
           "was_price": null,
@@ -142108,6 +144925,14 @@
           "was_price": 3.95,
           "store": "coles",
           "matched_name": "Hot Hungarian Salami"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.95,
+          "is_special": false,
+          "was_price": 3.95,
+          "store": "coles",
+          "matched_name": "Hot Hungarian Salami"
         }
       ],
       "store": "coles",
@@ -142488,6 +145313,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.3,
+          "is_special": false,
+          "was_price": 3.3,
+          "store": "woolworths",
+          "matched_name": "Wicked Sister High Protein Chocolate Pudding"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.3,
           "is_special": false,
           "was_price": 3.3,
@@ -142887,6 +145720,14 @@
           "was_price": 7.5,
           "store": "coles",
           "matched_name": "Peanut Butter Smoochy"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "coles",
+          "matched_name": "Peanut Butter Smoochy"
         }
       ],
       "was_price": 7.5,
@@ -142916,7 +145757,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -143270,6 +146111,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.95,
+          "is_special": false,
+          "was_price": 2.8,
+          "store": "woolworths",
+          "matched_name": "Campbell's Condensed Soup Tomato"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.95,
           "is_special": false,
           "was_price": 2.8,
@@ -143668,6 +146517,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Crusty Tiger Vienna Loaf Crusty Tiger Tummy Vienna"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.4,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Crusty Tiger Vienna Loaf Crusty Tiger Tummy Vienna"
         }
       ],
       "was_price": null,
@@ -144053,6 +146910,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "coles",
+          "matched_name": "Beef Stir Fry"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": false,
           "was_price": 12.0,
@@ -144444,6 +147309,14 @@
           "was_price": 7.8,
           "store": "coles",
           "matched_name": "Classic Chorizo 2 Pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.7,
+          "is_special": false,
+          "was_price": 7.8,
+          "store": "coles",
+          "matched_name": "Classic Chorizo 2 Pack"
         }
       ],
       "was_price": 7.8,
@@ -144830,6 +147703,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Riverland Ham Sliced"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Riverland Ham Sliced"
         }
       ],
       "was_price": null,
@@ -145211,6 +148092,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.95,
+          "is_special": false,
+          "was_price": 3.95,
+          "store": "woolworths",
+          "matched_name": "Primo Silverside Beef"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.95,
           "is_special": false,
           "was_price": 3.95,
@@ -145609,6 +148498,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Tasty Cheese Shredded"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Tasty Cheese Shredded"
         }
       ],
       "was_price": null,
@@ -145997,6 +148894,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 5.7,
+          "is_special": false,
+          "was_price": 5.7,
+          "store": "woolworths",
+          "matched_name": "Philadelphia Light Cream Cheese Block"
+        },
+        {
+          "date": "2026-06-01",
           "price": 5.7,
           "is_special": false,
           "was_price": 5.7,
@@ -146391,6 +149296,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.0,
+          "is_special": false,
+          "was_price": 12.7,
+          "store": "coles",
+          "matched_name": "Free Range Large Eggs 18 Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.0,
           "is_special": false,
           "was_price": 12.7,
@@ -146791,6 +149704,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Dog Food Casserole Beef"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Dog Food Casserole Beef"
         }
       ],
       "local_image": "images/Ngift_Dog_Casserole_Kang__Veg_12Kg.jpg",
@@ -147172,6 +150093,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.0,
+          "is_special": false,
+          "was_price": 6.0,
+          "store": "woolworths",
+          "matched_name": "Old El Paso Enchilada Cooking Sauce Enchilada Sauce"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.0,
           "is_special": false,
           "was_price": 6.0,
@@ -147564,6 +150493,14 @@
           "was_price": 20.5,
           "store": "woolworths",
           "matched_name": "Lucas' Papaw Remedies Lip Care Ointment"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 20.5,
+          "is_special": false,
+          "was_price": 20.5,
+          "store": "woolworths",
+          "matched_name": "Lucas' Papaw Remedies Lip Care Ointment"
         }
       ],
       "was_price": 20.5,
@@ -147951,6 +150888,14 @@
           "was_price": 1.7,
           "store": "woolworths",
           "matched_name": "Aeroplane Original Berry Blue Flavoured Jelly"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.5,
+          "is_special": true,
+          "was_price": 1.7,
+          "store": "woolworths",
+          "matched_name": "Aeroplane Original Berry Blue Flavoured Jelly"
         }
       ],
       "was_price": 1.7,
@@ -147986,7 +150931,7 @@
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -148340,6 +151285,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.4,
+          "is_special": false,
+          "was_price": 2.8,
+          "store": "coles",
+          "matched_name": "Lite Jelly Twin Grape"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.4,
           "is_special": false,
           "was_price": 2.8,
@@ -148738,6 +151691,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Mango"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Mango"
         }
       ],
       "store": "coles",
@@ -149118,6 +152079,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.75,
+          "is_special": true,
+          "was_price": 5.4,
+          "store": "woolworths",
+          "matched_name": "Quest Protein Bar Choc Brownie"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.75,
           "is_special": true,
           "was_price": 5.4,
@@ -149505,6 +152474,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 12.0,
+          "is_special": true,
+          "was_price": 15.0,
+          "store": "woolworths",
+          "matched_name": "Pedigree Adult 7+ Years With Real Turkey Dry Dog Food"
+        },
+        {
+          "date": "2026-06-01",
           "price": 12.0,
           "is_special": true,
           "was_price": 15.0,
@@ -149910,6 +152887,14 @@
           "was_price": 5.6,
           "store": "woolworths",
           "matched_name": "Coca-Cola Classic Soft Drink Cans"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.36,
+          "is_special": true,
+          "was_price": 5.6,
+          "store": "woolworths",
+          "matched_name": "Coca-Cola Classic Soft Drink Cans"
         }
       ],
       "was_price": 5.6,
@@ -150295,6 +153280,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.496,
+          "is_special": false,
+          "was_price": 3.0,
+          "store": "coles",
+          "matched_name": "Soft Drink Cola Bottle"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.496,
           "is_special": false,
           "was_price": 3.0,
@@ -150718,6 +153711,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Minced Garlic"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.25,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Minced Garlic"
         }
       ],
       "target_confidence": "high",
@@ -151103,6 +154104,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 4.6,
+          "is_special": false,
+          "was_price": 5.6,
+          "store": "coles",
+          "matched_name": "Roasted Garlic Wraps 8 Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 4.6,
           "is_special": false,
           "was_price": 5.6,
@@ -151507,6 +154516,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Broccolini Bunch"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Broccolini Bunch"
         }
       ],
       "target_confidence": "high",
@@ -151884,6 +154901,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.1,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.1,
           "is_special": false,
           "was_price": null,
@@ -152279,6 +155304,14 @@
           "was_price": 5.0,
           "store": "woolworths",
           "matched_name": "Nando's Perinaise Garlic Peri-Peri Mayonnaise Sauce"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.0,
+          "is_special": false,
+          "was_price": 5.0,
+          "store": "woolworths",
+          "matched_name": "Nando's Perinaise Garlic Peri-Peri Mayonnaise Sauce"
         }
       ],
       "target_confidence": "high",
@@ -152650,6 +155683,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 8.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Energizer A23 Alkaline Specialty Battery"
+        },
+        {
+          "date": "2026-06-01",
           "price": 8.0,
           "is_special": false,
           "was_price": null,
@@ -153037,6 +156078,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Essentials Domestic Wipes Roll"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Essentials Domestic Wipes Roll"
         }
       ],
       "target_confidence": "high",
@@ -153412,6 +156461,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -153782,6 +156839,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 18.99,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "12 Scotch-Brite Heavy Duty Scrub Sponge Foam Scrub Kitchen Cleaner (Pack of 4 X 3)"
+        },
+        {
+          "date": "2026-06-01",
           "price": 18.99,
           "is_special": false,
           "was_price": null,
@@ -154169,6 +157234,14 @@
           "was_price": 4.2,
           "store": "coles",
           "matched_name": "Handle"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.2,
+          "is_special": false,
+          "was_price": 4.2,
+          "store": "coles",
+          "matched_name": "Handle"
         }
       ],
       "target_confidence": "high",
@@ -154551,6 +157624,14 @@
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Philadelphia Original Cream Cheese Spread Tub"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Philadelphia Original Cream Cheese Spread Tub"
         }
       ],
       "target_confidence": "high",
@@ -154922,6 +158003,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Zucchini Slice"
+        },
+        {
+          "date": "2026-06-01",
           "price": 7.5,
           "is_special": false,
           "was_price": null,
@@ -155309,6 +158398,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Harris Filter Papers 10-12 Cup"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Harris Filter Papers 10-12 Cup"
         }
       ],
       "target_confidence": "high",
@@ -155686,6 +158783,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 9.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Combat Ant-Rid Bait Pest Control"
+        },
+        {
+          "date": "2026-06-01",
           "price": 9.0,
           "is_special": false,
           "was_price": null,
@@ -156077,6 +159182,14 @@
           "was_price": 12.0,
           "store": "coles",
           "matched_name": "Energy Drink Pineapple 4x250ml"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.2,
+          "is_special": false,
+          "was_price": 12.0,
+          "store": "coles",
+          "matched_name": "Energy Drink Pineapple 4x250ml"
         }
       ],
       "target_confidence": "high",
@@ -156453,6 +159566,14 @@
           "was_price": 28.0,
           "store": "woolworths",
           "matched_name": "Vittoria Italian Ground"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 28.0,
+          "is_special": false,
+          "was_price": 28.0,
+          "store": "woolworths",
+          "matched_name": "Vittoria Italian Ground"
         }
       ],
       "target_confidence": "high",
@@ -156824,6 +159945,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.2,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Bryne Co Stuffed Green Olives"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.2,
           "is_special": true,
           "was_price": 4.0,
@@ -157212,6 +160341,14 @@
           "was_price": 4.6,
           "store": "woolworths",
           "matched_name": "Always Fresh Cucumbers Dill"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.7,
+          "is_special": false,
+          "was_price": 4.6,
+          "store": "woolworths",
+          "matched_name": "Always Fresh Cucumbers Dill"
         }
       ],
       "target_confidence": "high",
@@ -157583,6 +160720,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Dole Pineapple Premium Tropical Slices In Juice"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.9,
           "is_special": false,
           "was_price": null,
@@ -157970,6 +161115,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Easy-Off Bam Oven & BBQ Heavy Duty Cleaner Spray"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 5.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Easy-Off Bam Oven & BBQ Heavy Duty Cleaner Spray"
         }
       ],
       "target_confidence": "high",
@@ -158352,6 +161505,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Cauliflower Half"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 2.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Cauliflower Half"
         }
       ],
       "target_confidence": "high",
@@ -158722,6 +161883,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 6.9,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Mango"
+        },
+        {
+          "date": "2026-06-01",
           "price": 6.9,
           "is_special": false,
           "was_price": null,
@@ -159109,6 +162278,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Chives Fresh Herb Punnet"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Chives Fresh Herb Punnet"
         }
       ],
       "target_confidence": "high",
@@ -159491,6 +162668,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Radish Bunch"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 3.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Radish Bunch"
         }
       ],
       "target_confidence": "high",
@@ -159868,6 +163053,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 3.5,
+          "is_special": true,
+          "was_price": 4.0,
+          "store": "woolworths",
+          "matched_name": "Obento Japanese Yaki Nori For Sushi"
+        },
+        {
+          "date": "2026-06-01",
           "price": 3.5,
           "is_special": true,
           "was_price": 4.0,
@@ -160256,6 +163449,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Kale Bunch Green"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Kale Bunch Green"
         }
       ],
       "target_confidence": "high",
@@ -160520,6 +163721,14 @@
           "was_price": 8.6,
           "store": "woolworths",
           "matched_name": "Quilton Classic 3 Ply Toilet Paper"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 8.6,
+          "is_special": false,
+          "was_price": 8.6,
+          "store": "woolworths",
+          "matched_name": "Quilton Classic 3 Ply Toilet Paper"
         }
       ],
       "consecutive_failures": 0,
@@ -160769,6 +163978,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 14.0,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Quilton Softness 3Ply White Toilet Paper Box 18 pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 14.0,
           "is_special": false,
           "was_price": null,
@@ -161028,6 +164245,14 @@
           "was_price": 10.3,
           "store": "woolworths",
           "matched_name": "Quilton Gold 4 Ply Toilet Paper Paper"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 19.5,
+          "is_special": false,
+          "was_price": 10.3,
+          "store": "woolworths",
+          "matched_name": "Quilton Gold 4 Ply Toilet Paper Paper"
         }
       ],
       "consecutive_failures": 0,
@@ -161277,6 +164502,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 16.0,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "coles",
+          "matched_name": "Peanut Butter Crunchy"
+        },
+        {
+          "date": "2026-06-01",
           "price": 16.0,
           "is_special": false,
           "was_price": 7.5,
@@ -161543,6 +164776,14 @@
           "was_price": 7.5,
           "store": "woolworths",
           "matched_name": "Pic's Peanut Butter Smooth"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 7.5,
+          "is_special": false,
+          "was_price": 7.5,
+          "store": "woolworths",
+          "matched_name": "Pic's Peanut Butter Smooth"
         }
       ],
       "consecutive_failures": 0,
@@ -161775,6 +165016,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 1.775,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Full Cream Milk 2L"
+        },
+        {
+          "date": "2026-06-01",
           "price": 1.775,
           "is_special": false,
           "was_price": null,
@@ -162043,6 +165292,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths Full Cream Milk 3L"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 1.7166666666666668,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths Full Cream Milk 3L"
         }
       ],
       "pack_litres": 3.0,
@@ -162306,6 +165563,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Tip Top Super Thick Toast Soft White 700g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 4.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Tip Top Super Thick Toast Soft White 700g"
         }
       ],
       "unit_price": 0.67,
@@ -162336,7 +165601,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -162563,6 +165828,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 2.8,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths White Soft Sandwich Bread 650g"
+        },
+        {
+          "date": "2026-06-01",
           "price": 2.8,
           "is_special": false,
           "was_price": null,
@@ -162823,6 +166096,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Free Range Eggs 12 Pack"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.5,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Free Range Eggs 12 Pack"
         }
       ],
       "unit_price": 0.93,
@@ -163078,6 +166359,14 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Woolworths 12 Large Free Range Eggs 600g"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 6.2,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Woolworths 12 Large Free Range Eggs 600g"
         }
       ],
       "unit_price": 1.03,
@@ -163328,6 +166617,14 @@
         },
         {
           "date": "2026-05-31",
+          "price": 10.0,
+          "is_special": false,
+          "was_price": 12.7,
+          "store": "coles",
+          "matched_name": "Free Range Large Eggs 18 Pack"
+        },
+        {
+          "date": "2026-06-01",
           "price": 10.0,
           "is_special": false,
           "was_price": 12.7,
@@ -163595,6 +166892,14 @@
           "was_price": 2.95,
           "store": "coles",
           "matched_name": "Spaghetti No 5"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 0.5,
+          "is_special": false,
+          "was_price": 2.95,
+          "store": "coles",
+          "matched_name": "Spaghetti No 5"
         }
       ],
       "unit_price": 0.5,
@@ -163850,6 +167155,14 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Pasta Spaghetti"
+        },
+        {
+          "date": "2026-06-01",
+          "price": 0.18,
+          "is_special": false,
+          "was_price": null,
+          "store": "coles",
+          "matched_name": "Pasta Spaghetti"
         }
       ],
       "unit_price": 0.18,
@@ -163873,7 +167186,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-01"
     }
   ]
 }
