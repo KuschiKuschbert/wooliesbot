@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-02T05:06:44.406467Z",
+  "last_updated": "2026-06-02T12:56:32.583518Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1240,7 +1240,7 @@
       "item_id": "78b8cbd4-2f0e-4507-abda-57d772fba6a9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Pork Loin Roast",
@@ -7460,7 +7460,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -8270,7 +8270,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Lemons (Bag)",
@@ -11900,7 +11900,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -19582,7 +19582,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -20392,7 +20392,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -29234,7 +29234,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true
     },
     {
@@ -30692,7 +30692,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true
     },
     {
@@ -31790,7 +31790,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 109,
+      "consecutive_failures": 110,
       "quarantined": true
     },
     {
@@ -34517,7 +34517,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true
     },
     {
@@ -36594,7 +36594,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 0,
+      "price": 1.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "60G",
@@ -36936,15 +36936,23 @@
           "was_price": 2.0,
           "store": "woolworths",
           "matched_name": "Vegeta Beef Stock Cubes"
+        },
+        {
+          "date": "2026-06-02",
+          "price": 1.0,
+          "is_special": true,
+          "was_price": 2.0,
+          "store": "woolworths",
+          "matched_name": "Vegeta Beef Stock Cubes"
         }
       ],
       "was_price": 2.0,
       "on_special": true,
       "local_image": "images/Vegeta_Beef_Stock_Cubes_60G.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/082540.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 0.17,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 1.0,
@@ -36954,16 +36962,17 @@
           "on_special": true
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Vegeta Beef Stock Cubes",
       "item_id": "2c4bf20a-f481-4a4c-8f01-2ca26ec6ff22",
-      "consecutive_failures": 7,
-      "quarantined": true,
-      "last_layer_a_check": "2026-06-01"
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-01",
+      "eff_price": 1.0
     },
     {
       "name": "Hillview Cheese Block Tasty 1Kg",
@@ -49452,7 +49461,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true,
       "last_layer_a_check": "2026-06-01"
     },
@@ -57940,7 +57949,7 @@
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01",
+      "last_layer_a_check": "2026-06-02",
       "eff_price": 7.5
     },
     {
@@ -62465,7 +62474,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -62875,7 +62884,7 @@
       "item_id": "abbf42f2-d961-4d43-94c7-0c6f6363e16e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Mn Protein Cups Chocpeanut Butter 50G",
@@ -69040,7 +69049,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 3.0,
+      "price": 1.9,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "1L",
@@ -69393,27 +69402,27 @@
         },
         {
           "date": "2026-06-02",
-          "price": 3.0,
-          "is_special": true,
+          "price": 1.9,
+          "is_special": false,
           "was_price": 4.2,
           "store": "woolworths",
-          "matched_name": "Massel Gourmet Liquid Stock Chicken"
+          "matched_name": "Woolworths Chicken Liquid Stock"
         }
       ],
       "was_price": 4.2,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Liquid_Stock_Chicken_Style_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/249573.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/310251.jpg",
       "store": "woolworths",
-      "unit_price": 3.0,
+      "unit_price": 1.9,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
-          "was_price": 4.2,
-          "on_special": true
+          "price": 1.9,
+          "unit_price": 1.9,
+          "eff_price": 1.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.2,
@@ -69425,11 +69434,11 @@
       },
       "price_unavailable": false,
       "avg_price": 1.9,
-      "eff_price": 3.0,
+      "eff_price": 1.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Massel Gourmet Liquid Stock Chicken",
+      "name_check": "Woolworths Chicken Liquid Stock",
       "item_id": "69003d24-5705-4435-953f-9ff830a2e577",
       "consecutive_failures": 0,
       "quarantined": false
@@ -79261,7 +79270,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -79285,7 +79294,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -79293,7 +79302,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -83682,7 +83691,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 76,
+      "consecutive_failures": 77,
       "quarantined": true
     },
     {
@@ -107501,7 +107510,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -115924,7 +115933,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -122880,7 +122889,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -129633,7 +129642,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -136399,7 +136408,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 97,
+      "consecutive_failures": 98,
       "quarantined": true
     },
     {
@@ -153893,7 +153902,7 @@
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Aeroplane Jelly Lite Blueberry 2X9G",
@@ -156338,7 +156347,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -166960,7 +166969,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -167500,7 +167509,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Pics Peanut Butter Crunchy 1Kg",
@@ -168049,7 +168058,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
