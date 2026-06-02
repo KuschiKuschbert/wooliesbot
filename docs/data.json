@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-02T20:28:15.228550Z",
+  "last_updated": "2026-06-02T23:12:07.177521Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2848,7 +2848,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -4842,8 +4842,8 @@
       "coles": "https://www.coles.com.au/product/coles-washed-potatoes-2kg-1206748",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.5,
-      "eff_price": 5.5,
+      "price": 8.0,
+      "eff_price": 8.0,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "root_veg",
@@ -5197,7 +5197,7 @@
         },
         {
           "date": "2026-06-02",
-          "price": 5.5,
+          "price": 8.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -5208,13 +5208,13 @@
       "on_special": false,
       "local_image": "images/Potatoes_Washed_Bag.jpg",
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/262783.jpg",
-      "unit_price": 2.75,
+      "unit_price": 4.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 2.75,
-          "eff_price": 5.5,
+          "price": 8.0,
+          "unit_price": 4.0,
+          "eff_price": 8.0,
           "was_price": null,
           "on_special": false
         },
@@ -7460,7 +7460,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true,
       "last_layer_a_check": "2026-05-29"
     },
@@ -10274,7 +10274,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Butter (Western Star)",
@@ -15954,7 +15954,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -29234,7 +29234,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true
     },
     {
@@ -30692,7 +30692,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true
     },
     {
@@ -31790,7 +31790,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 111,
+      "consecutive_failures": 112,
       "quarantined": true
     },
     {
@@ -34517,7 +34517,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true
     },
     {
@@ -48829,7 +48829,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -49461,7 +49461,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true,
       "last_layer_a_check": "2026-06-02"
     },
@@ -52217,7 +52217,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -83445,7 +83445,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -83685,7 +83685,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true
     },
     {
@@ -90626,19 +90626,19 @@
           "price": 2.45,
           "is_special": false,
           "was_price": 3.3,
-          "store": "coles",
-          "matched_name": "Spring Water Bottle"
+          "store": "woolworths",
+          "matched_name": "Mount Franklin Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 2.45,
+          "unit_price": 4.08,
+          "eff_price": 2.45,
           "was_price": null,
           "on_special": false
         },
@@ -90651,7 +90651,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/7/7014331.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
       "avg_price": 2.45,
       "eff_price": 2.45,
       "on_special": false,
@@ -90659,7 +90659,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -112823,7 +112823,8 @@
       "name_check": "McCain Pizza Slice Snacks Meatlovers Meatlovers",
       "item_id": "00f3f294-2626-476e-98ce-dab4b2d15962",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Df Thick & Creamy Classic Vanilla 4X110G",
@@ -115927,7 +115928,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -129629,7 +129630,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -136395,7 +136396,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true
     },
     {
@@ -162724,7 +162725,7 @@
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Bryne Co Stuffed Green Olives 450G",
@@ -170243,7 +170244,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-02"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
