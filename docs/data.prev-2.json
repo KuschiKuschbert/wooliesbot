@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-04T12:07:01.110075Z",
+  "last_updated": "2026-06-04T16:10:58.199037Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -420,7 +420,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -7748,7 +7748,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -14466,7 +14466,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "English Muffins",
@@ -18664,7 +18664,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -24545,7 +24545,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-24"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -29695,7 +29695,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -30370,7 +30370,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true
     },
     {
@@ -31876,7 +31876,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true
     },
     {
@@ -33006,7 +33006,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 118,
+      "consecutive_failures": 119,
       "quarantined": true
     },
     {
@@ -35822,7 +35822,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true
     },
     {
@@ -41826,7 +41826,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 2.1,
+      "price": 2.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "Standard",
@@ -42115,7 +42115,7 @@
         },
         {
           "date": "2026-06-04",
-          "price": 2.1,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -42127,13 +42127,13 @@
       "local_image": "images/Cucumber_Continentalodd_Bunch.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/829360.jpg",
       "store": "woolworths",
-      "unit_price": 2.1,
+      "unit_price": 2.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.1,
-          "unit_price": 2.1,
-          "eff_price": 2.1,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         }
@@ -42147,7 +42147,7 @@
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 2.1
+      "eff_price": 2.0
     },
     {
       "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
@@ -51349,7 +51349,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true,
       "last_layer_a_check": "2026-06-03"
     },
@@ -80201,7 +80201,7 @@
           "is_special": true,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -80225,7 +80225,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
       "avg_price": 4.5,
       "eff_price": 3.95,
       "on_special": true,
@@ -80233,7 +80233,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
+      "name_check": "Buderim Ginger Refresher Cordial Cordial",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -86675,7 +86675,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -86915,7 +86915,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -94128,19 +94128,19 @@
           "price": 2.45,
           "is_special": false,
           "was_price": 3.3,
-          "store": "woolworths",
-          "matched_name": "Mount Franklin Spring Water Bottle"
+          "store": "coles",
+          "matched_name": "Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 4.08,
-          "eff_price": 2.45,
+          "price": 3.3,
+          "unit_price": 2.2,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -94153,7 +94153,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
+      "image_url": "https://productimages.coles.com.au/7/7014331.jpg",
       "avg_price": 2.45,
       "eff_price": 2.45,
       "on_special": false,
@@ -94161,7 +94161,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Mount Franklin Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -102709,9 +102709,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 3.8,
-          "unit_price": 3.8,
-          "eff_price": 3.8,
+          "price": 4.0,
+          "unit_price": 4.0,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         }
@@ -109060,24 +109060,24 @@
           "price": 1.6,
           "is_special": false,
           "was_price": 2.3,
-          "store": "woolworths",
-          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
+          "store": "coles",
+          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
         }
       ],
       "was_price": 2.3,
       "on_special": false,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.88,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
+          "price": 2.0,
+          "unit_price": 3.33,
+          "eff_price": 2.0,
+          "was_price": 2.3,
+          "on_special": true
         },
         "coles": {
           "price": 1.6,
@@ -109093,7 +109093,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false
@@ -117596,22 +117596,22 @@
           "price": 2.95,
           "is_special": false,
           "was_price": 2.95,
-          "store": "coles",
-          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 1.97,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.95,
-          "unit_price": 0.99,
-          "eff_price": 5.95,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -117629,7 +117629,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -120407,7 +120407,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -134637,7 +134637,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -141659,7 +141659,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 106,
+      "consecutive_failures": 107,
       "quarantined": true
     },
     {
@@ -148890,7 +148890,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-22",
-      "price": 3.1,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "125G",
@@ -149259,7 +149259,7 @@
         },
         {
           "date": "2026-06-04",
-          "price": 3.1,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -149271,20 +149271,20 @@
       "local_image": "images/Thomas_Dux_Camembert125G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/311843.jpg",
       "store": "woolworths",
-      "unit_price": 24.8,
+      "unit_price": 24.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.1,
-          "unit_price": 24.8,
-          "eff_price": 3.1,
+          "price": 3.0,
+          "unit_price": 24.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.7,
-      "eff_price": 3.1,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -163235,7 +163235,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Broccolini Bunch",
@@ -163682,15 +163682,15 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.1,
-      "unit_price": 2.1,
+      "price": 2.0,
+      "unit_price": 2.0,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 2.1,
-          "unit_price": 2.1,
-          "eff_price": 2.1,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         },
@@ -164059,7 +164059,7 @@
         },
         {
           "date": "2026-06-04",
-          "price": 2.1,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -164070,7 +164070,7 @@
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.1,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -173436,7 +173436,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -175179,7 +175179,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -176334,7 +176334,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
