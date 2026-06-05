@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-04T19:08:42.255136Z",
+  "last_updated": "2026-06-04T22:31:28.698810Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -876,7 +876,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Bacon (Middle)",
@@ -7748,7 +7748,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -15321,7 +15321,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Rice Paper",
@@ -16998,7 +16998,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -17831,7 +17831,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Gravy Granules",
@@ -30370,7 +30370,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true
     },
     {
@@ -31608,22 +31608,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
           "was_price": null,
           "on_special": false
         },
@@ -31641,7 +31641,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -31876,7 +31876,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true
     },
     {
@@ -33006,7 +33006,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 120,
+      "consecutive_failures": 121,
       "quarantined": true
     },
     {
@@ -35822,7 +35822,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true
     },
     {
@@ -44706,7 +44706,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -45160,7 +45160,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -45529,7 +45529,7 @@
         },
         {
           "date": "2026-06-04",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -45541,13 +45541,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -45561,7 +45561,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -51349,7 +51349,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true,
       "last_layer_a_check": "2026-06-03"
     },
@@ -80237,7 +80237,7 @@
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Hoyts Thyme 15G",
@@ -84536,7 +84536,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -84905,26 +84905,26 @@
         },
         {
           "date": "2026-06-04",
-          "price": 7.7,
+          "price": 7.0,
           "is_special": true,
-          "was_price": 9.8,
+          "was_price": 8.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
-      "was_price": 9.8,
+      "was_price": 8.8,
       "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.28,
+      "unit_price": 1.4,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.7,
-          "unit_price": 1.28,
-          "eff_price": 7.7,
-          "was_price": 9.8,
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": 8.8,
           "on_special": true
         },
         "coles": {
@@ -84937,11 +84937,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -86915,7 +86915,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 87,
+      "consecutive_failures": 88,
       "quarantined": true
     },
     {
@@ -94128,19 +94128,19 @@
           "price": 2.45,
           "is_special": false,
           "was_price": 3.3,
-          "store": "coles",
-          "matched_name": "Spring Water Bottle"
+          "store": "woolworths",
+          "matched_name": "Mount Franklin Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 2.45,
+          "unit_price": 4.08,
+          "eff_price": 2.45,
           "was_price": null,
           "on_special": false
         },
@@ -94153,7 +94153,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/7/7014331.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
       "avg_price": 2.45,
       "eff_price": 2.45,
       "on_special": false,
@@ -94161,7 +94161,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -106118,7 +106118,7 @@
       "item_id": "a0c66303-6565-4487-b86c-257f25cf99f1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-30"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
@@ -111260,7 +111260,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -111629,36 +111629,36 @@
         },
         {
           "date": "2026-06-04",
-          "price": 12.7,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -117596,22 +117596,22 @@
           "price": 2.95,
           "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.97,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 5.95,
+          "unit_price": 0.99,
+          "eff_price": 5.95,
           "was_price": null,
           "on_special": false
         },
@@ -117629,7 +117629,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -120407,7 +120407,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -134637,7 +134637,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -141659,7 +141659,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true
     },
     {
@@ -169028,7 +169028,7 @@
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-04"
     },
     {
       "name": "Bryne Co Stuffed Green Olives 450G",
