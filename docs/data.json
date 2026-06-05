@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T18:45:04.069353Z",
+  "last_updated": "2026-06-05T22:14:59.642478Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3439,7 +3439,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Capsicum (Red)",
@@ -7241,7 +7241,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -7892,7 +7892,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -16463,7 +16463,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -17745,7 +17745,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Almond Meal",
@@ -20303,7 +20303,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -21163,7 +21163,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -30938,7 +30938,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true
     },
     {
@@ -32468,7 +32468,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true
     },
     {
@@ -33614,7 +33614,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 125,
+      "consecutive_failures": 126,
       "quarantined": true
     },
     {
@@ -35372,7 +35372,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -36485,7 +36485,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true
     },
     {
@@ -48610,7 +48610,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 4.75,
+      "price": 2.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -48987,25 +48987,25 @@
         },
         {
           "date": "2026-06-05",
-          "price": 4.75,
+          "price": 2.95,
           "is_special": false,
           "was_price": 5.95,
-          "store": "coles",
-          "matched_name": "Thick & Creamy Yoghurt Strawberry"
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Strawberry Yoghurt"
         }
       ],
       "was_price": 5.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
-      "store": "coles",
-      "unit_price": 0.79,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.97,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.25,
-          "eff_price": 5.5,
+          "price": 2.95,
+          "unit_price": 1.97,
+          "eff_price": 2.95,
           "was_price": null,
           "on_special": false
         },
@@ -49019,11 +49019,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 4.75,
+      "eff_price": 2.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Yoghurt Strawberry",
+      "name_check": "Dairy Farmers Thick & Creamy Strawberry Yoghurt",
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -52300,7 +52300,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true,
       "last_layer_a_check": "2026-06-03"
     },
@@ -88291,7 +88291,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -88531,7 +88531,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 92,
+      "consecutive_failures": 93,
       "quarantined": true
     },
     {
@@ -95880,19 +95880,19 @@
           "price": 2.45,
           "is_special": false,
           "was_price": 3.3,
-          "store": "coles",
-          "matched_name": "Spring Water Bottle"
+          "store": "woolworths",
+          "matched_name": "Mount Franklin Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 4.08,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 2.45,
+          "unit_price": 4.08,
+          "eff_price": 2.45,
           "was_price": null,
           "on_special": false
         },
@@ -95905,7 +95905,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/7/7014331.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
       "avg_price": 2.45,
       "eff_price": 2.45,
       "on_special": false,
@@ -95913,7 +95913,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -122647,7 +122647,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -137141,7 +137141,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -144291,7 +144291,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 113,
+      "consecutive_failures": 114,
       "quarantined": true
     },
     {
@@ -178769,7 +178769,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
