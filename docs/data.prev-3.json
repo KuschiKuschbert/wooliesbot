@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T15:46:07.849216Z",
+  "last_updated": "2026-06-05T18:45:04.069353Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7892,7 +7892,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -8323,7 +8323,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -10446,7 +10446,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-01"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -14311,7 +14311,7 @@
       "item_id": "67595b51-a9e3-44cd-a1d7-837d5d3a056a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Ice Cream (Connoisseur)",
@@ -16890,7 +16890,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -24575,7 +24575,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-03"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -30255,7 +30255,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -30938,7 +30938,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true
     },
     {
@@ -32468,7 +32468,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true
     },
     {
@@ -33614,7 +33614,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true
     },
     {
@@ -36485,7 +36485,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true
     },
     {
@@ -45999,7 +45999,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -46376,7 +46376,7 @@
         },
         {
           "date": "2026-06-05",
-          "price": 3.8,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -46388,13 +46388,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -46408,7 +46408,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -52300,7 +52300,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true,
       "last_layer_a_check": "2026-06-03"
     },
@@ -52745,7 +52745,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -53122,23 +53122,23 @@
         },
         {
           "date": "2026-06-05",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -53152,13 +53152,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -75201,7 +75201,7 @@
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -86529,7 +86529,7 @@
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -86574,7 +86574,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 9.0,
+      "price": 17.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -86953,27 +86953,27 @@
         },
         {
           "date": "2026-06-05",
-          "price": 9.0,
-          "is_special": true,
+          "price": 17.5,
+          "is_special": false,
           "was_price": 12.0,
-          "store": "woolworths",
-          "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet"
+          "store": "coles",
+          "matched_name": "Free Range Chicken Breast Fillets Bulk"
         }
       ],
       "was_price": 12.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Chicken_Breast_Fillets_Bulk_Rspca.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/710953.jpg",
-      "store": "woolworths",
-      "unit_price": 9.0,
+      "image_url": "https://productimages.coles.com.au/2/2303750.jpg",
+      "store": "coles",
+      "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 9.0,
-          "eff_price": 9.0,
-          "was_price": 12.0,
-          "on_special": true
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 17.5,
@@ -86985,11 +86985,11 @@
       },
       "price_unavailable": false,
       "avg_price": 15.74625,
-      "eff_price": 9.0,
+      "eff_price": 17.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet",
+      "name_check": "Free Range Chicken Breast Fillets Bulk",
       "item_id": "7d18f47b-14de-443c-9c79-e10d7c31bc2c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -88531,7 +88531,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 91,
+      "consecutive_failures": 92,
       "quarantined": true
     },
     {
@@ -96357,7 +96357,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -98494,19 +98494,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -98519,7 +98519,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -98527,7 +98527,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -122647,7 +122647,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -135612,7 +135612,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-06"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -137141,7 +137141,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true,
       "last_layer_a_check": "2026-06-04"
     },
@@ -144291,7 +144291,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true
     },
     {
@@ -161103,7 +161103,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-05"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
