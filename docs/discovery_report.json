@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-01T08:37:51.388068+00:00",
-  "report_id": "2026-W23",
+  "generated_at": "2026-06-08T08:13:09.540664+00:00",
+  "report_id": "2026-W24",
   "total_new_candidates": 6,
   "groups": {
     "beef_strips": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "bread_white": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": [
         {
           "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
@@ -30,7 +30,7 @@
       ]
     },
     "butter_block_250g": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": [
         {
           "name": "Allowrie Allowrie Salted Butter Block 250g",
@@ -56,15 +56,15 @@
       ]
     },
     "cheese_tasty_block": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "cola": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": [
         {
-          "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
-          "woolworths": "https://www.woolworths.com.au/shop/productdetails/32731/coca-cola-classic-soft-drink-bottle",
+          "name": "Pepsi Pepsi Soft Drink Cola Bottle 1.25L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/6033188/pepsi-soft-drink-cola-bottle",
           "coles": "",
           "compare_group": "cola",
           "price_mode": "litre",
@@ -75,9 +75,10 @@
             "anchor_query": "cola soft drink 1.25L",
             "bucket": "('sig', ((), (1250,), ()))",
             "overlap_labels": [
+              "Pepsi Pepsi Soft Drink Cola Bottle 1.25L",
+              "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
               "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
               "Coca-Cola Coca-Cola Diet Soft Drink Bottle 1.25L",
-              "Coca-Cola Coca-Cola Vanilla  Soft Drink Bottle Bottle 1.25L",
               "Coca-Cola Coca-Cola Zero Sugar Soft Drink Bottle 1.25L"
             ]
           },
@@ -86,7 +87,7 @@
       ]
     },
     "eggs_free_range": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": [
         {
           "name": "Open Range Open Range 12 Large Free Range Eggs 700g",
@@ -101,22 +102,23 @@
             "anchor_query": "free range eggs 12 pack",
             "bucket": "('sig', ((), (), (700,)))",
             "overlap_labels": [
-              "Open Range Open Range 12 Large Free Range Eggs 700g"
+              "Open Range Open Range 12 Large Free Range Eggs 700g",
+              "Woolworths Woolworths 12 X-Large Free Range Eggs 700g"
             ]
           }
         }
       ]
     },
     "milk_full_cream": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "mince_beef": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "omo_wonder_wash": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": [
         {
           "name": "OMO OMO Sensitive Laundry Liquid Detergent 4L",
@@ -131,8 +133,7 @@
             "anchor_query": "Omo laundry liquid",
             "bucket": "('sig', ((), (4000,), ()))",
             "overlap_labels": [
-              "OMO OMO Sensitive Laundry Liquid Detergent 4L",
-              "OMO OMO Ultimate Liquid Laundry Detergent 4L"
+              "OMO OMO Sensitive Laundry Liquid Detergent 4L"
             ]
           }
         },
@@ -156,19 +157,19 @@
       ]
     },
     "pasta_dry": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "peanut_butter": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "sourdough_loaf": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     },
     "tp_quilton": {
-      "checked_at": "2026-06-01T08:37:51.388068+00:00",
+      "checked_at": "2026-06-08T08:13:09.540664+00:00",
       "new_candidates": []
     }
   }
