@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07T11:15:17.940314Z",
+  "last_updated": "2026-06-07T14:49:27.512631Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2682,7 +2682,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -8180,7 +8180,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -9506,7 +9506,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Garlic",
@@ -14839,7 +14839,7 @@
       "item_id": "67595b51-a9e3-44cd-a1d7-837d5d3a056a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Ice Cream (Connoisseur)",
@@ -16628,7 +16628,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Canned Tomatoes",
@@ -32074,7 +32074,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true
     },
     {
@@ -33652,7 +33652,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true
     },
     {
@@ -34830,7 +34830,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 134,
+      "consecutive_failures": 135,
       "quarantined": true
     },
     {
@@ -37797,7 +37797,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true
     },
     {
@@ -47663,7 +47663,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -48056,7 +48056,7 @@
         },
         {
           "date": "2026-06-07",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -48068,13 +48068,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -48088,7 +48088,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -53516,7 +53516,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -54188,7 +54188,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -54649,7 +54649,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -55042,23 +55042,23 @@
         },
         {
           "date": "2026-06-07",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -55072,13 +55072,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -61283,7 +61283,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -66231,7 +66231,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -82886,7 +82886,7 @@
       "item_id": "c2daaf30-10fb-495b-a452-4ea69aec8935",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Colgate Tpaste Optic Wht Proser Frsh 80G",
@@ -89681,7 +89681,7 @@
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Ww Chicken Breast Fillets Bulk Rspca",
@@ -91747,7 +91747,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 101,
+      "consecutive_failures": 102,
       "quarantined": true
     },
     {
@@ -108852,13 +108852,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
+          "matched_name": "La Tosca Fresh Filled Pasta Spinach & Ricotta Totellini Value Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/101330.jpg",
       "store": "woolworths",
       "unit_price": 0.83,
       "unit": "100g",
@@ -108877,7 +108877,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
+      "name_check": "La Tosca Fresh Filled Pasta Spinach & Ricotta Totellini Value Pack",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false
@@ -117453,7 +117453,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -117846,36 +117846,36 @@
         },
         {
           "date": "2026-06-07",
-          "price": 12.7,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -125529,7 +125529,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-26"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -127104,7 +127104,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -138322,7 +138322,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-16",
-      "price": 6.3,
+      "price": 6.8,
       "brand": "Western Star",
       "subcategory": "other",
       "size": "375G",
@@ -138715,7 +138715,7 @@
         },
         {
           "date": "2026-06-07",
-          "price": 6.3,
+          "price": 6.8,
           "is_special": false,
           "was_price": 6.3,
           "store": "woolworths",
@@ -138727,13 +138727,13 @@
       "local_image": "images/Western_Star_Spread_Supersoft_375G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/199418.jpg",
       "store": "woolworths",
-      "unit_price": 1.68,
+      "unit_price": 1.81,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.3,
-          "unit_price": 1.68,
-          "eff_price": 6.3,
+          "price": 6.8,
+          "unit_price": 1.81,
+          "eff_price": 6.8,
           "was_price": null,
           "on_special": false
         },
@@ -138747,7 +138747,7 @@
       },
       "price_unavailable": false,
       "avg_price": 5.55,
-      "eff_price": 6.3,
+      "eff_price": 6.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -142126,7 +142126,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -149266,7 +149266,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -149298,7 +149298,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -149532,7 +149532,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true
     },
     {
@@ -156722,7 +156722,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 4.5,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -157115,7 +157115,7 @@
         },
         {
           "date": "2026-06-07",
-          "price": 4.5,
+          "price": 4.8,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -157127,13 +157127,13 @@
       "local_image": "images/Perfect_Italiano_Chsperfect_Bakes_150G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/094119.jpg",
       "store": "woolworths",
-      "unit_price": 30.0,
+      "unit_price": 32.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.5,
-          "unit_price": 30.0,
-          "eff_price": 4.5,
+          "price": 4.8,
+          "unit_price": 32.0,
+          "eff_price": 4.8,
           "was_price": null,
           "on_special": false
         },
@@ -157147,7 +157147,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 4.5,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",

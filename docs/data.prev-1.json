@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07T18:09:55.655959Z",
+  "last_updated": "2026-06-07T22:05:01.830965Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3128,7 +3128,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -8180,7 +8180,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -22392,7 +22392,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-05"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -32074,7 +32074,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true
     },
     {
@@ -33652,7 +33652,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true
     },
     {
@@ -34830,7 +34830,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 136,
+      "consecutive_failures": 137,
       "quarantined": true
     },
     {
@@ -37797,7 +37797,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true
     },
     {
@@ -54188,7 +54188,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -61739,7 +61739,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-27"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Beanette 400G P/P",
@@ -64445,7 +64445,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-23",
-      "price": 14.5,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "Standard",
@@ -64838,25 +64838,25 @@
         },
         {
           "date": "2026-06-07",
-          "price": 14.5,
+          "price": 9.0,
           "is_special": false,
           "was_price": 14.5,
-          "store": "coles",
-          "matched_name": "Graze Grassfed Beef Scotch Fillet Steak"
+          "store": "woolworths",
+          "matched_name": "Woolworths Beef Scotch Fillet Steak"
         }
       ],
       "was_price": 14.5,
       "on_special": false,
       "local_image": "images/Ww_Beef_Scotch_Fillet_Steak_Medium.jpg",
-      "image_url": "https://productimages.coles.com.au/3/3855388.jpg",
-      "store": "coles",
-      "unit_price": 58.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/317293.jpg",
+      "store": "woolworths",
+      "unit_price": 52.94,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 37.2,
-          "unit_price": 46.5,
-          "eff_price": 37.2,
+          "price": 9.0,
+          "unit_price": 52.94,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         },
@@ -64870,11 +64870,11 @@
       },
       "price_unavailable": false,
       "avg_price": 13.096666666666666,
-      "eff_price": 14.5,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Graze Grassfed Beef Scotch Fillet Steak",
+      "name_check": "Woolworths Beef Scotch Fillet Steak",
       "item_id": "e2a60e93-7924-4db6-9bcb-8ec49aebe6a3",
       "consecutive_failures": 0,
       "quarantined": false
@@ -78829,7 +78829,7 @@
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -91747,7 +91747,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 103,
+      "consecutive_failures": 104,
       "quarantined": true
     },
     {
@@ -107536,7 +107536,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -127104,7 +127104,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -142126,7 +142126,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-06-07"
     },
@@ -149532,7 +149532,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true
     },
     {
@@ -162948,7 +162948,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -167853,7 +167853,7 @@
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Lucas Ointment Papaw 75G",
@@ -178461,7 +178461,7 @@
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-07"
     },
     {
       "name": "Bryne Co Stuffed Green Olives 450G",
