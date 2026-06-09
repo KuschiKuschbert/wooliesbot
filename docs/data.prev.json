@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T04:39:35.997346Z",
+  "last_updated": "2026-06-09T08:39:58.402416Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8233,7 +8233,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Snow Peas",
@@ -8468,7 +8468,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -10755,7 +10755,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Medjool Dates",
@@ -16302,7 +16302,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-28"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -20424,7 +20424,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -27838,7 +27838,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -28249,7 +28249,7 @@
         },
         {
           "date": "2026-06-09",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -28258,21 +28258,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -33210,7 +33210,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true
     },
     {
@@ -34568,22 +34568,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -34601,7 +34601,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -34836,7 +34836,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true
     },
     {
@@ -36046,7 +36046,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 142,
+      "consecutive_failures": 143,
       "quarantined": true
     },
     {
@@ -39109,7 +39109,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true
     },
     {
@@ -55388,7 +55388,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -56076,7 +56076,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -60598,6 +60598,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 38.0,
+          "unit_price": 19.0,
+          "eff_price": 38.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -91837,22 +91844,22 @@
           "price": 3.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pak Choy Baby Asian Greens"
+          "store": "coles",
+          "matched_name": "Asian Choy Pak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/154991.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4567039.jpg",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 5.5,
+          "unit_price": 5.5,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -91870,7 +91877,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -94956,7 +94963,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 109,
+      "consecutive_failures": 110,
       "quarantined": true
     },
     {
@@ -109439,7 +109446,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -118704,20 +118711,20 @@
           "price": 9.1,
           "is_special": false,
           "was_price": 8.5,
-          "store": "coles",
-          "matched_name": "Organic Salted Butter"
+          "store": "woolworths",
+          "matched_name": "Mainland Organic Butter Block Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
+      "store": "woolworths",
       "unit_price": 3.64,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 10.6,
-          "unit_price": 2.83,
-          "eff_price": 10.6,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -118737,7 +118744,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter",
+      "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -131561,7 +131568,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true,
       "last_layer_a_check": "2026-05-31"
     },
@@ -147111,7 +147118,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -151291,7 +151298,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -154773,7 +154780,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true
     },
     {
@@ -155240,7 +155247,7 @@
       "item_id": "b2fb6164-4aac-44dc-99a3-8908c91d3586",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-05"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Libra Tampons Super 32Pk",
@@ -156644,7 +156651,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-07"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -157086,9 +157093,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.8,
-          "unit_price": 1.45,
-          "eff_price": 5.8,
+          "price": 3.5,
+          "unit_price": 11.67,
+          "eff_price": 3.5,
           "was_price": null,
           "on_special": false
         },
@@ -178389,7 +178396,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Broccolini Bunch",
@@ -184742,7 +184749,7 @@
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-07"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Bryne Co Stuffed Green Olives 450G",
@@ -184759,9 +184766,9 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 3.2,
-      "unit_price": 7.11,
-      "unit": "kg",
+      "price": 0,
+      "unit_price": null,
+      "unit": null,
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
@@ -184772,8 +184779,8 @@
           "on_special": true
         }
       },
-      "price_unavailable": false,
-      "image_url": "images/bryne_co_stuffed_green_olives_450g.jpg",
+      "price_unavailable": true,
+      "image_url": "",
       "avg_price": 4.0,
       "scrape_history": [
         {
@@ -185180,15 +185187,14 @@
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.2,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.0,
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "quarantined": false,
       "last_layer_a_check": "2026-06-08"
     },
@@ -189916,7 +189922,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -192895,7 +192901,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-09"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
