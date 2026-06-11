@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-10T12:26:12.992452Z",
+  "last_updated": "2026-06-10T16:31:59.921707Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4232,7 +4232,7 @@
       "coles": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.2,
+      "price": 2.0,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "salad_veg",
@@ -4633,7 +4633,7 @@
         },
         {
           "date": "2026-06-10",
-          "price": 2.2,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -4641,13 +4641,13 @@
         }
       ],
       "local_image": "images/Avocados_Hass.jpg",
-      "unit_price": 2.2,
+      "unit_price": 2.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 2.2,
-          "eff_price": 2.2,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         }
@@ -4656,7 +4656,7 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/120080.jpg",
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 2.2,
+      "eff_price": 2.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -8377,7 +8377,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Snow Peas",
@@ -8612,7 +8612,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -28318,7 +28318,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -28737,7 +28737,7 @@
         },
         {
           "date": "2026-06-10",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -28746,21 +28746,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -33778,7 +33778,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true
     },
     {
@@ -35428,7 +35428,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true
     },
     {
@@ -36654,7 +36654,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 149,
+      "consecutive_failures": 150,
       "quarantined": true
     },
     {
@@ -39765,7 +39765,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true
     },
     {
@@ -46803,7 +46803,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.6,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
@@ -53010,7 +53010,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 2.95,
+      "price": 3.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -53427,7 +53427,7 @@
         },
         {
           "date": "2026-06-10",
-          "price": 2.95,
+          "price": 3.3,
           "is_special": false,
           "was_price": 5.95,
           "store": "woolworths",
@@ -53439,13 +53439,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 1.97,
+      "unit_price": 2.2,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 3.3,
+          "unit_price": 2.2,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -53459,7 +53459,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 2.95,
+      "eff_price": 3.3,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -54904,7 +54904,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -57020,7 +57020,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -83449,7 +83449,7 @@
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Mission Soft & Fluffy Wrap 12 Pk",
@@ -95384,7 +95384,7 @@
       "item_id": "23b8ee07-d31d-496c-8484-d5f856881225",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-23"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Hydralyte Efferv Tab Strawb Kiwi 10Pk",
@@ -96572,7 +96572,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 116,
+      "consecutive_failures": 117,
       "quarantined": true
     },
     {
@@ -107455,19 +107455,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -107480,7 +107480,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -107488,7 +107488,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -111784,7 +111784,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-02"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -122241,7 +122241,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 2.2,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -122654,7 +122654,7 @@
         },
         {
           "date": "2026-06-10",
-          "price": 2.2,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -122666,13 +122666,13 @@
       "local_image": "images/Avocado_Hass.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/120080.jpg",
       "store": "woolworths",
-      "unit_price": 2.2,
+      "unit_price": 2.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 2.2,
-          "eff_price": 2.2,
+          "price": 2.0,
+          "unit_price": 2.0,
+          "eff_price": 2.0,
           "was_price": null,
           "on_special": false
         },
@@ -122686,7 +122686,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.028571428571429,
-      "eff_price": 2.2,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-20",
@@ -124104,7 +124104,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -130709,22 +130709,22 @@
           "price": 2.95,
           "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 1.97,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.95,
-          "unit_price": 1.97,
-          "eff_price": 2.95,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -130742,7 +130742,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -133808,7 +133808,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true,
       "last_layer_a_check": "2026-06-09"
     },
@@ -145149,7 +145149,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-16",
-      "price": 7.0,
+      "price": 7.1,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "Standard",
@@ -145566,7 +145566,7 @@
         },
         {
           "date": "2026-06-10",
-          "price": 7.0,
+          "price": 7.1,
           "is_special": false,
           "was_price": 7.1,
           "store": "woolworths",
@@ -145578,13 +145578,13 @@
       "local_image": "images/Ww_Chocolate_Mud_Cake_1Ea.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/055196.jpg",
       "store": "woolworths",
-      "unit_price": 7.0,
+      "unit_price": 7.1,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 7.0,
-          "eff_price": 7.0,
+          "price": 7.1,
+          "unit_price": 7.1,
+          "eff_price": 7.1,
           "was_price": null,
           "on_special": false
         },
@@ -145598,7 +145598,7 @@
       },
       "price_unavailable": false,
       "avg_price": 6.6,
-      "eff_price": 7.0,
+      "eff_price": 7.1,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -149622,7 +149622,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -157146,7 +157146,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -157178,7 +157178,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -157412,7 +157412,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 137,
+      "consecutive_failures": 138,
       "quarantined": true
     },
     {
@@ -175784,7 +175784,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -181931,22 +181931,22 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.4,
-      "unit_price": 2.4,
+      "price": 2.9,
+      "unit_price": 2.9,
       "unit": "each",
-      "store": "woolworths",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
-          "price": 2.4,
-          "unit_price": 2.4,
-          "eff_price": 2.4,
+          "price": 3.0,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
         "coles": {
-          "price": 2.5,
-          "unit_price": 2.5,
-          "eff_price": 2.5,
+          "price": 2.9,
+          "unit_price": 2.9,
+          "eff_price": 2.9,
           "was_price": null,
           "on_special": false
         }
@@ -182356,24 +182356,24 @@
         },
         {
           "date": "2026-06-10",
-          "price": 2.4,
+          "price": 2.9,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "The Odd Bunch Continental Cucumber"
+          "store": "coles",
+          "matched_name": "Cucumbers Continental Loose"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.4,
+      "eff_price": 2.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "The Odd Bunch Continental Cucumber",
+      "name_check": "Cucumbers Continental Loose",
       "item_id": "11e7aa33-0137-4912-a4e8-fb4bd1fb81fc",
       "consecutive_failures": 0,
       "quarantined": false
@@ -188346,7 +188346,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -192828,7 +192828,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-06-06"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -194859,7 +194859,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-10"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
