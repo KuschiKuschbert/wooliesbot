@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-11T05:04:35.882857Z",
+  "last_updated": "2026-06-11T12:58:22.282757Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2886,9 +2886,9 @@
       "coles": "https://www.coles.com.au/product/coles-beef-stir-fry-500g-9990965",
       "stock": "medium",
       "last_purchased": null,
-      "price": 10.5,
-      "eff_price": 21.0,
-      "store": "coles",
+      "price": 3.0,
+      "eff_price": 17.1,
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "beef",
       "size": "500g",
@@ -3313,24 +3313,24 @@
         },
         {
           "date": "2026-06-11",
-          "price": 21.0,
+          "price": 17.1,
           "is_special": false,
           "was_price": 12.0,
-          "store": "coles",
-          "matched_name": "Beef Stir Fry"
+          "store": "woolworths",
+          "matched_name": "MasterFoods Chinese Beef Stir Fry Recipe Base"
         }
       ],
       "was_price": 12.0,
       "on_special": false,
       "local_image": "images/Beef_Stir_Fry_500g.jpg",
-      "image_url": "https://productimages.coles.com.au/9/9990965.jpg",
-      "unit_price": 21.0,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/172092.jpg",
+      "unit_price": 1.71,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 13.0,
-          "unit_price": 26.0,
-          "eff_price": 26.0,
+          "price": 3.0,
+          "unit_price": 1.71,
+          "eff_price": 17.1,
           "was_price": null,
           "on_special": false
         },
@@ -3348,7 +3348,7 @@
       "stale": false,
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
-      "name_check": "Beef Stir Fry",
+      "name_check": "MasterFoods Chinese Beef Stir Fry Recipe Base",
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -8756,7 +8756,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -11123,7 +11123,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Medjool Dates",
@@ -19238,7 +19238,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -22559,7 +22559,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -24935,7 +24935,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -29259,7 +29259,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -34346,7 +34346,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true
     },
     {
@@ -35752,22 +35752,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.76,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.95,
-          "unit_price": 0.76,
-          "eff_price": 0.95,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -35785,7 +35785,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -36020,7 +36020,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true
     },
     {
@@ -37262,7 +37262,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 153,
+      "consecutive_failures": 154,
       "quarantined": true
     },
     {
@@ -40421,7 +40421,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true
     },
     {
@@ -44294,7 +44294,7 @@
       "item_id": "7f17c843-ab94-4952-82a6-72a3eef7aa12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Real Foods Corn Thins Multigrain 150G",
@@ -47576,7 +47576,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "quarantined": false
     },
     {
@@ -50982,7 +50982,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -51407,27 +51407,27 @@
         },
         {
           "date": "2026-06-11",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -51439,7 +51439,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -57955,7 +57955,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -59729,11 +59729,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.22,
-          "eff_price": 4.0,
-          "was_price": 8.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.5,
@@ -68923,7 +68923,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-07"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -76631,7 +76631,7 @@
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -90171,7 +90171,7 @@
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-29"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -98171,7 +98171,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 120,
+      "consecutive_failures": 121,
       "quarantined": true
     },
     {
@@ -106861,7 +106861,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -120850,7 +120850,7 @@
       "item_id": "594fc2d2-614a-4a75-bc3f-014e5463f4ad",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Kirks Sugar Free Orange 375Ml 10 Pack",
@@ -122742,22 +122742,22 @@
           "price": 9.1,
           "is_special": false,
           "was_price": 8.5,
-          "store": "coles",
-          "matched_name": "Organic Salted Butter"
+          "store": "woolworths",
+          "matched_name": "Mainland Organic Butter Block Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
+      "store": "woolworths",
       "unit_price": 3.64,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.5,
-          "unit_price": 2.53,
-          "eff_price": 9.5,
-          "was_price": 10.6,
-          "on_special": true
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 9.1,
@@ -122775,7 +122775,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter",
+      "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -129060,7 +129060,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -136031,7 +136031,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true,
       "last_layer_a_check": "2026-06-09"
     },
@@ -152109,7 +152109,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -160027,7 +160027,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true
     },
     {
@@ -191481,7 +191481,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -198122,7 +198122,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -199158,7 +199158,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "Woolworths 12 Large Free Range Eggs 600g",
@@ -199858,7 +199858,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-11"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
