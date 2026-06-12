@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T16:09:36.941421Z",
+  "last_updated": "2026-06-12T18:54:52.073719Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8900,7 +8900,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -15676,7 +15676,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-04"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -23422,7 +23422,7 @@
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Pepsi Max 30pk",
@@ -23907,7 +23907,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -24392,7 +24392,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -34914,7 +34914,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true
     },
     {
@@ -36612,7 +36612,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true
     },
     {
@@ -37870,7 +37870,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 159,
+      "consecutive_failures": 160,
       "quarantined": true
     },
     {
@@ -41077,7 +41077,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true
     },
     {
@@ -48344,7 +48344,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "quarantined": true
     },
     {
@@ -51806,7 +51806,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -52239,27 +52239,27 @@
         },
         {
           "date": "2026-06-12",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -52271,7 +52271,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -58659,7 +58659,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -58891,7 +58891,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -89133,15 +89133,22 @@
           "price": 4.2,
           "is_special": false,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Grape"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 4.2,
+          "unit_price": 7.0,
+          "eff_price": 4.2,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -89151,7 +89158,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
       "avg_price": 2.1,
       "eff_price": 4.2,
       "on_special": false,
@@ -89159,7 +89166,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Electrolyte Water Grape",
+      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -99764,7 +99771,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 126,
+      "consecutive_failures": 127,
       "quarantined": true
     },
     {
@@ -117959,7 +117966,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 5.5,
+      "price": 6.25,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "375G",
@@ -118392,36 +118399,36 @@
         },
         {
           "date": "2026-06-12",
-          "price": 5.5,
+          "price": 6.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Pasta Potato Gnocchi"
+          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/022500.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
       "store": "woolworths",
-      "unit_price": 1.1,
+      "unit_price": 0.83,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.1,
-          "eff_price": 5.5,
+          "price": 6.25,
+          "unit_price": 0.83,
+          "eff_price": 6.25,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 5.5,
+      "eff_price": 6.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
+      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false
@@ -125763,7 +125770,7 @@
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Ww Lean Pork Mince 500G",
@@ -128224,7 +128231,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -135066,9 +135073,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -138248,7 +138255,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true,
       "last_layer_a_check": "2026-06-09"
     },
@@ -154590,7 +154597,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true,
       "last_layer_a_check": "2026-06-11"
     },
@@ -162636,7 +162643,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true
     },
     {
@@ -186495,7 +186502,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-12"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -194610,7 +194617,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true,
       "last_layer_a_check": "2026-06-11"
     },
