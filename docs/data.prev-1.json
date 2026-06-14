@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-14T05:12:00.754503Z",
+  "last_updated": "2026-06-14T11:38:18.001125Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4015,7 +4015,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Capsicum (Red)",
@@ -7477,7 +7477,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Zucchini",
@@ -9188,7 +9188,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -13179,7 +13179,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -19698,7 +19698,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -26183,7 +26183,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -27681,7 +27681,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-05"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Dishmatic Refills",
@@ -28180,7 +28180,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Energizer Batteries AA",
@@ -36050,7 +36050,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true
     },
     {
@@ -37796,7 +37796,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true
     },
     {
@@ -39086,7 +39086,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 167,
+      "consecutive_failures": 168,
       "quarantined": true
     },
     {
@@ -42389,7 +42389,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true
     },
     {
@@ -44437,7 +44437,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -49880,7 +49880,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 17,
+      "consecutive_failures": 18,
       "quarantined": true
     },
     {
@@ -53454,7 +53454,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -53903,27 +53903,27 @@
         },
         {
           "date": "2026-06-14",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -53935,7 +53935,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -60531,7 +60531,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -60763,7 +60763,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -62633,11 +62633,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 6.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.0,
+          "unit_price": 2.22,
+          "eff_price": 4.0,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 1.5,
@@ -64674,10 +64674,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.75,
-          "unit_price": 18.53,
-          "eff_price": 15.75,
-          "was_price": 19.0,
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
           "on_special": true
         },
         "coles": {
@@ -99612,22 +99612,22 @@
           "price": 3.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Asian Choy Pak"
+          "store": "woolworths",
+          "matched_name": "Pak Choy Baby Asian Greens"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
-      "image_url": "https://productimages.coles.com.au/4/4567039.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/154991.jpg",
+      "store": "woolworths",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 5.5,
-          "eff_price": 5.5,
+          "price": 3.0,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -99645,7 +99645,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Asian Choy Pak",
+      "name_check": "Pak Choy Baby Asian Greens",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -100657,9 +100657,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
           "was_price": null,
           "on_special": false
         },
@@ -102971,7 +102971,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 134,
+      "consecutive_failures": 135,
       "quarantined": true
     },
     {
@@ -114119,7 +114119,7 @@
       "item_id": "15dc9e10-61d5-44c3-83e4-776bcb0a8347",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Ww Rice Basmati 1Kg",
@@ -142703,7 +142703,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true,
       "last_layer_a_check": "2026-06-09"
     },
@@ -151284,7 +151284,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -159573,7 +159573,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true,
       "last_layer_a_check": "2026-06-11"
     },
@@ -167609,7 +167609,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -167641,7 +167641,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -167875,7 +167875,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true
     },
     {
@@ -169395,7 +169395,7 @@
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Lurpak Butter Lighter Slightly Sltd 250G",
@@ -191511,7 +191511,7 @@
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -192525,7 +192525,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -200896,7 +200896,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 25,
+      "consecutive_failures": 26,
       "quarantined": true,
       "last_layer_a_check": "2026-06-14"
     },
@@ -209777,7 +209777,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-14"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
