@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T05:38:58.173445Z",
+  "last_updated": "2026-06-15T15:17:34.619591Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3066,7 +3066,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -7597,7 +7597,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Zucchini",
@@ -9332,7 +9332,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -12366,7 +12366,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -15932,7 +15932,7 @@
       "item_id": "3635b745-21d0-4776-bccf-0a808ff3229a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Frozen Peas",
@@ -20518,7 +20518,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -22034,7 +22034,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Crackers (Jatz)",
@@ -36618,7 +36618,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true
     },
     {
@@ -38388,7 +38388,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true
     },
     {
@@ -39694,7 +39694,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 172,
+      "consecutive_failures": 173,
       "quarantined": true
     },
     {
@@ -43045,7 +43045,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true
     },
     {
@@ -46656,7 +46656,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -50648,7 +50648,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -54278,7 +54278,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -54735,27 +54735,27 @@
         },
         {
           "date": "2026-06-15",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -54767,7 +54767,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -59423,7 +59423,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -61699,7 +61699,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -73396,7 +73396,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -75977,7 +75977,7 @@
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -80070,7 +80070,7 @@
       "item_id": "a2f77a6c-058e-4516-b36c-c88b6d17f0df",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Old El Paso Taco Spice Mix Mild 30G",
@@ -96530,7 +96530,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -96554,7 +96554,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -96562,7 +96562,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
+      "name_check": "Buderim Ginger Refresher Cordial Cordial",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -101157,22 +101157,22 @@
           "price": 3.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pak Choy Baby Asian Greens"
+          "store": "coles",
+          "matched_name": "Asian Choy Pak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/154991.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4567039.jpg",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 5.5,
+          "unit_price": 5.5,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -101190,7 +101190,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -102806,7 +102806,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 4.8,
+      "price": 2.65,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "425Ml",
@@ -103263,36 +103263,36 @@
         },
         {
           "date": "2026-06-15",
-          "price": 4.8,
-          "is_special": false,
+          "price": 2.65,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
-          "matched_name": "Impressed Pressed Juice Tropical Breakfast"
+          "matched_name": "Impressed Tropical Breakfast Juice"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Impressed_Tropical_Juice_425Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/065620.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6047269.jpg",
       "store": "woolworths",
-      "unit_price": 4.8,
+      "unit_price": 6.24,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 4.8,
-          "eff_price": 4.8,
-          "was_price": null,
-          "on_special": false
+          "price": 2.65,
+          "unit_price": 6.24,
+          "eff_price": 2.65,
+          "was_price": 3.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "avg_price": 2.4,
-      "eff_price": 4.8,
+      "eff_price": 2.65,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Impressed Pressed Juice Tropical Breakfast",
+      "name_check": "Impressed Tropical Breakfast Juice",
       "item_id": "23b8ee07-d31d-496c-8484-d5f856881225",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -104564,7 +104564,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 139,
+      "consecutive_failures": 140,
       "quarantined": true
     },
     {
@@ -109721,7 +109721,7 @@
       "item_id": "b703b057-3e09-494f-8e29-9f6cb76230d6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Native Bouquet",
@@ -129774,7 +129774,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -135943,13 +135943,6 @@
       "unit_price": 16.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 13.0,
-          "unit_price": 13.0,
-          "eff_price": 13.0,
-          "was_price": 19.0,
-          "on_special": true
-        },
         "coles": {
           "price": 12.5,
           "unit_price": 16.67,
@@ -144913,7 +144906,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true,
       "last_layer_a_check": "2026-06-09"
     },
@@ -162047,7 +162040,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true,
       "last_layer_a_check": "2026-06-11"
     },
@@ -170477,7 +170470,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true
     },
     {
@@ -189352,13 +189345,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Tasty Cheese Shredded"
+          "matched_name": "Woolworths Light Tasty Cheese Shredded"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Cheese_Shredded_Tasty_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/729025.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/728984.jpg",
       "store": "woolworths",
       "unit_price": 20.0,
       "unit": "kg",
@@ -189384,7 +189377,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Tasty Cheese Shredded",
+      "name_check": "Woolworths Light Tasty Cheese Shredded",
       "item_id": "3059a303-b138-499f-8db1-ad1f467f1865",
       "consecutive_failures": 0,
       "quarantined": false
@@ -195494,9 +195487,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -204018,7 +204011,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 30,
+      "consecutive_failures": 31,
       "quarantined": true,
       "last_layer_a_check": "2026-06-14"
     },
@@ -210022,7 +210015,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-06-11",
+      "last_layer_a_check": "2026-06-15",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-01"
     },
@@ -210037,17 +210030,10 @@
       "target": null,
       "price": 7.5,
       "unit_price": 1.97,
-      "unit": "100g",
+      "unit": "kg",
       "eff_price": 7.5,
-      "store": "woolworths",
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 7.5,
-          "unit_price": 1.97,
-          "eff_price": 7.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.5,
           "unit_price": 1.97,
@@ -210057,13 +210043,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
+      "image_url": "https://productimages.coles.com.au/7/7042370.jpg",
       "was_price": 7.5,
       "on_special": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Peanut Butter Crunchy",
+      "name_check": "Peanut Butter Smoochy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -210398,8 +210384,8 @@
           "price": 7.5,
           "is_special": false,
           "was_price": 7.5,
-          "store": "woolworths",
-          "matched_name": "Pic's Peanut Butter Crunchy"
+          "store": "coles",
+          "matched_name": "Peanut Butter Smoochy"
         }
       ],
       "consecutive_failures": 0,
@@ -213817,7 +213803,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     }
   ]
 }
