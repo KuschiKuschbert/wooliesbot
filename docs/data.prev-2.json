@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T15:17:34.619591Z",
+  "last_updated": "2026-06-15T20:38:51.030313Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -9097,7 +9097,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-10"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Snow Peas",
@@ -9332,7 +9332,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -14916,7 +14916,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -21527,7 +21527,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Gravy Granules",
@@ -31211,7 +31211,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -36618,7 +36618,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true
     },
     {
@@ -38388,7 +38388,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true
     },
     {
@@ -39694,7 +39694,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true
     },
     {
@@ -43045,7 +43045,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true
     },
     {
@@ -50648,7 +50648,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -61699,7 +61699,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true,
       "last_layer_a_check": "2026-06-06"
     },
@@ -93422,22 +93422,15 @@
           "price": 4.2,
           "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 4.2,
-          "unit_price": 7.0,
-          "eff_price": 4.2,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -93447,7 +93440,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
       "eff_price": 4.2,
       "on_special": false,
@@ -93455,7 +93448,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -104564,7 +104557,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 140,
+      "consecutive_failures": 141,
       "quarantined": true
     },
     {
@@ -135943,6 +135936,13 @@
       "unit_price": 16.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 13.0,
+          "unit_price": 13.0,
+          "eff_price": 13.0,
+          "was_price": 19.0,
+          "on_special": true
+        },
         "coles": {
           "price": 12.5,
           "unit_price": 16.67,
@@ -144906,9 +144906,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -162040,7 +162040,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true,
       "last_layer_a_check": "2026-06-11"
     },
@@ -170470,7 +170470,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true
     },
     {
@@ -172533,7 +172533,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-12"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -189345,13 +189345,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Light Tasty Cheese Shredded"
+          "matched_name": "Woolworths Tasty Cheese Shredded"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Cheese_Shredded_Tasty_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/728984.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/729025.jpg",
       "store": "woolworths",
       "unit_price": 20.0,
       "unit": "kg",
@@ -189377,7 +189377,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Light Tasty Cheese Shredded",
+      "name_check": "Woolworths Tasty Cheese Shredded",
       "item_id": "3059a303-b138-499f-8db1-ad1f467f1865",
       "consecutive_failures": 0,
       "quarantined": false
@@ -195002,7 +195002,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -195487,9 +195487,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
+          "price": 3.75,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -204011,7 +204011,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-06-14"
     },
@@ -209267,7 +209267,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -211539,7 +211539,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -211914,7 +211914,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-15"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
