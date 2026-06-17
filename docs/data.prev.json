@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T19:12:06.390694Z",
+  "last_updated": "2026-06-17T22:52:30.586990Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4725,7 +4725,7 @@
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Avocados (Hass)",
@@ -4736,7 +4736,7 @@
       "coles": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.2,
+      "price": 1.8,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "salad_veg",
@@ -5193,7 +5193,7 @@
         },
         {
           "date": "2026-06-17",
-          "price": 2.2,
+          "price": 1.8,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -5201,13 +5201,13 @@
         }
       ],
       "local_image": "images/Avocados_Hass.jpg",
-      "unit_price": 2.2,
+      "unit_price": 1.8,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 2.2,
-          "eff_price": 2.2,
+          "price": 1.8,
+          "unit_price": 1.8,
+          "eff_price": 1.8,
           "was_price": null,
           "on_special": false
         }
@@ -5216,7 +5216,7 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/120080.jpg",
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 2.2,
+      "eff_price": 1.8,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -6794,7 +6794,7 @@
       "item_id": "6ac86d2f-2b54-4f68-b35f-c47fe955edb4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Carrots (1kg)",
@@ -9620,7 +9620,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -10670,7 +10670,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Lemons (Bag)",
@@ -13803,7 +13803,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -26392,7 +26392,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -37754,7 +37754,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true
     },
     {
@@ -39304,24 +39304,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -39337,7 +39337,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -39572,7 +39572,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true
     },
     {
@@ -40910,7 +40910,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -44350,7 +44350,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true
     },
     {
@@ -52177,7 +52177,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 32,
+      "consecutive_failures": 33,
       "quarantined": true
     },
     {
@@ -63564,7 +63564,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true,
       "last_layer_a_check": "2026-06-17"
     },
@@ -83582,7 +83582,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -96295,13 +96295,6 @@
       "unit_price": 3.33,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 4.2,
-          "unit_price": 7.0,
-          "eff_price": 4.2,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.0,
           "unit_price": 3.33,
@@ -99490,7 +99483,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -99514,7 +99507,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -99522,7 +99515,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
+      "name_check": "Buderim Ginger Refresher Cordial Cordial",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -107764,7 +107757,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 149,
+      "consecutive_failures": 150,
       "quarantined": true
     },
     {
@@ -117318,7 +117311,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -127432,7 +127425,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 6.25,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "375G",
@@ -127905,36 +127898,36 @@
         },
         {
           "date": "2026-06-17",
-          "price": 6.25,
+          "price": 5.5,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
+          "matched_name": "La Tosca Fresh Pasta Potato Gnocchi"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/022500.jpg",
       "store": "woolworths",
-      "unit_price": 0.83,
+      "unit_price": 1.1,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.25,
-          "unit_price": 0.83,
-          "eff_price": 6.25,
+          "price": 5.5,
+          "unit_price": 1.1,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 6.25,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
+      "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false
@@ -145939,9 +145932,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -147539,7 +147532,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -149361,9 +149354,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-15"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -167023,7 +167016,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true,
       "last_layer_a_check": "2026-06-15"
     },
@@ -175709,7 +175702,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 170,
+      "consecutive_failures": 171,
       "quarantined": true
     },
     {
@@ -176240,7 +176233,7 @@
       "item_id": "b2fb6164-4aac-44dc-99a3-8908c91d3586",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-17"
     },
     {
       "name": "Libra Tampons Super 32Pk",
@@ -179410,7 +179403,7 @@
       "price_unavailable": false,
       "avg_price": 6.0,
       "eff_price": 6.0,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
@@ -210290,7 +210283,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 40,
+      "consecutive_failures": 41,
       "quarantined": true,
       "last_layer_a_check": "2026-06-16"
     },
