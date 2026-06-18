@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T16:20:52.508925Z",
+  "last_updated": "2026-06-18T19:15:20.253370Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8483,7 +8483,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -9764,9 +9764,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-08"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Corn Cobs",
@@ -25191,7 +25191,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-15"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -28910,7 +28910,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -38322,7 +38322,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true
     },
     {
@@ -40164,7 +40164,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true
     },
     {
@@ -41518,7 +41518,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 186,
+      "consecutive_failures": 187,
       "quarantined": true
     },
     {
@@ -43144,7 +43144,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -45006,7 +45006,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true
     },
     {
@@ -52945,7 +52945,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true
     },
     {
@@ -53480,7 +53480,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/109915.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/default.png",
       "avg_price": 9.8,
       "eff_price": 1.25,
       "on_special": false,
@@ -56743,7 +56743,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -57224,7 +57224,7 @@
         },
         {
           "date": "2026-06-18",
-          "price": 3.8,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -57236,13 +57236,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -57256,7 +57256,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -64500,7 +64500,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true,
       "last_layer_a_check": "2026-06-18"
     },
@@ -65988,7 +65988,7 @@
       "quarantined": false,
       "eff_price": 3.75,
       "name_check": "Cadbury Dairy Milk Chocolate Freddo Strawberry",
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Cadbury Turkish Delight Eggs 117G",
@@ -66005,7 +66005,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -66486,23 +66486,23 @@
         },
         {
           "date": "2026-06-18",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 3.0,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -66513,18 +66513,19 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Kettle Chips Sea Salt & Vinegar 165G",
@@ -75682,7 +75683,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-06-17"
     },
@@ -80002,7 +80003,7 @@
       "item_id": "c7919504-140d-4144-b6d2-46f4f8e18324",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -109363,7 +109364,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 153,
+      "consecutive_failures": 154,
       "quarantined": true
     },
     {
@@ -115807,6 +115808,13 @@
           "eff_price": 6.666666666666667,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 4.0,
+          "unit_price": 6.67,
+          "eff_price": 6.666666666666667,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -121711,19 +121719,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -121736,7 +121744,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -121744,7 +121752,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -121764,7 +121772,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 4.8,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "4G",
@@ -122245,20 +122253,20 @@
         },
         {
           "date": "2026-06-18",
-          "price": 4.8,
+          "price": 2.0,
           "is_special": false,
           "was_price": 2.0,
-          "store": "woolworths",
-          "matched_name": "The Happy Snack Company Roasted Chickpeas Lightly Salted"
+          "store": "coles",
+          "matched_name": "Roasted Seasoned Seaweed 2 Pack"
         }
       ],
       "was_price": 2.0,
       "on_special": false,
       "local_image": "images/Thk_Roasted_Seaweed_Lightly_Salted_8X4G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/932509.jpg",
-      "store": "woolworths",
-      "unit_price": 2.4,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/3/3737097.jpg",
+      "store": "coles",
+      "unit_price": 20.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
           "price": 4.8,
@@ -122266,15 +122274,22 @@
           "eff_price": 4.8,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 2.0,
+          "unit_price": 20.0,
+          "eff_price": 2.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 4.8,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "The Happy Snack Company Roasted Chickpeas Lightly Salted",
+      "name_check": "Roasted Seasoned Seaweed 2 Pack",
       "item_id": "5d27a8bb-d7dd-454b-b871-1a33f31efbe7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -137319,7 +137334,7 @@
           "is_special": false,
           "was_price": 2.3,
           "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray"
+          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
         }
       ],
       "was_price": 2.3,
@@ -137351,7 +137366,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels with Tuna & Cheese Tray",
+      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false
@@ -140078,7 +140093,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 12.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -140559,36 +140574,36 @@
         },
         {
           "date": "2026-06-18",
-          "price": 12.0,
+          "price": 12.7,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.41,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
+          "price": 12.7,
+          "unit_price": 1.41,
+          "eff_price": 12.7,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 12.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -151577,7 +151592,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true,
       "last_layer_a_check": "2026-06-17"
     },
@@ -169503,7 +169518,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true,
       "last_layer_a_check": "2026-06-15"
     },
@@ -177566,7 +177581,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 3.5,
+      "price": 3.2,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "55G",
@@ -178047,25 +178062,25 @@
         },
         {
           "date": "2026-06-18",
-          "price": 3.5,
+          "price": 3.2,
           "is_special": false,
           "was_price": 5.0,
-          "store": "coles",
-          "matched_name": "Soft Protein Bar Banana Chocolate"
+          "store": "woolworths",
+          "matched_name": "BSc Soft Protein Bar Hokey Pokey Ice Cream"
         }
       ],
       "was_price": 5.0,
       "on_special": false,
       "local_image": "images/Bsc_Vc_Soft_Protein_Bar_Carml_H_Comb_55G.jpg",
       "image_url": "images/bsc_vc_soft_protein_bar_carml_hcomb_55g.jpg",
-      "store": "coles",
-      "unit_price": 6.36,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 5.82,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 9.09,
-          "eff_price": 5.0,
+          "price": 3.2,
+          "unit_price": 5.82,
+          "eff_price": 3.2,
           "was_price": null,
           "on_special": false
         },
@@ -178079,11 +178094,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 3.5,
+      "eff_price": 3.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Soft Protein Bar Banana Chocolate",
+      "name_check": "BSc Soft Protein Bar Hokey Pokey Ice Cream",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -178317,7 +178332,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 174,
+      "consecutive_failures": 175,
       "quarantined": true
     },
     {
@@ -182070,7 +182085,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "quarantined": false,
       "last_layer_a_check": "2026-06-01"
     },
@@ -201850,7 +201865,8 @@
       "name_check": "Aeroplane Jelly Lite Crystals Blueberry",
       "item_id": "e15c6771-7522-4f6b-9ed3-d03f475ad099",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Mango Calypso",
@@ -204526,7 +204542,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -213409,7 +213425,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 44,
+      "consecutive_failures": 45,
       "quarantined": true,
       "last_layer_a_check": "2026-06-16"
     },
@@ -220532,7 +220548,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -221744,7 +221760,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-06-15"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
@@ -222549,7 +222565,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
