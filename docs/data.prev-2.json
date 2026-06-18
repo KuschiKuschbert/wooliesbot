@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T12:43:31.349100Z",
+  "last_updated": "2026-06-18T16:20:52.508925Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2686,7 +2686,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -7442,7 +7442,7 @@
       "coles": "https://www.coles.com.au/product/coles-broccoli-approx.-340g-each-407755",
       "stock": "medium",
       "last_purchased": null,
-      "price": 1.87,
+      "price": 1.7,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
@@ -7924,7 +7924,7 @@
         },
         {
           "date": "2026-06-18",
-          "price": 5.5,
+          "price": 5.0,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -7935,13 +7935,13 @@
       "on_special": false,
       "local_image": "images/Broccoli.jpg",
       "image_url": "https://productimages.coles.com.au/4/407755.jpg",
-      "unit_price": 5.5,
+      "unit_price": 5.0,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 1.87,
-          "unit_price": 5.5,
-          "eff_price": 5.5,
+          "price": 1.7,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         }
@@ -7949,7 +7949,7 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 5.5,
+      "eff_price": 5.0,
       "stale": false,
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
@@ -9764,7 +9764,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true,
       "last_layer_a_check": "2026-06-08"
     },
@@ -10299,7 +10299,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -12411,7 +12411,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-11"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Medjool Dates",
@@ -19353,7 +19353,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Rice Paper",
@@ -24632,9 +24632,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 7.92,
-          "eff_price": 19.0,
+          "price": 15.2,
+          "unit_price": 6.33,
+          "eff_price": 15.2,
           "was_price": null,
           "on_special": false
         },
@@ -26792,7 +26792,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -38322,7 +38322,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true
     },
     {
@@ -40164,7 +40164,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true
     },
     {
@@ -41518,7 +41518,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 185,
+      "consecutive_failures": 186,
       "quarantined": true
     },
     {
@@ -45006,7 +45006,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true
     },
     {
@@ -49865,7 +49865,7 @@
       "item_id": "5f33284e-5198-405b-99f2-484413d69ef4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-25"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Ww Sundried Tomato Strips 270G",
@@ -52013,9 +52013,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 3.9,
-          "unit_price": 1.95,
-          "eff_price": 3.9,
+          "price": 3.7,
+          "unit_price": 1.85,
+          "eff_price": 3.7,
           "was_price": null,
           "on_special": false
         }
@@ -52945,7 +52945,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 35,
+      "consecutive_failures": 36,
       "quarantined": true
     },
     {
@@ -64500,9 +64500,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -75682,7 +75682,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-06-17"
     },
@@ -109363,7 +109363,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 152,
+      "consecutive_failures": 153,
       "quarantined": true
     },
     {
@@ -115807,13 +115807,6 @@
           "eff_price": 6.666666666666667,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 4.0,
-          "unit_price": 6.67,
-          "eff_price": 6.666666666666667,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -119061,7 +119054,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -121718,19 +121711,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -121743,7 +121736,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -121751,7 +121744,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -121771,7 +121764,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.0,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "4G",
@@ -122252,20 +122245,20 @@
         },
         {
           "date": "2026-06-18",
-          "price": 2.0,
+          "price": 4.8,
           "is_special": false,
           "was_price": 2.0,
-          "store": "coles",
-          "matched_name": "Roasted Seasoned Seaweed 2 Pack"
+          "store": "woolworths",
+          "matched_name": "The Happy Snack Company Roasted Chickpeas Lightly Salted"
         }
       ],
       "was_price": 2.0,
       "on_special": false,
       "local_image": "images/Thk_Roasted_Seaweed_Lightly_Salted_8X4G.jpg",
-      "image_url": "https://productimages.coles.com.au/3/3737097.jpg",
-      "store": "coles",
-      "unit_price": 20.0,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/932509.jpg",
+      "store": "woolworths",
+      "unit_price": 2.4,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 4.8,
@@ -122273,22 +122266,15 @@
           "eff_price": 4.8,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 2.0,
-          "unit_price": 20.0,
-          "eff_price": 2.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 2.0,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Roasted Seasoned Seaweed 2 Pack",
+      "name_check": "The Happy Snack Company Roasted Chickpeas Lightly Salted",
       "item_id": "5d27a8bb-d7dd-454b-b871-1a33f31efbe7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -140607,7 +140593,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -148121,9 +148107,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -151591,7 +151577,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true,
       "last_layer_a_check": "2026-06-17"
     },
@@ -167676,7 +167662,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-09"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -169517,7 +169503,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true,
       "last_layer_a_check": "2026-06-15"
     },
@@ -178331,7 +178317,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 173,
+      "consecutive_failures": 174,
       "quarantined": true
     },
     {
@@ -182084,7 +182070,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-06-01"
     },
@@ -202924,7 +202910,7 @@
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -213423,7 +213409,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
       "last_layer_a_check": "2026-06-16"
     },
@@ -215027,9 +215013,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 4.0,
-          "unit_price": 4.0,
-          "eff_price": 4.0,
+          "price": 3.7,
+          "unit_price": 3.7,
+          "eff_price": 3.7,
           "was_price": null,
           "on_special": false
         }
@@ -218943,7 +218929,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-18"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
