@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T08:42:39.922437Z",
+  "last_updated": "2026-06-20T11:20:08.493458Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3306,7 +3306,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -7655,7 +7655,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Broccoli",
@@ -8197,7 +8197,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-17"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Zucchini",
@@ -8739,7 +8739,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -10052,7 +10052,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true,
       "last_layer_a_check": "2026-06-18"
     },
@@ -39458,7 +39458,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -41348,7 +41348,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -42734,7 +42734,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 194,
+      "consecutive_failures": 195,
       "quarantined": true
     },
     {
@@ -46325,7 +46325,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -61729,7 +61729,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -65620,7 +65620,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -66396,7 +66396,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true,
       "last_layer_a_check": "2026-06-20"
     },
@@ -70692,9 +70692,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
           "was_price": null,
           "on_special": false
         },
@@ -77892,7 +77892,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-06-17"
     },
@@ -87303,7 +87303,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -109529,7 +109529,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-14"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -112565,7 +112565,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 161,
+      "consecutive_failures": 162,
       "quarantined": true
     },
     {
@@ -155808,7 +155808,7 @@
       "item_id": "37806560-d62c-4ebe-81c7-35f6fff95105",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Mushroom Cups 500G P/P",
@@ -156042,7 +156042,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true,
       "last_layer_a_check": "2026-06-19"
     },
@@ -163234,7 +163234,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Vegemite 150G",
@@ -174496,9 +174496,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -175052,7 +175052,7 @@
       "item_id": "f537f68a-7e3d-4413-aa47-e945a44a2321",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
@@ -178917,7 +178917,7 @@
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -183566,7 +183566,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -187415,7 +187415,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true,
       "last_layer_a_check": "2026-06-01"
     },
@@ -214398,15 +214398,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -214896,24 +214896,24 @@
         },
         {
           "date": "2026-06-20",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -219683,7 +219683,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 52,
+      "consecutive_failures": 53,
       "quarantined": true,
       "last_layer_a_check": "2026-06-16"
     },
@@ -228306,7 +228306,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-20"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
