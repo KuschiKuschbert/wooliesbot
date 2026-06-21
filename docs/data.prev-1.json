@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-21T05:28:48.665966Z",
+  "last_updated": "2026-06-21T12:04:46.698128Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10196,7 +10196,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true,
       "last_layer_a_check": "2026-06-18"
     },
@@ -16863,7 +16863,7 @@
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -21327,7 +21327,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -22993,7 +22993,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Almond Meal",
@@ -25203,7 +25203,7 @@
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -27435,7 +27435,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -27992,7 +27992,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -40026,7 +40026,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true
     },
     {
@@ -41940,7 +41940,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true
     },
     {
@@ -43342,7 +43342,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 199,
+      "consecutive_failures": 200,
       "quarantined": true
     },
     {
@@ -46981,7 +46981,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true
     },
     {
@@ -59240,7 +59240,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -59745,7 +59745,7 @@
         },
         {
           "date": "2026-06-21",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -59757,13 +59757,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -59777,7 +59777,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -66549,7 +66549,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -67333,7 +67333,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true,
       "last_layer_a_check": "2026-06-20"
     },
@@ -78996,7 +78996,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true,
       "last_layer_a_check": "2026-06-20"
     },
@@ -107132,7 +107132,7 @@
       "item_id": "c94b7d6c-f528-43b0-abe7-c3d18508b439",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Rexona Men Advanced Sport Ap 220Ml",
@@ -108223,7 +108223,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -108247,7 +108247,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -108255,7 +108255,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -114165,7 +114165,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 166,
+      "consecutive_failures": 167,
       "quarantined": true
     },
     {
@@ -146801,7 +146801,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -158259,7 +158259,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true,
       "last_layer_a_check": "2026-06-20"
     },
@@ -176977,7 +176977,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true,
       "last_layer_a_check": "2026-06-20"
     },
@@ -181462,7 +181462,7 @@
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -186175,7 +186175,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true
     },
     {
@@ -190072,7 +190072,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true,
       "last_layer_a_check": "2026-06-01"
     },
@@ -222804,9 +222804,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 57,
+      "consecutive_failures": 58,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -223357,7 +223357,7 @@
       "item_id": "9e6379d5-5ab9-4fd7-8d59-3a1e02dd0a0b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Dole P/Apple Slices In Jce 432G",
@@ -232854,7 +232854,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
@@ -233277,7 +233277,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-21"
     },
     {
       "name": "Woolworths Pasta Spaghetti 500g",
