@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-15T09:26:18.911255+00:00",
-  "report_id": "2026-W25",
-  "total_new_candidates": 5,
+  "generated_at": "2026-06-22T09:13:20.121369+00:00",
+  "report_id": "2026-W26",
+  "total_new_candidates": 9,
   "groups": {
     "beef_strips": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "bread_white": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": [
         {
           "name": "Wonder Wonder White Bread Vitamins & Minerals Sandwich 700g",
@@ -30,11 +30,11 @@
       ]
     },
     "butter_block_250g": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": [
         {
-          "name": "Allowrie Allowrie Salted Butter Block 250g",
-          "woolworths": "https://www.woolworths.com.au/shop/productdetails/48272/allowrie-salted-butter-block",
+          "name": "Mainland Mainland Organic Butter Block Butter 250g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/799120/mainland-organic-butter-block-butter",
           "coles": "",
           "compare_group": "butter_block_250g",
           "price_mode": "each",
@@ -45,10 +45,10 @@
             "anchor_query": "butter block 250g",
             "bucket": "('sig', ((), (), (250,)))",
             "overlap_labels": [
-              "Allowrie Allowrie Salted Butter Block 250g",
               "Mainland Mainland Organic Butter Block Butter 250g",
+              "Allowrie Allowrie Salted Butter Block 250g",
               "Allowrie Allowrie Unsalted Butter Block Butter 250g",
-              "Devondale Devondale Butter Block Unsalted Butter 250g",
+              "Devondale Devondale Butter Block Salted Butter 250g",
               "Western Star Western Star Salted Butter Block Butter Block 250g"
             ]
           }
@@ -56,11 +56,11 @@
       ]
     },
     "cheese_tasty_block": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "cola": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": [
         {
           "name": "Coca-Cola Coca-Cola Classic  Soft Drink Bottle 1.25L",
@@ -86,8 +86,42 @@
       ]
     },
     "eggs_free_range": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": [
+        {
+          "name": "Manning Valley Manning Valley 12 Jumbo Free Range Eggs 800g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/363392/manning-valley-12-jumbo-free-range-eggs",
+          "coles": "",
+          "compare_group": "eggs_free_range",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "free range eggs 12 pack",
+            "bucket": "('sig', ((), (), (800,)))",
+            "overlap_labels": [
+              "Manning Valley Manning Valley 12 Jumbo Free Range Eggs 800g"
+            ]
+          }
+        },
+        {
+          "name": "Manning Valley Manning Valley 12 Large Free Range Eggs 600g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/313898/manning-valley-12-large-free-range-eggs",
+          "coles": "",
+          "compare_group": "eggs_free_range",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "free range eggs 12 pack",
+            "bucket": "('sig', ((), (), (600,)))",
+            "overlap_labels": [
+              "Manning Valley Manning Valley 12 Large Free Range Eggs 600g"
+            ]
+          }
+        },
         {
           "name": "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
           "woolworths": "https://www.woolworths.com.au/shop/productdetails/224763/woolworths-12-x-large-free-range-eggs",
@@ -101,22 +135,23 @@
             "anchor_query": "free range eggs 12 pack",
             "bucket": "('sig', ((), (), (700,)))",
             "overlap_labels": [
-              "Woolworths Woolworths 12 X-Large Free Range Eggs 700g"
+              "Woolworths Woolworths 12 X-Large Free Range Eggs 700g",
+              "Open Range Open Range 12 Extra Large Free Range Eggs 700g"
             ]
           }
         }
       ]
     },
     "milk_full_cream": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "mince_beef": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "omo_wonder_wash": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": [
         {
           "name": "OMO OMO Sensitive Laundry Liquid Detergent 4L",
@@ -134,23 +169,60 @@
               "OMO OMO Sensitive Laundry Liquid Detergent 4L"
             ]
           }
+        },
+        {
+          "name": "OMO OMO Ultimate Laundry Liquid Detergent 2L",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/208873/omo-ultimate-laundry-liquid-detergent",
+          "coles": "",
+          "compare_group": "omo_wonder_wash",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "Omo laundry liquid",
+            "bucket": "('sig', ((), (2000,), ()))",
+            "overlap_labels": [
+              "OMO OMO Ultimate Laundry Liquid Detergent 2L"
+            ]
+          }
         }
       ]
     },
     "pasta_dry": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "peanut_butter": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
-      "new_candidates": []
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
+      "new_candidates": [
+        {
+          "name": "Pic's Pic's Smoochy Peanut Butter 380g",
+          "woolworths": "https://www.woolworths.com.au/shop/productdetails/320711/pic-s-smoochy-peanut-butter",
+          "coles": "",
+          "compare_group": "peanut_butter",
+          "price_mode": "each",
+          "stock": "medium",
+          "last_purchased": null,
+          "price_history": [],
+          "_discovery_meta": {
+            "anchor_query": "peanut butter 380g",
+            "bucket": "('sig', ((), (), (380,)))",
+            "overlap_labels": [
+              "Pic's Pic's Smoochy Peanut Butter 380g",
+              "Pic's Pic's Peanut Butter Smooth 380g",
+              "Pic's Pic's Peanut Butter Crunchy 380g"
+            ]
+          }
+        }
+      ]
     },
     "sourdough_loaf": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     },
     "tp_quilton": {
-      "checked_at": "2026-06-15T09:26:18.911255+00:00",
+      "checked_at": "2026-06-22T09:13:20.121369+00:00",
       "new_candidates": []
     }
   }
