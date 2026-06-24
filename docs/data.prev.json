@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-24T08:31:55.480973Z",
+  "last_updated": "2026-06-24T11:41:04.678880Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8677,7 +8677,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Zucchini",
@@ -10628,7 +10628,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true,
       "last_layer_a_check": "2026-06-18"
     },
@@ -14674,7 +14674,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-22"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Butter (Western Star)",
@@ -15259,7 +15259,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-21"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -15833,7 +15833,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Philly Cream Cheese",
@@ -23977,7 +23977,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Almond Meal",
@@ -32081,7 +32081,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Dishmatic Refills",
@@ -33239,7 +33239,7 @@
       "item_id": "49249a93-8759-4cb2-8e1a-57b1c7af8c88",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Quilton T/Tiss Prints 3Ply 180S 24Pk",
@@ -41723,7 +41723,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true
     },
     {
@@ -43441,24 +43441,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -43474,7 +43474,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -43709,7 +43709,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true
     },
     {
@@ -45159,7 +45159,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 215,
+      "consecutive_failures": 216,
       "quarantined": true
     },
     {
@@ -48942,7 +48942,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true
     },
     {
@@ -51889,7 +51889,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -57593,7 +57593,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false
     },
     {
@@ -61727,7 +61727,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -62256,27 +62256,27 @@
         },
         {
           "date": "2026-06-24",
-          "price": 3.8,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.8,
@@ -62288,7 +62288,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -70156,7 +70156,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true,
       "last_layer_a_check": "2026-06-23"
     },
@@ -82299,7 +82299,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true,
       "last_layer_a_check": "2026-06-21"
     },
@@ -118956,7 +118956,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 182,
+      "consecutive_failures": 183,
       "quarantined": true
     },
     {
@@ -123661,7 +123661,8 @@
       "name_check": "Mutti Tomato Paste Double Concentrate",
       "item_id": "482376b7-0a9e-4349-911d-132dc1aa9887",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Quest Chocolate Chip Cookie Dough Bar60G",
@@ -145360,7 +145361,7 @@
       "item_id": "a0c66303-6565-4487-b86c-257f25cf99f1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Tomato Roma Mini 250G P/P",
@@ -164923,7 +164924,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -174865,7 +174866,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-16"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -184434,7 +184435,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true,
       "last_layer_a_check": "2026-06-21"
     },
@@ -194016,7 +194017,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 203,
+      "consecutive_failures": 204,
       "quarantined": true
     },
     {
@@ -199825,7 +199826,7 @@
       "item_id": "b1975ee5-26e7-41ad-9c02-5c8b775de868",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-05-31"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Connoisseur Minis Cookies&Cream 6Pk360Ml",
@@ -222547,7 +222548,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-24"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -232198,7 +232199,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 73,
+      "consecutive_failures": 74,
       "quarantined": true,
       "last_layer_a_check": "2026-06-21"
     },
