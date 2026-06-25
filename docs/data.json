@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T15:26:32.551638Z",
+  "last_updated": "2026-06-25T19:00:30.809768Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10772,7 +10772,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -12530,7 +12530,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-22"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Garlic",
@@ -20178,7 +20178,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "English Muffins",
@@ -42291,7 +42291,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true
     },
     {
@@ -44301,7 +44301,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true
     },
     {
@@ -45767,7 +45767,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true
     },
     {
@@ -49598,7 +49598,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true
     },
     {
@@ -53741,9 +53741,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.2,
-          "unit_price": 14.93,
-          "eff_price": 11.2,
+          "price": 9.3,
+          "unit_price": 13.29,
+          "eff_price": 9.3,
           "was_price": null,
           "on_special": false
         },
@@ -58361,7 +58361,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 12,
+      "consecutive_failures": 13,
       "quarantined": true
     },
     {
@@ -62551,7 +62551,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -63088,27 +63088,27 @@
         },
         {
           "date": "2026-06-25",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -63120,7 +63120,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -66122,7 +66122,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-29",
-      "price": 3.3,
+      "price": 6.6,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -66659,7 +66659,7 @@
         },
         {
           "date": "2026-06-25",
-          "price": 3.3,
+          "price": 6.6,
           "is_special": false,
           "was_price": 5.95,
           "store": "woolworths",
@@ -66671,13 +66671,13 @@
       "local_image": "images/Df_Thick_&_Creamy_Strawberry_600G.jpg",
       "image_url": "images/df_thick__creamy_strawberry_600g.jpg",
       "store": "woolworths",
-      "unit_price": 2.2,
+      "unit_price": 1.1,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -66691,7 +66691,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.75,
-      "eff_price": 3.3,
+      "eff_price": 6.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -68496,7 +68496,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -71092,7 +71092,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -73314,11 +73314,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 6.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 5.5,
+          "unit_price": 3.06,
+          "eff_price": 5.5,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 1.25,
@@ -81092,7 +81092,7 @@
       "item_id": "84ecfa8e-ad97-48a8-b3f6-41688e6644c7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Beanette 400G P/P",
@@ -83395,7 +83395,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 39,
+      "consecutive_failures": 40,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -84580,7 +84580,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -117329,7 +117329,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -117866,27 +117866,27 @@
         },
         {
           "date": "2026-06-25",
-          "price": 7.7,
-          "is_special": true,
+          "price": 8.8,
+          "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.28,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.7,
-          "unit_price": 1.28,
-          "eff_price": 7.7,
-          "was_price": 9.8,
-          "on_special": true
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 9.8,
@@ -117898,11 +117898,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -120548,7 +120548,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 190,
+      "consecutive_failures": 191,
       "quarantined": true
     },
     {
@@ -156811,6 +156811,13 @@
       "unit_price": 16.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 17.0,
+          "unit_price": 17.0,
+          "eff_price": 17.0,
+          "was_price": 19.0,
+          "on_special": true
+        },
         "coles": {
           "price": 12.5,
           "unit_price": 16.67,
@@ -163322,22 +163329,22 @@
           "price": 3.3,
           "is_special": false,
           "was_price": 2.95,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 2.2,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -163355,7 +163362,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -167135,7 +167142,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -186911,9 +186918,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -196355,7 +196362,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -196387,7 +196394,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -196621,7 +196628,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true
     },
     {
@@ -208424,7 +208431,7 @@
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -231410,17 +231417,17 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 5.7,
-      "unit_price": 22.8,
-      "unit": "kg",
+      "price": 2.9,
+      "unit_price": 12.1,
+      "unit": "litre",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
-          "was_price": null,
-          "on_special": false
+          "price": 2.9,
+          "unit_price": 12.1,
+          "eff_price": 2.9,
+          "was_price": 3.3,
+          "on_special": true
         },
         "coles": {
           "price": 5.7,
@@ -231955,24 +231962,24 @@
         },
         {
           "date": "2026-06-25",
-          "price": 5.7,
-          "is_special": false,
+          "price": 2.9,
+          "is_special": true,
           "was_price": 3.3,
           "store": "woolworths",
-          "matched_name": "Philadelphia Light Cream Cheese Block"
+          "matched_name": "Philadelphia Light Cooking Cream Tub"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 5.7,
+      "eff_price": 2.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "on_special": false,
-      "name_check": "Philadelphia Light Cream Cheese Block",
+      "on_special": true,
+      "name_check": "Philadelphia Light Cooking Cream Tub",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -235323,7 +235330,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 81,
+      "consecutive_failures": 82,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
