@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T04:43:09.489264Z",
+  "last_updated": "2026-06-25T08:38:05.502962Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -588,7 +588,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -1212,7 +1212,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Bacon (Middle)",
@@ -10772,7 +10772,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -10785,7 +10785,7 @@
       "coles": "https://www.coles.com.au/product/frozen-corn-cobs-293565",
       "stock": "medium",
       "last_purchased": null,
-      "store": "coles",
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
       "size": "Standard",
@@ -11325,21 +11325,21 @@
           "price": 5.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Frozen Corn Cobs"
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Frozen Sweet Corn Cobs"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Corn_Cobs.jpg",
-      "image_url": "https://productimages.coles.com.au/2/293565.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/374274.jpg",
       "unit_price": 5.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 6.0,
-          "eff_price": 6.0,
+          "price": 5.0,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -11359,7 +11359,7 @@
       "stale_as_of": "2026-04-16",
       "price": 5.0,
       "eff_price": 5.0,
-      "name_check": "Frozen Corn Cobs",
+      "name_check": "Woolworths Australian Frozen Sweet Corn Cobs",
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -27823,7 +27823,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -42291,7 +42291,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true
     },
     {
@@ -44033,24 +44033,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 0.8,
-          "eff_price": 2.0,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -44066,7 +44066,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -44301,7 +44301,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true
     },
     {
@@ -45767,7 +45767,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 220,
+      "consecutive_failures": 221,
       "quarantined": true
     },
     {
@@ -49598,7 +49598,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true
     },
     {
@@ -50166,6 +50166,13 @@
       "unit_price": 24.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 8.9,
+          "unit_price": 17.8,
+          "eff_price": 8.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.9,
           "unit_price": 24.5,
@@ -51991,7 +51998,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -53762,7 +53769,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -58354,7 +58361,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 9,
+      "consecutive_failures": 10,
       "quarantined": true
     },
     {
@@ -71085,7 +71092,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true,
       "last_layer_a_check": "2026-06-23"
     },
@@ -73307,11 +73314,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 3.06,
-          "eff_price": 5.5,
-          "was_price": 8.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.25,
@@ -75131,7 +75138,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -83388,9 +83395,9 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 36,
+      "consecutive_failures": 37,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-21"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -90532,7 +90539,7 @@
       "item_id": "abbf42f2-d961-4d43-94c7-0c6f6363e16e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-13"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Mn Protein Cups Chocpeanut Butter 50G",
@@ -93479,7 +93486,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -105351,7 +105358,7 @@
       "price_unavailable": false,
       "avg_price": 2.5,
       "eff_price": 2.95,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "San Remo Risoni Pasta",
@@ -114279,7 +114286,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -114303,7 +114310,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -114311,7 +114318,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -120541,7 +120548,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true
     },
     {
@@ -124126,7 +124133,7 @@
       "item_id": "a0b95e6b-6398-4af0-a852-47327d7a96fa",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Mission Carb Balancespinach 288G Pk 6",
@@ -159213,7 +159220,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 0,
+      "price": 3.7,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "200G",
@@ -159747,15 +159754,23 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "Macro Organic Corn Chips Natural"
+        },
+        {
+          "date": "2026-06-25",
+          "price": 3.7,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "Macro Organic Corn Chips Natural"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Macro_Org_Natural_Corn_Chips_200G.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/331595.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 1.85,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 3.7,
@@ -159765,15 +159780,16 @@
           "on_special": false
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 3.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Macro Organic Corn Chips Natural",
       "item_id": "ea7daa4d-633b-46da-9624-2ffeb49ddde7",
-      "consecutive_failures": 1,
-      "quarantined": false
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 3.7
     },
     {
       "name": "Duck Action Burst Tropical Vibes 500Ml",
@@ -167126,7 +167142,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -186663,7 +186679,8 @@
       "name_check": "Arnott's Cruskits Original Crispbreads",
       "item_id": "94337ffc-a4fb-41cc-96d3-ed83cb6387f2",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Balnea Mens Multi Action Body Wash 1L",
@@ -186901,7 +186918,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -196611,7 +196628,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 208,
+      "consecutive_failures": 209,
       "quarantined": true
     },
     {
@@ -229668,15 +229685,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -230206,24 +230223,24 @@
         },
         {
           "date": "2026-06-25",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -235313,7 +235330,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 78,
+      "consecutive_failures": 79,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
@@ -242820,7 +242837,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-06-24"
+      "last_layer_a_check": "2026-06-25"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
