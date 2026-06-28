@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-27T18:03:18.855242Z",
+  "last_updated": "2026-06-27T21:55:33.898538Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -11060,7 +11060,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true,
       "last_layer_a_check": "2026-06-27"
     },
@@ -14067,7 +14067,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Medjool Dates",
@@ -16481,7 +16481,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Philly Cream Cheese",
@@ -18303,7 +18303,7 @@
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-23"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -29787,7 +29787,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-21"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -43427,7 +43427,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true
     },
     {
@@ -45217,22 +45217,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
           "was_price": null,
           "on_special": false
         },
@@ -45250,7 +45250,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -45485,7 +45485,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true
     },
     {
@@ -46983,7 +46983,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 235,
+      "consecutive_failures": 236,
       "quarantined": true
     },
     {
@@ -50910,7 +50910,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true
     },
     {
@@ -55193,7 +55193,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -70321,7 +70321,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -72749,7 +72749,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -72981,7 +72981,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -85604,7 +85604,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 51,
+      "consecutive_failures": 52,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -98403,7 +98403,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -106351,7 +106351,7 @@
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -123749,7 +123749,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 202,
+      "consecutive_failures": 203,
       "quarantined": true
     },
     {
@@ -167682,22 +167682,22 @@
           "price": 3.3,
           "is_special": false,
           "was_price": 2.95,
-          "store": "coles",
-          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 2.95,
       "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.2,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.6,
-          "unit_price": 1.1,
-          "eff_price": 6.6,
+          "price": 3.3,
+          "unit_price": 2.2,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -167715,7 +167715,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -171591,7 +171591,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true,
       "last_layer_a_check": "2026-06-26"
     },
@@ -191895,7 +191895,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true,
       "last_layer_a_check": "2026-06-27"
     },
@@ -197371,7 +197371,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-06-27"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -201861,7 +201861,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true
     },
     {
@@ -203657,7 +203657,7 @@
           "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
+          "matched_name": "Carefree Barely There Scented Aloe Liners"
         }
       ],
       "was_price": 5.5,
@@ -203689,7 +203689,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
+      "name_check": "Carefree Barely There Scented Aloe Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -241603,7 +241603,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 93,
+      "consecutive_failures": 94,
       "quarantined": true,
       "last_layer_a_check": "2026-06-24"
     },
