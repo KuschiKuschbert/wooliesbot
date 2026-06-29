@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28T18:04:23.239181Z",
+  "last_updated": "2026-06-28T21:52:21.109715Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5517,7 +5517,7 @@
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Avocados (Hass)",
@@ -11204,7 +11204,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -30179,7 +30179,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -32007,7 +32007,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -43995,7 +43995,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true
     },
     {
@@ -46077,7 +46077,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true
     },
     {
@@ -47591,7 +47591,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 240,
+      "consecutive_failures": 241,
       "quarantined": true
     },
     {
@@ -49457,7 +49457,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -50085,7 +50085,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -51566,7 +51566,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true
     },
     {
@@ -73925,7 +73925,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -76243,11 +76243,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 6.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 5.5,
+          "unit_price": 3.06,
+          "eff_price": 5.5,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 1.25,
@@ -86708,7 +86708,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 56,
+      "consecutive_failures": 57,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -98440,7 +98440,7 @@
       "item_id": "0354e240-bffc-42e5-aad5-43e94e99c393",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-26"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "G Active Flav Water Berry 600Ml",
@@ -118840,7 +118840,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -118864,7 +118864,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -118872,7 +118872,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -125342,7 +125342,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 207,
+      "consecutive_failures": 208,
       "quarantined": true
     },
     {
@@ -156272,7 +156272,7 @@
       "baseline_price": 3.8,
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Mainland Organic Salted Sprd Butter 250G",
@@ -160635,7 +160635,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 12.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -161196,36 +161196,36 @@
         },
         {
           "date": "2026-06-28",
-          "price": 12.0,
+          "price": 12.7,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.41,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
+          "price": 12.7,
+          "unit_price": 1.41,
+          "eff_price": 12.7,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 12.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -173808,7 +173808,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -194376,7 +194376,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -204204,7 +204204,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -204236,7 +204236,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -204470,7 +204470,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 228,
+      "consecutive_failures": 229,
       "quarantined": true
     },
     {
@@ -206949,7 +206949,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-28"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -244732,7 +244732,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 98,
+      "consecutive_failures": 99,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
