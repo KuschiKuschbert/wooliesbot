@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T04:45:25.411134Z",
+  "last_updated": "2026-06-30T08:43:21.510427Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3166,7 +3166,7 @@
       "item_id": "e76089dd-6a91-452c-a890-fad18b01c760",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Deli Ham/Silverside",
@@ -11492,7 +11492,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -11505,7 +11505,7 @@
       "coles": "https://www.coles.com.au/product/frozen-corn-cobs-293565",
       "stock": "medium",
       "last_purchased": null,
-      "store": "coles",
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
       "size": "Standard",
@@ -12085,21 +12085,21 @@
           "price": 5.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Frozen Corn Cobs"
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Frozen Sweet Corn Cobs"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Corn_Cobs.jpg",
-      "image_url": "https://productimages.coles.com.au/2/293565.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/374274.jpg",
       "unit_price": 5.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.0,
-          "unit_price": 6.0,
-          "eff_price": 6.0,
+          "price": 5.0,
+          "unit_price": 5.0,
+          "eff_price": 5.0,
           "was_price": null,
           "on_special": false
         },
@@ -12119,7 +12119,7 @@
       "stale_as_of": "2026-04-16",
       "price": 5.0,
       "eff_price": 5.0,
-      "name_check": "Frozen Corn Cobs",
+      "name_check": "Woolworths Australian Frozen Sweet Corn Cobs",
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -14621,7 +14621,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Medjool Dates",
@@ -18398,7 +18398,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -22811,7 +22811,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Rice Paper",
@@ -33468,7 +33468,7 @@
       "item_id": "fdc8b4a6-d67e-49b3-bff8-7fc7f4ad6c9b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -45133,7 +45133,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true
     },
     {
@@ -47263,7 +47263,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true
     },
     {
@@ -48809,7 +48809,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 246,
+      "consecutive_failures": 247,
       "quarantined": true
     },
     {
@@ -49445,7 +49445,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -51367,7 +51367,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -52880,7 +52880,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true
     },
     {
@@ -72441,7 +72441,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 6.0,
+      "price": 4.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "250G",
@@ -73018,21 +73018,28 @@
         },
         {
           "date": "2026-06-30",
-          "price": 6.0,
+          "price": 4.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Australian Almond Butter"
+          "store": "woolworths",
+          "matched_name": "Woolworths Australian Butter Unsalted"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Australian_Butter_Unsalted_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/2/2915542.jpg",
-      "store": "coles",
-      "unit_price": 2.4,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/068977.jpg",
+      "store": "woolworths",
+      "unit_price": 1.8,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.5,
+          "unit_price": 1.8,
+          "eff_price": 4.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.0,
           "unit_price": 2.4,
@@ -73043,11 +73050,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 6.0,
+      "eff_price": 4.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Australian Almond Butter",
+      "name_check": "Woolworths Australian Butter Unsalted",
       "item_id": "b607c942-ff1d-4676-ad33-897913420da4",
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
@@ -75808,7 +75815,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -80744,9 +80751,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
+          "price": 28.0,
+          "unit_price": 28.0,
+          "eff_price": 28.0,
           "was_price": null,
           "on_special": false
         },
@@ -85848,7 +85855,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -88911,7 +88918,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 62,
+      "consecutive_failures": 63,
       "quarantined": true,
       "last_layer_a_check": "2026-06-25"
     },
@@ -92723,7 +92730,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -114302,7 +114309,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 2.1,
+      "price": 4.2,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -114879,25 +114886,18 @@
         },
         {
           "date": "2026-06-30",
-          "price": 2.1,
-          "is_special": true,
+          "price": 4.2,
+          "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 3.5,
+      "store": "coles",
+      "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.1,
-          "unit_price": 3.5,
-          "eff_price": 2.1,
-          "was_price": 4.2,
-          "on_special": true
-        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -114907,15 +114907,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
-      "eff_price": 2.1,
-      "on_special": true,
+      "eff_price": 4.2,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -118710,7 +118710,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -118734,7 +118734,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -118742,7 +118742,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -124417,22 +124417,22 @@
           "price": 3.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pak Choy Baby Asian Greens"
+          "store": "coles",
+          "matched_name": "Asian Choy Pak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/154991.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4567039.jpg",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 5.5,
+          "unit_price": 5.5,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -124450,7 +124450,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -128544,7 +128544,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 213,
+      "consecutive_failures": 214,
       "quarantined": true
     },
     {
@@ -170418,7 +170418,7 @@
       },
       "price_unavailable": false,
       "avg_price": 3.7,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Macro Organic Corn Chips Natural",
@@ -178258,7 +178258,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true,
       "last_layer_a_check": "2026-06-29"
     },
@@ -199354,9 +199354,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -203155,7 +203155,7 @@
       "item_id": "2259d5f1-e686-4b54-91ca-baeaa02031e7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-28"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Finish Ultimate Lemon Dish Tabs 62Pk",
@@ -209704,7 +209704,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true
     },
     {
@@ -241856,7 +241856,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-28"
+      "last_layer_a_check": "2026-06-30"
     },
     {
       "name": "Broccolini Bunch",
@@ -246853,17 +246853,17 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 5.7,
-      "unit_price": 22.8,
-      "unit": "kg",
+      "price": 2.9,
+      "unit_price": 12.1,
+      "unit": "litre",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
-          "was_price": null,
-          "on_special": false
+          "price": 2.9,
+          "unit_price": 12.1,
+          "eff_price": 2.9,
+          "was_price": 3.3,
+          "on_special": true
         },
         "coles": {
           "price": 5.7,
@@ -247438,24 +247438,24 @@
         },
         {
           "date": "2026-06-30",
-          "price": 5.7,
-          "is_special": false,
+          "price": 2.9,
+          "is_special": true,
           "was_price": 3.3,
           "store": "woolworths",
-          "matched_name": "Philadelphia Original Cream Cheese Spread Tub"
+          "matched_name": "Philadelphia Light Cooking Cream Tub"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 5.7,
+      "eff_price": 2.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.3,
-      "on_special": false,
-      "name_check": "Philadelphia Original Cream Cheese Spread Tub",
+      "on_special": true,
+      "name_check": "Philadelphia Light Cooking Cream Tub",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -251006,7 +251006,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 104,
+      "consecutive_failures": 105,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -261573,7 +261573,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-06-28",
+      "last_layer_a_check": "2026-06-30",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
