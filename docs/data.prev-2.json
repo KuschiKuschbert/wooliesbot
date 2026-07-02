@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-02T11:28:55.578441Z",
+  "last_updated": "2026-07-02T14:57:58.198963Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -11780,7 +11780,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -16276,7 +16276,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Butter (Western Star)",
@@ -16925,7 +16925,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -20798,7 +20798,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -34960,7 +34960,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -46269,7 +46269,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true
     },
     {
@@ -48179,22 +48179,22 @@
           "price": 0.95,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
           "was_price": null,
           "on_special": false
         },
@@ -48212,7 +48212,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -48447,7 +48447,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true
     },
     {
@@ -50025,7 +50025,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 259,
+      "consecutive_failures": 260,
       "quarantined": true
     },
     {
@@ -54192,7 +54192,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true
     },
     {
@@ -63787,7 +63787,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 6,
+      "consecutive_failures": 7,
       "quarantined": true
     },
     {
@@ -68369,7 +68369,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -68962,7 +68962,7 @@
         },
         {
           "date": "2026-07-02",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -68974,13 +68974,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -68994,7 +68994,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -77694,7 +77694,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -79535,7 +79535,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -80128,23 +80128,23 @@
         },
         {
           "date": "2026-07-02",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -80155,15 +80155,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -91117,7 +91117,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 75,
+      "consecutive_failures": 76,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -100206,7 +100206,7 @@
       "item_id": "56efbcab-9d29-4273-b924-6d988bc78810",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Libra Tampons Super 16Pk",
@@ -131743,7 +131743,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 226,
+      "consecutive_failures": 227,
       "quarantined": true
     },
     {
@@ -177946,7 +177946,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 1.65,
+      "price": 3.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -178539,27 +178539,27 @@
         },
         {
           "date": "2026-07-02",
-          "price": 1.65,
-          "is_special": true,
+          "price": 3.3,
+          "is_special": false,
           "was_price": 3.3,
-          "store": "woolworths",
-          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "coles",
+          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 3.3,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "woolworths",
-      "unit_price": 1.1,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 2.2,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.65,
+          "price": 6.6,
           "unit_price": 1.1,
-          "eff_price": 1.65,
-          "was_price": 3.3,
-          "on_special": true
+          "eff_price": 6.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.3,
@@ -178571,11 +178571,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 1.65,
+      "eff_price": 3.3,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -182691,7 +182691,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -201471,9 +201471,9 @@
           "on_special": false
         },
         "coles": {
-          "price": 3.7,
-          "unit_price": 3.7,
-          "eff_price": 3.7,
+          "price": 3.9,
+          "unit_price": 3.9,
+          "eff_price": 3.9,
           "was_price": null,
           "on_special": false
         }
@@ -204315,9 +204315,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -214921,7 +214921,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 247,
+      "consecutive_failures": 248,
       "quarantined": true
     },
     {
@@ -223298,7 +223298,7 @@
           "price": 10.5,
           "unit_price": 2.59,
           "eff_price": 10.5,
-          "was_price": 12.0,
+          "was_price": null,
           "on_special": false
         }
       },
@@ -241409,7 +241409,7 @@
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Lucas Ointment Papaw 75G",
@@ -251107,15 +251107,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -251701,24 +251701,24 @@
         },
         {
           "date": "2026-07-02",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -257256,7 +257256,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 117,
+      "consecutive_failures": 118,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -264008,7 +264008,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -266587,7 +266587,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-02"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
