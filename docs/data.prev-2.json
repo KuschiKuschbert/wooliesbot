@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T11:27:44.718774Z",
+  "last_updated": "2026-07-03T15:00:28.980593Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4584,7 +4584,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -10403,7 +10403,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -11049,7 +11049,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -11924,9 +11924,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
-      "last_layer_a_check": "2026-06-28"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Corn Cobs",
@@ -26280,7 +26280,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -46837,7 +46837,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true
     },
     {
@@ -48150,7 +48150,7 @@
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Original Water Crackers 125G",
@@ -48784,9 +48784,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -49039,7 +49039,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true
     },
     {
@@ -50633,7 +50633,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 265,
+      "consecutive_failures": 266,
       "quarantined": true
     },
     {
@@ -52619,7 +52619,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -54848,7 +54848,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true
     },
     {
@@ -64555,7 +64555,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 12,
+      "consecutive_failures": 13,
       "quarantined": true
     },
     {
@@ -77750,7 +77750,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -78630,7 +78630,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -92213,7 +92213,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 81,
+      "consecutive_failures": 82,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -126433,7 +126433,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -126457,7 +126457,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -126465,7 +126465,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -129796,7 +129796,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -130397,25 +130397,25 @@
         },
         {
           "date": "2026-07-03",
-          "price": 9.8,
+          "price": 8.8,
           "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
           "was_price": null,
           "on_special": false
         },
@@ -130429,11 +130429,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -133335,7 +133335,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 232,
+      "consecutive_failures": 233,
       "quarantined": true
     },
     {
@@ -168263,7 +168263,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 6.5,
+      "price": 7.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -168864,27 +168864,27 @@
         },
         {
           "date": "2026-07-03",
-          "price": 6.5,
-          "is_special": true,
+          "price": 7.5,
+          "is_special": false,
           "was_price": 7.5,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Pork Mince"
         }
       ],
       "was_price": 7.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Lean_Pork_Mince_500G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/582608.jpg",
       "store": "woolworths",
-      "unit_price": 13.0,
+      "unit_price": 15.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 13.0,
-          "eff_price": 6.5,
-          "was_price": 7.5,
-          "on_special": true
+          "price": 7.5,
+          "unit_price": 15.0,
+          "eff_price": 7.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 8.0,
@@ -168896,7 +168896,7 @@
       },
       "price_unavailable": false,
       "avg_price": 7.5,
-      "eff_price": 6.5,
+      "eff_price": 7.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -184921,7 +184921,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -206809,7 +206809,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -217277,7 +217277,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -217309,7 +217309,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -217543,7 +217543,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true
     },
     {
@@ -248941,7 +248941,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -260398,7 +260398,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 123,
+      "consecutive_failures": 124,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -268276,7 +268276,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-06-26",
+      "last_layer_a_check": "2026-07-03",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-01"
     },

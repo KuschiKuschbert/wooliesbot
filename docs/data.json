@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T18:22:58.893480Z",
+  "last_updated": "2026-07-03T21:56:56.131460Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -652,7 +652,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -11924,7 +11924,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true,
       "last_layer_a_check": "2026-07-03"
     },
@@ -24326,7 +24326,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Canned Tomatoes",
@@ -26931,7 +26931,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Almond Meal",
@@ -46837,7 +46837,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true
     },
     {
@@ -49039,7 +49039,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true
     },
     {
@@ -50633,7 +50633,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 267,
+      "consecutive_failures": 268,
       "quarantined": true
     },
     {
@@ -54848,7 +54848,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true
     },
     {
@@ -64555,7 +64555,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true
     },
     {
@@ -78631,7 +78631,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -92214,7 +92214,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 83,
+      "consecutive_failures": 84,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -133096,7 +133096,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -133336,7 +133336,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true
     },
     {
@@ -180772,7 +180772,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 30.0,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -181375,21 +181375,28 @@
         },
         {
           "date": "2026-07-03",
-          "price": 30.0,
+          "price": 7.7,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "White Label Chardonnay 750ml"
+          "store": "woolworths",
+          "matched_name": "Woolworths Extra Tasty Cheese Block"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
-      "store": "coles",
-      "unit_price": null,
-      "unit": "each",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/310238.jpg",
+      "store": "woolworths",
+      "unit_price": 15.4,
+      "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.7,
+          "unit_price": 15.4,
+          "eff_price": 7.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 30.0,
           "unit_price": null,
@@ -181400,11 +181407,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 30.0,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "White Label Chardonnay 750ml",
+      "name_check": "Woolworths Extra Tasty Cheese Block",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -184915,7 +184922,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -206803,7 +206810,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -217537,7 +217544,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true
     },
     {
@@ -219513,7 +219520,7 @@
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Lurpak Butter Lighter Slightly Sltd 250G",
@@ -254171,15 +254178,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -254773,24 +254780,24 @@
         },
         {
           "date": "2026-07-03",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -260392,7 +260399,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 125,
+      "consecutive_failures": 126,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T15:00:28.980593Z",
+  "last_updated": "2026-07-03T18:22:58.893480Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3930,7 +3930,7 @@
       "item_id": "73f40d37-b7b7-44f7-ae9a-a069988ca035",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Beef Stir Fry (500g)",
@@ -11924,7 +11924,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true,
       "last_layer_a_check": "2026-07-03"
     },
@@ -15824,7 +15824,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -30833,7 +30833,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -38003,7 +38003,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -39997,7 +39997,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -46837,7 +46837,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true
     },
     {
@@ -49039,7 +49039,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true
     },
     {
@@ -50633,7 +50633,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 266,
+      "consecutive_failures": 267,
       "quarantined": true
     },
     {
@@ -53287,7 +53287,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -54848,7 +54848,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true
     },
     {
@@ -64555,7 +64555,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "quarantined": true
     },
     {
@@ -73789,7 +73789,7 @@
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "La Casa Fresh Mozzarella 125G",
@@ -76435,7 +76435,8 @@
       "name_check": "Perfect Italiano Parmesan Cheese Shaved Parmesan",
       "item_id": "f8697e8a-8693-4e8d-b82b-5e8591f71398",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Country Style Roast Chicken 1Ea",
@@ -78630,7 +78631,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -80495,7 +80496,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -81096,23 +81097,23 @@
         },
         {
           "date": "2026-07-03",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -81123,15 +81124,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -92213,7 +92214,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 82,
+      "consecutive_failures": 83,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -98147,7 +98148,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -126433,7 +126434,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -126457,7 +126458,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -126465,7 +126466,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -129796,7 +129797,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 9.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -130397,25 +130398,25 @@
         },
         {
           "date": "2026-07-03",
-          "price": 8.8,
+          "price": 9.8,
           "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Cheese & Bacon"
+          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
           "was_price": null,
           "on_special": false
         },
@@ -130429,11 +130430,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 9.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -133335,7 +133336,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 233,
+      "consecutive_failures": 234,
       "quarantined": true
     },
     {
@@ -145194,7 +145195,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -180771,7 +180772,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 7.7,
+      "price": 30.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -181374,28 +181375,21 @@
         },
         {
           "date": "2026-07-03",
-          "price": 7.7,
+          "price": 30.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Extra Tasty Cheese Block"
+          "store": "coles",
+          "matched_name": "White Label Chardonnay 750ml"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/310238.jpg",
-      "store": "woolworths",
-      "unit_price": 15.4,
-      "unit": "kg",
+      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
+      "store": "coles",
+      "unit_price": null,
+      "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 7.7,
-          "unit_price": 15.4,
-          "eff_price": 7.7,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 30.0,
           "unit_price": null,
@@ -181406,11 +181400,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 7.7,
+      "eff_price": 30.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Extra Tasty Cheese Block",
+      "name_check": "White Label Chardonnay 750ml",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -184921,7 +184915,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -206809,7 +206803,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -217543,7 +217537,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true
     },
     {
@@ -252875,7 +252869,7 @@
       "item_id": "38097635-643f-4e36-a19a-e7652748fa46",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Energizer A23 2Pk",
@@ -254177,15 +254171,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -254779,24 +254773,24 @@
         },
         {
           "date": "2026-07-03",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 3.0,
+      "eff_price": 0.25,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -260398,7 +260392,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
