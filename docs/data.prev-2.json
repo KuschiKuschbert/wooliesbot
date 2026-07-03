@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T08:12:12.665360Z",
+  "last_updated": "2026-07-03T11:27:44.718774Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5231,7 +5231,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Capsicum (Red)",
@@ -9757,7 +9757,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Zucchini",
@@ -11924,7 +11924,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true,
       "last_layer_a_check": "2026-06-28"
     },
@@ -32141,7 +32141,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -32794,7 +32794,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -45930,7 +45930,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -46837,7 +46837,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true
     },
     {
@@ -48784,9 +48784,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -49039,7 +49039,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true
     },
     {
@@ -50633,7 +50633,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true
     },
     {
@@ -54848,7 +54848,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true
     },
     {
@@ -64555,7 +64555,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 11,
+      "consecutive_failures": 12,
       "quarantined": true
     },
     {
@@ -78630,7 +78630,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -80495,7 +80495,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -81096,23 +81096,23 @@
         },
         {
           "date": "2026-07-03",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 3.0,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -81123,15 +81123,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -92213,7 +92213,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 80,
+      "consecutive_failures": 81,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -133335,7 +133335,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 231,
+      "consecutive_failures": 232,
       "quarantined": true
     },
     {
@@ -155096,7 +155096,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -165569,13 +165569,13 @@
           "is_special": false,
           "was_price": 6.9,
           "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar Cookies & Cream"
+          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
         }
       ],
       "was_price": 6.9,
       "on_special": false,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/798290.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
       "store": "woolworths",
       "unit_price": 7.67,
       "unit": "100g",
@@ -165601,7 +165601,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Cookies & Cream",
+      "name_check": "Musashi High Protein Bar Chocolate Brownie",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -182721,7 +182721,7 @@
       "item_id": "5e07554e-3c81-4b86-a65a-5cd47bc8b6fe",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Powerade Flo Cap Zero Berry Ice 600Ml",
@@ -184921,7 +184921,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -201981,7 +201981,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -204607,7 +204607,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -206809,7 +206809,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -216655,7 +216655,7 @@
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-30"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -217277,7 +217277,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -217309,7 +217309,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -217543,7 +217543,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true
     },
     {
@@ -237166,7 +237166,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-29"
+      "last_layer_a_check": "2026-07-03"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -260398,7 +260398,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 122,
+      "consecutive_failures": 123,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
