@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-04T04:14:29.690804Z",
+  "last_updated": "2026-07-04T07:35:21.834344Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4640,7 +4640,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -5295,7 +5295,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Capsicum (Red)",
@@ -12068,7 +12068,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true,
       "last_layer_a_check": "2026-07-03"
     },
@@ -21310,7 +21310,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -23304,7 +23304,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -24622,7 +24622,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Canned Tomatoes",
@@ -40506,7 +40506,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 5.8,
+      "price": 5.6,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "350G",
@@ -41115,25 +41115,25 @@
         },
         {
           "date": "2026-07-04",
-          "price": 5.8,
+          "price": 5.6,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Mozzarella Sticks"
+          "matched_name": "Woolworths Mozzarella Cheese"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Pear_Mozzarella_350G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/137393.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/688515.jpg",
       "store": "woolworths",
-      "unit_price": 1.93,
-      "unit": "100g",
+      "unit_price": 16.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.8,
-          "unit_price": 1.93,
-          "eff_price": 5.8,
+          "price": 5.6,
+          "unit_price": 16.0,
+          "eff_price": 5.6,
           "was_price": null,
           "on_special": false
         },
@@ -41147,11 +41147,11 @@
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 5.8,
+      "eff_price": 5.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mozzarella Sticks",
+      "name_check": "Woolworths Mozzarella Cheese",
       "item_id": "010a7b6a-00fc-45b3-acbc-ed4962bc5121",
       "consecutive_failures": 0,
       "quarantined": false
@@ -42506,7 +42506,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 9.43,
+      "price": 15.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -43115,25 +43115,25 @@
         },
         {
           "date": "2026-07-04",
-          "price": 9.43,
+          "price": 15.4,
           "is_special": false,
           "was_price": 12.0,
-          "store": "woolworths",
-          "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet Skinless Small"
+          "store": "coles",
+          "matched_name": "RSPCA Approved Chicken Breast Fillets Large Pack"
         }
       ],
       "was_price": 12.0,
       "on_special": false,
       "local_image": "images/Ww_Rspca_Chicken_Breast_Fillets.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/119259.jpg",
-      "store": "woolworths",
-      "unit_price": 14.5,
+      "image_url": "https://productimages.coles.com.au/2/2263179.jpg",
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.43,
-          "unit_price": 14.5,
-          "eff_price": 9.43,
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
           "was_price": null,
           "on_special": false
         },
@@ -43147,11 +43147,11 @@
       },
       "price_unavailable": false,
       "avg_price": 14.74,
-      "eff_price": 9.43,
+      "eff_price": 15.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet Skinless Small",
+      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack",
       "item_id": "49550696-e830-4797-912a-c8fa59f3874c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -47405,7 +47405,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true
     },
     {
@@ -48092,7 +48092,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 2.8,
+      "price": 0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -48711,10 +48711,10 @@
       "was_price": 3.5,
       "on_special": true,
       "local_image": "images/La_Molisana_Extra_Lusso_28_Fusilli_500G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/123906.jpg",
+      "image_url": "",
       "store": "woolworths",
-      "unit_price": 0.56,
-      "unit": "100g",
+      "unit_price": null,
+      "unit": null,
       "all_stores": {
         "woolworths": {
           "price": 2.8,
@@ -48724,15 +48724,14 @@
           "on_special": true
         }
       },
-      "price_unavailable": false,
+      "price_unavailable": true,
       "avg_price": 3.15,
-      "eff_price": 2.8,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "quarantined": false,
       "last_layer_a_check": "2026-07-03"
     },
@@ -49376,9 +49375,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -49631,7 +49630,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true
     },
     {
@@ -51241,7 +51240,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 269,
+      "consecutive_failures": 270,
       "quarantined": true
     },
     {
@@ -53927,7 +53926,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -55504,7 +55503,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true
     },
     {
@@ -65323,7 +65322,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 16,
+      "consecutive_failures": 17,
       "quarantined": true
     },
     {
@@ -78679,7 +78678,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -79567,7 +79566,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -81456,7 +81455,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -82065,23 +82064,23 @@
         },
         {
           "date": "2026-07-04",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 3.0,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -82092,15 +82091,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -93310,7 +93309,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -102623,7 +102622,7 @@
       "item_id": "56efbcab-9d29-4273-b924-6d988bc78810",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Libra Tampons Super 16Pk",
@@ -130609,22 +130608,22 @@
           "price": 3.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Pak Choy Baby Asian Greens"
+          "store": "coles",
+          "matched_name": "Asian Choy Pak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pak_Choy_Baby.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/154991.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4567039.jpg",
+      "store": "coles",
       "unit_price": 3.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 5.5,
+          "unit_price": 5.5,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         },
@@ -130642,7 +130641,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pak Choy Baby Asian Greens",
+      "name_check": "Asian Choy Pak",
       "item_id": "4438fbc0-4d1d-4425-9c93-5622ce04182d",
       "consecutive_failures": 0,
       "quarantined": false
@@ -132669,6 +132668,13 @@
       "unit_price": 17.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 17.5,
           "unit_price": 17.5,
@@ -134921,7 +134927,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 236,
+      "consecutive_failures": 237,
       "quarantined": true
     },
     {
@@ -178931,7 +178937,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 4.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500Ml",
@@ -179540,21 +179546,28 @@
         },
         {
           "date": "2026-07-04",
-          "price": 4.5,
-          "is_special": false,
-          "was_price": 6.0,
-          "store": "coles",
-          "matched_name": "Extra Power Toilet Shield Gel Toilet Cleaner Ocean Burst"
+          "price": 3.0,
+          "is_special": true,
+          "was_price": 5.5,
+          "store": "woolworths",
+          "matched_name": "Duck Action Burst Toilet Bowl Cleaner Tropical Vibes"
         }
       ],
-      "was_price": 6.0,
-      "on_special": false,
+      "was_price": 5.5,
+      "on_special": true,
       "local_image": "images/Duck_Action_Burst_Tropical_Vibes_500Ml.jpg",
-      "image_url": "https://productimages.coles.com.au/3/3742461.jpg",
-      "store": "coles",
-      "unit_price": 0.9,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6032520.jpg",
+      "store": "woolworths",
+      "unit_price": 6.0,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": 5.5,
+          "on_special": true
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 0.9,
@@ -179565,11 +179578,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.0,
-      "eff_price": 4.5,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Extra Power Toilet Shield Gel Toilet Cleaner Ocean Burst",
+      "name_check": "Duck Action Burst Toilet Bowl Cleaner Tropical Vibes",
       "item_id": "53f0d48b-3324-4eea-9bca-b29ca566e6bd",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -187131,7 +187144,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -188472,7 +188485,7 @@
       "price_history": [],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 9.43,
+      "price": 15.4,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -189081,25 +189094,25 @@
         },
         {
           "date": "2026-07-04",
-          "price": 9.43,
+          "price": 15.4,
           "is_special": false,
           "was_price": 12.0,
-          "store": "woolworths",
-          "matched_name": "Woolworths RSPCA Approved Chicken Breast Fillet Skinless Small"
+          "store": "coles",
+          "matched_name": "RSPCA Approved Chicken Breast Fillets Large Pack"
         }
       ],
       "was_price": 12.0,
       "on_special": false,
       "local_image": "images/Chicken_Breast_Fillets_Rspca_Apprvd.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/119259.jpg",
-      "store": "woolworths",
-      "unit_price": 14.5,
+      "image_url": "https://productimages.coles.com.au/2/2263179.jpg",
+      "store": "coles",
+      "unit_price": 11.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.43,
-          "unit_price": 14.5,
-          "eff_price": 9.43,
+          "price": 18.7,
+          "unit_price": 11.0,
+          "eff_price": 18.7,
           "was_price": null,
           "on_special": false
         },
@@ -189116,8 +189129,8 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "eff_price": 9.43,
-      "name_check": "Woolworths RSPCA Approved Chicken Breast Fillet Skinless Small",
+      "eff_price": 15.4,
+      "name_check": "RSPCA Approved Chicken Breast Fillets Large Pack",
       "item_id": "a9a981a1-0b5d-4991-bb13-da6ac3b85bc1",
       "consecutive_failures": 0,
       "quarantined": false
@@ -209283,7 +209296,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -219249,7 +219262,7 @@
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -219879,7 +219892,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -219911,7 +219924,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -220145,7 +220158,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 257,
+      "consecutive_failures": 258,
       "quarantined": true
     },
     {
@@ -222816,7 +222829,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -251255,7 +251268,7 @@
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -252589,7 +252602,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -255909,7 +255922,7 @@
       "item_id": "38097635-643f-4e36-a19a-e7652748fa46",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Energizer A23 2Pk",
@@ -257227,15 +257240,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -257837,24 +257850,24 @@
         },
         {
           "date": "2026-07-04",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -263520,7 +263533,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 127,
+      "consecutive_failures": 128,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -270448,7 +270461,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -275765,7 +275778,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-04"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
