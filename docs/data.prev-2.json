@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-05T08:16:51.468225Z",
+  "last_updated": "2026-07-05T11:04:28.820970Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2032,7 +2032,7 @@
       "item_id": "78b8cbd4-2f0e-4507-abda-57d772fba6a9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Pork Loin Roast",
@@ -12212,7 +12212,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true,
       "last_layer_a_check": "2026-07-03"
     },
@@ -19558,7 +19558,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -40973,7 +40973,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -47973,7 +47973,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true
     },
     {
@@ -49307,7 +49307,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "quarantined": true,
       "last_layer_a_check": "2026-07-03"
     },
@@ -49959,9 +49959,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -50214,7 +50214,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true
     },
     {
@@ -51840,7 +51840,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 276,
+      "consecutive_failures": 277,
       "quarantined": true
     },
     {
@@ -56151,7 +56151,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true
     },
     {
@@ -66082,7 +66082,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -80494,9 +80494,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-02"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -82407,7 +82407,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -83024,23 +83024,23 @@
         },
         {
           "date": "2026-07-05",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 3.0,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -83051,15 +83051,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -85750,10 +85750,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 23.0,
-          "unit_price": 23.0,
-          "eff_price": 23.0,
-          "was_price": 28.0,
+          "price": 15.75,
+          "unit_price": 18.53,
+          "eff_price": 15.75,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -94397,7 +94397,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 92,
+      "consecutive_failures": 93,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -98449,7 +98449,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -128134,7 +128134,7 @@
       "item_id": "c94b7d6c-f528-43b0-abe7-c3d18508b439",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Rexona Men Advanced Sport Ap 220Ml",
@@ -136511,7 +136511,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 243,
+      "consecutive_failures": 244,
       "quarantined": true
     },
     {
@@ -151996,19 +151996,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -152021,7 +152021,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -152029,7 +152029,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -157451,7 +157451,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-03"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -170878,20 +170878,20 @@
           "price": 9.1,
           "is_special": false,
           "was_price": 8.5,
-          "store": "coles",
-          "matched_name": "Organic Salted Butter"
+          "store": "woolworths",
+          "matched_name": "Mainland Organic Butter Block Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
+      "store": "woolworths",
       "unit_price": 3.64,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 10.6,
-          "unit_price": 2.83,
-          "eff_price": 10.6,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -170911,7 +170911,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter",
+      "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -185089,7 +185089,7 @@
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "White Label Extra Tasty Cheese Block 1Kg",
@@ -189352,7 +189352,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -211768,7 +211768,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true,
       "last_layer_a_check": "2026-07-04"
     },
@@ -222758,7 +222758,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true
     },
     {
@@ -225461,7 +225461,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -248222,7 +248222,7 @@
       "item_id": "bc3762d1-a847-493c-a436-98335850ecd8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-20"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Sunny Queen Fms Cge Free Eggs 12Pk 700G",
@@ -254244,7 +254244,7 @@
       "item_id": "8cfbd152-db81-48e8-b7e3-e9bb6a21f724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Coca Cola Classic 10X375Ml",
@@ -266646,7 +266646,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 134,
+      "consecutive_failures": 135,
       "quarantined": true,
       "last_layer_a_check": "2026-07-02"
     },
@@ -273662,7 +273662,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-05"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
