@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-07T08:27:38.022160Z",
+  "last_updated": "2026-07-07T11:57:40.623104Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1404,7 +1404,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Bacon (Middle)",
@@ -11593,7 +11593,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -12500,7 +12500,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true,
       "last_layer_a_check": "2026-07-06"
     },
@@ -26193,7 +26193,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-01"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -37120,7 +37120,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -49109,7 +49109,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true
     },
     {
@@ -50459,7 +50459,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 18,
+      "consecutive_failures": 19,
       "quarantined": true,
       "last_layer_a_check": "2026-07-06"
     },
@@ -51382,7 +51382,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true
     },
     {
@@ -53040,7 +53040,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 287,
+      "consecutive_failures": 288,
       "quarantined": true
     },
     {
@@ -57447,7 +57447,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true
     },
     {
@@ -67602,7 +67602,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true
     },
     {
@@ -72464,7 +72464,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -73097,7 +73097,7 @@
         },
         {
           "date": "2026-07-07",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -73109,13 +73109,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -73129,7 +73129,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -81438,7 +81438,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -82350,7 +82350,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true,
       "last_layer_a_check": "2026-07-05"
     },
@@ -84311,7 +84311,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -84944,23 +84944,23 @@
         },
         {
           "date": "2026-07-07",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -84971,15 +84971,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -87068,7 +87068,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -96573,7 +96573,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 103,
+      "consecutive_failures": 104,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -105520,7 +105520,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "quarantined": false,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-07"
@@ -132448,7 +132448,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -132472,7 +132472,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -132480,7 +132480,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -135971,7 +135971,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 9.8,
+      "price": 8.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -136604,25 +136604,25 @@
         },
         {
           "date": "2026-07-07",
-          "price": 9.8,
+          "price": 8.8,
           "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
       "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
       "store": "woolworths",
-      "unit_price": 1.63,
+      "unit_price": 1.76,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 8.8,
+          "unit_price": 1.76,
+          "eff_price": 8.8,
           "was_price": null,
           "on_special": false
         },
@@ -136636,11 +136636,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 9.8,
+      "eff_price": 8.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -139670,7 +139670,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 254,
+      "consecutive_failures": 255,
       "quarantined": true
     },
     {
@@ -193759,7 +193759,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true,
       "last_layer_a_check": "2026-07-01"
     },
@@ -211652,7 +211652,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -216704,7 +216704,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true,
       "last_layer_a_check": "2026-07-07"
     },
@@ -227684,7 +227684,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -227716,7 +227716,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -227950,7 +227950,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 275,
+      "consecutive_failures": 276,
       "quarantined": true
     },
     {
@@ -260884,7 +260884,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -261570,7 +261570,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -272885,9 +272885,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 145,
+      "consecutive_failures": 146,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -281179,7 +281179,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-07-06",
+      "last_layer_a_check": "2026-07-07",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-01"
     },
@@ -283965,7 +283965,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-07"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
