@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-10T15:22:55.976992Z",
+  "last_updated": "2026-07-10T18:36:50.607148Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -708,7 +708,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-08"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -1382,7 +1382,7 @@
           "is_special": false,
           "was_price": null,
           "store": "coles",
-          "matched_name": "No Added Hormone Beef 4 Star Lean Mince"
+          "matched_name": "Australian No Added Hormones Beef Mince Lean"
         }
       ],
       "was_price": null,
@@ -1447,7 +1447,7 @@
       "stale": false,
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
-      "name_check": "No Added Hormone Beef 4 Star Lean Mince",
+      "name_check": "Australian No Added Hormones Beef Mince Lean",
       "item_id": "a29ffe28-55a8-4592-8813-6f76a1b4305d",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
@@ -12001,7 +12001,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -12932,7 +12932,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true,
       "last_layer_a_check": "2026-07-09"
     },
@@ -29227,7 +29227,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Almond Meal",
@@ -50813,7 +50813,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true
     },
     {
@@ -52187,7 +52187,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 38,
+      "consecutive_failures": 39,
       "quarantined": true,
       "last_layer_a_check": "2026-07-09"
     },
@@ -52866,24 +52866,24 @@
           "price": 0.95,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.76,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 0.88,
-          "eff_price": 2.2,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 0.95,
+          "unit_price": 0.76,
+          "eff_price": 0.95,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -52899,7 +52899,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -53134,7 +53134,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true
     },
     {
@@ -54840,7 +54840,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 307,
+      "consecutive_failures": 308,
       "quarantined": true
     },
     {
@@ -59391,7 +59391,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true
     },
     {
@@ -69882,7 +69882,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "quarantined": true
     },
     {
@@ -85134,9 +85134,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-07"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -99837,7 +99837,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 123,
+      "consecutive_failures": 124,
       "quarantined": true,
       "last_layer_a_check": "2026-07-10"
     },
@@ -109072,7 +109072,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-07"
@@ -111935,7 +111935,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Shapes L&C Cheddar Cheese 120G",
@@ -133365,7 +133365,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
+          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -133389,7 +133389,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -133397,7 +133397,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
+      "name_check": "Buderim Ginger Refresher Cordial Cordial",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -144399,7 +144399,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 274,
+      "consecutive_failures": 275,
       "quarantined": true
     },
     {
@@ -167300,7 +167300,7 @@
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Quilton Classic 3Ply T/Tissue 8Pk",
@@ -182281,7 +182281,7 @@
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-15"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Ww Lean Pork Mince 500G",
@@ -189450,7 +189450,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 2.5,
+      "price": 2.7,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "90G",
@@ -190107,28 +190107,21 @@
         },
         {
           "date": "2026-07-10",
-          "price": 2.5,
-          "is_special": true,
+          "price": 2.7,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Double 'D' Fruit Jellies Sugar Free"
+          "store": "coles",
+          "matched_name": "Smart Sweets Berry Gummies"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Double_'D'_Sugar_Free_Fruit_Jellies_90G.jpg",
       "image_url": "images/double_d_sugar_free_fruit_jellies_90g.jpg",
-      "store": "woolworths",
-      "unit_price": 2.78,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 5.4,
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 2.5,
-          "unit_price": 2.78,
-          "eff_price": 2.5,
-          "was_price": 3.0,
-          "on_special": true
-        },
         "coles": {
           "price": 2.7,
           "unit_price": 5.4,
@@ -190139,11 +190132,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.0,
-      "eff_price": 2.5,
+      "eff_price": 2.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Double 'D' Fruit Jellies Sugar Free",
+      "name_check": "Smart Sweets Berry Gummies",
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -200367,7 +200360,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true,
       "last_layer_a_check": "2026-07-10"
     },
@@ -224104,7 +224097,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true,
       "last_layer_a_check": "2026-07-09"
     },
@@ -230516,7 +230509,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Hoyts Oregano 25G",
@@ -235734,7 +235727,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true
     },
     {
@@ -236449,7 +236442,7 @@
       "item_id": "b2fb6164-4aac-44dc-99a3-8908c91d3586",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Libra Tampons Super 32Pk",
@@ -282229,7 +282222,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 165,
+      "consecutive_failures": 166,
       "quarantined": true,
       "last_layer_a_check": "2026-07-09"
     },
@@ -293166,7 +293159,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-10"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
