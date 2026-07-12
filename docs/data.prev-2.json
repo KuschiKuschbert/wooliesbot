@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-12T07:21:43.413748Z",
+  "last_updated": "2026-07-12T10:39:16.471797Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5807,7 +5807,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Capsicum (Red)",
@@ -13220,7 +13220,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true,
       "last_layer_a_check": "2026-07-09"
     },
@@ -18276,7 +18276,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Butter (Western Star)",
@@ -23358,7 +23358,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-08"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -26990,7 +26990,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Canned Tomatoes",
@@ -31324,7 +31324,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Crackers (Jatz)",
@@ -51949,7 +51949,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true
     },
     {
@@ -53339,7 +53339,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 48,
+      "consecutive_failures": 49,
       "quarantined": true,
       "last_layer_a_check": "2026-07-11"
     },
@@ -54047,11 +54047,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 0.88,
-          "eff_price": 2.2,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -54302,7 +54302,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true
     },
     {
@@ -56040,7 +56040,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 317,
+      "consecutive_failures": 318,
       "quarantined": true
     },
     {
@@ -60687,7 +60687,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true
     },
     {
@@ -65810,7 +65810,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-08"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -71402,7 +71402,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 64,
+      "consecutive_failures": 65,
       "quarantined": true
     },
     {
@@ -75786,7 +75786,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -86038,7 +86038,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -86990,7 +86990,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true,
       "last_layer_a_check": "2026-07-11"
     },
@@ -102013,9 +102013,9 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 133,
+      "consecutive_failures": 134,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -110059,7 +110059,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -111440,7 +111440,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 34,
+      "consecutive_failures": 35,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-07"
@@ -131909,7 +131909,7 @@
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -147551,7 +147551,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 284,
+      "consecutive_failures": 285,
       "quarantined": true
     },
     {
@@ -173899,7 +173899,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 3.9,
+      "price": 4.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -174572,28 +174572,21 @@
         },
         {
           "date": "2026-07-12",
-          "price": 3.9,
+          "price": 4.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Green Asparagus Bunch Green"
+          "store": "coles",
+          "matched_name": "Green Asparagus"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Asparagus_Green_Bnch.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/305235.jpg",
-      "store": "woolworths",
-      "unit_price": 3.9,
+      "image_url": "https://productimages.coles.com.au/4/4838737.jpg",
+      "store": "coles",
+      "unit_price": 4.5,
       "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 3.9,
-          "unit_price": 3.9,
-          "eff_price": 3.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.5,
           "unit_price": 4.5,
@@ -174604,11 +174597,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.55,
-      "eff_price": 3.9,
+      "eff_price": 4.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Green Asparagus Bunch Green",
+      "name_check": "Green Asparagus",
       "item_id": "f54c233c-5595-4827-ac60-45db1645eac6",
       "consecutive_failures": 0,
       "quarantined": false
@@ -189228,7 +189221,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 12.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -189901,36 +189894,36 @@
         },
         {
           "date": "2026-07-12",
-          "price": 12.0,
+          "price": 12.7,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.41,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
+          "price": 12.7,
+          "unit_price": 1.41,
+          "eff_price": 12.7,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 12.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -204760,9 +204753,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -229025,7 +229018,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true,
       "last_layer_a_check": "2026-07-11"
     },
@@ -234854,7 +234847,7 @@
       "item_id": "c1bd9f74-af25-4d78-bf49-b1273235f510",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Ww 35Hr Sourdough Loaf Seeded 1Ea",
@@ -240904,7 +240897,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 305,
+      "consecutive_failures": 306,
       "quarantined": true
     },
     {
@@ -288439,7 +288432,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 175,
+      "consecutive_failures": 176,
       "quarantined": true,
       "last_layer_a_check": "2026-07-11"
     },
@@ -299648,7 +299641,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-07-10"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -302028,7 +302021,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-07-10"
+      "last_layer_a_check": "2026-07-12"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
