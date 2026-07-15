@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15T03:32:57.194881Z",
+  "last_updated": "2026-07-15T07:06:41.874226Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -13652,7 +13652,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true,
       "last_layer_a_check": "2026-07-12"
     },
@@ -27878,7 +27878,7 @@
       "item_id": "b290a88a-887f-45da-a5f8-aebec8665515",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-12"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Canned Tomatoes",
@@ -33098,7 +33098,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -38334,7 +38334,7 @@
       "item_id": "c6ac79cb-8018-4733-9298-ac3195c5e4db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-13"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Whiskas Kitten 12pk",
@@ -39828,7 +39828,7 @@
       "item_id": "fdc8b4a6-d67e-49b3-bff8-7fc7f4ad6c9b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-07"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -42070,7 +42070,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Energizer Batteries AA",
@@ -43571,7 +43571,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-12"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -45120,7 +45120,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 11.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -45819,7 +45819,7 @@
         },
         {
           "date": "2026-07-15",
-          "price": 22.0,
+          "price": 19.35,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -45828,21 +45828,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 22.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 22.0,
-          "eff_price": 22.0,
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 22.0,
+      "eff_price": 19.35,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -53653,7 +53653,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true
     },
     {
@@ -55067,7 +55067,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 65,
+      "consecutive_failures": 66,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -56054,7 +56054,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true
     },
     {
@@ -57840,7 +57840,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true
     },
     {
@@ -61657,7 +61657,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 21.75,
+      "price": 9.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "250G",
@@ -62354,36 +62354,36 @@
         },
         {
           "date": "2026-07-15",
-          "price": 21.75,
+          "price": 9.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Beef Rump Steak Medium"
+          "matched_name": "Woolworths Beef Rump Steak"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Beef_Rump_Steak_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/675318.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/236846.jpg",
       "store": "woolworths",
-      "unit_price": 29.0,
+      "unit_price": 36.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 21.75,
-          "unit_price": 29.0,
-          "eff_price": 21.75,
+          "price": 9.0,
+          "unit_price": 36.0,
+          "eff_price": 9.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 9.0,
-      "eff_price": 21.75,
+      "eff_price": 9.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Rump Steak Medium",
+      "name_check": "Woolworths Beef Rump Steak",
       "item_id": "66be75b9-afaf-4df7-8b2c-0fa02dbe5580",
       "consecutive_failures": 0,
       "quarantined": false
@@ -62631,7 +62631,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true
     },
     {
@@ -65671,7 +65671,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -73227,7 +73227,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 0,
+      "price": 2.6,
       "brand": "Continental",
       "subcategory": "other",
       "size": "Standard",
@@ -73657,33 +73657,42 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "The Odd Bunch Continental Cucumber"
+        },
+        {
+          "date": "2026-07-15",
+          "price": 2.6,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Cucumber_Continentalodd_Bunch.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/829360.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 2.6,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 2.8,
-          "eff_price": 2.8,
+          "price": 2.6,
+          "unit_price": 2.6,
+          "eff_price": 2.6,
           "was_price": null,
           "on_special": false
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 81,
-      "quarantined": true
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 2.6
     },
     {
       "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
@@ -89774,7 +89783,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -90539,7 +90548,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -91236,23 +91245,23 @@
         },
         {
           "date": "2026-07-15",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -91266,13 +91275,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -104003,7 +104012,7 @@
       "item_id": "308064dd-bb2b-47d7-bbd6-c974b7a32605",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Ww Pikelets 200G 8Pk",
@@ -105277,9 +105286,9 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 150,
+      "consecutive_failures": 151,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -109809,7 +109818,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -112075,7 +112084,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -114992,7 +115001,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 51,
+      "consecutive_failures": 52,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-14"
@@ -152279,7 +152288,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 301,
+      "consecutive_failures": 302,
       "quarantined": true
     },
     {
@@ -179444,11 +179453,11 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.9,
-          "unit_price": 3.45,
-          "eff_price": 6.9,
-          "was_price": null,
-          "on_special": false
+          "price": 8.95,
+          "unit_price": 2.98,
+          "eff_price": 8.95,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 3.6,
@@ -189253,7 +189262,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -191496,11 +191505,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 3.33,
-          "eff_price": 2.0,
-          "was_price": 2.3,
-          "on_special": true
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.1,
@@ -196055,7 +196064,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -211360,7 +211369,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true,
       "last_layer_a_check": "2026-07-12"
     },
@@ -223422,7 +223431,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 4.0,
+      "price": 3.2,
       "brand": "Continental",
       "subcategory": "grains_pasta",
       "size": "120G",
@@ -224119,25 +224128,25 @@
         },
         {
           "date": "2026-07-15",
-          "price": 4.0,
+          "price": 3.2,
           "is_special": false,
           "was_price": 3.2,
           "store": "woolworths",
-          "matched_name": "Continental Classics Chicken Rice"
+          "matched_name": "Continental Classics Rice Chicken"
         }
       ],
       "was_price": 3.2,
       "on_special": false,
       "local_image": "images/Continental_Classics_Chicken_Rice_120G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/145951.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/141917.jpg",
       "store": "woolworths",
-      "unit_price": 2.11,
+      "unit_price": 2.67,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.11,
-          "eff_price": 4.0,
+          "price": 3.2,
+          "unit_price": 2.67,
+          "eff_price": 3.2,
           "was_price": null,
           "on_special": false
         },
@@ -224151,11 +224160,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.2,
-      "eff_price": 4.0,
+      "eff_price": 3.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Continental Classics Chicken Rice",
+      "name_check": "Continental Classics Rice Chicken",
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -236417,7 +236426,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -237173,7 +237182,7 @@
       "item_id": "f537f68a-7e3d-4413-aa47-e945a44a2321",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-21"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
@@ -248688,7 +248697,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 322,
+      "consecutive_failures": 323,
       "quarantined": true
     },
     {
@@ -264438,7 +264447,7 @@
       "item_id": "8e5538c8-39b5-4df0-8ef7-c83cfbbb224d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-04"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Potato Roasting 1.5Kg",
@@ -287721,15 +287730,15 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.9,
-      "unit_price": 2.9,
+      "price": 2.6,
+      "unit_price": 2.6,
       "unit": "each",
-      "store": "coles",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 3.3,
-          "eff_price": 3.3,
+          "price": 2.6,
+          "unit_price": 2.6,
+          "eff_price": 2.6,
           "was_price": null,
           "on_special": false
         },
@@ -288426,24 +288435,24 @@
         },
         {
           "date": "2026-07-15",
-          "price": 2.9,
+          "price": 2.6,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Cucumbers Continental Loose"
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.9,
+      "eff_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Cucumbers Continental Loose",
+      "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "11e7aa33-0137-4912-a4e8-fb4bd1fb81fc",
       "consecutive_failures": 0,
       "quarantined": false
@@ -292166,6 +292175,13 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 4.95,
+          "unit_price": 2.48,
+          "eff_price": 4.95,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 3.3,
           "unit_price": 3.3,
@@ -297769,7 +297785,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 192,
+      "consecutive_failures": 193,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
