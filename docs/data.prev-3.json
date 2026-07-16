@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15T14:38:58.764662Z",
+  "last_updated": "2026-07-15T18:07:11.632856Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1532,7 +1532,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Bacon (Middle)",
@@ -6741,7 +6741,7 @@
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-13"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Avocados (Hass)",
@@ -13652,9 +13652,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-12"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Corn Cobs",
@@ -45120,7 +45120,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -45819,7 +45819,7 @@
         },
         {
           "date": "2026-07-15",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -45828,21 +45828,21 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -53653,7 +53653,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true
     },
     {
@@ -55067,7 +55067,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -55799,11 +55799,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 0.88,
-          "eff_price": 2.2,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -56054,7 +56054,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true
     },
     {
@@ -57840,7 +57840,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 337,
+      "consecutive_failures": 338,
       "quarantined": true
     },
     {
@@ -61657,7 +61657,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 9.0,
+      "price": 21.75,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "250G",
@@ -62354,36 +62354,36 @@
         },
         {
           "date": "2026-07-15",
-          "price": 9.0,
+          "price": 21.75,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Beef Rump Steak"
+          "matched_name": "Woolworths Beef Rump Steak Medium"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Beef_Rump_Steak_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/236846.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/675318.jpg",
       "store": "woolworths",
-      "unit_price": 36.0,
+      "unit_price": 29.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 36.0,
-          "eff_price": 9.0,
+          "price": 21.75,
+          "unit_price": 29.0,
+          "eff_price": 21.75,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 9.0,
-      "eff_price": 9.0,
+      "eff_price": 21.75,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Rump Steak",
+      "name_check": "Woolworths Beef Rump Steak Medium",
       "item_id": "66be75b9-afaf-4df7-8b2c-0fa02dbe5580",
       "consecutive_failures": 0,
       "quarantined": false
@@ -62631,7 +62631,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true
     },
     {
@@ -67922,7 +67922,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-12"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -78219,7 +78219,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -79001,7 +79001,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -79698,7 +79698,7 @@
         },
         {
           "date": "2026-07-15",
-          "price": 3.0,
+          "price": 3.8,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -79710,13 +79710,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
           "was_price": null,
           "on_special": false
         },
@@ -79730,7 +79730,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -89783,7 +89783,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -91936,7 +91936,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.25,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -92633,23 +92633,23 @@
         },
         {
           "date": "2026-07-15",
-          "price": 1.25,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 2.5,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.25,
-          "unit_price": 2.5,
-          "eff_price": 1.25,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -92660,15 +92660,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.25,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -105286,7 +105286,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 153,
+      "consecutive_failures": 154,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -115001,7 +115001,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 54,
+      "consecutive_failures": 55,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-14"
@@ -136114,6 +136114,13 @@
       "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 4.2,
+          "unit_price": 7.0,
+          "eff_price": 4.2,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.5,
           "unit_price": 4.17,
@@ -140647,7 +140654,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -140671,7 +140678,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -140679,7 +140686,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -142190,7 +142197,7 @@
       "item_id": "f78a89b0-2aa2-4da2-a4f6-6dd8445b2e69",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Waterfords Sparkling Water Apple Berry1L",
@@ -152281,7 +152288,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 304,
+      "consecutive_failures": 305,
       "quarantined": true
     },
     {
@@ -156819,7 +156826,7 @@
       "item_id": "a0b95e6b-6398-4af0-a852-47327d7a96fa",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-25"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Mission Carb Balancespinach 288G Pk 6",
@@ -180944,26 +180951,26 @@
         {
           "date": "2026-07-15",
           "price": 5.5,
-          "is_special": true,
+          "is_special": false,
           "was_price": 6.25,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
+          "matched_name": "La Tosca Fresh Pasta Potato Gnocchi"
         }
       ],
       "was_price": 6.25,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/022500.jpg",
       "store": "woolworths",
-      "unit_price": 0.73,
+      "unit_price": 1.1,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 5.5,
-          "unit_price": 0.73,
+          "unit_price": 1.1,
           "eff_price": 5.5,
-          "was_price": 6.25,
-          "on_special": true
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -180972,7 +180979,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
+      "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -211362,7 +211369,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true,
       "last_layer_a_check": "2026-07-12"
     },
@@ -223407,7 +223414,7 @@
       "item_id": "625f3bf5-0470-4d6a-b4d1-8862656b37c0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-28"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Continental Classics Chicken Rice 120G",
@@ -233929,7 +233936,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -236419,7 +236426,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -248424,7 +248431,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -248456,7 +248463,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -248690,7 +248697,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true
     },
     {
@@ -277949,7 +277956,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-09"
+      "last_layer_a_check": "2026-07-15"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -293614,7 +293621,7 @@
           "is_special": true,
           "was_price": 5.7,
           "store": "woolworths",
-          "matched_name": "Philadelphia Original Cream Cheese Block"
+          "matched_name": "Philadelphia Light Cream Cheese Block"
         }
       ],
       "target_confidence": "high",
@@ -293627,7 +293634,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": 5.7,
       "on_special": true,
-      "name_check": "Philadelphia Original Cream Cheese Block",
+      "name_check": "Philadelphia Light Cream Cheese Block",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -297778,7 +297785,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 195,
+      "consecutive_failures": 196,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -302241,13 +302248,6 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 3.9,
-          "unit_price": 3.9,
-          "eff_price": 3.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 3.8,
           "unit_price": 3.8,
@@ -306904,7 +306904,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-07-14",
+      "last_layer_a_check": "2026-07-15",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-01"
     },
