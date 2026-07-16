@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-16T03:38:22.270280Z",
+  "last_updated": "2026-07-16T07:08:16.571632Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -13796,7 +13796,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -19837,7 +19837,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -21342,7 +21342,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Sour Cream",
@@ -31945,7 +31945,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Gravy Granules",
@@ -54221,7 +54221,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true
     },
     {
@@ -55643,7 +55643,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 71,
+      "consecutive_failures": 72,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -56638,7 +56638,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true
     },
     {
@@ -58196,7 +58196,7 @@
       "item_id": "849287d7-ed86-4ffa-9aa2-ef2673e07416",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Avocado Shepard",
@@ -58440,7 +58440,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 340,
+      "consecutive_failures": 341,
       "quarantined": true
     },
     {
@@ -63279,7 +63279,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true
     },
     {
@@ -66351,7 +66351,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -79035,7 +79035,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -85149,7 +85149,7 @@
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-05"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "La Casa Fresh Mozzarella 125G",
@@ -90719,7 +90719,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -91492,7 +91492,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -92197,23 +92197,23 @@
         },
         {
           "date": "2026-07-16",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -92227,13 +92227,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -93640,7 +93640,7 @@
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-18"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Kettle Chips Sea Salt & Vinegar 165G",
@@ -106382,7 +106382,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 156,
+      "consecutive_failures": 157,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -107903,7 +107903,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -116193,7 +116193,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 57,
+      "consecutive_failures": 58,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-16"
@@ -120010,7 +120010,7 @@
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-27"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -145930,7 +145930,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -145954,7 +145954,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -145962,7 +145962,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -153872,7 +153872,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 307,
+      "consecutive_failures": 308,
       "quarantined": true
     },
     {
@@ -153890,7 +153890,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -154595,21 +154595,28 @@
         },
         {
           "date": "2026-07-16",
-          "price": 8.8,
+          "price": 5.5,
           "is_special": false,
           "was_price": 5.5,
-          "store": "coles",
-          "matched_name": "Sea Salt Crystals"
+          "store": "woolworths",
+          "matched_name": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes"
         }
       ],
       "was_price": 5.5,
       "on_special": false,
       "local_image": "images/Cornish_Sea_Salt_Flakes_150G.jpg",
-      "image_url": "https://productimages.coles.com.au/9/9964568.jpg",
-      "store": "coles",
-      "unit_price": 0.39,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/085821.jpg",
+      "store": "woolworths",
+      "unit_price": 0.37,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 5.5,
+          "unit_price": 0.37,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 8.8,
           "unit_price": 0.39,
@@ -154620,11 +154627,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 8.8,
+      "eff_price": 5.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sea Salt Crystals",
+      "name_check": "Cornish Salt Co Sea Salt Flakes Sea Salt Flakes",
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -180590,7 +180597,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Pauls Plus+ Protein F/Milk Choc 400Ml",
@@ -213577,7 +213584,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true,
       "last_layer_a_check": "2026-07-12"
     },
@@ -238898,7 +238905,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -251297,7 +251304,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 328,
+      "consecutive_failures": 329,
       "quarantined": true
     },
     {
@@ -255090,9 +255097,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 11.67,
-          "eff_price": 3.5,
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -274040,7 +274047,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -300905,7 +300912,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 198,
+      "consecutive_failures": 199,
       "quarantined": true,
       "last_layer_a_check": "2026-07-16"
     },
@@ -305416,6 +305423,13 @@
       "unit": "each",
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 3.9,
+          "unit_price": 3.9,
+          "eff_price": 3.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 3.8,
           "unit_price": 3.8,
@@ -310759,7 +310773,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-16"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
