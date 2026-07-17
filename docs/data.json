@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-17T03:40:31.864568Z",
+  "last_updated": "2026-07-17T07:08:38.876930Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3083,7 +3083,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -6127,7 +6127,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Capsicum (Red)",
@@ -12195,7 +12195,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -12953,7 +12953,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -13940,7 +13940,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -42203,7 +42203,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Dishmatic Refills",
@@ -51476,7 +51476,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 4.5,
+      "price": 4.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "100G",
@@ -52189,21 +52189,28 @@
         },
         {
           "date": "2026-07-17",
-          "price": 4.5,
+          "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Belgian Dark Block 85%"
+          "store": "woolworths",
+          "matched_name": "Woolworths 85% Belgian Dark Chocolate"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Belgian_Dark_Choc_Block_85%_100G.jpg",
       "image_url": "images/ww_belgian_dark_choc_block_85_100g.jpg",
-      "store": "coles",
-      "unit_price": 4.5,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 4.0,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 4.0,
+          "unit_price": 4.0,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.5,
           "unit_price": 4.5,
@@ -52214,11 +52221,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.0,
-      "eff_price": 4.5,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Belgian Dark Block 85%",
+      "name_check": "Woolworths 85% Belgian Dark Chocolate",
       "item_id": "17ae333b-c42f-447b-8908-49db17b75088",
       "consecutive_failures": 0,
       "quarantined": false
@@ -53770,7 +53777,7 @@
       "item_id": "ffbf9146-8b5f-44b7-9e3f-bd275ae2e9ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-16"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Hydralyte Ee Tabs Pfruit Punch 10Pk",
@@ -54789,7 +54796,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true
     },
     {
@@ -56219,7 +56226,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 77,
+      "consecutive_failures": 78,
       "quarantined": true,
       "last_layer_a_check": "2026-07-17"
     },
@@ -56967,11 +56974,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.2,
-          "unit_price": 0.88,
-          "eff_price": 2.2,
-          "was_price": 2.8,
-          "on_special": true
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 0.95,
@@ -57222,7 +57229,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true
     },
     {
@@ -59040,7 +59047,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 346,
+      "consecutive_failures": 347,
       "quarantined": true
     },
     {
@@ -63927,7 +63934,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true
     },
     {
@@ -85221,22 +85228,22 @@
           "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
-          "store": "coles",
-          "matched_name": "Australian No Added Hormones Beef Mince Lean"
+          "store": "woolworths",
+          "matched_name": "Woolworths Lean Beef Mince"
         }
       ],
       "was_price": 11.0,
       "on_special": false,
       "local_image": "images/Ww_Lean_Beef_Mince_500G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8112449.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "store": "woolworths",
       "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 14.5,
-          "unit_price": 29.0,
-          "eff_price": 29.0,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         },
@@ -85254,7 +85261,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Australian No Added Hormones Beef Mince Lean",
+      "name_check": "Woolworths Lean Beef Mince",
       "item_id": "924e578d-1093-4005-a2d9-dd6e249da68d",
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
@@ -86029,7 +86036,7 @@
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-16"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "La Casa Fresh Mozzarella 125G",
@@ -91655,9 +91662,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -92436,7 +92443,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 16.0,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -93149,23 +93156,23 @@
         },
         {
           "date": "2026-07-17",
-          "price": 16.0,
+          "price": 6.95,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Naturals Body Wash Pomegranate & Mango"
+          "store": "woolworths",
+          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
-      "store": "coles",
-      "unit_price": 0.89,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
+      "store": "woolworths",
+      "unit_price": 12.6,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 25.0,
-          "unit_price": 25.0,
-          "eff_price": 25.0,
+          "price": 6.95,
+          "unit_price": 12.6,
+          "eff_price": 6.95,
           "was_price": null,
           "on_special": false
         },
@@ -93179,13 +93186,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 16.0,
+      "eff_price": 6.95,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Naturals Body Wash Pomegranate & Mango",
+      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -93811,7 +93818,7 @@
           "is_special": true,
           "was_price": 7.5,
           "store": "woolworths",
-          "matched_name": "Cadbury Dairy Milk Chocolate Freddo Strawberry"
+          "matched_name": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars"
         }
       ],
       "store": "woolworths",
@@ -93838,7 +93845,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "eff_price": 5.0,
-      "name_check": "Cadbury Dairy Milk Chocolate Freddo Strawberry",
+      "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
       "last_layer_a_check": "2026-07-15"
     },
     {
@@ -106188,7 +106195,7 @@
       "item_id": "308064dd-bb2b-47d7-bbd6-c974b7a32605",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Ww Pikelets 200G 8Pk",
@@ -107478,7 +107485,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 162,
+      "consecutive_failures": 163,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -117385,7 +117392,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 63,
+      "consecutive_failures": 64,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-16"
@@ -155456,7 +155463,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 313,
+      "consecutive_failures": 314,
       "quarantined": true
     },
     {
@@ -180920,7 +180927,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-11"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -193221,7 +193228,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -199420,7 +199427,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -200133,36 +200140,36 @@
         },
         {
           "date": "2026-07-17",
-          "price": 12.7,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -215792,7 +215799,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true,
       "last_layer_a_check": "2026-07-12"
     },
@@ -238839,7 +238846,7 @@
       "item_id": "23a1bc22-c299-4345-8742-fb2a9637342a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-15"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Ww Bbq Sauce 500Ml",
@@ -241377,7 +241384,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -253904,7 +253911,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true
     },
     {
@@ -299788,7 +299795,7 @@
           "is_special": true,
           "was_price": 5.7,
           "store": "woolworths",
-          "matched_name": "Philadelphia Original Cream Cheese Block"
+          "matched_name": "Philadelphia Light Cream Cheese Block"
         }
       ],
       "target_confidence": "high",
@@ -299801,7 +299808,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": 5.7,
       "on_special": true,
-      "name_check": "Philadelphia Original Cream Cheese Block",
+      "name_check": "Philadelphia Light Cream Cheese Block",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -304032,7 +304039,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 204,
+      "consecutive_failures": 205,
       "quarantined": true,
       "last_layer_a_check": "2026-07-16"
     },
@@ -314005,7 +314012,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-07-16"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -314644,7 +314651,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-07-16"
+      "last_layer_a_check": "2026-07-17"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -319092,7 +319099,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-07-15",
+      "last_layer_a_check": "2026-07-17",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
