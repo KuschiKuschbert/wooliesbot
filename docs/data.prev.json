@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-20T07:36:27.342168Z",
+  "last_updated": "2026-07-20T11:42:30.644550Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -14372,9 +14372,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Corn Cobs",
@@ -25406,7 +25406,7 @@
       "item_id": "215b27ce-e094-4298-9bf8-e9f106d04e0a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-14"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Chicken Tenders (Ingham)",
@@ -37225,7 +37225,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -56500,7 +56500,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true
     },
     {
@@ -58990,7 +58990,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true
     },
     {
@@ -60856,7 +60856,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 365,
+      "consecutive_failures": 366,
       "quarantined": true
     },
     {
@@ -61652,7 +61652,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -65887,7 +65887,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true
     },
     {
@@ -69087,7 +69087,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -70650,7 +70650,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Vegeta Beef Stock Cubes",
       "item_id": "2c4bf20a-f481-4a4c-8f01-2ca26ec6ff22",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false,
       "last_layer_a_check": "2026-07-18"
     },
@@ -88684,7 +88684,7 @@
       "item_id": "9a34036f-e0f5-4a58-ac0f-225c5c622b78",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-17"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "La Casa Fresh Mozzarella 125G",
@@ -94246,7 +94246,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -94478,7 +94478,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true,
       "last_layer_a_check": "2026-07-18"
     },
@@ -99924,7 +99924,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -100694,11 +100694,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 26.0,
-          "unit_price": 26.0,
-          "eff_price": 26.0,
-          "was_price": 28.0,
-          "on_special": true
+          "price": 19.0,
+          "unit_price": 22.35,
+          "eff_price": 19.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 6.6,
@@ -110781,7 +110781,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 181,
+      "consecutive_failures": 182,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -120976,7 +120976,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 82,
+      "consecutive_failures": 83,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-19"
@@ -147989,7 +147989,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -148013,7 +148013,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -148021,7 +148021,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -159983,7 +159983,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-16"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -160223,7 +160223,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 332,
+      "consecutive_failures": 333,
       "quarantined": true
     },
     {
@@ -222431,7 +222431,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true,
       "last_layer_a_check": "2026-07-18"
     },
@@ -248808,7 +248808,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -261453,7 +261453,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -261485,7 +261485,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -261719,7 +261719,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true
     },
     {
@@ -270402,7 +270402,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -271957,13 +271957,6 @@
       "unit_price": 2.59,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 15.0,
-          "unit_price": 12.0,
-          "eff_price": 15.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 10.5,
           "unit_price": 2.59,
@@ -299656,8 +299649,8 @@
       "pack_litres": 1.25,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/21350/pepsi-soft-drink-cola-bottle",
       "coles": "https://www.coles.com.au/product/soft-drink-cola-bottle-1310309",
-      "price": 3.75,
-      "store": "coles",
+      "price": 2.25,
+      "store": "woolworths",
       "last_updated": "2026-04-14T23:50:00Z",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -300395,26 +300388,26 @@
         },
         {
           "date": "2026-07-20",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.8,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Soft Drink Cola Bottle"
+          "store": "woolworths",
+          "matched_name": "Pepsi Soft Drink Cola Bottle"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Pepsi_Cola_Soft_Drink_1.25L.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1310309.jpg",
-      "unit_price": 3.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033188.jpg",
+      "unit_price": 1.8,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
-          "was_price": null,
-          "on_special": false
+          "price": 2.25,
+          "unit_price": 1.8,
+          "eff_price": 1.8,
+          "was_price": 3.75,
+          "on_special": true
         },
         "coles": {
           "price": 3.75,
@@ -300427,15 +300420,15 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 3.0,
+      "eff_price": 1.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Soft Drink Cola Bottle",
+      "name_check": "Pepsi Soft Drink Cola Bottle",
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -309050,7 +309043,7 @@
           "is_special": true,
           "was_price": 5.7,
           "store": "woolworths",
-          "matched_name": "Philadelphia Light Cream Cheese Block"
+          "matched_name": "Philadelphia Original Cream Cheese Block"
         }
       ],
       "target_confidence": "high",
@@ -309063,7 +309056,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": 5.7,
       "on_special": true,
-      "name_check": "Philadelphia Light Cream Cheese Block",
+      "name_check": "Philadelphia Original Cream Cheese Block",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -313414,9 +313407,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 223,
+      "consecutive_failures": 224,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -321751,7 +321744,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-20"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
