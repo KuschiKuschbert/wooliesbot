@@ -132,6 +132,7 @@ jobs:
 
       - name: Layer D audit report
         continue-on-error: true
+        timeout-minutes: 20
         run: |
           python scripts/e2e_validate.py --layer D --all --json-out logs/e2e_validate_links_full.json
 
@@ -147,6 +148,7 @@ jobs:
       # Do NOT add --persist-checks here — this runs post-push and must not race the auto-commit.
       - name: Layer A live price spot-check
         continue-on-error: true
+        timeout-minutes: 20
         env:
           E2E_LAYER_A_SAMPLE: "25"
         run: |
