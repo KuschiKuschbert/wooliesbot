@@ -44,6 +44,7 @@ jobs:
           import json
           import os
           import sys
+          import time
           import urllib.request
 
           PAGES_URL = "https://KuschiKuschbert.github.io/wooliesbot/heartbeat.json"
@@ -52,15 +53,29 @@ jobs:
 
           print(f"Fetching live heartbeat from: {PAGES_URL}")
           raw_body = None
-          try:
-              req = urllib.request.urlopen(PAGES_URL, timeout=20)
-              raw_body = req.read().decode("utf-8")
-          except Exception as e:
-              print(f"FAIL: could not fetch heartbeat from Pages: {e}")
+          fetch_error = None
+          for attempt in range(1, 4):
+              try:
+                  request = urllib.request.Request(
+                      PAGES_URL,
+                      headers={"Cache-Control": "no-cache", "User-Agent": "wooliesbot-heartbeat-watchdog"},
+                  )
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      raw_body = response.read().decode("utf-8")
+                  print(f"Heartbeat fetch succeeded on attempt {attempt}/3")
+                  break
+              except Exception as error:
+                  fetch_error = error
+                  print(f"Heartbeat fetch attempt {attempt}/3 failed: {error}")
+                  if attempt < 3:
+                      time.sleep(5 * attempt)
+
+          if raw_body is None:
+              print(f"FAIL: could not fetch heartbeat from Pages after 3 attempts: {fetch_error}")
               msg = (
                   f"⚠️ *[WATCHDOG]* Cannot reach heartbeat\\.json on GitHub Pages\\n"
                   f"URL: {PAGES_URL}\\n"
-                  f"Error: {str(e)[:200]}\\n"
+                  f"Error after 3 attempts: {str(fetch_error)[:200]}\\n"
                   f"Workflow: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
               )
               import subprocess
