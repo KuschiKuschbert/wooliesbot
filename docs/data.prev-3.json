@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-21T07:17:45.860819Z",
+  "last_updated": "2026-07-21T11:14:26.529543Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -14281,7 +14281,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Snow Peas",
@@ -14516,7 +14516,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -20877,7 +20877,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -36005,7 +36005,7 @@
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -39197,7 +39197,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -57068,7 +57068,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true
     },
     {
@@ -59582,7 +59582,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true
     },
     {
@@ -61464,7 +61464,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true
     },
     {
@@ -66543,7 +66543,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true
     },
     {
@@ -83969,7 +83969,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -84714,7 +84714,7 @@
         },
         {
           "date": "2026-07-21",
-          "price": 3.8,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -84726,13 +84726,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -84746,7 +84746,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -95423,7 +95423,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -97720,7 +97720,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.25,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -98465,23 +98465,23 @@
         },
         {
           "date": "2026-07-21",
-          "price": 1.25,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 2.5,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.25,
-          "unit_price": 2.5,
-          "eff_price": 1.25,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -98492,15 +98492,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.25,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -111886,7 +111886,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 187,
+      "consecutive_failures": 188,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -119116,7 +119116,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -122177,7 +122177,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 88,
+      "consecutive_failures": 89,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-21"
@@ -151903,7 +151903,7 @@
       "item_id": "c94b7d6c-f528-43b0-abe7-c3d18508b439",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Rexona Men Advanced Sport Ap 220Ml",
@@ -161576,7 +161576,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -161816,7 +161816,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 338,
+      "consecutive_failures": 339,
       "quarantined": true
     },
     {
@@ -168250,7 +168250,7 @@
       "item_id": "482376b7-0a9e-4349-911d-132dc1aa9887",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Quest Chocolate Chip Cookie Dough Bar60G",
@@ -180252,19 +180252,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -180277,7 +180277,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -180285,7 +180285,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -186731,7 +186731,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -224648,7 +224648,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -251289,7 +251289,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true,
       "last_layer_a_check": "2026-07-14"
     },
@@ -264328,7 +264328,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 359,
+      "consecutive_failures": 360,
       "quarantined": true
     },
     {
@@ -302649,8 +302649,8 @@
       "pack_litres": 1.25,
       "woolworths": "https://www.woolworths.com.au/shop/productdetails/21350/pepsi-soft-drink-cola-bottle",
       "coles": "https://www.coles.com.au/product/soft-drink-cola-bottle-1310309",
-      "price": 2.25,
-      "store": "woolworths",
+      "price": 3.75,
+      "store": "coles",
       "last_updated": "2026-04-14T23:50:00Z",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -303396,26 +303396,26 @@
         },
         {
           "date": "2026-07-21",
-          "price": 1.8,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Pepsi Soft Drink Cola Bottle"
+          "store": "coles",
+          "matched_name": "Soft Drink Cola Bottle"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Pepsi_Cola_Soft_Drink_1.25L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033188.jpg",
-      "unit_price": 1.8,
+      "image_url": "https://productimages.coles.com.au/1/1310309.jpg",
+      "unit_price": 3.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.25,
-          "unit_price": 1.8,
-          "eff_price": 1.8,
-          "was_price": 3.75,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.75,
@@ -303428,11 +303428,11 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 1.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pepsi Soft Drink Cola Bottle",
+      "name_check": "Soft Drink Cola Bottle",
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -309026,15 +309026,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -309772,24 +309772,24 @@
         },
         {
           "date": "2026-07-21",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
       "target_method": "sale median (3/15 obs, 20% on sale)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 0.25,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false
@@ -316543,7 +316543,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 229,
+      "consecutive_failures": 230,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -324306,7 +324306,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-21"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -332973,7 +332973,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-07-20",
+      "last_layer_a_check": "2026-07-21",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     }
