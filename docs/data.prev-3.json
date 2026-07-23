@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-23T07:21:01.217286Z",
+  "last_updated": "2026-07-23T11:14:09.574510Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5704,7 +5704,7 @@
       "item_id": "b2289e5d-901f-4b2d-a66c-f82c11c89e38",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Rump Steak (Whole)",
@@ -6511,7 +6511,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Capsicum (Red)",
@@ -8105,7 +8105,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20",
+      "last_layer_a_check": "2026-07-23",
       "name_check": " Hass Avocado  each"
     },
     {
@@ -9727,7 +9727,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-21"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -14804,7 +14804,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true,
       "last_layer_a_check": "2026-07-20"
     },
@@ -16430,7 +16430,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-21"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Lemons (Bag)",
@@ -28624,7 +28624,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -40794,7 +40794,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -58204,7 +58204,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true
     },
     {
@@ -60511,9 +60511,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 1.0,
+          "unit_price": 1.0,
+          "eff_price": 1.0,
           "was_price": null,
           "on_special": false
         },
@@ -60766,7 +60766,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true
     },
     {
@@ -62680,7 +62680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true
     },
     {
@@ -65967,7 +65967,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -67848,7 +67848,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true
     },
     {
@@ -71955,7 +71955,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-18"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -93811,7 +93811,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -97304,7 +97304,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true,
       "last_layer_a_check": "2026-07-22"
     },
@@ -114087,7 +114087,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 199,
+      "consecutive_failures": 200,
       "quarantined": true,
       "last_layer_a_check": "2026-07-22"
     },
@@ -123101,7 +123101,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -124570,7 +124570,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 100,
+      "consecutive_failures": 101,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-23"
@@ -146702,7 +146702,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 4.2,
+      "price": 2.5,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -147463,18 +147463,25 @@
         },
         {
           "date": "2026-07-23",
-          "price": 4.2,
-          "is_special": false,
+          "price": 2.5,
+          "is_special": true,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Grape"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 7.0,
+      "store": "woolworths",
+      "unit_price": 4.17,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 2.5,
+          "unit_price": 4.17,
+          "eff_price": 2.5,
+          "was_price": 4.2,
+          "on_special": true
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -147484,15 +147491,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
       "avg_price": 2.1,
-      "eff_price": 4.2,
-      "on_special": false,
+      "eff_price": 2.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Electrolyte Water Grape",
+      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -152392,7 +152399,7 @@
           "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
-          "matched_name": "Buderim Ginger Refresher Cordial Cordial"
+          "matched_name": "Buderim Ginger Refresher Cordial No Sugar"
         }
       ],
       "local_image": "images/Buderim_Ginger_Cordial_No_Sgr_Llb_750Ml.jpg",
@@ -152416,7 +152423,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/146307.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/159881.jpg",
       "avg_price": 4.5,
       "eff_price": 4.5,
       "on_special": false,
@@ -152424,7 +152431,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.5,
-      "name_check": "Buderim Ginger Refresher Cordial Cordial",
+      "name_check": "Buderim Ginger Refresher Cordial No Sugar",
       "item_id": "394692d8-b406-425e-8a5d-c610953d9a77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -164986,7 +164993,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 350,
+      "consecutive_failures": 351,
       "quarantined": true
     },
     {
@@ -183790,19 +183797,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -183815,7 +183822,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -183823,7 +183830,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -194462,11 +194469,11 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 8.95,
-          "unit_price": 2.98,
-          "eff_price": 8.95,
-          "was_price": 9.8,
-          "on_special": true
+          "price": 6.9,
+          "unit_price": 3.45,
+          "eff_price": 6.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.6,
@@ -223915,9 +223922,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 2.2,
-          "eff_price": 3.3,
+          "price": 6.6,
+          "unit_price": 1.1,
+          "eff_price": 6.6,
           "was_price": null,
           "on_special": false
         },
@@ -223956,7 +223963,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 32.0,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -224719,21 +224726,28 @@
         },
         {
           "date": "2026-07-23",
-          "price": 32.0,
+          "price": 10.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "White Label Chardonnay 750ml"
+          "store": "woolworths",
+          "matched_name": "Woolworths Extra Tasty Cheese Block"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
-      "store": "coles",
-      "unit_price": null,
-      "unit": "each",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6044080.jpg",
+      "store": "woolworths",
+      "unit_price": 10.5,
+      "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 10.5,
+          "eff_price": 10.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 32.0,
           "unit_price": null,
@@ -224744,11 +224758,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 32.0,
+      "eff_price": 10.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "White Label Chardonnay 750ml",
+      "name_check": "Woolworths Extra Tasty Cheese Block",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -229066,7 +229080,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true,
       "last_layer_a_check": "2026-07-22"
     },
@@ -242953,7 +242967,7 @@
       "item_id": "962ec828-6e93-49dd-9884-5aa39ac56f86",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-13"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Armada Baking Paper 15M X 30Cm",
@@ -256235,7 +256249,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true,
       "last_layer_a_check": "2026-07-22"
     },
@@ -269264,7 +269278,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -269296,7 +269310,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -269530,7 +269544,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 371,
+      "consecutive_failures": 372,
       "quarantined": true
     },
     {
@@ -309397,9 +309411,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -318301,7 +318315,7 @@
           "is_special": false,
           "was_price": 5.7,
           "store": "woolworths",
-          "matched_name": "Philadelphia Original Cream Cheese Block"
+          "matched_name": "Philadelphia Light Cream Cheese Block"
         }
       ],
       "target_confidence": "high",
@@ -318314,7 +318328,7 @@
       "stale_as_of": "2026-04-16",
       "was_price": 5.7,
       "on_special": false,
-      "name_check": "Philadelphia Original Cream Cheese Block",
+      "name_check": "Philadelphia Light Cream Cheese Block",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -322785,9 +322799,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 241,
+      "consecutive_failures": 242,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-23"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
