@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T14:27:42.094699Z",
+  "last_updated": "2026-07-25T17:48:35.453999Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -8265,7 +8265,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23",
+      "last_layer_a_check": "2026-07-25",
       "name_check": " Hass Avocado  each"
     },
     {
@@ -15092,9 +15092,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Corn Cobs",
@@ -29184,7 +29184,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -48211,7 +48211,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Ww Frozen Blueberries 1Kg",
@@ -59340,7 +59340,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true
     },
     {
@@ -61950,7 +61950,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true
     },
     {
@@ -63896,7 +63896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true
     },
     {
@@ -69160,7 +69160,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true
     },
     {
@@ -87290,7 +87290,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 1.5,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -88067,27 +88067,27 @@
         },
         {
           "date": "2026-07-25",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 1.88,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -88099,7 +88099,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 1.5,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -98960,7 +98960,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -99192,7 +99192,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -116295,7 +116295,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 213,
+      "consecutive_failures": 214,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -126970,7 +126970,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 114,
+      "consecutive_failures": 115,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-23"
@@ -133645,7 +133645,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -168177,7 +168177,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 364,
+      "consecutive_failures": 365,
       "quarantined": true
     },
     {
@@ -199109,7 +199109,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 5.5,
+      "price": 6.25,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "375G",
@@ -199886,25 +199886,25 @@
         },
         {
           "date": "2026-07-25",
-          "price": 5.5,
+          "price": 6.25,
           "is_special": false,
           "was_price": 6.25,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Pasta Potato Gnocchi"
+          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
         }
       ],
       "was_price": 6.25,
       "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/022500.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
       "store": "woolworths",
-      "unit_price": 1.1,
+      "unit_price": 0.83,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 1.1,
-          "eff_price": 5.5,
+          "price": 6.25,
+          "unit_price": 0.83,
+          "eff_price": 6.25,
           "was_price": null,
           "on_special": false
         }
@@ -199914,12 +199914,12 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
+      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false,
       "last_layer_a_check": "2026-07-15",
-      "eff_price": 5.5
+      "eff_price": 6.25
     },
     {
       "name": "Dorsogna Tasty Sticks Mild Kg",
@@ -215789,7 +215789,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 11.0,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -216566,36 +216566,36 @@
         },
         {
           "date": "2026-07-25",
-          "price": 11.0,
-          "is_special": true,
+          "price": 12.0,
+          "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.22,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 1.22,
-          "eff_price": 11.0,
-          "was_price": 12.7,
-          "on_special": true
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 11.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -233505,7 +233505,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -261202,7 +261202,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -263714,7 +263714,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 11.2,
+      "price": 6.4,
       "brand": "Bega",
       "subcategory": "other",
       "size": "750G",
@@ -264491,27 +264491,27 @@
         },
         {
           "date": "2026-07-25",
-          "price": 11.2,
-          "is_special": false,
-          "was_price": 11.2,
+          "price": 6.4,
+          "is_special": true,
+          "was_price": 8.0,
           "store": "woolworths",
           "matched_name": "Bega Tasty Cheese Block Cheese"
         }
       ],
-      "was_price": 11.2,
-      "on_special": false,
+      "was_price": 8.0,
+      "on_special": true,
       "local_image": "images/Bega_Tasty_Cheese_Block_750G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/040471.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/040709.jpg",
       "store": "woolworths",
-      "unit_price": 22.4,
+      "unit_price": 25.6,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 11.2,
-          "unit_price": 22.4,
-          "eff_price": 11.2,
-          "was_price": null,
-          "on_special": false
+          "price": 6.4,
+          "unit_price": 25.6,
+          "eff_price": 6.4,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 11.2,
@@ -264523,7 +264523,7 @@
       },
       "price_unavailable": false,
       "avg_price": 13.5,
-      "eff_price": 11.2,
+      "eff_price": 6.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -264531,7 +264531,7 @@
       "item_id": "01e4e793-5144-4a60-bbd8-004235acc6fb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-19"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Ww Natural Greek Style Yoghurt 1Kg",
@@ -274753,7 +274753,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true
     },
     {
@@ -277221,7 +277221,7 @@
           "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
+          "matched_name": "Carefree Barely There Scented Aloe Liners"
         }
       ],
       "was_price": 5.5,
@@ -277253,7 +277253,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
+      "name_check": "Carefree Barely There Scented Aloe Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -321243,15 +321243,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -322021,11 +322021,11 @@
         },
         {
           "date": "2026-07-25",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -322037,11 +322037,11 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 3.0
+      "eff_price": 0.25
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -329048,7 +329048,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 255,
+      "consecutive_failures": 256,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -345517,7 +345517,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-07-24",
+      "last_layer_a_check": "2026-07-25",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
