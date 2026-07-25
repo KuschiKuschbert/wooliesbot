@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T03:39:00.300730Z",
+  "last_updated": "2026-07-25T07:07:19.890502Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -15092,7 +15092,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -17570,7 +17570,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24",
+      "last_layer_a_check": "2026-07-25",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
@@ -28340,7 +28340,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "English Muffins",
@@ -34147,7 +34147,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Almond Meal",
@@ -34969,7 +34969,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-21"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Gravy Granules",
@@ -41594,7 +41594,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -44896,7 +44896,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -57406,7 +57406,7 @@
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23",
+      "last_layer_a_check": "2026-07-25",
       "eff_price": 2.25
     },
     {
@@ -59340,7 +59340,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true
     },
     {
@@ -61950,7 +61950,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true
     },
     {
@@ -63896,7 +63896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true
     },
     {
@@ -64732,7 +64732,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -69160,7 +69160,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true
     },
     {
@@ -99192,7 +99192,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -102374,11 +102374,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 2.67,
-          "eff_price": 4.8,
-          "was_price": 8.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 6.0,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 1.25,
@@ -116295,7 +116295,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 210,
+      "consecutive_failures": 211,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -122141,7 +122141,7 @@
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Whiskas Kitten Food Chicken & Tuna 800G",
@@ -126970,7 +126970,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 111,
+      "consecutive_failures": 112,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-23"
@@ -131985,7 +131985,7 @@
       "item_id": "0354e240-bffc-42e5-aad5-43e94e99c393",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "G Active Flav Water Berry 600Ml",
@@ -168177,7 +168177,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 361,
+      "consecutive_failures": 362,
       "quarantined": true
     },
     {
@@ -226605,7 +226605,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -233505,7 +233505,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -261202,9 +261202,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -274753,7 +274753,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true
     },
     {
@@ -329048,7 +329048,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 252,
+      "consecutive_failures": 253,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -330688,7 +330688,7 @@
       "item_id": "4c9cebd7-fa80-42e3-a86a-5479e74b8d11",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24",
+      "last_layer_a_check": "2026-07-25",
       "eff_price": 3.1
     },
     {
