@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-25T07:07:19.890502Z",
+  "last_updated": "2026-07-25T10:39:10.503979Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -3339,7 +3339,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -6639,7 +6639,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Capsicum (Red)",
@@ -7461,7 +7461,7 @@
       "item_id": "404a1bc5-decf-4d9f-a3e4-9891925bd4c8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Avocados (Hass)",
@@ -15092,7 +15092,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -15923,7 +15923,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -20876,7 +20876,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Butter (Western Star)",
@@ -32492,7 +32492,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -59340,7 +59340,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true
     },
     {
@@ -61950,7 +61950,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true
     },
     {
@@ -63896,7 +63896,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 395,
+      "consecutive_failures": 396,
       "quarantined": true
     },
     {
@@ -69160,7 +69160,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true
     },
     {
@@ -99192,7 +99192,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -102374,11 +102374,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 6.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.8,
+          "unit_price": 2.67,
+          "eff_price": 4.8,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 1.25,
@@ -112432,7 +112432,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -116295,7 +116295,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 211,
+      "consecutive_failures": 212,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -117960,7 +117960,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -126970,7 +126970,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 112,
+      "consecutive_failures": 113,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-23"
@@ -142845,7 +142845,7 @@
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-21"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -148663,7 +148663,7 @@
       "item_id": "9c814fae-293e-45c9-93da-921ecdcf71ac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-22"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
@@ -168177,7 +168177,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 362,
+      "consecutive_failures": 363,
       "quarantined": true
     },
     {
@@ -169012,7 +169012,7 @@
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-06-19"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
@@ -233505,7 +233505,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true,
       "last_layer_a_check": "2026-07-24"
     },
@@ -261202,7 +261202,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -274753,7 +274753,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 383,
+      "consecutive_failures": 384,
       "quarantined": true
     },
     {
@@ -277221,7 +277221,7 @@
           "is_special": false,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Scented Aloe Liners"
+          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
         }
       ],
       "was_price": 5.5,
@@ -277253,7 +277253,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Scented Aloe Liners",
+      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -314599,7 +314599,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -315404,9 +315404,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.75,
-          "unit_price": 3.0,
-          "eff_price": 3.0,
+          "price": 3.8,
+          "unit_price": 1.9,
+          "eff_price": 3.04,
           "was_price": null,
           "on_special": false
         },
@@ -329048,7 +329048,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -344120,7 +344120,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-25"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
