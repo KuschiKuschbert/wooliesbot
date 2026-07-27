@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27T04:20:58.327245Z",
+  "last_updated": "2026-07-27T08:23:37.456192Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -15380,7 +15380,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -16227,7 +16227,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -21276,7 +21276,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Butter (Western Star)",
@@ -22125,7 +22125,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -35641,7 +35641,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Gravy Granules",
@@ -60476,7 +60476,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true
     },
     {
@@ -63134,7 +63134,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true
     },
     {
@@ -65112,7 +65112,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true
     },
     {
@@ -70472,7 +70472,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true
     },
     {
@@ -73896,7 +73896,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -76435,7 +76435,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-25"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -101080,7 +101080,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true,
       "last_layer_a_check": "2026-07-23"
     },
@@ -107784,7 +107784,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.5,
+      "price": 5.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -108579,18 +108579,25 @@
         },
         {
           "date": "2026-07-27",
-          "price": 6.5,
+          "price": 5.2,
           "is_special": false,
           "was_price": 6.5,
-          "store": "coles",
-          "matched_name": "Snap Frozen Winter Veg Green Beans Carrot Cauliflower & Broccoli"
+          "store": "woolworths",
+          "matched_name": "Woolworths Winter Veg Mix"
         }
       ],
       "local_image": "images/Ww_Winter_Veg_Mix_1Kg.jpg",
-      "store": "coles",
-      "unit_price": 6.5,
+      "store": "woolworths",
+      "unit_price": 5.2,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 5.2,
+          "unit_price": 5.2,
+          "eff_price": 5.2,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.5,
           "unit_price": 6.5,
@@ -108600,15 +108607,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/2/2743254.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/768567.jpg",
       "avg_price": 5.2,
-      "eff_price": 6.5,
+      "eff_price": 5.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 6.5,
-      "name_check": "Snap Frozen Winter Veg Green Beans Carrot Cauliflower & Broccoli",
+      "name_check": "Woolworths Winter Veg Mix",
       "item_id": "6b15d427-623c-4ee4-be01-718d12a81220",
       "consecutive_failures": 0,
       "quarantined": false
@@ -118496,7 +118503,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 222,
+      "consecutive_failures": 223,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -129363,7 +129370,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 123,
+      "consecutive_failures": 124,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-26"
@@ -136166,7 +136173,7 @@
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Mccain Peas & Super Juicy Corn 500G",
@@ -145542,7 +145549,7 @@
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -171354,7 +171361,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 373,
+      "consecutive_failures": 374,
       "quarantined": true
     },
     {
@@ -197711,8 +197718,8 @@
         {
           "date": "2026-07-27",
           "price": 6.25,
-          "is_special": false,
-          "was_price": null,
+          "is_special": true,
+          "was_price": 7.0,
           "store": "woolworths",
           "matched_name": "Woolworths 35hr Sourdough Loaf White Loaf"
         }
@@ -197725,8 +197732,8 @@
           "price": 6.25,
           "unit_price": 6.25,
           "eff_price": 6.25,
-          "was_price": null,
-          "on_special": false
+          "was_price": 7.0,
+          "on_special": true
         },
         "coles": {
           "price": 9.95,
@@ -197740,11 +197747,11 @@
       "image_url": "images/ww_35hr_srdgh_loaf_white_1ea.jpg",
       "avg_price": 6.25,
       "eff_price": 6.25,
-      "on_special": false,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "was_price": null,
+      "was_price": 7.0,
       "name_check": "Woolworths 35hr Sourdough Loaf White Loaf",
       "item_id": "38829e8f-f428-4d44-a352-58fe2e15ad37",
       "compare_group": "sourdough_loaf",
@@ -198564,13 +198571,13 @@
           "is_special": true,
           "was_price": 4.0,
           "store": "woolworths",
-          "matched_name": "Dine Creamy Treats Tuna Flavour Cat Treat"
+          "matched_name": "Dine Creamy Cat Treats Seafood Selections"
         }
       ],
       "was_price": 4.0,
       "on_special": true,
       "local_image": "images/Dine_Creamy_Treats_Sfd_Select_4X12G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/539639.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/818784.jpg",
       "store": "woolworths",
       "unit_price": 5.83,
       "unit": "100g",
@@ -198596,7 +198603,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Creamy Treats Tuna Flavour Cat Treat",
+      "name_check": "Dine Creamy Cat Treats Seafood Selections",
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -199451,7 +199458,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-25"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -202871,7 +202878,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 6.25,
+      "price": 5.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "375G",
@@ -203664,25 +203671,25 @@
         },
         {
           "date": "2026-07-27",
-          "price": 6.25,
+          "price": 5.5,
           "is_special": false,
           "was_price": 6.25,
           "store": "woolworths",
-          "matched_name": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack"
+          "matched_name": "La Tosca Fresh Pasta Potato Gnocchi"
         }
       ],
       "was_price": 6.25,
       "on_special": false,
       "local_image": "images/La_Tosca_Fresh_Fettuccini_375G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/099965.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/022500.jpg",
       "store": "woolworths",
-      "unit_price": 0.83,
+      "unit_price": 1.1,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.25,
-          "unit_price": 0.83,
-          "eff_price": 6.25,
+          "price": 5.5,
+          "unit_price": 1.1,
+          "eff_price": 5.5,
           "was_price": null,
           "on_special": false
         }
@@ -203692,12 +203699,12 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Tosca Fresh Filled Pasta Beef Ravioli Value Pack",
+      "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
       "consecutive_failures": 0,
       "quarantined": false,
       "last_layer_a_check": "2026-07-15",
-      "eff_price": 6.25
+      "eff_price": 5.5
     },
     {
       "name": "Dorsogna Tasty Sticks Mild Kg",
@@ -214697,20 +214704,20 @@
           "price": 9.1,
           "is_special": false,
           "was_price": 8.5,
-          "store": "coles",
-          "matched_name": "Organic Salted Butter"
+          "store": "woolworths",
+          "matched_name": "Mainland Organic Butter Block Butter"
         }
       ],
       "local_image": "images/Mainland_Organic_Salted_Sprd_Butter_250G.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1708076.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/799120.jpg",
+      "store": "woolworths",
       "unit_price": 3.64,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 10.6,
-          "unit_price": 2.83,
-          "eff_price": 10.6,
+          "price": 9.1,
+          "unit_price": 3.64,
+          "eff_price": 9.1,
           "was_price": null,
           "on_special": false
         },
@@ -214730,7 +214737,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Organic Salted Butter",
+      "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -219871,7 +219878,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 11.0,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -220664,36 +220671,36 @@
         },
         {
           "date": "2026-07-27",
-          "price": 11.0,
-          "is_special": true,
+          "price": 12.0,
+          "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.22,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 11.0,
-          "unit_price": 1.22,
-          "eff_price": 11.0,
-          "was_price": 12.7,
-          "on_special": true
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 11.0,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -223233,6 +223240,13 @@
       "unit_price": 22.4,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 17.0,
+          "unit_price": 17.0,
+          "eff_price": 17.0,
+          "was_price": 19.0,
+          "on_special": true
+        },
         "coles": {
           "price": 16.8,
           "unit_price": 22.4,
@@ -237916,9 +237930,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -266141,7 +266155,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -268646,14 +268660,14 @@
         {
           "date": "2026-07-27",
           "price": 7.0,
-          "is_special": false,
+          "is_special": true,
           "was_price": 8.9,
           "store": "woolworths",
           "matched_name": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars"
         }
       ],
       "was_price": 8.9,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
@@ -268664,8 +268678,8 @@
           "price": 7.0,
           "unit_price": 4.38,
           "eff_price": 7.0,
-          "was_price": null,
-          "on_special": false
+          "was_price": 8.9,
+          "on_special": true
         },
         "coles": {
           "price": 7.0,
@@ -279682,7 +279696,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -279714,7 +279728,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -279948,7 +279962,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true
     },
     {
@@ -327334,15 +327348,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 3.0,
+      "price": 0.25,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
+          "price": 0.25,
           "unit_price": null,
-          "eff_price": 3.0,
+          "eff_price": 0.25,
           "was_price": null,
           "on_special": false
         }
@@ -328128,11 +328142,11 @@
         },
         {
           "date": "2026-07-27",
-          "price": 3.0,
+          "price": 0.25,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
+          "matched_name": "Woolworths Reusable Paper Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -328144,11 +328158,11 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Chiller Shopping Bag",
+      "name_check": "Woolworths Reusable Paper Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 3.0
+      "eff_price": 0.25
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -335283,7 +335297,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 264,
+      "consecutive_failures": 265,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -345658,7 +345672,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "69a988e5-73c9-45de-a641-94d3725b8efc",
-      "last_layer_a_check": "2026-07-25",
+      "last_layer_a_check": "2026-07-27",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-01"
     },
@@ -352104,7 +352118,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-07-26",
+      "last_layer_a_check": "2026-07-27",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
