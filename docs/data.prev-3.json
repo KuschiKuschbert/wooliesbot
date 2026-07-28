@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-28T07:18:48.553195Z",
+  "last_updated": "2026-07-28T11:29:24.025594Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -13603,7 +13603,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -15524,7 +15524,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -37674,7 +37674,7 @@
       "item_id": "5d2ef2be-02f9-441f-b040-dc55b41a4cf8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Lindt 95% Cocoa",
@@ -46185,7 +46185,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -61037,7 +61037,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true
     },
     {
@@ -63719,7 +63719,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true
     },
     {
@@ -65713,7 +65713,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 413,
+      "consecutive_failures": 414,
       "quarantined": true
     },
     {
@@ -71121,7 +71121,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true
     },
     {
@@ -74570,7 +74570,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -75421,7 +75421,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -81396,22 +81396,22 @@
           "price": 4.0,
           "is_special": false,
           "was_price": 3.5,
-          "store": "woolworths",
-          "matched_name": "Cobs Best Ever Butter Popcorn"
+          "store": "coles",
+          "matched_name": "Best Ever Butter Multipack Lunchbox Snacks"
         }
       ],
       "was_price": 3.5,
       "on_special": false,
       "local_image": "images/Cobs_Popcorn_Best_Ever_Butter_5Pk_65G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/180279.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4513415.jpg",
+      "store": "coles",
       "unit_price": 6.15,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 6.15,
-          "eff_price": 4.0,
+          "price": 7.5,
+          "unit_price": 7.5,
+          "eff_price": 7.5,
           "was_price": null,
           "on_special": false
         },
@@ -81429,7 +81429,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cobs Best Ever Butter Popcorn",
+      "name_check": "Best Ever Butter Multipack Lunchbox Snacks",
       "item_id": "9def85de-6156-4d3f-8355-06da307f166a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -102010,9 +102010,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -119593,7 +119593,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 229,
+      "consecutive_failures": 230,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -130556,7 +130556,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 130,
+      "consecutive_failures": 131,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-27"
@@ -134853,7 +134853,7 @@
       "item_id": "a5a97cef-c50d-4aae-9c58-acecb46dbb4b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "G-Active Coconut Breeze 600Ml",
@@ -152032,7 +152032,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 5.5,
+      "price": 8.6,
       "brand": "Nescafe",
       "subcategory": "beverages",
       "size": "500Ml",
@@ -152833,24 +152833,24 @@
         },
         {
           "date": "2026-07-28",
-          "price": 5.5,
-          "is_special": true,
+          "price": 8.6,
+          "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
-          "matched_name": "Nescafe Espresso Concentrate Velvet Mocha Liquid Coffee"
+          "matched_name": "Moccona Liquid Coffee Concentrate Sachets Espresso Mocha"
         }
       ],
       "local_image": "images/Nescafe_Coffee_Conc_Mocha_500Ml.jpg",
       "store": "woolworths",
-      "unit_price": 11.0,
-      "unit": "litre",
+      "unit_price": 1.08,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 11.0,
-          "eff_price": 5.5,
-          "was_price": 11.0,
-          "on_special": true
+          "price": 8.6,
+          "unit_price": 1.08,
+          "eff_price": 8.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 23.0,
@@ -152861,15 +152861,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6047550.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6071664.jpg",
       "avg_price": 5.5,
-      "eff_price": 5.5,
-      "on_special": true,
+      "eff_price": 8.6,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 11.0,
-      "name_check": "Nescafe Espresso Concentrate Velvet Mocha Liquid Coffee",
+      "name_check": "Moccona Liquid Coffee Concentrate Sachets Espresso Mocha",
       "item_id": "9c814fae-293e-45c9-93da-921ecdcf71ac",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -168383,7 +168383,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -172939,7 +172939,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 380,
+      "consecutive_failures": 381,
       "quarantined": true
     },
     {
@@ -173798,7 +173798,7 @@
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-25"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
@@ -227920,7 +227920,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 3.6,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "120G",
@@ -228721,11 +228721,11 @@
         },
         {
           "date": "2026-07-28",
-          "price": 3.6,
+          "price": 4.8,
           "is_special": false,
           "was_price": 4.8,
           "store": "woolworths",
-          "matched_name": "Kettle Original Sea Salt Potato Chips"
+          "matched_name": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips"
         }
       ],
       "was_price": 4.8,
@@ -228733,13 +228733,13 @@
       "local_image": "images/Simply_Potato_Chips_Salt_&_Pepper_120G.jpg",
       "image_url": "images/simply_potato_chips_salt__pepper_120g.jpg",
       "store": "woolworths",
-      "unit_price": 2.18,
+      "unit_price": 4.0,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.6,
-          "unit_price": 2.18,
-          "eff_price": 3.6,
+          "price": 4.8,
+          "unit_price": 4.0,
+          "eff_price": 4.8,
           "was_price": null,
           "on_special": false
         },
@@ -228753,11 +228753,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.8,
-      "eff_price": 3.6,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Kettle Original Sea Salt Potato Chips",
+      "name_check": "Simply Sea Salt & Cracked Pepper 25% Less Fat Potato Chips",
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -234789,7 +234789,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 32.0,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -235592,21 +235592,28 @@
         },
         {
           "date": "2026-07-28",
-          "price": 32.0,
+          "price": 10.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "White Label Chardonnay 750ml"
+          "store": "woolworths",
+          "matched_name": "Woolworths Extra Tasty Cheese Block"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
-      "store": "coles",
-      "unit_price": null,
-      "unit": "each",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6044080.jpg",
+      "store": "woolworths",
+      "unit_price": 10.5,
+      "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 10.5,
+          "eff_price": 10.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 32.0,
           "unit_price": null,
@@ -235617,11 +235624,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 32.0,
+      "eff_price": 10.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "White Label Chardonnay 750ml",
+      "name_check": "Woolworths Extra Tasty Cheese Block",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -240139,7 +240146,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -245241,13 +245248,13 @@
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
-          "matched_name": "VOOST Effervescent Multivitamin Tablets"
+          "matched_name": "VOOST Effervescent Energy Tablets"
         }
       ],
       "was_price": 11.0,
       "on_special": false,
       "local_image": "images/Voost_Efferv_Multivitamin_Orange_20Pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/674972.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/674967.jpg",
       "store": "woolworths",
       "unit_price": 55.0,
       "unit": "each",
@@ -245273,7 +245280,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "VOOST Effervescent Multivitamin Tablets",
+      "name_check": "VOOST Effervescent Energy Tablets",
       "item_id": "f2f45aae-cb10-47c8-b535-869406f6f013",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -268628,7 +268635,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -271160,7 +271167,7 @@
           "is_special": true,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars"
+          "matched_name": "Noshu Low Carb Pistachio Indulgence Bars"
         }
       ],
       "was_price": 8.9,
@@ -271192,10 +271199,11 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars",
+      "name_check": "Noshu Low Carb Pistachio Indulgence Bars",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
-      "quarantined": false
+      "quarantined": false,
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -274604,6 +274612,13 @@
       "unit_price": 0.53,
       "unit": "each",
       "all_stores": {
+        "woolworths": {
+          "price": 32.0,
+          "unit_price": 0.46,
+          "eff_price": 32.0,
+          "was_price": 64.0,
+          "on_special": true
+        },
         "coles": {
           "price": 24.5,
           "unit_price": 0.53,
@@ -281438,22 +281453,22 @@
           "price": 5.0,
           "is_special": false,
           "was_price": 5.0,
-          "store": "woolworths",
-          "matched_name": "BSc High Protein Low Carb Bar Cookies & Cream"
+          "store": "coles",
+          "matched_name": "High Protein Low Carb Bar Cookies & Cream"
         }
       ],
       "was_price": 5.0,
       "on_special": false,
       "local_image": "images/Bsc_High_Pro_Low_Cb_Bar_Cookies&Crm_92G.jpg",
       "image_url": "images/bsc_high_pro_low_cb_bar_cookiescrm_92g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 8.33,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 8.33,
-          "eff_price": 5.0,
+          "price": 65.72,
+          "unit_price": 5.95,
+          "eff_price": 65.72,
           "was_price": null,
           "on_special": false
         },
@@ -281471,7 +281486,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc High Protein Low Carb Bar Cookies & Cream",
+      "name_check": "High Protein Low Carb Bar Cookies & Cream",
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -282297,7 +282312,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -282329,7 +282344,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -282563,7 +282578,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 401,
+      "consecutive_failures": 402,
       "quarantined": true
     },
     {
@@ -324390,9 +324405,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 3.04,
+          "price": 3.75,
+          "unit_price": 3.0,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -337133,7 +337148,7 @@
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Vittoria Italian Ground 500G",
@@ -338418,7 +338433,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 271,
+      "consecutive_failures": 272,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -348177,7 +348192,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-07-24",
+      "last_layer_a_check": "2026-07-28",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-26"
     },
@@ -353970,7 +353985,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-28"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
