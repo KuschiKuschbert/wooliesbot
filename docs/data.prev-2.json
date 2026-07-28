@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27T15:31:20.147658Z",
+  "last_updated": "2026-07-27T18:34:50.084433Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -844,7 +844,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -15380,7 +15380,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -22974,8 +22974,8 @@
       "coles": "https://www.coles.com.au/product/philadelphia-regular-cream-cheese-block-250g-192502",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.7,
-      "eff_price": 5.7,
+      "price": 4.5,
+      "eff_price": 4.5,
       "store": "woolworths",
       "brand": "Philly",
       "subcategory": "other",
@@ -23769,7 +23769,7 @@
         },
         {
           "date": "2026-07-27",
-          "price": 5.7,
+          "price": 4.5,
           "is_special": false,
           "was_price": 5.7,
           "store": "woolworths",
@@ -23780,13 +23780,13 @@
       "on_special": false,
       "local_image": "images/Philly_Cream_Cheese.jpg",
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/048062.jpg",
-      "unit_price": 22.8,
+      "unit_price": 18.0,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
+          "price": 4.5,
+          "unit_price": 18.0,
+          "eff_price": 4.5,
           "was_price": null,
           "on_special": false
         },
@@ -23806,7 +23806,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Sour Cream",
@@ -28041,7 +28041,7 @@
       "item_id": "67595b51-a9e3-44cd-a1d7-837d5d3a056a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Ice Cream (Connoisseur)",
@@ -34803,7 +34803,7 @@
       "item_id": "235be8da-aaf7-43f0-94f0-9f328a234a55",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-25"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Almond Meal",
@@ -41542,7 +41542,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -60469,7 +60469,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true
     },
     {
@@ -63127,7 +63127,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true
     },
     {
@@ -65105,7 +65105,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Shepard Avocados",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 409,
+      "consecutive_failures": 410,
       "quarantined": true
     },
     {
@@ -70465,7 +70465,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true
     },
     {
@@ -74725,7 +74725,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -101066,9 +101066,9 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true,
-      "last_layer_a_check": "2026-07-23"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Golden Circle P/Appl Sliced 440G",
@@ -118489,7 +118489,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 225,
+      "consecutive_failures": 226,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -125305,7 +125305,7 @@
       "item_id": "c7919504-140d-4144-b6d2-46f4f8e18324",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-24"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -129356,10 +129356,10 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 126,
+      "consecutive_failures": 127,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Cheer Cheese Block Tasty 200G",
@@ -171347,7 +171347,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 376,
+      "consecutive_failures": 377,
       "quarantined": true
     },
     {
@@ -185806,7 +185806,7 @@
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Coca Cola Zero Sugarpet 600Ml",
@@ -200294,7 +200294,7 @@
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -232614,7 +232614,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 32.0,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -233409,21 +233409,28 @@
         },
         {
           "date": "2026-07-27",
-          "price": 32.0,
+          "price": 10.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "White Label Chardonnay 750ml"
+          "store": "woolworths",
+          "matched_name": "Woolworths Extra Tasty Cheese Block"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
-      "store": "coles",
-      "unit_price": null,
-      "unit": "each",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6044080.jpg",
+      "store": "woolworths",
+      "unit_price": 10.5,
+      "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 10.5,
+          "eff_price": 10.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 32.0,
           "unit_price": null,
@@ -233434,11 +233441,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 32.0,
+      "eff_price": 10.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "White Label Chardonnay 750ml",
+      "name_check": "Woolworths Extra Tasty Cheese Block",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -237916,7 +237923,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -266141,7 +266148,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -279948,7 +279955,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 397,
+      "consecutive_failures": 398,
       "quarantined": true
     },
     {
@@ -335283,7 +335290,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 267,
+      "consecutive_failures": 268,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -347096,7 +347103,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-27"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
