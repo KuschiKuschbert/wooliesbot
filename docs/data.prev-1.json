@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-29T03:41:43.999527Z",
+  "last_updated": "2026-07-29T07:22:19.113478Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -860,7 +860,7 @@
       "item_id": "5042eb1e-431e-4ac9-9a8c-55408f2c265b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-28"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Beef Mince (Lean 500g)",
@@ -15668,7 +15668,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true,
       "last_layer_a_check": "2026-07-25"
     },
@@ -17390,7 +17390,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Lemons (Bag)",
@@ -22541,7 +22541,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -23395,7 +23395,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-26"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Philly Cream Cheese",
@@ -46617,7 +46617,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-28"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -51761,13 +51761,13 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "a2 Milk Full Cream Milk"
+          "matched_name": "a2 Milk Light Milk"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/A2_Milk_Lite_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/216872.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/216867.jpg",
       "store": "woolworths",
       "unit_price": 4.1,
       "unit": "litre",
@@ -51793,7 +51793,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "a2 Milk Full Cream Milk",
+      "name_check": "a2 Milk Light Milk",
       "item_id": "cd36c0ca-9562-425d-8199-75f9e083256e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -61605,7 +61605,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true
     },
     {
@@ -64311,7 +64311,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true
     },
     {
@@ -66106,7 +66106,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-26",
-      "price": 0,
+      "price": 2.85,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -66296,33 +66296,42 @@
           "was_price": null,
           "store": "coles",
           "matched_name": "Shepard Avocados"
+        },
+        {
+          "date": "2026-07-29",
+          "price": 2.85,
+          "is_special": true,
+          "was_price": 5.7,
+          "store": "woolworths",
+          "matched_name": "Avofresh Classic Avocado Guacamole"
         }
       ],
-      "was_price": null,
-      "on_special": false,
+      "was_price": 5.7,
+      "on_special": true,
       "local_image": "images/Avocado_Shepard.jpg",
-      "image_url": "",
-      "store": "coles",
-      "unit_price": null,
-      "unit": null,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/243094.jpg",
+      "store": "woolworths",
+      "unit_price": 1.78,
+      "unit": "100g",
       "all_stores": {
-        "coles": {
-          "price": 2.5,
-          "unit_price": 2.5,
-          "eff_price": 2.5,
-          "was_price": null,
-          "on_special": false
+        "woolworths": {
+          "price": 2.85,
+          "unit_price": 1.78,
+          "eff_price": 2.85,
+          "was_price": 5.7,
+          "on_special": true
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 1.375,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Shepard Avocados",
+      "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 418,
-      "quarantined": true
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 2.85
     },
     {
       "name": "Crafted Sourdough Loaf Signature White",
@@ -71777,7 +71786,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true
     },
     {
@@ -72617,6 +72626,13 @@
       "unit_price": 24.5,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 8.9,
+          "unit_price": 17.8,
+          "eff_price": 8.9,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 4.9,
           "unit_price": 24.5,
@@ -82148,24 +82164,24 @@
           "price": 4.0,
           "is_special": false,
           "was_price": 3.5,
-          "store": "woolworths",
-          "matched_name": "Cobs Best Ever Butter Popcorn"
+          "store": "coles",
+          "matched_name": "Best Ever Butter Multipack Lunchbox Snacks"
         }
       ],
       "was_price": 3.5,
       "on_special": false,
       "local_image": "images/Cobs_Popcorn_Best_Ever_Butter_5Pk_65G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/180279.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/4/4513415.jpg",
+      "store": "coles",
       "unit_price": 6.15,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 6.15,
-          "eff_price": 4.0,
-          "was_price": null,
-          "on_special": false
+          "price": 6.0,
+          "unit_price": 6.0,
+          "eff_price": 6.0,
+          "was_price": 7.5,
+          "on_special": true
         },
         "coles": {
           "price": 4.0,
@@ -82181,7 +82197,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cobs Best Ever Butter Popcorn",
+      "name_check": "Best Ever Butter Multipack Lunchbox Snacks",
       "item_id": "9def85de-6156-4d3f-8355-06da307f166a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -89710,7 +89726,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -94940,7 +94956,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-26",
-      "price": 19.35,
+      "price": 11.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -95749,7 +95765,7 @@
         },
         {
           "date": "2026-07-29",
-          "price": 19.35,
+          "price": 22.0,
           "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
@@ -95759,15 +95775,15 @@
       "was_price": 11.0,
       "on_special": false,
       "local_image": "images/Ww_Lean_Beef_Mince_500G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 22.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
+          "price": 11.0,
+          "unit_price": 22.0,
+          "eff_price": 22.0,
           "was_price": null,
           "on_special": false
         },
@@ -95781,7 +95797,7 @@
       },
       "price_unavailable": false,
       "avg_price": 10.5,
-      "eff_price": 19.35,
+      "eff_price": 22.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -101866,7 +101882,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -102954,7 +102970,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true,
       "last_layer_a_check": "2026-07-28"
     },
@@ -105443,7 +105459,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -106252,23 +106268,23 @@
         },
         {
           "date": "2026-07-29",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -106279,15 +106295,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -114954,9 +114970,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 15.0,
-          "unit_price": 12.0,
-          "eff_price": 15.0,
+          "price": 18.0,
+          "unit_price": 9.0,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -120697,7 +120713,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 234,
+      "consecutive_failures": 235,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -131756,7 +131772,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 135,
+      "consecutive_failures": 136,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-27"
@@ -134324,22 +134340,22 @@
           "price": 2.7,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Old El Paso Taco Spice Mix Extra Mild"
+          "store": "coles",
+          "matched_name": "Spice Mix For Tacos Mild"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Old_El_Paso_Taco_Spice_Mix_Mild_30G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/169527.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/2/291377.jpg",
+      "store": "coles",
       "unit_price": 9.0,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.7,
-          "unit_price": 9.0,
-          "eff_price": 2.7,
+          "price": 3.1,
+          "unit_price": 11.07,
+          "eff_price": 3.1,
           "was_price": null,
           "on_special": false
         },
@@ -134357,7 +134373,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Old El Paso Taco Spice Mix Extra Mild",
+      "name_check": "Spice Mix For Tacos Mild",
       "item_id": "89d26fc6-342a-454d-bf8d-3a6ac611e536",
       "consecutive_failures": 0,
       "quarantined": false
@@ -149963,7 +149979,7 @@
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-21"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Fairy Plat Plus Lemon Dish Tabs 42Pk",
@@ -174531,7 +174547,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true
     },
     {
@@ -194439,19 +194455,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -194464,7 +194480,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -194472,7 +194488,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -203164,7 +203180,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -223968,7 +223984,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -224777,36 +224793,36 @@
         },
         {
           "date": "2026-07-29",
-          "price": 12.7,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -227436,7 +227452,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 2.6,
+      "price": 2.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "400G",
@@ -228245,25 +228261,25 @@
         },
         {
           "date": "2026-07-29",
-          "price": 2.6,
+          "price": 2.7,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Stonebaked Turkish Rolls"
+          "store": "coles",
+          "matched_name": "Turkish Rolls 4 Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Turkish_Rolls_400G_Pk_4.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6037735.jpg",
-      "store": "woolworths",
-      "unit_price": 0.65,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/5/5625017.jpg",
+      "store": "coles",
+      "unit_price": 0.68,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.6,
-          "unit_price": 0.65,
-          "eff_price": 2.6,
+          "price": 3.75,
+          "unit_price": 1.25,
+          "eff_price": 3.75,
           "was_price": null,
           "on_special": false
         },
@@ -228277,11 +228293,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.6,
-      "eff_price": 2.6,
+      "eff_price": 2.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Stonebaked Turkish Rolls",
+      "name_check": "Turkish Rolls 4 Pack",
       "item_id": "f52690f4-01bd-479a-b902-cdb431ed6d62",
       "consecutive_failures": 0,
       "quarantined": false
@@ -240391,7 +240407,7 @@
       "item_id": "f4dadaa4-9965-4ffe-b369-f754d184d2fd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-20"
+      "last_layer_a_check": "2026-07-29"
     },
     {
       "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -242356,7 +242372,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true,
       "last_layer_a_check": "2026-07-28"
     },
@@ -246640,22 +246656,22 @@
           "price": 3.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "MasterFoods All Purpose Seasoning"
+          "store": "coles",
+          "matched_name": "All Purpose Seasoning"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Masterfoods_Seasnng_All_Purpose_200G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/032857.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/3/316150.jpg",
+      "store": "coles",
       "unit_price": 0.54,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 0.54,
-          "eff_price": 3.5,
+          "price": 6.5,
+          "unit_price": 0.33,
+          "eff_price": 6.5,
           "was_price": null,
           "on_special": false
         },
@@ -246673,7 +246689,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "MasterFoods All Purpose Seasoning",
+      "name_check": "All Purpose Seasoning",
       "item_id": "0b8f3674-496d-4157-bd6f-e6f9af865bbf",
       "consecutive_failures": 0,
       "quarantined": false
@@ -250113,6 +250129,13 @@
       "unit_price": 14.29,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 7.1,
+          "unit_price": 1.49,
+          "eff_price": 7.1,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.0,
           "unit_price": 14.29,
@@ -260482,6 +260505,13 @@
       "unit_price": 4.41,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 7.5,
           "unit_price": 4.41,
@@ -271102,7 +271132,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true,
       "last_layer_a_check": "2026-07-26"
     },
@@ -274522,15 +274552,15 @@
           "date": "2026-07-29",
           "price": 10.2,
           "is_special": true,
-          "was_price": 11.2,
+          "was_price": 11.8,
           "store": "woolworths",
-          "matched_name": "Bega Tasty Cheese Block Cheese"
+          "matched_name": "Bega Tasty Cheese Slices Slices"
         }
       ],
-      "was_price": 11.2,
+      "was_price": 11.8,
       "on_special": true,
       "local_image": "images/Bega_Tasty_Cheese_Block_750G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/040471.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/769558.jpg",
       "store": "woolworths",
       "unit_price": 20.4,
       "unit": "kg",
@@ -274539,7 +274569,7 @@
           "price": 10.2,
           "unit_price": 20.4,
           "eff_price": 10.2,
-          "was_price": 11.2,
+          "was_price": 11.8,
           "on_special": true
         },
         "coles": {
@@ -274556,7 +274586,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Bega Tasty Cheese Block Cheese",
+      "name_check": "Bega Tasty Cheese Slices Slices",
       "item_id": "01e4e793-5144-4a60-bbd8-004235acc6fb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -285166,7 +285196,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 406,
+      "consecutive_failures": 407,
       "quarantined": true
     },
     {
@@ -341541,7 +341571,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 276,
+      "consecutive_failures": 277,
       "quarantined": true,
       "last_layer_a_check": "2026-07-29"
     },
@@ -356517,7 +356547,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-07-19",
+      "last_layer_a_check": "2026-07-29",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
@@ -358714,7 +358744,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-07-27",
+      "last_layer_a_check": "2026-07-29",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
