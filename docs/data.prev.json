@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-01T07:21:23.790897Z",
+  "last_updated": "2026-08-01T10:47:57.283447Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -16100,7 +16100,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true,
       "last_layer_a_check": "2026-07-30"
     },
@@ -23165,7 +23165,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -25822,7 +25822,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -37321,7 +37321,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-30"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Gravy Granules",
@@ -52307,19 +52307,19 @@
           "price": 6.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Frozen Fruit Blueberries"
+          "store": "woolworths",
+          "matched_name": "Woolworths Frozen Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
+          "price": 6.5,
+          "unit_price": 13.0,
+          "eff_price": 6.5,
           "was_price": null,
           "on_special": false
         },
@@ -52332,7 +52332,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -52340,7 +52340,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Frozen Fruit Blueberries",
+      "name_check": "Woolworths Frozen Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -63309,7 +63309,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true
     },
     {
@@ -66087,7 +66087,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true
     },
     {
@@ -68153,7 +68153,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 14,
+      "consecutive_failures": 15,
       "quarantined": true,
       "last_layer_a_check": "2026-07-31"
     },
@@ -71729,7 +71729,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-29"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -73754,7 +73754,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true
     },
     {
@@ -105802,7 +105802,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true,
       "last_layer_a_check": "2026-07-31"
     },
@@ -112786,11 +112786,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.0,
-          "unit_price": 22.35,
-          "eff_price": 19.0,
-          "was_price": null,
-          "on_special": false
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
+          "on_special": true
         },
         "coles": {
           "price": 6.6,
@@ -119939,7 +119939,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Carrot 1Kg P/P",
@@ -124026,7 +124026,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 253,
+      "consecutive_failures": 254,
       "quarantined": true,
       "last_layer_a_check": "2026-07-31"
     },
@@ -132048,7 +132048,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -135373,7 +135373,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 154,
+      "consecutive_failures": 155,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-31"
@@ -163902,7 +163902,7 @@
       "item_id": "4b79e45c-8ceb-4644-8629-8f34bea15a40",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Lindt Excellence 85% Cocoa 100G",
@@ -179324,7 +179324,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 404,
+      "consecutive_failures": 405,
       "quarantined": true
     },
     {
@@ -198929,7 +198929,7 @@
       "item_id": "15dc9e10-61d5-44c3-83e4-776bcb0a8347",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-30"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Ww Rice Basmati 1Kg",
@@ -199784,19 +199784,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -199809,7 +199809,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -199817,7 +199817,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -225621,10 +225621,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 1.29,
-          "eff_price": 1.1,
-          "was_price": 1.6,
+          "price": 2.0,
+          "unit_price": 3.33,
+          "eff_price": 2.0,
+          "was_price": 2.3,
           "on_special": true
         },
         "coles": {
@@ -227429,7 +227429,7 @@
       "item_id": "a92c43e1-f54a-415e-9b58-ba2e77fddc80",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Avocado Hass",
@@ -249029,7 +249029,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true,
       "last_layer_a_check": "2026-07-28"
     },
@@ -260590,7 +260590,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-30"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Vegemite 150G",
@@ -278574,7 +278574,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true,
       "last_layer_a_check": "2026-07-31"
     },
@@ -291902,7 +291902,7 @@
       "item_id": "2a6c196a-2bda-49e8-bf75-77ee16829e2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-06"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Bsc Vc Soft Protein Bar Carml H/Comb 55G",
@@ -293022,7 +293022,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 425,
+      "consecutive_failures": 426,
       "quarantined": true
     },
     {
@@ -314305,7 +314305,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-16",
-      "price": 109.95,
+      "price": 19.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -315138,25 +315138,25 @@
         },
         {
           "date": "2026-08-01",
-          "price": 109.95,
+          "price": 19.95,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "LEGO Disney Classic Stitch (43249)"
+          "matched_name": "Disney Classic: Pinocchio"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/6009270_Lego_Disney_Classic.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/1117543893.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/1122057253.jpg",
       "store": "woolworths",
       "unit_price": null,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 109.95,
+          "price": 19.95,
           "unit_price": null,
-          "eff_price": 109.95,
+          "eff_price": 19.95,
           "was_price": null,
           "on_special": false
         }
@@ -315166,11 +315166,11 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "LEGO Disney Classic Stitch (43249)",
+      "name_check": "Disney Classic: Pinocchio",
       "item_id": "c6ce1c7c-2e6b-43c9-b786-1d9c7eb1ae9e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 109.95
+      "eff_price": 19.95
     },
     {
       "name": "F/C Slaw Kaleslaw 350G",
@@ -333777,7 +333777,7 @@
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-30"
+      "last_layer_a_check": "2026-08-01"
     },
     {
       "name": "Pedigree Adult 7+ Dog Food Turkey 3Kg",
@@ -350957,7 +350957,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 295,
+      "consecutive_failures": 296,
       "quarantined": true,
       "last_layer_a_check": "2026-07-31"
     },
