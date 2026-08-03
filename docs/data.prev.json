@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-03T18:41:57.050655Z",
+  "last_updated": "2026-08-03T21:56:54.940217Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7215,7 +7215,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Capsicum (Red)",
@@ -16388,7 +16388,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -20877,7 +20877,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Medjool Dates",
@@ -22676,7 +22676,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Butter (Western Star)",
@@ -27185,7 +27185,7 @@
       "item_id": "26bc697a-c044-42ee-b18c-b035d15f498c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-29"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Protein Puds (Wicked Sister)",
@@ -35300,7 +35300,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -45187,7 +45187,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -64445,7 +64445,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true
     },
     {
@@ -67271,7 +67271,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true
     },
     {
@@ -69369,7 +69369,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "quarantined": true,
       "last_layer_a_check": "2026-08-02"
     },
@@ -75066,7 +75066,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true
     },
     {
@@ -107690,7 +107690,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true,
       "last_layer_a_check": "2026-08-01"
     },
@@ -108607,7 +108607,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -109456,23 +109456,23 @@
         },
         {
           "date": "2026-08-03",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -109486,13 +109486,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -116613,6 +116613,13 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 38.0,
+          "unit_price": 19.0,
+          "eff_price": 38.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -126227,7 +126234,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 268,
+      "consecutive_failures": 269,
       "quarantined": true,
       "last_layer_a_check": "2026-08-02"
     },
@@ -137766,7 +137773,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 169,
+      "consecutive_failures": 170,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-07-31"
@@ -182261,7 +182268,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-01"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -182501,7 +182508,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 419,
+      "consecutive_failures": 420,
       "quarantined": true
     },
     {
@@ -234212,7 +234219,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.7,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -235061,36 +235068,36 @@
         },
         {
           "date": "2026-08-03",
-          "price": 12.7,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.41,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.7,
-          "unit_price": 1.41,
-          "eff_price": 12.7,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.7,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -245964,7 +245971,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-31"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Mccain Pizza Slice Meatlovers 600G",
@@ -246896,7 +246903,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 3.3,
+      "price": 1.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "110G",
@@ -247745,26 +247752,26 @@
         },
         {
           "date": "2026-08-03",
-          "price": 3.3,
-          "is_special": false,
+          "price": 1.95,
+          "is_special": true,
           "was_price": 3.3,
-          "store": "coles",
-          "matched_name": "Thick & Creamy Classic Vanilla Yoghurt"
+          "store": "woolworths",
+          "matched_name": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt"
         }
       ],
       "was_price": 3.3,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Df_Thick_&_Creamy_Classic_Vanilla_4X110G.jpg",
       "image_url": "images/df_thick__creamy_classic_vanilla_4x110g.jpg",
-      "store": "coles",
-      "unit_price": 2.2,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.3,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.6,
-          "unit_price": 0.77,
-          "eff_price": 4.6,
-          "was_price": 6.6,
+          "price": 1.95,
+          "unit_price": 1.3,
+          "eff_price": 1.95,
+          "was_price": 3.3,
           "on_special": true
         },
         "coles": {
@@ -247777,11 +247784,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.2,
-      "eff_price": 3.3,
+      "eff_price": 1.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Thick & Creamy Classic Vanilla Yoghurt",
+      "name_check": "Dairy Farmers Thick & Creamy Classic Vanilla Yoghurt",
       "item_id": "be3ab5ea-8ac0-412d-b3b6-f4d368c9b92e",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -253440,7 +253447,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -258866,7 +258873,7 @@
       "item_id": "f2f45aae-cb10-47c8-b535-869406f6f013",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Pump Water Pure 750Ml",
@@ -265209,7 +265216,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-01"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Vegemite 150G",
@@ -283513,7 +283520,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true,
       "last_layer_a_check": "2026-08-02"
     },
@@ -298217,7 +298224,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 440,
+      "consecutive_failures": 441,
       "quarantined": true
     },
     {
@@ -301848,7 +301855,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-01"
+      "last_layer_a_check": "2026-08-03"
     },
     {
       "name": "Ww Coleslaw 110G",
@@ -353154,7 +353161,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 13,
+      "consecutive_failures": 14,
       "quarantined": true
     },
     {
@@ -357175,7 +357182,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 310,
+      "consecutive_failures": 311,
       "quarantined": true,
       "last_layer_a_check": "2026-08-02"
     },
