@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-05T15:06:29.276576Z",
+  "last_updated": "2026-08-05T18:32:57.219476Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10975,7 +10975,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -16441,7 +16441,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Snow Peas",
@@ -16676,7 +16676,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -42335,8 +42335,8 @@
       "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-24-pack-24-pack-7366022",
       "stock": "medium",
       "last_purchased": null,
-      "price": 0.4222222222222222,
-      "eff_price": 0.4222222222222222,
+      "price": 0.4444444444444444,
+      "eff_price": 0.4444444444444444,
       "store": "woolworths",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -43204,24 +43204,24 @@
         },
         {
           "date": "2026-08-05",
-          "price": 0.4222222222222222,
+          "price": 0.4444444444444444,
           "is_special": false,
           "was_price": 4.39,
           "store": "woolworths",
-          "matched_name": "Pepsi Max Soft Drink Bottle"
+          "matched_name": "Pepsi Max Cola No Sugar Soft Drink Bottle"
         }
       ],
       "was_price": 4.39,
       "on_special": false,
       "local_image": "images/Pepsi_Max_24pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6081408.jpg",
-      "unit_price": 1.9,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/007985.jpg",
+      "unit_price": 3.2,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 0.4222222222222222,
+          "price": 4.0,
+          "unit_price": 3.2,
+          "eff_price": 0.4444444444444444,
           "was_price": null,
           "on_special": false
         }
@@ -43230,7 +43230,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pepsi Max Soft Drink Bottle",
+      "name_check": "Pepsi Max Cola No Sugar Soft Drink Bottle",
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -44166,8 +44166,8 @@
       "coles": "https://www.coles.com.au/product/pepsi-max-no-sugar-cola-soft-drink-cans-multipack-375ml-x-30-pack-30-pack-7837413",
       "stock": "medium",
       "last_purchased": null,
-      "price": 0.3377777777777778,
-      "eff_price": 0.3377777777777778,
+      "price": 0.35555555555555557,
+      "eff_price": 0.35555555555555557,
       "store": "woolworths",
       "brand": "Pepsi",
       "subcategory": "beverages",
@@ -45033,24 +45033,24 @@
         },
         {
           "date": "2026-08-05",
-          "price": 0.3377777777777778,
+          "price": 0.35555555555555557,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Pepsi Max Soft Drink Bottle"
+          "matched_name": "Pepsi Max Cola No Sugar Soft Drink Bottle"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Pepsi_Max_30pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6081408.jpg",
-      "unit_price": 1.9,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/007985.jpg",
+      "unit_price": 3.2,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 1.9,
-          "eff_price": 0.3377777777777778,
+          "price": 4.0,
+          "unit_price": 3.2,
+          "eff_price": 0.35555555555555557,
           "was_price": null,
           "on_special": false
         },
@@ -45066,7 +45066,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pepsi Max Soft Drink Bottle",
+      "name_check": "Pepsi Max Cola No Sugar Soft Drink Bottle",
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -56115,7 +56115,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 5.6,
+      "price": 5.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "350G",
@@ -56980,25 +56980,25 @@
         },
         {
           "date": "2026-08-05",
-          "price": 5.6,
+          "price": 5.8,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Mozzarella Cheese"
+          "matched_name": "Woolworths Mozzarella Sticks"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Ww_Pear_Mozzarella_350G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/688515.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/137393.jpg",
       "store": "woolworths",
-      "unit_price": 16.0,
-      "unit": "kg",
+      "unit_price": 1.93,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.6,
-          "unit_price": 16.0,
-          "eff_price": 5.6,
+          "price": 5.8,
+          "unit_price": 1.93,
+          "eff_price": 5.8,
           "was_price": null,
           "on_special": false
         },
@@ -57012,11 +57012,11 @@
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 5.6,
+      "eff_price": 5.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mozzarella Cheese",
+      "name_check": "Woolworths Mozzarella Sticks",
       "item_id": "010a7b6a-00fc-45b3-acbc-ed4962bc5121",
       "consecutive_failures": 0,
       "quarantined": false
@@ -65581,7 +65581,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true
     },
     {
@@ -68187,22 +68187,22 @@
           "price": 0.9,
           "is_special": false,
           "was_price": 2.8,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.72,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.9,
-          "unit_price": 0.72,
-          "eff_price": 0.9,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -68220,7 +68220,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -68455,7 +68455,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true
     },
     {
@@ -70585,7 +70585,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 40,
+      "consecutive_failures": 41,
       "quarantined": true,
       "last_layer_a_check": "2026-08-04"
     },
@@ -73357,7 +73357,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-03"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -76378,7 +76378,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true
     },
     {
@@ -82827,7 +82827,7 @@
           "price": 7.5,
           "unit_price": 18.75,
           "eff_price": 7.5,
-          "was_price": 9.0,
+          "was_price": null,
           "on_special": false
         }
       },
@@ -105669,7 +105669,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-04"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -109578,7 +109578,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true,
       "last_layer_a_check": "2026-08-05"
     },
@@ -128435,7 +128435,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 279,
+      "consecutive_failures": 280,
       "quarantined": true,
       "last_layer_a_check": "2026-08-05"
     },
@@ -135827,7 +135827,7 @@
       "item_id": "c7919504-140d-4144-b6d2-46f4f8e18324",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-28"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Pepsi Max Soft Drink Vanilla 1.25L",
@@ -140159,7 +140159,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 180,
+      "consecutive_failures": 181,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-08-04"
@@ -141070,7 +141070,7 @@
           "price": 7.5,
           "unit_price": 18.75,
           "eff_price": 7.5,
-          "was_price": 9.0,
+          "was_price": null,
           "on_special": false
         }
       },
@@ -185678,7 +185678,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 430,
+      "consecutive_failures": 431,
       "quarantined": true
     },
     {
@@ -194916,7 +194916,7 @@
       "item_id": "b703b057-3e09-494f-8e29-9f6cb76230d6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-03"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Native Bouquet",
@@ -257866,7 +257866,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -263388,7 +263388,7 @@
       "item_id": "f2f45aae-cb10-47c8-b535-869406f6f013",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-03"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Pump Water Pure 750Ml",
@@ -288467,7 +288467,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true,
       "last_layer_a_check": "2026-08-02"
     },
@@ -303427,7 +303427,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 451,
+      "consecutive_failures": 452,
       "quarantined": true
     },
     {
@@ -315340,7 +315340,7 @@
           "price": 10.5,
           "unit_price": 2.59,
           "eff_price": 10.5,
-          "was_price": 12.0,
+          "was_price": null,
           "on_special": false
         }
       },
@@ -331855,22 +331855,22 @@
           "price": 1.95,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Condensed Tomato Soup"
+          "store": "woolworths",
+          "matched_name": "Campbell's Condensed Soup Tomato"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Condensed_Tomato_Soup_420G.jpg",
-      "image_url": "https://productimages.coles.com.au/4/4807132.jpg",
-      "store": "coles",
-      "unit_price": 0.5,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/034287.jpg",
+      "store": "woolworths",
+      "unit_price": 0.46,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.5,
-          "unit_price": 0.6,
-          "eff_price": 2.5,
+          "price": 1.95,
+          "unit_price": 0.46,
+          "eff_price": 1.95,
           "was_price": null,
           "on_special": false
         },
@@ -331888,7 +331888,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Condensed Tomato Soup",
+      "name_check": "Campbell's Condensed Soup Tomato",
       "item_id": "54579ec7-47d5-421e-afe9-e95a325e216e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -354845,15 +354845,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -355711,11 +355711,11 @@
         },
         {
           "date": "2026-08-05",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -355727,11 +355727,11 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 0.25
+      "eff_price": 3.0
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -359324,7 +359324,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 24,
+      "consecutive_failures": 25,
       "quarantined": true
     },
     {
@@ -363409,9 +363409,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 321,
+      "consecutive_failures": 322,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-05"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -382599,7 +382599,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-08-04",
+      "last_layer_a_check": "2026-08-05",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     }
