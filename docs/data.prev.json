@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-08T02:37:08.915340Z",
+  "last_updated": "2026-08-08T05:45:20.838095Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -7535,7 +7535,7 @@
       "item_id": "6a4511e2-67a6-4863-8bc6-2e8c9bcfd9f7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Capsicum (Red)",
@@ -17108,7 +17108,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true,
       "last_layer_a_check": "2026-08-07"
     },
@@ -24621,7 +24621,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -25555,7 +25555,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Philly Cream Cheese",
@@ -39673,7 +39673,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-05"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Gravy Granules",
@@ -44362,7 +44362,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-02"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -52815,7 +52815,7 @@
       "item_id": "2b7185bc-343c-41e7-b680-edbdb20c83ee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-04"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Energizer Batteries AA",
@@ -67036,7 +67036,7 @@
       "item_id": "f637f0ff-96d0-41ed-8df1-8f98f944e483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Meggles Farm Cage Eggs Xl 12Pk 700G",
@@ -67285,7 +67285,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true
     },
     {
@@ -69963,22 +69963,22 @@
           "price": 0.9,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.72,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.9,
+          "unit_price": 0.72,
+          "eff_price": 0.9,
           "was_price": null,
           "on_special": false
         },
@@ -69996,7 +69996,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -70231,7 +70231,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true
     },
     {
@@ -72409,7 +72409,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 53,
+      "consecutive_failures": 54,
       "quarantined": true,
       "last_layer_a_check": "2026-08-04"
     },
@@ -78346,7 +78346,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true
     },
     {
@@ -97966,7 +97966,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -108405,7 +108405,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -112410,7 +112410,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true,
       "last_layer_a_check": "2026-08-07"
     },
@@ -119842,11 +119842,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
-          "was_price": null,
-          "on_special": false
+          "price": 15.0,
+          "unit_price": 17.65,
+          "eff_price": 15.0,
+          "was_price": 19.0,
+          "on_special": true
         },
         "coles": {
           "price": 5.0,
@@ -131754,7 +131754,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 292,
+      "consecutive_failures": 293,
       "quarantined": true,
       "last_layer_a_check": "2026-08-05"
     },
@@ -143773,7 +143773,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 193,
+      "consecutive_failures": 194,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-08-08"
@@ -169361,7 +169361,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 4.2,
+      "price": 2.1,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -170250,18 +170250,25 @@
         },
         {
           "date": "2026-08-08",
-          "price": 4.2,
-          "is_special": false,
+          "price": 2.1,
+          "is_special": true,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Grape"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 7.0,
+      "store": "woolworths",
+      "unit_price": 3.5,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 2.1,
+          "unit_price": 3.5,
+          "eff_price": 2.1,
+          "was_price": 4.2,
+          "on_special": true
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -170271,19 +170278,19 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
       "avg_price": 2.1,
-      "eff_price": 4.2,
-      "on_special": false,
+      "eff_price": 2.1,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Electrolyte Water Grape",
+      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-27"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -190461,7 +190468,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 443,
+      "consecutive_failures": 444,
       "quarantined": true
     },
     {
@@ -193278,18 +193285,25 @@
           "price": 1.85,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Almond Milk Unsweetened"
+          "store": "woolworths",
+          "matched_name": "Woolworths Unsweetened Almond Long Life Milk UHT"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Almond_Milk_Unsweetened_1L.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1852210.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/779134.jpg",
+      "store": "woolworths",
       "unit_price": 1.85,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 1.85,
+          "unit_price": 1.85,
+          "eff_price": 1.85,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 1.85,
           "unit_price": 1.85,
@@ -193304,7 +193318,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Almond Milk Unsweetened",
+      "name_check": "Woolworths Unsweetened Almond Long Life Milk UHT",
       "item_id": "1c8e29b9-4a66-46e3-a525-92c7e5e7447f",
       "consecutive_failures": 0,
       "quarantined": false
@@ -214149,7 +214163,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 6.6,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "425G",
@@ -215038,21 +215052,28 @@
         },
         {
           "date": "2026-08-08",
-          "price": 6.6,
+          "price": 2.0,
           "is_special": false,
           "was_price": 6.6,
-          "store": "coles",
-          "matched_name": "Pineapple Slices In Juice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Pineapple Slices In Juice"
         }
       ],
       "was_price": 6.6,
       "on_special": false,
       "local_image": "images/Ww_Pineapple_Slices_In_Juice_425G.jpg",
-      "image_url": "https://productimages.coles.com.au/4/4314157.jpg",
-      "store": "coles",
-      "unit_price": 8.03,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/563001.jpg",
+      "store": "woolworths",
+      "unit_price": 4.71,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 2.0,
+          "unit_price": 4.71,
+          "eff_price": 2.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 6.6,
           "unit_price": 8.03,
@@ -215063,11 +215084,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.375,
-      "eff_price": 6.6,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Pineapple Slices In Juice",
+      "name_check": "Woolworths Pineapple Slices In Juice",
       "item_id": "1a49fb2a-1a7d-4db6-95e9-b5a3b9507785",
       "consecutive_failures": 0,
       "quarantined": false
@@ -251046,7 +251067,7 @@
       "item_id": "a0f44e3c-5cc0-448a-a98b-ce73f1440346",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Simply Potato Chips Salt & Pepper 120G",
@@ -264514,9 +264535,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-03"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -295907,7 +295928,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true,
       "last_layer_a_check": "2026-08-06"
     },
@@ -311251,7 +311272,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 464,
+      "consecutive_failures": 465,
       "quarantined": true
     },
     {
@@ -330094,7 +330115,7 @@
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -340423,22 +340444,22 @@
           "price": 1.95,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Condensed Tomato Soup"
+          "store": "woolworths",
+          "matched_name": "Campbell's Condensed Soup Tomato"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Condensed_Tomato_Soup_420G.jpg",
-      "image_url": "https://productimages.coles.com.au/4/4807132.jpg",
-      "store": "coles",
-      "unit_price": 0.5,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/034287.jpg",
+      "store": "woolworths",
+      "unit_price": 0.46,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.5,
-          "unit_price": 0.6,
-          "eff_price": 2.5,
+          "price": 1.95,
+          "unit_price": 0.46,
+          "eff_price": 1.95,
           "was_price": null,
           "on_special": false
         },
@@ -340456,7 +340477,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Condensed Tomato Soup",
+      "name_check": "Campbell's Condensed Soup Tomato",
       "item_id": "54579ec7-47d5-421e-afe9-e95a325e216e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -347998,7 +348019,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-06"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Ngift Dog Casserole Kang & Veg 1.2Kg",
@@ -364013,15 +364034,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -364903,11 +364924,11 @@
         },
         {
           "date": "2026-08-08",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -364919,11 +364940,11 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 0.25
+      "eff_price": 3.0
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -368588,7 +368609,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 37,
+      "consecutive_failures": 38,
       "quarantined": true
     },
     {
@@ -372769,7 +372790,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 334,
+      "consecutive_failures": 335,
       "quarantined": true,
       "last_layer_a_check": "2026-08-06"
     },
@@ -386022,7 +386043,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-08-06"
+      "last_layer_a_check": "2026-08-08"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
