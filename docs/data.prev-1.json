@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-11T06:00:52.145316Z",
+  "last_updated": "2026-08-11T09:48:43.960189Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -11551,7 +11551,7 @@
       "item_id": "af611622-fb99-4ff2-8b30-16a75b5fdb98",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-09"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Potatoes (Washed Bag)",
@@ -17540,7 +17540,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -24276,7 +24276,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Butter (Western Star)",
@@ -25245,7 +25245,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -41644,7 +41644,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-08"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Crackers (Jatz)",
@@ -68989,7 +68989,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true
     },
     {
@@ -71752,9 +71752,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 1.8,
+          "unit_price": 0.72,
+          "eff_price": 1.8,
           "was_price": null,
           "on_special": false
         },
@@ -72007,7 +72007,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true
     },
     {
@@ -74233,7 +74233,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 72,
+      "consecutive_failures": 73,
       "quarantined": true,
       "last_layer_a_check": "2026-08-04"
     },
@@ -77149,7 +77149,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-09"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -80314,7 +80314,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true
     },
     {
@@ -115242,7 +115242,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true,
       "last_layer_a_check": "2026-08-10"
     },
@@ -135059,7 +135059,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 311,
+      "consecutive_failures": 312,
       "quarantined": true,
       "last_layer_a_check": "2026-08-05"
     },
@@ -136996,7 +136996,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -176520,7 +176520,7 @@
       "item_id": "c2daaf30-10fb-495b-a452-4ea69aec8935",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-05"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Colgate Tpaste Optic Wht Proser Frsh 80G",
@@ -195262,7 +195262,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 462,
+      "consecutive_failures": 463,
       "quarantined": true
     },
     {
@@ -261262,7 +261262,7 @@
       "item_id": "41d4b45f-1efa-499c-9b26-7f3bbf83a409",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Gumption Cleaner Cream 500G",
@@ -271187,7 +271187,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -303372,7 +303372,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -306240,7 +306240,7 @@
           "is_special": true,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars"
+          "matched_name": "Noshu Low Carb Honeycomb Indulgence Bars"
         }
       ],
       "was_price": 8.9,
@@ -306248,12 +306248,12 @@
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 4.38,
+      "unit_price": 4.67,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 7.0,
-          "unit_price": 4.38,
+          "unit_price": 4.67,
           "eff_price": 7.0,
           "was_price": 8.9,
           "on_special": true
@@ -306272,7 +306272,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars",
+      "name_check": "Noshu Low Carb Honeycomb Indulgence Bars",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -319100,7 +319100,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 483,
+      "consecutive_failures": 484,
       "quarantined": true
     },
     {
@@ -368374,7 +368374,7 @@
       "item_id": "ac897c11-8aed-424b-86f5-1c0a6df98016",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-08"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Broccolini Bunch",
@@ -377870,7 +377870,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 56,
+      "consecutive_failures": 57,
       "quarantined": true
     },
     {
@@ -382147,9 +382147,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 353,
+      "consecutive_failures": 354,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-09"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -383108,7 +383108,7 @@
       "item_id": "9e6379d5-5ab9-4fd7-8d59-3a1e02dd0a0b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Dole P/Apple Slices In Jce 432G",
@@ -391583,7 +391583,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -398261,7 +398261,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-08-09"
+      "last_layer_a_check": "2026-08-11"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
