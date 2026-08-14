@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-13T14:02:37.597088Z",
+  "last_updated": "2026-08-13T17:45:39.277667Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -1996,7 +1996,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-11"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Bacon (Middle)",
@@ -17828,7 +17828,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -19801,8 +19801,8 @@
       "coles": "https://www.coles.com.au/product/coles-i'm-perfect-lemons-prepacked-1kg-3586912",
       "stock": "medium",
       "last_purchased": null,
-      "price": 5.5,
-      "eff_price": 5.5,
+      "price": 4.9,
+      "eff_price": 4.9,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "fruit",
@@ -20732,7 +20732,7 @@
         },
         {
           "date": "2026-08-13",
-          "price": 5.5,
+          "price": 4.9,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -20743,13 +20743,13 @@
       "on_special": false,
       "local_image": "images/Lemons_Bag.jpg",
       "image_url": "https://productimages.coles.com.au/3/3586912.jpg",
-      "unit_price": 5.5,
+      "unit_price": 4.9,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 5.5,
-          "unit_price": 5.5,
-          "eff_price": 5.5,
+          "price": 4.9,
+          "unit_price": 4.9,
+          "eff_price": 4.9,
           "was_price": null,
           "on_special": false
         }
@@ -36475,7 +36475,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -37407,23 +37407,23 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Diced Italian Tomatoes"
+          "store": "coles",
+          "matched_name": "Italian Diced Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 2.75,
-          "eff_price": 1.1,
-          "was_price": null,
-          "on_special": false
+          "price": 1.2,
+          "unit_price": 3.0,
+          "eff_price": 1.2,
+          "was_price": 1.4,
+          "on_special": true
         },
         "coles": {
           "price": 1.1,
@@ -37437,7 +37437,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Diced Italian Tomatoes",
+      "name_check": "Italian Diced Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -41353,7 +41353,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-08"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Gravy Granules",
@@ -70125,7 +70125,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true
     },
     {
@@ -73191,7 +73191,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true
     },
     {
@@ -75449,7 +75449,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 86,
+      "consecutive_failures": 87,
       "quarantined": true,
       "last_layer_a_check": "2026-08-04"
     },
@@ -81626,7 +81626,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true
     },
     {
@@ -102086,7 +102086,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -103100,7 +103100,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -104029,27 +104029,27 @@
         },
         {
           "date": "2026-08-13",
-          "price": 3.0,
-          "is_special": false,
+          "price": 3.8,
+          "is_special": true,
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 4.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": 4.0,
+          "on_special": true
         },
         "coles": {
           "price": 4.0,
@@ -104061,7 +104061,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -117130,7 +117130,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true,
       "last_layer_a_check": "2026-08-13"
     },
@@ -119961,7 +119961,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
-      "last_layer_a_check": "2026-08-02",
+      "last_layer_a_check": "2026-08-13",
       "eff_price": 4.5
     },
     {
@@ -137274,7 +137274,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 325,
+      "consecutive_failures": 326,
       "quarantined": true,
       "last_layer_a_check": "2026-08-05"
     },
@@ -189328,7 +189328,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 1.0,
+      "price": 0.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -190257,7 +190257,7 @@
         },
         {
           "date": "2026-08-13",
-          "price": 1.0,
+          "price": 0.7,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -190269,7 +190269,7 @@
       "local_image": "images/Sweet_Corn_500G_P_P.jpg",
       "image_url": "images/sweet_corn_500g_pp.jpg",
       "store": "coles",
-      "unit_price": 1.0,
+      "unit_price": 0.7,
       "unit": "each",
       "all_stores": {
         "woolworths": {
@@ -190280,16 +190280,16 @@
           "on_special": false
         },
         "coles": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 0.7,
+          "unit_price": 0.7,
+          "eff_price": 0.7,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 3.9,
-      "eff_price": 1.0,
+      "eff_price": 0.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -198469,7 +198469,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 476,
+      "consecutive_failures": 477,
       "quarantined": true
     },
     {
@@ -221137,19 +221137,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -221162,7 +221162,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -221170,7 +221170,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -227098,7 +227098,7 @@
       "item_id": "1f7e4848-c2e7-48e2-a0d4-5ba387e68498",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Hoyts Turmeric 25G",
@@ -231063,7 +231063,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Infuzions Air Fries Aioli 75G",
@@ -275642,7 +275642,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true,
       "last_layer_a_check": "2026-08-12"
     },
@@ -308355,7 +308355,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
@@ -324339,7 +324339,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 497,
+      "consecutive_failures": 498,
       "quarantined": true
     },
     {
@@ -384069,7 +384069,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 70,
+      "consecutive_failures": 71,
       "quarantined": true
     },
     {
@@ -384095,6 +384095,13 @@
         "woolworths": {
           "price": 4.0,
           "unit_price": 0.1,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
+        },
+        "coles": {
+          "price": 4.0,
+          "unit_price": 4.0,
           "eff_price": 4.0,
           "was_price": null,
           "on_special": false
@@ -388403,7 +388410,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 367,
+      "consecutive_failures": 368,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
@@ -395221,16 +395228,23 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 4.0,
-      "unit_price": 16.0,
-      "unit": "100g",
-      "store": "woolworths",
+      "price": 3.2,
+      "unit_price": 12.8,
+      "unit": "kg",
+      "store": "coles",
       "all_stores": {
         "woolworths": {
           "price": 4.0,
           "unit_price": 16.0,
           "eff_price": 4.0,
           "was_price": null,
+          "on_special": false
+        },
+        "coles": {
+          "price": 3.2,
+          "unit_price": 12.8,
+          "eff_price": 3.2,
+          "was_price": 4.0,
           "on_special": false
         }
       },
@@ -396151,24 +396165,24 @@
         },
         {
           "date": "2026-08-13",
-          "price": 4.0,
+          "price": 3.2,
           "is_special": false,
           "was_price": 4.0,
-          "store": "woolworths",
-          "matched_name": "Obento Japanese Yaki Nori For Sushi"
+          "store": "coles",
+          "matched_name": "Yaki Nori Seaweed Sushi Sheets"
         }
       ],
       "target_confidence": "high",
       "target_method": "was $4.00, now $3.20 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 4.0,
+      "eff_price": 3.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.0,
       "on_special": false,
-      "name_check": "Obento Japanese Yaki Nori For Sushi",
+      "name_check": "Yaki Nori Seaweed Sushi Sheets",
       "item_id": "1c4f5b1b-f4f4-415d-bedc-610290d37440",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -398838,7 +398852,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -399684,7 +399698,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-08-09",
+      "last_layer_a_check": "2026-08-13",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-26"
     },
@@ -402223,6 +402237,13 @@
           "eff_price": 1.775,
           "was_price": null,
           "on_special": false
+        },
+        "coles": {
+          "price": 7.3,
+          "unit_price": 3.65,
+          "eff_price": 3.65,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -403944,7 +403965,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-13"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
