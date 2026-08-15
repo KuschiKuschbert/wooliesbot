@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-14T14:00:28.991043Z",
+  "last_updated": "2026-08-14T17:44:27.838602Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -17972,7 +17972,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -33780,7 +33780,7 @@
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "English Muffins",
@@ -36771,7 +36771,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -37711,23 +37711,23 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Diced Italian Tomatoes"
+          "store": "coles",
+          "matched_name": "Italian Diced Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 2.75,
-          "eff_price": 1.1,
-          "was_price": null,
-          "on_special": false
+          "price": 1.2,
+          "unit_price": 3.0,
+          "eff_price": 1.2,
+          "was_price": 1.4,
+          "on_special": true
         },
         "coles": {
           "price": 1.1,
@@ -37741,7 +37741,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Diced Italian Tomatoes",
+      "name_check": "Italian Diced Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -38732,7 +38732,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-03"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -60486,7 +60486,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -70693,7 +70693,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true
     },
     {
@@ -73515,22 +73515,22 @@
           "price": 0.9,
           "is_special": false,
           "was_price": 2.8,
-          "store": "woolworths",
-          "matched_name": "Woolworths Plain Water Crackers"
+          "store": "coles",
+          "matched_name": "Original Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
+      "store": "coles",
       "unit_price": 0.72,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 0.9,
-          "unit_price": 0.72,
-          "eff_price": 0.9,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -73548,7 +73548,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Plain Water Crackers",
+      "name_check": "Original Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -73783,7 +73783,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true
     },
     {
@@ -76057,7 +76057,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 92,
+      "consecutive_failures": 93,
       "quarantined": true,
       "last_layer_a_check": "2026-08-04"
     },
@@ -82282,7 +82282,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true
     },
     {
@@ -110905,7 +110905,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-04",
-      "price": 3.0,
+      "price": 6.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "125G",
@@ -111842,28 +111842,21 @@
         },
         {
           "date": "2026-08-14",
-          "price": 3.0,
+          "price": 6.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "La Casa Del Formaggio Fresh Mozzarella"
+          "store": "coles",
+          "matched_name": "Fresh Mozzarella"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/La_Casa_Fresh_Mozzarella_125G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/732059.jpg",
-      "store": "woolworths",
-      "unit_price": 24.0,
+      "image_url": "https://productimages.coles.com.au/2/2462186.jpg",
+      "store": "coles",
+      "unit_price": 30.0,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 3.0,
-          "unit_price": 24.0,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 6.0,
           "unit_price": 30.0,
@@ -111874,11 +111867,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.0,
-      "eff_price": 3.0,
+      "eff_price": 6.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "La Casa Del Formaggio Fresh Mozzarella",
+      "name_check": "Fresh Mozzarella",
       "item_id": "5bd26c41-9d13-4281-b135-ea7b72b26e41",
       "consecutive_failures": 0,
       "quarantined": false
@@ -116858,7 +116851,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -118074,7 +118067,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true,
       "last_layer_a_check": "2026-08-14"
     },
@@ -120947,7 +120940,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.25,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -121884,23 +121877,23 @@
         },
         {
           "date": "2026-08-14",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.25,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 2.5,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.25,
+          "unit_price": 2.5,
+          "eff_price": 1.25,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -121911,15 +121904,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.25,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -138378,9 +138371,9 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 331,
+      "consecutive_failures": 332,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-05"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -161962,7 +161955,7 @@
       "item_id": "ee6af4a5-88cb-48ad-bd3d-71ecac619dbc",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-30"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Ww Chicken Breast Fillets Small Rspca",
@@ -189807,7 +189800,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -189831,7 +189824,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -189839,7 +189832,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -200069,7 +200062,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 482,
+      "consecutive_failures": 483,
       "quarantined": true
     },
     {
@@ -275652,7 +275645,7 @@
       "item_id": "f4dadaa4-9965-4ffe-b369-f754d184d2fd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -277866,7 +277859,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true,
       "last_layer_a_check": "2026-08-12"
     },
@@ -310605,7 +310598,7 @@
       "item_id": "94337ffc-a4fb-41cc-96d3-ed83cb6387f2",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Balnea Mens Multi Action Body Wash 1L",
@@ -310843,7 +310836,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
@@ -313819,7 +313812,7 @@
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "Bega Tasty Cheese Block 750G",
@@ -326955,7 +326948,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 503,
+      "consecutive_failures": 504,
       "quarantined": true
     },
     {
@@ -387165,7 +387158,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 76,
+      "consecutive_failures": 77,
       "quarantined": true
     },
     {
@@ -391538,7 +391531,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 373,
+      "consecutive_failures": 374,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
@@ -410665,7 +410658,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-14"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
