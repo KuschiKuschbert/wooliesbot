@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-16T13:28:36.203969Z",
+  "last_updated": "2026-08-16T17:14:31.345023Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -18260,7 +18260,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -37363,7 +37363,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -38319,21 +38319,21 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Diced Italian Tomatoes"
+          "store": "coles",
+          "matched_name": "Italian Diced Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 2.75,
-          "eff_price": 1.1,
+          "price": 1.6,
+          "unit_price": 4.0,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -38349,7 +38349,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Diced Italian Tomatoes",
+      "name_check": "Italian Diced Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -43364,7 +43364,7 @@
       "item_id": "31309fcb-3c57-420c-84ac-9183fd218abd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-11"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Crackers (Jatz)",
@@ -46346,9 +46346,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.4,
-          "unit_price": 9.0,
-          "eff_price": 5.4,
+          "price": 15.2,
+          "unit_price": 6.33,
+          "eff_price": 15.2,
           "was_price": null,
           "on_special": false
         },
@@ -71829,7 +71829,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true
     },
     {
@@ -74699,22 +74699,22 @@
           "price": 0.9,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.72,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.9,
+          "unit_price": 0.72,
+          "eff_price": 0.9,
           "was_price": null,
           "on_special": false
         },
@@ -74732,7 +74732,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -74967,7 +74967,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true
     },
     {
@@ -77273,7 +77273,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 104,
+      "consecutive_failures": 105,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -80309,7 +80309,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -83594,7 +83594,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true
     },
     {
@@ -84578,13 +84578,6 @@
       "unit_price": 24.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 8.9,
-          "unit_price": 17.8,
-          "eff_price": 8.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.9,
           "unit_price": 24.5,
@@ -87658,7 +87651,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Vegeta Chicken Stock Cubes 60G",
@@ -105596,7 +105589,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.8,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -106549,27 +106542,27 @@
         },
         {
           "date": "2026-08-16",
-          "price": 3.8,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 4.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.62,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.8,
-          "unit_price": 2.62,
-          "eff_price": 3.8,
-          "was_price": 4.0,
-          "on_special": true
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.0,
@@ -106581,7 +106574,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.8,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -119962,7 +119955,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -140579,7 +140572,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 343,
+      "consecutive_failures": 344,
       "quarantined": true,
       "last_layer_a_check": "2026-08-14"
     },
@@ -146647,7 +146640,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -203255,7 +203248,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 494,
+      "consecutive_failures": 495,
       "quarantined": true
     },
     {
@@ -255770,26 +255763,26 @@
         },
         {
           "date": "2026-08-16",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
-          "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
-      "unit_price": 1.88,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.29,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 3.33,
-          "eff_price": 2.0,
-          "was_price": 2.3,
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
           "on_special": true
         },
         "coles": {
@@ -255805,12 +255798,12 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false,
-      "price": 1.6,
-      "eff_price": 1.6,
+      "price": 1.1,
+      "eff_price": 1.1,
       "last_layer_a_check": "2026-08-16"
     },
     {
@@ -260896,7 +260889,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 13.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -261849,36 +261842,36 @@
         },
         {
           "date": "2026-08-16",
-          "price": 12.0,
+          "price": 13.2,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.47,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
+          "price": 13.2,
+          "unit_price": 1.47,
+          "eff_price": 13.2,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 13.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -265896,22 +265889,22 @@
           "price": 2.6,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Stonebaked Turkish Rolls"
+          "store": "coles",
+          "matched_name": "Turkish Rolls 4 Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Turkish_Rolls_400G_Pk_4.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6037735.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5625017.jpg",
+      "store": "coles",
       "unit_price": 0.65,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.6,
-          "unit_price": 0.65,
-          "eff_price": 2.6,
+          "price": 3.75,
+          "unit_price": 1.25,
+          "eff_price": 3.75,
           "was_price": null,
           "on_special": false
         },
@@ -265929,7 +265922,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Stonebaked Turkish Rolls",
+      "name_check": "Turkish Rolls 4 Pack",
       "item_id": "f52690f4-01bd-479a-b902-cdb431ed6d62",
       "consecutive_failures": 0,
       "quarantined": false
@@ -268954,7 +268947,7 @@
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Macro Org Natural Corn Chips 200G",
@@ -271976,7 +271969,7 @@
       "item_id": "41d4b45f-1efa-499c-9b26-7f3bbf83a409",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Gumption Cleaner Cream 500G",
@@ -282301,7 +282294,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -301492,7 +301485,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 3.15,
+      "price": 0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "250G",
@@ -302455,10 +302448,10 @@
       "was_price": null,
       "on_special": false,
       "local_image": "images/La_Molisana_Egg_Fettuccine_250G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/074783.jpg",
+      "image_url": "",
       "store": "woolworths",
-      "unit_price": 1.26,
-      "unit": "100g",
+      "unit_price": null,
+      "unit": null,
       "all_stores": {
         "woolworths": {
           "price": 3.15,
@@ -302468,15 +302461,14 @@
           "on_special": false
         }
       },
-      "price_unavailable": false,
+      "price_unavailable": true,
       "avg_price": 3.15,
-      "eff_price": 3.15,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "quarantined": false
     },
     {
@@ -315806,7 +315798,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -317837,7 +317829,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 7.0,
+      "price": 4.9,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "160G",
@@ -318790,27 +318782,27 @@
         },
         {
           "date": "2026-08-16",
-          "price": 7.0,
-          "is_special": true,
+          "price": 4.9,
+          "is_special": false,
           "was_price": 8.9,
           "store": "woolworths",
-          "matched_name": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars"
+          "matched_name": "Noshu Low Carb Pancake Mix Buttermilk"
         }
       ],
       "was_price": 8.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Noshu_Low_Carb_Pnut_&_Crml_Bar_160G_5Pk.jpg",
       "image_url": "images/noshu_low_carb_pnut__crml_bar_160g_5pk.jpg",
       "store": "woolworths",
-      "unit_price": 4.38,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.0,
-          "unit_price": 4.38,
-          "eff_price": 7.0,
-          "was_price": 8.9,
-          "on_special": true
+          "price": 4.9,
+          "unit_price": 1.63,
+          "eff_price": 4.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 7.0,
@@ -318822,11 +318814,11 @@
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 7.0,
+      "eff_price": 4.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Noshu Low Carb Peanut & Caramel Nougat Indulgence Bars",
+      "name_check": "Noshu Low Carb Pancake Mix Buttermilk",
       "item_id": "4714c376-c6e6-4fcb-adbe-1d6cd5f4910a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -329923,7 +329915,7 @@
       "item_id": "63e3b7ab-106b-406a-9563-7956cb78eaac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14",
+      "last_layer_a_check": "2026-08-16",
       "eff_price": 3.2
     },
     {
@@ -332174,7 +332166,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 515,
+      "consecutive_failures": 516,
       "quarantined": true
     },
     {
@@ -337207,11 +337199,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 10.0,
-          "eff_price": 3.0,
-          "was_price": 3.5,
-          "on_special": true
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.2,
@@ -393345,7 +393337,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 88,
+      "consecutive_failures": 89,
       "quarantined": true
     },
     {
@@ -397782,7 +397774,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 385,
+      "consecutive_failures": 386,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -417245,7 +417237,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "San Remo Spaghetti No 5 500g",
