@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-15T17:15:13.548433Z",
+  "last_updated": "2026-08-15T21:12:49.834196Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4011,7 +4011,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -13927,7 +13927,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Broccoli",
@@ -18116,7 +18116,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -42025,7 +42025,7 @@
       "item_id": "5881d58a-f6f3-4292-b68f-c6d3e0cf383f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Gravy Granules",
@@ -71261,7 +71261,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true
     },
     {
@@ -74375,7 +74375,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true
     },
     {
@@ -76665,7 +76665,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 99,
+      "consecutive_failures": 100,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -80689,7 +80689,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -80710,7 +80710,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 13.5,
+      "price": 10.0,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600G",
@@ -81655,21 +81655,28 @@
         },
         {
           "date": "2026-08-15",
-          "price": 13.5,
-          "is_special": false,
+          "price": 10.0,
+          "is_special": true,
           "was_price": 12.0,
-          "store": "coles",
-          "matched_name": "Chicken Goujons"
+          "store": "woolworths",
+          "matched_name": "Steggles Chicken Breast Schnitzel Gravy Flavoured"
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Steggles_Gravy_Chicken_Schnitzel_600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8434332.jpg",
-      "store": "coles",
-      "unit_price": 13.5,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/388014.jpg",
+      "store": "woolworths",
+      "unit_price": 16.67,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.0,
+          "unit_price": 16.67,
+          "eff_price": 10.0,
+          "was_price": 12.0,
+          "on_special": true
+        },
         "coles": {
           "price": 13.5,
           "unit_price": 13.5,
@@ -81680,11 +81687,11 @@
       },
       "price_unavailable": false,
       "avg_price": 12.0,
-      "eff_price": 13.5,
+      "eff_price": 10.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Chicken Goujons",
+      "name_check": "Steggles Chicken Breast Schnitzel Gravy Flavoured",
       "item_id": "f89adb26-6919-4fbe-a869-0f6eea2328b7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -82931,7 +82938,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true
     },
     {
@@ -119011,7 +119018,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true,
       "last_layer_a_check": "2026-08-14"
     },
@@ -121908,7 +121915,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.25,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -122853,23 +122860,23 @@
         },
         {
           "date": "2026-08-15",
-          "price": 1.25,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 2.5,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.25,
-          "unit_price": 2.5,
-          "eff_price": 1.25,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -122880,15 +122887,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.25,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -126891,10 +126898,10 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 26.0,
-          "unit_price": 26.0,
-          "eff_price": 26.0,
-          "was_price": 28.0,
+          "price": 15.0,
+          "unit_price": 17.65,
+          "eff_price": 15.0,
+          "was_price": 19.0,
           "on_special": true
         },
         "coles": {
@@ -128894,13 +128901,6 @@
       "unit_price": 1.67,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 32.0,
-          "unit_price": 16.0,
-          "eff_price": 32.0,
-          "was_price": 38.0,
-          "on_special": true
-        },
         "coles": {
           "price": 10.0,
           "unit_price": 1.67,
@@ -139475,7 +139475,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 338,
+      "consecutive_failures": 339,
       "quarantined": true,
       "last_layer_a_check": "2026-08-14"
     },
@@ -150513,7 +150513,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -180280,13 +180280,6 @@
       "unit_price": 3.5,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 4.2,
-          "unit_price": 7.0,
-          "eff_price": 4.2,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 2.1,
           "unit_price": 3.5,
@@ -191320,7 +191313,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -191344,7 +191337,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -191352,7 +191345,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -198440,7 +198433,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 2.65,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "425Ml",
@@ -199385,36 +199378,36 @@
         },
         {
           "date": "2026-08-15",
-          "price": 2.65,
-          "is_special": true,
+          "price": 4.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
-          "matched_name": "Impressed Tropical Breakfast Juice"
+          "matched_name": "Impressed Pressed Juice Tropical Breakfast"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Impressed_Tropical_Juice_425Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6047269.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/065620.jpg",
       "store": "woolworths",
-      "unit_price": 6.24,
+      "unit_price": 4.8,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.65,
-          "unit_price": 6.24,
-          "eff_price": 2.65,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 4.8,
+          "unit_price": 4.8,
+          "eff_price": 4.8,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.4,
-      "eff_price": 2.65,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Impressed Tropical Breakfast Juice",
+      "name_check": "Impressed Pressed Juice Tropical Breakfast",
       "item_id": "23b8ee07-d31d-496c-8484-d5f856881225",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -201662,7 +201655,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 489,
+      "consecutive_failures": 490,
       "quarantined": true
     },
     {
@@ -230755,7 +230748,7 @@
       "item_id": "1f7e4848-c2e7-48e2-a0d4-5ba387e68498",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Hoyts Turmeric 25G",
@@ -253761,26 +253754,26 @@
         },
         {
           "date": "2026-08-15",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
-          "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
-      "unit_price": 1.88,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.29,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 3.33,
-          "eff_price": 2.0,
-          "was_price": 2.3,
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
           "on_special": true
         },
         "coles": {
@@ -253796,12 +253789,13 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false,
-      "price": 1.6,
-      "eff_price": 1.6
+      "price": 1.1,
+      "eff_price": 1.1,
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -266840,7 +266834,7 @@
       "item_id": "1561373c-939d-4702-b65e-4cc2eb5d7ae8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Macro Org Natural Corn Chips 200G",
@@ -277853,7 +277847,7 @@
       "item_id": "f4dadaa4-9965-4ffe-b369-f754d184d2fd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-15"
     },
     {
       "name": "Ut Oats Sachets Strawb Vanila 350G 10Pk",
@@ -280083,7 +280077,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -313324,7 +313318,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -329564,7 +329558,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 510,
+      "consecutive_failures": 511,
       "quarantined": true
     },
     {
@@ -332536,7 +332530,7 @@
           "is_special": true,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Scented Aloe Liners"
+          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
         }
       ],
       "was_price": 5.5,
@@ -332568,7 +332562,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Scented Aloe Liners",
+      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -375435,13 +375429,13 @@
           "is_special": false,
           "was_price": 5.4,
           "store": "woolworths",
-          "matched_name": "Quest White Chocolate Raspberry"
+          "matched_name": "Quest Protein Bar Choc Brownie"
         }
       ],
       "was_price": 5.4,
       "on_special": false,
       "local_image": "images/Quest_Bar_White_Choc_Raspberry_60G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473738.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/473741.jpg",
       "store": "woolworths",
       "unit_price": 9.0,
       "unit": "100g",
@@ -375460,7 +375454,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Quest White Chocolate Raspberry",
+      "name_check": "Quest Protein Bar Choc Brownie",
       "item_id": "92c99942-bd6a-4428-a7a1-83c6808223c3",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -385455,15 +385449,15 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 0.25,
+      "price": 3.0,
       "unit_price": null,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 0.25,
+          "price": 3.0,
           "unit_price": null,
-          "eff_price": 0.25,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         }
@@ -386401,11 +386395,11 @@
         },
         {
           "date": "2026-08-15",
-          "price": 0.25,
+          "price": 3.0,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Reusable Paper Shopping Bag"
+          "matched_name": "Woolworths Reusable Chiller Shopping Bag"
         }
       ],
       "target_confidence": "high",
@@ -386417,11 +386411,11 @@
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Reusable Paper Shopping Bag",
+      "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
       "consecutive_failures": 0,
       "quarantined": false,
-      "eff_price": 0.25
+      "eff_price": 3.0
     },
     {
       "name": "Scotch Brite Scrub Sponge Heavy Duty 3Pk",
@@ -390255,7 +390249,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 83,
+      "consecutive_failures": 84,
       "quarantined": true
     },
     {
@@ -394660,7 +394654,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 380,
+      "consecutive_failures": 381,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
