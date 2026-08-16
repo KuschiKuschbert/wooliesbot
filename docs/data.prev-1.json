@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-16T02:14:34.545132Z",
+  "last_updated": "2026-08-16T05:25:16.381296Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4043,7 +4043,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -18260,7 +18260,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true,
       "last_layer_a_check": "2026-08-08"
     },
@@ -21266,7 +21266,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13",
+      "last_layer_a_check": "2026-08-16",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
@@ -24272,7 +24272,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -45365,7 +45365,7 @@
       "item_id": "1ba757bb-7243-4a35-8e73-3dc7347660b3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-11"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Quest/BSC Protein Bars",
@@ -47370,7 +47370,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -71829,7 +71829,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true
     },
     {
@@ -74967,7 +74967,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true
     },
     {
@@ -77273,7 +77273,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 101,
+      "consecutive_failures": 102,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -83594,7 +83594,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true
     },
     {
@@ -84578,13 +84578,6 @@
       "unit_price": 24.5,
       "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 8.9,
-          "unit_price": 17.8,
-          "eff_price": 8.9,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 4.9,
           "unit_price": 24.5,
@@ -105596,7 +105589,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 3.0,
+      "price": 3.8,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -106549,27 +106542,27 @@
         },
         {
           "date": "2026-08-16",
-          "price": 3.0,
-          "is_special": false,
+          "price": 3.8,
+          "is_special": true,
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 4.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 3.75,
+      "unit_price": 2.62,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 3.75,
-          "eff_price": 3.0,
-          "was_price": null,
-          "on_special": false
+          "price": 3.8,
+          "unit_price": 2.62,
+          "eff_price": 3.8,
+          "was_price": 4.0,
+          "on_special": true
         },
         "coles": {
           "price": 4.0,
@@ -106581,7 +106574,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 3.0,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -118730,7 +118723,7 @@
       "item_id": "cdfb2e52-3be0-4c8f-a43b-cad70e12def0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Coca Cola Drink Classic 1.25L",
@@ -119962,7 +119955,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -122883,7 +122876,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.25,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -123836,23 +123829,23 @@
         },
         {
           "date": "2026-08-16",
-          "price": 1.25,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 2.5,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.25,
-          "unit_price": 2.5,
-          "eff_price": 1.25,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -123863,15 +123856,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.25,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -140579,7 +140572,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 340,
+      "consecutive_failures": 341,
       "quarantined": true,
       "last_layer_a_check": "2026-08-14"
     },
@@ -155447,7 +155440,7 @@
       "item_id": "a2f77a6c-058e-4516-b36c-c88b6d17f0df",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Old El Paso Taco Spice Mix Mild 30G",
@@ -162480,22 +162473,22 @@
           "price": 4.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "McCain Frozen Peas & Super Juicy Corn"
+          "store": "coles",
+          "matched_name": "Peas & Super Juicy Corn Kernels"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Mccain_Peas_&_Super_Juicy_Corn_500G.jpg",
       "image_url": "images/mccain_peas__super_juicy_corn_500g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.5,
-          "unit_price": 9.0,
-          "eff_price": 4.5,
+          "price": 7.3,
+          "unit_price": 7.3,
+          "eff_price": 7.3,
           "was_price": null,
           "on_special": false
         },
@@ -162513,7 +162506,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Frozen Peas & Super Juicy Corn",
+      "name_check": "Peas & Super Juicy Corn Kernels",
       "item_id": "79d0f0a6-7916-4ce0-952f-5b790a41885f",
       "consecutive_failures": 0,
       "quarantined": false
@@ -197949,7 +197942,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -198902,27 +198895,27 @@
         },
         {
           "date": "2026-08-16",
-          "price": 7.7,
-          "is_special": false,
-          "was_price": 9.8,
-          "store": "coles",
-          "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
+          "price": 7.0,
+          "is_special": true,
+          "was_price": 8.8,
+          "store": "woolworths",
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
-      "was_price": 9.8,
-      "on_special": false,
+      "was_price": 8.8,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8544829.jpg",
-      "store": "coles",
-      "unit_price": 1.28,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
+      "store": "woolworths",
+      "unit_price": 1.4,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 7.7,
@@ -198934,11 +198927,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cheese & Bacon Pizza Slices 2 Pack",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -203248,7 +203241,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 491,
+      "consecutive_failures": 492,
       "quarantined": true
     },
     {
@@ -231563,7 +231556,7 @@
       "item_id": "852c2a34-7748-421b-a043-0cec5d731f37",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Dine Cat Kitten 2-12M Tender Chicken 85G",
@@ -249740,7 +249733,7 @@
       "price_unavailable": false,
       "avg_price": 2.5,
       "eff_price": 3.5,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Mini-Roma Tomato Punnet",
@@ -255763,26 +255756,26 @@
         },
         {
           "date": "2026-08-16",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
-          "store": "coles",
-          "matched_name": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray"
+          "store": "woolworths",
+          "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
-      "store": "coles",
-      "unit_price": 1.88,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 1.29,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 3.33,
-          "eff_price": 2.0,
-          "was_price": 2.3,
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
           "on_special": true
         },
         "coles": {
@@ -255798,13 +255791,13 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Classic Collection Adult Wet Cat Food Saucy Morsels With Tuna & Cheese Tray",
+      "name_check": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese",
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false,
-      "price": 1.6,
-      "eff_price": 1.6,
-      "last_layer_a_check": "2026-08-15"
+      "price": 1.1,
+      "eff_price": 1.1,
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -282294,7 +282287,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -295415,7 +295408,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Vegemite 150G",
@@ -308507,7 +308500,7 @@
       "item_id": "46c303c7-9fb5-4b50-8a87-0fa1b886d572",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Dorsogna Streaky Bacon 750G",
@@ -315799,7 +315792,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true,
       "last_layer_a_check": "2026-08-15"
     },
@@ -332167,7 +332160,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 512,
+      "consecutive_failures": 513,
       "quarantined": true
     },
     {
@@ -335163,7 +335156,7 @@
           "is_special": true,
           "was_price": 5.5,
           "store": "woolworths",
-          "matched_name": "Carefree Barely There Scented Aloe Liners"
+          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
         }
       ],
       "was_price": 5.5,
@@ -335195,7 +335188,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Scented Aloe Liners",
+      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -337200,11 +337193,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.0,
-          "unit_price": 10.0,
-          "eff_price": 3.0,
-          "was_price": 3.5,
-          "on_special": true
+          "price": 4.0,
+          "unit_price": 1.6,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.2,
@@ -362350,7 +362343,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-13"
+      "last_layer_a_check": "2026-08-16"
     },
     {
       "name": "Ww Condensed Tomato Soup 420G",
@@ -393338,7 +393331,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 85,
+      "consecutive_failures": 86,
       "quarantined": true
     },
     {
@@ -397775,7 +397768,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 382,
+      "consecutive_failures": 383,
       "quarantined": true,
       "last_layer_a_check": "2026-08-11"
     },
@@ -409358,7 +409351,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-08-15",
+      "last_layer_a_check": "2026-08-16",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-26"
     },
@@ -410243,19 +410236,12 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-smoochy-7042370",
       "stock": "medium",
       "target": null,
-      "price": 4.7,
-      "unit_price": 1.24,
-      "unit": "100g",
-      "eff_price": 4.7,
-      "store": "woolworths",
+      "price": 7.0,
+      "unit_price": 1.84,
+      "unit": "kg",
+      "eff_price": 7.0,
+      "store": "coles",
       "all_stores": {
-        "woolworths": {
-          "price": 4.7,
-          "unit_price": 1.24,
-          "eff_price": 4.7,
-          "was_price": 6.75,
-          "on_special": true
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 1.84,
@@ -410265,13 +410251,13 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/320711.jpg",
+      "image_url": "https://productimages.coles.com.au/7/7042370.jpg",
       "was_price": 6.75,
-      "on_special": true,
+      "on_special": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Pic's Smoochy Peanut Butter",
+      "name_check": "Peanut Butter Smoochy",
       "scrape_history": [
         {
           "date": "2026-04-30",
@@ -411099,11 +411085,11 @@
         },
         {
           "date": "2026-08-16",
-          "price": 4.7,
-          "is_special": true,
+          "price": 7.0,
+          "is_special": false,
           "was_price": 6.75,
-          "store": "woolworths",
-          "matched_name": "Pic's Smoochy Peanut Butter"
+          "store": "coles",
+          "matched_name": "Peanut Butter Smoochy"
         }
       ],
       "consecutive_failures": 0,
