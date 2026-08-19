@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-19T02:11:45.901354Z",
+  "last_updated": "2026-08-19T05:27:53.682154Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -2092,7 +2092,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Bacon (Middle)",
@@ -17441,7 +17441,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -18692,7 +18692,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -23821,7 +23821,7 @@
       "item_id": "01b8875c-2a94-4598-8b0d-91e7b82bbd2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Medjool Dates",
@@ -38251,7 +38251,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "coles",
+      "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -39231,21 +39231,21 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Italian Diced Tomatoes"
+          "store": "woolworths",
+          "matched_name": "Woolworths Diced Italian Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.4,
-          "unit_price": 3.5,
-          "eff_price": 1.4,
+          "price": 1.1,
+          "unit_price": 2.75,
+          "eff_price": 1.1,
           "was_price": null,
           "on_special": false
         },
@@ -39261,7 +39261,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Italian Diced Tomatoes",
+      "name_check": "Woolworths Diced Italian Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -55689,7 +55689,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -62926,7 +62926,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Ww Pear Mozzarella 350G",
@@ -73533,7 +73533,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true
     },
     {
@@ -76743,7 +76743,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true
     },
     {
@@ -79097,7 +79097,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 119,
+      "consecutive_failures": 120,
       "quarantined": true,
       "last_layer_a_check": "2026-08-18"
     },
@@ -85562,7 +85562,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true
     },
     {
@@ -122795,7 +122795,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true,
       "last_layer_a_check": "2026-08-19"
     },
@@ -143899,9 +143899,9 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 358,
+      "consecutive_failures": 359,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "6023464 Lenovo Tbone 8.7",
@@ -183956,7 +183956,7 @@
       "item_id": "9c814fae-293e-45c9-93da-921ecdcf71ac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
@@ -185027,7 +185027,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 4.2,
+      "price": 2.1,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -186004,18 +186004,25 @@
         },
         {
           "date": "2026-08-19",
-          "price": 4.2,
-          "is_special": false,
+          "price": 2.1,
+          "is_special": true,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Grape"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 7.0,
+      "store": "woolworths",
+      "unit_price": 3.5,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 2.1,
+          "unit_price": 3.5,
+          "eff_price": 2.1,
+          "was_price": 4.2,
+          "on_special": true
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -186025,15 +186032,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
       "avg_price": 2.1,
-      "eff_price": 4.2,
-      "on_special": false,
+      "eff_price": 2.1,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Electrolyte Water Grape",
+      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -204745,7 +204752,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 2.65,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "425Ml",
@@ -205722,36 +205729,36 @@
         },
         {
           "date": "2026-08-19",
-          "price": 2.65,
-          "is_special": true,
+          "price": 4.8,
+          "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
-          "matched_name": "Impressed Tropical Breakfast Juice"
+          "matched_name": "Impressed Pressed Juice Tropical Breakfast"
         }
       ],
       "was_price": 3.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Impressed_Tropical_Juice_425Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6047269.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/065620.jpg",
       "store": "woolworths",
-      "unit_price": 6.24,
+      "unit_price": 4.8,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.65,
-          "unit_price": 6.24,
-          "eff_price": 2.65,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 4.8,
+          "unit_price": 4.8,
+          "eff_price": 4.8,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.4,
-      "eff_price": 2.65,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Impressed Tropical Breakfast Juice",
+      "name_check": "Impressed Pressed Juice Tropical Breakfast",
       "item_id": "23b8ee07-d31d-496c-8484-d5f856881225",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -208063,7 +208070,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 509,
+      "consecutive_failures": 510,
       "quarantined": true
     },
     {
@@ -228772,7 +228779,7 @@
       "item_id": "76b4d9b9-17d9-47c3-a442-a0e34d7b15c1",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Click And Stay Bag",
@@ -240172,7 +240179,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -288974,7 +288981,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -309604,7 +309611,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 15,
+      "consecutive_failures": 16,
       "quarantined": true
     },
     {
@@ -323246,7 +323253,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -339732,7 +339739,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -339764,7 +339771,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -339998,7 +340005,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 530,
+      "consecutive_failures": 531,
       "quarantined": true
     },
     {
@@ -353356,6 +353363,13 @@
       "unit_price": 2.96,
       "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 13.75,
+          "unit_price": 11.0,
+          "eff_price": 13.75,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 12.0,
           "unit_price": 2.96,
@@ -389430,7 +389444,7 @@
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Pepsi Cola Soft Drink 1.25L",
@@ -402602,7 +402616,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 103,
+      "consecutive_failures": 104,
       "quarantined": true
     },
     {
@@ -407135,7 +407149,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 400,
+      "consecutive_failures": 401,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -419921,6 +419935,13 @@
       "eff_price": 5.0,
       "store": "coles",
       "all_stores": {
+        "woolworths": {
+          "price": 6.75,
+          "unit_price": 1.78,
+          "eff_price": 6.75,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 5.0,
           "unit_price": 1.32,
@@ -421701,7 +421722,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-19"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -428894,7 +428915,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-08-18",
+      "last_layer_a_check": "2026-08-19",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     }
