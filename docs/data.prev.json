@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-20T05:26:51.306622Z",
+  "last_updated": "2026-08-20T09:26:09.489510Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -18836,7 +18836,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -20910,7 +20910,7 @@
       "item_id": "f763877d-8d67-496c-bd11-2be94ed600b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Lemons (Bag)",
@@ -27117,7 +27117,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -28147,7 +28147,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Philly Cream Cheese",
@@ -48874,7 +48874,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -50950,7 +50950,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -62393,7 +62393,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 19.35,
+      "price": 10.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -63380,8 +63380,8 @@
         },
         {
           "date": "2026-08-20",
-          "price": 19.35,
-          "is_special": false,
+          "price": 20.0,
+          "is_special": true,
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -63389,22 +63389,22 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 19.35,
+      "unit_price": 20.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 19.35,
-          "unit_price": 19.35,
-          "eff_price": 19.35,
-          "was_price": null,
-          "on_special": false
+          "price": 10.0,
+          "unit_price": 20.0,
+          "eff_price": 20.0,
+          "was_price": 11.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 19.35,
-      "on_special": false,
+      "eff_price": 20.0,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -74101,7 +74101,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true
     },
     {
@@ -77335,7 +77335,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true
     },
     {
@@ -79705,7 +79705,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 124,
+      "consecutive_failures": 125,
       "quarantined": true,
       "last_layer_a_check": "2026-08-18"
     },
@@ -86218,7 +86218,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true
     },
     {
@@ -102623,9 +102623,9 @@
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
+          "price": 11.0,
+          "unit_price": 0.92,
+          "eff_price": 11.0,
           "was_price": null,
           "on_special": false
         },
@@ -108925,7 +108925,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 4.0,
+      "price": 1.5,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -109910,27 +109910,27 @@
         },
         {
           "date": "2026-08-20",
-          "price": 4.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
           "matched_name": "Continental Pasta & Sauce Carbonara"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.76,
+      "unit_price": 1.88,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.76,
-          "eff_price": 4.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 1.88,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 4.0,
@@ -109942,7 +109942,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 4.0,
+      "eff_price": 1.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -109950,7 +109950,7 @@
       "item_id": "3b66949a-617d-4585-b8bb-21862397e551",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Cottee'S Strawberry Jam 375G",
@@ -123739,7 +123739,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true,
       "last_layer_a_check": "2026-08-19"
     },
@@ -145003,7 +145003,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 363,
+      "consecutive_failures": 364,
       "quarantined": true,
       "last_layer_a_check": "2026-08-20"
     },
@@ -155407,13 +155407,6 @@
       "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 7.0,
           "unit_price": 7.0,
@@ -178091,7 +178084,7 @@
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Ww All Butter Croissant 189G 3Pk",
@@ -189553,7 +189546,7 @@
       "item_id": "c2daaf30-10fb-495b-a452-4ea69aec8935",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Colgate Tpaste Optic Wht Proser Frsh 80G",
@@ -204204,7 +204197,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.8,
+      "price": 7.7,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -205189,27 +205182,27 @@
         },
         {
           "date": "2026-08-20",
-          "price": 8.8,
-          "is_special": false,
+          "price": 7.7,
+          "is_special": true,
           "was_price": 9.8,
           "store": "woolworths",
-          "matched_name": "McCain Pizza Cheese & Bacon"
+          "matched_name": "McCain Pizza Slice Snacks Cheese & Bacon"
         }
       ],
       "was_price": 9.8,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112352.jpg",
       "store": "woolworths",
-      "unit_price": 1.76,
+      "unit_price": 1.28,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.8,
-          "unit_price": 1.76,
-          "eff_price": 8.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.7,
+          "unit_price": 1.28,
+          "eff_price": 7.7,
+          "was_price": 9.8,
+          "on_special": true
         },
         "coles": {
           "price": 9.8,
@@ -205221,11 +205214,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 8.8,
+      "eff_price": 7.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "McCain Pizza Cheese & Bacon",
+      "name_check": "McCain Pizza Slice Snacks Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -206321,7 +206314,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 4.8,
+      "price": 2.65,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "425Ml",
@@ -207306,36 +207299,36 @@
         },
         {
           "date": "2026-08-20",
-          "price": 4.8,
-          "is_special": false,
+          "price": 2.65,
+          "is_special": true,
           "was_price": 3.0,
           "store": "woolworths",
-          "matched_name": "Impressed Pressed Juice Tropical Breakfast"
+          "matched_name": "Impressed Tropical Breakfast Juice"
         }
       ],
       "was_price": 3.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Impressed_Tropical_Juice_425Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/065620.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6047269.jpg",
       "store": "woolworths",
-      "unit_price": 4.8,
+      "unit_price": 6.24,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 4.8,
-          "eff_price": 4.8,
-          "was_price": null,
-          "on_special": false
+          "price": 2.65,
+          "unit_price": 6.24,
+          "eff_price": 2.65,
+          "was_price": 3.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "avg_price": 2.4,
-      "eff_price": 4.8,
+      "eff_price": 2.65,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Impressed Pressed Juice Tropical Breakfast",
+      "name_check": "Impressed Tropical Breakfast Juice",
       "item_id": "23b8ee07-d31d-496c-8484-d5f856881225",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -209663,7 +209656,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 514,
+      "consecutive_failures": 515,
       "quarantined": true
     },
     {
@@ -250373,7 +250366,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 5.5,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "500G",
@@ -251358,27 +251351,27 @@
         },
         {
           "date": "2026-08-20",
-          "price": 5.5,
-          "is_special": true,
+          "price": 7.0,
+          "is_special": false,
           "was_price": 6.0,
           "store": "woolworths",
-          "matched_name": "Woolworths Mushrooms Cups Sliced Punnet"
+          "matched_name": "Woolworths Mushroom Sliced"
         }
       ],
       "was_price": 6.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Mushroom_Cups_Sliced_500G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/201685.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/089466.jpg",
       "store": "woolworths",
-      "unit_price": 14.67,
+      "unit_price": 14.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 14.67,
-          "eff_price": 5.5,
-          "was_price": 6.0,
-          "on_special": true
+          "price": 7.0,
+          "unit_price": 14.0,
+          "eff_price": 7.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 7.0,
@@ -251390,11 +251383,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 5.5,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Mushrooms Cups Sliced Punnet",
+      "name_check": "Woolworths Mushroom Sliced",
       "item_id": "72ea5351-3272-4b80-ab14-16e1481c7aa7",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -283676,7 +283669,7 @@
       "item_id": "00f3f294-2626-476e-98ce-dab4b2d15962",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-07"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Df Thick & Creamy Classic Vanilla 4X110G",
@@ -291205,7 +291198,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true,
       "last_layer_a_check": "2026-08-19"
     },
@@ -311987,7 +311980,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 20,
+      "consecutive_failures": 21,
       "quarantined": true
     },
     {
@@ -325733,7 +325726,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -342613,7 +342606,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 535,
+      "consecutive_failures": 536,
       "quarantined": true
     },
     {
@@ -405704,7 +405697,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 108,
+      "consecutive_failures": 109,
       "quarantined": true
     },
     {
@@ -410269,7 +410262,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 405,
+      "consecutive_failures": 406,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -425873,7 +425866,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-08-16"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -429501,7 +429494,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Sunny Queen Free Range Large Eggs 18 Pack 900g",
@@ -432219,7 +432212,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-08-19",
+      "last_layer_a_check": "2026-08-20",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     }
