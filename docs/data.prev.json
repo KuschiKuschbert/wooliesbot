@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-20T13:42:35.100238Z",
+  "last_updated": "2026-08-20T17:27:11.430291Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -14498,7 +14498,7 @@
       "coles": "https://www.coles.com.au/product/coles-broccoli-approx.-340g-each-407755",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.35,
+      "price": 2.11,
       "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_veg",
@@ -15484,7 +15484,7 @@
         },
         {
           "date": "2026-08-20",
-          "price": 6.9,
+          "price": 6.2,
           "is_special": false,
           "was_price": null,
           "store": "coles",
@@ -15495,13 +15495,13 @@
       "on_special": false,
       "local_image": "images/Broccoli.jpg",
       "image_url": "https://productimages.coles.com.au/4/407755.jpg",
-      "unit_price": 6.9,
+      "unit_price": 6.2,
       "unit": "kg",
       "all_stores": {
         "coles": {
-          "price": 2.35,
-          "unit_price": 6.9,
-          "eff_price": 6.9,
+          "price": 2.11,
+          "unit_price": 6.2,
+          "eff_price": 6.2,
           "was_price": null,
           "on_special": false
         }
@@ -15509,7 +15509,7 @@
       "price_unavailable": false,
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 6.9,
+      "eff_price": 6.2,
       "stale": false,
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-16",
@@ -17577,7 +17577,7 @@
       "item_id": "24dcb9f1-5978-4bcc-a628-9408977f552c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Pumpkin (Kent)",
@@ -18836,7 +18836,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -38547,7 +38547,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -39535,21 +39535,21 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Diced Italian Tomatoes"
+          "store": "coles",
+          "matched_name": "Italian Diced Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 2.75,
-          "eff_price": 1.1,
+          "price": 1.6,
+          "unit_price": 4.0,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -39565,7 +39565,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Diced Italian Tomatoes",
+      "name_check": "Italian Diced Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -41640,7 +41640,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -56121,7 +56121,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Laundry Powder (Omo)",
@@ -62393,7 +62393,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 10.0,
+      "price": 19.35,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -63380,8 +63380,8 @@
         },
         {
           "date": "2026-08-20",
-          "price": 20.0,
-          "is_special": true,
+          "price": 19.35,
+          "is_special": false,
           "was_price": 11.0,
           "store": "woolworths",
           "matched_name": "Woolworths Lean Beef Mince"
@@ -63389,22 +63389,22 @@
       ],
       "local_image": "images/Ww_Lean_Beef_Mince_1Kg.jpg",
       "store": "woolworths",
-      "unit_price": 20.0,
+      "unit_price": 19.35,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 10.0,
-          "unit_price": 20.0,
-          "eff_price": 20.0,
-          "was_price": 11.0,
-          "on_special": true
+          "price": 19.35,
+          "unit_price": 19.35,
+          "eff_price": 19.35,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577861.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/577862.jpg",
       "avg_price": 18.916666666666668,
-      "eff_price": 20.0,
-      "on_special": true,
+      "eff_price": 19.35,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -74101,7 +74101,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true
     },
     {
@@ -77335,7 +77335,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true
     },
     {
@@ -79705,7 +79705,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 126,
+      "consecutive_failures": 127,
       "quarantined": true,
       "last_layer_a_check": "2026-08-18"
     },
@@ -83889,7 +83889,7 @@
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Steggles Gravy Chicken Schnitzel 600G",
@@ -86218,7 +86218,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true
     },
     {
@@ -123739,7 +123739,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true,
       "last_layer_a_check": "2026-08-19"
     },
@@ -145003,7 +145003,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 365,
+      "consecutive_failures": 366,
       "quarantined": true,
       "last_layer_a_check": "2026-08-20"
     },
@@ -156474,7 +156474,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -177042,7 +177042,7 @@
       "item_id": "53f39246-5474-4bfc-b2af-deed3e766ed3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Colgate Total Tpaste Pr Frag Mint 95G",
@@ -209656,7 +209656,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 516,
+      "consecutive_failures": 517,
       "quarantined": true
     },
     {
@@ -242013,7 +242013,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Dine Creamy Treats Sfd Select 4X12G",
@@ -261795,7 +261795,7 @@
       "baseline_price": 3.8,
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Mainland Organic Salted Sprd Butter 250G",
@@ -291191,7 +291191,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true,
       "last_layer_a_check": "2026-08-20"
     },
@@ -311973,7 +311973,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 22,
+      "consecutive_failures": 23,
       "quarantined": true
     },
     {
@@ -325719,7 +325719,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -342599,7 +342599,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 537,
+      "consecutive_failures": 538,
       "quarantined": true
     },
     {
@@ -405690,7 +405690,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 110,
+      "consecutive_failures": 111,
       "quarantined": true
     },
     {
@@ -410255,7 +410255,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 407,
+      "consecutive_failures": 408,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -422222,7 +422222,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5255fb18-007c-42c5-93a2-21616300aab4",
-      "last_layer_a_check": "2026-08-19",
+      "last_layer_a_check": "2026-08-20",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-26"
     },
