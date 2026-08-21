@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-21T17:26:03.482007Z",
+  "last_updated": "2026-08-21T21:16:14.843642Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -18980,7 +18980,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -29406,7 +29406,7 @@
       "item_id": "e6e07de0-6eef-4c12-a53b-55898694fc50",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Sour Cream",
@@ -53423,7 +53423,7 @@
       "item_id": "c6ac79cb-8018-4733-9298-ac3195c5e4db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-14"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Whiskas Kitten 12pk",
@@ -54466,7 +54466,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -74669,7 +74669,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true
     },
     {
@@ -77659,22 +77659,22 @@
           "price": 0.9,
           "is_special": false,
           "was_price": 2.8,
-          "store": "coles",
-          "matched_name": "Original Water Crackers"
+          "store": "woolworths",
+          "matched_name": "Woolworths Plain Water Crackers"
         }
       ],
       "was_price": 2.8,
       "on_special": false,
       "local_image": "images/Ww_Original_Water_Crackers_125G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5389901.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/824365.jpg",
+      "store": "woolworths",
       "unit_price": 0.72,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 1.12,
-          "eff_price": 2.8,
+          "price": 0.9,
+          "unit_price": 0.72,
+          "eff_price": 0.9,
           "was_price": null,
           "on_special": false
         },
@@ -77692,7 +77692,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Original Water Crackers",
+      "name_check": "Woolworths Plain Water Crackers",
       "item_id": "38a8ec8a-bd5a-4969-a6e1-33091868262c",
       "consecutive_failures": 0,
       "quarantined": false
@@ -77927,7 +77927,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true
     },
     {
@@ -80313,7 +80313,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 133,
+      "consecutive_failures": 134,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -86874,7 +86874,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true
     },
     {
@@ -94209,9 +94209,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.3,
-          "unit_price": 9.3,
-          "eff_price": 9.3,
+          "price": 11.2,
+          "unit_price": 14.93,
+          "eff_price": 11.2,
           "was_price": null,
           "on_special": false
         },
@@ -124683,7 +124683,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -146107,7 +146107,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 372,
+      "consecutive_failures": 373,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -157673,7 +157673,7 @@
       "compare_group": "tp_quilton",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-20"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Rrd Potato Chips Honey Soy Chicken 165G",
@@ -188901,7 +188901,7 @@
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-20"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Old El Paso Taco Kit Hard N Soft 350G",
@@ -211263,7 +211263,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 523,
+      "consecutive_failures": 524,
       "quarantined": true
     },
     {
@@ -230185,7 +230185,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-17"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -271170,7 +271170,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 13.2,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -272163,41 +272163,41 @@
         },
         {
           "date": "2026-08-21",
-          "price": 13.2,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.47,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 13.2,
-          "unit_price": 1.47,
-          "eff_price": 13.2,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 13.2,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -293401,9 +293401,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-20"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Ww Ess Olive Oil 1L",
@@ -314335,7 +314335,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 29,
+      "consecutive_failures": 30,
       "quarantined": true
     },
     {
@@ -328185,7 +328185,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -345193,7 +345193,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 544,
+      "consecutive_failures": 545,
       "quarantined": true
     },
     {
@@ -352500,7 +352500,7 @@
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-03",
+      "last_layer_a_check": "2026-08-21",
       "eff_price": 4.8
     },
     {
@@ -367159,7 +367159,7 @@
       "item_id": "8e5538c8-39b5-4df0-8ef7-c83cfbbb224d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-11"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Potato Roasting 1.5Kg",
@@ -408764,7 +408764,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 117,
+      "consecutive_failures": 118,
       "quarantined": true
     },
     {
@@ -413361,7 +413361,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 414,
+      "consecutive_failures": 415,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -430011,7 +430011,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-21"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
