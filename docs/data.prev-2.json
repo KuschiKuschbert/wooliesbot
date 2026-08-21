@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-20T17:27:11.430291Z",
+  "last_updated": "2026-08-20T21:20:39.034362Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -16547,7 +16547,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -18836,7 +18836,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -21938,7 +21938,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18",
+      "last_layer_a_check": "2026-08-20",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
@@ -39569,7 +39569,7 @@
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Liquid Stock (Campbells)",
@@ -74101,7 +74101,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true
     },
     {
@@ -77335,7 +77335,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true
     },
     {
@@ -79705,7 +79705,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 127,
+      "consecutive_failures": 128,
       "quarantined": true,
       "last_layer_a_check": "2026-08-18"
     },
@@ -86218,7 +86218,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true
     },
     {
@@ -115167,7 +115167,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -123739,7 +123739,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true,
       "last_layer_a_check": "2026-08-19"
     },
@@ -145003,7 +145003,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 366,
+      "consecutive_failures": 367,
       "quarantined": true,
       "last_layer_a_check": "2026-08-20"
     },
@@ -154393,7 +154393,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-16"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Nu Pure Lemon Lime Spklingwater12X500Ml",
@@ -186437,7 +186437,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 2.1,
+      "price": 4.2,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -187422,25 +187422,18 @@
         },
         {
           "date": "2026-08-20",
-          "price": 2.1,
-          "is_special": true,
+          "price": 4.2,
+          "is_special": false,
           "was_price": 4.2,
-          "store": "woolworths",
-          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
+          "store": "coles",
+          "matched_name": "Electrolyte Water Grape"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 3.5,
+      "store": "coles",
+      "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
-        "woolworths": {
-          "price": 2.1,
-          "unit_price": 3.5,
-          "eff_price": 2.1,
-          "was_price": 4.2,
-          "on_special": true
-        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -187450,15 +187443,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
+      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
       "avg_price": 2.1,
-      "eff_price": 2.1,
-      "on_special": true,
+      "eff_price": 4.2,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
+      "name_check": "Electrolyte Water Grape",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -209656,7 +209649,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 517,
+      "consecutive_failures": 518,
       "quarantined": true
     },
     {
@@ -222179,7 +222172,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -245140,7 +245133,7 @@
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Western Star Unsalted Butter 250G",
@@ -260751,7 +260744,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-11"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -291191,7 +291184,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true,
       "last_layer_a_check": "2026-08-20"
     },
@@ -311973,7 +311966,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 23,
+      "consecutive_failures": 24,
       "quarantined": true
     },
     {
@@ -325719,7 +325712,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -342599,7 +342592,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 538,
+      "consecutive_failures": 539,
       "quarantined": true
     },
     {
@@ -405690,7 +405683,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 111,
+      "consecutive_failures": 112,
       "quarantined": true
     },
     {
@@ -410255,9 +410248,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 408,
+      "consecutive_failures": 409,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-16"
+      "last_layer_a_check": "2026-08-20"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
