@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-22T02:08:52.084789Z",
+  "last_updated": "2026-08-22T05:22:17.154373Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -19124,7 +19124,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true,
       "last_layer_a_check": "2026-08-22"
     },
@@ -22274,7 +22274,7 @@
       "item_id": "0a3bb737-f247-4bdf-8f82-6f1a85664c61",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-20",
+      "last_layer_a_check": "2026-08-22",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
@@ -37024,7 +37024,7 @@
       "item_id": "714f83be-d54b-463f-bad5-596bdf225486",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Wraps (Mission Carb Balance)",
@@ -49626,7 +49626,7 @@
       "item_id": "a2d947c9-e8d3-4679-a400-c8a34eb7cb28",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-20"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Coke No Sugar 24pk",
@@ -54882,7 +54882,7 @@
       "item_id": "8027fda4-ab2b-493d-ba2f-6839c7de6dc0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Pedigree Dog Food 3kg",
@@ -75237,7 +75237,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true
     },
     {
@@ -78264,9 +78264,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -78519,7 +78519,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true
     },
     {
@@ -80921,7 +80921,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 135,
+      "consecutive_failures": 136,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -81982,7 +81982,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Potato Brushed 4Kg",
@@ -84101,7 +84101,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -87530,7 +87530,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true
     },
     {
@@ -125395,7 +125395,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -125627,7 +125627,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true,
       "last_layer_a_check": "2026-08-22"
     },
@@ -126696,7 +126696,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 6.95,
+      "price": 16.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1L",
@@ -127697,23 +127697,23 @@
         },
         {
           "date": "2026-08-22",
-          "price": 6.95,
+          "price": 16.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Dove Fresh Touch Body Wash Cucumber & Green Tea"
+          "store": "coles",
+          "matched_name": "Naturals Body Wash Pomegranate & Mango"
         }
       ],
       "local_image": "images/FF_Body_Wash_Cucumber__Kakadu_Plum_1L.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6074753.jpg",
-      "store": "woolworths",
-      "unit_price": 12.6,
+      "image_url": "https://productimages.coles.com.au/5/5257128.jpg",
+      "store": "coles",
+      "unit_price": 0.89,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 6.95,
-          "unit_price": 12.6,
-          "eff_price": 6.95,
+          "price": 25.0,
+          "unit_price": 25.0,
+          "eff_price": 25.0,
           "was_price": null,
           "on_special": false
         },
@@ -127727,13 +127727,13 @@
       },
       "price_unavailable": false,
       "avg_price": 10.8,
-      "eff_price": 6.95,
+      "eff_price": 16.0,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Dove Fresh Touch Body Wash Cucumber & Green Tea",
+      "name_check": "Naturals Body Wash Pomegranate & Mango",
       "item_id": "8e0f1357-f814-4342-8a1f-0a76e1c0110e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -147211,7 +147211,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 374,
+      "consecutive_failures": 375,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -166005,7 +166005,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 4.2,
+      "price": 2.1,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "600Ml",
@@ -167006,21 +167006,28 @@
         },
         {
           "date": "2026-08-22",
-          "price": 4.2,
-          "is_special": false,
+          "price": 2.1,
+          "is_special": true,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Coconut"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Coconut Breeze Sugar Free"
         }
       ],
       "was_price": 4.2,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/G-Active_Coconut_Breeze_600Ml.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1056587.jpg",
-      "store": "coles",
-      "unit_price": 7.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6008590.jpg",
+      "store": "woolworths",
+      "unit_price": 3.5,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 2.1,
+          "unit_price": 3.5,
+          "eff_price": 2.1,
+          "was_price": 4.2,
+          "on_special": true
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -167031,11 +167038,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.1500000000000004,
-      "eff_price": 4.2,
+      "eff_price": 2.1,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Electrolyte Water Coconut",
+      "name_check": "Gatorade G Active Water Sports Drinks Coconut Breeze Sugar Free",
       "item_id": "0354e240-bffc-42e5-aad5-43e94e99c393",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -170168,22 +170175,22 @@
           "price": 4.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Peas & Super Juicy Corn Kernels"
+          "store": "woolworths",
+          "matched_name": "McCain Frozen Peas & Super Juicy Corn"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Mccain_Peas_&_Super_Juicy_Corn_500G.jpg",
       "image_url": "images/mccain_peas__super_juicy_corn_500g.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 9.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 7.3,
-          "unit_price": 7.3,
-          "eff_price": 7.3,
+          "price": 4.5,
+          "unit_price": 9.0,
+          "eff_price": 4.5,
           "was_price": null,
           "on_special": false
         },
@@ -170201,7 +170208,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Peas & Super Juicy Corn Kernels",
+      "name_check": "McCain Frozen Peas & Super Juicy Corn",
       "item_id": "79d0f0a6-7916-4ce0-952f-5b790a41885f",
       "consecutive_failures": 0,
       "quarantined": false
@@ -189292,7 +189299,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-18",
-      "price": 4.2,
+      "price": 2.1,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "600Ml",
@@ -190293,18 +190300,25 @@
         },
         {
           "date": "2026-08-22",
-          "price": 4.2,
-          "is_special": false,
+          "price": 2.1,
+          "is_special": true,
           "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Electrolyte Water Grape"
+          "store": "woolworths",
+          "matched_name": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free"
         }
       ],
       "local_image": "images/G_Active_Flav_Water_Grape_600Ml.jpg",
-      "store": "coles",
-      "unit_price": 7.0,
+      "store": "woolworths",
+      "unit_price": 3.5,
       "unit": "litre",
       "all_stores": {
+        "woolworths": {
+          "price": 2.1,
+          "unit_price": 3.5,
+          "eff_price": 2.1,
+          "was_price": 4.2,
+          "on_special": true
+        },
         "coles": {
           "price": 4.2,
           "unit_price": 7.0,
@@ -190314,15 +190328,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/4/4661569.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/173487.jpg",
       "avg_price": 2.1,
-      "eff_price": 4.2,
-      "on_special": false,
+      "eff_price": 2.1,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 4.2,
-      "name_check": "Electrolyte Water Grape",
+      "name_check": "Gatorade G Active Water Sports Drinks Grape Electrolyte Sugar Free",
       "item_id": "9bc08a1e-77f2-4701-8cfa-6e995573fcf6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -195640,7 +195654,7 @@
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Buderim Ginger Cordial No Sgr Llb 750Ml",
@@ -212856,7 +212870,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 525,
+      "consecutive_failures": 526,
       "quarantined": true
     },
     {
@@ -231922,7 +231936,7 @@
       "item_id": "a56751df-96e8-4bd2-ba6a-ba22431e8d45",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Corn Cobbettes 425G P/P",
@@ -238290,7 +238304,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.5,
+      "price": 2.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "38G",
@@ -239291,21 +239305,28 @@
         },
         {
           "date": "2026-08-22",
-          "price": 2.5,
+          "price": 2.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Onion Powder"
+          "store": "woolworths",
+          "matched_name": "Woolworths Onion Powder"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Onion_Powder_38G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5070863.jpg",
-      "store": "coles",
-      "unit_price": 0.6,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/647760.jpg",
+      "store": "woolworths",
+      "unit_price": 0.53,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 2.0,
+          "unit_price": 0.53,
+          "eff_price": 2.0,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 2.5,
           "unit_price": 0.6,
@@ -239316,11 +239337,11 @@
       },
       "price_unavailable": false,
       "avg_price": 2.0,
-      "eff_price": 2.5,
+      "eff_price": 2.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Onion Powder",
+      "name_check": "Woolworths Onion Powder",
       "item_id": "6d35e21d-4687-4567-9815-6f4dc545a27e",
       "consecutive_failures": 0,
       "quarantined": false
@@ -264721,7 +264742,7 @@
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Cocobella Coconut Wtr W/Mln And Mnt 1L",
@@ -267869,9 +267890,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 3.83,
-          "eff_price": 2.3,
+          "price": 1.6,
+          "unit_price": 1.88,
+          "eff_price": 1.6,
           "was_price": null,
           "on_special": false
         },
@@ -295625,7 +295646,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true,
       "last_layer_a_check": "2026-08-22"
     },
@@ -316711,7 +316732,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -330665,7 +330686,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true,
       "last_layer_a_check": "2026-08-17"
     },
@@ -347535,7 +347556,7 @@
           "is_special": false,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -347567,7 +347588,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -347801,7 +347822,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 546,
+      "consecutive_failures": 547,
       "quarantined": true
     },
     {
@@ -392068,7 +392089,7 @@
       "item_id": "9d806358-134d-4595-bbad-00a8b79f6f97",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Aeroplane Jelly Berry Blue 85G",
@@ -411852,7 +411873,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 119,
+      "consecutive_failures": 120,
       "quarantined": true
     },
     {
@@ -416481,7 +416502,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 416,
+      "consecutive_failures": 417,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -426804,7 +426825,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-08-12"
+      "last_layer_a_check": "2026-08-22"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
@@ -437878,7 +437899,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-08-21",
+      "last_layer_a_check": "2026-08-22",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
