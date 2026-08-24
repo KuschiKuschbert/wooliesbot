@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-24T09:38:45.848408Z",
+  "last_updated": "2026-08-24T13:44:38.910572Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -10665,7 +10665,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23",
+      "last_layer_a_check": "2026-08-24",
       "name_check": " Hass Avocado  each"
     },
     {
@@ -19412,7 +19412,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true,
       "last_layer_a_check": "2026-08-22"
     },
@@ -58916,7 +58916,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Dishmatic Refills",
@@ -76373,7 +76373,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true
     },
     {
@@ -79703,7 +79703,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true
     },
     {
@@ -82137,7 +82137,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 149,
+      "consecutive_failures": 150,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -88842,7 +88842,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true
     },
     {
@@ -94229,7 +94229,7 @@
       "item_id": "970ff1cd-c5d2-4196-af9a-4e475bf0eb16",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Vegeta Beef Stock Cubes 60G",
@@ -127515,7 +127515,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -149412,7 +149412,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 388,
+      "consecutive_failures": 389,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -188875,7 +188875,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "San Remo Risoni Pasta",
       "item_id": "6ccbe2bb-f507-4720-9389-45495ae72f94",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false,
       "last_layer_a_check": "2026-08-24"
     },
@@ -205000,7 +205000,7 @@
           "is_special": false,
           "was_price": 8.5,
           "store": "woolworths",
-          "matched_name": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant"
+          "matched_name": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant"
         }
       ],
       "local_image": "images/Rexona_Men_Ap_Adv_Coconut_Clns_220Ml.jpg",
@@ -205024,7 +205024,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075764.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6075153.jpg",
       "avg_price": 5.25,
       "eff_price": 4.9,
       "on_special": false,
@@ -205032,7 +205032,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 8.5,
-      "name_check": "Rexona Men Antiperspirant Advanced Protection Sport Deodorant",
+      "name_check": "Rexona Men Antiperspirant Advanced Protection Workout Deodorant",
       "item_id": "34e4634b-0c8a-4899-8e39-4f459ed184e5",
       "consecutive_failures": 0,
       "quarantined": false
@@ -210409,7 +210409,7 @@
         },
         "coles": {
           "price": 14.4,
-          "unit_price": 19.2,
+          "unit_price": null,
           "eff_price": 14.4,
           "was_price": null,
           "on_special": false
@@ -210426,7 +210426,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Mccain Pizza Slice Cheese And Bacon600G",
@@ -216062,7 +216062,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 539,
+      "consecutive_failures": 540,
       "quarantined": true
     },
     {
@@ -233279,7 +233279,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.55,
+      "price": 2.45,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -234296,24 +234296,24 @@
         },
         {
           "date": "2026-08-24",
-          "price": 2.55,
-          "is_special": false,
-          "was_price": 3.3,
+          "price": 2.45,
+          "is_special": true,
+          "was_price": 3.5,
           "store": "woolworths",
           "matched_name": "Mount Franklin Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 4.25,
+      "unit_price": 1.63,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.55,
-          "unit_price": 4.25,
-          "eff_price": 2.55,
-          "was_price": null,
-          "on_special": false
+          "price": 2.45,
+          "unit_price": 1.63,
+          "eff_price": 2.45,
+          "was_price": 3.5,
+          "on_special": true
         },
         "coles": {
           "price": 2.55,
@@ -234324,14 +234324,14 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/045533.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/015917.jpg",
       "avg_price": 2.45,
-      "eff_price": 2.55,
-      "on_special": false,
+      "eff_price": 2.45,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "was_price": 3.3,
+      "was_price": 3.5,
       "name_check": "Mount Franklin Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
@@ -271907,9 +271907,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
+          "price": 2.3,
+          "unit_price": 3.83,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -277337,7 +277337,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 13.2,
+      "price": 12.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -278354,41 +278354,41 @@
         },
         {
           "date": "2026-08-24",
-          "price": 13.2,
+          "price": 12.0,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
+          "matched_name": "Manning Valley 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
       "store": "woolworths",
-      "unit_price": 1.47,
+      "unit_price": 1.33,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 13.2,
-          "unit_price": 1.47,
-          "eff_price": 13.2,
+          "price": 12.0,
+          "unit_price": 1.33,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 13.2,
+      "eff_price": 12.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sunny Queen 18 Large Free Range Eggs",
+      "name_check": "Manning Valley 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Potato Spud Lite 1.5 Kg Pp",
@@ -293399,9 +293399,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.6,
-          "unit_price": 1.1,
-          "eff_price": 6.6,
+          "price": 3.3,
+          "unit_price": 2.2,
+          "eff_price": 3.3,
           "was_price": null,
           "on_special": false
         },
@@ -293440,7 +293440,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 10.5,
+      "price": 32.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -294459,28 +294459,21 @@
         },
         {
           "date": "2026-08-24",
-          "price": 10.5,
+          "price": 32.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Extra Tasty Cheese Block"
+          "store": "coles",
+          "matched_name": "White Label Chardonnay 750ml"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6044080.jpg",
-      "store": "woolworths",
-      "unit_price": 10.5,
-      "unit": "kg",
+      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
+      "store": "coles",
+      "unit_price": null,
+      "unit": "each",
       "all_stores": {
-        "woolworths": {
-          "price": 10.5,
-          "unit_price": 10.5,
-          "eff_price": 10.5,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 32.0,
           "unit_price": null,
@@ -294491,11 +294484,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 10.5,
+      "eff_price": 32.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Extra Tasty Cheese Block",
+      "name_check": "White Label Chardonnay 750ml",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -300079,7 +300072,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -321469,7 +321462,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 45,
+      "consecutive_failures": 46,
       "quarantined": true
     },
     {
@@ -335631,9 +335624,9 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Voost Hydrate Raspberry Sugar Free 20Pk",
@@ -336707,7 +336700,7 @@
       "item_id": "f537f68a-7e3d-4413-aa47-e945a44a2321",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Strike Pro Disinfectnt Wipes Apple 100Pk",
@@ -353023,7 +353016,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 560,
+      "consecutive_failures": 561,
       "quarantined": true
     },
     {
@@ -418034,7 +418027,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 133,
+      "consecutive_failures": 134,
       "quarantined": true
     },
     {
@@ -422727,7 +422720,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 430,
+      "consecutive_failures": 431,
       "quarantined": true,
       "last_layer_a_check": "2026-08-21"
     },
@@ -438843,7 +438836,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dba22462-916f-4ee2-b7f3-06d78140ea38",
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-24"
     },
     {
       "name": "Tip Top The One White Toast Bread 700g",
@@ -441655,7 +441648,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "3d5718c8-cee3-48a3-a380-ad764b96d853",
-      "last_layer_a_check": "2026-08-23",
+      "last_layer_a_check": "2026-08-24",
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-06-29"
     },
