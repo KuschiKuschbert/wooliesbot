@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-25T09:34:07.638015Z",
+  "last_updated": "2026-08-25T13:40:52.009996Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -19556,9 +19556,9 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-22"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Corn Cobs",
@@ -20635,7 +20635,7 @@
       "item_id": "00ec06fd-6a88-465a-bd2f-507df93816db",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Watermelon (Quarter)",
@@ -27076,7 +27076,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Butter (Western Star)",
@@ -29227,7 +29227,7 @@
       "item_id": "d1290a6c-f2dd-472d-908b-481b2684e724",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-20"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Philly Cream Cheese",
@@ -50767,9 +50767,9 @@
       "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-24x375ml-24-pack-2993740",
       "stock": "medium",
       "last_purchased": null,
-      "price": 0.4444444444444444,
-      "eff_price": 0.4444444444444444,
-      "store": "woolworths",
+      "price": 3.0,
+      "eff_price": 3.0,
+      "store": "coles",
       "brand": "Coke",
       "subcategory": "beverages",
       "size": "24pk",
@@ -51796,24 +51796,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 0.4444444444444444,
+          "price": 3.0,
           "is_special": false,
           "was_price": 5.0,
-          "store": "woolworths",
-          "matched_name": "Coca-Cola Zero Sugar Soft Drink Bottle"
+          "store": "coles",
+          "matched_name": "Zero Sugar Soft Drink Multipack Cans 375ml"
         }
       ],
       "was_price": 5.0,
       "on_special": false,
       "local_image": "images/Coke_No_Sugar_24pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/672966.jpg",
-      "unit_price": 2.0,
+      "image_url": "https://productimages.coles.com.au/2/2993740.jpg",
+      "unit_price": 3.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.0,
-          "eff_price": 0.4444444444444444,
+          "price": 32.0,
+          "unit_price": 2.84,
+          "eff_price": 3.5555555555555554,
           "was_price": null,
           "on_special": false
         },
@@ -51829,7 +51829,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Coca-Cola Zero Sugar Soft Drink Bottle",
+      "name_check": "Zero Sugar Soft Drink Multipack Cans 375ml",
       "item_id": "9586118c-1fe3-4889-829c-e7fc74323e50",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -52923,8 +52923,8 @@
       "coles": "https://www.coles.com.au/product/coca-cola-zero-sugar-soft-drink-multipack-cans-30x375ml-30-pack-8464810",
       "stock": "medium",
       "last_purchased": null,
-      "price": 0.35555555555555557,
-      "eff_price": 0.35555555555555557,
+      "price": 2.8444444444444446,
+      "eff_price": 2.8444444444444446,
       "store": "woolworths",
       "brand": "Coke",
       "subcategory": "beverages",
@@ -53950,24 +53950,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 0.35555555555555557,
+          "price": 2.8444444444444446,
           "is_special": false,
           "was_price": 4.0,
           "store": "woolworths",
-          "matched_name": "Coca-Cola Zero Sugar Soft Drink Bottle"
+          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
         }
       ],
       "was_price": 4.0,
       "on_special": false,
       "local_image": "images/Coke_No_Sugar_30pk.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/672966.jpg",
-      "unit_price": 2.0,
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/679121.jpg",
+      "unit_price": 2.84,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.0,
-          "eff_price": 0.35555555555555557,
+          "price": 32.0,
+          "unit_price": 2.84,
+          "eff_price": 2.8444444444444446,
           "was_price": null,
           "on_special": false
         },
@@ -53983,7 +53983,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Coca-Cola Zero Sugar Soft Drink Bottle",
+      "name_check": "Coca-Cola Zero Sugar Soft Drink Cans",
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -76941,7 +76941,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true
     },
     {
@@ -80295,7 +80295,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true
     },
     {
@@ -82745,7 +82745,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -89498,7 +89498,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true
     },
     {
@@ -105473,7 +105473,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.6,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
@@ -128459,7 +128459,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -150523,7 +150523,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 394,
+      "consecutive_failures": 395,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -160272,7 +160272,7 @@
       "item_id": "8ff04dc8-189c-4ed5-990f-a77a954b1ae0",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-22",
+      "last_layer_a_check": "2026-08-25",
       "eff_price": 3.2
     },
     {
@@ -192452,7 +192452,7 @@
       "item_id": "9c814fae-293e-45c9-93da-921ecdcf71ac",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Nescafe Esp Conc Sweet Vanilla 500Ml",
@@ -217670,7 +217670,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 545,
+      "consecutive_failures": 546,
       "quarantined": true
     },
     {
@@ -230673,7 +230673,7 @@
       "item_id": "e40a99e5-a5ca-44b2-8b08-6580a24dfc4c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Nurofen Zavance Liquid Caps 20Pk",
@@ -279387,7 +279387,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-20",
-      "price": 12.0,
+      "price": 13.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "18Pk",
@@ -280412,36 +280412,36 @@
         },
         {
           "date": "2026-08-25",
-          "price": 12.0,
+          "price": 13.2,
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Manning Valley 18 Large Free Range Eggs"
+          "matched_name": "Sunny Queen 18 Large Free Range Eggs"
         }
       ],
       "was_price": 12.7,
       "on_special": false,
       "local_image": "images/Ww_Free_Range_Lge_Eggs_18Pk_900G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/689556.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/771237.jpg",
       "store": "woolworths",
-      "unit_price": 1.33,
+      "unit_price": 1.47,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 1.33,
-          "eff_price": 12.0,
+          "price": 13.2,
+          "unit_price": 1.47,
+          "eff_price": 13.2,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 8.9,
-      "eff_price": 12.0,
+      "eff_price": 13.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Manning Valley 18 Large Free Range Eggs",
+      "name_check": "Sunny Queen 18 Large Free Range Eggs",
       "item_id": "26269db4-012f-478a-b48a-b11340ee261a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -302290,7 +302290,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -309817,19 +309817,19 @@
           "price": 3.45,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Spring Water Bottle"
+          "store": "woolworths",
+          "matched_name": "Pump Spring Water Bottle"
         }
       ],
       "local_image": "images/Pump_Water_Pure_750Ml.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 2.76,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 13.95,
-          "unit_price": null,
-          "eff_price": 13.95,
+          "price": 3.45,
+          "unit_price": 2.76,
+          "eff_price": 3.45,
           "was_price": null,
           "on_special": false
         },
@@ -309842,7 +309842,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8973472.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/148409.jpg",
       "avg_price": 3.15,
       "eff_price": 3.45,
       "on_special": false,
@@ -309850,7 +309850,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Spring Water Bottle",
+      "name_check": "Pump Spring Water Bottle",
       "item_id": "bebdd48d-6b75-4b08-a7e4-b76d6f2eb833",
       "consecutive_failures": 0,
       "quarantined": false
@@ -323832,7 +323832,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 51,
+      "consecutive_failures": 52,
       "quarantined": true
     },
     {
@@ -338098,7 +338098,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -347823,7 +347823,7 @@
       "compare_group": "sourdough_loaf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24",
+      "last_layer_a_check": "2026-08-25",
       "eff_price": 3.25
     },
     {
@@ -355618,7 +355618,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 566,
+      "consecutive_failures": 567,
       "quarantined": true
     },
     {
@@ -400893,7 +400893,7 @@
       "item_id": "9d806358-134d-4595-bbad-00a8b79f6f97",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Aeroplane Jelly Berry Blue 85G",
@@ -411707,15 +411707,15 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.0,
-      "unit_price": 2.0,
+      "price": 2.5,
+      "unit_price": 2.5,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 2.5,
+          "unit_price": 2.5,
+          "eff_price": 2.5,
           "was_price": null,
           "on_special": false
         },
@@ -412740,24 +412740,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.0,
+          "price": 2.5,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "The Odd Bunch Continental Cucumber"
+          "matched_name": "Woolworths Continental Cucumbers"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.0,
+      "eff_price": 2.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "The Odd Bunch Continental Cucumber",
+      "name_check": "Woolworths Continental Cucumbers",
       "item_id": "11e7aa33-0137-4912-a4e8-fb4bd1fb81fc",
       "consecutive_failures": 0,
       "quarantined": false
@@ -419186,17 +419186,17 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 5.7,
-      "unit_price": 22.8,
+      "price": 4.0,
+      "unit_price": 16.0,
       "unit": "kg",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
-          "was_price": null,
-          "on_special": false
+          "price": 4.0,
+          "unit_price": 16.0,
+          "eff_price": 4.0,
+          "was_price": 5.7,
+          "on_special": true
         },
         "coles": {
           "price": 5.7,
@@ -420219,24 +420219,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 5.7,
-          "is_special": false,
+          "price": 4.0,
+          "is_special": true,
           "was_price": 5.7,
           "store": "woolworths",
-          "matched_name": "Philadelphia Light Cream Cheese Spread Tub"
+          "matched_name": "Philadelphia Original Cream Cheese Block"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 5.7,
+      "eff_price": 4.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 5.7,
-      "on_special": false,
-      "name_check": "Philadelphia Light Cream Cheese Spread Tub",
+      "on_special": true,
+      "name_check": "Philadelphia Original Cream Cheese Block",
       "item_id": "c85ecdb0-c9f4-4dca-afca-17d36eee4d38",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -421109,7 +421109,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 139,
+      "consecutive_failures": 140,
       "quarantined": true
     },
     {
@@ -425834,9 +425834,9 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 436,
+      "consecutive_failures": 437,
       "quarantined": true,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Always Fresh Dill Cucumbers 680G",
@@ -437339,7 +437339,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -440176,7 +440176,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -443971,7 +443971,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
