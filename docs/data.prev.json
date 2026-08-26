@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-26T17:40:47.984836Z",
+  "last_updated": "2026-08-26T23:42:57.102619Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -17315,7 +17315,7 @@
       "item_id": "085a665d-a1d6-46fc-bc5f-1ae9b6b7e389",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Mushrooms (Cup)",
@@ -19700,7 +19700,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -42476,7 +42476,7 @@
       "item_id": "b5506d54-b5e2-44a3-9948-23af15afe19a",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Peanut Butter (Pics)",
@@ -43560,7 +43560,7 @@
       "compare_group": "peanut_butter",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Coffee (Nescafe Espresso)",
@@ -53302,7 +53302,7 @@
       "item_id": "d9fcc2d5-9440-42d1-b5d1-fa0b181f0c27",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Coke No Sugar 30pk",
@@ -77509,7 +77509,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true
     },
     {
@@ -80887,7 +80887,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true
     },
     {
@@ -83353,7 +83353,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 163,
+      "consecutive_failures": 164,
       "quarantined": true,
       "last_layer_a_check": "2026-08-26"
     },
@@ -90154,7 +90154,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true
     },
     {
@@ -124822,7 +124822,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Perfect Italiano Shaved Parmesan 125G",
@@ -129403,7 +129403,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -131593,7 +131593,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.75,
+      "price": 0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "118G",
@@ -132523,8 +132523,8 @@
         }
       ],
       "store": "woolworths",
-      "unit_price": 2.08,
-      "unit": "100g",
+      "unit_price": null,
+      "unit": null,
       "all_stores": {
         "woolworths": {
           "price": 3.75,
@@ -132534,20 +132534,19 @@
           "on_special": true
         }
       },
-      "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/091151.jpg",
+      "price_unavailable": true,
+      "image_url": "",
       "avg_price": 4.5,
       "on_special": true,
-      "stale": true,
+      "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "was_price": 7.5,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 0,
+      "consecutive_failures": 1,
       "quarantined": false,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
-      "last_layer_a_check": "2026-08-26",
-      "eff_price": 3.75
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Cadbury Turkish Delight Eggs 117G",
@@ -132564,7 +132563,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 3.0,
+      "price": 1.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -133597,23 +133596,23 @@
         },
         {
           "date": "2026-08-26",
-          "price": 3.0,
-          "is_special": false,
+          "price": 1.5,
+          "is_special": true,
           "was_price": 3.0,
-          "store": "coles",
-          "matched_name": "Turkish Delight Dark Chocolate Bar"
+          "store": "woolworths",
+          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
         }
       ],
-      "store": "coles",
-      "unit_price": 6.0,
-      "unit": "kg",
+      "store": "woolworths",
+      "unit_price": 3.0,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 1.5,
+          "unit_price": 3.0,
+          "eff_price": 1.5,
+          "was_price": 3.0,
+          "on_special": true
         },
         "coles": {
           "price": 3.0,
@@ -133624,15 +133623,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
       "avg_price": 4.5,
-      "eff_price": 3.0,
-      "on_special": false,
+      "eff_price": 1.5,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Turkish Delight Dark Chocolate Bar",
+      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -136921,7 +136920,7 @@
       "item_id": "047c6de3-c9d6-4db2-8bd5-4bfcb4bf99da",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Dorsogna Leg Hm Trplsmkd 97% F/F Shvd Kg",
@@ -151627,7 +151626,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 402,
+      "consecutive_failures": 403,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -153829,7 +153828,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-23",
-      "price": 9.0,
+      "price": 14.5,
       "brand": "Private Label",
       "subcategory": "beverages",
       "size": "Standard",
@@ -154862,25 +154861,25 @@
         },
         {
           "date": "2026-08-26",
-          "price": 9.0,
+          "price": 14.5,
           "is_special": false,
           "was_price": 11.0,
-          "store": "woolworths",
-          "matched_name": "Woolworths Beef Scotch Fillet Steak"
+          "store": "coles",
+          "matched_name": "Graze Grassfed Beef Scotch Fillet Steak"
         }
       ],
       "was_price": 11.0,
       "on_special": false,
       "local_image": "images/Ww_Beef_Scotch_Fillet_Steak_Medium.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/317293.jpg",
-      "store": "woolworths",
-      "unit_price": 52.94,
+      "image_url": "https://productimages.coles.com.au/3/3855388.jpg",
+      "store": "coles",
+      "unit_price": 58.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 9.0,
-          "unit_price": 52.94,
-          "eff_price": 9.0,
+          "price": 37.2,
+          "unit_price": 46.5,
+          "eff_price": 37.2,
           "was_price": null,
           "on_special": false
         },
@@ -154894,11 +154893,11 @@
       },
       "price_unavailable": false,
       "avg_price": 13.096666666666666,
-      "eff_price": 9.0,
+      "eff_price": 14.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Beef Scotch Fillet Steak",
+      "name_check": "Graze Grassfed Beef Scotch Fillet Steak",
       "item_id": "e2a60e93-7924-4db6-9bcb-8ec49aebe6a3",
       "consecutive_failures": 0,
       "quarantined": false
@@ -213564,7 +213563,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 7.7,
+      "price": 7.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -214597,27 +214596,27 @@
         },
         {
           "date": "2026-08-26",
-          "price": 7.7,
-          "is_special": false,
-          "was_price": 9.8,
-          "store": "coles",
-          "matched_name": "Cheese & Bacon Pizza Slices 2 Pack"
+          "price": 7.0,
+          "is_special": true,
+          "was_price": 8.8,
+          "store": "woolworths",
+          "matched_name": "McCain Pizza Cheese & Bacon"
         }
       ],
-      "was_price": 9.8,
-      "on_special": false,
+      "was_price": 8.8,
+      "on_special": true,
       "local_image": "images/Mccain_Pizza_Slice_Cheese_And_Bacon600G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8544829.jpg",
-      "store": "coles",
-      "unit_price": 1.28,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/093831.jpg",
+      "store": "woolworths",
+      "unit_price": 1.4,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 9.8,
-          "unit_price": 1.63,
-          "eff_price": 9.8,
-          "was_price": null,
-          "on_special": false
+          "price": 7.0,
+          "unit_price": 1.4,
+          "eff_price": 7.0,
+          "was_price": 8.8,
+          "on_special": true
         },
         "coles": {
           "price": 7.7,
@@ -214629,11 +214628,11 @@
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 7.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cheese & Bacon Pizza Slices 2 Pack",
+      "name_check": "McCain Pizza Cheese & Bacon",
       "item_id": "b7dd4aef-b769-4c58-b579-8bd1d031b4ee",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -219263,7 +219262,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 553,
+      "consecutive_failures": 554,
       "quarantined": true
     },
     {
@@ -220354,7 +220353,7 @@
       "item_id": "e3606ab7-d6d4-4b72-b9a9-6c495b881149",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-07-28"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Ww Diced Italian Tomatoes 400G",
@@ -244309,19 +244308,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Basmati Rice"
+          "store": "coles",
+          "matched_name": "Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.4,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 0.4,
-          "eff_price": 4.0,
+          "price": 18.0,
+          "unit_price": 0.36,
+          "eff_price": 18.0,
           "was_price": null,
           "on_special": false
         },
@@ -244334,7 +244333,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
+      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -244342,7 +244341,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Basmati Rice",
+      "name_check": "Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -297779,7 +297778,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 32.0,
+      "price": 10.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "1Kg",
@@ -298814,21 +298813,28 @@
         },
         {
           "date": "2026-08-26",
-          "price": 32.0,
+          "price": 10.5,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "White Label Chardonnay 750ml"
+          "store": "woolworths",
+          "matched_name": "Woolworths Extra Tasty Cheese Block"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/White_Label_Extra_Tasty_Cheese_Block_1Kg.jpg",
-      "image_url": "https://productimages.coles.com.au/1/1223601.jpg",
-      "store": "coles",
-      "unit_price": null,
-      "unit": "each",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6044080.jpg",
+      "store": "woolworths",
+      "unit_price": 10.5,
+      "unit": "kg",
       "all_stores": {
+        "woolworths": {
+          "price": 10.5,
+          "unit_price": 10.5,
+          "eff_price": 10.5,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 32.0,
           "unit_price": null,
@@ -298839,11 +298845,11 @@
       },
       "price_unavailable": false,
       "avg_price": 9.3,
-      "eff_price": 32.0,
+      "eff_price": 10.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "White Label Chardonnay 750ml",
+      "name_check": "Woolworths Extra Tasty Cheese Block",
       "item_id": "938b9de1-0d7f-4660-b02c-c69bb3aba07b",
       "consecutive_failures": 0,
       "quarantined": false
@@ -304507,7 +304513,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -326201,7 +326207,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 59,
+      "consecutive_failures": 60,
       "quarantined": true
     },
     {
@@ -340571,7 +340577,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -358219,7 +358225,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 574,
+      "consecutive_failures": 575,
       "quarantined": true
     },
     {
@@ -369067,7 +369073,7 @@
       "item_id": "b1975ee5-26e7-41ad-9c02-5c8b775de868",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-09",
+      "last_layer_a_check": "2026-08-26",
       "eff_price": 4.5
     },
     {
@@ -379942,7 +379948,7 @@
       "item_id": "4083d0fb-01e9-4b14-a959-af30440ba42d",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-10"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Shapes Biscuits Chicken Crimpy 175G",
@@ -424190,7 +424196,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 147,
+      "consecutive_failures": 148,
       "quarantined": true
     },
     {
@@ -428947,7 +428953,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 444,
+      "consecutive_failures": 445,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -439590,7 +439596,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "dd85dcc1-4bb1-4bdf-be11-f750eae5fc49",
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Quilton Softness 3Ply Box 18Pk",
