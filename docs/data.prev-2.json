@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-25T17:30:00.496023Z",
+  "last_updated": "2026-08-25T21:20:41.570137Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -4331,7 +4331,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -9704,7 +9704,7 @@
       "coles": "https://www.coles.com.au/search?q=Avocados+%28Hass%29",
       "stock": "medium",
       "last_purchased": null,
-      "price": 2.5,
+      "price": 2.2,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "salad_veg",
@@ -10713,7 +10713,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.5,
+          "price": 2.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -10721,13 +10721,13 @@
         }
       ],
       "local_image": "images/Avocados_Hass.jpg",
-      "unit_price": 2.5,
+      "unit_price": 2.2,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.5,
-          "unit_price": 2.5,
-          "eff_price": 2.5,
+          "price": 2.2,
+          "unit_price": 2.2,
+          "eff_price": 2.2,
           "was_price": null,
           "on_special": false
         }
@@ -10736,7 +10736,7 @@
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/120080.jpg",
       "price_history": [],
       "avg_price": 0,
-      "eff_price": 2.5,
+      "eff_price": 2.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -15047,7 +15047,7 @@
       "item_id": "046de7c7-8c0f-44ce-9b9f-631da40874c3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Broccoli",
@@ -16117,7 +16117,7 @@
       "item_id": "8e2f3597-e4ee-43e6-98ea-481513469fd3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-19"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Zucchini",
@@ -19556,7 +19556,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -35708,9 +35708,9 @@
       "coles": "https://www.coles.com.au/product/hazelnut-ice-cream-9263224",
       "stock": "medium",
       "last_purchased": null,
-      "price": 9.5,
-      "eff_price": 9.5,
-      "store": "woolworths",
+      "price": 9.75,
+      "eff_price": 9.75,
+      "store": "coles",
       "brand": "Connoisseur",
       "subcategory": "other",
       "size": "Standard",
@@ -36735,24 +36735,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 9.5,
+          "price": 9.75,
           "is_special": false,
           "was_price": 13.0,
-          "store": "woolworths",
-          "matched_name": "Connoisseur Ice Cream Classic Vanilla Tub 1L"
+          "store": "coles",
+          "matched_name": "Roasted Hazelnut & Chocolate Ice Cream Tub"
         }
       ],
       "was_price": 13.0,
       "on_special": false,
       "local_image": "images/Ice_Cream_Connoisseur.jpg",
-      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/096190.jpg",
-      "unit_price": 0.95,
-      "unit": "each",
+      "image_url": "https://productimages.coles.com.au/9/9263224.jpg",
+      "unit_price": 0.98,
+      "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 9.5,
-          "unit_price": 0.95,
-          "eff_price": 9.5,
+          "price": 13.0,
+          "unit_price": 1.3,
+          "eff_price": 13.0,
           "was_price": null,
           "on_special": false
         },
@@ -36768,7 +36768,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Connoisseur Ice Cream Classic Vanilla Tub 1L",
+      "name_check": "Roasted Hazelnut & Chocolate Ice Cream Tub",
       "item_id": "b73706a5-a59f-4926-9ea5-ae36765eadac",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -38939,7 +38939,7 @@
       "item_id": "30fa5669-bf84-4e1d-bf28-2d2236381c85",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Rice Paper",
@@ -53998,8 +53998,8 @@
       "coles": "https://www.coles.com.au/search?q=The+Juice+Lab+Wellness+Shot+Calm++60mL",
       "stock": "medium",
       "last_purchased": null,
-      "price": 3.7,
-      "eff_price": 3.7,
+      "price": 2.7,
+      "eff_price": 2.7,
       "store": "woolworths",
       "brand": "Private Label",
       "subcategory": "beverages",
@@ -55025,7 +55025,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 3.7,
+          "price": 2.7,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -55036,13 +55036,13 @@
       "on_special": false,
       "local_image": "images/Remedy_Juice_Lab_Shots.jpg",
       "image_url": "images/remedyjuice_lab_shots.jpg",
-      "unit_price": 61.67,
+      "unit_price": 45.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.7,
-          "unit_price": 61.67,
-          "eff_price": 3.7,
+          "price": 2.7,
+          "unit_price": 45.0,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         }
@@ -71287,7 +71287,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-13",
-      "price": 8.0,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "180G",
@@ -72312,8 +72312,8 @@
         },
         {
           "date": "2026-08-25",
-          "price": 8.0,
-          "is_special": false,
+          "price": 4.8,
+          "is_special": true,
           "was_price": 8.0,
           "store": "woolworths",
           "matched_name": "Cadbury Old Gold Peppermint Dark Chocolate Block"
@@ -72321,15 +72321,15 @@
       ],
       "local_image": "images/Old_Gold_Dark_Chocolate_Peppermint_180G.jpg",
       "store": "woolworths",
-      "unit_price": 4.44,
+      "unit_price": 2.67,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.44,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.8,
+          "unit_price": 2.67,
+          "eff_price": 4.8,
+          "was_price": 8.0,
+          "on_special": true
         },
         "coles": {
           "price": 8.0,
@@ -72342,8 +72342,8 @@
       "price_unavailable": false,
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/817370.jpg",
       "avg_price": 8.0,
-      "eff_price": 8.0,
-      "on_special": false,
+      "eff_price": 4.8,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -76941,7 +76941,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true
     },
     {
@@ -80040,9 +80040,9 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.0,
-          "unit_price": 1.0,
-          "eff_price": 1.0,
+          "price": 2.8,
+          "unit_price": 1.12,
+          "eff_price": 2.8,
           "was_price": null,
           "on_special": false
         },
@@ -80295,7 +80295,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true
     },
     {
@@ -82745,7 +82745,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 157,
+      "consecutive_failures": 158,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -86023,12 +86023,12 @@
       "stock": "full",
       "last_purchased": "2026-04-26",
       "compare_group": "cola",
-      "price": 2.8,
+      "price": 3.066666666666667,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "375Ml",
       "tags": [],
-      "store": "woolworths",
+      "store": "coles",
       "target_confidence": "high",
       "target_method": "was $5.60, now $2.80 (store special)",
       "target_data_points": 18,
@@ -87049,26 +87049,26 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.8,
-          "is_special": true,
-          "was_price": 5.6,
-          "store": "woolworths",
-          "matched_name": "Coca-Cola Zero Sugar Soft Drink Cans"
+          "price": 3.066666666666667,
+          "is_special": false,
+          "was_price": 6.13,
+          "store": "coles",
+          "matched_name": "Zero Sugar Coke 10x375ml"
         }
       ],
-      "was_price": 5.6,
-      "on_special": true,
+      "was_price": 6.13,
+      "on_special": false,
       "local_image": "images/Coca_Cola_Zero_Sugar_10X375Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/669379.jpg",
-      "unit_price": 2.8,
+      "image_url": "https://productimages.coles.com.au/2/2993739.jpg",
+      "unit_price": 3.07,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 10.5,
-          "unit_price": 2.8,
-          "eff_price": 2.8,
-          "was_price": 21.0,
-          "on_special": true
+          "price": 21.0,
+          "unit_price": 5.6,
+          "eff_price": 5.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 11.5,
@@ -87080,11 +87080,11 @@
       },
       "price_unavailable": false,
       "avg_price": 19.2,
-      "eff_price": 2.8,
+      "eff_price": 3.066666666666667,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Coca-Cola Zero Sugar Soft Drink Cans",
+      "name_check": "Zero Sugar Coke 10x375ml",
       "pack_litres": 3.75,
       "item_id": "761fd4fb-75ca-4adb-b7d3-e4ab1a64cbee",
       "consecutive_failures": 0,
@@ -89491,7 +89491,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true
     },
     {
@@ -90606,7 +90606,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 3.4,
+      "price": 3.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "300Ml",
@@ -91631,7 +91631,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 3.4,
+          "price": 3.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -91640,13 +91640,13 @@
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_300Ml.jpg",
       "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "unit_price": 10.700000000000001,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 3.2,
+          "unit_price": 10.700000000000001,
+          "eff_price": 3.2,
           "was_price": null,
           "on_special": false
         },
@@ -91661,7 +91661,7 @@
       "price_unavailable": false,
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 3.4,
-      "eff_price": 3.4,
+      "eff_price": 3.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -97078,7 +97078,7 @@
       "compare_group": "cheese_tasty_block",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Heinz Tomato Ketchup 500Ml",
@@ -98181,7 +98181,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 2.1,
+      "price": 1.05,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -99206,27 +99206,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.1,
-          "is_special": false,
+          "price": 1.05,
+          "is_special": true,
           "was_price": 2.1,
           "store": "woolworths",
           "matched_name": "Real Foods Corn Thins Multigrain"
         }
       ],
       "was_price": 2.1,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Real_Foods_Corn_Thins_Multigrain_150G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/004021.jpg",
       "store": "woolworths",
-      "unit_price": 1.4,
+      "unit_price": 0.7,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.1,
-          "unit_price": 1.4,
-          "eff_price": 2.1,
-          "was_price": null,
-          "on_special": false
+          "price": 1.05,
+          "unit_price": 0.7,
+          "eff_price": 1.05,
+          "was_price": 2.1,
+          "on_special": true
         },
         "coles": {
           "price": 2.1,
@@ -99238,7 +99238,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.1,
-      "eff_price": 2.1,
+      "eff_price": 1.05,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -105471,7 +105471,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "quarantined": false
     },
     {
@@ -111967,7 +111967,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-21"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Ww Diced Tomatoes Onion Grlc Basil 400G",
@@ -128451,7 +128451,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -131570,7 +131570,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
-      "last_layer_a_check": "2026-08-17",
+      "last_layer_a_check": "2026-08-25",
       "eff_price": 3.75
     },
     {
@@ -131588,7 +131588,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -132613,23 +132613,23 @@
         },
         {
           "date": "2026-08-25",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -132640,15 +132640,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -136971,11 +136971,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 28.0,
-          "unit_price": 28.0,
-          "eff_price": 28.0,
-          "was_price": null,
-          "on_special": false
+          "price": 23.0,
+          "unit_price": 23.0,
+          "eff_price": 23.0,
+          "was_price": 28.0,
+          "on_special": true
         },
         "coles": {
           "price": 6.6,
@@ -141347,7 +141347,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 3.4,
+      "price": 3.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -142372,7 +142372,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 3.4,
+          "price": 3.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -142381,13 +142381,13 @@
       ],
       "local_image": "images/Ww_Light_Thickened_Cream_600Ml.jpg",
       "store": "woolworths",
-      "unit_price": 11.299999999999999,
+      "unit_price": 10.700000000000001,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.4,
-          "unit_price": 11.299999999999999,
-          "eff_price": 3.4,
+          "price": 3.2,
+          "unit_price": 10.700000000000001,
+          "eff_price": 3.2,
           "was_price": null,
           "on_special": false
         },
@@ -142402,7 +142402,7 @@
       "price_unavailable": false,
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/838737.jpg",
       "avg_price": 5.2,
-      "eff_price": 3.4,
+      "eff_price": 3.2,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -150508,7 +150508,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 396,
+      "consecutive_failures": 397,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -151603,7 +151603,7 @@
       "stock": "full",
       "last_purchased": "2026-03-18",
       "compare_group": "cola",
-      "price": 4.7,
+      "price": 4.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -152629,7 +152629,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 7.833333333333334,
+          "price": 7.000000000000001,
           "is_special": false,
           "was_price": 7.42,
           "store": "woolworths",
@@ -152637,13 +152637,13 @@
         }
       ],
       "local_image": "images/Coca_Cola_Pet_600Ml.jpg",
-      "unit_price": 7.83,
+      "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.7,
-          "unit_price": 7.83,
-          "eff_price": 7.833333333333334,
+          "price": 4.2,
+          "unit_price": 7.0,
+          "eff_price": 7.000000000000001,
           "was_price": null,
           "on_special": false
         },
@@ -152658,7 +152658,7 @@
       "price_unavailable": false,
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/093167.jpg",
       "avg_price": 4.0,
-      "eff_price": 7.833333333333334,
+      "eff_price": 7.000000000000001,
       "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
@@ -157025,7 +157025,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-15",
-      "price": 4.4,
+      "price": 3.3,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "85G",
@@ -158050,27 +158050,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 4.4,
-          "is_special": false,
+          "price": 3.3,
+          "is_special": true,
           "was_price": 5.5,
-          "store": "coles",
-          "matched_name": "Tantalising Turkey Flavour Cat Treats"
+          "store": "woolworths",
+          "matched_name": "Temptations Tantalising Turkey Cat Treats"
         }
       ],
       "was_price": 5.5,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Temptations_Tantal_Turkey_Cat_Treats_85G.jpg",
-      "image_url": "https://productimages.coles.com.au/3/3566314.jpg",
-      "store": "coles",
-      "unit_price": 5.18,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6037833.jpg",
+      "store": "woolworths",
+      "unit_price": 3.88,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.5,
-          "unit_price": 6.47,
-          "eff_price": 5.5,
-          "was_price": null,
-          "on_special": false
+          "price": 3.3,
+          "unit_price": 3.88,
+          "eff_price": 3.3,
+          "was_price": 5.5,
+          "on_special": true
         },
         "coles": {
           "price": 4.4,
@@ -158082,11 +158082,11 @@
       },
       "price_unavailable": false,
       "avg_price": 4.4,
-      "eff_price": 4.4,
+      "eff_price": 3.3,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Tantalising Turkey Flavour Cat Treats",
+      "name_check": "Temptations Tantalising Turkey Cat Treats",
       "item_id": "33fab976-509e-464c-8c59-386e73c58a12",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -165398,7 +165398,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-15",
-      "price": 5.0,
+      "price": 2.5,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "16Pk",
@@ -166423,27 +166423,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 5.0,
-          "is_special": false,
+          "price": 2.5,
+          "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
           "matched_name": "Libra Tampons Super"
         }
       ],
       "was_price": 5.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Libra_Tampons_Super_16Pk.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/033174.jpg",
       "store": "woolworths",
-      "unit_price": 0.31,
+      "unit_price": 0.16,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 0.31,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
+          "price": 2.5,
+          "unit_price": 0.16,
+          "eff_price": 2.5,
+          "was_price": 5.0,
+          "on_special": true
         },
         "coles": {
           "price": 7.8,
@@ -166455,7 +166455,7 @@
       },
       "price_unavailable": false,
       "avg_price": 3.5,
-      "eff_price": 5.0,
+      "eff_price": 2.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -172916,26 +172916,26 @@
         {
           "date": "2026-08-25",
           "price": 5.25,
-          "is_special": true,
+          "is_special": false,
           "was_price": 10.5,
-          "store": "woolworths",
-          "matched_name": "Gem Deodorant Coconut & Vanilla"
+          "store": "coles",
+          "matched_name": "Skin Loving Deodorant Vanilla & Macadamia 127g"
         }
       ],
       "was_price": 10.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Gem_Deodorant_Vanilla_127G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/911043.jpg",
-      "store": "woolworths",
-      "unit_price": 4.13,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/9/9228438.jpg",
+      "store": "coles",
+      "unit_price": 2.54,
+      "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 5.25,
-          "unit_price": 4.13,
-          "eff_price": 5.25,
-          "was_price": 10.5,
-          "on_special": true
+          "price": 10.5,
+          "unit_price": 8.27,
+          "eff_price": 10.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.25,
@@ -172951,7 +172951,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Gem Deodorant Coconut & Vanilla",
+      "name_check": "Skin Loving Deodorant Vanilla & Macadamia 127g",
       "item_id": "744abafe-864c-4722-87de-51ab16a004bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -175147,7 +175147,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 8.0,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "180G",
@@ -176172,30 +176172,30 @@
         },
         {
           "date": "2026-08-25",
-          "price": 8.0,
-          "is_special": false,
+          "price": 4.8,
+          "is_special": true,
           "was_price": 8.0,
           "store": "woolworths",
           "matched_name": "Cadbury Old Gold 70% Cocoa Dark Chocolate Block"
         }
       ],
       "store": "woolworths",
-      "unit_price": 4.85,
+      "unit_price": 2.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.85,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.8,
+          "unit_price": 2.91,
+          "eff_price": 4.8,
+          "was_price": 8.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "image_url": "images/old_gold_dark_chocolate_70_180g.jpg",
       "avg_price": 4.75,
-      "eff_price": 8.0,
-      "on_special": false,
+      "eff_price": 4.8,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -176204,7 +176204,7 @@
       "item_id": "ee6af4a5-88cb-48ad-bd3d-71ecac619dbc",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-15"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Ww Chicken Breast Fillets Small Rspca",
@@ -182696,11 +182696,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 24.0,
-          "unit_price": 24.0,
-          "eff_price": 24.0,
-          "was_price": 32.5,
-          "on_special": true
+          "price": 32.5,
+          "unit_price": 32.5,
+          "eff_price": 32.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 7.6,
@@ -183818,7 +183818,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 8.0,
+      "price": 10.0,
       "brand": "Colgate",
       "subcategory": "cooking_essentials",
       "size": "95G",
@@ -184843,27 +184843,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 8.0,
-          "is_special": true,
+          "price": 10.0,
+          "is_special": false,
           "was_price": 10.0,
           "store": "woolworths",
           "matched_name": "Colgate Plaque Release Toothpaste Total Fragrant Mint"
         }
       ],
       "was_price": 10.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Colgate_Total_Tpaste_Pr_Frag_Mint_95G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/256434.jpg",
       "store": "woolworths",
-      "unit_price": 8.42,
+      "unit_price": 10.53,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 8.42,
-          "eff_price": 8.0,
-          "was_price": 10.0,
-          "on_special": true
+          "price": 10.0,
+          "unit_price": 10.53,
+          "eff_price": 10.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 10.0,
@@ -184875,7 +184875,7 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 8.0,
+      "eff_price": 10.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -189212,7 +189212,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.3,
+      "price": 2.95,
       "brand": "San Remo",
       "subcategory": "grains_pasta",
       "size": "500G",
@@ -190237,27 +190237,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.3,
-          "is_special": true,
+          "price": 2.95,
+          "is_special": false,
           "was_price": 2.95,
           "store": "woolworths",
           "matched_name": "San Remo Risoni Pasta"
         }
       ],
       "was_price": 2.95,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/San_Remo_Pasta_Risoni_500G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/098567.jpg",
       "store": "woolworths",
-      "unit_price": 0.46,
+      "unit_price": 0.59,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 2.3,
-          "unit_price": 0.46,
-          "eff_price": 2.3,
-          "was_price": 2.95,
-          "on_special": true
+          "price": 2.95,
+          "unit_price": 0.59,
+          "eff_price": 2.95,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -190270,7 +190270,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "last_layer_a_check": "2026-08-24",
-      "eff_price": 2.3
+      "eff_price": 2.95
     },
     {
       "name": "Ww Australian Diced Tomatoes 400G",
@@ -200016,26 +200016,26 @@
         {
           "date": "2026-08-25",
           "price": 5.95,
-          "is_special": true,
+          "is_special": false,
           "was_price": 8.5,
-          "store": "woolworths",
-          "matched_name": "Lindt Excellence Dark Chocolate 85% Cocoa Block"
+          "store": "coles",
+          "matched_name": "Excellence 85% Cocoa Dark Chocolate Block"
         }
       ],
       "was_price": 8.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Lindt_Excellence_85%_Cocoa_100G.jpg",
       "image_url": "images/lindt_excellence_85_cocoa_100g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 5.95,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.95,
-          "unit_price": 5.95,
-          "eff_price": 5.95,
-          "was_price": 8.5,
-          "on_special": true
+          "price": 8.5,
+          "unit_price": 8.5,
+          "eff_price": 8.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 5.95,
@@ -200051,7 +200051,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Lindt Excellence Dark Chocolate 85% Cocoa Block",
+      "name_check": "Excellence 85% Cocoa Dark Chocolate Block",
       "item_id": "eb150ba0-da80-490e-94d4-d2184df42ff5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -215261,7 +215261,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-01",
-      "price": 8.7,
+      "price": 6.95,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "10Pk",
@@ -216286,27 +216286,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 8.7,
-          "is_special": false,
+          "price": 6.95,
+          "is_special": true,
           "was_price": 8.7,
           "store": "woolworths",
           "matched_name": "Hydralyte Effervescent Electrolyte Tablets Kiwi Strawberry"
         }
       ],
       "was_price": 8.7,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Hydralyte_Efferv_Tab_Strawb_Kiwi_10Pk.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/206020.jpg",
       "store": "woolworths",
-      "unit_price": 0.87,
+      "unit_price": 0.7,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 8.7,
-          "unit_price": 0.87,
-          "eff_price": 8.7,
-          "was_price": null,
-          "on_special": false
+          "price": 6.95,
+          "unit_price": 0.7,
+          "eff_price": 6.95,
+          "was_price": 8.7,
+          "on_special": true
         },
         "coles": {
           "price": 8.7,
@@ -216318,7 +216318,7 @@
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 8.7,
+      "eff_price": 6.95,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -216326,7 +216326,7 @@
       "item_id": "7fe723ed-bbf1-4851-a79b-36fb7442a2d4",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-09"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "M&Ms Minis 145G",
@@ -217648,7 +217648,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 547,
+      "consecutive_failures": 548,
       "quarantined": true
     },
     {
@@ -233872,11 +233872,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 32.0,
-          "unit_price": 16.0,
-          "eff_price": 32.0,
-          "was_price": 36.0,
-          "on_special": true
+          "price": 36.0,
+          "unit_price": 18.0,
+          "eff_price": 36.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 27.9,
@@ -234986,7 +234986,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 2.45,
+      "price": 2.55,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600Ml",
@@ -236011,24 +236011,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.45,
-          "is_special": true,
+          "price": 2.55,
+          "is_special": false,
           "was_price": 3.5,
-          "store": "woolworths",
-          "matched_name": "Mount Franklin Spring Water Bottle"
+          "store": "coles",
+          "matched_name": "Spring Water Bottle"
         }
       ],
       "local_image": "images/Mount_Franklin_Wtr_Spring_Natrl_600Ml.jpg",
-      "store": "woolworths",
-      "unit_price": 1.63,
+      "store": "coles",
+      "unit_price": 4.25,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 1.63,
-          "eff_price": 2.45,
-          "was_price": 3.5,
-          "on_special": true
+          "price": 3.5,
+          "unit_price": 2.33,
+          "eff_price": 3.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.55,
@@ -236039,15 +236039,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/015917.jpg",
+      "image_url": "https://productimages.coles.com.au/7/7014331.jpg",
       "avg_price": 2.45,
-      "eff_price": 2.45,
-      "on_special": true,
+      "eff_price": 2.55,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.5,
-      "name_check": "Mount Franklin Spring Water Bottle",
+      "name_check": "Spring Water Bottle",
       "item_id": "a2f55e92-5506-4b1f-abba-1c0c7983db23",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -236073,7 +236073,7 @@
       "stock": "full",
       "last_purchased": "2026-02-02",
       "compare_group": "cola",
-      "price": 4.7,
+      "price": 4.2,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "600Ml",
@@ -237099,7 +237099,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 7.833333333333334,
+          "price": 7.000000000000001,
           "is_special": false,
           "was_price": 7.42,
           "store": "woolworths",
@@ -237110,13 +237110,13 @@
       "on_special": false,
       "local_image": "images/Coca_Cola_Zero_Sugarpet_600Ml.jpg",
       "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/623033.jpg",
-      "unit_price": 7.83,
+      "unit_price": 7.0,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 4.7,
-          "unit_price": 7.83,
-          "eff_price": 7.833333333333334,
+          "price": 4.2,
+          "unit_price": 7.0,
+          "eff_price": 7.000000000000001,
           "was_price": null,
           "on_special": false
         },
@@ -237130,7 +237130,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.225,
-      "eff_price": 7.833333333333334,
+      "eff_price": 7.000000000000001,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -245807,7 +245807,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-15",
-      "price": 1.6,
+      "price": 1.1,
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "85G",
@@ -246832,27 +246832,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
           "store": "woolworths",
           "matched_name": "Dine Adult Wet Cat Food Cuts In Gravy With Lamb Tray"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Lamb_Cuts_In_Gravy_85G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/349120.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 1.29,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
+          "on_special": true
         },
         "coles": {
           "price": 6.0,
@@ -246864,7 +246864,7 @@
       },
       "price_unavailable": false,
       "avg_price": 1.2000000000000002,
-      "eff_price": 1.6,
+      "eff_price": 1.1,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -247975,7 +247975,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 1.6,
+      "price": 1.1,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "85G",
@@ -249000,27 +249000,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
           "store": "woolworths",
           "matched_name": "Dine Kitten With Tender Chicken Wet Cat Food Tray"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Kitten_2-12M_Tender_Chicken_85G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/349109.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 1.29,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
+          "on_special": true
         },
         "coles": {
           "price": 1.6,
@@ -249032,7 +249032,7 @@
       },
       "price_unavailable": false,
       "avg_price": 0.8,
-      "eff_price": 1.6,
+      "eff_price": 1.1,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -252267,26 +252267,26 @@
         {
           "date": "2026-08-25",
           "price": 2.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": 4.0,
-          "store": "woolworths",
-          "matched_name": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets"
+          "store": "coles",
+          "matched_name": "Creamy Treats Cat Food Chicken 4x12g"
         }
       ],
       "was_price": 4.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Dine_Creamy_Treats_Sfd_Select_4X12G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/807548.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/2/2913489.jpg",
+      "store": "coles",
       "unit_price": 5.83,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 5.83,
-          "eff_price": 2.8,
-          "was_price": 4.0,
-          "on_special": true
+          "price": 4.0,
+          "unit_price": 8.33,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.8,
@@ -252302,7 +252302,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets",
+      "name_check": "Creamy Treats Cat Food Chicken 4x12g",
       "item_id": "3381451b-e396-426d-8e54-719cb6e1240b",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -252323,7 +252323,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-23",
-      "price": 4.3,
+      "price": 8.6,
       "brand": "Quilton",
       "subcategory": "other",
       "size": "8Pk",
@@ -253348,27 +253348,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 4.3,
-          "is_special": true,
+          "price": 8.6,
+          "is_special": false,
           "was_price": 8.6,
           "store": "woolworths",
           "matched_name": "Quilton Classic 3 Ply Toilet Paper"
         }
       ],
       "was_price": 8.6,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Quilton_Classic_3Ply_T_Tissue_8Pk.jpg",
       "image_url": "images/quilton_classic_3ply_ttissue_8pk.jpg",
       "store": "woolworths",
-      "unit_price": 0.3,
+      "unit_price": 0.6,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 4.3,
-          "unit_price": 0.3,
-          "eff_price": 4.3,
-          "was_price": 8.6,
-          "on_special": true
+          "price": 8.6,
+          "unit_price": 0.6,
+          "eff_price": 8.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 11.0,
@@ -253380,7 +253380,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.3,
-      "eff_price": 4.3,
+      "eff_price": 8.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -254432,26 +254432,26 @@
         {
           "date": "2026-08-25",
           "price": 2.45,
-          "is_special": true,
+          "is_special": false,
           "was_price": 4.9,
-          "store": "woolworths",
-          "matched_name": "Infuzions Air Fries Aioli"
+          "store": "coles",
+          "matched_name": "Air Fries Aioli"
         }
       ],
       "was_price": 4.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Infuzions_Air_Fries_Aioli_75G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/071929.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/9/9067601.jpg",
+      "store": "coles",
       "unit_price": 2.72,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.45,
-          "unit_price": 2.72,
-          "eff_price": 2.45,
-          "was_price": 4.9,
-          "on_special": true
+          "price": 4.9,
+          "unit_price": 5.44,
+          "eff_price": 4.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.45,
@@ -254467,7 +254467,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Infuzions Air Fries Aioli",
+      "name_check": "Air Fries Aioli",
       "item_id": "7d60da4d-b4c9-47eb-a8a4-7d74536a8e0d",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -269610,7 +269610,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-13",
-      "price": 3.45,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "90G",
@@ -270635,27 +270635,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 3.45,
-          "is_special": true,
+          "price": 4.8,
+          "is_special": false,
           "was_price": 6.9,
-          "store": "woolworths",
-          "matched_name": "Musashi High Protein Bar Chocolate Brownie"
+          "store": "coles",
+          "matched_name": "High Protein Bar White Choc Caramel"
         }
       ],
       "was_price": 6.9,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Musashi_High_Protin_Sltd_Crml_Bar_90G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/869169.jpg",
-      "store": "woolworths",
-      "unit_price": 3.83,
-      "unit": "100g",
+      "image_url": "https://productimages.coles.com.au/7/7868520.jpg",
+      "store": "coles",
+      "unit_price": 5.33,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 3.45,
-          "unit_price": 3.83,
-          "eff_price": 3.45,
-          "was_price": 6.9,
-          "on_special": true
+          "price": 6.9,
+          "unit_price": 7.67,
+          "eff_price": 6.9,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.8,
@@ -270667,11 +270667,11 @@
       },
       "price_unavailable": false,
       "avg_price": 6.9,
-      "eff_price": 3.45,
+      "eff_price": 4.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Musashi High Protein Bar Chocolate Brownie",
+      "name_check": "High Protein Bar White Choc Caramel",
       "item_id": "cbebb830-655c-4315-9df5-4ffb21e488a6",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -270692,7 +270692,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-13",
-      "price": 3.3,
+      "price": 3.8,
       "brand": "Private Label",
       "subcategory": "snacks",
       "size": "1L",
@@ -271717,27 +271717,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 3.3,
-          "is_special": true,
+          "price": 3.8,
+          "is_special": false,
           "was_price": 5.5,
-          "store": "woolworths",
-          "matched_name": "Cocobella Coconut Water Watermelon & Mint"
+          "store": "coles",
+          "matched_name": "Coconut Water Chocolate"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Cocobella_Coconut_Wtr_W_Mln_And_Mnt_1L.jpg",
       "image_url": "images/cocobella_coconut_wtr_wmln_and_mnt_1l.jpg",
-      "store": "woolworths",
-      "unit_price": 3.3,
+      "store": "coles",
+      "unit_price": 9.5,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 3.3,
-          "unit_price": 3.3,
-          "eff_price": 3.3,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 5.5,
+          "unit_price": 5.5,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.8,
@@ -271749,11 +271749,11 @@
       },
       "price_unavailable": false,
       "avg_price": 3.5,
-      "eff_price": 3.3,
+      "eff_price": 3.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Cocobella Coconut Water Watermelon & Mint",
+      "name_check": "Coconut Water Chocolate",
       "item_id": "55e74b8d-0ab3-4039-a763-9f2818b38887",
       "fake_deal": true,
       "baseline_price": 3.8,
@@ -273879,27 +273879,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 1.6,
-          "is_special": false,
+          "price": 1.1,
+          "is_special": true,
           "was_price": 1.6,
           "store": "woolworths",
           "matched_name": "Dine Adult Wet Cat Food Saucy Morsels with Tuna & Cheese"
         }
       ],
       "was_price": 1.6,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Dine_Cat_Food_Tuna_Mornay_&_Cheese_85G.jpg",
       "image_url": "images/dine_cat_food_tuna_mornay__cheese_85g.jpg",
       "store": "woolworths",
-      "unit_price": 1.88,
+      "unit_price": 1.29,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.6,
-          "unit_price": 1.88,
-          "eff_price": 1.6,
-          "was_price": null,
-          "on_special": false
+          "price": 1.1,
+          "unit_price": 1.29,
+          "eff_price": 1.1,
+          "was_price": 1.6,
+          "on_special": true
         },
         "coles": {
           "price": 1.6,
@@ -273918,9 +273918,9 @@
       "item_id": "824c187e-3957-4be4-a9f6-f1a4a40a7893",
       "consecutive_failures": 0,
       "quarantined": false,
-      "price": 1.6,
-      "eff_price": 1.6,
-      "last_layer_a_check": "2026-08-16"
+      "price": 1.1,
+      "eff_price": 1.1,
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Dine Creamy Treats Tuna & Prawn 4X12G",
@@ -274963,26 +274963,26 @@
         {
           "date": "2026-08-25",
           "price": 2.8,
-          "is_special": true,
+          "is_special": false,
           "was_price": 4.0,
-          "store": "woolworths",
-          "matched_name": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets"
+          "store": "coles",
+          "matched_name": "Creamy Treats Cat Treats Tuna & Prawn Flavour 4x12g Sachets"
         }
       ],
       "was_price": 4.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Dine_Creamy_Treats_Tuna_&_Prawn_4X12G.jpg",
       "image_url": "images/dine_creamy_treats_tuna__prawn_4x12g.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 5.83,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.8,
-          "unit_price": 5.83,
-          "eff_price": 2.8,
-          "was_price": 4.0,
-          "on_special": true
+          "price": 4.0,
+          "unit_price": 8.33,
+          "eff_price": 4.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.8,
@@ -274998,7 +274998,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Dine Cat Creamy Treats Treats Prawn & Tuna Sachets",
+      "name_check": "Creamy Treats Cat Treats Tuna & Prawn Flavour 4x12g Sachets",
       "item_id": "addfd2e0-7992-4307-9963-6dce09de0f9c",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -276129,7 +276129,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 2.5,
+      "price": 2.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -277150,7 +277150,7 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.5,
+          "price": 2.2,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
@@ -277162,13 +277162,13 @@
       "local_image": "images/Avocado_Hass.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/120080.jpg",
       "store": "woolworths",
-      "unit_price": 2.5,
+      "unit_price": 2.2,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.5,
-          "unit_price": 2.5,
-          "eff_price": 2.5,
+          "price": 2.2,
+          "unit_price": 2.2,
+          "eff_price": 2.2,
           "was_price": null,
           "on_special": false
         },
@@ -277182,7 +277182,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.028571428571429,
-      "eff_price": 2.5,
+      "eff_price": 2.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-20",
@@ -278247,11 +278247,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.7,
-          "unit_price": 22.8,
-          "eff_price": 5.7,
-          "was_price": null,
-          "on_special": false
+          "price": 4.5,
+          "unit_price": 18.0,
+          "eff_price": 4.5,
+          "was_price": 5.7,
+          "on_special": true
         },
         "coles": {
           "price": 4.0,
@@ -284725,22 +284725,22 @@
           "price": 2.6,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Stonebaked Turkish Rolls"
+          "store": "coles",
+          "matched_name": "Turkish Rolls 4 Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Woolworths_Turkish_Rolls_400G_Pk_4.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6037735.jpg",
-      "store": "woolworths",
+      "image_url": "https://productimages.coles.com.au/5/5625017.jpg",
+      "store": "coles",
       "unit_price": 0.65,
-      "unit": "100g",
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 2.6,
-          "unit_price": 0.65,
-          "eff_price": 2.6,
+          "price": 3.75,
+          "unit_price": 1.25,
+          "eff_price": 3.75,
           "was_price": null,
           "on_special": false
         },
@@ -284758,7 +284758,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths Stonebaked Turkish Rolls",
+      "name_check": "Turkish Rolls 4 Pack",
       "item_id": "f52690f4-01bd-479a-b902-cdb431ed6d62",
       "consecutive_failures": 0,
       "quarantined": false
@@ -284778,7 +284778,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-08",
-      "price": 8.0,
+      "price": 4.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "180G",
@@ -285803,30 +285803,30 @@
         },
         {
           "date": "2026-08-25",
-          "price": 8.0,
-          "is_special": false,
+          "price": 4.8,
+          "is_special": true,
           "was_price": 8.0,
           "store": "woolworths",
           "matched_name": "Cadbury Old Gold Original Dark Chocolate Block"
         }
       ],
       "store": "woolworths",
-      "unit_price": 4.85,
+      "unit_price": 2.91,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 8.0,
-          "unit_price": 4.85,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
+          "price": 4.8,
+          "unit_price": 2.91,
+          "eff_price": 4.8,
+          "was_price": 8.0,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6064245.jpg",
       "avg_price": 8.0,
-      "eff_price": 8.0,
-      "on_special": false,
+      "eff_price": 4.8,
+      "on_special": true,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -293415,7 +293415,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 7.7,
+      "price": 9.8,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "600G",
@@ -294440,32 +294440,32 @@
         },
         {
           "date": "2026-08-25",
-          "price": 7.7,
-          "is_special": true,
+          "price": 9.8,
+          "is_special": false,
           "was_price": 9.8,
           "store": "woolworths",
           "matched_name": "McCain Pizza Slice Snacks Meatlovers Meatlovers"
         }
       ],
       "was_price": 9.8,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Mccain_Pizza_Slice_Meatlovers_600G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/112492.jpg",
       "store": "woolworths",
-      "unit_price": 1.28,
+      "unit_price": 1.63,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 7.7,
-          "unit_price": 1.28,
-          "eff_price": 7.7,
-          "was_price": 9.8,
-          "on_special": true
+          "price": 9.8,
+          "unit_price": 1.63,
+          "eff_price": 9.8,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 7.7,
-      "eff_price": 7.7,
+      "eff_price": 9.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -299909,7 +299909,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-02-02",
-      "price": 7.0,
+      "price": 3.7,
       "brand": "Private Label",
       "subcategory": "breakfast",
       "size": "350G",
@@ -300934,21 +300934,28 @@
         },
         {
           "date": "2026-08-25",
-          "price": 7.0,
+          "price": 3.7,
           "is_special": false,
           "was_price": 7.0,
-          "store": "coles",
-          "matched_name": "Sachets Oats Quick 10 Pack"
+          "store": "woolworths",
+          "matched_name": "Woolworths Honey Quick Oats Sachets"
         }
       ],
       "was_price": 7.0,
       "on_special": false,
       "local_image": "images/Ut_Oats_Sachets_Strawb_Vanila_350G_10Pk.jpg",
-      "image_url": "https://productimages.coles.com.au/9/9720268.jpg",
-      "store": "coles",
-      "unit_price": 2.06,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/739484.jpg",
+      "store": "woolworths",
+      "unit_price": 0.88,
+      "unit": "100g",
       "all_stores": {
+        "woolworths": {
+          "price": 3.7,
+          "unit_price": 0.88,
+          "eff_price": 3.7,
+          "was_price": null,
+          "on_special": false
+        },
         "coles": {
           "price": 7.0,
           "unit_price": 2.06,
@@ -300959,11 +300966,11 @@
       },
       "price_unavailable": false,
       "avg_price": 5.5,
-      "eff_price": 7.0,
+      "eff_price": 3.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Sachets Oats Quick 10 Pack",
+      "name_check": "Woolworths Honey Quick Oats Sachets",
       "item_id": "34fe6a93-5576-4a3b-8076-51ac5145920a",
       "consecutive_failures": 0,
       "quarantined": false
@@ -302275,7 +302282,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -315225,11 +315232,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 1.6,
-          "eff_price": 4.8,
-          "was_price": 6.5,
-          "on_special": true
+          "price": 6.5,
+          "unit_price": 2.17,
+          "eff_price": 6.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.75,
@@ -316307,11 +316314,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 5.8,
-          "unit_price": 1.55,
-          "eff_price": 5.8,
-          "was_price": null,
-          "on_special": false
+          "price": 4.5,
+          "unit_price": 1.2,
+          "eff_price": 4.5,
+          "was_price": 5.8,
+          "on_special": true
         },
         "coles": {
           "price": 3.7,
@@ -319585,7 +319592,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 1.7,
+      "price": 3.4,
       "brand": "Continental",
       "subcategory": "grains_pasta",
       "size": "120G",
@@ -320610,27 +320617,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 1.7,
-          "is_special": true,
+          "price": 3.4,
+          "is_special": false,
           "was_price": 3.4,
           "store": "woolworths",
           "matched_name": "Continental Classics Rice Chicken"
         }
       ],
       "was_price": 3.4,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Continental_Classics_Chicken_Rice_120G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/141917.jpg",
       "store": "woolworths",
-      "unit_price": 1.42,
+      "unit_price": 2.83,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.7,
-          "unit_price": 1.42,
-          "eff_price": 1.7,
-          "was_price": 3.4,
-          "on_special": true
+          "price": 3.4,
+          "unit_price": 2.83,
+          "eff_price": 3.4,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.2,
@@ -320642,7 +320649,7 @@
       },
       "price_unavailable": false,
       "avg_price": 3.2,
-      "eff_price": 1.7,
+      "eff_price": 3.4,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -321752,7 +321759,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-01-24",
-      "price": 2.25,
+      "price": 4.5,
       "brand": "Campbells",
       "subcategory": "cooking_essentials",
       "size": "1L",
@@ -322777,27 +322784,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.25,
-          "is_special": true,
+          "price": 4.5,
+          "is_special": false,
           "was_price": 4.5,
           "store": "woolworths",
           "matched_name": "Campbell's Real Stock Chicken Liquid Stock"
         }
       ],
       "was_price": 4.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Campbells_Real_Stock_Chicken_Slt_Rd_1L.jpg",
       "image_url": "images/campbells_real_stock_chicken_sltrd_1l.jpg",
       "store": "woolworths",
-      "unit_price": 2.3000000000000003,
+      "unit_price": 4.5,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 2.25,
-          "unit_price": 2.3000000000000003,
-          "eff_price": 2.25,
-          "was_price": 4.5,
-          "on_special": true
+          "price": 4.5,
+          "unit_price": 4.5,
+          "eff_price": 4.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.5,
@@ -322809,7 +322816,7 @@
       },
       "price_unavailable": false,
       "avg_price": 4.5,
-      "eff_price": 2.25,
+      "eff_price": 4.5,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -323817,7 +323824,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 53,
+      "consecutive_failures": 54,
       "quarantined": true
     },
     {
@@ -338083,7 +338090,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -346706,11 +346713,11 @@
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 4.8,
-          "unit_price": 1.6,
-          "eff_price": 4.8,
-          "was_price": 6.5,
-          "on_special": true
+          "price": 6.5,
+          "unit_price": 2.17,
+          "eff_price": 6.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 4.75,
@@ -353226,7 +353233,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-27",
-      "price": 5.0,
+      "price": 3.0,
       "brand": "BSC",
       "subcategory": "snacks",
       "size": "92G",
@@ -354251,27 +354258,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 5.0,
-          "is_special": false,
+          "price": 3.0,
+          "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
           "matched_name": "BSc High Protein Low Carb Bar Cookies & Cream"
         }
       ],
       "was_price": 5.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Bsc_High_Pro_Low_Cb_Bar_Cookies&Crm_92G.jpg",
       "image_url": "images/bsc_high_pro_low_cb_bar_cookiescrm_92g.jpg",
       "store": "woolworths",
-      "unit_price": 8.33,
+      "unit_price": 5.0,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 5.0,
-          "unit_price": 8.33,
-          "eff_price": 5.0,
-          "was_price": null,
-          "on_special": false
+          "price": 3.0,
+          "unit_price": 5.0,
+          "eff_price": 3.0,
+          "was_price": 5.0,
+          "on_special": true
         },
         "coles": {
           "price": 5.0,
@@ -354283,7 +354290,7 @@
       },
       "price_unavailable": false,
       "avg_price": 6.5,
-      "eff_price": 5.0,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -355337,7 +355344,7 @@
           "is_special": true,
           "was_price": 5.0,
           "store": "woolworths",
-          "matched_name": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb"
+          "matched_name": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb"
         }
       ],
       "was_price": 5.0,
@@ -355369,7 +355376,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "BSc x Violet Crumble Soft Protein Bar Caramel Honeycomb",
+      "name_check": "BSc x Violet Crumble Soft Protein Bar Chocolate Honeycomb",
       "item_id": "4dae3611-ca83-41b4-88fa-ccf1e8ba6b77",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -355603,7 +355610,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 568,
+      "consecutive_failures": 569,
       "quarantined": true
     },
     {
@@ -358812,26 +358819,26 @@
         {
           "date": "2026-08-25",
           "price": 2.75,
-          "is_special": true,
+          "is_special": false,
           "was_price": 5.5,
-          "store": "woolworths",
-          "matched_name": "Carefree Barely There Unscented Liners Panty Liners"
+          "store": "coles",
+          "matched_name": "Barely There Unscented Liners"
         }
       ],
       "was_price": 5.5,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Carefree_Liners_B_There_Gstrng24Pk.jpg",
       "image_url": "images/carefree_liners_bthere_gstrng24pk.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 0.07,
       "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.75,
-          "unit_price": 0.07,
-          "eff_price": 2.75,
-          "was_price": 5.5,
-          "on_special": true
+          "price": 5.5,
+          "unit_price": 0.13,
+          "eff_price": 5.5,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 2.75,
@@ -358847,7 +358854,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Carefree Barely There Unscented Liners Panty Liners",
+      "name_check": "Barely There Unscented Liners",
       "item_id": "615231b4-0c2d-4ee2-8481-18972c6427bb",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -366389,7 +366396,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-22",
-      "price": 12.0,
+      "price": 7.9,
       "brand": "Connoisseur",
       "subcategory": "other",
       "size": "6Pk",
@@ -367414,27 +367421,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 12.0,
-          "is_special": false,
+          "price": 7.9,
+          "is_special": true,
           "was_price": 12.0,
           "store": "woolworths",
           "matched_name": "Connoisseur Gourmet Ice Cream Mini Cookies & Cream Sticks"
         }
       ],
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Connoisseur_Minis_Cookies&Cream_6Pk360Ml.jpg",
       "image_url": "images/connoisseur_minis_cookiescream_6pk360ml.jpg",
       "store": "woolworths",
-      "unit_price": 33.3,
+      "unit_price": 21.9,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 33.3,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
+          "price": 7.9,
+          "unit_price": 21.9,
+          "eff_price": 7.9,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 12.0,
@@ -367446,7 +367453,7 @@
       },
       "price_unavailable": false,
       "avg_price": 7.2,
-      "eff_price": 12.0,
+      "eff_price": 7.9,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -386880,7 +386887,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-14",
-      "price": 6.75,
+      "price": 4.7,
       "brand": "Pics",
       "subcategory": "snacks",
       "size": "380G",
@@ -387905,27 +387912,27 @@
         },
         {
           "date": "2026-08-25",
-          "price": 6.75,
-          "is_special": false,
-          "was_price": 7.0,
+          "price": 4.7,
+          "is_special": true,
+          "was_price": 6.75,
           "store": "woolworths",
           "matched_name": "Pic's Peanut Butter Crunchy"
         }
       ],
-      "was_price": 7.0,
-      "on_special": false,
+      "was_price": 6.75,
+      "on_special": true,
       "local_image": "images/Pics_Peanut_Butter_Crunchy_380G.jpg",
       "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/360257.jpg",
       "store": "woolworths",
-      "unit_price": 1.78,
+      "unit_price": 1.24,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 6.75,
-          "unit_price": 1.78,
-          "eff_price": 6.75,
-          "was_price": null,
-          "on_special": false
+          "price": 4.7,
+          "unit_price": 1.24,
+          "eff_price": 4.7,
+          "was_price": 6.75,
+          "on_special": true
         },
         "coles": {
           "price": 7.0,
@@ -387937,7 +387944,7 @@
       },
       "price_unavailable": false,
       "avg_price": 5.0,
-      "eff_price": 6.75,
+      "eff_price": 4.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -401921,26 +401928,26 @@
         {
           "date": "2026-08-25",
           "price": 1.55,
-          "is_special": false,
+          "is_special": true,
           "was_price": 1.75,
-          "store": "coles",
-          "matched_name": "Berry Blue Jelly Crystals"
+          "store": "woolworths",
+          "matched_name": "Aeroplane Original Berry Blue Flavoured Jelly"
         }
       ],
       "was_price": 1.75,
-      "on_special": false,
+      "on_special": true,
       "local_image": "images/Aeroplane_Jelly_Berry_Blue_85G.jpg",
-      "image_url": "https://productimages.coles.com.au/5/5521500.jpg",
-      "store": "coles",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/006086.jpg",
+      "store": "woolworths",
       "unit_price": 1.82,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 1.75,
-          "unit_price": 2.06,
-          "eff_price": 1.75,
-          "was_price": null,
-          "on_special": false
+          "price": 1.55,
+          "unit_price": 1.82,
+          "eff_price": 1.55,
+          "was_price": 1.75,
+          "on_special": true
         },
         "coles": {
           "price": 1.55,
@@ -401956,7 +401963,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Berry Blue Jelly Crystals",
+      "name_check": "Aeroplane Original Berry Blue Flavoured Jelly",
       "item_id": "aa8fb1fb-f222-442f-91e1-7ae21e518294",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -406280,12 +406287,12 @@
       "stock": "full",
       "last_purchased": "2025-10-20",
       "compare_group": "cola",
-      "price": 2.8,
+      "price": 3.066666666666667,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "375Ml",
       "tags": [],
-      "store": "woolworths",
+      "store": "coles",
       "target_confidence": "high",
       "target_method": "was $5.60, now $2.80 (store special)",
       "target_data_points": 17,
@@ -407306,26 +407313,26 @@
         },
         {
           "date": "2026-08-25",
-          "price": 2.8,
-          "is_special": true,
-          "was_price": 5.6,
-          "store": "woolworths",
-          "matched_name": "Coca-Cola Classic Soft Drink Cans"
+          "price": 3.066666666666667,
+          "is_special": false,
+          "was_price": 6.13,
+          "store": "coles",
+          "matched_name": "Classic Soft Drink Multipack Cans 375ml"
         }
       ],
-      "was_price": 5.6,
-      "on_special": true,
+      "was_price": 6.13,
+      "on_special": false,
       "local_image": "images/Coca_Cola_Classic_10X375Ml.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/793315.jpg",
-      "unit_price": 2.8,
+      "image_url": "https://productimages.coles.com.au/1/1849307.jpg",
+      "unit_price": 3.07,
       "unit": "litre",
       "all_stores": {
         "woolworths": {
-          "price": 10.5,
-          "unit_price": 2.8,
-          "eff_price": 2.8,
-          "was_price": 21.0,
-          "on_special": true
+          "price": 21.0,
+          "unit_price": 5.6,
+          "eff_price": 5.6,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 11.5,
@@ -407337,11 +407344,11 @@
       },
       "price_unavailable": false,
       "avg_price": 17.5,
-      "eff_price": 2.8,
+      "eff_price": 3.066666666666667,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Coca-Cola Classic Soft Drink Cans",
+      "name_check": "Classic Soft Drink Multipack Cans 375ml",
       "pack_litres": 3.75,
       "item_id": "b43cc427-e9d4-4809-bdd4-4aa58d2a91f8",
       "consecutive_failures": 0,
@@ -408424,7 +408431,7 @@
       "item_id": "ad67d35a-176b-4109-a4e3-c50dc18783ae",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-25"
     },
     {
       "name": "Ww Garlic Minced 500G",
@@ -418100,17 +418107,17 @@
       ],
       "stock": "full",
       "last_purchased": "2025-11-16",
-      "price": 4.2,
-      "unit_price": 4.2,
+      "price": 3.7,
+      "unit_price": 1.85,
       "unit": "each",
-      "store": "coles",
+      "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 4.95,
-          "unit_price": 2.48,
-          "eff_price": 4.95,
-          "was_price": null,
-          "on_special": false
+          "price": 3.7,
+          "unit_price": 1.85,
+          "eff_price": 3.7,
+          "was_price": 4.95,
+          "on_special": true
         },
         "coles": {
           "price": 4.2,
@@ -419133,24 +419140,24 @@
         },
         {
           "date": "2026-08-25",
-          "price": 4.2,
-          "is_special": false,
-          "was_price": 4.2,
-          "store": "coles",
-          "matched_name": "Handle"
+          "price": 3.7,
+          "is_special": true,
+          "was_price": 4.95,
+          "store": "woolworths",
+          "matched_name": "Dishmatic Microfibre Power Pads Scrub & Wipes"
         }
       ],
       "target_confidence": "high",
       "target_method": "was $4.20, now $2.90 (store special)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 4.2,
+      "eff_price": 3.7,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "was_price": 4.2,
-      "on_special": false,
-      "name_check": "Handle",
+      "was_price": 4.95,
+      "on_special": true,
+      "name_check": "Dishmatic Microfibre Power Pads Scrub & Wipes",
       "item_id": "4e31ae31-0d81-420a-83af-2d1e3ff43267",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -421094,7 +421101,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 141,
+      "consecutive_failures": 142,
       "quarantined": true
     },
     {
@@ -423256,17 +423263,17 @@
       ],
       "stock": "full",
       "last_purchased": "2025-10-20",
-      "price": 12.0,
-      "unit_price": 12.0,
+      "price": 7.2,
+      "unit_price": 7.2,
       "unit": "litre",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 12.0,
-          "unit_price": 12.0,
-          "eff_price": 12.0,
-          "was_price": null,
-          "on_special": false
+          "price": 7.2,
+          "unit_price": 7.2,
+          "eff_price": 7.2,
+          "was_price": 12.0,
+          "on_special": true
         },
         "coles": {
           "price": 12.0,
@@ -424289,8 +424296,8 @@
         },
         {
           "date": "2026-08-25",
-          "price": 12.0,
-          "is_special": false,
+          "price": 7.2,
+          "is_special": true,
           "was_price": 12.0,
           "store": "woolworths",
           "matched_name": "V Energy Drink Original Guarana"
@@ -424300,12 +424307,12 @@
       "target_method": "sale median (3/16 obs, 19% on sale)",
       "target_data_points": 16,
       "target_updated": "2026-04-29",
-      "eff_price": 12.0,
+      "eff_price": 7.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 12.0,
-      "on_special": false,
+      "on_special": true,
       "name_check": "V Energy Drink Original Guarana",
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
@@ -425819,7 +425826,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 438,
+      "consecutive_failures": 439,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -435451,24 +435458,24 @@
       "coles": "https://www.coles.com.au/search?q=Quilton+3Ply+Classic+36+Pack",
       "stock": "medium",
       "target": null,
-      "price": 4.3,
-      "unit_price": 0.3,
+      "price": 8.6,
+      "unit_price": 0.6,
       "unit": "each",
-      "eff_price": 4.3,
+      "eff_price": 8.6,
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 4.3,
-          "unit_price": 0.3,
-          "eff_price": 4.3,
-          "was_price": 8.6,
-          "on_special": true
+          "price": 8.6,
+          "unit_price": 0.6,
+          "eff_price": 8.6,
+          "was_price": null,
+          "on_special": false
         }
       },
       "price_unavailable": false,
       "image_url": "images/quilton_3ply_classic_36pk.jpg",
       "was_price": 8.6,
-      "on_special": true,
+      "on_special": false,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
@@ -436372,8 +436379,8 @@
         },
         {
           "date": "2026-08-25",
-          "price": 4.3,
-          "is_special": true,
+          "price": 8.6,
+          "is_special": false,
           "was_price": 8.6,
           "store": "woolworths",
           "matched_name": "Quilton Classic 3 Ply Toilet Paper"
@@ -438279,24 +438286,24 @@
       "coles": "https://www.coles.com.au/product/peanut-butter-crunchy-3609009",
       "stock": "medium",
       "target": null,
-      "price": 6.75,
-      "unit_price": 1.78,
+      "price": 4.7,
+      "unit_price": 1.24,
       "unit": "100g",
-      "eff_price": 6.75,
+      "eff_price": 4.7,
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 6.75,
-          "unit_price": 1.78,
-          "eff_price": 6.75,
-          "was_price": null,
-          "on_special": false
+          "price": 4.7,
+          "unit_price": 1.24,
+          "eff_price": 4.7,
+          "was_price": 6.75,
+          "on_special": true
         }
       },
       "price_unavailable": false,
       "image_url": "images/pics_peanut_butter_crunchy_1kg.jpg",
       "was_price": 6.75,
-      "on_special": false,
+      "on_special": true,
       "price_history": [],
       "avg_price": 0,
       "stale": false,
@@ -439200,8 +439207,8 @@
         },
         {
           "date": "2026-08-25",
-          "price": 6.75,
-          "is_special": false,
+          "price": 4.7,
+          "is_special": true,
           "was_price": 6.75,
           "store": "woolworths",
           "matched_name": "Pic's Peanut Butter Crunchy"
