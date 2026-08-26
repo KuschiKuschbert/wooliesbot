@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-26T05:32:19.299932Z",
+  "last_updated": "2026-08-26T09:34:29.076876Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -19465,7 +19465,7 @@
       "item_id": "78be9bb4-399b-40bc-b47e-41ed694e0f4f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-23"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Snow Peas",
@@ -19700,7 +19700,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -27276,7 +27276,7 @@
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Butter (Western Star)",
@@ -28365,7 +28365,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -77509,7 +77509,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true
     },
     {
@@ -80887,7 +80887,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true
     },
     {
@@ -83353,7 +83353,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 160,
+      "consecutive_failures": 161,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -86629,7 +86629,7 @@
       "item_id": "2f1905fa-98a0-462d-94f5-3643fdbc5d2c",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-24"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Coca Cola Zero Sugar 10X375Ml",
@@ -90154,7 +90154,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true
     },
     {
@@ -105455,7 +105455,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 0,
+      "price": 2.3,
       "brand": "Continental",
       "subcategory": "other",
       "size": "Standard",
@@ -106221,33 +106221,42 @@
           "was_price": null,
           "store": "woolworths",
           "matched_name": "The Odd Bunch Continental Cucumber"
+        },
+        {
+          "date": "2026-08-26",
+          "price": 2.3,
+          "is_special": false,
+          "was_price": null,
+          "store": "woolworths",
+          "matched_name": "The Odd Bunch Continental Cucumber"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Cucumber_Continentalodd_Bunch.jpg",
-      "image_url": "",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/829360.jpg",
       "store": "woolworths",
-      "unit_price": null,
-      "unit": null,
+      "unit_price": 2.3,
+      "unit": "each",
       "all_stores": {
         "woolworths": {
-          "price": 2.0,
-          "unit_price": 2.0,
-          "eff_price": 2.0,
+          "price": 2.3,
+          "unit_price": 2.3,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         }
       },
-      "price_unavailable": true,
+      "price_unavailable": false,
       "avg_price": 2.6,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 4,
-      "quarantined": false
+      "consecutive_failures": 0,
+      "quarantined": false,
+      "eff_price": 2.3
     },
     {
       "name": "Nu Pure Lem Lime Spklg Wtr 500Ml X 12Pk",
@@ -129162,7 +129171,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -129394,7 +129403,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true,
       "last_layer_a_check": "2026-08-23"
     },
@@ -132537,7 +132546,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
-      "last_layer_a_check": "2026-08-25",
+      "last_layer_a_check": "2026-08-26",
       "eff_price": 3.75
     },
     {
@@ -132555,7 +132564,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-24",
-      "price": 1.5,
+      "price": 3.0,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "117G",
@@ -133588,23 +133597,23 @@
         },
         {
           "date": "2026-08-26",
-          "price": 1.5,
-          "is_special": true,
+          "price": 3.0,
+          "is_special": false,
           "was_price": 3.0,
-          "store": "woolworths",
-          "matched_name": "Cadbury Old Gold Turkish Delight Chocolate Bar"
+          "store": "coles",
+          "matched_name": "Turkish Delight Dark Chocolate Bar"
         }
       ],
-      "store": "woolworths",
-      "unit_price": 3.0,
-      "unit": "100g",
+      "store": "coles",
+      "unit_price": 6.0,
+      "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.5,
-          "unit_price": 3.0,
-          "eff_price": 1.5,
-          "was_price": 3.0,
-          "on_special": true
+          "price": 8.0,
+          "unit_price": 4.44,
+          "eff_price": 8.0,
+          "was_price": null,
+          "on_special": false
         },
         "coles": {
           "price": 3.0,
@@ -133615,15 +133624,15 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/6033820.jpg",
+      "image_url": "https://productimages.coles.com.au/1/136498.jpg",
       "avg_price": 4.5,
-      "eff_price": 1.5,
-      "on_special": true,
+      "eff_price": 3.0,
+      "on_special": false,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": 3.0,
-      "name_check": "Cadbury Old Gold Turkish Delight Chocolate Bar",
+      "name_check": "Turkish Delight Dark Chocolate Bar",
       "item_id": "d1fdad38-a6e2-4b7f-ab93-e719a28c9fd5",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -151618,7 +151627,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 399,
+      "consecutive_failures": 400,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -158166,7 +158175,7 @@
       "compare_group": "omo_wonder_wash",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Temptations Tantal Turkey Cat Treats 85G",
@@ -219254,7 +219263,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 550,
+      "consecutive_failures": 551,
       "quarantined": true
     },
     {
@@ -244300,19 +244309,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -244325,7 +244334,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -244333,7 +244342,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -248694,7 +248703,7 @@
       "item_id": "608bf209-924e-4e23-b823-4ffc5933dc96",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-18"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Dine Cat Saucy Morsels Salmon 85G",
@@ -304498,7 +304507,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -326192,7 +326201,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Molisana Pastificio Extra Di Lusso Egg Fettuccine Pasta",
       "item_id": "3cb7e5d6-7907-4f8e-9570-af228e446dc2",
-      "consecutive_failures": 56,
+      "consecutive_failures": 57,
       "quarantined": true
     },
     {
@@ -340562,7 +340571,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -358210,7 +358219,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 571,
+      "consecutive_failures": 572,
       "quarantined": true
     },
     {
@@ -414715,15 +414724,15 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-07",
-      "price": 2.9,
-      "unit_price": 2.9,
+      "price": 2.3,
+      "unit_price": 2.3,
       "unit": "each",
       "store": "woolworths",
       "all_stores": {
         "woolworths": {
-          "price": 2.9,
-          "unit_price": 2.9,
-          "eff_price": 2.9,
+          "price": 2.3,
+          "unit_price": 2.3,
+          "eff_price": 2.3,
           "was_price": null,
           "on_special": false
         },
@@ -415756,24 +415765,24 @@
         },
         {
           "date": "2026-08-26",
-          "price": 2.9,
+          "price": 2.3,
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths Continental Cucumbers"
+          "matched_name": "The Odd Bunch Continental Cucumber"
         }
       ],
       "target_confidence": "high",
       "target_method": "p15 of 15 prices (few sales detected)",
       "target_data_points": 15,
       "target_updated": "2026-04-29",
-      "eff_price": 2.9,
+      "eff_price": 2.3,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
       "on_special": false,
-      "name_check": "Woolworths Continental Cucumbers",
+      "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "11e7aa33-0137-4912-a4e8-fb4bd1fb81fc",
       "consecutive_failures": 0,
       "quarantined": false
@@ -424181,7 +424190,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 144,
+      "consecutive_failures": 145,
       "quarantined": true
     },
     {
@@ -427421,7 +427430,7 @@
       "item_id": "4606b7a9-2744-425f-91c8-987966ba4804",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-08-16"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Vittoria Italian Ground 500G",
@@ -428938,7 +428947,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 441,
+      "consecutive_failures": 442,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -444351,7 +444360,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "26c6a448-46d4-45bf-bc18-30f7d6600040",
-      "last_layer_a_check": "2026-08-25"
+      "last_layer_a_check": "2026-08-26"
     },
     {
       "name": "Woolworths Full Cream Milk 3L",
@@ -451039,7 +451048,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "217d1ac3-b305-42a5-9e6d-f94c45fb49f9",
-      "last_layer_a_check": "2026-08-22",
+      "last_layer_a_check": "2026-08-26",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     },
@@ -451992,7 +452001,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "d116e03a-7474-45d9-98d7-46c8ad710eab",
-      "last_layer_a_check": "2026-08-24",
+      "last_layer_a_check": "2026-08-26",
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-06-29"
     }
