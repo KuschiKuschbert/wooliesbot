@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-13T10:17:40.409762Z",
+  "last_updated": "2026-09-13T16:48:48.833365Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -22285,7 +22285,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true,
       "last_layer_a_check": "2026-09-12"
     },
@@ -29634,7 +29634,7 @@
       "item_id": "d4a60103-37e4-4fc0-8b52-b957f8463126",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-01"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Eggs (18 Pack)",
@@ -32095,7 +32095,7 @@
       "compare_group": "butter_block_250g",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-11"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Cheese (Tasty Block)",
@@ -35784,7 +35784,7 @@
       "item_id": "a541fa06-5d19-4307-8021-d4e41a45c8e9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-12"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Yoghurt (Greek)",
@@ -45637,7 +45637,7 @@
       "last_purchased": null,
       "price": 1.1,
       "eff_price": 1.1,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "cooking_essentials",
       "size": "Standard",
@@ -46817,21 +46817,21 @@
           "price": 1.1,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Diced Italian Tomatoes"
+          "store": "coles",
+          "matched_name": "Italian Diced Tomatoes"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Canned_Tomatoes.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/770320.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5548754.jpg",
       "unit_price": 2.75,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 1.1,
-          "unit_price": 2.75,
-          "eff_price": 1.1,
+          "price": 2.7,
+          "unit_price": 6.75,
+          "eff_price": 2.7,
           "was_price": null,
           "on_special": false
         },
@@ -46847,7 +46847,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths Diced Italian Tomatoes",
+      "name_check": "Italian Diced Tomatoes",
       "item_id": "918b6903-6add-430b-ade3-7d2daea55d8a",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -67695,7 +67695,7 @@
       "item_id": "8e85cd3c-e1fa-473c-abc1-1ba9024345cf",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-05"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Dishmatic Refills",
@@ -84826,7 +84826,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Lady Bar Rocky Road Rocky Road High Fibre",
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-09-09"
     },
@@ -87547,7 +87547,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true
     },
     {
@@ -89753,7 +89753,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-07-18"
     },
@@ -91213,7 +91213,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true
     },
     {
@@ -93960,7 +93960,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 233,
+      "consecutive_failures": 234,
       "quarantined": true,
       "last_layer_a_check": "2026-09-10"
     },
@@ -101632,7 +101632,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true
     },
     {
@@ -111517,7 +111517,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-04-05",
-      "price": 2.1,
+      "price": 2.2,
       "brand": "Private Label",
       "subcategory": "other",
       "size": "150G",
@@ -112694,20 +112694,20 @@
         },
         {
           "date": "2026-09-13",
-          "price": 2.1,
+          "price": 2.2,
           "is_special": false,
           "was_price": 2.1,
-          "store": "coles",
-          "matched_name": "Multigrain Corn Thins"
+          "store": "woolworths",
+          "matched_name": "Real Foods Corn Thins Multigrain"
         }
       ],
       "was_price": 2.1,
       "on_special": false,
       "local_image": "images/Real_Foods_Corn_Thins_Multigrain_150G.jpg",
-      "image_url": "https://productimages.coles.com.au/8/8000070.jpg",
-      "store": "coles",
-      "unit_price": 1.4,
-      "unit": "kg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/004021.jpg",
+      "store": "woolworths",
+      "unit_price": 1.47,
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 2.2,
@@ -112717,20 +112717,20 @@
           "on_special": false
         },
         "coles": {
-          "price": 2.1,
-          "unit_price": 1.4,
-          "eff_price": 2.1,
+          "price": 2.2,
+          "unit_price": 1.47,
+          "eff_price": 2.2,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 2.1,
-      "eff_price": 2.1,
+      "eff_price": 2.2,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Multigrain Corn Thins",
+      "name_check": "Real Foods Corn Thins Multigrain",
       "item_id": "5f33284e-5198-405b-99f2-484413d69ef4",
       "consecutive_failures": 0,
       "quarantined": false,
@@ -116423,13 +116423,6 @@
           "eff_price": 4.0,
           "was_price": null,
           "on_special": false
-        },
-        "coles": {
-          "price": 4.0,
-          "unit_price": 6.15,
-          "eff_price": 4.0,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -118773,7 +118766,7 @@
       "was_price": null,
       "name_check": "The Odd Bunch Apples Prepacked Punnet",
       "item_id": "c89c02c5-9131-421e-bfdb-040fbfd3ee2e",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -119598,7 +119591,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -128254,7 +128247,7 @@
       ],
       "stock": "full",
       "last_purchased": "2026-03-18",
-      "price": 4.0,
+      "price": 3.0,
       "brand": "Continental",
       "subcategory": "other",
       "size": "80G",
@@ -129431,7 +129424,7 @@
         },
         {
           "date": "2026-09-13",
-          "price": 4.0,
+          "price": 3.0,
           "is_special": false,
           "was_price": 3.0,
           "store": "woolworths",
@@ -129443,13 +129436,13 @@
       "local_image": "images/Continental_P&S_M_Carbonara_80G.jpg",
       "image_url": "images/continental_ps_m_carbonara_80g.jpg",
       "store": "woolworths",
-      "unit_price": 2.76,
+      "unit_price": 3.75,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 4.0,
-          "unit_price": 2.76,
-          "eff_price": 4.0,
+          "price": 3.0,
+          "unit_price": 3.75,
+          "eff_price": 3.0,
           "was_price": null,
           "on_special": false
         },
@@ -129463,7 +129456,7 @@
       },
       "price_unavailable": false,
       "avg_price": 2.25,
-      "eff_price": 4.0,
+      "eff_price": 3.0,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -145756,7 +145749,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true,
       "last_layer_a_check": "2026-09-13"
     },
@@ -149177,7 +149170,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": 7.5,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 70,
+      "consecutive_failures": 71,
       "quarantined": true,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
       "last_layer_a_check": "2026-09-08"
@@ -170687,7 +170680,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 472,
+      "consecutive_failures": 473,
       "quarantined": true,
       "last_layer_a_check": "2026-09-12"
     },
@@ -173145,7 +173138,7 @@
       "item_id": "1a57ec83-c44a-4381-ac4b-92ee259aa570",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-10"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Ww Beef Scotch Fillet Steak Medium",
@@ -186279,7 +186272,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-08-08"
@@ -199859,7 +199852,7 @@
       "item_id": "ee6af4a5-88cb-48ad-bd3d-71ecac619dbc",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-12"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Ww Chicken Breast Fillets Small Rspca",
@@ -209636,7 +209629,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Total Toothpaste Plaque Release & Gum Gentle Fragrant Mint",
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
-      "consecutive_failures": 43,
+      "consecutive_failures": 44,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -212079,7 +212072,7 @@
       "was_price": 11.0,
       "name_check": "Twisted Healthy Treats Butter Caramel Cookie Protein Pint Frozen Dessert",
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
-      "consecutive_failures": 10,
+      "consecutive_failures": 11,
       "quarantined": true,
       "last_layer_a_check": "2026-09-08"
     },
@@ -213169,7 +213162,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Fairy Platinum Plus Lemon Dishwashing Tablets",
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-07-21"
     },
@@ -246513,7 +246506,7 @@
       "item_id": "e51b478f-3c0e-4d46-925e-eba6774680eb",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-12"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Multix Garbage Bag Extra Wide 56L50Pk",
@@ -246753,7 +246746,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 623,
+      "consecutive_failures": 624,
       "quarantined": true
     },
     {
@@ -275069,19 +275062,19 @@
           "price": 4.0,
           "is_special": false,
           "was_price": null,
-          "store": "coles",
-          "matched_name": "Basmati Rice"
+          "store": "woolworths",
+          "matched_name": "Woolworths Basmati Rice"
         }
       ],
       "local_image": "images/Ww_Rice_Basmati_1Kg.jpg",
-      "store": "coles",
+      "store": "woolworths",
       "unit_price": 0.4,
-      "unit": "kg",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 18.0,
-          "unit_price": 0.36,
-          "eff_price": 18.0,
+          "price": 4.0,
+          "unit_price": 0.4,
+          "eff_price": 4.0,
           "was_price": null,
           "on_special": false
         },
@@ -275094,7 +275087,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://productimages.coles.com.au/8/8703059.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/694550.jpg",
       "avg_price": 4.0,
       "eff_price": 4.0,
       "on_special": false,
@@ -275102,7 +275095,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Basmati Rice",
+      "name_check": "Woolworths Basmati Rice",
       "item_id": "c8388f98-6e66-46f7-b009-4dd6a632aa20",
       "consecutive_failures": 0,
       "quarantined": false
@@ -293460,7 +293453,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -309317,7 +309310,7 @@
       "was_price": 8.5,
       "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-05-05"
     },
@@ -326572,13 +326565,6 @@
           "eff_price": 4.0,
           "was_price": 4.8,
           "on_special": true
-        },
-        "coles": {
-          "price": 4.8,
-          "unit_price": 4.0,
-          "eff_price": 4.8,
-          "was_price": null,
-          "on_special": false
         }
       },
       "price_unavailable": false,
@@ -327679,7 +327665,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Macro Organic Corn Chips Natural",
       "item_id": "ea7daa4d-633b-46da-9624-2ffeb49ddde7",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -342305,7 +342291,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Aeroplane Jelly Lite Crystals Strawberry",
       "item_id": "37806560-d62c-4ebe-81c7-35f6fff95105",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-06-22"
     },
@@ -342541,7 +342527,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true,
       "last_layer_a_check": "2026-09-13"
     },
@@ -383269,7 +383255,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true,
       "last_layer_a_check": "2026-09-13"
     },
@@ -385586,7 +385572,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Strike Pro Disinfectant Wipes Apple",
       "item_id": "7fee3539-79ca-4361-a3d1-301e4ac9e5a9",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -394073,7 +394059,7 @@
       "name_check": "Woolworths 35hr Sourdough Mini Loaf Seeded",
       "item_id": "0902602a-f8f5-4494-b178-8f1839f3830d",
       "compare_group": "sourdough_loaf",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-09-12"
     },
@@ -400096,7 +400082,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "BC Snacks Choc Mint Crunch High Protein Bar",
       "item_id": "63e3b7ab-106b-406a-9563-7956cb78eaac",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -402782,7 +402768,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 644,
+      "consecutive_failures": 645,
       "quarantined": true
     },
     {
@@ -411211,7 +411197,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -414767,7 +414753,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Ingham's Frozen Chicken Breast Tenders Original",
       "item_id": "b1975ee5-26e7-41ad-9c02-5c8b775de868",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-09-12"
     },
@@ -433076,7 +433062,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Disney Classic: Pinocchio",
       "item_id": "c6ce1c7c-2e6b-43c9-b786-1d9c7eb1ae9e",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -441539,7 +441525,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths Crusty Tiger Vienna Loaf Crusty Tiger Tummy Vienna",
       "item_id": "54255732-95af-4570-8da7-e82858cbff6b",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -452457,7 +452443,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Old El Paso Enchilada Cooking Sauce Enchilada Sauce",
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -471970,7 +471956,7 @@
       "on_special": false,
       "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true
     },
     {
@@ -474409,7 +474395,7 @@
       "item_id": "4e31ae31-0d81-420a-83af-2d1e3ff43267",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-12"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Philadelphia Cream Chs Org Sprd 140G",
@@ -476494,7 +476480,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 217,
+      "consecutive_failures": 218,
       "quarantined": true
     },
     {
@@ -481368,7 +481354,7 @@
       "item_id": "5c86422a-de6c-4370-92a2-9fcbb4f310b9",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-12"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Bryne Co Stuffed Green Olives 450G",
@@ -481813,7 +481799,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 514,
+      "consecutive_failures": 515,
       "quarantined": true,
       "last_layer_a_check": "2026-09-13"
     },
@@ -484115,7 +484101,7 @@
       "on_special": false,
       "name_check": "Dole Pineapple Premium Tropical Slices In Juice",
       "item_id": "4c9cebd7-fa80-42e3-a86a-5479e74b8d11",
-      "consecutive_failures": 68,
+      "consecutive_failures": 69,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -494846,7 +494832,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "b974f369-88d1-4c75-a2b3-56d1e88cdec5",
-      "last_layer_a_check": "2026-09-11"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Quilton Gold 4Ply 30Pk",
@@ -498139,7 +498125,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "0e3d9804-a320-4248-bc42-f1a6c6b07e0f",
-      "last_layer_a_check": "2026-09-11"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Woolworths Full Cream Milk 2L",
@@ -502542,7 +502528,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "7fd6d929-dff2-4da9-957b-c72abafad1c8",
-      "last_layer_a_check": "2026-09-11"
+      "last_layer_a_check": "2026-09-13"
     },
     {
       "name": "Coles Free Range Eggs 12 Pack 700g",
