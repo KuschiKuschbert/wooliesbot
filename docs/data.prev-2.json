@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-23T05:01:48.591172Z",
+  "last_updated": "2026-09-23T10:16:03.503608Z",
   "items": [
     {
       "name": "Chicken Breast (Bulk)",
@@ -5259,7 +5259,7 @@
       "item_id": "b7ab04f4-523f-4ea2-b13a-b7aec3477483",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-18"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Deli Meats (Chorizo)",
@@ -13065,7 +13065,7 @@
       "item_id": "9baafe37-7ad0-4bbd-93db-eef141df89f3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-22",
+      "last_layer_a_check": "2026-09-23",
       "name_check": " Hass Avocado  each"
     },
     {
@@ -23725,7 +23725,7 @@
       "stale_source": "all_stores_unreliable",
       "stale_as_of": "2026-04-30",
       "item_id": "071f60e7-cd87-462a-94c3-6717e74d9726",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true,
       "last_layer_a_check": "2026-09-19"
     },
@@ -31567,7 +31567,7 @@
       "last_purchased": null,
       "price": 8.0,
       "eff_price": 8.0,
-      "store": "woolworths",
+      "store": "coles",
       "brand": "Private Label",
       "subcategory": "other",
       "size": "Standard",
@@ -32827,24 +32827,17 @@
           "price": 8.0,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths 18 Large Cage Free Eggs  900g"
+          "store": "coles",
+          "matched_name": "Cage Free Eggs 18 Pack"
         }
       ],
       "was_price": null,
       "on_special": false,
       "local_image": "images/Eggs_18_Pack.jpg",
-      "image_url": "https://cdn0.woolworths.media/content/wowproductimages/large/074593.jpg",
+      "image_url": "https://productimages.coles.com.au/5/5178961.jpg",
       "unit_price": 0.89,
-      "unit": "each",
+      "unit": "kg",
       "all_stores": {
-        "woolworths": {
-          "price": 8.0,
-          "unit_price": 0.89,
-          "eff_price": 8.0,
-          "was_price": null,
-          "on_special": false
-        },
         "coles": {
           "price": 8.0,
           "unit_price": 0.89,
@@ -32857,7 +32850,7 @@
       "price_history": [],
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths 18 Large Cage Free Eggs  900g",
+      "name_check": "Cage Free Eggs 18 Pack",
       "item_id": "b4ec8760-4821-4ddf-8e73-14671e4b5a6a",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -65566,7 +65559,7 @@
       "item_id": "0dca3da6-465e-42b5-a5bb-fc4568a01e07",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-22"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Remedy/Juice Lab Shots",
@@ -69480,7 +69473,7 @@
       "item_id": "fdc8b4a6-d67e-49b3-bff8-7fc7f4ad6c9b",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-22"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Toilet Paper (Quilton)",
@@ -77302,19 +77295,19 @@
           "price": 6.5,
           "is_special": false,
           "was_price": null,
-          "store": "woolworths",
-          "matched_name": "Woolworths Frozen Blueberries"
+          "store": "coles",
+          "matched_name": "Frozen Fruit Blueberries"
         }
       ],
       "local_image": "images/Ww_Frozen_Blueberries_1Kg.jpg",
-      "store": "woolworths",
+      "store": "coles",
       "unit_price": 13.0,
       "unit": "kg",
       "all_stores": {
         "woolworths": {
-          "price": 6.5,
-          "unit_price": 13.0,
-          "eff_price": 6.5,
+          "price": 12.0,
+          "unit_price": 12.0,
+          "eff_price": 12.0,
           "was_price": null,
           "on_special": false
         },
@@ -77327,7 +77320,7 @@
         }
       },
       "price_unavailable": false,
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/260007.jpg",
+      "image_url": "https://productimages.coles.com.au/6/6110023.jpg",
       "avg_price": 12.0,
       "eff_price": 6.5,
       "on_special": false,
@@ -77335,7 +77328,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "was_price": null,
-      "name_check": "Woolworths Frozen Blueberries",
+      "name_check": "Frozen Fruit Blueberries",
       "item_id": "9a1c6841-e37f-4ee4-84de-479b9fb59ce7",
       "consecutive_failures": 0,
       "quarantined": false
@@ -90266,7 +90259,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Lady Bar Rocky Road Rocky Road High Fibre",
       "item_id": "dc60c891-d5c2-4824-9c68-f72df0addb2e",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-09-22"
     },
@@ -93147,7 +93140,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "e314ed09-5ec1-4bcc-a58c-8d32c30f8f9d",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true
     },
     {
@@ -95433,7 +95426,7 @@
       "stale_as_of": "2026-04-22",
       "name_check": "La Molisana Extra Lusso Fusilli Pasta",
       "item_id": "80e509db-fb85-4c36-9a46-3f33c32a8d14",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-07-18"
     },
@@ -96973,7 +96966,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "dcf3fe0e-848b-46dc-928a-4e639941c8bb",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true
     },
     {
@@ -99880,7 +99873,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Avofresh Classic Avocado Guacamole",
       "item_id": "da8c3273-b9e3-45d9-b32f-ac54d4f82235",
-      "consecutive_failures": 272,
+      "consecutive_failures": 273,
       "quarantined": true,
       "last_layer_a_check": "2026-09-23"
     },
@@ -108032,7 +108025,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": null,
       "item_id": "ae8dba54-71b7-44ae-88e3-7eb8c91d1313",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true
     },
     {
@@ -113261,7 +113254,7 @@
           "is_special": false,
           "was_price": 6.6,
           "store": "woolworths",
-          "matched_name": "Woolworths 12 Extra Large Cage Free Eggs"
+          "matched_name": "Woolworths 12 Pack Extra Large Cage Free Eggs"
         }
       ],
       "was_price": 6.6,
@@ -113293,7 +113286,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths 12 Extra Large Cage Free Eggs",
+      "name_check": "Woolworths 12 Pack Extra Large Cage Free Eggs",
       "item_id": "b4bb9066-5940-48c2-a5c1-424a1d7af4a2",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -126206,7 +126199,7 @@
       "was_price": null,
       "name_check": "The Odd Bunch Apples Prepacked Punnet",
       "item_id": "c89c02c5-9131-421e-bfdb-040fbfd3ee2e",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -127031,7 +127024,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "The Odd Bunch Continental Cucumber",
       "item_id": "e9293bb2-bdea-45ea-b841-48fe190e24cc",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -144121,7 +144114,7 @@
       "compare_group": "mince_beef",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-20"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Df Thick & Creamy Strawberry 600G",
@@ -154637,7 +154630,7 @@
       "item_id": "d712419b-c1c5-4f80-b12f-06256c632b3f",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-22"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Pepsi Max Cola Mango 1.25L",
@@ -154869,7 +154862,7 @@
       "was_price": null,
       "item_id": "62996066-b40d-4e7e-b2b2-5489c0f59ef4",
       "pack_litres": 1.25,
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true,
       "last_layer_a_check": "2026-09-18"
     },
@@ -158450,7 +158443,7 @@
       "stale_as_of": "2026-04-30",
       "was_price": 7.5,
       "item_id": "99d8ac4d-9e77-4987-958b-906c12054365",
-      "consecutive_failures": 109,
+      "consecutive_failures": 110,
       "quarantined": true,
       "name_check": "Cadbury Dairy Milk Freddo Strawberry Chocolate Mini Bars",
       "last_layer_a_check": "2026-09-21"
@@ -181320,7 +181313,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Earth Choice Triple Action Laundry Capsules Fresh Eucalyptus",
       "item_id": "017e35c4-f1f8-4356-a1e1-865cad5be0a1",
-      "consecutive_failures": 511,
+      "consecutive_failures": 512,
       "quarantined": true,
       "last_layer_a_check": "2026-09-21"
     },
@@ -194377,7 +194370,7 @@
       "was_price": 7.0,
       "name_check": "Nothing But Pine Lime",
       "item_id": "c7a6005a-097a-48ab-8230-c07cd87c01e3",
-      "consecutive_failures": 31,
+      "consecutive_failures": 32,
       "quarantined": true
     },
     {
@@ -197807,7 +197800,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "20170f53-a3c7-4435-87d8-4daf68601e57",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "name_check": "Quest Peanut Butter Cups",
       "last_layer_a_check": "2026-08-08"
@@ -220137,7 +220130,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "MELOSI SMOKEHOUSE LEG HAM",
       "item_id": "6533eafb-bc54-40f6-89de-ed89fafa2703",
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "quarantined": false
     },
     {
@@ -222596,7 +222589,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Total Toothpaste Plaque Release & Gum Gentle Fragrant Mint",
       "item_id": "5438abe2-3ced-4bf2-b0c3-28c77e4fe6bd",
-      "consecutive_failures": 82,
+      "consecutive_failures": 83,
       "quarantined": true,
       "last_layer_a_check": "2026-08-25"
     },
@@ -225201,7 +225194,7 @@
       "item_id": "e6aa60d2-fe5f-46b4-bba2-8d5ef0f998e3",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-08",
+      "last_layer_a_check": "2026-09-23",
       "eff_price": 7.7
     },
     {
@@ -226290,7 +226283,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Fairy Platinum Plus Lemon Dishwashing Tablets",
       "item_id": "eba6b367-1b65-490c-8e59-b4ff02b0b4c1",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-07-21"
     },
@@ -262034,7 +262027,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Multix Council Liner Garbage Bags",
       "item_id": "d6944bfe-fc10-49a8-8552-87095ac249f3",
-      "consecutive_failures": 662,
+      "consecutive_failures": 663,
       "quarantined": true
     },
     {
@@ -311702,7 +311695,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "La Tosca Fresh Pasta Potato Gnocchi",
       "item_id": "c3567ce0-338e-4969-afcc-4b4b989a7250",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-07-15"
     },
@@ -314328,7 +314321,7 @@
       "item_id": "72ea5351-3272-4b80-ab14-16e1481c7aa7",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-06"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Dine Farm Coll Chicken Cat Food 85G",
@@ -328512,7 +328505,7 @@
       "was_price": 8.5,
       "name_check": "Mainland Organic Butter Block Butter",
       "item_id": "84fbdbd5-1d4c-40ea-84b9-967040bdea11",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-05-05"
     },
@@ -337713,7 +337706,7 @@
       "price_unavailable": false,
       "avg_price": 8.9,
       "eff_price": 6.4,
-      "stale": false,
+      "stale": true,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths 12 Large Free Range Eggs",
@@ -347987,7 +347980,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Macro Organic Corn Chips Natural",
       "item_id": "ea7daa4d-633b-46da-9624-2ffeb49ddde7",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -353190,7 +353183,7 @@
           "is_special": false,
           "was_price": null,
           "store": "woolworths",
-          "matched_name": "Woolworths 18 Large Cage Free Eggs"
+          "matched_name": "Woolworths 18 Pack Large Cage Free Eggs"
         }
       ],
       "was_price": null,
@@ -353222,7 +353215,7 @@
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
-      "name_check": "Woolworths 18 Large Cage Free Eggs",
+      "name_check": "Woolworths 18 Pack Large Cage Free Eggs",
       "item_id": "ed7bd94b-5a34-4e9f-89fb-1b0ed9d75d4f",
       "compare_group": "eggs_free_range",
       "consecutive_failures": 0,
@@ -363486,7 +363479,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Aeroplane Jelly Lite Crystals Strawberry",
       "item_id": "37806560-d62c-4ebe-81c7-35f6fff95105",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-06-22"
     },
@@ -363722,7 +363715,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "b42b6512-d8d8-4b5d-b54a-096ca9b94391",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true,
       "last_layer_a_check": "2026-09-21"
     },
@@ -407090,7 +407083,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "da346204-5e26-4e99-a440-8f1b1efed5b5",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true,
       "last_layer_a_check": "2026-09-19"
     },
@@ -409487,7 +409480,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Strike Pro Disinfectant Wipes Apple",
       "item_id": "7fee3539-79ca-4361-a3d1-301e4ac9e5a9",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -418454,7 +418447,7 @@
       "name_check": "Woolworths 35hr Sourdough Mini Loaf Seeded",
       "item_id": "0902602a-f8f5-4494-b178-8f1839f3830d",
       "compare_group": "sourdough_loaf",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-09-23"
     },
@@ -424797,7 +424790,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "BC Snacks Choc Mint Crunch High Protein Bar",
       "item_id": "63e3b7ab-106b-406a-9563-7956cb78eaac",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-08-16"
     },
@@ -427643,7 +427636,7 @@
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-30",
       "item_id": "0c273cd7-b699-4841-8ceb-0706ae8314dd",
-      "consecutive_failures": 683,
+      "consecutive_failures": 684,
       "quarantined": true
     },
     {
@@ -436552,7 +436545,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Chief Beef Brisket Smokey BBQ Bar",
       "item_id": "8a380982-9c43-4cf2-ba22-ac6a300bba56",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-08-24"
     },
@@ -436571,7 +436564,7 @@
       ],
       "stock": "full",
       "last_purchased": "2025-12-23",
-      "price": 3.5,
+      "price": 5.8,
       "brand": "Private Label",
       "subcategory": "grains_pasta",
       "size": "800G",
@@ -437828,39 +437821,32 @@
         },
         {
           "date": "2026-09-23",
-          "price": 3.5,
-          "is_special": true,
+          "price": 5.8,
+          "is_special": false,
           "was_price": 4.0,
           "store": "woolworths",
           "matched_name": "Woolworths Creamy Pasta Salad"
         }
       ],
       "was_price": 4.0,
-      "on_special": true,
+      "on_special": false,
       "local_image": "images/Ww_Pasta_Salad_800G.jpg",
-      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/546845.jpg",
+      "image_url": "https://cdn1.woolworths.media/content/wowproductimages/medium/793193.jpg",
       "store": "woolworths",
-      "unit_price": 1.4,
+      "unit_price": 1.45,
       "unit": "100g",
       "all_stores": {
         "woolworths": {
-          "price": 3.5,
-          "unit_price": 1.4,
-          "eff_price": 3.5,
-          "was_price": 4.0,
-          "on_special": true
-        },
-        "coles": {
-          "price": 6.0,
-          "unit_price": 0.75,
-          "eff_price": 6.0,
+          "price": 5.8,
+          "unit_price": 1.45,
+          "eff_price": 5.8,
           "was_price": null,
           "on_special": false
         }
       },
       "price_unavailable": false,
       "avg_price": 6.0,
-      "eff_price": 3.5,
+      "eff_price": 5.8,
       "stale": false,
       "stale_source": "scrape_failed",
       "stale_as_of": "2026-04-16",
@@ -440269,7 +440255,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Ingham's Frozen Chicken Breast Tenders Original",
       "item_id": "b1975ee5-26e7-41ad-9c02-5c8b775de868",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-09-22"
     },
@@ -441585,7 +441571,7 @@
       "item_id": "eb292132-2e4a-4b8a-a633-fcab95ac0f5e",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-13"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Ww Pork Loin Crackling Roast",
@@ -459698,7 +459684,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Disney Classic: Pinocchio",
       "item_id": "c6ce1c7c-2e6b-43c9-b786-1d9c7eb1ae9e",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -468648,7 +468634,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Woolworths Crusty Tiger Vienna Loaf Crusty Tiger Tummy Vienna",
       "item_id": "54255732-95af-4570-8da7-e82858cbff6b",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -480206,7 +480192,7 @@
       "stale_as_of": "2026-04-16",
       "name_check": "Old El Paso Enchilada Cooking Sauce Enchilada Sauce",
       "item_id": "1903d46c-fe96-414d-ac18-ca4f50555761",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-08-03"
     },
@@ -481515,7 +481501,7 @@
       "item_id": "9d806358-134d-4595-bbad-00a8b79f6f97",
       "consecutive_failures": 0,
       "quarantined": false,
-      "last_layer_a_check": "2026-09-04"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Aeroplane Jelly Berry Blue 85G",
@@ -500919,7 +500905,7 @@
       "on_special": false,
       "name_check": "Woolworths Reusable Chiller Shopping Bag",
       "item_id": "2f32d292-65e7-4fbf-ad72-9459165b65ff",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true
     },
     {
@@ -505683,7 +505669,7 @@
       "on_special": false,
       "name_check": "Zucchini Slice",
       "item_id": "fc4af32c-cad0-4ddb-964b-d158136883b8",
-      "consecutive_failures": 256,
+      "consecutive_failures": 257,
       "quarantined": true
     },
     {
@@ -511322,7 +511308,7 @@
       "on_special": true,
       "name_check": "Bryne Co Stuffed Green Olives",
       "item_id": "57da6e1f-e56e-439c-8ec0-6e47d591a5ab",
-      "consecutive_failures": 553,
+      "consecutive_failures": 554,
       "quarantined": true,
       "last_layer_a_check": "2026-09-22"
     },
@@ -513704,7 +513690,7 @@
       "on_special": false,
       "name_check": "Dole Pineapple Premium Tropical Slices In Juice",
       "item_id": "4c9cebd7-fa80-42e3-a86a-5479e74b8d11",
-      "consecutive_failures": 107,
+      "consecutive_failures": 108,
       "quarantined": true,
       "last_layer_a_check": "2026-07-27"
     },
@@ -532229,7 +532215,7 @@
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "f05f0fb1-52c9-4b12-a0cd-f7ea4ea04b3c",
-      "last_layer_a_check": "2026-09-21"
+      "last_layer_a_check": "2026-09-23"
     },
     {
       "name": "Woolworths White Soft Sandwich Bread 650g",
@@ -535732,11 +535718,11 @@
           "is_special": false,
           "was_price": 6.2,
           "store": "woolworths",
-          "matched_name": "Woolworths 12 Large Free Range Eggs 600g"
+          "matched_name": "Woolworths 12 Pack Large Free Range Eggs"
         }
       ],
       "unit_price": 1.07,
-      "unit": "each",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 6.4,
@@ -535759,7 +535745,7 @@
       "on_special": false,
       "avg_price": 0,
       "stale": false,
-      "name_check": "Woolworths 12 Large Free Range Eggs 600g",
+      "name_check": "Woolworths 12 Pack Large Free Range Eggs",
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "8b73232f-7c1a-4065-b00d-df61b8f0e67b",
@@ -536914,11 +536900,11 @@
           "is_special": false,
           "was_price": 12.7,
           "store": "woolworths",
-          "matched_name": "Sunny Queen 18 Large Free Range Eggs 900g"
+          "matched_name": "Sunny Queen 18 Pack Large Free Range Eggs"
         }
       ],
       "unit_price": 1.47,
-      "unit": "each",
+      "unit": "100g",
       "all_stores": {
         "woolworths": {
           "price": 13.2,
@@ -536941,7 +536927,7 @@
       "on_special": false,
       "avg_price": 0,
       "stale": false,
-      "name_check": "Sunny Queen 18 Large Free Range Eggs 900g",
+      "name_check": "Sunny Queen 18 Pack Large Free Range Eggs",
       "consecutive_failures": 0,
       "quarantined": false,
       "item_id": "5e475aef-ffd1-4307-aebf-0ec2e23a9d12",
